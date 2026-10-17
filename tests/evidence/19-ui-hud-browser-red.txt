@@ -1,0 +1,6 @@
+6:55:27 PM [vite] (client) Pre-transform error: Failed to load url /dev/ui.js (resolved id: /dev/ui.js). Does the file exist?
+ui-hud: failed
+  
+page.waitForFunction: Timeout 20000ms exceeded.
+    at shoot (/home/tobias/Projects/castle-game/tests/ui-hud.mjs:24:14)
+    at async file:///home/tobias/Projects/castle-game/tests/ui-hud.mjs:36:15

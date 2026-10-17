@@ -1,0 +1,4 @@
+{
+  "hud-weapon-view": { "page": "dev/ui.html?pose=hud-weapon-view&bg=magenta&lang=de", "pose": "hud-weapon-view", "width": 1024, "height": 768 },
+  "hud-walking": { "page": "dev/ui.html?pose=hud-walking&bg=magenta&lang=de", "pose": "hud-walking", "width": 1024, "height": 768 }
+}

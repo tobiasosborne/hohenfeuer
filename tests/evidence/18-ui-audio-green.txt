@@ -1,0 +1,13 @@
+✔ every recipe is keyed by an EV value and the combat events all have one (0.660444ms)
+✔ noise is deterministic and in [-1, 1] (0.767381ms)
+✔ distance attenuation: 1 at the listener, falls off, silent beyond the cutoff (0.136985ms)
+✔ play starts nodes for known events, ignores unknown ones, unlock resumes (3.824463ms)
+✔ createSfx without WebAudio is a silent no-op (0.154009ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60.867607

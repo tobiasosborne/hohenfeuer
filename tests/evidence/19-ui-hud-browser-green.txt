@@ -1,0 +1,5 @@
+renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+ui-hud: passed
+  hud-weapon-view: stable (0 px), no errors
+  hud-walking: stable (0 px), no errors
+  menu-skirmish: stable (0 px), no errors

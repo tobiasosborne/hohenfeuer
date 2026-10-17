@@ -1,0 +1,15 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (2.220289ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (3.322907ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (1.575611ms)
+✔ menus: keyboard navigation through title and skirmish setup (0.920268ms)
+✔ textures are deterministic RGBA buffers (3.640293ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.43232ms)
+✔ hud draws a weapon view and a walking view without throwing (17.261446ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.535773
