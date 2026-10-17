@@ -35,7 +35,8 @@ See `HANDOFF.md` and `docs/worklog/`.
     npm run test:browser   # headless chromium (SwiftShader), writes test-results/
     npm run goldens        # capture/compare fixed-pose screenshots (tests/goldens/poses.json)
 
-The browser tests need Playwright's chromium: `npx playwright install chromium`.
+The browser tests need Playwright's chromium: `npx playwright-core install chromium`.
+New machine, including everything that is git-ignored: `docs/SETUP.md`.
 Controls (Phase 1): WASD + mouse to walk, E to man a cannon, arrow keys / PgUp PgDn to aim, Space to
 fire, Esc for the menu. The sim runs at 30 Hz with 120 Hz projectile substeps and is deterministic.
 
