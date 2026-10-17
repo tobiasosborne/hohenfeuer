@@ -1,0 +1,79 @@
+worker ready
+worker ready
+worker ready
+progress 2: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 1, palace 1.000/1.000, shots 2/2
+progress 3: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 2, palace 1.000/1.000, shots 5/5
+progress 1: minute 2, palace 1.000/1.000, shots 5/5
+progress 3: minute 2, palace 1.000/1.000, shots 5/5
+progress 2: minute 3, palace 0.999/1.000, shots 7/7
+progress 3: minute 3, palace 1.000/1.000, shots 7/7
+progress 1: minute 3, palace 1.000/1.000, shots 7/7
+progress 3: minute 4, palace 1.000/1.000, shots 9/9
+progress 2: minute 4, palace 0.990/0.970, shots 9/9
+progress 1: minute 4, palace 0.999/1.000, shots 9/9
+progress 3: minute 5, palace 1.000/1.000, shots 11/12
+progress 2: minute 5, palace 0.990/0.970, shots 11/12
+progress 3: minute 6, palace 0.992/0.999, shots 14/14
+progress 2: minute 6, palace 0.979/0.962, shots 14/14
+progress 1: minute 5, palace 0.999/1.000, shots 12/12
+progress 2: minute 7, palace 0.979/0.953, shots 16/17
+progress 3: minute 7, palace 0.991/0.993, shots 16/17
+progress 1: minute 6, palace 0.990/1.000, shots 14/14
+progress 2: minute 8, palace 0.979/0.952, shots 19/19
+progress 3: minute 8, palace 0.986/0.993, shots 19/19
+progress 1: minute 7, palace 0.983/1.000, shots 16/17
+progress 2: minute 9, palace 0.979/0.943, shots 21/21
+progress 3: minute 9, palace 0.986/0.993, shots 21/21
+progress 1: minute 8, palace 0.983/1.000, shots 18/19
+progress 2: minute 10, palace 0.970/0.943, shots 23/24
+progress 1: minute 9, palace 0.977/0.982, shots 21/21
+progress 3: minute 10, palace 0.983/0.993, shots 23/24
+progress 2: minute 11, palace 0.959/0.941, shots 26/26
+progress 1: minute 10, palace 0.971/0.981, shots 23/24
+progress 3: minute 11, palace 0.983/0.978, shots 26/26
+progress 2: minute 12, palace 0.950/0.941, shots 28/29
+progress 1: minute 11, palace 0.961/0.969, shots 26/26
+progress 3: minute 12, palace 0.979/0.968, shots 28/29
+progress 1: minute 12, palace 0.955/0.968, shots 28/29
+progress 2: minute 13, palace 0.924/0.923, shots 31/31
+progress 3: minute 13, palace 0.979/0.960, shots 31/31
+progress 1: minute 13, palace 0.837/0.968, shots 30/31
+progress 2: minute 14, palace 0.911/0.825, shots 33/33
+progress 1: minute 14, palace 0.834/0.872, shots 33/33
+progress 3: minute 14, palace 0.972/0.960, shots 33/33
+progress 1: minute 15, palace 0.754/0.780, shots 35/36
+progress 2: minute 15, palace 0.903/0.825, shots 35/36
+progress 3: minute 15, palace 0.972/0.948, shots 35/36
+progress 1: minute 16, palace 0.703/0.679, shots 37/38
+progress 3: minute 16, palace 0.837/0.948, shots 38/38
+progress 2: minute 16, palace 0.828/0.708, shots 38/38
+progress 1: minute 17, palace 0.703/0.679, shots 40/41
+progress 3: minute 17, palace 0.826/0.862, shots 40/41
+progress 1: minute 18, palace 0.703/0.550, shots 42/43
+match 1: seed 1, 18.44m, winner 0, shots 43/44
+progress 2: minute 17, palace 0.829/0.708, shots 40/41
+progress 3: minute 18, palace 0.704/0.862, shots 43/43
+progress 3: minute 19, palace 0.607/0.821, shots 45/45
+progress 2: minute 18, palace 0.752/0.670, shots 43/43
+match 3: seed 3, 19.51m, winner 1, shots 46/47
+match 2: seed 2, 18.45m, winner 0, shots 44/44
+| Metric | Result |
+|---|---|
+| Matches / timeouts | 3 / 0 |
+| Length min / mean / max (min) | 18.44 / 18.80 / 19.51 |
+| 12–20 min finishes | 3/3 |
+| Slot 0 / 1 wins | 2 / 1 (66.7% / 33.3%) |
+| Gold at cap, slot 0 / 1 | 0.0% / 0.0% |
+| Worst side at cap | 0.0% |
+| Gold >=95% cap, slot 0 / 1 | 0.0% / 0.0% |
+| Gold <=10% cap | 8.7% |
+| First-gun-loss comebacks | 0/0 (n/a) |
+| Loser damaged in >=3 minutes | 3/3 |
+| No palace stall >5 min | 2/3 |
+| Both fire every 2 min | 3/3 |
+| Longest no-fire / ready no-fire (s) | 38.5 / 38.5 |
+| Mean shots / hits (slots) | 44.3 / 45.0; 43.7 / 43.0 |
+| Mean built / repaired / deaths per side | 15.7 / 29.3 / 13.0 |
+| Elimination reasons | {"palace":3} |

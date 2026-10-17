@@ -1,0 +1,15 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (6.377883ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (1.108696ms)
+✔ workers above a broken ladder rung can descend to surviving rungs to clear access for repairs (3.772821ms)
+✔ population extras spawn in the accessible castle rather than sealed standable pockets (20.466133ms)
+✔ even a one-cell descent clears the ledge before lowering the worker into the next column (4.14373ms)
+✔ urgent access work preempts a decorative build as well as a routine repair (8.281054ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (671.63186ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 742.190891

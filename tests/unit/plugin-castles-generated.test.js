@@ -26,7 +26,7 @@ test('all 145 converted castles load, are supported, have one palace core and re
     const { plot, palaceCells } = loadCastle(def, { getBlock: C.getBlockByKey });
     assert.ok(palaceCells.length > 0, def.id);
     assert.equal(def.layers.flat().join('').split('M').length-1,
-      (CASTLE_METADATA[def.id].types['21']??0)*T.magazine.prefab.reduce((a,b)=>a*b,1),`${def.id}: complete magazine prefabs`);
+      Math.max(1,CASTLE_METADATA[def.id].types['21']??0)*T.magazine.prefab.reduce((a,b)=>a*b,1),`${def.id}: complete magazine prefabs`);
     const flood = (start, adjacent) => {
       const seen = new Set(start.map(index)), queue = [...start];
       for (let i = 0; i < queue.length; i++) for (const p of adjacent(queue[i])) {
@@ -60,7 +60,8 @@ test('all 145 converted castles load, are supported, have one palace core and re
       assert.ok(reachable.has(index(p)), `${def.id}: reachable ${p}`);
     }
     assert.ok(def.weapons.length <= T.world.weaponCapDefault, def.id);
-    assert.equal(def.weapons.length, Math.min(CASTLE_METADATA[def.id].wallWeapons, T.world.weaponCapDefault), `${def.id}: wall weapon count`);
+    const duel = ['orig-19','orig-20','orig-43','orig-44','orig-67','orig-68'].includes(def.id);
+    assert.equal(def.weapons.length, duel ? 1 : Math.max(1,Math.min(CASTLE_METADATA[def.id].wallWeapons, T.world.weaponCapDefault)), `${def.id}: playable battery count`);
     for (const wp of def.weapons) {
       assert.ok(def.mountSpots.some(m => m.join() === [...wp.at,wp.facing].join()), def.id);
       const [dx,dz] = offsets[wp.facing];
@@ -124,7 +125,7 @@ test('isolated Python generator reproduces all shipped content within the 2 MB b
     const result = spawnSync('python3',['-I','scripts/rip/castles_to_defs.py','--check'], { cwd:new URL('../..',import.meta.url), encoding:'utf8', timeout:120000 });
     assert.equal(result.status,0,result.stdout+result.stderr);
   } else t.diagnostic('Reference inputs absent in clean checkout; checking shipped manifest and geometry only.');
-  const manifest = JSON.parse(readFileSync(new URL('../../tests/evidence/castles-generated-manifest.json',import.meta.url)));
+  const manifest = JSON.parse(readFileSync(new URL('../../tests/evidence/repair-wave-2-sim/castles-generated-manifest.json',import.meta.url)));
   const bytes = manifest.files.reduce((sum,p) => sum+statSync(new URL(`../../${p}`,import.meta.url)).size,0);
   assert.ok(bytes<2_000_000,`${bytes} bytes`);
 });

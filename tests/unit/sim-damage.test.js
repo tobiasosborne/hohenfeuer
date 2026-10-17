@@ -30,13 +30,13 @@ test('segment capsule and AABB return earliest fractions including endpoint caps
   assert.equal(segmentAabb({ x: 0, y: 1, z: 1 }, { x: 10, y: 1, z: 1 }, { min: { x: 4, y: 0, z: 0 }, max: { x: 5, y: 2, z: 2 } }), 0.4);
 });
 
-test('palace below 30%, ruler death, surrender and simultaneous draw resolve in order', () => {
+test('palace below the opening defeat line, ruler death, surrender and simultaneous draw resolve in order', () => {
   const make = (id, hp, rulerHp = 100) => { const plot = createPlot({ width: 3, height: 4, depth: 3 }); setCell(plot, 1, 1, 1, C.BLOCK.PALACE, hp); return { id, slot: id, plot, palaceCells: [cellIndex(plot, 1, 1, 1)], initialPalaceHp: 40, eliminated: false, morale: 70, population: 0, initialPopulation: 0, surrenderTicks: 0, stats: {} }; };
-  const state = { tick: 0, castles: [make(0, 11), make(1, 40)], rulers: [{ slot: 0, hp: 0 }, { slot: 1, hp: 100 }], slots: [{ id: 0, team: 0 }, { id: 1, team: 1 }], outcome: null };
+  const state = { tick: 0, castles: [make(0, 7), make(1, 40)], rulers: [{ slot: 0, hp: 0 }, { slot: 1, hp: 100 }], slots: [{ id: 0, team: 0 }, { id: 1, team: 1 }], outcome: null };
   checkRules({ state, emit() {} });
   assert.equal(state.castles[0].reason, C.ELIM.PALACE);
   assert.deepEqual(state.outcome.winners, [1]);
-  state.castles = [make(0, 11), make(1, 11)]; state.outcome = null;
+  state.castles = [make(0, 7), make(1, 7)]; state.outcome = null;
   checkRules({ state, emit() {} });
   assert.equal(state.outcome.draw, true);
 });

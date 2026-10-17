@@ -1,0 +1,10 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (6.06587ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (364.265823ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 383.32168

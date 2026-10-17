@@ -1,0 +1,44 @@
+✔ TUNING is deep-frozen (4.871956ms)
+✔ every number in TUNING is finite (1.166212ms)
+✔ has the documented groups (0.434844ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (1.401473ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.307711ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.311182ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.301143ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.363974ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.326406ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.725749ms)
+✔ every weapon can reach the duel distance under production quadratic drag (7.080034ms)
+✔ npc role shares leave civilians and respect minimums (0.33568ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.32835ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.256027ms)
+✔ render and golden frame are 1024x768 (0.180191ms)
+✖ Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17) (7.614238ms)
+✔ TB2: blast footprints use the flight world scale so one blast cannot level a keep (0.288642ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41.142415
+
+✖ failing tests:
+
+test at tests/unit/tuning.test.js:165:1
+✖ Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17) (7.614238ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3686.4 !== 2688
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:170:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3686.4,
+    expected: 2688,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

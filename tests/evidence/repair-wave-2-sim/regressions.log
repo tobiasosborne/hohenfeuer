@@ -1,0 +1,20 @@
+✔ tests/unit/ai-accuracy.test.js (1402.514392ms)
+✖ tests/unit/ai-controller.test.js (688.878068ms)
+✔ tests/unit/ai-wave2-opportunity.test.js (2169.632262ms)
+✔ tests/unit/npc-wave2-pressure.test.js (357.432119ms)
+✔ tests/unit/npc-wave2-recovery.test.js (1593.984807ms)
+✔ tests/unit/sim-wave2-events.test.js (1982.971113ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2234.565574
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:1:1
+✖ tests/unit/ai-controller.test.js (688.878068ms)
+  'test failed'

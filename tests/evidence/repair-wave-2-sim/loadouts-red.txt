@@ -1,0 +1,27 @@
+✖ all converted castles have a default battery; shipped duels have fair armed starts and supply (28.363716ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37.281095
+
+✖ failing tests:
+
+test at tests/unit/plugin-wave2-loadouts.test.js:9:1
+✖ all converted castles have a default battery; shipped duels have fair armed starts and supply (28.363716ms)
+  AssertionError [ERR_ASSERTION]: orig-1
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/plugin-wave2-loadouts.test.js:11:65)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,8 @@
+{"biome":"forest","slot":0,"gun":1,"pathCells":7,"stepsReached":7,"firstShotS":8.833333333333334,"pos":{"x":111.49999990562684,"y":7,"z":128.7999995372187},"goal":[39,7,23],"paid":90}
+{"biome":"forest","slot":1,"gun":2,"pathCells":7,"stepsReached":7,"firstShotS":8.6,"pos":{"x":272.49999937074705,"y":7,"z":128.7999995372187},"goal":[8,7,23],"paid":90}
+{"biome":"desert","slot":0,"gun":0,"pathCells":35,"stepsReached":35,"firstShotS":8.966666666666667,"pos":{"x":114.4333331377702,"y":2.396929133858269,"z":128.50000013875015},"goal":[42,3,24],"paid":90}
+{"biome":"desert","slot":1,"gun":1,"pathCells":41,"stepsReached":41,"firstShotS":10.566666666666666,"pos":{"x":269.5661417322853,"y":2.3964041994750667,"z":128.50000027715294},"goal":[5,3,24],"paid":90}
+{"biome":"ice","slot":0,"gun":0,"pathCells":41,"stepsReached":41,"firstShotS":10.566666666666666,"pos":{"x":114.43385766343982,"y":2.3964041994750667,"z":127.50000027697946},"goal":[42,3,23],"paid":90}
+{"biome":"ice","slot":1,"gun":1,"pathCells":24,"stepsReached":24,"firstShotS":6.033333333333333,"pos":{"x":269.5661421478396,"y":2.3964041994750667,"z":128.50000008158892},"goal":[5,3,24],"paid":90}
+{"biome":"volcano","slot":0,"gun":0,"pathCells":38,"stepsReached":38,"firstShotS":9.766666666666667,"pos":{"x":114.43333371727213,"y":2.3964041994750667,"z":128.50000098769368},"goal":[42,3,24],"paid":90}
+{"biome":"volcano","slot":1,"gun":1,"pathCells":52,"stepsReached":52,"firstShotS":13.5,"pos":{"x":269.5000001384041,"y":2.3964041994750667,"z":128.43385714144677},"goal":[5,3,24],"paid":90}

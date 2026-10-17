@@ -1,0 +1,30 @@
+✖ keep cracking ramps continuously from minute ten through fifteen (37.183021ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.202175
+
+✖ failing tests:
+
+test at tests/unit/rules-repair-wave.test.js:5:1
+✖ keep cracking ramps continuously from minute ten through fifteen (37.183021ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(palaceDefeatThreshold(12.5 * 60 * 30) - .3625) < 1e-10)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/rules-repair-wave.test.js:8:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

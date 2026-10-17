@@ -1,0 +1,13 @@
+✔ trained low-level crews retain misses without a six-metre permanent range floor (1.281227ms)
+✔ the low-level trained floor leaves all level-five-and-higher aim distributions exact (4.285492ms)
+✔ breach policy intentionally chooses a ruler only after the exposure window, and resets on lost sight (441.087942ms)
+✔ a losing ruler can lead its front crew using ordinary reachable movement (176.206275ms)
+✔ the leadership route physically climbs the front stairs and mans the cannon (416.467302ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1048.965278

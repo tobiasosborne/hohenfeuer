@@ -1,6 +1,6 @@
 // scripts/sweep.mjs - owns reproducible paired headless match measurement and JSON evidence.
 import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
-import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { availableParallelism } from 'node:os';
@@ -18,8 +18,11 @@ export function parseOptions(args) {
   const o = { label: 'sample', matches: 20, seedStart: 1, seeds: null, levels: [5, 5], levelPool: null, swapSlot: true, maxMinutes: 20, workers: Math.min(6, availableParallelism()), map: 'forest-duel' };
   for (let i = 0; i < args.length; i++) {
     const key = args[i];
+    if (key === '--reverse-only') { o.reverseOnly = true; o.swapSlot = true; continue; }
     if (key === '--swap-slot') { o.swapSlot = true; continue; }
     if (key === '--no-swap-slot') { o.swapSlot = false; continue; }
+    if (key === '--compact') { o.compact = true; continue; }
+    if (key === '--both-assignments') { o.bothAssignments = true; continue; }
     if (key === '--resume') { o.resume = true; continue; }
     const value = args[++i];
     if (key === '--output-dir') o.outputDir = value;
@@ -39,16 +42,20 @@ export function parseOptions(args) {
   if (o.levelPool && (!o.levelPool.length || o.levelPool.some(v => !Number.isInteger(v) || v < 1 || v > 10))) throw new Error('AI level pool must contain levels 1 to 10');
   if (o.levels.length === 1) o.levels.push(o.levels[0]);
   if (o.levels.length !== 2 || o.levels.some(v => !Number.isInteger(v) || v < 1 || v > 10)) throw new Error('Levels must be one or two integers from 1 to 10');
-  if (o.swapSlot && o.seeds === null && o.matches % 2) throw new Error('Paired sweeps need an even match count');
+  if (o.swapSlot && !o.reverseOnly && o.seeds === null && o.matches % 2) throw new Error('Paired sweeps need an even match count');
   return o;
 }
 export function matchJobs(o) {
-  const count = o.seeds === null ? o.matches : o.seeds * (o.levelPool?.length ?? 1) * (o.swapSlot ? 2 : 1);
+  if(o.reverseOnly)return matchJobs({...o,reverseOnly:false,swapSlot:true,seeds:o.seeds ?? o.matches}).filter(j=>j.swap);
+  const assignments = o.bothAssignments && o.levels[0] !== o.levels[1] ? 2 : 1;
+  const count = (o.seeds === null ? o.matches : o.seeds * (o.levelPool?.length ?? 1) * (o.swapSlot ? 2 : 1)) * assignments;
   return Array.from({ length: count }, (_, i) => {
     const swap = o.swapSlot && i % 2 === 1;
     const pair = o.swapSlot ? Math.floor(i / 2) : i;
-    const level = o.levelPool?.[pair % o.levelPool.length];
-    return { index: i, seed: Math.floor(pair / (o.levelPool?.length ?? 1)) + o.seedStart, swap, levels: level ? [level,level] : swap ? [...o.levels].reverse() : [...o.levels], map: o.map, maxMinutes: o.maxMinutes };
+    const world = Math.floor(pair / assignments);
+    const level = o.levelPool?.[world % o.levelPool.length];
+    const physicalLevels = level ? [level,level] : pair % assignments ? [...o.levels].reverse() : [...o.levels];
+    return { index: i, seed: Math.floor(world / (o.levelPool?.length ?? 1)) + o.seedStart, swap, physicalLevels, levels: swap ? [...physicalLevels].reverse() : [...physicalLevels], map: o.map, maxMinutes: o.maxMinutes, compact: Boolean(o.compact) };
   });
 }
 const mean = a => a.length ? a.reduce((s, v) => s + v, 0) / a.length : 0;
@@ -71,6 +78,22 @@ export function summarize(matches) {
     shots: [0, 1].map(s => mean(matches.map(m => m.sides[s].shots))), hits: [0, 1].map(s => mean(matches.map(m => m.sides[s].hits))),
     blocksBuilt: mean(sides.map(s => s.blocksBuilt)), blocksRepaired: mean(sides.map(s => s.blocksRepaired)), npcDeaths: mean(sides.map(s => s.npcDeaths)),
     reasons: Object.fromEntries([...new Set(matches.map(m => m.eliminationReason ?? 'timeout'))].map(r => [r, matches.filter(m => (m.eliminationReason ?? 'timeout') === r).length])) };
+}
+/** Longest post-opening window whose entire palace range is below two percentage points. */
+export function lowMotionStall(series, side, startS = 120, band = .02) {
+  const rows=series.filter(r=>r.second>=startS),minimum=[],maximum=[];
+  let left=0,longest=0;
+  for(let right=0;right<rows.length;right++){
+    const value=rows[right].sides[side].palace;
+    while(minimum.length&&rows[minimum.at(-1)].sides[side].palace>=value)minimum.pop();
+    while(maximum.length&&rows[maximum.at(-1)].sides[side].palace<=value)maximum.pop();
+    minimum.push(right);maximum.push(right);
+    while(rows[maximum[0]].sides[side].palace-rows[minimum[0]].sides[side].palace>=band){
+      if(minimum[0]===left)minimum.shift();if(maximum[0]===left)maximum.shift();left++;
+    }
+    longest=Math.max(longest,rows[right].second-rows[left].second);
+  }
+  return longest;
 }
 export function summaryTable(s) {
   const pct = n => `${(n * 100).toFixed(1)}%`;
@@ -96,6 +119,8 @@ export function summaryTable(s) {
 export function runMatch(job, onProgress = () => {}) {
   const paths = pathObserver();
   C.resetRegistriesForTests(); registerCoreSim(); C.freezeRegistries();
+  // --levels always describes physical west/east. --both-assignments reverses
+  // skill as a separate factor; --swap-slot only permutes numeric slot identity.
   // Swap physical placements and their castle/controller identity together. Slot 0
   // therefore attacks from the east in the reverse leg; wind/terrain seed is unchanged.
   const base = C.getMap(job.map);
@@ -118,7 +143,8 @@ export function runMatch(job, onProgress = () => {}) {
     }
     stageGold = stage === 'commands' || stage === 'weapons' || stage === 'jobs' ? { stage, gold: api.state.castles.map(c => c.gold) } : null;
   } } });
-  const minuteCurve = [], goldTrajectory = [], moraleBandEvents = [], shotEvents = [], gunLossEvents = [];
+  const minuteCurve = [], goldTrajectory = [], moraleBandEvents = [], shotEvents = [], gunLossEvents = [], idleEvents = [], threatEvents = [], rulerDeaths = [], surrenderCrossings = [];
+  const below = [false,false];
   let previousPalace = api.state.castles.map(palaceIntegrity), lastPalaceChange = 0, longestPalaceStallTicks = 0, firstGunLoss = null;
   const record = () => ({ second: api.tick / T.sim.tickHz, sides: api.state.castles.map(c => ({ gold: c.gold, palace: palaceIntegrity(c), morale: c.morale, population: c.population, shots: c.stats.shots, hits: c.stats.directHits, guns: api.state.weapons.filter(w => w.slot === c.slot && w.hp > 0).length })) });
   minuteCurve.push(record());
@@ -133,8 +159,11 @@ export function runMatch(job, onProgress = () => {}) {
     paths.sample(state, events);
     for (const { type, payload: p } of events) {
       const i = p.slot ?? p.castle ?? p.plot;
-      if (type === C.EV.SHOT_FIRED) { const side = perSide[i]; side.longestNoFireS = Math.max(side.longestNoFireS, (now - side.lastShot) / T.sim.tickHz); side.lastShot = now; side.readyTicks = 0; side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] = (side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] ?? 0) + 1; shotEvents.push({ second: now / T.sim.tickHz, slot: i, weaponId: p.weaponId }); }
+      if (type === C.EV.SHOT_FIRED) { const side = perSide[i]; side.longestNoFireS = Math.max(side.longestNoFireS, (now - side.lastShot) / T.sim.tickHz); side.lastShot = now; side.firstShotS ??= now / T.sim.tickHz; side.readyTicks = 0; side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] = (side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] ?? 0) + 1; shotEvents.push({ second: now / T.sim.tickHz, slot: i, weaponId: p.weaponId }); }
       if (type === C.EV.NPC_DIED) perSide[i].npcDeaths++;
+      if (type === C.EV.WEAPON_IDLE) idleEvents.push({ second: now / T.sim.tickHz, ...p });
+      if (type === C.EV.RULER_THREAT) threatEvents.push({ second: now / T.sim.tickHz, ...p });
+      if (type === C.EV.RULER_DIED) rulerDeaths.push({ second: now / T.sim.tickHz, ...p });
       if (type === C.EV.MORALE_BAND) moraleBandEvents.push({ second: now / T.sim.tickHz, ...p });
       if (type === C.EV.WEAPON_DESTROYED) { const slot = state.weapons.find(w => w.id === p.weaponId)?.slot; if (slot !== undefined) losses.push(slot); }
       if (type === C.EV.BLOCK_DESTROYED) perSide[i].blocksDestroyed++;
@@ -145,6 +174,13 @@ export function runMatch(job, onProgress = () => {}) {
     if (losses.length) { const loss = { second: now / T.sim.tickHz, slot: losses[0], simultaneous: new Set(losses).size > 1 }; gunLossEvents.push(loss); firstGunLoss ??= loss; }
     for (let i = 0; i < 2; i++) {
       const c = state.castles[i], side = perSide[i];
+      const low = c.morale <= T.rules.surrenderMorale;
+      if (low !== below[i]) surrenderCrossings.push({ second: now / T.sim.tickHz, slot:i, below:low, morale:c.morale, pressure:c.pressure, population:c.population });
+      below[i] = low;
+      side.idleTicks ??= {};
+      const reasons = [...new Set(state.weapons.filter(w=>w.slot===i&&w.hp>0).map(w=>w.idleReason))];
+      const reason = reasons.includes(C.IDLE_REASON.READY) ? C.IDLE_REASON.READY : reasons.sort().join('+') || 'no-weapon';
+      side.idleTicks[reason] = (side.idleTicks[reason] ?? 0) + 1;
       if (c.gold >= T.economy.goldCap - 1e-6) side.capTicks++;
       if (c.gold >= .95 * T.economy.goldCap) side.nearCapTicks++;
       if (c.gold <= .1 * T.economy.goldCap) side.lowTicks++;
@@ -159,10 +195,17 @@ export function runMatch(job, onProgress = () => {}) {
   }
   minuteCurve.push(record());
   const state = api.state, winnerSlot = state.outcome?.winners.length === 1 ? state.outcome.winners[0] : null;
-  return { ...job, ticks: state.tick, seconds: state.tick / T.sim.tickHz, winnerSlot, eliminationReason: state.castles.find(c => c.eliminated)?.reason ?? null, outcome: state.outcome, hash: sim.hash(), firstGunLoss, gunLossEvents,
+  const lowMotion=state.castles.map((c,i)=>lowMotionStall(paths.series,i));
+  const fireGaps = [0,1].flatMap(slot=>{
+    const times=[0,...shotEvents.filter(e=>e.slot===slot).map(e=>e.second),state.tick/T.sim.tickHz];
+    return times.slice(1).flatMap((end,i)=>end-times[i]>90?[{slot,startS:times[i],endS:end,seconds:end-times[i],idleChanges:idleEvents.filter(e=>e.castle===slot&&e.second>=times[i]-30&&e.second<=end)}]:[]);
+  });
+  const savedAi=JSON.parse(Buffer.from(sim.serialize()).toString('utf16le')).ai;
+  const rulerIntent=rulerDeaths.map(death=>{const wm=savedAi?.slots.find(s=>s.id===death.fromCastle)?.weapons.find(w=>w.id===death.fromWeapon);return {...death,targetKind:wm?.shotTarget?.kind??wm?.target?.kind??null,exposureTicks:wm?.exposures?.find(e=>e.slot===death.slot)?state.tick-wm.exposures.find(e=>e.slot===death.slot).since:0};});
+  return { ...job, fireGaps, rulerIntent, lowMotion, idleEvents:job.compact?idleEvents.filter(e=>!['ready','reloading'].includes(e.reason)):idleEvents, idleEventCount:idleEvents.length, threatEvents, rulerDeaths, surrenderCrossings, finalSurrender:state.castles.map(c=>c.surrender), ticks: state.tick, seconds: state.tick / T.sim.tickHz, winnerSlot, eliminationReason: state.castles.find(c => c.eliminated)?.reason ?? null, outcome: state.outcome, hash: sim.hash(), firstGunLoss, gunLossEvents,
     longestPalaceStallS: longestPalaceStallTicks / T.sim.tickHz, loserDamageMinutes: winnerSlot === null ? 0 : perSide[1 - winnerSlot].damageMinutes.size,
-    sides: perSide.map((s, i) => ({ shots: state.castles[i].stats.shots, hits: state.castles[i].stats.directHits, goldAtCapShare: s.capTicks / state.tick, goldNearCapShare: s.nearCapTicks / state.tick, goldNearZeroShare: s.lowTicks / state.tick, longestNoFireS: Math.max(s.longestNoFireS, (state.tick - s.lastShot) / T.sim.tickHz), longestReadyNoFireS: s.longestReadyNoFireS, npcDeaths: s.npcDeaths, blocksDestroyed: s.blocksDestroyed, blocksCollapsed: s.blocksCollapsed, blocksBuilt: s.blocksBuilt, blocksRepaired: s.blocksRepaired, shotsByMinute: Array.from(s.shotsByMinute, n => n ?? 0), damageMinutes: [...s.damageMinutes], goldBlockedShotS: s.goldBlockedShotTicks / T.sim.tickHz, goldBlockedReplacementS: s.goldBlockedReplacementTicks / T.sim.tickHz, spend: s.spend })),
-    minuteCurve, goldTrajectory, spendEvents: [...spending.values()], shotEvents, moraleBandEvents, paths: { sides: paths.sides, series: paths.series } };
+    sides: perSide.map((s, i) => ({ firstShotS:s.firstShotS ?? null, idleSeconds:Object.fromEntries(Object.entries(s.idleTicks ?? {}).map(([r,n])=>[r,n/T.sim.tickHz])), shots: state.castles[i].stats.shots, hits: state.castles[i].stats.directHits, goldAtCapShare: s.capTicks / state.tick, goldNearCapShare: s.nearCapTicks / state.tick, goldNearZeroShare: s.lowTicks / state.tick, longestNoFireS: Math.max(s.longestNoFireS, (state.tick - s.lastShot) / T.sim.tickHz), longestReadyNoFireS: s.longestReadyNoFireS, npcDeaths: s.npcDeaths, blocksDestroyed: s.blocksDestroyed, blocksCollapsed: s.blocksCollapsed, blocksBuilt: s.blocksBuilt, blocksRepaired: s.blocksRepaired, shotsByMinute: Array.from(s.shotsByMinute, n => n ?? 0), damageMinutes: [...s.damageMinutes], goldBlockedShotS: s.goldBlockedShotTicks / T.sim.tickHz, goldBlockedReplacementS: s.goldBlockedReplacementTicks / T.sim.tickHz, spend: s.spend })),
+    minuteCurve, goldTrajectory:job.compact ? undefined : goldTrajectory, spendEvents:job.compact ? undefined : [...spending.values()], shotEvents, moraleBandEvents, paths: { sides: paths.sides, series: job.compact ? undefined : paths.series } };
 }
 
 async function main() {
@@ -173,8 +216,10 @@ async function main() {
   const allJobs = matchJobs(options);
   if (matches.some(m => !allJobs.some(j => j.index === m.index && j.seed === m.seed && j.swap === m.swap && j.map === m.map && String(j.levels) === String(m.levels)))) throw new Error('Resume cohort mismatch');
   const jobs = allJobs.filter(j => !matches.some(m => m.index === j.index));
-  const digest = createHash('sha256');
-  for (const path of ['src/tuning.js', 'src/sim/sim.js', 'src/ai/controller.js', 'src/ai/targets.js', 'src/npc/brain.js', 'src/plugins/castles/default.sim.js']) digest.update(readFileSync(new URL(`../${path}`, import.meta.url)));
+  const digest = createHash('sha256'), sources = {};
+  const walk = path => readdirSync(new URL(`../${path}`,import.meta.url),{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(`${path}/${e.name}`):e.name.endsWith('.js')?[`${path}/${e.name}`]:[]);
+  const sourcePaths=['src/contracts.js','src/tuning.js',...['src/core','src/world','src/sim','src/npc','src/ai','src/plugins'].flatMap(walk).filter(p=>!p.endsWith('.view.js')&&!p.endsWith('index.view.js'))].sort();
+  for (const path of sourcePaths) { const bytes=readFileSync(new URL(`../${path}`,import.meta.url));sources[path]=createHash('sha256').update(bytes).digest('hex');digest.update(path).update(bytes); }
   const sourceSha256 = digest.digest('hex');
   await Promise.all(Array.from({ length: Math.min(options.workers, jobs.length) }, () => new Promise((resolve, reject) => {
     const w = new Worker(new URL(import.meta.url), { workerData: true }); workers.push(w);
@@ -187,9 +232,9 @@ async function main() {
     });
   })));
   matches.sort((a, b) => a.index - b.index);
-  const summary = summarize(matches), table = summaryTable(summary), result = { schema: 1, options, sourceSha256, tickHz: T.sim.tickHz, tuning: { economy: T.economy, blocks: { stone: T.blocks.stone, tower: T.blocks.tower, palace:T.blocks.palace, mount:T.blocks.mount }, palace: T.palace, repairFullS: T.npc.repairFullS, npc:T.npc, ai:T.ai, sim:T.sim }, summary, table, matches };
+  const summary = summarize(matches), table = summaryTable(summary), result = { schema: 2, options, sourceSha256, sources, tickHz: T.sim.tickHz, tuning: { economy: T.economy, blocks: { stone: T.blocks.stone, tower: T.blocks.tower, palace:T.blocks.palace, mount:T.blocks.mount }, palace: T.palace, repairFullS: T.npc.repairFullS, npc:T.npc, ai:T.ai, sim:T.sim }, summary, table, matches };
   mkdirSync(new URL('../tests/evidence/', import.meta.url), { recursive: true });
-  writeFileSync(join(outputDir, `sweep-${options.label}.json`), `${JSON.stringify(result, null, 2)}\n`);
+  writeFileSync(join(outputDir, `sweep-${options.label}.json`), `${JSON.stringify(result, null, options.compact ? 0 : 2)}\n`);
   console.log(table);
 }
 if (!isMainThread && workerData === true) { parentPort.on('message', job => { try { parentPort.postMessage(runMatch(job, progress => parentPort.postMessage({ index: job.index, progress }))); } catch (e) { throw e; } }); parentPort.postMessage({ ready: true }); }

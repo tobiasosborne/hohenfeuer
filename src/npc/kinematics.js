@@ -58,6 +58,12 @@ export function npcKinematics(api) {
         let speed = npc.state === NPC_STATE.FLEE ? T.npc.fleeSpeed : npc.carrying > 0 ? npc.carrySpeed ?? T.npc.carrySpeed : npc.speed ?? T.npc.speed;
         const a = typeAt(castle.plot, from), b = typeAt(castle.plot, to);
         const clamber=to[1]>from[1]&&a!==BLOCK.STAIRS&&!blockDef(a)?.climbable;
+        if (from[1]>to[1]) {
+          // Clear the ledge horizontally before lowering the body down its free
+          // column; diagonal interpolation would cut through its supporting wall.
+          const top={...feet(castle.plot,to),y:feet(castle.plot,from).y};
+          if(Math.abs(npc.pos.x-top.x)+Math.abs(npc.pos.z-top.z)>1e-9){target=top;intermediate=true;}
+        }
         if (clamber) {
           speed*=T.npc.clamberSpeedMul;
           if(npc.pos.y<target.y-1e-9){const base=feet(castle.plot,from);

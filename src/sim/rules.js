@@ -9,7 +9,7 @@ export function palaceIntegrity(castle) { return castle.initialPalaceHp > 0 ? ca
 export function palaceDefeatThreshold(tick) {
   const seconds = tick / T.sim.tickHz;
   const progress = Math.max(0, Math.min(1, (seconds - T.palace.crackingStartS) / (T.palace.crackingEndS - T.palace.crackingStartS)));
-  return T.palace.destroyedBelow + progress * (T.palace.crackingDestroyedBelow - T.palace.destroyedBelow);
+  return T.palace.destroyedBelow + progress ** T.palace.crackingEasePower * (T.palace.crackingDestroyedBelow - T.palace.destroyedBelow);
 }
 /** Evaluate all eliminations before deciding the match, so simultaneous destruction is a draw. */
 export function checkRules(ctx) {
@@ -23,6 +23,9 @@ export function checkRules(ctx) {
     castle.keepCracking = castle.palaceDefeatThreshold > T.palace.destroyedBelow;
     const morale = typeof castle.morale === 'number' ? castle.morale : castle.morale?.value ?? T.morale.start;
     castle.surrenderTicks = morale <= T.rules.surrenderMorale ? (castle.surrenderTicks ?? 0) + 1 : 0;
+    castle.surrender = { morale, moraleThreshold:T.rules.surrenderMorale,
+      holdTicks:castle.moraleState?.surrenderTicks ?? castle.surrenderTicks, holdRequiredTicks:Math.round(T.rules.surrenderS/K.DT),
+      population:castle.population, popThreshold:castle.initialPopulation*T.rules.surrenderPopFrac };
     const reason = castle.palaceIntegrity < castle.palaceDefeatThreshold ? ELIM.PALACE
       : ruler && ruler.hp <= 0 ? ELIM.RULER
       : castle.surrendered || castle.surrenderTicks >= T.rules.surrenderS / K.DT || castle.initialPopulation > 0 && castle.population < castle.initialPopulation * T.rules.surrenderPopFrac ? ELIM.SURRENDER : null;

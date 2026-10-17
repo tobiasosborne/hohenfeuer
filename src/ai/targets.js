@@ -7,7 +7,7 @@ import { blockTarget, firstBlockOnLine, publicView, shooterPosition, visibleTarg
 
 /** Visible rulers share palace's immediate-elimination value until tuning defines ruler. */
 export function scoreTarget(target, tactic) {
-  const kind = target.kind === 'ruler' ? 'palace' : target.kind;
+  const kind = target.kind;
   return (T.ai.targetValue[kind] ?? 0) * (T.ai.tacticWeight[tactic]?.[kind] ?? 1);
 }
 /** Numeric entity/cell ids break score ties, then slot and kind disambiguate domains. */
@@ -63,8 +63,8 @@ export function collectTargets(view, slot, weapon) {
 }
 
 /** Straight weapons require a clear DDA segment; lobbed weapons can attack covered blocks. */
-export function selectTarget(view, slot, weapon, { ballistic = false, breach = false } = {}) {
-  if (ballistic) return selectBallisticTarget(view, slot, weapon, breach);
+export function selectTarget(view, slot, weapon, { ballistic = false, breach = false, rulerSlots = null } = {}) {
+  if (ballistic) return selectBallisticTarget(view, slot, weapon, breach, rulerSlots);
   const def = weaponDefinition(weapon);
   if (!weaponAvailable(def)) return null;
   const lobbed = def.traj === TRAJ.LOBBED, wind = publicView(view,slot).wind;
@@ -95,20 +95,24 @@ export function refreshTarget(view, target) {
  * voxels with the production forces; an enemy obstruction is a breach target while
  * keeping the palace aim point. Own obstructions reject that firing lane entirely.
  */
-function selectBallisticTarget(view, slot, weapon, breach = false) {
+function selectBallisticTarget(view, slot, weapon, breach = false, rulerSlots = null) {
   const def = weaponDefinition(weapon), seenPalaces = new Set();
   if (!weaponAvailable(def)) return null;
   const origin = vector(weapon.pos), distance = target => (target.pos.x - origin.x) ** 2 + (target.pos.z - origin.z) ** 2;
-  const candidates = rankTargets(collectTargets(view, slot, weapon).filter(t => !breach || t.kind === 'palace' || t.kind === 'shieldWall'), slot.aiTactic).sort((a, b) =>
+  const candidates = rankTargets(collectTargets(view, slot, weapon).filter(t =>
+    (t.kind!=='ruler'||rulerSlots===null||rulerSlots.includes(t.slot)) && (!breach || ['palace','shieldWall','ruler'].includes(t.kind))), slot.aiTactic).sort((a, b) =>
     scoreTarget(b, slot.aiTactic) - scoreTarget(a, slot.aiTactic)
     || (a.kind === b.kind && (a.kind === 'weapon' || a.kind === 'palace') ? distance(a) - distance(b) : 0));
   // publicView supplies the same converted air vector used by the aim solver.
   const air = publicView(view, slot).wind;
+  const nearUnexposedRuler = (pos, target) => (view.rulers ?? []).some(r=>r.slot===target.slot&&r.hp>0
+    && !rulerSlots?.includes(r.slot) && (pos.x-vector(r.pos).x)**2+(pos.y-vector(r.pos).y-T.people.height/2)**2+(pos.z-vector(r.pos).z)**2<T.ai.rulerCollateralM**2);
   for (const target of candidates) {
     if (target.kind === 'shieldWall') continue;
     if (target.kind === 'weapon' && def.traj === TRAJ.STRAIGHT && !visibleTarget(view, shooterPosition(weapon, target.pos), target)) continue;
     if (target.kind === 'palace') {
       if (seenPalaces.has(target.slot)) continue;
+      if (rulerSlots !== null && nearUnexposedRuler(target.pos,target)) continue;
       seenPalaces.add(target.slot);
     }
     const from = firingPosition(weapon,target.pos);
@@ -117,7 +121,9 @@ function selectBallisticTarget(view, slot, weapon, breach = false) {
     const traced=traceBlocks(view,from,def,solution,air,target.pos.y);
     const hit=traced.hit, feedbackPos=traced.feedbackPos;
     if (hit && hit.slot === slot.id) continue;
+    if (rulerSlots !== null && feedbackPos && nearUnexposedRuler(feedbackPos,target)) continue;
     if (hit && (hit.slot !== target.slot || hit.index !== target.index)) {
+      if (target.kind === 'ruler') continue;
       if (target.kind === 'weapon') continue; // Breach the palace before chasing a shielded rear gun.
       const castle = view.castles.find(c => c.slot === hit.slot);
       const base={...hit.pos,y:Math.min(hit.pos.y,target.pos.y+T.ai.breachAimAbovePalaceM)};

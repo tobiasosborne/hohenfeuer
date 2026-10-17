@@ -80,14 +80,14 @@ export function planRebuild(castle, blueprint, tactic, account, view = {}, {shot
   const recovering = Array.isArray(view.weapons) && (missingWeaponCost(blueprint.weapons,view.weapons.filter(w => w.slot === castle.slot))>0
     || view.weapons.some(w => w.slot === castle.slot && w.hp > 0 && (w.ammo === 0 || w.crewOrdered && (w.crewPresent ?? 0) < Math.ceil((getWeapon(w.defId) ?? T.weapons[w.defId]).crewSlots * T.weaponRules.minCrewFrac))));
   const supportColumns = new Map();
-  for (const c of blueprint.cells) if ([BLOCK.MOUNT, BLOCK.STAIRS].includes(c.block)) {
+  for (const c of blueprint.cells) if ([BLOCK.MOUNT, BLOCK.STAIRS, BLOCK.LADDER].includes(c.block)) {
     for (const [dx,dz] of [[0,0],[1,0],[-1,0],[0,1],[0,-1]]) {
       const key = `${c.cell[0]+dx}:${c.cell[2]+dz}`;
       supportColumns.set(key, Math.max(supportColumns.get(key) ?? 0, c.cell[1]));
     }
   }
-  const supportsGun = c => [BLOCK.MOUNT, BLOCK.STAIRS, BLOCK.FLOOR, BLOCK.MAGAZINE].includes(c.block)
-    || c.block === BLOCK.STONE && c.cell[1] < (supportColumns.get(`${c.cell[0]}:${c.cell[2]}`) ?? 0);
+  const supportsGun = c => [BLOCK.MOUNT, BLOCK.STAIRS, BLOCK.LADDER, BLOCK.FLOOR, BLOCK.MAGAZINE].includes(c.block)
+    || [BLOCK.STONE,BLOCK.TOWER].includes(c.block) && c.cell[1] < (supportColumns.get(`${c.cell[0]}:${c.cell[2]}`) ?? 0);
   let available = recovering ? Math.max(0, castle.gold - (shotReserve ?? Math.min(...blueprint.weapons.map(w => (getWeapon(w.defId) ?? T.weapons[w.defId]).fireCost)))) : budget(castle, tactic, account);
   const missing = blueprint.cells.filter(c => castle.plot.type[c.index] === BLOCK.AIR
     && (!recovering || supportsGun(c))
@@ -109,13 +109,13 @@ export function planRebuild(castle, blueprint, tactic, account, view = {}, {shot
 }
 
 /** Replace only initial weapon losses, deterministically at available CastleDef mountSpots. */
-export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weaponCap = T.world.weaponCapDefault, shotReserve: requestedReserve = null, pending = (castle.npcDesignations ?? []).filter(d => d.weapon), view = {} } = {}) {
+export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weaponCap = T.world.weaponCapDefault, shotReserve: requestedReserve = null, acceptSpot = () => true, unusableIds = [], pending = (castle.npcDesignations ?? []).filter(d => d.weapon), view = {} } = {}) {
   const live = weapons.filter(w => w.hp === undefined || w.hp > 0), plan = [];
   // Keep one shot in reserve; losing a gun is more urgent than the tactic's building savings.
   const shotReserve = Math.min(...blueprint.weapons.map(w => (getWeapon(w.defId) ?? T.weapons[w.defId])?.fireCost ?? Infinity));
   let available = Math.max(0, castle.gold - (requestedReserve ?? (live.length ? shotReserve : 0))), count = live.length + pending.length;
   const missing = [...blueprint.weapons];
-  for (const weapon of [...live, ...pending]) {
+  for (const weapon of [...live, ...pending].filter(w=>!unusableIds.includes(w.id))) {
     const i = missing.findIndex(w => w.defId === (weapon.defId ?? weapon.weapon ?? weapon.id));
     if (i >= 0) missing.splice(i, 1);
   }
@@ -127,7 +127,7 @@ export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weap
       defId=backup.id;cost=backup.cost;
     }
     if (cost === null || cost > available || count >= weaponCap) continue;
-    const spot = [...(blueprint.recoveryMounts ?? []), ...blueprint.mountSpots].find(p => ![...live, ...pending, ...plan].some(w => sameCell(placementCell(w, castle), p.slice(0, 3)))
+    const spot = [...(blueprint.recoveryMounts ?? []), ...blueprint.mountSpots].find(p => acceptSpot(p,defId) && ![...live, ...pending, ...plan].some(w => sameCell(placementCell(w, castle), p.slice(0, 3)))
       && canDesignate(castle, { type: CMD.DESIGNATE_WEAPON, weapon: defId, cell: p.slice(0, 3) }, { ...view, weapons: live, weaponCap }));
     if (!spot || plan.length >= T.world.maxOpenDesignations - (castle.npcDesignations?.length ?? 0)) continue;
     plan.push({ type: CMD.DESIGNATE_WEAPON, weapon: defId, cell: spot.slice(0, 3), facing: spot[3] });

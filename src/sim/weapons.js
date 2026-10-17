@@ -1,12 +1,14 @@
 // src/sim/weapons.js - owns weapon aiming, atomic paid salvos, scheduled bursts and reload progress.
-import { EV, K, RNG_STREAM, getWeapon } from '../contracts.js';
+import { EV, IDLE_REASON, JOB, K, RNG_STREAM, getWeapon } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { sin, cos, DEG } from '../core/fmath.js';
 import { buildRangeTable, rangeToCharge, launchSpeed, fixedElevation, scatterAngles, launchVelocity, traceFlight, createFlightProjectile, weaponAvailable } from './ballistics.js';
 import { spend } from './economy.js';
 import { markWindShot } from './wind.js';
 import { sampleHeight } from '../world/terrain.js';
-import { canFire, reloadMultiplier } from '../npc/index.js';
+import { canFire, crewPresent, reloadMultiplier } from '../npc/index.js';
+import { blocksWeaponMuzzle } from '../npc/model.js';
+import { raycast } from '../world/grid.js';
 import { tickFire } from './damage.js';
 const tables = new WeakMap();
 /** Derived immutable data is kept outside serialized weapon state. */
@@ -15,7 +17,34 @@ export function weaponRangeTable(def) { if (!tables.has(def)) tables.set(def, bu
 export function createWeapon(def, { id, slot, pos, facing = 0 }) {
   const table = weaponRangeTable(def), dial = rangeToCharge(table, T.world.duelDistanceM);
   const aim = { az: Math.round(facing * 90 * T.aim.azUnitsPerDeg), range: Math.round(dial * T.aim.rangeUnitsPerDial) };
-  return { id, slot, facing, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
+  return { id, slot, facing, idleReason:IDLE_REASON.NO_CREW, idleDetail:{present:0,required:Math.ceil(def.crewSlots*T.weaponRules.minCrewFrac)}, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
+}
+/** Diagnose the current physical firing gate without changing commands or RNG.
+ * Enemy masonry remains a useful breach target; only the own muzzle lane obstructs.
+ */
+export function weaponIdle(ctx, weapon) {
+  const def = (ctx.getWeapon ?? getWeapon)(weapon.defId), castle = ctx.castleOf(weapon.slot);
+  if (weapon.hp <= 0 || !weaponAvailable(def) || castle?.eliminated) return { reason: IDLE_REASON.DAMAGED, detail: {} };
+  const present = crewPresent(weapon, castle), required = weapon.rulerManning ? 1 : Math.ceil(def.crewSlots * T.weaponRules.minCrewFrac);
+  if (present < required) return { reason: IDLE_REASON.NO_CREW, detail: { present, required } };
+  if (weapon.ammo < def.ammoLoads) return { reason: IDLE_REASON.NO_AMMO, detail: {
+    haulerEnRoute: Boolean(castle.jobs?.some(j => j.kind === JOB.HAUL_AMMO && j.target.weaponId === weapon.id && j.claimedBy.length)) } };
+  if (castle.gold < def.fireCost) return { reason: IDLE_REASON.NO_GOLD, detail: { gold: castle.gold, required: def.fireCost } };
+  if (weapon.burst || weapon.reload + 1e-9 < def.reloadS) return { reason: IDLE_REASON.RELOADING, detail: {} };
+  const angle = weapon.aim.az / T.aim.azUnitsPerDeg * DEG;
+  const offset = T.weaponRules.wallFootprint[0] / 2 + 2 * def.shot.radius;
+  const from = { x: weapon.pos.x + sin(angle) * offset, y: weapon.pos.y + T.weaponRules.wallFootprint[2] / 2, z: weapon.pos.z - cos(angle) * offset };
+  const to = { x: from.x + sin(angle) * T.weaponRules.muzzleClearanceM, y: from.y, z: from.z - cos(angle) * T.weaponRules.muzzleClearanceM };
+  const hit = castle.plot && raycast(castle.plot, from, to, id => ctx.getBlock?.(id)?.projectileSolid ?? false);
+  if (hit) return { reason: IDLE_REASON.OBSTRUCTED, detail: { cell: [hit.cell.x, hit.cell.y, hit.cell.z] } };
+  const person = [...(ctx.state.npcs ?? []), ...(ctx.state.rulers ?? [])].find(p => (p.slot ?? p.castle) === weapon.slot && blocksWeaponMuzzle(weapon, p));
+  if (person) return { reason: IDLE_REASON.OBSTRUCTED, detail: { cell: [Math.floor(person.pos.x - castle.plot.origin.x), Math.floor(person.pos.y - castle.plot.origin.y), Math.floor(person.pos.z - castle.plot.origin.z)], entityId: person.id } };
+  return { reason: IDLE_REASON.READY, detail: {} };
+}
+function updateIdle(ctx, weapon) {
+  const { reason, detail } = weaponIdle(ctx, weapon), changed = weapon.idleReason !== reason;
+  weapon.idleReason = reason; weapon.idleDetail = detail;
+  if (changed) ctx.emit(EV.WEAPON_IDLE, { castle: weapon.slot, weaponId: weapon.id, reason, detail });
 }
 /** Fire one whole salvo atomically. Aim/scatter and due ticks are captured at payment,
  * so later AIM commands cannot steer a burst and saving mid-burst loses no rounds. */
@@ -66,7 +95,7 @@ function spawnRound(ctx, weapon, { projectile }) {
 export function tickWeapons(ctx, dt = K.DT) {
   tickFire(ctx, dt);
   for (const weapon of ctx.state.weapons) {
-    if (weapon.hp <= 0 || ctx.castleOf(weapon.slot)?.eliminated) { delete weapon.burst; continue; }
+    if (weapon.hp <= 0 || ctx.castleOf(weapon.slot)?.eliminated) { delete weapon.burst; updateIdle(ctx, weapon); continue; }
     const def = (ctx.getWeapon ?? getWeapon)(weapon.defId), before = weapon.reload;
     if (weapon.burst) {
       const remaining = [];
@@ -80,5 +109,6 @@ export function tickWeapons(ctx, dt = K.DT) {
     if (weapon.fireRequested || weapon.autoFire) fireWeapon(ctx, weapon);
     weapon.fireRequested = false;
     def.onTick?.(ctx.api ?? ctx, weapon);
+    updateIdle(ctx, weapon);
   }
 }

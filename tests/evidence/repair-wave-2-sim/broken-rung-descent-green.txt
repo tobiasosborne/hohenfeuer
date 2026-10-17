@@ -1,0 +1,13 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (6.848976ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (0.980909ms)
+✔ workers above a broken ladder rung can descend to surviving rungs to clear access for repairs (1.727078ms)
+✔ urgent access work preempts a decorative build as well as a routine repair (4.959551ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (565.15328ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 605.037337

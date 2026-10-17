@@ -33,9 +33,10 @@ function content() {
       const cells = Array(8).fill('.');
       if (z >= 3 && z <= 5) cells[palaceX] = 'P';
       if (y === 0 && z === 4) cells[gunX] = 'M';
+      if (y < 2 && z < 2) { cells[0] = 'A'; cells[1] = 'A'; }
       return cells.join('');
     }));
-    C.registerCastle({ id, size: [8, 4, 8], legend: { P: 'palace', M: 'mount' }, layers,
+    C.registerCastle({ id, size: [8, 4, 8], legend: { P: 'palace', M: 'mount', A:'magazine' }, layers,
       weapons: [{ id: 'cannon', at: [gunX, 2, 4], facing }], mountSpots: [[gunX, 2, 4, facing]],
       shelters: [], workSpots: [], exit: [0, 1, 6], rulerSpawn: [0, 1, 6], throne: [0, 1, 6], population: T.npc.population });
   }

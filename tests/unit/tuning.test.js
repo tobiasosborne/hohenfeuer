@@ -162,12 +162,12 @@ test("render and golden frame are 1024x768", () => {
   assert.equal(TUNING.golden.height, 768);
 });
 
-test("Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17)", async () => {
+test("Repair waves retain scarce economy while strengthening early keep durability (research/17,20)", async () => {
   const { DEFAULT_CASTLE } = await import('../../src/plugins/castles/default.sim.js');
   const count = DEFAULT_CASTLE.layers.flat().join('').split('P').length - 1;
   assert.equal(count, 48);
   const removalDp = count * TUNING.blocks.palace.hp * (1 - TUNING.palace.destroyedBelow);
-  assert.equal(removalDp, 2688); // core masonry uses tower HP; paid repair prevents a free-health treadmill
+  assert.equal(removalDp, 3686.4); // 48 reinforced 96-HP cells, opening defeat below 20%, paid repairs
   assert.equal(TUNING.economy.goldCap, 2000);
   assert.equal(TUNING.economy.startGold, 1500);
   assert.equal(TUNING.blocks.stone.cost, 4);

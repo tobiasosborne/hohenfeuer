@@ -46,7 +46,9 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     const placement = mapDef.slots[slot.id], def = getCastle(slot.castleId ?? placement?.castle);
     if (!placement || !def) throw new TypeError(`Missing castle for slot ${slot.id}`);
     const loaded = loadCastle(def, { origin: placement.origin, id: slot.id, getBlock: getBlockByKey });
-    const castle = { ...loaded, id: slot.id, slot: slot.id, facingDeg: placement.facingDeg, gold: mapDef.startGold ?? T.economy.startGold, stats: createStats(), eliminated: false, reason: null, surrendered: false, surrenderTicks: 0, population: 0, initialPopulation: 0, civiliansWorking: 0, morale: T.morale.start, magazines: [], shelter: false };
+    const castle = { ...loaded, id: slot.id, slot: slot.id, facingDeg: placement.facingDeg, gold: mapDef.startGold ?? T.economy.startGold, stats: createStats(), eliminated: false, reason: null, surrendered: false, surrenderTicks: 0, population: 0, initialPopulation: 0, civiliansWorking: 0, morale: T.morale.start, magazines: [], shelter: false,
+      pressure:[], palaceDefeatThreshold:T.palace.destroyedBelow, keepCracking:false,
+      surrender:{morale:T.morale.start,moraleThreshold:T.rules.surrenderMorale,holdTicks:0,holdRequiredTicks:Math.round(T.rules.surrenderS/K.DT),population:def.population,popThreshold:def.population*T.rules.surrenderPopFrac} };
     state.castles.push(castle);
     state.rulers.push(createRuler(slot.id, slot.controller === CONTROLLER.AI ? loaded.throne ?? loaded.rulerSpawn : loaded.rulerSpawn, slot.id));
     for (const placement of loaded.weapons) {
@@ -77,9 +79,22 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     get state() { return state; }, emit, getBlock, getWeapon, castleOf, rng: castleRng,
     spawnProjectile(p) {
       const projectile = { ...p, id: state.nextEntityId++, pos: xyz(p.pos), vel: xyz(p.vel), payload: snapshot(p.payload ?? {}), age: 0 };
-      state.projectiles.push(projectile); return projectile.id;
+      state.projectiles.push(projectile);
+      const predicted = predictImpact(projectile);
+      if (predicted) for (const ruler of state.rulers) {
+        if (ruler.hp <= 0 || ruler.slot === projectile.sourceSlot) continue;
+        const p = predicted.pos, r = ruler.pos;
+        if ((p.x-r.x)**2 + (p.y-r.y-T.people.height/2)**2 + (p.z-r.z)**2 <= T.threat.rulerRadiusM**2)
+          emit(EV.RULER_THREAT, { castle: ruler.slot, fromCastle: projectile.sourceSlot, fromWeapon: projectile.weaponId,
+            projectileId: projectile.id, impactPos: [p.x,p.y,p.z], etaTicks: predicted.etaTicks });
+      }
+      return projectile.id;
     },
-    onDestroyed(plot, index) { if (!destroyed.has(plot.id)) destroyed.set(plot.id, []); destroyed.get(plot.id).push(index); },
+    onDestroyed(plot, index, _id, sourceSlot) {
+      if (!destroyed.has(plot.id)) destroyed.set(plot.id, []); destroyed.get(plot.id).push(index);
+      const castle=castleOf(plot.id);
+      if(castle)castle.supportDamageSource={fromCastle:sourceSlot ?? null,fromWeapon:ctx.damageSource?.fromWeapon ?? null,projectileId:ctx.damageSource?.projectileId ?? null};
+    },
   };
   function locate(pos) {
     const point = xyz(pos);
@@ -98,7 +113,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       w.facing = facing; state.weapons.push(w);
       emit(EV.WEAPON_PLACED, { weaponId: id, slot, defId }); return id;
     },
-    applyBlast(blast) { blasts.push({ ...blast, pos: xyz(blast.pos) }); },
+    applyBlast(blast) { blasts.push({ ...blast, pos: xyz(blast.pos), damageSource:snapshot(ctx.damageSource) }); },
     damagePeople(blast) { damagePeople(ctx, blast); }, spawnProjectile: ctx.spawnProjectile,
   };
   ctx.api = api;
@@ -148,6 +163,18 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     if (mapDef.water && a.y > mapDef.water.y && b.y <= mapDef.water.y) consider((a.y - mapDef.water.y) / (a.y - b.y), { kind: 'water' });
     return best;
   }
+  // Freeze public geometry, bodies and launch wind. Prediction consumes no RNG and
+  // runs the production integrator/collision functions without resolving damage.
+  function predictImpact(projectile) {
+    const p = snapshot(projectile), air = windVector(state.wind);
+    for (let step = 1; step <= T.sim.projectileMaxLifeS / K.SUBSTEP_DT; step++) {
+      const before = { ...p.pos }; integrateProjectile(p, air);
+      const hit = collision(p, before, p.pos);
+      if (hit) return { pos: { x: before.x+(p.pos.x-before.x)*hit.t, y: before.y+(p.pos.y-before.y)*hit.t, z: before.z+(p.pos.z-before.z)*hit.t }, etaTicks: Math.ceil(step / K.SUBSTEPS) };
+      if (p.pos.y < T.sim.projectileMinY || p.pos.x < 0 || p.pos.x > mapDef.size[0] || p.pos.z < 0 || p.pos.z > mapDef.size[1]) break;
+    }
+    return null;
+  }
   function projectilesTick() {
     const impacts = [], alive = [];
     for (const projectile of state.projectiles) {
@@ -181,12 +208,13 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
   function blastsTick() {
     for (let i = 0; i < blasts.length; i++) {
       const blast = blasts[i], projectile = blast.projectile, hit = blast.hit;
+      ctx.damageSource = projectile ? { fromWeapon: projectile.weaponId, projectileId: projectile.id } : blast.damageSource;
       const npcImpact = beginNpcImpact(api, blast);
       if (projectile) {
         if (hit.person) damagePerson(ctx, hit.person, hit.person.hp, projectile.sourceSlot, 'projectile');
         const weapon = state.weapons.find(w => w.id === projectile.weaponId);
         if (weapon) weapon.lastImpact = { ...blast.pos };
-        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind });
+        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, projectileId: projectile.id, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind });
       }
       const def = projectile ? getWeapon(state.weapons.find(w => w.id === projectile.weaponId)?.defId) : null;
       if (def?.onImpact) def.onImpact(api, projectile, hit);
@@ -195,6 +223,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
         if (source) { source.stats.damageDp += result.cells.reduce((n, cell) => n + cell.damage, 0); if (projectile && hit.kind !== 'terrain' && hit.kind !== 'water') source.stats.directHits++; }
       }
       endNpcImpact(api, npcImpact);
+      ctx.damageSource = null;
     }
     blasts.length = 0;
     for (const castle of state.castles) {
@@ -206,7 +235,11 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
           emit(EV.COLLAPSE, { plot: castle.id, cells: result.collapsed.map(p => [p.x, p.y, p.z]) });
           for (const person of [...state.rulers, ...state.npcs]) {
             const p = worldToCell(castle.plot, person.pos);
-            if (result.collapsed.some(c => c.x === p.x && c.z === p.z && c.y > p.y)) damagePerson(ctx, person, T.people.collapseDmg, castle.slot, 'collapse');
+            if (result.collapsed.some(c => c.x === p.x && c.z === p.z && c.y > p.y)) {
+              ctx.damageSource=castle.supportDamageSource;
+              damagePerson(ctx, person, T.people.collapseDmg, castle.supportDamageSource?.fromCastle ?? castle.slot, 'collapse');
+              ctx.damageSource=null;
+            }
           }
         }
       }

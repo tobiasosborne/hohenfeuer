@@ -26,8 +26,20 @@ export function neighbors(plot, cell, allowClamber = true) {
   const add = (c, cost) => { if (isStandable(plot, c)) edges.push({ cell: c, cost }); };
   for (let d = 0; d < directions.length; d++) {
     const [dx, dz] = directions[d], same = [x + dx, y, z + dz];
-    if (isStandable(plot, same)) add(same, typeAt(plot, same) === BLOCK.DOOR ? costs.door : costs.flat);
-    else if (clear(plot, same)) add([x + dx, y - 1, z + dz], costs.stepDown);
+    if (isStandable(plot, same)) {
+      const stair=typeAt(plot,same)===BLOCK.STAIRS, facing=plot.meta[indexOf(plot,same)]&META.FACING_MASK;
+      if(allowClamber||!stair||id===BLOCK.STAIRS||facing===d)add(same,typeAt(plot,same)===BLOCK.DOOR?costs.door:costs.flat);
+    }
+    else if (clear(plot, same)) {
+      // Repairs can lead onto isolated roof/ruin ledges. Restrict deliberate
+      // descents to a clear column and the normal no-damage fall distance.
+      const maxDrop=allowClamber?T.people.fallSafeM:1;
+      for(let drop=1;drop<=maxDrop;drop++) {
+        const down=[x+dx,y-drop,z+dz];
+        if(!clear(plot,down)||!clear(plot,[down[0],down[1]+1,down[2]]))break;
+        if(isStandable(plot,down)){add(down,costs.stepDown*drop);break;}
+      }
+    }
     // A worker can climb rubble within arm reach, with clearance for the lift.
     if (allowClamber && id!==BLOCK.STAIRS && !blockDef(id)?.climbable) for(let rise=1;rise<=T.npc.clamberMaxRiseM;rise++) {
       const overhead=[x,y+rise+1,z];if(blockDef(typeAt(plot,overhead))?.solid!==false)break;
@@ -43,6 +55,11 @@ export function neighbors(plot, cell, allowClamber = true) {
   for (const dy of [-1, 1]) {
     const c = [x, y + dy, z];
     if (blockDef(id)?.climbable && blockDef(typeAt(plot, c))?.climbable) add(c, costs.ladder);
+  }
+  if(allowClamber&&blockDef(id)?.climbable)for(let drop=1;drop<=T.people.fallSafeM;drop++){
+    const down=[x,y-drop,z];
+    if(!clear(plot,down)||!clear(plot,[x,y-drop+1,z]))break;
+    if(isStandable(plot,down)){add(down,costs.ladder*drop);break;}
   }
   return edges;
 }

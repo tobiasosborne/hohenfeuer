@@ -1,0 +1,25 @@
+✔ TUNING is deep-frozen (4.207847ms)
+✔ every number in TUNING is finite (0.969868ms)
+✔ has the documented groups (0.341003ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (1.200116ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.26155ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.244998ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.251947ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.30278ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.253521ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.625462ms)
+✔ every weapon can reach the duel distance under production quadratic drag (6.63654ms)
+✔ npc role shares leave civilians and respect minimums (0.290821ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.303603ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.242751ms)
+✔ render and golden frame are 1024x768 (0.169033ms)
+✔ Repair waves retain scarce economy while strengthening early keep durability (research/17,20) (5.618324ms)
+✔ TB2: blast footprints use the flight world scale so one blast cannot level a keep (0.230933ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35.119746

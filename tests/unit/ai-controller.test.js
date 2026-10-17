@@ -129,14 +129,15 @@ test('target loss triggers immediate retarget and visible moving targets update 
   const { view, slot } = fixture(), controller = createAiController();
   view.rulers = [{ id: 1, slot: 1, hp: 100, pos: [200, 1.5, 5] }];
   at(controller, view, slot, 0);
+  at(controller, view, slot, T.ai.rulerExposureS*T.sim.tickHz);
   const first = controller.snapshot().slots[0].weapons[0].target;
   assert.equal(first.kind, 'ruler');
   view.rulers[0].pos = [200, 1.5, 15];
-  const moved = at(controller, view, slot, 15);
+  const moved = at(controller, view, slot, T.ai.rulerExposureS*T.sim.tickHz+15);
   assert.ok(moved.some(c => c.type === CMD.AIM));
   assert.equal(controller.snapshot().slots[0].weapons[0].target.pos.z, 15);
   view.rulers[0].hp = 0;
-  assert.ok(at(controller, view, slot, 30).some(c => c.type === CMD.AIM));
+  assert.ok(at(controller, view, slot, T.ai.rulerExposureS*T.sim.tickHz+30).some(c => c.type === CMD.AIM));
   assert.equal(controller.snapshot().slots[0].weapons[0].target.kind, 'palace');
 });
 
@@ -171,8 +172,9 @@ test('critical resupply cancels unclaimed roof reservations when the designation
   const before=structuredClone(view.castles[0]);const commands=at(ai,view,slot,60);
   assert.equal(commands.filter(c=>c.type===CMD.CANCEL).length,T.ai.buildPerThink);assert.deepEqual(view.castles[0],before);
 });
-test('changing the aim point within a ranged castle retains learned confidence', () => {
+for(const level of [3,5]) test(`level ${level} changing the aim point retains learned confidence`, () => {
   const {view,slot}=fixture(),first=createAiController();at(first,view,slot,0);
+  slot.aiLevel=level;
   const saved=first.snapshot();saved.slots[0].weapons[0].aim.observations=4;
   view.castles[1].plot.type[90]=BLOCK.AIR;view.castles[1].plot.type[92]=BLOCK.PALACE;view.castles[1].plot.hp[92]=40;
   const next=createAiController(saved);at(next,view,slot,15);
@@ -183,6 +185,13 @@ test('a replacement cannon inherits its castle ranged confidence', () => {
   saved.slots[0].windBias=[{slot:1,defId:'cannon',kind:'palace',biasAzDeg:0,biasDial:0,observations:4}];
   view.weapons=[{...weapon,id:1}];const restored=createAiController(saved);at(restored,view,slot,15);
   assert.equal(restored.snapshot().slots[0].weapons.find(w=>w.id===1).aim.observations,4);
+});
+test('a level-three replacement retains its own observed ranging bias instead of starting the same breach blind',()=>{
+  const {view,slot,weapon}=fixture(),ai=createAiController();slot.aiLevel=3;at(ai,view,slot,0);
+  const saved=ai.snapshot();saved.slots[0].windBias=[{slot:1,defId:'cannon',kind:'palace',biasAzDeg:.12,biasDial:2,observations:4}];
+  view.weapons=[{...weapon,id:1}];const restored=createAiController(saved);at(restored,view,slot,15);
+  const aim=restored.snapshot().slots[0].weapons.find(w=>w.id===1).aim;
+  assert.equal(aim.biasDial,2);assert.equal(aim.biasAzDeg,.12);
 });
 test('a muzzle obstruction in our castle cannot poison enemy ranging memory', () => {
   const {view,slot,weapon}=fixture(),ai=createAiController();at(ai,view,slot,0);at(ai,view,slot,15);weapon.loaded=false;

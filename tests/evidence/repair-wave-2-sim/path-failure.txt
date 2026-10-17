@@ -1,0 +1,36 @@
+✔ standability requires two clear cells, excludes roofs, and passes paired doors (11.472173ms)
+✔ stairs remain preferred; ordinary rubble can be climbed within reach (22.017033ms)
+✔ ladder column permits vertical travel and platform exit with 2 m clearance (14.862038ms)
+✖ step down is one cell, moves never diagonal, deterministic f/h/index tie-break (6.702217ms)
+✔ versioned cache invalidates successful and unsuccessful paths on block changes (5.139347ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.159864
+
+✖ failing tests:
+
+test at tests/unit/npc-path.test.js:44:1
+✖ step down is one cell, moves never diagonal, deterministic f/h/index tie-break (6.702217ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-path.test.js:48:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,47 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (301.673892ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (38.414834ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (39.732747ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (73.004697ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (54.27912ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (36.226799ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (46.214464ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (55.215358ms)
+✖ target loss triggers immediate retarget and visible moving targets update their aim (20.4287ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (26.153806ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (28.37343ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (8.556628ms)
+✔ changing the aim point within a ranged castle retains learned confidence (20.171818ms)
+✔ a replacement cannon inherits its castle ranged confidence (8.371948ms)
+✔ a muzzle obstruction in our castle cannot poison enemy ranging memory (5.467211ms)
+✔ AI waits for its own worker to clear the upcoming muzzle lane (31.686439ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 879.996717
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:128:1
+✖ target loss triggers immediate retarget and visible moving targets update their aim (20.4287ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'palace' !== 'ruler'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:133:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'palace',
+    expected: 'ruler',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -24,9 +24,20 @@ a 1.75 m ruler, rather than scaling the original walls below head height.
 | Treasury | stone vault with a wood chest (core has no treasury block) |
 | Windmill | taller timber building with a stationary timber cross |
 | Superbrain / mage tower / idol | timber landmark; mage tower is taller; no spell/economy effects |
-| Palace | 6x6 tower keep, roof, a single connected 2x2x3 palace core, front aisle and shelters |
+| Palace | 6x6 keep and 2x2x3 core; offered duels use an 8x8 keep and the same 4x4x3 core capacity as forest |
 | Wall weapons | cannon at nearby reachable station, capped by current tuning |
 | Ground weapons | omitted; original type counts retained in metadata |
+
+Repair wave 2: every converted layout has at least one mounted cannon and a full
+magazine bay. Layouts with no converted wall weapon use an existing reachable
+station; a missing ammo workshop gets an authored default bay and ground route.
+The six offered desert/ice/volcano layouts each have one valley-facing front cannon
+and two unarmed front spare stations, mirrored in height, side and price. The
+surrounding original layout remains distinct. All three duels retain a 48-cell
+palace core so selecting a biome does not divide keep capacity by four. Unarmed
+spares are sites for ordinary paid construction, not free replacement weapons.
+The current deterministic manifest lives in
+`tests/evidence/repair-wave-2-sim/castles-generated-manifest.json`.
 
 Mount sites reserve 3x3 areas, avoid the palace and magazine, and shift the minimum
 Manhattan distance from the reference anchor (ties Z, X). Tower/gun ladders have
@@ -62,7 +73,7 @@ unavailable palm/ice meshes, animated sails, special economies or lava mechanics
 are introduced. Renderers decide how these view descriptions are displayed.
 
 The deduplicated ASCII rows and layers keep all 145 castles enabled below 2 MB.
-`tests/evidence/castles-generated-manifest.json` lists files, SHA256 and conversion
+`tests/evidence/repair-wave-2-sim/castles-generated-manifest.json` lists files, SHA256 and conversion
 counts. Local reference-only previews: `castles-preview/contact-sheet.png` and
 `castles-preview/orig-N.png` below the reference asset directory; thumbnails are
 explicitly labelled reference and are never included in shipped content.

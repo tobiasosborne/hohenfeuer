@@ -69,7 +69,7 @@ export function emitJobs(api, castle) {
     }
     if (p.meta[i] & META.DESIGNATED_BIT) {
       const cell = cellOf(p, i), designation = designations.find(d => indexOf(p, d.cell) === i);
-      addJob(api, castle, designation?.kind ?? JOB.BUILD, { cell }, { priority: designation?.weapon || [BLOCK.MAGAZINE,BLOCK.MOUNT,BLOCK.STAIRS,BLOCK.FLOOR].includes(designation?.block) ? 2 : 1, block: designation?.weapon ? BLOCK.AIR : designation?.block ?? BLOCK.STONE, weapon: designation?.weapon });
+      addJob(api, castle, designation?.kind ?? JOB.BUILD, { cell }, { priority: designation?.weapon ? 3 : [BLOCK.MAGAZINE,BLOCK.MOUNT,BLOCK.STAIRS,BLOCK.LADDER,BLOCK.FLOOR].includes(designation?.block) ? 2 : 1, block: designation?.weapon ? BLOCK.AIR : designation?.block ?? BLOCK.STONE, weapon: designation?.weapon });
     }
   }
   }
@@ -219,8 +219,8 @@ export function expireClaims(api, castle) {
   for (const npc of ownNpcs(api, castle)) {
     if (npc.jobId === null || npc.jobId === undefined) continue;
     const held = castle.jobs?.find(j=>j.id===npc.jobId);
-    const urgent = held?.kind===JOB.REPAIR && held.priority===0 && castle.jobs.some(j=>j.kind===JOB.BUILD
-      && j.priority>held.priority && j.priority>=2 && j.reachable && j.claimedBy.length<j.slots && buildReady(api,castle,j));
+    const urgent = (held?.kind===JOB.REPAIR&&held.priority===0||held?.kind===JOB.BUILD&&held.priority<3) && castle.jobs.some(j=>j.kind===JOB.BUILD
+      && j.priority>held.priority && j.priority>=2 && j.reachable && (j.blockedNpcUntil?.[npc.id] ?? 0)<=api.tick && matching(npc,j) && j.claimedBy.length<j.slots && buildReady(api,castle,j));
     const preempted = urgent || npc.hp <= 0 || npc.deserting || npc.state === NPC_STATE.FLEE || npc.state === NPC_STATE.SHELTER || npc.state === NPC_STATE.DEAD;
     const broken = npc.pathNavVersion !== castle.plot.navVersion && !pathValid(castle.plot, npc.path, Math.max(0, npc.pathIndex - 1));
     if (preempted || broken || api.tick - npc.lastProgressTick > ticks(T.npc.claimTimeoutS)) releaseClaim(castle, npc);

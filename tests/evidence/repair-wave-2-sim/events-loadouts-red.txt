@@ -1,0 +1,20 @@
+✖ tests/unit/plugin-wave2-loadouts.test.js (126.480923ms)
+✖ tests/unit/sim-wave2-events.test.js (164.376957ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 174.011393
+
+✖ failing tests:
+
+test at tests/unit/plugin-wave2-loadouts.test.js:1:1
+✖ tests/unit/plugin-wave2-loadouts.test.js (126.480923ms)
+  'test failed'
+
+test at tests/unit/sim-wave2-events.test.js:1:1
+✖ tests/unit/sim-wave2-events.test.js (164.376957ms)
+  'test failed'

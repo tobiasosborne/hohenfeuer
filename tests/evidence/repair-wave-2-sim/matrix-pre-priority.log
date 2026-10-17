@@ -1,0 +1,27 @@
+worker ready
+worker ready
+worker ready
+progress 1: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 1, palace 1.000/1.000, shots 2/2
+progress 3: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 2, palace 1.000/1.000, shots 5/5
+progress 3: minute 2, palace 0.989/1.000, shots 5/4
+progress 2: minute 2, palace 1.000/1.000, shots 5/5
+progress 3: minute 3, palace 0.989/0.989, shots 8/7
+progress 1: minute 3, palace 1.000/1.000, shots 7/7
+progress 3: minute 4, palace 0.983/0.984, shots 10/9
+progress 2: minute 3, palace 1.000/1.000, shots 7/7
+progress 3: minute 5, palace 0.964/0.958, shots 13/12
+progress 1: minute 4, palace 0.999/1.000, shots 9/9
+progress 2: minute 4, palace 1.000/0.999, shots 9/9
+progress 3: minute 6, palace 0.842/0.936, shots 16/14
+progress 3: minute 7, palace 0.806/0.910, shots 18/17
+progress 1: minute 5, palace 0.999/1.000, shots 12/12
+progress 3: minute 8, palace 0.782/0.751, shots 21/20
+progress 2: minute 5, palace 1.000/0.999, shots 12/12
+progress 3: minute 9, palace 0.673/0.725, shots 23/22
+progress 1: minute 6, palace 0.990/1.000, shots 14/14
+progress 2: minute 6, palace 1.000/0.990, shots 14/14
+progress 3: minute 10, palace 0.609/0.689, shots 26/25
+progress 1: minute 7, palace 0.983/1.000, shots 16/17
+progress 2: minute 7, palace 1.000/0.983, shots 17/16

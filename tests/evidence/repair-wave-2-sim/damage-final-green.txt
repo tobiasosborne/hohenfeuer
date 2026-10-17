@@ -1,0 +1,13 @@
+✔ TB2: direct target excludes splash, collateral rounds upward, foundation survives (5.632802ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (0.807836ms)
+✔ palace below the opening defeat line, ruler death, surrender and simultaneous draw resolve in order (1.110575ms)
+✔ economy applies palace and civilian income and caps gold (0.391788ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (0.420399ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18.734435

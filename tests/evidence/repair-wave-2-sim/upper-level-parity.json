@@ -1,0 +1,42 @@
+{
+  "allLevels5To10AllObservations0To64": "tests/unit/ai-wave2-opportunity.test.js",
+  "windBiasMemoryGate": "levels >=5 satisfy both the old threshold 4 and final threshold 3",
+  "replays": [
+    {
+      "level": 5,
+      "seed": 1,
+      "hash": 305535892,
+      "fieldsEqual": {
+        "hash": true,
+        "ticks": true,
+        "winnerSlot": true,
+        "eliminationReason": true,
+        "sides": true,
+        "shotEvents": true,
+        "minuteCurve": true,
+        "rulerIntent": true,
+        "firstGunLoss": true
+      },
+      "beforeSource": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+      "afterSource": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380"
+    },
+    {
+      "level": 8,
+      "seed": 1,
+      "hash": 3005864900,
+      "fieldsEqual": {
+        "hash": true,
+        "ticks": true,
+        "winnerSlot": true,
+        "eliminationReason": true,
+        "sides": true,
+        "shotEvents": true,
+        "minuteCurve": true,
+        "rulerIntent": true,
+        "firstGunLoss": true
+      },
+      "beforeSource": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+      "afterSource": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (5.302083ms)
+✖ a worker below a broken ladder clears its missing rung so it can be designated (257.732628ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 275.970011
+
+✖ failing tests:
+
+test at tests/unit/npc-wave2-recovery.test.js:22:1
+✖ a worker below a broken ladder clears its missing rung so it can be designated (257.732628ms)
+  AssertionError [ERR_ASSERTION]: must move its head out of the missing ladder cell
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-wave2-recovery.test.js:30:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

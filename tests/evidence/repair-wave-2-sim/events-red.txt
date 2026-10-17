@@ -1,0 +1,62 @@
+✖ every idle reason is causal, updated each tick, and emitted only on change (34.573374ms)
+✖ ruler death carries the actual projectile and weapon, including splash (1.002071ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 44.378227
+
+✖ failing tests:
+
+test at tests/unit/sim-wave2-events.test.js:11:1
+✖ every idle reason is causal, updated each tick, and emitted only on change (34.573374ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'ready'
+  
+      at check (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave2-events.test.js:18:30)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave2-events.test.js:23:3)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-wave2-events.test.js:37:1
+✖ ruler death carries the actual projectile and weapon, including splash (1.002071ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      cause: 'blast',
+  -   fromCastle: 1,
+  -   fromWeapon: 7,
+  -   projectileId: 81,
+      slot: 0
+    }
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave2-events.test.js:40:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Object],
+    expected: [Object],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

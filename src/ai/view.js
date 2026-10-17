@@ -31,7 +31,7 @@ export function weaponDefinition(weapon) {
   if (registered) return registered;
   const row = T.weapons[id];
   if (!row) return null;
-  if (!fallbackDefs.has(id)) fallbackDefs.set(id, Object.freeze({ ...row, id, elevDeg: row.traj === TRAJ.LOBBED ? T.aim.lobbedElevDeg : T.aim.straightElevDeg }));
+  if (!fallbackDefs.has(id)) fallbackDefs.set(id, Object.freeze({ ...row, id, ammoLoads:1, elevDeg: row.traj === TRAJ.LOBBED ? T.aim.lobbedElevDeg : T.aim.straightElevDeg }));
   return fallbackDefs.get(id);
 }
 

@@ -1,0 +1,15 @@
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (537.611409ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (197.979759ms)
+✔ AI prepares paid flank batteries and replaces a lost front gun away from the breach (222.475019ms)
+✔ a threatened AI ruler walks to cover through normal next-tick movement commands (515.3255ms)
+✔ a ruler responds again when later impacts expose its previous shelter (329.070389ms)
+✔ ruler shelter search includes covered buildings away from the palace firing lane (301.677222ms)
+✔ a protected palace is breached at the wall base instead of repeatedly aiming behind it (213.783866ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2345.48836

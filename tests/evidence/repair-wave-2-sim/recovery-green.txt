@@ -1,0 +1,9 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (1.449014ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5.806801

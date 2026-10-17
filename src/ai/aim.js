@@ -72,8 +72,8 @@ export function createAimMemory(targetId, castleSlot) {
 export function aimNoise(level, observations) {
   if (!Number.isInteger(level) || level < T.ai.levelMin || level > T.ai.levelMax) throw new RangeError('Invalid AI level');
   const factor = T.ai.levelMax + 1 - level;
-  const floor = T.ai.sMinCoefDeg * factor * factor;
-  const rangeFloor = T.ai.sMinRangeCoef * factor ** T.ai.sMinRangeExponent;
+  const floor = Math.min(level>=T.ai.trainedMinLevel?T.ai.trainedAzMaxDeg:Infinity,T.ai.sMinCoefDeg * factor * factor);
+  const rangeFloor = Math.min(level>=T.ai.trainedMinLevel?T.ai.sMinRangeMax:Infinity, T.ai.sMinRangeCoef * factor ** T.ai.sMinRangeExponent);
   const decay = pow(T.ai.shrink, Math.max(0, observations));
   const azDeg = T.ai.sAz0PerLevelDeg * factor * decay;
   const rangeFrac = T.ai.sR0PerLevel * factor * decay;

@@ -114,7 +114,9 @@ Rules:
   4 s (free; gold is paid per shot, see 3.5). When a magazine cell is destroyed with stock s >= 1:
   explosion at that cell, splash `30 + 2s` dp (max 70), radius `2 + 0.1s` m (max 4), stock = 0.
   Tuning switch `magazineExplosions` (default on).
-- **Palace integrity** = sum(hp of palace cells) / initial sum. Destroyed when < 30%.
+- **Palace integrity** = sum(hp of palace cells) / initial sum. Destroyed when below the defeat
+  line: 20% until minute 10, rising quadratically to 55% by minute 15 (`keepCracking`; measured in
+  research/17 and research/20; palace cells 96 hp).
 - **Fire** (Phase 3, fire weapons only): an ignited burnable block burns 10 s at 2 dp/s; each
   second each burnable 6-neighbour ignites with p = 0.15 (sim RNG). Stone never burns (EN p.44).
 
@@ -282,9 +284,11 @@ Original columns from EN pp.41-48; v0, elevation band, k, scatter, damage are de
 ### 3.7 Win / lose (per slot)
 
 A castle is eliminated when, checked in this order at end of tick:
-1. **Palace destroyed:** palace integrity < 30% (EN p.36 "palace destroyed = defeat").
+1. **Palace destroyed:** palace integrity below the defeat line (20% -> 55% between minutes 10
+   and 15; EN p.36 "palace destroyed = defeat" was a fixed 30%; the ramp is ours, for pacing).
 2. **Ruler killed:** the slot's ruler entity dies (human or AI ruler; both are mortal).
-3. **Surrender:** morale <= 10 for 45 continuous seconds, or population < 25% of start.
+3. **Surrender:** morale <= 20 for 45 continuous seconds, or population < 35% of start
+   (wave 2: the earlier 10 / 25% were unreachable within a match; research/19 section 6).
 Last castle (or team) standing wins; eliminations in the same tick are a draw between them.
 An eliminated human enters ghost view (free first-person fly, no interaction, EN p.26).
 End screen: battle stats from EN pp.34-35: shots, direct hits, accuracy, damage dealt in dp and
@@ -293,9 +297,11 @@ gold value, losses, playing time.
 ### 3.8 Economy
 
 Start gold 2000. Income per second: palace 6 g + 0.25 g per civilian at work (40 pop: ~9 g/s).
-Cap 4000 g (original ~2000 without treasury, EN p.39, doubled because there is no treasury).
+Start 1500 g, cap 2000 g (the original's, research/10); income 3 g/s plus 0.1 g/s per working
+civilian (wave 1 halved both so that shots, repairs and replacements compete; research/17).
 Spending: shots (fire cost), designations (block or weapon cost, reserved at designation time,
-refunded on cancel), repairs (`cost * missingFraction * 0.5`, paid as the mason works).
+refunded on cancel), repairs (`cost * missingFraction * 0.8`, paid as the mason works; demolition
+salvage 50%; a destroyed weapon returns 50% of its price as wreck material).
 **Pacing target:** a duel vs AI level 5 lasts 12-20 minutes. Knobs, in this order: palace block
 hp, palace-destroyed threshold, direct damage, income. Measured by the headless AI-vs-AI runs.
 

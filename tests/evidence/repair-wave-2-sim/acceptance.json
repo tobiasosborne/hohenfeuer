@@ -1,0 +1,6160 @@
+{
+  "focal": {
+    "matches": 40,
+    "slotWins": [
+      20,
+      20
+    ],
+    "slotWinShares": [
+      0.5,
+      0.5
+    ],
+    "timeouts": 0,
+    "lengthMinS": 502.43333333333334,
+    "lengthMeanS": 848.0516666666665,
+    "lengthMaxS": 1032.3333333333333,
+    "lengthStdDevS": 107.04927446689626,
+    "pacingPass": 36,
+    "goldAtCapShares": [
+      0,
+      0
+    ],
+    "goldNearCapShares": [
+      0,
+      0
+    ],
+    "maxGoldAtCapShare": 0,
+    "goldNearZeroMeanShare": 0.0013864589663219492,
+    "firstGunMatches": 8,
+    "firstGunComebacks": 2,
+    "firstGunComebackShare": 0.25,
+    "palaceStepsPass": 40,
+    "palaceStallPass": 40,
+    "fireWindowPass": 40,
+    "maxNoFireS": 71,
+    "maxReadyNoFireS": 71,
+    "shots": [
+      34.475,
+      34.475
+    ],
+    "hits": [
+      33.9,
+      33.9
+    ],
+    "blocksBuilt": 13.05,
+    "blocksRepaired": 46.1,
+    "npcDeaths": 14.775,
+    "reasons": {
+      "palace": 26,
+      "ruler": 10,
+      "surrender": 4
+    },
+    "independentSeeds": 20,
+    "physicalWins": [
+      12,
+      28
+    ],
+    "firstShotsPass": 80,
+    "sideCount": 80,
+    "firstShotMaxS": 17.566666666666666,
+    "endingsBefore7": 0,
+    "lowMotionOver3Min": 34,
+    "lowMotionMaxS": 508,
+    "actualLongGaps": [],
+    "readyLongSides": [],
+    "rulerIntent": [
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 681.4666666666667,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 681.4666666666667,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 11,
+        "swap": false,
+        "second": 788.6,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1323
+      },
+      {
+        "seed": 11,
+        "swap": true,
+        "second": 788.6,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1323
+      },
+      {
+        "seed": 12,
+        "swap": false,
+        "second": 862.0666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 150,
+        "targetKind": "ruler",
+        "exposureTicks": 3902
+      },
+      {
+        "seed": 12,
+        "swap": true,
+        "second": 862.0666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 150,
+        "targetKind": "ruler",
+        "exposureTicks": 3902
+      },
+      {
+        "seed": 14,
+        "swap": false,
+        "second": 812.5,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 148,
+        "targetKind": "ruler",
+        "exposureTicks": 4875
+      },
+      {
+        "seed": 14,
+        "swap": true,
+        "second": 812.5,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 148,
+        "targetKind": "ruler",
+        "exposureTicks": 4875
+      },
+      {
+        "seed": 16,
+        "swap": false,
+        "second": 502.43333333333334,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 125,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 16,
+        "swap": true,
+        "second": 502.43333333333334,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 125,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      }
+    ],
+    "moraleClockFinishes": 0,
+    "moraleCrossings": [
+      {
+        "seed": 15,
+        "swap": false,
+        "second": 788.0333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.993821131862894,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4991579861111111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 15,
+        "swap": false,
+        "second": 798.8333333333334,
+        "slot": 0,
+        "below": false,
+        "morale": 28.247424784489716,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4991579861111111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 15,
+        "swap": false,
+        "second": 813.4333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.98535770365876,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.49337456597222223
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.325
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 20
+      },
+      {
+        "seed": 15,
+        "swap": true,
+        "second": 788.0333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.993821131862894,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4991579861111111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 15,
+        "swap": true,
+        "second": 798.8333333333334,
+        "slot": 1,
+        "below": false,
+        "morale": 28.247424784489716,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4991579861111111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 15,
+        "swap": true,
+        "second": 813.4333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.98535770365876,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.49337456597222223
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.325
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 20
+      }
+    ],
+    "independentFirstGunCases": 4,
+    "independentFirstGunComebacks": 1
+  },
+  "matrix": {
+    "matches": 60,
+    "slotWins": [
+      30,
+      30
+    ],
+    "slotWinShares": [
+      0.5,
+      0.5
+    ],
+    "timeouts": 0,
+    "lengthMinS": 460.8333333333333,
+    "lengthMeanS": 875.8544444444447,
+    "lengthMaxS": 1172.3333333333333,
+    "lengthStdDevS": 172.25980023366796,
+    "pacingPass": 48,
+    "goldAtCapShares": [
+      0,
+      0
+    ],
+    "goldNearCapShares": [
+      0,
+      0
+    ],
+    "maxGoldAtCapShare": 0,
+    "goldNearZeroMeanShare": 0.016138150886692935,
+    "firstGunMatches": 18,
+    "firstGunComebacks": 6,
+    "firstGunComebackShare": 0.3333333333333333,
+    "palaceStepsPass": 60,
+    "palaceStallPass": 58,
+    "fireWindowPass": 60,
+    "maxNoFireS": 54,
+    "maxReadyNoFireS": 54,
+    "shots": [
+      35.666666666666664,
+      35.666666666666664
+    ],
+    "hits": [
+      34.916666666666664,
+      34.916666666666664
+    ],
+    "blocksBuilt": 12.75,
+    "blocksRepaired": 50.833333333333336,
+    "npcDeaths": 16.3,
+    "reasons": {
+      "palace": 34,
+      "ruler": 14,
+      "surrender": 12
+    },
+    "independentSeeds": 10,
+    "physicalWins": [
+      24,
+      36
+    ],
+    "firstShotsPass": 120,
+    "sideCount": 120,
+    "firstShotMaxS": 17.566666666666666,
+    "endingsBefore7": 0,
+    "lowMotionOver3Min": 44,
+    "lowMotionMaxS": 700,
+    "actualLongGaps": [],
+    "readyLongSides": [],
+    "rulerIntent": [
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 681.4666666666667,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 681.4666666666667,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 2,
+        "swap": false,
+        "second": 521.3333333333334,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 124,
+        "targetKind": "shieldWall",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 2,
+        "swap": true,
+        "second": 521.3333333333334,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 124,
+        "targetKind": "shieldWall",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 1,
+        "swap": false,
+        "second": 698.5666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1142
+      },
+      {
+        "seed": 1,
+        "swap": true,
+        "second": 698.5666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1142
+      },
+      {
+        "seed": 2,
+        "swap": false,
+        "second": 460.8333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 122,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 2,
+        "swap": true,
+        "second": 460.8333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 122,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 5,
+        "swap": false,
+        "second": 692.0666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1487
+      },
+      {
+        "seed": 5,
+        "swap": true,
+        "second": 692.0666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1487
+      },
+      {
+        "seed": 7,
+        "swap": false,
+        "second": 735.5333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 646
+      },
+      {
+        "seed": 7,
+        "swap": true,
+        "second": 735.5333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 3,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 646
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 750,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1440
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 750,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 3,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1440
+      }
+    ],
+    "moraleClockFinishes": 4,
+    "moraleCrossings": [
+      {
+        "seed": 7,
+        "swap": false,
+        "second": 843.5,
+        "slot": 0,
+        "below": true,
+        "morale": 19.999512852843097,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1420182291666667
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.75
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 7,
+        "swap": true,
+        "second": 843.5,
+        "slot": 1,
+        "below": true,
+        "morale": 19.999512852843097,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1420182291666667
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.75
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 749.3333333333334,
+        "slot": 1,
+        "below": true,
+        "morale": 19.260607700989567,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11451171875
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.45
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 762.3,
+        "slot": 1,
+        "below": false,
+        "morale": 30.90318365810893,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11013888888888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 781.3333333333334,
+        "slot": 1,
+        "below": true,
+        "morale": 19.992527693978577,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3625
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 788.8,
+        "slot": 1,
+        "below": false,
+        "morale": 21.183811303983475,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 794.1333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.995602453968495,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 749.3333333333334,
+        "slot": 0,
+        "below": true,
+        "morale": 19.260607700989567,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11451171875
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.45
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 762.3,
+        "slot": 0,
+        "below": false,
+        "morale": 30.90318365810893,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11013888888888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 781.3333333333334,
+        "slot": 0,
+        "below": true,
+        "morale": 19.992527693978577,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3625
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 788.8,
+        "slot": 0,
+        "below": false,
+        "morale": 21.183811303983475,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 794.1333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.995602453968495,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 628.9,
+        "slot": 0,
+        "below": true,
+        "morale": 19.02020864842597,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 632.1666666666666,
+        "slot": 0,
+        "below": false,
+        "morale": 31.465078676026643,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 653.9666666666667,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99218349353975,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 658.7,
+        "slot": 0,
+        "below": false,
+        "morale": 20.03962150946765,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 658.8,
+        "slot": 0,
+        "below": true,
+        "morale": 19.98192541960059,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 628.9,
+        "slot": 1,
+        "below": true,
+        "morale": 19.02020864842597,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 632.1666666666666,
+        "slot": 1,
+        "below": false,
+        "morale": 31.465078676026643,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 653.9666666666667,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99218349353975,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 658.7,
+        "slot": 1,
+        "below": false,
+        "morale": 20.03962150946765,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 658.8,
+        "slot": 1,
+        "below": true,
+        "morale": 19.98192541960059,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      }
+    ],
+    "independentFirstGunCases": 9,
+    "independentFirstGunComebacks": 3
+  },
+  "matrixBeforeTrainedCap": {
+    "matches": 60,
+    "slotWins": [
+      29,
+      29
+    ],
+    "slotWinShares": [
+      0.48333333333333334,
+      0.48333333333333334
+    ],
+    "timeouts": 2,
+    "lengthMinS": 460.8333333333333,
+    "lengthMeanS": 899.3888888888891,
+    "lengthMaxS": 1200,
+    "lengthStdDevS": 173.1140320677831,
+    "pacingPass": 48,
+    "goldAtCapShares": [
+      0,
+      0
+    ],
+    "goldNearCapShares": [
+      0,
+      0
+    ],
+    "maxGoldAtCapShare": 0,
+    "goldNearZeroMeanShare": 0.01813803224859078,
+    "firstGunMatches": 16,
+    "firstGunComebacks": 4,
+    "firstGunComebackShare": 0.25,
+    "palaceStepsPass": 58,
+    "palaceStallPass": 58,
+    "fireWindowPass": 60,
+    "maxNoFireS": 54,
+    "maxReadyNoFireS": 54,
+    "shots": [
+      36.63333333333333,
+      36.63333333333333
+    ],
+    "hits": [
+      35.86666666666667,
+      35.86666666666667
+    ],
+    "blocksBuilt": 12.9,
+    "blocksRepaired": 52.11666666666667,
+    "npcDeaths": 16.866666666666667,
+    "reasons": {
+      "palace": 30,
+      "ruler": 16,
+      "surrender": 12,
+      "timeout": 2
+    },
+    "independentSeeds": 10,
+    "physicalWins": [
+      22,
+      36
+    ],
+    "firstShotsPass": 120,
+    "sideCount": 120,
+    "firstShotMaxS": 17.566666666666666,
+    "endingsBefore7": 0,
+    "lowMotionOver3Min": 42,
+    "lowMotionMaxS": 636,
+    "actualLongGaps": [],
+    "readyLongSides": [],
+    "rulerIntent": [
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 681.4666666666667,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 681.4666666666667,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 138,
+        "targetKind": "ruler",
+        "exposureTicks": 764
+      },
+      {
+        "seed": 1,
+        "swap": false,
+        "second": 698.5666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1142
+      },
+      {
+        "seed": 1,
+        "swap": true,
+        "second": 698.5666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1142
+      },
+      {
+        "seed": 2,
+        "swap": false,
+        "second": 1120.9666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 172,
+        "targetKind": "ruler",
+        "exposureTicks": 1319
+      },
+      {
+        "seed": 2,
+        "swap": true,
+        "second": 1120.9666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 171,
+        "targetKind": "ruler",
+        "exposureTicks": 1319
+      },
+      {
+        "seed": 2,
+        "swap": false,
+        "second": 460.8333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 122,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 2,
+        "swap": true,
+        "second": 460.8333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 122,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 5,
+        "swap": false,
+        "second": 692.0666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1487
+      },
+      {
+        "seed": 5,
+        "swap": true,
+        "second": 692.0666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 1487
+      },
+      {
+        "seed": 6,
+        "swap": false,
+        "second": 945.8666666666667,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 157,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 6,
+        "swap": true,
+        "second": 945.8666666666667,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 157,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 7,
+        "swap": false,
+        "second": 735.5333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 646
+      },
+      {
+        "seed": 7,
+        "swap": true,
+        "second": 735.5333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 3,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 646
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 750,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1440
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 750,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 3,
+        "projectileId": 147,
+        "targetKind": "ruler",
+        "exposureTicks": 1440
+      }
+    ],
+    "moraleClockFinishes": 2,
+    "moraleCrossings": [
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 749.3333333333334,
+        "slot": 1,
+        "below": true,
+        "morale": 19.260607700989567,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11451171875
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.45
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 762.3,
+        "slot": 1,
+        "below": false,
+        "morale": 30.90318365810893,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11013888888888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 781.3333333333334,
+        "slot": 1,
+        "below": true,
+        "morale": 19.992527693978577,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3625
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 788.8,
+        "slot": 1,
+        "below": false,
+        "morale": 21.183811303983475,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 794.1333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.995602453968495,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 749.3333333333334,
+        "slot": 0,
+        "below": true,
+        "morale": 19.260607700989567,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11451171875
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.45
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 762.3,
+        "slot": 0,
+        "below": false,
+        "morale": 30.90318365810893,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.11013888888888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 781.3333333333334,
+        "slot": 0,
+        "below": true,
+        "morale": 19.992527693978577,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3625
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 788.8,
+        "slot": 0,
+        "below": false,
+        "morale": 21.183811303983475,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 794.1333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.995602453968495,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13411892361111113
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.16249999999999998
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 17
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 628.9,
+        "slot": 0,
+        "below": true,
+        "morale": 19.02020864842597,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 632.1666666666666,
+        "slot": 0,
+        "below": false,
+        "morale": 31.465078676026643,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 653.9666666666667,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99218349353975,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 658.7,
+        "slot": 0,
+        "below": false,
+        "morale": 20.03962150946765,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 658.8,
+        "slot": 0,
+        "below": true,
+        "morale": 19.98192541960059,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 628.9,
+        "slot": 1,
+        "below": true,
+        "morale": 19.02020864842597,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 632.1666666666666,
+        "slot": 1,
+        "below": false,
+        "morale": 31.465078676026643,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.21043185763888886
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.6000000000000001
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 653.9666666666667,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99218349353975,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 658.7,
+        "slot": 1,
+        "below": false,
+        "morale": 20.03962150946765,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 658.8,
+        "slot": 1,
+        "below": true,
+        "morale": 19.98192541960059,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.44358072916666663
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.2
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 14
+      }
+    ],
+    "independentFirstGunCases": 8,
+    "independentFirstGunComebacks": 2
+  },
+  "matrixByLevel": {
+    "3": {
+      "matches": 20,
+      "slotWins": [
+        10,
+        10
+      ],
+      "slotWinShares": [
+        0.5,
+        0.5
+      ],
+      "timeouts": 0,
+      "lengthMinS": 521.3333333333334,
+      "lengthMeanS": 1002.4999999999998,
+      "lengthMaxS": 1172.3333333333333,
+      "lengthStdDevS": 180.54864841489243,
+      "pacingPass": 18,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.043881198979097764,
+      "firstGunMatches": 2,
+      "firstGunComebacks": 2,
+      "firstGunComebackShare": 1,
+      "palaceStepsPass": 20,
+      "palaceStallPass": 18,
+      "fireWindowPass": 20,
+      "maxNoFireS": 42.5,
+      "maxReadyNoFireS": 42.5,
+      "shots": [
+        39.8,
+        39.8
+      ],
+      "hits": [
+        38.45,
+        38.45
+      ],
+      "blocksBuilt": 12.35,
+      "blocksRepaired": 49.75,
+      "npcDeaths": 15.05,
+      "reasons": {
+        "palace": 14,
+        "ruler": 2,
+        "surrender": 4
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        6,
+        14
+      ],
+      "firstShotsPass": 40,
+      "sideCount": 40,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 20,
+      "lowMotionMaxS": 700,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 2,
+          "swap": false,
+          "second": 521.3333333333334,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 124,
+          "targetKind": "shieldWall",
+          "exposureTicks": 0
+        },
+        {
+          "seed": 2,
+          "swap": true,
+          "second": 521.3333333333334,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 124,
+          "targetKind": "shieldWall",
+          "exposureTicks": 0
+        }
+      ],
+      "moraleClockFinishes": 2,
+      "moraleCrossings": [
+        {
+          "seed": 7,
+          "swap": false,
+          "second": 843.5,
+          "slot": 0,
+          "below": true,
+          "morale": 19.999512852843097,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1420182291666667
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.75
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 7,
+          "swap": true,
+          "second": 843.5,
+          "slot": 1,
+          "below": true,
+          "morale": 19.999512852843097,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1420182291666667
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.75
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        }
+      ],
+      "independentFirstGunCases": 1,
+      "independentFirstGunComebacks": 1
+    },
+    "5": {
+      "matches": 20,
+      "slotWins": [
+        10,
+        10
+      ],
+      "slotWinShares": [
+        0.5,
+        0.5
+      ],
+      "timeouts": 0,
+      "lengthMinS": 681.4666666666667,
+      "lengthMeanS": 887.1166666666664,
+      "lengthMaxS": 1032.3333333333333,
+      "lengthStdDevS": 90.45795862044297,
+      "pacingPass": 18,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.0002357656489449487,
+      "firstGunMatches": 2,
+      "firstGunComebacks": 2,
+      "firstGunComebackShare": 1,
+      "palaceStepsPass": 20,
+      "palaceStallPass": 20,
+      "fireWindowPass": 20,
+      "maxNoFireS": 37.5,
+      "maxReadyNoFireS": 37.5,
+      "shots": [
+        36.1,
+        36.1
+      ],
+      "hits": [
+        35.45,
+        35.45
+      ],
+      "blocksBuilt": 12.85,
+      "blocksRepaired": 53.35,
+      "npcDeaths": 16.75,
+      "reasons": {
+        "palace": 14,
+        "ruler": 2,
+        "surrender": 4
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        8,
+        12
+      ],
+      "firstShotsPass": 40,
+      "sideCount": 40,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 18,
+      "lowMotionMaxS": 508,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 681.4666666666667,
+          "slot": 0,
+          "cause": "projectile",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 138,
+          "targetKind": "ruler",
+          "exposureTicks": 764
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 681.4666666666667,
+          "slot": 1,
+          "cause": "projectile",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 138,
+          "targetKind": "ruler",
+          "exposureTicks": 764
+        }
+      ],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [],
+      "independentFirstGunCases": 1,
+      "independentFirstGunComebacks": 1
+    },
+    "8": {
+      "matches": 20,
+      "slotWins": [
+        10,
+        10
+      ],
+      "slotWinShares": [
+        0.5,
+        0.5
+      ],
+      "timeouts": 0,
+      "lengthMinS": 460.8333333333333,
+      "lengthMeanS": 737.9466666666666,
+      "lengthMaxS": 883.2666666666667,
+      "lengthStdDevS": 114.26009821650095,
+      "pacingPass": 12,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.004297488032036091,
+      "firstGunMatches": 14,
+      "firstGunComebacks": 2,
+      "firstGunComebackShare": 0.14285714285714285,
+      "palaceStepsPass": 20,
+      "palaceStallPass": 20,
+      "fireWindowPass": 20,
+      "maxNoFireS": 54,
+      "maxReadyNoFireS": 54,
+      "shots": [
+        31.1,
+        31.1
+      ],
+      "hits": [
+        30.85,
+        30.85
+      ],
+      "blocksBuilt": 13.05,
+      "blocksRepaired": 49.4,
+      "npcDeaths": 17.1,
+      "reasons": {
+        "ruler": 10,
+        "palace": 6,
+        "surrender": 4
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        10,
+        10
+      ],
+      "firstShotsPass": 40,
+      "sideCount": 40,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 6,
+      "lowMotionMaxS": 276,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 1,
+          "swap": false,
+          "second": 698.5666666666667,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 1142
+        },
+        {
+          "seed": 1,
+          "swap": true,
+          "second": 698.5666666666667,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 1142
+        },
+        {
+          "seed": 2,
+          "swap": false,
+          "second": 460.8333333333333,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 122,
+          "targetKind": "palace",
+          "exposureTicks": 0
+        },
+        {
+          "seed": 2,
+          "swap": true,
+          "second": 460.8333333333333,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 122,
+          "targetKind": "palace",
+          "exposureTicks": 0
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 692.0666666666667,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 1487
+        },
+        {
+          "seed": 5,
+          "swap": true,
+          "second": 692.0666666666667,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 1487
+        },
+        {
+          "seed": 7,
+          "swap": false,
+          "second": 735.5333333333333,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 1,
+          "projectileId": 145,
+          "targetKind": "ruler",
+          "exposureTicks": 646
+        },
+        {
+          "seed": 7,
+          "swap": true,
+          "second": 735.5333333333333,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 3,
+          "projectileId": 145,
+          "targetKind": "ruler",
+          "exposureTicks": 646
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 750,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 1,
+          "projectileId": 147,
+          "targetKind": "ruler",
+          "exposureTicks": 1440
+        },
+        {
+          "seed": 10,
+          "swap": true,
+          "second": 750,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 3,
+          "projectileId": 147,
+          "targetKind": "ruler",
+          "exposureTicks": 1440
+        }
+      ],
+      "moraleClockFinishes": 2,
+      "moraleCrossings": [
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 749.3333333333334,
+          "slot": 1,
+          "below": true,
+          "morale": 19.260607700989567,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11451171875
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.45
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 762.3,
+          "slot": 1,
+          "below": false,
+          "morale": 30.90318365810893,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11013888888888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 781.3333333333334,
+          "slot": 1,
+          "below": true,
+          "morale": 19.992527693978577,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.3625
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 788.8,
+          "slot": 1,
+          "below": false,
+          "morale": 21.183811303983475,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.16249999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 794.1333333333333,
+          "slot": 1,
+          "below": true,
+          "morale": 19.995602453968495,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.16249999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 749.3333333333334,
+          "slot": 0,
+          "below": true,
+          "morale": 19.260607700989567,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11451171875
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.45
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 762.3,
+          "slot": 0,
+          "below": false,
+          "morale": 30.90318365810893,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11013888888888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 781.3333333333334,
+          "slot": 0,
+          "below": true,
+          "morale": 19.992527693978577,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.3625
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 788.8,
+          "slot": 0,
+          "below": false,
+          "morale": 21.183811303983475,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.16249999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 794.1333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.995602453968495,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13411892361111113
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.16249999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 17
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 628.9,
+          "slot": 0,
+          "below": true,
+          "morale": 19.02020864842597,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.21043185763888886
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.6000000000000001
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 632.1666666666666,
+          "slot": 0,
+          "below": false,
+          "morale": 31.465078676026643,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.21043185763888886
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.6000000000000001
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 653.9666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99218349353975,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 658.7,
+          "slot": 0,
+          "below": false,
+          "morale": 20.03962150946765,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 658.8,
+          "slot": 0,
+          "below": true,
+          "morale": 19.98192541960059,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 628.9,
+          "slot": 1,
+          "below": true,
+          "morale": 19.02020864842597,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.21043185763888886
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.6000000000000001
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 632.1666666666666,
+          "slot": 1,
+          "below": false,
+          "morale": 31.465078676026643,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.21043185763888886
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.6000000000000001
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 653.9666666666667,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99218349353975,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 658.7,
+          "slot": 1,
+          "below": false,
+          "morale": 20.03962150946765,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 658.8,
+          "slot": 1,
+          "below": true,
+          "morale": 19.98192541960059,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.44358072916666663
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 14
+        }
+      ],
+      "independentFirstGunCases": 7,
+      "independentFirstGunComebacks": 1
+    }
+  },
+  "unequal": {
+    "matches": 40,
+    "slotWins": [
+      20,
+      20
+    ],
+    "slotWinShares": [
+      0.5,
+      0.5
+    ],
+    "timeouts": 0,
+    "lengthMinS": 605.5333333333333,
+    "lengthMeanS": 829.8233333333332,
+    "lengthMaxS": 1078.3333333333333,
+    "lengthStdDevS": 112.59950567288374,
+    "pacingPass": 32,
+    "goldAtCapShares": [
+      0,
+      0
+    ],
+    "goldNearCapShares": [
+      0.00005399811006614768,
+      0.00005399811006614768
+    ],
+    "maxGoldAtCapShare": 0,
+    "goldNearZeroMeanShare": 0.04007653063241686,
+    "firstGunMatches": 18,
+    "firstGunComebacks": 0,
+    "firstGunComebackShare": 0,
+    "palaceStepsPass": 40,
+    "palaceStallPass": 40,
+    "fireWindowPass": 40,
+    "maxNoFireS": 67,
+    "maxReadyNoFireS": 67,
+    "shots": [
+      34.35,
+      34.35
+    ],
+    "hits": [
+      33.475,
+      33.475
+    ],
+    "blocksBuilt": 13.075,
+    "blocksRepaired": 46.5,
+    "npcDeaths": 15.125,
+    "reasons": {
+      "palace": 18,
+      "ruler": 16,
+      "surrender": 6
+    },
+    "independentSeeds": 10,
+    "physicalWins": [
+      14,
+      26
+    ],
+    "firstShotsPass": 80,
+    "sideCount": 80,
+    "firstShotMaxS": 17.566666666666666,
+    "endingsBefore7": 0,
+    "lowMotionOver3Min": 18,
+    "lowMotionMaxS": 787,
+    "actualLongGaps": [],
+    "readyLongSides": [],
+    "rulerIntent": [
+      {
+        "seed": 1,
+        "swap": false,
+        "second": 830.9,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 151,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 1,
+        "swap": true,
+        "second": 830.9,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 150,
+        "targetKind": "palace",
+        "exposureTicks": 0
+      },
+      {
+        "seed": 2,
+        "swap": false,
+        "second": 740.5333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 144,
+        "targetKind": "ruler",
+        "exposureTicks": 676
+      },
+      {
+        "seed": 2,
+        "swap": true,
+        "second": 740.5333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 144,
+        "targetKind": "ruler",
+        "exposureTicks": 676
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 776,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 146,
+        "targetKind": "ruler",
+        "exposureTicks": 3375
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 776,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 146,
+        "targetKind": "ruler",
+        "exposureTicks": 3375
+      },
+      {
+        "seed": 6,
+        "swap": false,
+        "second": 717.9666666666667,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 2699
+      },
+      {
+        "seed": 6,
+        "swap": true,
+        "second": 717.9666666666667,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 142,
+        "targetKind": "ruler",
+        "exposureTicks": 2699
+      },
+      {
+        "seed": 7,
+        "swap": false,
+        "second": 949.5,
+        "slot": 0,
+        "cause": "projectile",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 166,
+        "targetKind": "ruler",
+        "exposureTicks": 6930
+      },
+      {
+        "seed": 7,
+        "swap": true,
+        "second": 949.5,
+        "slot": 1,
+        "cause": "projectile",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 166,
+        "targetKind": "ruler",
+        "exposureTicks": 6930
+      },
+      {
+        "seed": 7,
+        "swap": false,
+        "second": 605.5333333333333,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 132,
+        "targetKind": "ruler",
+        "exposureTicks": 1351
+      },
+      {
+        "seed": 7,
+        "swap": true,
+        "second": 605.5333333333333,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 3,
+        "projectileId": 132,
+        "targetKind": "ruler",
+        "exposureTicks": 1351
+      },
+      {
+        "seed": 8,
+        "swap": false,
+        "second": 943,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 162,
+        "targetKind": "ruler",
+        "exposureTicks": 4725
+      },
+      {
+        "seed": 8,
+        "swap": true,
+        "second": 943,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 162,
+        "targetKind": "ruler",
+        "exposureTicks": 4725
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 752.5,
+        "slot": 0,
+        "cause": "blast",
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 675
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 752.5,
+        "slot": 1,
+        "cause": "blast",
+        "fromCastle": 0,
+        "fromWeapon": 0,
+        "projectileId": 145,
+        "targetKind": "ruler",
+        "exposureTicks": 675
+      }
+    ],
+    "moraleClockFinishes": 4,
+    "moraleCrossings": [
+      {
+        "seed": 1,
+        "swap": false,
+        "second": 677.6666666666666,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99833659477934,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.6010026041666667
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.25
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 26
+      },
+      {
+        "seed": 1,
+        "swap": true,
+        "second": 677.6666666666666,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99833659477934,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.6010026041666667
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.25
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 26
+      },
+      {
+        "seed": 1,
+        "swap": false,
+        "second": 815.0666666666667,
+        "slot": 1,
+        "below": true,
+        "morale": 19.991579416090584,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4837825520833334
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.28750000000000003
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 1,
+        "swap": true,
+        "second": 815.0666666666667,
+        "slot": 0,
+        "below": true,
+        "morale": 19.991579416090584,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.4837825520833334
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.28750000000000003
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 3,
+        "swap": false,
+        "second": 898.0333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99085362463171,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.19251736111111112
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.175
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 16
+      },
+      {
+        "seed": 3,
+        "swap": true,
+        "second": 898.0333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99085362463171,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.19251736111111112
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.175
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 16
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 718.2,
+        "slot": 0,
+        "below": true,
+        "morale": 19.991081395020892,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.19703125
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 730.7333333333333,
+        "slot": 0,
+        "below": false,
+        "morale": 30.452238957912325,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1898372395833333
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 754.6333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.992293928525086,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1691015625
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 758.9,
+        "slot": 0,
+        "below": false,
+        "morale": 20.534981901723636,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.16684461805555556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 760.7333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.995005775062047,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.16515190972222224
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 718.2,
+        "slot": 1,
+        "below": true,
+        "morale": 19.991081395020892,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.19703125
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 730.7333333333333,
+        "slot": 1,
+        "below": false,
+        "morale": 30.452238957912325,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1898372395833333
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 754.6333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.992293928525086,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.1691015625
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 758.9,
+        "slot": 1,
+        "below": false,
+        "morale": 20.534981901723636,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.16684461805555556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 760.7333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.995005775062047,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.16515190972222224
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.11249999999999999
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 21
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 698.3,
+        "slot": 1,
+        "below": true,
+        "morale": 19.9938697349666,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13637586805555557
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 720.7666666666667,
+        "slot": 1,
+        "below": false,
+        "morale": 26.699445950610063,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13679904513888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": false,
+        "second": 739.0666666666667,
+        "slot": 1,
+        "below": true,
+        "morale": 19.995240204218106,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13679904513888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 698.3,
+        "slot": 0,
+        "below": true,
+        "morale": 19.9938697349666,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13637586805555557
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 720.7666666666667,
+        "slot": 0,
+        "below": false,
+        "morale": 26.699445950610063,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13679904513888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 4,
+        "swap": true,
+        "second": 739.0666666666667,
+        "slot": 0,
+        "below": true,
+        "morale": 19.995240204218106,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.13679904513888888
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.15000000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 18
+      },
+      {
+        "seed": 5,
+        "swap": false,
+        "second": 628.3,
+        "slot": 0,
+        "below": true,
+        "morale": 19.617155398072086,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5255360243055556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.28750000000000003
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 5,
+        "swap": false,
+        "second": 654.2666666666667,
+        "slot": 0,
+        "below": false,
+        "morale": 25.41585275703465,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5490928819444445
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 5,
+        "swap": false,
+        "second": 664.0666666666667,
+        "slot": 0,
+        "below": true,
+        "morale": 19.985994033906408,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5414756944444444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 5,
+        "swap": true,
+        "second": 628.3,
+        "slot": 1,
+        "below": true,
+        "morale": 19.617155398072086,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5255360243055556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.28750000000000003
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 5,
+        "swap": true,
+        "second": 654.2666666666667,
+        "slot": 1,
+        "below": false,
+        "morale": 25.41585275703465,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5490928819444445
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.3
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 5,
+        "swap": true,
+        "second": 664.0666666666667,
+        "slot": 1,
+        "below": true,
+        "morale": 19.985994033906408,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5414756944444444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 706.6666666666666,
+        "slot": 0,
+        "below": true,
+        "morale": 19.994793840904094,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 709.1333333333333,
+        "slot": 0,
+        "below": false,
+        "morale": 20.393888367597608,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 710.0333333333333,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99257246106999,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 732.2333333333333,
+        "slot": 0,
+        "below": false,
+        "morale": 21.604063406856397,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5482465277777777
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": false,
+        "second": 734.8,
+        "slot": 0,
+        "below": true,
+        "morale": 19.99303055177588,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5482465277777777
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 706.6666666666666,
+        "slot": 1,
+        "below": true,
+        "morale": 19.994793840904094,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 709.1333333333333,
+        "slot": 1,
+        "below": false,
+        "morale": 20.393888367597608,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 710.0333333333333,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99257246106999,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5097374131944444
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 732.2333333333333,
+        "slot": 1,
+        "below": false,
+        "morale": 21.604063406856397,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5482465277777777
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 9,
+        "swap": true,
+        "second": 734.8,
+        "slot": 1,
+        "below": true,
+        "morale": 19.99303055177588,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5482465277777777
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.08750000000000002
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ],
+        "population": 23
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 730.3,
+        "slot": 0,
+        "below": true,
+        "morale": 19.515476783889888,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5308962673611111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 739.8,
+        "slot": 0,
+        "below": false,
+        "morale": 28.89428303806377,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5258181423611111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 10,
+        "swap": false,
+        "second": 752.5,
+        "slot": 0,
+        "below": true,
+        "morale": 18.91040275677331,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5052235243055556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.7375
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 19
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 730.3,
+        "slot": 1,
+        "below": true,
+        "morale": 19.515476783889888,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5308962673611111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 739.8,
+        "slot": 1,
+        "below": false,
+        "morale": 28.89428303806377,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5258181423611111
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.09999999999999998
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          },
+          {
+            "cause": "rally",
+            "weight": 15
+          }
+        ],
+        "population": 22
+      },
+      {
+        "seed": 10,
+        "swap": true,
+        "second": 752.5,
+        "slot": 1,
+        "below": true,
+        "morale": 18.91040275677331,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.5052235243055556
+          },
+          {
+            "cause": "deaths",
+            "weight": -0.7375
+          },
+          {
+            "cause": "under-fire",
+            "weight": -0.1
+          }
+        ],
+        "population": 19
+      }
+    ],
+    "independentFirstGunCases": 9,
+    "independentFirstGunComebacks": 0
+  },
+  "unequalByPhysicalAssignment": {
+    "3,8": {
+      "matches": 20,
+      "slotWins": [
+        10,
+        10
+      ],
+      "slotWinShares": [
+        0.5,
+        0.5
+      ],
+      "timeouts": 0,
+      "lengthMinS": 692.2666666666667,
+      "lengthMeanS": 796.4566666666667,
+      "lengthMaxS": 949.5,
+      "lengthStdDevS": 99.8051569030601,
+      "pacingPass": 14,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0.00010799622013229535,
+        0.00010799622013229535
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.06796985786382152,
+      "firstGunMatches": 12,
+      "firstGunComebacks": 0,
+      "firstGunComebackShare": 0,
+      "palaceStepsPass": 20,
+      "palaceStallPass": 20,
+      "fireWindowPass": 20,
+      "maxNoFireS": 67,
+      "maxReadyNoFireS": 67,
+      "shots": [
+        33.55,
+        33.55
+      ],
+      "hits": [
+        32.8,
+        32.8
+      ],
+      "blocksBuilt": 10.75,
+      "blocksRepaired": 39.5,
+      "npcDeaths": 14.6,
+      "reasons": {
+        "palace": 4,
+        "ruler": 12,
+        "surrender": 4
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        0,
+        20
+      ],
+      "firstShotsPass": 40,
+      "sideCount": 40,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 10,
+      "lowMotionMaxS": 787,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 2,
+          "swap": false,
+          "second": 740.5333333333333,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 144,
+          "targetKind": "ruler",
+          "exposureTicks": 676
+        },
+        {
+          "seed": 2,
+          "swap": true,
+          "second": 740.5333333333333,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 144,
+          "targetKind": "ruler",
+          "exposureTicks": 676
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 776,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 146,
+          "targetKind": "ruler",
+          "exposureTicks": 3375
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 776,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 146,
+          "targetKind": "ruler",
+          "exposureTicks": 3375
+        },
+        {
+          "seed": 6,
+          "swap": false,
+          "second": 717.9666666666667,
+          "slot": 0,
+          "cause": "projectile",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 2699
+        },
+        {
+          "seed": 6,
+          "swap": true,
+          "second": 717.9666666666667,
+          "slot": 1,
+          "cause": "projectile",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 142,
+          "targetKind": "ruler",
+          "exposureTicks": 2699
+        },
+        {
+          "seed": 7,
+          "swap": false,
+          "second": 949.5,
+          "slot": 0,
+          "cause": "projectile",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 166,
+          "targetKind": "ruler",
+          "exposureTicks": 6930
+        },
+        {
+          "seed": 7,
+          "swap": true,
+          "second": 949.5,
+          "slot": 1,
+          "cause": "projectile",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 166,
+          "targetKind": "ruler",
+          "exposureTicks": 6930
+        },
+        {
+          "seed": 8,
+          "swap": false,
+          "second": 943,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 162,
+          "targetKind": "ruler",
+          "exposureTicks": 4725
+        },
+        {
+          "seed": 8,
+          "swap": true,
+          "second": 943,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 162,
+          "targetKind": "ruler",
+          "exposureTicks": 4725
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 752.5,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 145,
+          "targetKind": "ruler",
+          "exposureTicks": 675
+        },
+        {
+          "seed": 10,
+          "swap": true,
+          "second": 752.5,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 145,
+          "targetKind": "ruler",
+          "exposureTicks": 675
+        }
+      ],
+      "moraleClockFinishes": 4,
+      "moraleCrossings": [
+        {
+          "seed": 1,
+          "swap": false,
+          "second": 677.6666666666666,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99833659477934,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.6010026041666667
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.25
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 26
+        },
+        {
+          "seed": 1,
+          "swap": true,
+          "second": 677.6666666666666,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99833659477934,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.6010026041666667
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.25
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 26
+        },
+        {
+          "seed": 3,
+          "swap": false,
+          "second": 898.0333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99085362463171,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.19251736111111112
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.175
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 16
+        },
+        {
+          "seed": 3,
+          "swap": true,
+          "second": 898.0333333333333,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99085362463171,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.19251736111111112
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.175
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 16
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 718.2,
+          "slot": 0,
+          "below": true,
+          "morale": 19.991081395020892,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.19703125
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 730.7333333333333,
+          "slot": 0,
+          "below": false,
+          "morale": 30.452238957912325,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1898372395833333
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 754.6333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.992293928525086,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1691015625
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 758.9,
+          "slot": 0,
+          "below": false,
+          "morale": 20.534981901723636,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.16684461805555556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 760.7333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.995005775062047,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.16515190972222224
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 718.2,
+          "slot": 1,
+          "below": true,
+          "morale": 19.991081395020892,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.19703125
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 730.7333333333333,
+          "slot": 1,
+          "below": false,
+          "morale": 30.452238957912325,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1898372395833333
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 754.6333333333333,
+          "slot": 1,
+          "below": true,
+          "morale": 19.992293928525086,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.1691015625
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 758.9,
+          "slot": 1,
+          "below": false,
+          "morale": 20.534981901723636,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.16684461805555556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 760.7333333333333,
+          "slot": 1,
+          "below": true,
+          "morale": 19.995005775062047,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.16515190972222224
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.11249999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 21
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 628.3,
+          "slot": 0,
+          "below": true,
+          "morale": 19.617155398072086,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5255360243055556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.28750000000000003
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 654.2666666666667,
+          "slot": 0,
+          "below": false,
+          "morale": 25.41585275703465,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5490928819444445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.3
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 664.0666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.985994033906408,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5414756944444444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 5,
+          "swap": true,
+          "second": 628.3,
+          "slot": 1,
+          "below": true,
+          "morale": 19.617155398072086,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5255360243055556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.28750000000000003
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 5,
+          "swap": true,
+          "second": 654.2666666666667,
+          "slot": 1,
+          "below": false,
+          "morale": 25.41585275703465,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5490928819444445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.3
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 5,
+          "swap": true,
+          "second": 664.0666666666667,
+          "slot": 1,
+          "below": true,
+          "morale": 19.985994033906408,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5414756944444444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 706.6666666666666,
+          "slot": 0,
+          "below": true,
+          "morale": 19.994793840904094,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 709.1333333333333,
+          "slot": 0,
+          "below": false,
+          "morale": 20.393888367597608,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 710.0333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99257246106999,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 732.2333333333333,
+          "slot": 0,
+          "below": false,
+          "morale": 21.604063406856397,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5482465277777777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": false,
+          "second": 734.8,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99303055177588,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5482465277777777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 706.6666666666666,
+          "slot": 1,
+          "below": true,
+          "morale": 19.994793840904094,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 709.1333333333333,
+          "slot": 1,
+          "below": false,
+          "morale": 20.393888367597608,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 710.0333333333333,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99257246106999,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5097374131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 732.2333333333333,
+          "slot": 1,
+          "below": false,
+          "morale": 21.604063406856397,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5482465277777777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 9,
+          "swap": true,
+          "second": 734.8,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99303055177588,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5482465277777777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 730.3,
+          "slot": 0,
+          "below": true,
+          "morale": 19.515476783889888,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5308962673611111
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 739.8,
+          "slot": 0,
+          "below": false,
+          "morale": 28.89428303806377,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5258181423611111
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 752.5,
+          "slot": 0,
+          "below": true,
+          "morale": 18.91040275677331,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5052235243055556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.7375
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 19
+        },
+        {
+          "seed": 10,
+          "swap": true,
+          "second": 730.3,
+          "slot": 1,
+          "below": true,
+          "morale": 19.515476783889888,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5308962673611111
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 10,
+          "swap": true,
+          "second": 739.8,
+          "slot": 1,
+          "below": false,
+          "morale": 28.89428303806377,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5258181423611111
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 22
+        },
+        {
+          "seed": 10,
+          "swap": true,
+          "second": 752.5,
+          "slot": 1,
+          "below": true,
+          "morale": 18.91040275677331,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5052235243055556
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.7375
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 19
+        }
+      ],
+      "independentFirstGunCases": 6,
+      "independentFirstGunComebacks": 0
+    },
+    "8,3": {
+      "matches": 20,
+      "slotWins": [
+        10,
+        10
+      ],
+      "slotWinShares": [
+        0.5,
+        0.5
+      ],
+      "timeouts": 0,
+      "lengthMinS": 605.5333333333333,
+      "lengthMeanS": 863.1899999999999,
+      "lengthMaxS": 1078.3333333333333,
+      "lengthStdDevS": 114.75869954919418,
+      "pacingPass": 18,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.012183203401012196,
+      "firstGunMatches": 6,
+      "firstGunComebacks": 0,
+      "firstGunComebackShare": 0,
+      "palaceStepsPass": 20,
+      "palaceStallPass": 20,
+      "fireWindowPass": 20,
+      "maxNoFireS": 41.5,
+      "maxReadyNoFireS": 41.5,
+      "shots": [
+        35.15,
+        35.15
+      ],
+      "hits": [
+        34.15,
+        34.15
+      ],
+      "blocksBuilt": 15.4,
+      "blocksRepaired": 53.5,
+      "npcDeaths": 15.65,
+      "reasons": {
+        "ruler": 4,
+        "palace": 14,
+        "surrender": 2
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        14,
+        6
+      ],
+      "firstShotsPass": 40,
+      "sideCount": 40,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 8,
+      "lowMotionMaxS": 570,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 1,
+          "swap": false,
+          "second": 830.9,
+          "slot": 0,
+          "cause": "projectile",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 151,
+          "targetKind": "palace",
+          "exposureTicks": 0
+        },
+        {
+          "seed": 1,
+          "swap": true,
+          "second": 830.9,
+          "slot": 1,
+          "cause": "projectile",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 150,
+          "targetKind": "palace",
+          "exposureTicks": 0
+        },
+        {
+          "seed": 7,
+          "swap": false,
+          "second": 605.5333333333333,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 1,
+          "projectileId": 132,
+          "targetKind": "ruler",
+          "exposureTicks": 1351
+        },
+        {
+          "seed": 7,
+          "swap": true,
+          "second": 605.5333333333333,
+          "slot": 0,
+          "cause": "blast",
+          "fromCastle": 1,
+          "fromWeapon": 3,
+          "projectileId": 132,
+          "targetKind": "ruler",
+          "exposureTicks": 1351
+        }
+      ],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [
+        {
+          "seed": 1,
+          "swap": false,
+          "second": 815.0666666666667,
+          "slot": 1,
+          "below": true,
+          "morale": 19.991579416090584,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.4837825520833334
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.28750000000000003
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 1,
+          "swap": true,
+          "second": 815.0666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.991579416090584,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.4837825520833334
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.28750000000000003
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 23
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 698.3,
+          "slot": 1,
+          "below": true,
+          "morale": 19.9938697349666,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13637586805555557
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 720.7666666666667,
+          "slot": 1,
+          "below": false,
+          "morale": 26.699445950610063,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13679904513888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 739.0666666666667,
+          "slot": 1,
+          "below": true,
+          "morale": 19.995240204218106,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13679904513888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 698.3,
+          "slot": 0,
+          "below": true,
+          "morale": 19.9938697349666,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13637586805555557
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 720.7666666666667,
+          "slot": 0,
+          "below": false,
+          "morale": 26.699445950610063,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13679904513888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 18
+        },
+        {
+          "seed": 4,
+          "swap": true,
+          "second": 739.0666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.995240204218106,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.13679904513888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.15000000000000002
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 18
+        }
+      ],
+      "independentFirstGunCases": 3,
+      "independentFirstGunComebacks": 0
+    }
+  },
+  "biomes": {
+    "forest": {
+      "matches": 10,
+      "slotWins": [
+        4,
+        6
+      ],
+      "slotWinShares": [
+        0.4,
+        0.6
+      ],
+      "timeouts": 0,
+      "lengthMinS": 681.4666666666667,
+      "lengthMeanS": 887.1166666666666,
+      "lengthMaxS": 1032.3333333333333,
+      "lengthStdDevS": 90.45795862044297,
+      "pacingPass": 9,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.0002357656489449487,
+      "firstGunMatches": 1,
+      "firstGunComebacks": 1,
+      "firstGunComebackShare": 1,
+      "palaceStepsPass": 10,
+      "palaceStallPass": 10,
+      "fireWindowPass": 10,
+      "maxNoFireS": 37.5,
+      "maxReadyNoFireS": 37.5,
+      "shots": [
+        35.9,
+        36.3
+      ],
+      "hits": [
+        35.4,
+        35.5
+      ],
+      "blocksBuilt": 12.85,
+      "blocksRepaired": 53.35,
+      "npcDeaths": 16.75,
+      "reasons": {
+        "palace": 7,
+        "ruler": 1,
+        "surrender": 2
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        4,
+        6
+      ],
+      "firstShotsPass": 20,
+      "sideCount": 20,
+      "firstShotMaxS": 17.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 9,
+      "lowMotionMaxS": 508,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 4,
+          "swap": false,
+          "second": 681.4666666666667,
+          "slot": 0,
+          "cause": "projectile",
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 138,
+          "targetKind": "ruler",
+          "exposureTicks": 764
+        }
+      ],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [],
+      "independentFirstGunCases": 1,
+      "independentFirstGunComebacks": 1
+    },
+    "desert": {
+      "matches": 10,
+      "slotWins": [
+        4,
+        6
+      ],
+      "slotWinShares": [
+        0.4,
+        0.6
+      ],
+      "timeouts": 0,
+      "lengthMinS": 691.3,
+      "lengthMeanS": 790.97,
+      "lengthMaxS": 878.7333333333333,
+      "lengthStdDevS": 59.89037290472207,
+      "pacingPass": 8,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.19264254874864972,
+      "firstGunMatches": 0,
+      "firstGunComebacks": 0,
+      "firstGunComebackShare": null,
+      "palaceStepsPass": 10,
+      "palaceStallPass": 10,
+      "fireWindowPass": 10,
+      "maxNoFireS": 73.4,
+      "maxReadyNoFireS": 3.533333333333333,
+      "shots": [
+        30.8,
+        30.8
+      ],
+      "hits": [
+        29.6,
+        29.8
+      ],
+      "blocksBuilt": 98.4,
+      "blocksRepaired": 56.1,
+      "npcDeaths": 17.7,
+      "reasons": {
+        "ruler": 1,
+        "palace": 9
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        4,
+        6
+      ],
+      "firstShotsPass": 20,
+      "sideCount": 20,
+      "firstShotMaxS": 15.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 2,
+      "lowMotionMaxS": 413,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [
+        {
+          "seed": 1,
+          "swap": false,
+          "second": 824.9333333333333,
+          "slot": 1,
+          "cause": "blast",
+          "fromCastle": 0,
+          "fromWeapon": 0,
+          "projectileId": 146,
+          "targetKind": "ruler",
+          "exposureTicks": 1138
+        }
+      ],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 627.5333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.985228168619898,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5909874131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.07500000000000001
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 24
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 630.9666666666667,
+          "slot": 0,
+          "below": false,
+          "morale": 23.124102430462006,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5909874131944444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.07500000000000001
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 24
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 637.3,
+          "slot": 0,
+          "below": true,
+          "morale": 19.997142583479324,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5908463541666666
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.07500000000000001
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 24
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 672,
+          "slot": 0,
+          "below": false,
+          "morale": 22.66135748513365,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5952191840277777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.425
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 20
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 674.7666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.99951740333873,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5952191840277777
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.425
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            }
+          ],
+          "population": 20
+        },
+        {
+          "seed": 10,
+          "swap": false,
+          "second": 776.6,
+          "slot": 1,
+          "below": true,
+          "morale": 19.99419803338679,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.4727799479166666
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.175
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 16
+        }
+      ],
+      "independentFirstGunCases": 0,
+      "independentFirstGunComebacks": 0
+    },
+    "ice": {
+      "matches": 10,
+      "slotWins": [
+        1,
+        9
+      ],
+      "slotWinShares": [
+        0.1,
+        0.9
+      ],
+      "timeouts": 0,
+      "lengthMinS": 699.2666666666667,
+      "lengthMeanS": 807.5,
+      "lengthMaxS": 870.0666666666667,
+      "lengthStdDevS": 49.55131122830602,
+      "pacingPass": 9,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.07471416497234386,
+      "firstGunMatches": 6,
+      "firstGunComebacks": 0,
+      "firstGunComebackShare": 0,
+      "palaceStepsPass": 10,
+      "palaceStallPass": 10,
+      "fireWindowPass": 10,
+      "maxNoFireS": 118.5,
+      "maxReadyNoFireS": 3.533333333333333,
+      "shots": [
+        31.4,
+        32.6
+      ],
+      "hits": [
+        30.5,
+        29.5
+      ],
+      "blocksBuilt": 93.9,
+      "blocksRepaired": 35.4,
+      "npcDeaths": 10,
+      "reasons": {
+        "palace": 10
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        1,
+        9
+      ],
+      "firstShotsPass": 20,
+      "sideCount": 20,
+      "firstShotMaxS": 16.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 2,
+      "lowMotionMaxS": 567,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 738.8,
+          "slot": 0,
+          "below": true,
+          "morale": 19.996529576775963,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5427452256944445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.03749999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 27
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 751.2,
+          "slot": 0,
+          "below": false,
+          "morale": 28.82506168672182,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5427452256944445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.03749999999999998
+            },
+            {
+              "cause": "rally",
+              "weight": 15
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 27
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 771.1666666666666,
+          "slot": 0,
+          "below": true,
+          "morale": 19.987307312988243,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5427452256944445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.03749999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 27
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 771.7,
+          "slot": 0,
+          "below": false,
+          "morale": 21.16691316016814,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5427452256944445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.03749999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 27
+        },
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 774.3666666666667,
+          "slot": 0,
+          "below": true,
+          "morale": 19.987551037400685,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.5427452256944445
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.03749999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "population": 27
+        }
+      ],
+      "independentFirstGunCases": 6,
+      "independentFirstGunComebacks": 0
+    },
+    "volcano": {
+      "matches": 10,
+      "slotWins": [
+        3,
+        7
+      ],
+      "slotWinShares": [
+        0.3,
+        0.7
+      ],
+      "timeouts": 0,
+      "lengthMinS": 671.2333333333333,
+      "lengthMeanS": 780.0466666666667,
+      "lengthMaxS": 891.8666666666667,
+      "lengthStdDevS": 60.53963843815242,
+      "pacingPass": 8,
+      "goldAtCapShares": [
+        0,
+        0
+      ],
+      "goldNearCapShares": [
+        0,
+        0
+      ],
+      "maxGoldAtCapShare": 0,
+      "goldNearZeroMeanShare": 0.07104095001877367,
+      "firstGunMatches": 0,
+      "firstGunComebacks": 0,
+      "firstGunComebackShare": null,
+      "palaceStepsPass": 10,
+      "palaceStallPass": 10,
+      "fireWindowPass": 10,
+      "maxNoFireS": 95,
+      "maxReadyNoFireS": 3.533333333333333,
+      "shots": [
+        30.7,
+        31.5
+      ],
+      "hits": [
+        29.9,
+        30.6
+      ],
+      "blocksBuilt": 149.55,
+      "blocksRepaired": 23.25,
+      "npcDeaths": 11.85,
+      "reasons": {
+        "palace": 10
+      },
+      "independentSeeds": 10,
+      "physicalWins": [
+        3,
+        7
+      ],
+      "firstShotsPass": 20,
+      "sideCount": 20,
+      "firstShotMaxS": 20.566666666666666,
+      "endingsBefore7": 0,
+      "lowMotionOver3Min": 3,
+      "lowMotionMaxS": 360,
+      "actualLongGaps": [],
+      "readyLongSides": [],
+      "rulerIntent": [],
+      "moraleClockFinishes": 0,
+      "moraleCrossings": [
+        {
+          "seed": 5,
+          "swap": false,
+          "second": 671.2333333333333,
+          "slot": 0,
+          "below": true,
+          "morale": 19.100629855371366,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.6124283854166668
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.08750000000000002
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "population": 23
+        }
+      ],
+      "independentFirstGunCases": 0,
+      "independentFirstGunComebacks": 0
+    }
+  },
+  "novice": {
+    "matches": 10,
+    "wins": 4,
+    "timeouts": 1,
+    "pacingPass": 6,
+    "minimumS": 372.3666666666667,
+    "maximumS": 1200,
+    "earlyRulerDeaths": [],
+    "remoteManualShots": 0,
+    "reasons": {
+      "surrender": 5,
+      "palace": 4,
+      "timeout": 1
+    }
+  },
+  "requestedAI": {
+    "matches": 150,
+    "pacingPass": 123,
+    "timeouts": 0
+  },
+  "defaultAI5IncludingNovice": {
+    "matches": 80,
+    "pacingPass": 67,
+    "timeouts": 1
+  },
+  "allIncludingNovice": {
+    "matches": 160,
+    "pacingPass": 129,
+    "timeouts": 1
+  },
+  "metricAudit": {
+    "complete": true,
+    "normalOrderExactReplays": 20,
+    "pairedPalaceMinuteCurvesChecked": 40,
+    "exclusionStartsAtS": 120,
+    "rangeStrictlyBelow": 0.02
+  },
+  "upperLevelParity": {
+    "allLevels5To10AllObservations0To64": "tests/unit/ai-wave2-opportunity.test.js",
+    "windBiasMemoryGate": "levels >=5 satisfy both the old threshold 4 and final threshold 3",
+    "replays": [
+      {
+        "level": 5,
+        "seed": 1,
+        "hash": 305535892,
+        "fieldsEqual": {
+          "hash": true,
+          "ticks": true,
+          "winnerSlot": true,
+          "eliminationReason": true,
+          "sides": true,
+          "shotEvents": true,
+          "minuteCurve": true,
+          "rulerIntent": true,
+          "firstGunLoss": true
+        },
+        "beforeSource": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+        "afterSource": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380"
+      },
+      {
+        "level": 8,
+        "seed": 1,
+        "hash": 3005864900,
+        "fieldsEqual": {
+          "hash": true,
+          "ticks": true,
+          "winnerSlot": true,
+          "eliminationReason": true,
+          "sides": true,
+          "shotEvents": true,
+          "minuteCurve": true,
+          "rulerIntent": true,
+          "firstGunLoss": true
+        },
+        "beforeSource": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+        "afterSource": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380"
+      }
+    ]
+  },
+  "matrixSources": [
+    "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380",
+    "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6"
+  ],
+  "sourceFingerprints": {
+    "focal": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+    "matrix": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380",
+    "unequal": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380",
+    "desert": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+    "ice": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6",
+    "volcano": "efb06aca07d14c71bdeebc4d1a0c10b3a890ac43c8a658216b7fa80d2732aeb6"
+  }
+}

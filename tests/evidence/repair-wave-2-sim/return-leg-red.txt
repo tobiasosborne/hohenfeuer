@@ -1,0 +1,27 @@
+✔ sweep defaults to twenty paired matches, supports sixty and unequal AI levels (5.069685ms)
+✔ sweep reports first-gun comebacks and excludes timeouts from wins (1.385163ms)
+✔ sweep can reproduce a later seed without replaying earlier matches (0.573782ms)
+✔ unequal-level sweep exercises both physical assignments independently of slot order (1.013256ms)
+✖ a return-leg-only cohort preserves physical skill and seed identity (0.607645ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.848903
+
+✖ failing tests:
+
+test at tests/unit/ai-sweep.test.js:39:1
+✖ a return-leg-only cohort preserves physical skill and seed identity (0.607645ms)
+  Error: Unknown option --reverse-only
+      at parseOptions (file:///home/tobias/Projects/castle-game/scripts/sweep.mjs:37:16)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-sweep.test.js:40:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

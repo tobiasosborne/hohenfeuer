@@ -1,0 +1,11 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (3.172184ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (0.535131ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (327.381731ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 342.121841

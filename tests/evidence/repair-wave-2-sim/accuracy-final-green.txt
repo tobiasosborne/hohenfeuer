@@ -1,0 +1,12 @@
+✔ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (227.682163ms)
+ℹ level 10: 179/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,4
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (318.332032ms)
+ℹ level 1: 6/400 hits; 14/20 seeds never hit within 20 shots
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 556.939194

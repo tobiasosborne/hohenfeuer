@@ -1,0 +1,26 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (19.678684ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (2.994179ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (4.946984ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (9.837136ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (6.660629ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (2.664044ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (6.420603ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (6.456481ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (11.730443ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (3.980674ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (7.593898ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (3.564254ms)
+✔ level 3 changing the aim point retains learned confidence (4.60325ms)
+✔ level 5 changing the aim point retains learned confidence (3.200346ms)
+✔ a replacement cannon inherits its castle ranged confidence (2.857828ms)
+✔ a level-three replacement retains its own observed ranging bias instead of starting the same breach blind (2.505202ms)
+✔ a muzzle obstruction in our castle cannot poison enemy ranging memory (1.456627ms)
+✔ AI waits for its own worker to clear the upcoming muzzle lane (3.61028ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.516804

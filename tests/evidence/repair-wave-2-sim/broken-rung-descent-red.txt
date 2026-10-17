@@ -1,0 +1,33 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (6.713795ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (1.147559ms)
+✖ workers above a broken ladder rung can descend to surviving rungs to clear access for repairs (2.111264ms)
+✔ urgent access work preempts a decorative build as well as a routine repair (2.547536ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (606.282102ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 650.445595
+
+✖ failing tests:
+
+test at tests/unit/npc-wave2-recovery.test.js:28:1
+✖ workers above a broken ladder rung can descend to surviving rungs to clear access for repairs (2.111264ms)
+  AssertionError [ERR_ASSERTION]: one missing rung must not strand the whole crew above it
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-wave2-recovery.test.js:30:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,32 @@
+✔ trained low-level crews retain misses without a six-metre permanent range floor (2.041119ms)
+✔ breach policy intentionally chooses a ruler only after the exposure window, and resets on lost sight (750.957835ms)
+✔ a losing ruler can lead its front crew using ordinary reachable movement (621.2366ms)
+✖ the leadership route physically climbs the front stairs and mans the cannon (3264.311585ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4654.544945
+
+✖ failing tests:
+
+test at tests/unit/ai-wave2-opportunity.test.js:46:1
+✖ the leadership route physically climbs the front stairs and mans the cannon (3264.311585ms)
+  AssertionError [ERR_ASSERTION]: normal movement must reach the battery rather than stick beside a stair
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave2-opportunity.test.js:55:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

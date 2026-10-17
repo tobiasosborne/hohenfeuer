@@ -1,7 +1,7 @@
 // tests/unit/ai-sweep.test.js - owns sweep pairing and acceptance aggregation.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseOptions, matchJobs, summarize } from '../../scripts/sweep.mjs';
+import { parseOptions, matchJobs, summarize, lowMotionStall } from '../../scripts/sweep.mjs';
 test('sweep defaults to twenty paired matches, supports sixty and unequal AI levels', () => {
   const opts = parseOptions([]);
   assert.equal(matchJobs(opts).length, 20);
@@ -26,4 +26,25 @@ test('sweep reports first-gun comebacks and excludes timeouts from wins', () => 
 });
 test('sweep can reproduce a later seed without replaying earlier matches',()=>{
   assert.deepEqual(matchJobs(parseOptions(['--seed-start','17','--matches','2'])).map(j=>[j.seed,j.swap]),[[17,false],[17,true]]);
+});
+test('unequal-level sweep exercises both physical assignments independently of slot order', () => {
+  const jobs = matchJobs(parseOptions(['--seeds','10','--levels','3,8','--both-assignments']));
+  assert.equal(jobs.length,40);
+  for (const seed of new Set(jobs.map(j=>j.seed))) {
+    const group=jobs.filter(j=>j.seed===seed);
+    assert.deepEqual(group.map(j=>j.physicalLevels), [[3,8],[3,8],[8,3],[8,3]]);
+    assert.deepEqual(group.map(j=>j.levels), [[3,8],[8,3],[8,3],[3,8]]);
+  }
+});
+test('a return-leg-only cohort preserves physical skill and seed identity',()=>{
+  const jobs=matchJobs(parseOptions(['--seeds','10','--levels','3,8','--reverse-only']));
+  assert.equal(jobs.length,10);assert.ok(jobs.every(j=>j.swap));
+  assert.deepEqual(jobs.map(j=>j.seed),Array.from({length:10},(_,i)=>i+1));
+  assert.ok(jobs.every(j=>String(j.physicalLevels)==='3,8'&&String(j.levels)==='8,3'));
+});
+test('low-motion measurement includes an opening plateau after the two-minute exclusion',()=>{
+  const series=Array.from({length:1001},(_,second)=>({second,sides:[{palace:1}]}));
+  assert.equal(lowMotionStall(series,0),880);
+  for(let i=201;i<series.length;i++)series[i].sides[0].palace=.97;
+  assert.equal(lowMotionStall(series,0),799);
 });

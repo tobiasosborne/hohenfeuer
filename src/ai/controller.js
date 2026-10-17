@@ -6,9 +6,9 @@ import { TUNING as T } from '../tuning.js';
 import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector, windChanged } from './aim.js';
 import { blockCost, captureBlueprint, planRebuild, planWeaponReplacement, weaponCost, withRecoveryMounts } from './build.js';
 import { refreshTarget, selectTarget, targetAlive } from './targets.js';
-import { publicView, shooterPosition, weaponDefinition } from './view.js';
+import { publicView, shooterPosition, visibleTarget, weaponDefinition } from './view.js';
 import { shelterCells } from '../npc/brain.js';
-import { missingWeaponCost, blocksWeaponMuzzle } from '../npc/model.js';
+import { missingWeaponCost, blocksWeaponMuzzle, operatorCell } from '../npc/model.js';
 import { crewPresent } from '../npc/index.js';
 
 /** Clone only serializable command-source records; never retain or mutate SimView references. */
@@ -68,6 +68,8 @@ function think(view, slot, rng, memory) {
   state.incomeGold = Math.max(castle.stats?.income ?? 0, state.incomeGold + elapsed / T.sim.tickHz
     * (T.economy.palaceIncomeS + T.economy.civilianIncomeS * (castle.civiliansWorking ?? 0)));
   state.lastTick = world.tick;
+  state.lastCastleShotTick ??= world.tick;state.lastCastleShotCount ??= castle.stats?.shots ?? 0;
+  if(castle.stats && castle.stats.shots!==state.lastCastleShotCount){state.lastCastleShotTick=world.tick;state.lastCastleShotCount=castle.stats.shots;}
   const commands = [], supports = type => CMD_FIELDS[type] !== undefined && (!view.commandKinds || view.commandKinds.includes(type));
   const emit = (type, fields) => {
     if (!supports(type)) return;
@@ -102,7 +104,7 @@ function think(view, slot, rng, memory) {
       const corrected = observeImpact(wm.shotTarget.aim, { shooter: wm.shotTarget.shooter,
           target: wm.shotTarget.feedbackPos ?? wm.shotTarget.pos, impact: impact.pos, level: slot.aiLevel, weapon: def, wind: wm.shotTarget.wind });
       if (wm.aim?.targetId === corrected.targetId) { wm.aim = corrected; wm.needsAim = true; }
-      if (slot.aiLevel >= T.ai.windMemoryMinLevel) {
+      {
         const bias = { slot: corrected.castleSlot, defId: def.id, kind: wm.shotTarget.kind ?? wm.target?.kind, observations: corrected.observations, biasAzDeg: corrected.biasAzDeg, biasDial: corrected.biasDial };
         state.windBias = state.windBias.filter(b => b.slot !== bias.slot || b.defId !== bias.defId || b.kind !== bias.kind); state.windBias.push(bias);
       }
@@ -111,18 +113,28 @@ function think(view, slot, rng, memory) {
     }
     if (changedWind && wm.aim) { wm.aim = windChanged(wm.aim); wm.needsAim = true; }
     const breach = world.tick >= T.ai.breachAfterS * T.sim.tickHz;
-    const forceBreach = breach && wm.target && !['palace', 'shieldWall'].includes(wm.target.kind);
+    wm.exposures ??= [];
+    const visible = (view.rulers ?? []).filter(r=>r.hp>0 && world.castles.some(c=>c.slot===r.slot&&!c.eliminated)
+      && (view.slots ?? []).find(s=>s.id===r.slot)?.team!==slot.team).filter(r=>{
+        const target={slot:r.slot,pos:{...vector(r.pos),y:vector(r.pos).y+T.people.height/2}};
+        return visibleTarget(view,shooterPosition(weapon,target.pos),target);
+      });
+    wm.exposures=visible.map(r=>wm.exposures.find(e=>e.slot===r.slot) ?? {slot:r.slot,since:world.tick});
+    const rulerSlots=wm.exposures.filter(e=>world.tick-e.since>=T.ai.rulerExposureS*T.sim.tickHz).map(e=>e.slot);
+    const opportunity=rulerSlots.length && wm.target?.kind!=='ruler';
+    const lostRuler=wm.target?.kind==='ruler'&&!rulerSlots.includes(wm.target.slot);
+    const forceBreach = breach && wm.target && !['palace', 'shieldWall','ruler'].includes(wm.target.kind);
     const staleLane = world.tick - (wm.lastShotTick ?? wm.targetTick) >= T.ai.maxFireSilenceS * T.sim.tickHz;
     const current = refreshTarget(view, wm.target);
     if (current && vectorKey(current.pos) !== vectorKey(wm.target.pos)) { wm.target = current; wm.needsAim = true; }
-    if (forceBreach || staleLane || (!targetAlive(view, wm.target) && (wm.target || !wm.targetTried || world.tick - wm.targetTick >= T.ai.targetRetryS * T.sim.tickHz)) || world.tick - wm.targetTick >= T.ai.retargetS * T.sim.tickHz) {
-      const target = selectTarget(view, slot, weapon, { ballistic: true, breach });
+    if (opportunity || lostRuler || forceBreach || staleLane || (!targetAlive(view, wm.target) && (wm.target || !wm.targetTried || world.tick - wm.targetTick >= T.ai.targetRetryS * T.sim.tickHz)) || world.tick - wm.targetTick >= T.ai.retargetS * T.sim.tickHz) {
+      const target = selectTarget(view, slot, weapon, { ballistic: true, breach, rulerSlots });
       wm.targetTried = true;
       if (target?.key !== wm.target?.key) {
         const confidence=target?Math.max(wm.aim?.castleSlot===target.slot?wm.aim.observations:0,
           ...state.windBias.filter(b=>b.slot===target.slot&&b.defId===def.id).map(b=>b.observations ?? 0)):0;
         wm.aim = target ? createAimMemory(target.key, target.slot) : null;
-        if(wm.aim&&slot.aiLevel>=T.ai.windMemoryMinLevel)wm.aim.observations=Math.min(confidence,T.ai.transferConfidenceMax);
+        if(wm.aim)wm.aim.observations=Math.min(confidence,T.ai.transferConfidenceMax);
         const bias = target && slot.aiLevel >= T.ai.windMemoryMinLevel ? state.windBias.find(b => b.slot === target.slot && b.defId === def.id && b.kind === target.kind) : null;
         if (bias) Object.assign(wm.aim, { biasAzDeg: bias.biasAzDeg, biasDial: bias.biasDial });
         wm.needsAim = true;
@@ -143,7 +155,7 @@ function think(view, slot, rng, memory) {
     }
     const delay = (T.ai.levelMax + 1 - slot.aiLevel) * T.ai.fireDelayPerLevelS * T.sim.tickHz;
     const crewed = weapon.rulerManning || crewPresent(weapon, castle) >= minimumCrew;
-    if (supports(CMD.FIRE) && supports(CMD.AIM) && loaded && crewed && world.tick - wm.loadedAt >= delay && gold >= def.fireCost && wm.solution.reachable
+    if (supports(CMD.FIRE) && supports(CMD.AIM) && loaded && crewed && (weapon.ammo ?? def.ammoLoads)>=def.ammoLoads && world.tick - wm.loadedAt >= delay && gold >= def.fireCost && wm.solution.reachable
       && ![...(view.npcs ?? []),...(view.rulers ?? [])].some(p=>(p.slot ?? p.castle)===slot.id&&blocksWeaponMuzzle({...weapon,aim:wm.commandAim},p))) {
       emit(CMD.FIRE, { weaponId: weapon.id });
       // Retry each think until reload confirms a shot. Continuous auto-fire would
@@ -159,7 +171,9 @@ function think(view, slot, rng, memory) {
       && state.weapons.find(m => m.id===w.id)?.target && (w.ammo ?? 1)>0
       && crewPresent(w,castle)>=Math.ceil(weaponDefinition(w).crewSlots*T.weaponRules.minCrewFrac));
     const shotReserve = usable.length ? Math.min(...usable.map(w=>weaponDefinition(w).fireCost)) : 0;
-    const replacementNeed = missingWeaponCost(state.blueprint.weapons,ownWeapons);
+    state.unusableIds=(state.unusableIds ?? []).filter(id=>{const w=ownWeapons.find(w=>w.id===id),m=state.weapons.find(m=>m.id===id);return w && (w.ammo===0||crewPresent(w,castle)<Math.ceil(weaponDefinition(w).crewSlots*T.weaponRules.minCrewFrac)||!m?.target||!m.solution?.reachable);});
+    if(world.tick-state.lastCastleShotTick>=T.ai.maxFireSilenceS*T.sim.tickHz)for(const w of ownWeapons)if(!state.unusableIds.includes(w.id))state.unusableIds.push(w.id);
+    const replacementNeed = missingWeaponCost(state.blueprint.weapons,ownWeapons.filter(w=>!state.unusableIds.includes(w.id)));
     const recovering = replacementNeed>0 || ownWeapons.some(w => w.ammo === 0
       || w.crewOrdered && crewPresent(w,castle) < Math.ceil(weaponDefinition(w).crewSlots*T.weaponRules.minCrewFrac));
     let pending = castle.npcDesignations ?? castle.weaponDesignations ?? [];
@@ -172,7 +186,7 @@ function think(view, slot, rng, memory) {
     }
     const planned = [];
     if (supports(CMD.DESIGNATE_WEAPON)) for (const plan of planWeaponReplacement({ ...castle, gold, npcDesignations:pending }, state.blueprint, slot.aiTactic, ownWeapons,
-      { shotReserve, weaponCap: view.weaponCap ?? getMap(view.mapId)?.weaponCap ?? T.world.weaponCapDefault, view, pending: pending.filter(d => d.weapon) })) {
+      { shotReserve, weaponCap: view.weaponCap ?? getMap(view.mapId)?.weaponCap ?? T.world.weaponCapDefault, view, unusableIds:state.unusableIds, pending: pending.filter(d => d.weapon), acceptSpot:(spot,defId)=>Boolean(selectTarget(view,slot,{id:-1,slot:slot.id,defId,hp:weaponDefinition({defId}).hp,pos:{x:vector(castle.plot.origin).x+spot[0]+.5,y:vector(castle.plot.origin).y+spot[1],z:vector(castle.plot.origin).z+spot[2]+.5}}, {ballistic:true,breach:true,rulerSlots:[]})) })) {
       emit(plan.type, { weapon: plan.weapon, cell: plan.cell, facing: plan.facing }); gold -= weaponCost(plan.weapon); planned.push(plan);
     }
 
@@ -219,6 +233,25 @@ function retreat(view, slot, castle, state, emit, supports) {
   const p=castle.plot, o=vector(p.origin), pos=vector(ruler.pos);
   const threat=(castle.enemyImpacts ?? []).some(e=>view.tick-e.tick<=T.ai.rulerDangerWindowS*T.sim.tickHz
     && (e.pos.x-pos.x)**2+(e.pos.y-pos.y)**2+(e.pos.z-pos.z)**2<T.ai.rulerDangerM**2);
+  if (threat && (state.rulerDuty && view.tick-state.rulerDuty.startedTick>T.ai.rulerLeadershipCommitS*T.sim.tickHz || state.leadershipActive!==undefined)) {
+    state.rulerDuty=null;state.rulerPath=null;delete state.leadershipActive;
+    if(ruler.manning!==null)emit(CMD.LEAVE_WEAPON,{});
+  }
+  // Leadership already gives nearby workers a real reload/work bonus. A depleted,
+  // shaken castle may commit its ruler to the front crew once, accepting visible
+  // exposure in exchange for that shared human/NPC benefit.
+  if (!state.leadershipDone && !state.rulerPath && castle.morale<T.ai.rulerLeadershipBelow
+    && castle.population<castle.initialPopulation*T.ai.rulerLeadershipPopFrac) {
+    const enemy=worldEnemy(view,slot,castle);
+    const guns=(view.weapons ?? []).filter(w=>w.slot===slot.id&&w.hp>0&&w.crewOrdered);
+    if(enemy)guns.sort((a,b)=>(a.pos.x-enemy.plot.origin.x)**2+(a.pos.z-enemy.plot.origin.z)**2
+      -((b.pos.x-enemy.plot.origin.x)**2+(b.pos.z-enemy.plot.origin.z)**2)||a.id-b.id);
+    const start=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
+    for(const gun of guns) {
+      const path=findPathToAny(p,start,[operatorCell(gun,castle)],{clamber:false});
+      if(path?.length>1){state.rulerPath=path.slice(1);state.rulerDuty={weaponId:gun.id,startedTick:view.tick};state.leadershipDone=true;break;}
+    }
+  }
   if (!state.rulerPath && threat && view.tick-(state.lastRulerRetreatTick ?? -T.ai.rulerRetreatCooldownS*T.sim.tickHz)>=T.ai.rulerRetreatCooldownS*T.sim.tickHz) {
     const goals=shelterCells(castle).filter(c=>c[1]===Math.floor(pos.y-o.y)).map(c=>[...c]);
     const impacts=castle.enemyImpacts;
@@ -229,12 +262,23 @@ function retreat(view, slot, castle, state, emit, supports) {
   }
   if (!state.rulerPath) return;
   while(state.rulerPath.length){const c=state.rulerPath[0],dx=o.x+c[0]+.5-pos.x,dz=o.z+c[2]+.5-pos.z;
-    if(dx*dx+dz*dz<.04){state.rulerPath.shift();continue;}
+    const dy=o.y+c[1]-pos.y,at=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
+    const ladder=p.type[at[0]+p.width*at[2]+p.width*p.depth*at[1]]===BLOCK.LADDER;
+    const arrivedHeight=ladder?Math.abs(dy)<.7:dy<=.7&&dy>=-1.1; // stair nodes describe the voxel base, while the body stands on its upper half
+    if(dx*dx+dz*dz<.04&&arrivedHeight){state.rulerPath.shift();continue;}
+    if(dx*dx+dz*dz<.04&&ladder){emit(CMD.MOVE,{fwd:dy>0?K.MOVE_AXIS_MAX:-K.MOVE_AXIS_MAX,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});return;}
     const yaw=(Math.round(atan2(dx,-dz)/TAU*K.YAW_UNITS)+K.YAW_UNITS)%K.YAW_UNITS;
     const thinkS=T.sim.aiThinkEveryTicks/T.sim.tickHz;
     const fwd=Math.min(K.MOVE_AXIS_MAX,Math.max(1,Math.round(Math.sqrt(dx*dx+dz*dz)/(T.ruler.walk*thinkS)*K.MOVE_AXIS_MAX)));
-    emit(CMD.MOVE,{fwd,strafe:0,yaw,pitch:0,jump:0,sprint:0});return;
+    emit(CMD.MOVE,{fwd,strafe:0,yaw,pitch:0,jump:ladder&&dy<.7?1:0,sprint:0});return;
   }
   state.rulerPath=null;state.lastRulerRetreatTick=view.tick;
   emit(CMD.MOVE,{fwd:0,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});
+  if(state.rulerDuty){emit(CMD.MAN_WEAPON,{weaponId:state.rulerDuty.weaponId});state.leadershipActive=state.rulerDuty.weaponId;state.rulerDuty=null;}
+}
+
+function worldEnemy(view,slot,castle) {
+  const from=vector(castle.plot.origin);
+  return (view.castles ?? []).filter(c=>!c.eliminated&&c.plot&&(view.slots ?? []).find(s=>s.id===c.slot)?.team!==slot.team)
+    .sort((a,b)=>(a.plot.origin.x-from.x)**2+(a.plot.origin.z-from.z)**2-((b.plot.origin.x-from.x)**2+(b.plot.origin.z-from.z)**2)||a.slot-b.slot)[0];
 }

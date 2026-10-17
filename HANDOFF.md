@@ -1,3 +1,36 @@
+<!-- owns: current repair-wave-2 simulation handoff and preserved UI/earlier session records. -->
+# HANDOFF — Repair wave 2, simulation lane (2026-10-18)
+
+## What was done
+Completed the assigned sim/content repairs and closed `castle-game-uo7.16`, `.12` and `.11`. Report: [research/20-repair-wave-2-sim.md](research/20-repair-wave-2-sim.md). Final evidence: [acceptance.json](tests/evidence/repair-wave-2-sim/acceptance.json) and [23/23 passing gates](tests/evidence/repair-wave-2-sim/gates.json).
+
+Every offered duel has a reachable, fairly armed starter kit; all 145 converted castles have a cannon and magazine. The offered generated duels have matching front guns, paid spare sites and 48-cell palace capacity. Ice's later stall was traced to an initially sealed NPC spawn pocket and a mason trapped inside a cancelled descending step. Reachable spawning, safe ledge/ladder descent, access repair priority, gun-first construction and paid feasible recovery fix those cases. Idle reasons, launch warnings, killing-source attribution, public surrender clocks and fixed pressure causes are implemented.
+
+Focal 20 worlds × two orders: **26 palace / 10 ruler / 4 surrender**, 36/40 in 12–20 min, slot wins 20/20, physical west/east 12/28, first-gun comebacks 2/8 paired records (1/4 worlds), max actual/ready firing gap 71 s. Eight ruler records intentionally target rulers after 25.47–162.5 s exposure; two are incidental. All ten have launch warnings 2.9–3.4 s before death. No focal ending is before seven minutes.
+
+The 60-record level matrix reaches 48/60 in range and zero timeouts. Both physical assignments of 3 vs 8 are separately tested: 32/40 in range, zero timeouts. Four biomes × ten independent seeds have 80/80 sides firing within 20.57 s and no actual gap above 118.5 s. Across 150 unique AI records, 123/150 (82%) are in range, zero timeouts. Including the instructed legal novice gives 129/160 (80.6%) with one timeout. Human movement/man/crew/fire command routes on all eight physical starts reach a paid shot within 15.5 s, without G or teleporting.
+
+Full settled-tree `npm test -- --test-concurrency=4`: **77 files pass, zero failures/skips**, including determinism and the TB3 two-run checkpoint replay. Production build passes. These later logs supersede the transient sim-wide failures recorded in the preserved UI handoff below; browser/golden integration is still separate. No git commands or Dolt push were run.
+
+## Remaining
+`castle-game-uo7.18` tracks individual-cohort tails: AI8 is 12/20 in range and the favorable local novice is 6/10, with a seed-6 timeout and seed-10 fast palace win. Those are explicitly shown rather than hidden behind aggregate gates. `castle-game-uo7.19` tracks the strict losing-palace plateau regression: corrected 34/40 over three minutes, max 508 s, versus critique-v2 32/40 and 460 s. B5 stays at provisional 3. Human comprehension and discovery remain with the UI lane; `.10`/`.13` retain their human-study acceptance. `castle-game-er7` remains open for team-aware north/south recovery, which is not on these west/east duel gates. `.17` owns settled shared-tree browser/golden integration.
+
+## Key techniques
+The simulation remains pure, fixed-step and deterministic. All weapons/repairs/replacements use ordinary costs, caps, crew, supplies and commands. Low-level training now retains observed correction and caps trained error at 0.30 degrees / 1.2%; levels 1–2 keep their broad error and every level-5–10 aim distribution remains exact. Fresh level-five/eight replays retain hashes and metrics; all 20 normal-order focal replay hashes and paired palace curves match. The corrected low-motion counter includes plateaus crossing the opening exclusion and preserves the max-minus-min definition.
+
+Wave-1 income 3/.1, costs 4/8/6, repair .8/12 s and salvage .5 remain unchanged. Palace cells are 96 HP; the opening defeat line is intentionally **20%**, with a quadratic minute-10–15 ramp to the unchanged 55% endpoint (28.75% at 12:30). The UI should read the published field. Surrender is morale<=20 held 45 s or population<35%; actual morale-clock endings occur in the novice, while the focal surrender records are population-driven. Pressure vocabulary: palace-damage, deaths, under-fire, no-gun, rally, quiet, shelter. All tuning and before/after evidence are in research/20 and tuning.json.
+
+## Issues touched
+Closed `.16`, `.12`, `.11`; completed the sim half of `.13` and left the shared UI/human issue open. Updated `.14` with the measured final palace line and `er7` with deferred scope. Created `.18` for individual pacing/proxy tails and `.19` for strict palace plateaus. Updated `.17` with current unit/build evidence. Persistent knowledge is in `bd remember` under `gameplay-repair-wave-2-sim`.
+
+## Next step
+Orchestrator reviews research/20 alongside the UI report, preserves the intentional 20%/quadratic tuning choice, and runs `.17` browser/golden checks on the settled source tree. Run the specified unbriefed-human sessions before awarding human comprehension points. Continue `.18`/`.19` from their pinned seeds and corrected definitions; cardinal/team recovery remains `er7`. Git stays with the orchestrator.
+
+## Previous Sessions
+The UI and earlier handoffs follow unchanged.
+
+---
+
 <!-- owns: repair-wave-2 UI handoff and links to reproducible evidence. -->
 # HANDOFF — Repair wave 2, UI lane (2026-10-18)
 

@@ -1,0 +1,30 @@
+✖ a warned novice leaves the gun and moves along its rampart before impact (2128.217162ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2143.792801
+
+✖ failing tests:
+
+test at tests/unit/ai-wave2-novice.test.js:8:1
+✖ a warned novice leaves the gun and moves along its rampart before impact (2128.217162ms)
+  AssertionError [ERR_ASSERTION]: move north when the predicted impact is south of the ruler
+  
+  32768 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave2-novice.test.js:18:60)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 32768,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

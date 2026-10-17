@@ -1,0 +1,12 @@
+✔ tests/unit/ai-slots.test.js (143.377817ms)
+✔ tests/unit/npc-brain.test.js (1021.084267ms)
+✔ tests/unit/npc-repair-wave.test.js (1488.129405ms)
+✔ tests/unit/npc-sim.test.js (2644.818886ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2697.97639

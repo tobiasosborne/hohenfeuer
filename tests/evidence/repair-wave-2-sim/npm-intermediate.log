@@ -1,0 +1,8 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (1653.488525ms)
+✔ tests/unit/ai-aim.test.js (493.319783ms)
+✔ tests/unit/ai-build.test.js (1173.573022ms)
+✔ tests/unit/ai-controller.test.js (1328.553103ms)

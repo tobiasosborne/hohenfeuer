@@ -41,11 +41,12 @@ test('ladder column permits vertical travel and platform exit with 2 m clearance
   assert.equal(findPath(f.plot, [1, 1, 1], [3, 4, 1]), null);
 });
 
-test('step down is one cell, moves never diagonal, deterministic f/h/index tie-break', () => {
+test('safe worker descents stay cardinal; ruler paths retain single-cell steps and deterministic ties', () => {
   const f = fixture(); f.put(2, 1, 2, BLOCK.STONE);
   assert.ok(neighbors(f.plot, [2, 2, 2]).some(n => n.cell.join() === '3,1,2'));
   f.put(2, 2, 2, BLOCK.STONE);
-  assert.equal(neighbors(f.plot, [2, 3, 2]).some(n => n.cell.join() === '3,1,2'), false);
+  assert.equal(neighbors(f.plot, [2, 3, 2],false).some(n => n.cell.join() === '3,1,2'), false);
+  assert.equal(neighbors(f.plot, [2, 3, 2]).some(n => n.cell.join() === '3,1,2'), true);
   const p = findPath(f.plot, [5, 1, 3], [7, 1, 5]);
   assert.deepEqual(p.slice(0, 3), [[5, 1, 3], [6, 1, 3], [7, 1, 3]]);
   for (let i = 1; i < p.length; i++) assert.equal(Math.abs(p[i][0] - p[i - 1][0]) + Math.abs(p[i][2] - p[i - 1][2]), 1);

@@ -2,7 +2,7 @@
 import { BLOCK, ROLE, JOB, NPC_STATE, EV, getBlockByKey, RNG_STREAM, PLUGIN_KIND, getNpcType, listPlugins, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { castleDef, blockDef, cellOf, indexOf, typeAt, feet, localCell, distanceSq, manhattan, ticks, ownNpcs, ownWeapons, weaponDef, blocksWeaponMuzzle } from './model.js';
-import { isStandable } from './path.js';
+import { isStandable, neighbors } from './path.js';
 import { emitJobs, expireClaims, claimJob, releaseClaim, planPath, setPath, tickWork, weaponWorkCells, workCells, outsideBuildSites } from './jobs.js';
 import { personOverlapsWeaponSite, personOverlapsCell } from './designations.js';
 import { queueMoraleInput } from './morale.js';
@@ -59,14 +59,22 @@ export function spawnPopulation(api, castle) {
   const counts = [Math.floor(population * T.npc.shares.crew), Math.max(T.npc.minRunners, Math.floor(population * T.npc.shares.runner)),
     Math.max(T.npc.minMasons, Math.floor(population * T.npc.shares.mason))];
   counts.push(Math.max(0, population - counts.reduce((a, b) => a + b, 0)));
-  const spots = (castle.workSpots ?? []).map(pos => localCell(p, pos)).filter(c => isStandable(p, c));
+  // A standable cell can be sealed inside an expanded tower. Population must be
+  // connected to the authored entry, otherwise a whole role may start imprisoned.
+  const start=localCell(p,castle.rulerSpawn),reachable=new Set(),queue=[];
+  if(isStandable(p,start)){reachable.add(indexOf(p,start));queue.push(start);}
+  for(let head=0;head<queue.length;head++)for(const {cell} of neighbors(p,queue[head])){
+    const id=indexOf(p,cell);if(!reachable.has(id)){reachable.add(id);queue.push(cell);}
+  }
+  const accessible=c=>reachable.has(indexOf(p,c));
+  const spots = (castle.workSpots ?? []).map(pos => localCell(p, pos)).filter(c => isStandable(p, c)&&accessible(c));
   for (const box of castle.shelters ?? []) for (let y = box[1]; y <= box[4]; y++) for (let z = box[2]; z <= box[5]; z++) for (let x = box[0]; x <= box[3]; x++) {
-    const c = [x, y, z]; if (isStandable(p, c)) spots.push(c);
+    const c = [x, y, z]; if (isStandable(p, c)&&accessible(c)) spots.push(c);
   }
   const unique = new Map(spots.map(c => [indexOf(p, c), c]));
   if (unique.size < population) {
     const origin = spots[0] ?? localCell(p, castle.rulerSpawn ?? feet(p, [0, 1, 0])), extras = [];
-    for (let i = p.width * p.depth; i < p.type.length; i++) { const c = cellOf(p, i); if (isStandable(p, c)) extras.push(c); }
+    for (let i = p.width * p.depth; i < p.type.length; i++) { const c = cellOf(p, i); if (isStandable(p, c)&&accessible(c)) extras.push(c); }
     extras.sort((a, b) => manhattan(a, origin) - manhattan(b, origin) || indexOf(p, a) - indexOf(p, b));
     for (const c of extras) { unique.set(indexOf(p, c), c); if (unique.size >= population) break; }
   }
@@ -74,7 +82,7 @@ export function spawnPopulation(api, castle) {
   // Mirror role placement together with the attack direction on a symmetric plot.
   // Asymmetric templates keep their authored valid rooms rather than spawning in masonry.
   const mirrored = cells.map(c=>[p.width-1-c[0],c[1],c[2]]);
-  if (castle.facingDeg===270 && mirrored.every(c=>isStandable(p,c))) cells=mirrored;
+  if (castle.facingDeg===270 && mirrored.every(c=>isStandable(p,c)&&accessible(c))) cells=mirrored;
   if (!cells.length) throw new Error(`Castle ${castle.id} has no standable population spawn`);
   const rng = api.rng(`${RNG_STREAM.NPC}:${castle.slot}`);
   api.state.nextEntityId ??= Math.max(K.MAX_SLOTS, ...api.state.npcs.map(n => n.id + 1));
@@ -146,7 +154,7 @@ function blocksOriginal(castle,npc) {
         const cell=[x,y,z],char=def.layers[y-1]?.[z]?.[x],entry=def.legend[char];
         if(!entry||typeAt(p,cell)!==BLOCK.AIR)continue;
         const block=getBlockByKey(typeof entry==='object'?entry.key ?? entry.type:entry);
-        if(block?.solid&&block.cost!==null&&personOverlapsCell(p,cell,npc))return true;
+        if((block?.solid||block?.climbable)&&block.cost!==null&&personOverlapsCell(p,cell,npc))return true;
       }
   return false;
 }

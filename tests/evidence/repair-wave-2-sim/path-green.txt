@@ -1,0 +1,13 @@
+✔ standability requires two clear cells, excludes roofs, and passes paired doors (6.717377ms)
+✔ stairs remain preferred; ordinary rubble can be climbed within reach (14.071348ms)
+✔ ladder column permits vertical travel and platform exit with 2 m clearance (7.122496ms)
+✔ safe worker descents stay cardinal; ruler paths retain single-cell steps and deterministic ties (1.298369ms)
+✔ versioned cache invalidates successful and unsuccessful paths on block changes (5.123794ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.592093

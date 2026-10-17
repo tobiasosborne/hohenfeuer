@@ -39,6 +39,8 @@ test('AI prepares paid flank batteries and replaces a lost front gun away from t
   const guns=v.weapons.filter(w=>w.slot===0&&w.id!==1);
   const plan=planWeaponReplacement(c,bp,C.TACTIC.GENERAL,guns,{view:v});
   assert.equal(plan.length,1);assert.equal(plan[0].cell[1],8);assert.notEqual(plan[0].cell[2],23);
+  const clear=planWeaponReplacement(c,bp,C.TACTIC.GENERAL,guns,{view:v,acceptSpot:spot=>spot[2]!==31});
+  assert.equal(clear[0].cell[2],15,'skip a replacement battery whose lane is blocked');
 });
 test('a threatened AI ruler walks to cover through normal next-tick movement commands', async () => {
   const {createAiController}=await import('../../src/ai/controller.js');
@@ -66,4 +68,12 @@ test('a protected palace is breached at the wall base instead of repeatedly aimi
   C.resetRegistriesForTests();registerCoreSim();C.freezeRegistries();const v=createSim({map:'forest-duel'}).state;
   const w=v.weapons[1],t=selectTarget(v,v.slots[0],w,{ballistic:true,breach:true}),p=v.castles[t.slot].plot;
   assert.equal(t.kind,'shieldWall');assert.ok(Math.abs(t.pos.x-(p.origin.x+t.cell[0]+.5))<1);assert.ok(t.pos.y<=p.origin.y+3.5);
+});
+test('a living but inaccessible battery can be replaced by a paid reachable spare', async()=>{
+  const {captureBlueprint,withRecoveryMounts,planWeaponReplacement}=await import('../../src/ai/build.js');
+  C.resetRegistriesForTests();registerCoreSim();C.freezeRegistries();
+  const v=createSim({map:'forest-duel'}).state,c=v.castles[0],bp=withRecoveryMounts(c,captureBlueprint(c,c.weapons),1,v);
+  for(const b of bp.cells.filter(b=>b.recoveryMount)){c.plot.type[b.index]=b.block;c.plot.hp[b.index]=60;}
+  const own=v.weapons.filter(w=>w.slot===0);
+  assert.equal(planWeaponReplacement(c,bp,C.TACTIC.GENERAL,own,{view:v,unusableIds:[1]}).length,1);
 });

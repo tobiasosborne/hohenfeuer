@@ -1,0 +1,35 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (1.535735ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (0.237214ms)
+✖ urgent access work preempts a decorative build as well as a routine repair (0.930569ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (113.615874ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.372923
+
+✖ failing tests:
+
+test at tests/unit/npc-wave2-recovery.test.js:28:1
+✖ urgent access work preempts a decorative build as well as a routine repair (0.930569ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== null
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-wave2-recovery.test.js:34:39)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -3,6 +3,9 @@ import { BLOCK, ROLE, NPC_STATE, EV, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { localCell, indexOf, vector, feet, ticks, ownNpcs, workSpeed } from './model.js';
 export { workSpeed } from './model.js';
+/** Fixed public cause vocabulary. Weights are signed morale points per second;
+ * rally is its recent impulse, retained for the visible rally window. */
+export const PRESSURE_CAUSE = Object.freeze({ PALACE_DAMAGE:'palace-damage', DEATHS:'deaths', UNDER_FIRE:'under-fire', NO_GUN:'no-gun', RALLY:'rally', QUIET:'quiet', SHELTER:'shelter' });
 
 /** Keep all authoritative accumulators on the castle for normal sim save/hash support. */
 function layers(castle) {
@@ -144,11 +147,34 @@ export function moraleTick(api, castle) {
   let integrity = castle.palaceIntegrity ?? 1;
   if (castle.initialPalaceHp > 0) integrity = castle.palaceCells.reduce((hp, i) => hp + (castle.plot.type[i] === BLOCK.PALACE ? castle.plot.hp[i] : 0), 0) / castle.initialPalaceHp;
   if (integrity < T.palace.moraleDrainBelow) rate += T.morale.palaceLowS;
+  const underFire = api.tick - (castle.lastEnemyImpactTick ?? -ticks(T.morale.underFireWindowS)) < ticks(T.morale.underFireWindowS);
+  const losses = castle.initialPopulation > 0 ? Math.max(0,1-castle.population/castle.initialPopulation) : 0;
+  const palaceStress = castle.initialPopulation > 0 ? Math.max(0,1-integrity-T.morale.palaceStressAfter) : 0;
+  const deathStress = Math.max(0,losses-T.morale.deathStressAfter);
+  const noGun = castle.initialPopulation > 0 && !api.state.weapons.some(w=>w.slot===castle.slot&&w.hp>0);
+  const pressure = [];
+  const palaceWeight=-palaceStress*T.morale.palaceStressS+(integrity<T.palace.moraleDrainBelow?T.morale.palaceLowS:0);
+  const deathsWeight=-deathStress*T.morale.deathStressS+s.deaths.reduce((n,d)=>n+d.amount,0)/T.morale.deathWindowS;
+  if (palaceWeight) pressure.push({cause:PRESSURE_CAUSE.PALACE_DAMAGE,weight:palaceWeight});
+  if (deathsWeight) pressure.push({cause:PRESSURE_CAUSE.DEATHS,weight:deathsWeight});
+  if (underFire) pressure.push({cause:PRESSURE_CAUSE.UNDER_FIRE,weight:T.morale.underFireS});
+  if (noGun) pressure.push({cause:PRESSURE_CAUSE.NO_GUN,weight:-T.morale.noGunS});
+  if (api.tick-s.lastRallyTick<ticks(T.morale.rallyVisibleS)) pressure.push({cause:PRESSURE_CAUSE.RALLY,weight:T.morale.rally});
+  const quiet = !underFire && !s.deaths.length && !noGun && castle.initialPopulation > 0;
+  if (quiet) pressure.push({cause:PRESSURE_CAUSE.QUIET,weight:T.morale.quietS});
+  rate -= palaceStress*T.morale.palaceStressS + deathStress*T.morale.deathStressS + (noGun?T.morale.noGunS:0);
+  if (quiet) rate += T.morale.quietS;
+  castle.pressure=pressure;
   const civilians = ownNpcs(api, castle).filter(n => n.hp > 0 && !n.deserting && n.role === ROLE.CIVILIAN);
-  if (castle.shelter && civilians.length > 0 && civilians.filter(n => n.state === NPC_STATE.SHELTER).length / civilians.length >= T.morale.shelterFrac) rate += T.morale.shelterS;
+  if (castle.shelter && civilians.length > 0 && civilians.filter(n => n.state === NPC_STATE.SHELTER).length / civilians.length >= T.morale.shelterFrac) {
+    rate += T.morale.shelterS;pressure.push({cause:PRESSURE_CAUSE.SHELTER,weight:T.morale.shelterS});
+  }
   s.fast = clamp(s.fast + rate * K.DT);
   s.fast = clamp(s.fast + (s.baseline - s.fast) * K.DT / T.morale.tauFastS);
-  const difference = s.fast - s.baseline, maxMove = T.morale.baselineRateS * K.DT;
+  // Damage/casualties make the slow layer responsive too; otherwise its 70 start
+  // structurally prevents the surrender clock ever running during a normal duel.
+  const difference = s.fast - s.baseline, maxMove = (T.morale.baselineRateS
+    + (difference<0 ? (palaceStress+deathStress)*T.morale.stressBaselineRateS : 0)) * K.DT;
   s.baseline = clamp(s.baseline + Math.max(-maxMove, Math.min(maxMove, difference)));
   castle.morale = T.morale.wFast * s.fast + T.morale.wBase * s.baseline;
   const band = bandOf(castle.morale);

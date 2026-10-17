@@ -136,7 +136,7 @@ export const TUNING = deepFreeze({
     door: { hp: 20, cost: 8, buildS: 3 }, // guess
     roof: { hp: 8, cost: 5, buildS: 2 }, // guess
     magazine: { hp: 24, cost: 75, buildS: 6 }, // research/10: eight-voxel workshop 600g, 24dp
-    palace: { hp: 80, cost: null, buildS: 0 }, // repair wave 1: reinforced core; 3840 initial dp, paid repairs
+    palace: { hp: 96, cost: null, buildS: 0 }, // wave 2: 4608 initial dp; novice/map probes otherwise finish around ten minutes
     mount: { hp: 60, cost: 6, buildS: 0.125 }, // EN p.36 large wall 60 dp
     foundation: { hp: 255, cost: null, buildS: 0 }, // D 2.1: 255 = indestructible
   },
@@ -159,9 +159,10 @@ export const TUNING = deepFreeze({
   },
 
   palace: {
-    destroyedBelow: 0.3, // D 2.2 / D 3.7: integrity threshold
+    destroyedBelow: 0.2, // wave 2: aimed novice shots need more core loss before the late cracking escalation
     crackingStartS: 600, // repair wave 1: late pressure starts at minute 10
     crackingEndS: 900, // repair wave 1: full threshold at minute 15
+    crackingEasePower: 2, // wave 2: preserve minute-10 notice/15 endpoint, ease early novice/map resolutions
     crackingDestroyedBelow: 0.55, // repair wave 1: probe11 stalled at 45.7%; 45% permanent damage ends the late tail
     moraleDrainBelow: 0.5, // D 4.6
   },
@@ -264,13 +265,15 @@ export const TUNING = deepFreeze({
   },
 
   rules: {
-    surrenderMorale: 10, // D 3.7
+    surrenderMorale: 20, // wave 2: matches the Shaken/Broken work-band boundary
     surrenderS: 45, // D 3.7
-    surrenderPopFrac: 0.25, // D 3.7
+    surrenderPopFrac: 0.35, // wave 2: fewer than fourteen people cannot sustain the castle
     hotseatTurnS: 30, // EN p.17, D 6.3
     matchTargetMinS: 720, // D 3.8 pacing target vs AI level 5
     matchTargetMaxS: 1200, // D 3.8
   },
+
+  threat: { rulerRadiusM: 6 }, // launch-time collision prediction; enough room to leave the blast
 
   npc: {
     population: 40, // research/07, D 4.1
@@ -322,6 +325,14 @@ export const TUNING = deepFreeze({
     start: 70, // research/07
     tauFastS: 30, // D 4.6
     baselineRateS: 0.05, // D 4.6: max baseline move per second
+    stressBaselineRateS: 0.4, // wave 2: slow morale follows sustained damage and casualties
+    palaceStressAfter: 0.15, // first 15% keep damage is absorbed without persistent pressure
+    deathStressAfter: 0.25, // reserve crews absorb initial casualties
+    palaceStressS: 0.65,
+    deathStressS: 0.5,
+    noGunS: 0.15,
+    quietS: 0.05,
+    rallyVisibleS: 10,
     wFast: 0.7, // research/07
     wBase: 0.3, // research/07
     floor: 8, // D 4.6 (research/07 said 10; lowered below the surrender line)
@@ -359,12 +370,20 @@ export const TUNING = deepFreeze({
     sMinCoefDeg: 0.008, // D 6.2: sigmaMin = 0.008 * (11 - L)^2
     sMinRangeCoef: 0.000008, // TB2 calibration: fractional range floor; L1 8%, L5 1.0368%
     sMinRangeExponent: 4, // TB2 guess: preserve low-level misses while mid-level crews learn a breach
+    sMinRangeMax: 0.012, // wave 2: trained L3-4 crews retain a stable breach (L5+ floors unchanged)
+    trainedMinLevel: 3, // levels 1-2 retain their original broad exploration floor
+    trainedAzMaxDeg: 0.30, // wave 2: stable trained breaches at L3-4; all L5+ distributions remain exact
     windResetSteps: 2, // D 6.2
     breachAimAbovePalaceM: 1, // strike the low shield segment within blast reach of the core
     transferConfidenceMax: 4, // a new point in a ranged castle does not restart blind exploration
-    windMemoryMinLevel: 4, // D 6.2
+    windMemoryMinLevel: 3, // wave 2: a trained low-level crew remembers its own observed ranging correction
     fireDelayPerLevelS: 0.5, // D 6.2
-    targetValue: { palace: 10, weapon: 8, magazine: 7, shieldWall: 4, crewCluster: 3 }, // D 6.2
+    targetValue: { palace: 10, ruler:14, weapon: 8, magazine: 7, shieldWall: 4, crewCluster: 3 }, // wave 2: sustained exposure is a deliberate opportunity
+    rulerExposureS: 18,
+    rulerCollateralM: 3, // choose another breach point until a ruler is a deliberate visible opportunity
+    rulerLeadershipBelow: 45,
+    rulerLeadershipCommitS: 5, // leave the besieged keep before reassessing recent local impacts
+    rulerLeadershipPopFrac: 0.6,
     tacticWeight: { daredevil: { palace: 1.5 }, general: { weapon: 1.5 }, worrier: { weapon: 1.2 } }, // D 6.2
     crewClusterN: 3, // D 6.2
     crewClusterM: 2, // D 6.2
@@ -372,7 +391,7 @@ export const TUNING = deepFreeze({
     retargetS: 120, // research/16 P2: retain a breach across four volleys
     breachAfterS: 120, // repair wave 1: three opening volleys, then a stable breach
     rulerRetreatCooldownS: 30, // repair wave 1: reassess cover as the keep opens
-    rulerDangerM: 10, // repair wave 1: walk to shelter when nearby impacts expose the throne
+    rulerDangerM: 4, // wave 2: react to nearby danger while leaving real exposure opportunities
     rulerDangerWindowS: 30, // repair wave 1
     recoveryWeapon: 'ballista', // repair wave 1: affordable cover while restoring the cannon blueprint
     recoveryMountOffsetZ: 8, // repair wave 1: spare batteries flank the central breach

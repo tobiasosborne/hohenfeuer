@@ -1,0 +1,31 @@
+✖ trained low-level crews retain misses without a six-metre permanent range floor (16.710784ms)
+✔ breach policy intentionally chooses a ruler only after the exposure window, and resets on lost sight (650.41688ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 685.297403
+
+✖ failing tests:
+
+test at tests/unit/ai-wave2-opportunity.test.js:11:1
+✖ trained low-level crews retain misses without a six-metre permanent range floor (16.710784ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(aimNoise(3,30).rangeFrac<=.015)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave2-opportunity.test.js:12:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

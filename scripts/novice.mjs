@@ -24,13 +24,13 @@ const usefulTypes = new Set([C.CMD.AIM,C.CMD.FIRE,C.CMD.REPAIR_PRIORITY,C.CMD.DE
  * Expert variants get only an initial windless geometry estimate (not AI targeting/learning).
  * All changes enter through ordinary commands; neither state nor tuning is modified.
  */
-export function createPolicy(initial, policy = 'novice', { initialCharge = 100 } = {}) {
+export function createPolicy(initial, policy = 'novice', { initialCharge = 100, reactToThreats = true } = {}) {
   const walk = createTb1Script(), target = palaceCentre(initial.castles[1]);
   const basic = ['novice','match1'].includes(policy), firstId = initial.weapons.filter(w=>w.slot===0)[1].id;
   const original = captureBlueprint(initial.castles[0]);
   const recovery = withRecoveryMounts(initial.castles[0],original,1,initial);
   const aims = new Map(), selected = new Set([firstId]);
-  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null;
+  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null, evasion = null;
   const returnRoute = [[39.5,28],[37.5,28],[37.5,35.4],[36,35.4],[36,27.5],[23.5,27.5],[23.5,23.5],[20.5,23.5]];
   function options(state) {
     const c = state.castles[0], p = c.plot, live = state.weapons.filter(w=>w.slot===0&&w.hp>0);
@@ -81,6 +81,15 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100 }
   }
   return { options, selected, get replacements(){return replacements;},get hidingReached(){return hidden&&returnWp===returnRoute.length;},
     observe(state,events) {
+      if(reactToThreats&&basic&&arrived)for(const e of events)if(e.type===C.EV.RULER_THREAT&&e.payload.castle===0){
+        const r=state.rulers[0];
+        const p=e.payload.impactPos,impactZ=Array.isArray(p)?p[2]:p?.z??r.pos.z;
+        const away=r.pos.z-impactZ,sign=Math.abs(away)>.25?(away>0?1:-1):(r.pos.z-state.castles[0].plot.origin.z>26?-1:1);
+        const safe={...r.pos,z:r.pos.z+sign*6};
+        if(!evasion)evasion={origin:{...r.pos},safe,weaponId:r.manning};
+        else evasion.safe=safe;
+        evasion.until=state.tick+e.payload.etaTicks+60;
+      }
       const ep=state.castles[1].plot;
       for (const e of events) if(e.type===C.EV.IMPACT&&e.payload.slot===0&&aims.has(e.payload.weaponId)) {
         const a=aims.get(e.payload.weaponId), w=state.weapons.find(w=>w.id===e.payload.weaponId), q=e.payload.pos;
@@ -102,6 +111,17 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100 }
         else return walk.next(state);
       }
       const r=state.rulers[0], c=state.castles[0], live=state.weapons.filter(w=>w.slot===0&&w.hp>0);
+      if(evasion){
+        pendingOrder=null;
+        if(r.manning!==null)emit(C.CMD.LEAVE_WEAPON);
+        const retreat=state.tick<evasion.until,to=retreat?evasion.safe:evasion.origin,dx=to.x-r.pos.x,dz=to.z-r.pos.z,d=Math.hypot(dx,dz);
+        if(d>.25)emit(C.CMD.MOVE,{fwd:Math.min(127,Math.max(1,Math.round(d/((retreat?6:4)/30)*127))),strafe:0,yaw:(Math.round(Math.atan2(dx,-dz)/(2*Math.PI)*65536)+65536)%65536,pitch:0,jump:0,sprint:retreat?1:0});
+        else{
+          emit(C.CMD.MOVE,{fwd:0,strafe:0,yaw:r.yaw,pitch:0,jump:0,sprint:0});
+          if(!retreat){if(live.some(w=>w.id===evasion.weaponId))emit(C.CMD.MAN_WEAPON,{weaponId:evasion.weaponId});evasion=null;}
+        }
+        return out;
+      }
       if(policy==='novice'&&pendingOrder){
         const a=pendingOrder,elapsed=state.tick-a.tick;
         if(elapsed===15){const eye={...r.pos,y:r.pos.y+T.ruler.eye},o=c.plot.origin,to={x:o.x+a.command.cell[0]+.5,y:o.y+a.command.cell[1]+.5,z:o.z+a.command.cell[2]+.5};
@@ -163,10 +183,11 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100 }
   };
 }
 
-export function runNovice({seed=1,level=5,policy='novice',maxMinutes=20,trace=false,initialCharge=100,onCommands=null}) {
+export function runNovice({seed=1,level=5,policy='novice',maxMinutes=20,trace=false,initialCharge=100,onCommands=null,compact=false,reactToThreats=true}) {
   C.resetRegistriesForTests();registerCoreSim();C.freezeRegistries();
   let api;const sim=createSim({map:'forest-duel',seed,slots:tb1Slots(level),hooks:{onReady(a){api=a;}}});
-  const p=createPolicy(sim.state,policy,{initialCharge}), paths=pathObserver(), windows=[], commandCounts={}, shots=[], purchases=[], commandTrace=[];
+  const p=createPolicy(sim.state,policy,{initialCharge,reactToThreats}), paths=pathObserver(), windows=[], commandCounts={}, shots=[], purchases=[], commandTrace=[];
+  const threats=[],deaths=[],moraleCrossings=[],below=[false,false];
   let firstHitS=null,firstPalaceS=null, current=null, options=null, remoteManualShots=0;
   const initialWeapons=new Set(api.state.weapons.map(w=>w.id));
   const close=(state)=>{if(current){current.endS=state.tick/30;current.types=[...current.types].sort();current.localTypes=[...current.localTypes].sort();current.match1=[...current.match1].sort();current.executed=[...current.executed].sort();windows.push(current);current=null;}};
@@ -178,12 +199,15 @@ export function runNovice({seed=1,level=5,policy='novice',maxMinutes=20,trace=fa
     if(seed===1||trace)commandTrace.push(...cmds);
     for(const cmd of cmds){commandCounts[cmd.type]=(commandCounts[cmd.type]??0)+1;if(current&&usefulTypes.has(cmd.type)&&![C.CMD.AIM,C.CMD.FIRE].includes(cmd.type)&&(cmd.type!==C.CMD.MOVE||cmd.fwd||cmd.strafe))current.executed.add(cmd.type);}
     sim.tick(cmds);const events=sim.drainEvents();p.observe(api.state,events);paths.sample(api.state,events);
+    for(const c of api.state.castles){const low=c.morale<=T.rules.surrenderMorale;if(low!==below[c.slot])moraleCrossings.push({second:api.tick/30,slot:c.slot,below:low,morale:c.morale,pressure:c.pressure});below[c.slot]=low;}
     const enemyPlot=api.state.castles[1].plot;
     if(events.some(e=>e.type===C.EV.IMPACT&&e.payload.slot===0&&['block','weapon','person'].includes(e.payload.hit)
       &&e.payload.pos[0]>=enemyPlot.origin.x&&e.payload.pos[0]<=enemyPlot.origin.x+enemyPlot.width
       &&e.payload.pos[2]>=enemyPlot.origin.z&&e.payload.pos[2]<=enemyPlot.origin.z+enemyPlot.depth))firstHitS??=api.tick/30;
     if(palaceIntegrity(api.state.castles[1])<1)firstPalaceS??=api.tick/30;
     for(const e of events){
+      if(e.type===C.EV.RULER_THREAT)threats.push({second:api.tick/30,...e.payload});
+      if(e.type===C.EV.RULER_DIED)deaths.push({second:api.tick/30,...e.payload});
       if(e.type===C.EV.SHOT_FIRED&&e.payload.slot===0){
         const w=api.state.weapons.find(w=>w.id===e.payload.weaponId);shots.push({second:api.tick/30,weaponId:w.id,defId:w.defId,aim:{...w.aim}});
         if(!w.autoFire&&api.state.rulers[0].manning!==w.id)remoteManualShots++;
@@ -195,10 +219,10 @@ export function runNovice({seed=1,level=5,policy='novice',maxMinutes=20,trace=fa
   }
   close(api.state);
   const s=api.state, valid=windows.filter(w=>w.endS-w.startS>=10);
-  return {seed,level,policy,initialCharge,seconds:s.tick/30,outcome:s.outcome,winner:s.outcome?.winners[0]??null,reason:s.castles.find(c=>c.eliminated)?.reason??'timeout',hash:sim.hash(),firstHitS,firstPalaceS,
-    shots:s.castles.map(c=>c.stats.shots),palaces:s.castles.map(palaceIntegrity),gold:s.castles.map(c=>c.gold),paths:{sides:paths.sides,series:paths.series},commandCounts,purchases,remoteManualShots,hidingReached:p.hidingReached,
+  return {seed,level,policy,initialCharge,reactToThreats,threats,deaths,moraleCrossings,finalSurrender:s.castles.map(c=>c.surrender),seconds:s.tick/30,outcome:s.outcome,winner:s.outcome?.winners[0]??null,reason:s.castles.find(c=>c.eliminated)?.reason??'timeout',hash:sim.hash(),firstHitS,firstPalaceS,
+    shots:s.castles.map(c=>c.stats.shots),palaces:s.castles.map(palaceIntegrity),gold:s.castles.map(c=>c.gold),paths:{sides:paths.sides,series:compact?undefined:paths.series},commandCounts,purchases,remoteManualShots,hidingReached:p.hidingReached,
     newGuns:s.weapons.filter(w=>w.slot===0&&!initialWeapons.has(w.id)).map(w=>({id:w.id,type:w.defId,hp:w.hp,crew:w.crewPresent,pos:w.pos})),
-    windows,shotEvents:shots,commandTrace,decisionSummary:{reloads:valid.length,meanTypes:mean(valid.map(w=>w.types.length)),meanNonAim:mean(valid.map(w=>w.types.filter(t=>![C.CMD.AIM,C.CMD.FIRE].includes(t)).length)),
+    windows:compact?undefined:windows,shotEvents:shots,commandTrace:compact?undefined:commandTrace,decisionSummary:{reloads:valid.length,meanTypes:mean(valid.map(w=>w.types.length)),meanNonAim:mean(valid.map(w=>w.types.filter(t=>![C.CMD.AIM,C.CMD.FIRE].includes(t)).length)),
       meanMatch1Types:mean(valid.map(w=>w.match1.length)),meanExecutedNonAim:mean(valid.map(w=>w.executed.length)),withTwoNonAim:valid.filter(w=>w.types.filter(t=>![C.CMD.AIM,C.CMD.FIRE].includes(t)).length>=2).length}};
 }
 
@@ -206,9 +230,9 @@ async function main(){
   const args=process.argv.slice(2),get=(k,d)=>args.includes(k)?args[args.indexOf(k)+1]:d;
   const seeds=Number(get('--seeds','10')),workers=Number(get('--workers','6')),policyNames=get('--policies',POLICIES.join(',')).split(','),levelNames=get('--levels','2,5,8').split(',').map(Number),label=get('--label','novice');
   if(policyNames.some(p=>!POLICIES.includes(p)))throw Error('Unknown policy');
-  const dir='tests/evidence/critique-v2';mkdirSync(dir,{recursive:true});
+  const dir=get('--output-dir','tests/evidence/critique-v2');mkdirSync(dir,{recursive:true});
   const results=args.includes('--resume')?JSON.parse(readFileSync(`${dir}/${label}-partial.json`,'utf8')):[];
-  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+1,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20'))})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
+  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+1,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20')),compact:args.includes('--compact'),reactToThreats:!args.includes('--ignore-threats')})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
   await Promise.all(Array.from({length:Math.min(workers,jobs.length)},()=>new Promise((resolve,reject)=>{
     const w=new Worker(new URL(import.meta.url),{workerData:true});w.on('error',reject);w.on('message',r=>{
       if(r!=='ready'){results.push(r);writeFileSync(`${dir}/${label}-partial.json`,JSON.stringify(results));console.log(`${r.policy} L${r.level} seed${r.seed}: ${r.seconds.toFixed(1)}s ${r.reason} winner${r.winner}, first hit ${r.firstHitS}, palace ${r.firstPalaceS}`);}
@@ -216,7 +240,7 @@ async function main(){
     });
   })));
   results.sort((a,b)=>a.policy.localeCompare(b.policy)||a.level-b.level||a.seed-b.seed);
-  writeFileSync(`${dir}/${label}.json`,JSON.stringify({schema:1,policyDefinitions:'scripts/novice.mjs; command-only; 20 minute right-censoring',matches:results},null,2));
+  writeFileSync(`${dir}/${label}.json`,JSON.stringify({schema:1,policyDefinitions:'scripts/novice.mjs; command-only; 20 minute right-censoring',matches:results},null,args.includes('--compact')?0:2));
 }
 if(!isMainThread&&workerData){parentPort.on('message',j=>parentPort.postMessage(runNovice(j)));parentPort.postMessage('ready');}
 else if(process.argv[1]&&fileURLToPath(import.meta.url)===process.argv[1])await main();

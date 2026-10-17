@@ -1,0 +1,59 @@
+worker ready
+worker ready
+worker ready
+progress 3: minute 1, palace 0.988/1.000, shots 2/2
+progress 2: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 2, palace 1.000/1.000, shots 5/4
+progress 1: minute 2, palace 1.000/1.000, shots 5/5
+progress 3: minute 2, palace 0.988/0.990, shots 4/5
+progress 2: minute 3, palace 0.992/1.000, shots 8/7
+progress 1: minute 3, palace 0.999/1.000, shots 8/7
+progress 3: minute 3, palace 0.984/0.990, shots 6/7
+progress 2: minute 4, palace 0.991/0.982, shots 10/9
+progress 1: minute 4, palace 0.964/0.959, shots 10/10
+progress 3: minute 4, palace 0.982/0.990, shots 9/10
+progress 2: minute 5, palace 0.986/0.945, shots 13/12
+progress 1: minute 5, palace 0.936/0.922, shots 13/12
+progress 3: minute 5, palace 0.982/0.901, shots 12/12
+progress 2: minute 6, palace 0.971/0.922, shots 15/14
+progress 1: minute 6, palace 0.910/0.911, shots 15/15
+progress 3: minute 6, palace 0.976/0.891, shots 14/14
+progress 2: minute 7, palace 0.954/0.918, shots 18/17
+progress 1: minute 7, palace 0.909/0.906, shots 18/17
+progress 3: minute 7, palace 0.974/0.843, shots 17/16
+progress 1: minute 8, palace 0.897/0.860, shots 21/20
+progress 2: minute 8, palace 0.872/0.911, shots 21/19
+progress 3: minute 8, palace 0.910/0.843, shots 19/19
+progress 2: minute 9, palace 0.864/0.829, shots 23/21
+progress 1: minute 9, palace 0.875/0.773, shots 22/22
+progress 3: minute 9, palace 0.803/0.836, shots 20/21
+progress 2: minute 10, palace 0.712/0.829, shots 24/24
+progress 1: minute 10, palace 0.782/0.773, shots 22/25
+progress 3: minute 10, palace 0.714/0.829, shots 22/23
+progress 1: minute 11, palace 0.713/0.773, shots 22/27
+progress 3: minute 11, palace 0.586/0.814, shots 24/26
+progress 2: minute 11, palace 0.554/0.731, shots 25/26
+progress 3: minute 12, palace 0.442/0.801, shots 26/28
+match 2: seed 2, 11.97m, winner 1, shots 27/29
+progress 1: minute 12, palace 0.526/0.795, shots 22/30
+match 3: seed 3, 12.62m, winner 1, shots 27/30
+match 1: seed 1, 12.78m, winner 1, shots 22/32
+| Metric | Result |
+|---|---|
+| Matches / timeouts | 3 / 0 |
+| Length min / mean / max (min) | 11.97 / 12.46 / 12.78 |
+| 12–20 min finishes | 2/3 |
+| Slot 0 / 1 wins | 0 / 3 (0.0% / 100.0%) |
+| Gold at cap, slot 0 / 1 | 0.0% / 0.0% |
+| Worst side at cap | 0.0% |
+| Gold >=95% cap, slot 0 / 1 | 0.0% / 0.0% |
+| Gold <=10% cap | 1.9% |
+| First-gun-loss comebacks | 0/1 (0.0%) |
+| Loser damaged in >=3 minutes | 3/3 |
+| No palace stall >5 min | 3/3 |
+| Both fire every 2 min | 2/3 |
+| Longest no-fire / ready no-fire (s) | 266.5 / 3.5 |
+| Mean shots / hits (slots) | 25.3 / 30.3; 25.3 / 26.3 |
+| Mean built / repaired / deaths per side | 76.0 / 31.3 / 8.8 |
+| Elimination reasons | {"palace":3} |

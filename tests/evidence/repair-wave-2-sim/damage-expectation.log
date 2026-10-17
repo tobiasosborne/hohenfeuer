@@ -1,0 +1,36 @@
+✔ TB2: direct target excludes splash, collateral rounds upward, foundation survives (6.508069ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (0.91948ms)
+✖ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (2.40742ms)
+✔ economy applies palace and civilian income and caps gold (0.434824ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (0.491019ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22.399968
+
+✖ failing tests:
+
+test at tests/unit/sim-damage.test.js:33:1
+✖ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (2.40742ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'ruler' !== 'palace'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-damage.test.js:37:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ruler',
+    expected: 'palace',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

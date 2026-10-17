@@ -1,0 +1,11 @@
+✔ every idle reason is causal, updated each tick, and emitted only on change (191.973192ms)
+✔ ruler death carries the actual projectile and weapon, including splash (0.895202ms)
+✔ deterministic launch prediction warns before impact and preserves killing-shot attribution (643.297691ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 868.092391

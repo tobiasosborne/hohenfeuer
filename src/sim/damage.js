@@ -54,7 +54,8 @@ export function damagePerson(ctx, person, dp, sourceSlot, cause = 'blast') {
   ctx.emit?.(EV.PERSON_DAMAGED, { entityId: person.id, hp: person.hp });
   if (person.hp <= 0) {
     person.dead = true;
-    if (person.isRuler) ctx.emit?.(EV.RULER_DIED, { slot: person.slot, cause });
+    if (person.isRuler) ctx.emit?.(EV.RULER_DIED, { slot: person.slot, cause,
+      fromCastle: sourceSlot ?? null, fromWeapon: ctx.damageSource?.fromWeapon ?? null, projectileId: ctx.damageSource?.projectileId ?? null });
     else ctx.emit?.(EV.NPC_DIED, { entityId: person.id, role: person.role, castle: person.castle ?? person.slot, cause });
   }
   return actual;

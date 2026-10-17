@@ -1,0 +1,281 @@
+{
+  "before": {
+    "palaceHp": 80,
+    "openingPalaceDefeat": 0.3,
+    "crackingEasePower": 1,
+    "crackingStartS": 600,
+    "crackingEndS": 900,
+    "latePalaceDefeat": 0.55,
+    "surrenderMorale": 10,
+    "surrenderS": 45,
+    "surrenderPopFrac": 0.25,
+    "rulerDangerM": 10,
+    "moraleBaselineRateS": 0.05,
+    "moraleFloor": 8,
+    "aiRangeFloorLevel3": 0.032768
+  },
+  "after": {
+    "palaceHp": 96,
+    "palace": {
+      "destroyedBelow": 0.2,
+      "crackingStartS": 600,
+      "crackingEndS": 900,
+      "crackingEasePower": 2,
+      "crackingDestroyedBelow": 0.55,
+      "moraleDrainBelow": 0.5
+    },
+    "rules": {
+      "surrenderMorale": 20,
+      "surrenderS": 45,
+      "surrenderPopFrac": 0.35,
+      "hotseatTurnS": 30,
+      "matchTargetMinS": 720,
+      "matchTargetMaxS": 1200
+    },
+    "morale": {
+      "start": 70,
+      "tauFastS": 30,
+      "baselineRateS": 0.05,
+      "stressBaselineRateS": 0.4,
+      "palaceStressAfter": 0.15,
+      "deathStressAfter": 0.25,
+      "palaceStressS": 0.65,
+      "deathStressS": 0.5,
+      "noGunS": 0.15,
+      "quietS": 0.05,
+      "rallyVisibleS": 10,
+      "wFast": 0.7,
+      "wBase": 0.3,
+      "floor": 8,
+      "crewDeath": -2,
+      "civilianDeath": -1,
+      "deathCap": -15,
+      "deathWindowS": 10,
+      "palaceHit": -4,
+      "ourHit": 2,
+      "enemyBlock": 0.5,
+      "enemyBlockCap": 3,
+      "enemyWeapon": 5,
+      "enemyNpc": 0.5,
+      "enemyNpcCap": 3,
+      "underFireS": -0.1,
+      "underFireWindowS": 10,
+      "palaceLowS": -0.2,
+      "shelterS": 0.05,
+      "shelterFrac": 0.8,
+      "rallyBelow": 50,
+      "rally": 15,
+      "rallyCooldownS": 60,
+      "workBands": [
+        [
+          70,
+          1.1
+        ],
+        [
+          40,
+          1
+        ],
+        [
+          20,
+          0.8
+        ],
+        [
+          0,
+          0.5
+        ]
+      ]
+    },
+    "ai": {
+      "levelMin": 1,
+      "levelMax": 10,
+      "defaultLevel": 5,
+      "sAz0PerLevelDeg": 0.4,
+      "sR0PerLevel": 0.015,
+      "alphaBase": 0.4,
+      "alphaPerLevel": 0.06,
+      "shrink": 0.6,
+      "sMinCoefDeg": 0.008,
+      "sMinRangeCoef": 0.000008,
+      "sMinRangeExponent": 4,
+      "sMinRangeMax": 0.012,
+      "trainedMinLevel": 3,
+      "trainedAzMaxDeg": 0.3,
+      "windResetSteps": 2,
+      "breachAimAbovePalaceM": 1,
+      "transferConfidenceMax": 4,
+      "windMemoryMinLevel": 3,
+      "fireDelayPerLevelS": 0.5,
+      "targetValue": {
+        "palace": 10,
+        "ruler": 14,
+        "weapon": 8,
+        "magazine": 7,
+        "shieldWall": 4,
+        "crewCluster": 3
+      },
+      "rulerExposureS": 18,
+      "rulerCollateralM": 3,
+      "rulerLeadershipBelow": 45,
+      "rulerLeadershipCommitS": 5,
+      "rulerLeadershipPopFrac": 0.6,
+      "tacticWeight": {
+        "daredevil": {
+          "palace": 1.5
+        },
+        "general": {
+          "weapon": 1.5
+        },
+        "worrier": {
+          "weapon": 1.2
+        }
+      },
+      "crewClusterN": 3,
+      "crewClusterM": 2,
+      "targetRetryS": 5,
+      "retargetS": 120,
+      "breachAfterS": 120,
+      "rulerRetreatCooldownS": 30,
+      "rulerDangerM": 4,
+      "rulerDangerWindowS": 30,
+      "recoveryWeapon": "ballista",
+      "recoveryMountOffsetZ": 8,
+      "recoveryGunHpFrac": 0.5,
+      "maxFireSilenceS": 60,
+      "buildEveryS": 2,
+      "buildPerThink": 4,
+      "recoveryDesignationSlots": 8,
+      "reserve": {
+        "worrier": 300,
+        "general": 500,
+        "daredevil": 800
+      },
+      "repairShare": {
+        "worrier": 0.6,
+        "general": 0.4,
+        "daredevil": 0.2
+      },
+      "shelterBelow": 35,
+      "shelterImpacts": 3,
+      "shelterWindowS": 10,
+      "shelterOffS": 20,
+      "thinkBudgetMs": 1,
+      "hitTest": {
+        "targetM": 3,
+        "distanceM": 192,
+        "level10Shots": 6,
+        "level1Shots": 20,
+        "seeds": 20
+      }
+    },
+    "threat": {
+      "rulerRadiusM": 6
+    },
+    "npc": {
+      "population": 40,
+      "populationMin": 20,
+      "populationMax": 80,
+      "shares": {
+        "crew": 0.4,
+        "runner": 0.15,
+        "mason": 0.15
+      },
+      "minRunners": 3,
+      "minMasons": 2,
+      "speed": 3,
+      "carrySpeed": 2,
+      "fleeSpeed": 4,
+      "ladderSpeed": 1,
+      "stairsMul": 0.7,
+      "carryLoads": 2,
+      "draftEveryS": 10,
+      "levyBelowPopFrac": 0.7,
+      "levyEveryS": 5,
+      "fleeCrew": {
+        "base": 10,
+        "spread": 10
+      },
+      "fleeCivilian": {
+        "base": 25,
+        "spread": 10
+      },
+      "returnHysteresis": 15,
+      "clamberMaxRiseM": 2,
+      "clamberSpeedMul": 0.5,
+      "autoRepairQuietS": 30,
+      "repairFullS": 12,
+      "repairJobBelow": 0.5,
+      "workReachM": 2,
+      "claimBlockedS": 5,
+      "claimTimeoutS": 60,
+      "fearRadiusM": 6,
+      "fearWindowS": 5,
+      "fearMoraleOverride": 60,
+      "fearDeadlockS": 30,
+      "pathMaxExpansions": 2048,
+      "pathSearchesPerTick": 8,
+      "pathReplanMinS": 1,
+      "pathRevalidateCells": 3,
+      "pathCost": {
+        "flat": 1,
+        "door": 1.5,
+        "stairs": 2,
+        "ladder": 3,
+        "stepDown": 1.5,
+        "clamber": 3
+      },
+      "shelterSolidAbove": 2,
+      "shelterAboveRange": 6,
+      "leadershipM": 8,
+      "leadershipBonus": 0.1,
+      "workSpeedCap": 1.2,
+      "desertBelow": 15,
+      "desertAfterS": 20,
+      "desertEveryS": 10
+    },
+    "sim": {
+      "tickHz": 30,
+      "substeps": 4,
+      "splashNativePositionM": 0.00732421875,
+      "originalWorldUnitM": 0.125,
+      "nativePositionM": 0.00244140625,
+      "nativeTickS": 0.062,
+      "nativeGravity": 33,
+      "nativeDragDivisor": 65536,
+      "gravity": 20.959002666493237,
+      "projectileMaxLifeS": 30,
+      "projectileMinY": -50,
+      "collapseRadius": 12,
+      "collapseBudgetCells": 4096,
+      "aiThinkEveryTicks": 15,
+      "aiSlotStaggerTicks": 0,
+      "maxTicksPerFrame": 5,
+      "dtClampS": 0.25,
+      "hashEveryTicks": 30,
+      "inputDelayTicks": 3,
+      "tickBudgetMs": 4
+    },
+    "economy": {
+      "startGold": 1500,
+      "palaceIncomeS": 3,
+      "civilianIncomeS": 0.1,
+      "goldCap": 2000,
+      "weaponSalvageFrac": 0.5,
+      "demolishRefundFrac": 0.5,
+      "mapOnlyRepairBlockCost": 8,
+      "repairCostFrac": 0.8
+    }
+  },
+  "unchangedEconomy": {
+    "palaceIncomeS": 3,
+    "civilianIncomeS": 0.1,
+    "startGold": 1500,
+    "goldCap": 2000,
+    "stoneCost": 4,
+    "towerCost": 8,
+    "mountCost": 6,
+    "repairCostFrac": 0.8,
+    "repairFullS": 12,
+    "weaponSalvageFrac": 0.5,
+    "demolishRefundFrac": 0.5
+  }
+}

@@ -1,0 +1,39 @@
+✔ workers can step clear and safely descend a three-metre repair ledge (15.544783ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (2.431997ms)
+✔ workers above a broken ladder rung can descend to surviving rungs to clear access for repairs (6.871649ms)
+✔ population extras spawn in the accessible castle rather than sealed standable pockets (72.630195ms)
+✔ even a one-cell descent clears the ledge before lowering the worker into the next column (9.559012ms)
+✔ urgent access work preempts a decorative build as well as a routine repair (2.037166ms)
+✖ a reserved replacement gun outranks automatic floor work while its mason can reach it (2.89513ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (960.854529ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1114.992205
+
+✖ failing tests:
+
+test at tests/unit/npc-wave2-recovery.test.js:56:1
+✖ a reserved replacement gun outranks automatic floor work while its mason can reach it (2.89513ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== null
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-wave2-recovery.test.js:62:39)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

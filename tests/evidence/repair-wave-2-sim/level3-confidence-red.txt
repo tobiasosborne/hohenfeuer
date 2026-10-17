@@ -1,0 +1,48 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (71.92411ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (11.272192ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (9.821466ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (25.862328ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (17.216987ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (5.310683ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (11.211559ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (13.299827ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (25.09245ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (12.606423ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (13.845932ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (12.085746ms)
+✖ level 3 changing the aim point retains learned confidence (6.676946ms)
+✔ level 5 changing the aim point retains learned confidence (1.690785ms)
+✔ a replacement cannon inherits its castle ranged confidence (1.865776ms)
+✔ a muzzle obstruction in our castle cannot poison enemy ranging memory (2.499827ms)
+✔ AI waits for its own worker to clear the upcoming muzzle lane (3.137511ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 268.462834
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:175:27
+✖ level 3 changing the aim point retains learned confidence (6.676946ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 4
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:181:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

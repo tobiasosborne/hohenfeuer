@@ -1,0 +1,45 @@
+✔ every idle reason is causal, updated each tick, and emitted only on change (397.893507ms)
+✔ ruler death carries the actual projectile and weapon, including splash (1.631969ms)
+✔ deterministic launch prediction warns before impact and preserves killing-shot attribution (1160.60679ms)
+✖ a shell-induced roof collapse keeps the shell attribution (1096.597132ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2796.402047
+
+✖ failing tests:
+
+test at tests/unit/sim-wave2-events.test.js:64:1
+✖ a shell-induced roof collapse keeps the shell attribution (1096.597132ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      cause: 'collapse',
+  +   fromCastle: 0,
+  +   fromWeapon: null,
+  +   projectileId: null,
+  -   fromCastle: 1,
+  -   fromWeapon: 2,
+  -   projectileId: 4,
+      slot: 0
+    }
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave2-events.test.js:73:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Object],
+    expected: [Object],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

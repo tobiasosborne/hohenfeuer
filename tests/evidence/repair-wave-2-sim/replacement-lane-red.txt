@@ -1,0 +1,34 @@
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (326.382069ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (142.67388ms)
+✖ AI prepares paid flank batteries and replaces a lost front gun away from the breach (142.288153ms)
+✔ a threatened AI ruler walks to cover through normal next-tick movement commands (343.779442ms)
+✔ a ruler responds again when later impacts expose its previous shelter (282.407428ms)
+✔ ruler shelter search includes covered buildings away from the palace firing lane (235.101996ms)
+✔ a protected palace is breached at the wall base instead of repeatedly aiming behind it (94.810921ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1607.250209
+
+✖ failing tests:
+
+test at tests/unit/ai-repair-wave.test.js:30:1
+✖ AI prepares paid flank batteries and replaces a lost front gun away from the breach (142.288153ms)
+  AssertionError [ERR_ASSERTION]: skip a replacement battery whose lane is blocked
+  
+  31 !== 15
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-repair-wave.test.js:43:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 31,
+    expected: 15,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
