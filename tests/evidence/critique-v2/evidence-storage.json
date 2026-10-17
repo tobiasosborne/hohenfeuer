@@ -1,0 +1,6 @@
+{
+  "minifiedFiles": 25,
+  "bytesBefore": 376873118,
+  "bytesAfter": 211053847,
+  "method": "whitespace-only compaction; parsed JSON values checked equal"
+}

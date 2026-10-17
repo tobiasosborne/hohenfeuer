@@ -1,0 +1,12 @@
+{
+  "prefixMatches": 30,
+  "tailSeeds": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source": "source-start.json",
+  "reason": "disjoint parallel worker batches; no paired simulation copied"
+}

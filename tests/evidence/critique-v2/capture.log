@@ -1,0 +1,13 @@
+ai-m00 0 null
+ai-m02 3600 null
+ai-m05 9000 null
+ai-m10 18000 null
+ai-end 24519 { winners: [ 0 ], draw: false, tick: 24518 }
+match1-m00 0 null
+match1-m02 3600 null
+match1-m05 9000 null
+match1-m10 18000 null
+match1-end 23927 { winners: [ 0 ], draw: false, tick: 23926 }
+match1-man-prompt 252 null
+match1-fire-prompt 254 null
+{"status":"passed","errors":[]}

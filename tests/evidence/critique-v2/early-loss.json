@@ -1,0 +1,5044 @@
+{
+  "seed": 6,
+  "level": 5,
+  "policy": "novice",
+  "seconds": 46.03333333333333,
+  "outcome": {
+    "winners": [
+      1
+    ],
+    "draw": false,
+    "tick": 1380
+  },
+  "winner": 1,
+  "reason": "ruler",
+  "hash": 1010707863,
+  "firstHitS": 12.166666666666666,
+  "firstPalaceS": 12.166666666666666,
+  "shots": [
+    2,
+    2
+  ],
+  "palaces": [
+    1,
+    0.9908854166666666
+  ],
+  "gold": [
+    1457.9733333332078,
+    1442.3733333332002
+  ],
+  "paths": {
+    "sides": [
+      {
+        "minMorale": 70,
+        "minPopulation": 40,
+        "rulerMinHp": 0,
+        "rulerExposedS": 0,
+        "longestExposureS": 0,
+        "movingS": 8,
+        "below40S": 0,
+        "fleeEvents": 0,
+        "desertEvents": 0
+      },
+      {
+        "minMorale": 65.73719016853144,
+        "minPopulation": 40,
+        "rulerMinHp": 100,
+        "rulerExposedS": 0,
+        "longestExposureS": 0,
+        "movingS": 13,
+        "below40S": 0,
+        "fleeEvents": 0,
+        "desertEvents": 0
+      }
+    ],
+    "series": [
+      {
+        "second": 1,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 99.5000000000002,
+              "y": 1,
+              "z": 131.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 2,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 103.5000000000004,
+              "y": 1,
+              "z": 131.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 3,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 107.5000000000006,
+              "y": 1,
+              "z": 131.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 4,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 107.8768927320317,
+              "y": 1,
+              "z": 135.23170577515054
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 5,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 107.99497931016087,
+              "y": 1,
+              "z": 139.22996233962044
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 6,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 109.38495696424971,
+              "y": 4,
+              "z": 136.71377131681353
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 7,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 109.4825468076729,
+              "y": 7,
+              "z": 132.7149619708092
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 8,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.42694965204365,
+              "y": 7,
+              "z": 130.4148268872026
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 9,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 10,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 11,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 12,
+        "sides": [
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 70,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 287.5,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 13,
+        "sides": [
+          {
+            "morale": 71.37352989780386,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.20659274293588,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 288.4406824146978,
+              "y": 1,
+              "z": 127.5
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 14,
+        "sides": [
+          {
+            "morale": 71.34545510891563,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.2124348062265,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 288.50003932068967,
+              "y": 1,
+              "z": 129.43382711750985
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 15,
+        "sides": [
+          {
+            "morale": 71.31994131551443,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.21644514798302,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 289.42600129857516,
+              "y": 1,
+              "z": 130.50056317470685
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 16,
+        "sides": [
+          {
+            "morale": 71.29690451227697,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.21868385201292,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 291.425999254622,
+              "y": 1,
+              "z": 130.50004319681182
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 17,
+        "sides": [
+          {
+            "morale": 71.27626344940771,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.2192090312652,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 293.4259992546219,
+              "y": 1,
+              "z": 130.50004319681182
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 18,
+        "sides": [
+          {
+            "morale": 71.25793954225273,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.21807689247801,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 295.4259992546218,
+              "y": 1,
+              "z": 130.50004319681182
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 19,
+        "sides": [
+          {
+            "morale": 71.24185678387795,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.21534179870613,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 297.4259992546217,
+              "y": 1,
+              "z": 130.50004319681182
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 20,
+        "sides": [
+          {
+            "morale": 71.22794166051546,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.2110563297969,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 299.42599925462156,
+              "y": 1,
+              "z": 130.50004319681182
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 21,
+        "sides": [
+          {
+            "morale": 71.21612306978301,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 67.20527134088276,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.5000150026527,
+              "y": 1,
+              "z": 131.4260274487802
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 22,
+        "sides": [
+          {
+            "morale": 71.13978174443565,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.55361966935514,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.5000150026527,
+              "y": 1,
+              "z": 133.42602744878008
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 23,
+        "sides": [
+          {
+            "morale": 71.06532784926738,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.56028100831595,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.5000150026527,
+              "y": 1,
+              "z": 135.42602744877996
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 24,
+        "sides": [
+          {
+            "morale": 70.9949562688695,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.57412600819508,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.5000150026527,
+              "y": 1,
+              "z": 137.42602744877985
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 25,
+        "sides": [
+          {
+            "morale": 70.92853309587124,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.58587677562235,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.50004319681136
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 26,
+        "sides": [
+          {
+            "morale": 70.86592881530784,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.59560200524211,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 27,
+        "sides": [
+          {
+            "morale": 70.80701816054165,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.60336813838919,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 28,
+        "sides": [
+          {
+            "morale": 70.73950949496138,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.60923943700128,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 29,
+        "sides": [
+          {
+            "morale": 70.65559756442275,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.61327805510741,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 30,
+        "sides": [
+          {
+            "morale": 70.57279800706252,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.61554410797109,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 31,
+        "sides": [
+          {
+            "morale": 70.4910743350114,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.61609573896547,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 32,
+        "sides": [
+          {
+            "morale": 70.4769417544193,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.61498918425505,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 33,
+        "sides": [
+          {
+            "morale": 70.46388945279094,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.61227883535553,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 34,
+        "sides": [
+          {
+            "morale": 70.44962519926189,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.6080172996417,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 35,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.60225545887049,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 36,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.59504252578442,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 37,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.5864260988582,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 38,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.57645221524992,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 39,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.56516540201473,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 40,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.55260872563932,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 41,
+        "sides": [
+          {
+            "morale": 70.44804840056072,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 68.53882383995082,
+            "population": 40,
+            "palace": 0.9947916666666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 42,
+        "sides": [
+          {
+            "morale": 71.82157829836459,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 65.7438613506403,
+            "population": 40,
+            "palace": 0.9908854166666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 43,
+        "sides": [
+          {
+            "morale": 71.79350350947635,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 65.75012102682085,
+            "population": 40,
+            "palace": 0.9908854166666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 44,
+        "sides": [
+          {
+            "morale": 71.76798971607515,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 65.75453528300277,
+            "population": 40,
+            "palace": 0.9908854166666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 45,
+        "sides": [
+          {
+            "morale": 71.74495291283768,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 65.75716465232814,
+            "population": 40,
+            "palace": 0.9908854166666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      },
+      {
+        "second": 46,
+        "sides": [
+          {
+            "morale": 71.72431184996844,
+            "population": 40,
+            "palace": 1,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 111.49323338724233,
+              "y": 7,
+              "z": 128.9496587833125
+            },
+            "exposed": false,
+            "fleeing": 0
+          },
+          {
+            "morale": 65.75806768234156,
+            "population": 40,
+            "palace": 0.9908854166666666,
+            "rulerHp": 100,
+            "rulerPos": {
+              "x": 300.7,
+              "y": 1,
+              "z": 138.4999661958074
+            },
+            "exposed": false,
+            "fleeing": 0
+          }
+        ]
+      }
+    ]
+  },
+  "commandCounts": {
+    "move": 252,
+    "man-weapon": 1,
+    "order-crew": 1,
+    "aim": 38,
+    "fire": 2,
+    "repair-priority": 8
+  },
+  "purchases": [],
+  "remoteManualShots": 0,
+  "newGuns": [],
+  "windows": [
+    {
+      "startS": 9.033333333333333,
+      "weaponId": 1,
+      "types": [
+        "aim",
+        "move",
+        "order-crew",
+        "repair-priority"
+      ],
+      "match1": [
+        "aim",
+        "move"
+      ],
+      "executed": [
+        "repair-priority"
+      ],
+      "endS": 37.833333333333336
+    },
+    {
+      "startS": 38.03333333333333,
+      "weaponId": 1,
+      "types": [
+        "aim",
+        "order-crew",
+        "repair-priority"
+      ],
+      "match1": [
+        "aim"
+      ],
+      "executed": [
+        "repair-priority"
+      ],
+      "endS": 46.03333333333333
+    }
+  ],
+  "shotEvents": [
+    {
+      "second": 9.033333333333333,
+      "weaponId": 1,
+      "defId": "cannon",
+      "aim": {
+        "az": 890,
+        "range": 1000
+      }
+    },
+    {
+      "second": 38.03333333333333,
+      "weaponId": 1,
+      "defId": "cannon",
+      "aim": {
+        "az": 890,
+        "range": 1000
+      }
+    }
+  ],
+  "commandTrace": [
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 0,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 1,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 2,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 3,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 4,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 5,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 6,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 7,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 8,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 9,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 10,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 11,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 12,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 13,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 14,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 15,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 16,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 17,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 18,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 19,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 20,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 21,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 22,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 23,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 24,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 25,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 26,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 27,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 28,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 29,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 30,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 31,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 32,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 33,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 34,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 35,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 36,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 37,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 38,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 39,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 40,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 41,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 42,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 43,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 44,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 45,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 46,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 47,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 48,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 49,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 50,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 51,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 52,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 53,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 54,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 55,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 56,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 57,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 58,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 59,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 60,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 61,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 62,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 63,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 64,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 65,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 66,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 67,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 68,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 69,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 70,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 71,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 72,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 73,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 74,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 75,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 76,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 77,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 78,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 79,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 80,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 81,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 82,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 83,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 84,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 85,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 86,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 87,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 88,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 89,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 90,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 91,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 92,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 93,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 94,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 95,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 96,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 97,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 98,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 99,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 100,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 101,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 102,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 103,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 104,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 105,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 106,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 107,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 108,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 109,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 110,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 111,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 112,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 113,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 114,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 115,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 116,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 117,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 118,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 119,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 120,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 121,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 122,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 123,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 124,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 125,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 126,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 127,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 128,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 129,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 130,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 131,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 132,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 133,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 134,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 135,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 136,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 137,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 138,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 139,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 140,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 141,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 142,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 143,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 144,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 145,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 146,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 147,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 148,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32460,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 149,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 32461,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 150,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 151,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 152,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17558,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 153,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 154,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17558,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 155,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 156,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17558,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 157,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 158,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17558,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 159,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 17557,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 160,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 161,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 162,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 163,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 164,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 165,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 166,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 167,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 168,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 169,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 170,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 171,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 172,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 173,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 174,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 175,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 176,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 177,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 178,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 179,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 180,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 181,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 182,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 183,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 184,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 185,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 186,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 187,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 188,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 189,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 190,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 191,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 192,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 193,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 194,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 195,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 196,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 197,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 198,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 199,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 200,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 201,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 202,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 203,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 204,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 205,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 206,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 207,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 208,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 209,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 210,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 211,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 212,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 255,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 213,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 254,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 214,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 215,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 216,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 217,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 218,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15440,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 219,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 220,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15440,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 221,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 222,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15440,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 223,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 224,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15440,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 225,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 226,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15440,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 227,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 15441,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 228,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 229,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 230,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 231,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 232,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 233,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 234,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 235,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 236,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 237,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 238,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 239,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 240,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 241,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 242,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 243,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 244,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 245,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 246,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 247,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 248,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 249,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 471,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 250,
+      "seq": 0,
+      "fwd": 127,
+      "strafe": 0,
+      "yaw": 472,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "move",
+      "slot": 0,
+      "tick": 251,
+      "seq": 0,
+      "fwd": 0,
+      "strafe": 0,
+      "yaw": 16384,
+      "pitch": 0,
+      "jump": 0,
+      "sprint": 0
+    },
+    {
+      "type": "man-weapon",
+      "slot": 0,
+      "tick": 252,
+      "seq": 0,
+      "weaponId": 1
+    },
+    {
+      "type": "order-crew",
+      "slot": 0,
+      "tick": 253,
+      "seq": 0,
+      "weaponId": 1,
+      "on": 1
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 270,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "fire",
+      "slot": 0,
+      "tick": 270,
+      "seq": 1,
+      "weaponId": 1
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 300,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 330,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 360,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 390,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 420,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 450,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 480,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 510,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 540,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 570,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 600,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 630,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 660,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 690,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 720,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 720,
+      "seq": 1,
+      "cell": [
+        8,
+        2,
+        26
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 750,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 780,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 810,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 810,
+      "seq": 1,
+      "cell": [
+        8,
+        1,
+        26
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 840,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 870,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 900,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 900,
+      "seq": 1,
+      "cell": [
+        8,
+        1,
+        27
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 930,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 960,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 990,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 990,
+      "seq": 1,
+      "cell": [
+        8,
+        1,
+        25
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1020,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1050,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1080,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 1080,
+      "seq": 1,
+      "cell": [
+        8,
+        2,
+        25
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1110,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1140,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "fire",
+      "slot": 0,
+      "tick": 1140,
+      "seq": 1,
+      "weaponId": 1
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1170,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 1170,
+      "seq": 1,
+      "cell": [
+        8,
+        2,
+        27
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1200,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1230,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1260,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 1260,
+      "seq": 1,
+      "cell": [
+        7,
+        1,
+        26
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1290,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1320,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1350,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    },
+    {
+      "type": "repair-priority",
+      "slot": 0,
+      "tick": 1350,
+      "seq": 1,
+      "cell": [
+        7,
+        1,
+        25
+      ]
+    },
+    {
+      "type": "aim",
+      "slot": 0,
+      "tick": 1380,
+      "seq": 0,
+      "weaponId": 1,
+      "az": 890,
+      "range": 1000
+    }
+  ],
+  "decisionSummary": {
+    "reloads": 1,
+    "meanTypes": 4,
+    "meanNonAim": 3,
+    "meanMatch1Types": 2,
+    "meanExecutedNonAim": 1,
+    "withTwoNonAim": 1
+  }
+}

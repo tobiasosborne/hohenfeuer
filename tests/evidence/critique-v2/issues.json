@@ -1,0 +1,50 @@
+[
+  {
+    "id": "castle-game-uo7.9",
+    "title": "Telegraph ruler danger and explain the decisive loss",
+    "description": "D14, F22; expected +4 points (2 to 4 each). The critique-v2 novice has ruler losses at 46 and 97 seconds versus AI5 while AI-only rulers stay covered. Add a directional incoming cue and a cause-specific end-screen account, with fast retry. UI/render lane: src/main.js, src/ui/hud.js, src/ui/flow.js, src/ui/menu-draw.js, src/ui/i18n.js, src/audio/sfx.js, src/render/fx.js. Player lane: src/player/feel.js as needed. Use existing public events; coordinate contracts with the orchestrator. Acceptance: replay novice AI5 seed6; show a warning before impact and the actual ruler-death cause, weapon/bearing/time on the end screen; every defeat in the 30-seed novice cohort has one causal sentence; retry preserves setup in one action. Evidence: research/19-gameplay-critique-v2.md and tests/evidence/critique-v2/.",
+    "priority": 1
+  },
+  {
+    "id": "castle-game-uo7.10",
+    "title": "Make existing reload alternatives visible and consequential",
+    "description": "A2, A4, E18; expected +3 points. The embodied novice records 3.21/3.54/3.67 locally reachable useful command types per reload at AI2/5/8, but exercises only 0.83/0.94/0.97 distinct non-aim types; repair dominates. This is a discovery and consequence problem, not a need for more bindings. UI/render lane: src/main.js, src/ui/hud.js, src/ui/overlay.js. Player lane: src/player/interact.js, src/progression.js. Sim/npc/ai/tuning lane: src/npc/jobs.js and src/tuning.js only if paired policy ablation shows priorities have no useful consequence. Acceptance: preserve at least two locally reachable non-aim alternatives after first damage; in three human five-reload sessions, at least two players identify repair, building/replacement and personal safety without external instructions, choose at least two distinct non-aim intervention types across the session, and explain the resulting trade-off. Verify a visible repair/rebuild result and a real cost or exposure trade-off; do not reward redundant command spam or force actions when no intervention is needed. Retain one contextual prompt. Evidence: research/19, scripts/novice.mjs, tests/evidence/critique-v2/novice-embodied.json.",
+    "priority": 1
+  },
+  {
+    "id": "castle-game-uo7.11",
+    "title": "Restore measured ruler and morale endings without early blowouts",
+    "description": "E20, E19; expected +3 points. Wave1 and independent forest evidence are palace-only; ruler target eligibility is filtered out after the 120-second breach switch, and morale remains far above 10. Sim/npc/ai/tuning lane: src/ai/controller.js, src/ai/targets.js, src/npc/morale.js, src/sim/rules.js, src/tuning.js. UI/render: src/main.js, src/ui/overlay.js, src/ui/i18n.js for corresponding pressure warnings. Acceptance: at least 20 independent seeds with paired slot orders at AI5; ruler and surrender endings each 10-30%, no restoration of sub-eight-minute AI-only blowouts, at least 80% finish in 12-20 minutes; show exposure duration and 45-second morale-clock crossings. Keep all cover rules shared with humans. Use research/19 counterfactuals as candidates, not claimed validated tuning. Measured candidate, not a shipped repair: rulerDangerM 10 to 4 plus surrenderPopFrac 0.25 to 0.35 gives 5 palace/3 ruler/2 surrender in 10 independent seeds, minimum 454.4s, but only 7/10 remain in 12-20min. Radius 0 gives 10/10 ruler endings and must not be treated as variety. Retest at 20 independent paired seeds and reconcile the pacing gate. Baseline morale minima 44.59 versus surrender 10; threshold 55 sustained 45s qualifies 3/20 baseline worlds in an offline first-ending counterfactual, but conflicts with the current Steady work band. Keep causal UI and intentional target selection in scope.",
+    "priority": 1
+  },
+  {
+    "id": "castle-game-uo7.12",
+    "title": "Calibrate pacing and AI competence across levels and shipped duel maps",
+    "description": "B6, F21; expected +3 points (B6 2 to 4, F21 2 to 3). Independent evidence: AI3 forest times out 16/20 and has a 707.5s loaded/crewed/funded silence; ice-duel times out 8/10. The embodied novice finishes only 2/10 AI5 matches in 12-20min and can lose its ruler in 46s. Desert/volcano also have unarmed starter castles, separately tracked in castle-game-uo7.16. Sim/npc/ai/tuning lane: src/ai/controller.js, src/ai/targets.js, src/ai/build.js, src/npc/brain.js, src/npc/jobs.js, src/tuning.js. Coordinate cardinal/recovery planning with castle-game-er7 and armed starts with uo7.16. Acceptance: rerun the 60-match equal-level matrix, unequal levels in both physical orientations, and at least 10 independent seeds per biome; each castle fires a first paid shot within 90s and never has an unexplained actual firing gap above 120s or ready gap above 90s. Report crew/ammo/mount reasons for every longer gap, even when readiness never becomes true. Fewer than 10% timeouts; at least 80% of AI5 matches in 12-20min, including the legal novice and map checks, with no return of early ruler blowouts. See research/19 and tests/evidence/critique-v2/analysis.json.",
+    "priority": 1
+  },
+  {
+    "id": "castle-game-uo7.13",
+    "title": "Teach local triage and expose the reason an idle gun cannot fire",
+    "description": "C9, C10, D15; expected +3 points. E auto-crew and the tier ramp exist; human discovery and gun-stall diagnosis remain unproven. UI/render lane: src/main.js, src/ui/hud.js, src/ui/overlay.js, src/ui/i18n.js. Player lane: src/player/interact.js, src/progression.js. Acceptance: a reticle on each stalled own gun distinguishes missing crew, ammunition, funds and obstruction; one first-damage cue leads to a legal reachable action. Run three unbriefed first-match users: at least two finish, first enemy hit under four minutes, and all three can explain why a deliberately stalled gun will not fire. Retain one prompt and current gradual feature gates. Complements existing castle-game-me0 visual acceptance; does not replace or close it. Evidence: research/19 and critique-v2 screenshots.",
+    "priority": 2
+  },
+  {
+    "id": "castle-game-uo7.14",
+    "title": "Expose the changing palace defeat line and a readable crisis",
+    "description": "B5, C11; expected +2 points. src/sim/rules.js publishes keepCracking and palaceDefeatThreshold, but main/UI do not render them. The defeat threshold rises from 30% to 55% during minutes10-15 without a visible rule explanation. UI/render lane: src/main.js, src/ui/hud.js, src/ui/console.js, src/ui/i18n.js. Player lane: no new binding. Acceptance: 1024x768 captures at 9:59, 10:00, 12:30, 15:00 show the palace integrity and actual defeat line, with one bounded explanatory notice and no alert spam; a user can state how close their keep is to defeat. Recheck the original less-than-2%/three-minute stall metric, not only any-damage-over-five-minutes. See research/19.",
+    "priority": 2
+  },
+  {
+    "id": "castle-game-uo7.15",
+    "title": "Make the impact view a measurable aiming instrument",
+    "description": "A1, D13; expected +2 points. Charge units and the calm-air metre estimate are improvements; correction still depends on guessing the impact offset. UI/render lane: src/main.js, src/ui/hud.js, src/ui/minimap.js, src/render/fx.js. Player lane: src/player/camera.js and src/player/feel.js; coordinate authored sights with castle-game-hoq. Acceptance: 1024x768 screenshots and a short actual-shot sequence at 190m distinguish short/long and left/right within two seconds after impact, retain the previous aim, and demonstrate convergence within four shots in calm wind over ten seeds without an exact solver in the player policy. Preserve the impact camera and avoid additional match1 bindings. See research/19.",
+    "priority": 2
+  },
+  {
+    "id": "castle-game-uo7.16",
+    "title": "Ensure a match-1 player can fire on every offered duel map",
+    "description": "C9; expected +1 point, shared with the broader onboarding work (do not double-count). Independent loadout audit: desert-duel west/orig-19 and volcano-duel west/orig-67 start with zero weapons. Match1 disables G/weapon placement, so those offered player starts cannot acquire or fire a gun. Their AIs also have no initial weapon blueprint to replace. Sim/content lane: src/plugins/maps/desert-duel.sim.js, src/plugins/maps/volcano-duel.sim.js, the corresponding generated castle definitions and scripts/rip/castles_to_defs.py as appropriate; coordinate generated content with its owner. Player lane: src/progression.js and setup eligibility only if needed. Prefer an armed, reachable starter loadout over exposing additional controls. Acceptance: boot profile0 in slot0 on all four duel maps; each has an immediately usable or clearly recoverable cannon and reaches a paid shot through real E/Space controls within 90 seconds on a scripted route, with G still hidden. Verify every initial gun and crew route. Re-run map sweeps and preserve distinct castle geometry. Evidence: tests/evidence/critique-v2/map-loadouts.json and research/19-gameplay-critique-v2.md.",
+    "priority": 1
+  }
+]

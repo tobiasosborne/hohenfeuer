@@ -4,6 +4,8 @@ import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { availableParallelism } from 'node:os';
+import { resolve, join } from 'node:path';
+import { pathObserver } from './critique-metrics.mjs';
 import * as C from '../src/contracts.js';
 import { TUNING as T } from '../src/tuning.js';
 import { registerCoreSim } from '../src/plugins/index.sim.js';
@@ -18,8 +20,10 @@ export function parseOptions(args) {
     const key = args[i];
     if (key === '--swap-slot') { o.swapSlot = true; continue; }
     if (key === '--no-swap-slot') { o.swapSlot = false; continue; }
+    if (key === '--resume') { o.resume = true; continue; }
     const value = args[++i];
-    if (key === '--label') o.label = value;
+    if (key === '--output-dir') o.outputDir = value;
+    else if (key === '--label') o.label = value;
     else if (key === '--matches') o.matches = Number(value);
     else if (key === '--seeds') o.seeds = Number(value);
     else if (key === '--seed-start') o.seedStart = Number(value);
@@ -90,6 +94,7 @@ export function summaryTable(s) {
 }
 
 export function runMatch(job, onProgress = () => {}) {
+  const paths = pathObserver();
   C.resetRegistriesForTests(); registerCoreSim(); C.freezeRegistries();
   // Swap physical placements and their castle/controller identity together. Slot 0
   // therefore attacks from the east in the reverse leg; wind/terrain seed is unchanged.
@@ -125,6 +130,7 @@ export function runMatch(job, onProgress = () => {}) {
     palace.forEach((v, i) => { if (v < previousPalace[i]) perSide[i].damageMinutes.add(Math.floor((now - 1) / (60 * T.sim.tickHz))); });
     previousPalace = palace;
     const events = sim.drainEvents(), losses = [];
+    paths.sample(state, events);
     for (const { type, payload: p } of events) {
       const i = p.slot ?? p.castle ?? p.plot;
       if (type === C.EV.SHOT_FIRED) { const side = perSide[i]; side.longestNoFireS = Math.max(side.longestNoFireS, (now - side.lastShot) / T.sim.tickHz); side.lastShot = now; side.readyTicks = 0; side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] = (side.shotsByMinute[Math.floor((now - 1) / (60 * T.sim.tickHz))] ?? 0) + 1; shotEvents.push({ second: now / T.sim.tickHz, slot: i, weaponId: p.weaponId }); }
@@ -156,11 +162,17 @@ export function runMatch(job, onProgress = () => {}) {
   return { ...job, ticks: state.tick, seconds: state.tick / T.sim.tickHz, winnerSlot, eliminationReason: state.castles.find(c => c.eliminated)?.reason ?? null, outcome: state.outcome, hash: sim.hash(), firstGunLoss, gunLossEvents,
     longestPalaceStallS: longestPalaceStallTicks / T.sim.tickHz, loserDamageMinutes: winnerSlot === null ? 0 : perSide[1 - winnerSlot].damageMinutes.size,
     sides: perSide.map((s, i) => ({ shots: state.castles[i].stats.shots, hits: state.castles[i].stats.directHits, goldAtCapShare: s.capTicks / state.tick, goldNearCapShare: s.nearCapTicks / state.tick, goldNearZeroShare: s.lowTicks / state.tick, longestNoFireS: Math.max(s.longestNoFireS, (state.tick - s.lastShot) / T.sim.tickHz), longestReadyNoFireS: s.longestReadyNoFireS, npcDeaths: s.npcDeaths, blocksDestroyed: s.blocksDestroyed, blocksCollapsed: s.blocksCollapsed, blocksBuilt: s.blocksBuilt, blocksRepaired: s.blocksRepaired, shotsByMinute: Array.from(s.shotsByMinute, n => n ?? 0), damageMinutes: [...s.damageMinutes], goldBlockedShotS: s.goldBlockedShotTicks / T.sim.tickHz, goldBlockedReplacementS: s.goldBlockedReplacementTicks / T.sim.tickHz, spend: s.spend })),
-    minuteCurve, goldTrajectory, spendEvents: [...spending.values()], shotEvents, moraleBandEvents };
+    minuteCurve, goldTrajectory, spendEvents: [...spending.values()], shotEvents, moraleBandEvents, paths: { sides: paths.sides, series: paths.series } };
 }
 
 async function main() {
-  const options = parseOptions(process.argv.slice(2)), jobs = matchJobs(options), matches = [], workers = [];
+  const options = parseOptions(process.argv.slice(2)), workers = [];
+  const outputDir = resolve(options.outputDir ?? 'tests/evidence');
+  mkdirSync(outputDir, { recursive: true });
+  const matches = options.resume ? JSON.parse(readFileSync(join(outputDir, `sweep-${options.label}-partial.json`), 'utf8')) : [];
+  const allJobs = matchJobs(options);
+  if (matches.some(m => !allJobs.some(j => j.index === m.index && j.seed === m.seed && j.swap === m.swap && j.map === m.map && String(j.levels) === String(m.levels)))) throw new Error('Resume cohort mismatch');
+  const jobs = allJobs.filter(j => !matches.some(m => m.index === j.index));
   const digest = createHash('sha256');
   for (const path of ['src/tuning.js', 'src/sim/sim.js', 'src/ai/controller.js', 'src/ai/targets.js', 'src/npc/brain.js', 'src/plugins/castles/default.sim.js']) digest.update(readFileSync(new URL(`../${path}`, import.meta.url)));
   const sourceSha256 = digest.digest('hex');
@@ -170,15 +182,15 @@ async function main() {
     w.on('message', message => {
       if (message.progress) { console.log(`progress ${message.index + 1}: minute ${message.progress.second / 60}, palace ${message.progress.sides.map(s => s.palace.toFixed(3)).join('/')}, shots ${message.progress.sides.map(s => s.shots).join('/')}`); return; }
       if (message.ready) { console.log('worker ready'); const job = jobs.shift(); if (job) w.postMessage(job); else { w.terminate(); resolve(); } return; }
-      matches.push(message); writeFileSync(new URL(`../tests/evidence/sweep-${options.label}-partial.json`, import.meta.url), JSON.stringify(matches)); console.log(`match ${message.index + 1}: seed ${message.seed}${message.swap ? ' swapped' : ''}, ${(message.seconds / 60).toFixed(2)}m, winner ${message.winnerSlot}, shots ${message.sides.map(s => s.shots).join('/')}`);
+      matches.push(message); writeFileSync(join(outputDir, `sweep-${options.label}-partial.json`), JSON.stringify(matches)); console.log(`match ${message.index + 1}: seed ${message.seed}${message.swap ? ' swapped' : ''}, ${(message.seconds / 60).toFixed(2)}m, winner ${message.winnerSlot}, shots ${message.sides.map(s => s.shots).join('/')}`);
       const job = jobs.shift(); if (job) w.postMessage(job); else { w.terminate(); resolve(); }
     });
   })));
   matches.sort((a, b) => a.index - b.index);
   const summary = summarize(matches), table = summaryTable(summary), result = { schema: 1, options, sourceSha256, tickHz: T.sim.tickHz, tuning: { economy: T.economy, blocks: { stone: T.blocks.stone, tower: T.blocks.tower, palace:T.blocks.palace, mount:T.blocks.mount }, palace: T.palace, repairFullS: T.npc.repairFullS, npc:T.npc, ai:T.ai, sim:T.sim }, summary, table, matches };
   mkdirSync(new URL('../tests/evidence/', import.meta.url), { recursive: true });
-  writeFileSync(new URL(`../tests/evidence/sweep-${options.label}.json`, import.meta.url), `${JSON.stringify(result, null, 2)}\n`);
+  writeFileSync(join(outputDir, `sweep-${options.label}.json`), `${JSON.stringify(result, null, 2)}\n`);
   console.log(table);
 }
-if (!isMainThread && workerData) { parentPort.on('message', job => { try { parentPort.postMessage(runMatch(job, progress => parentPort.postMessage({ index: job.index, progress }))); } catch (e) { throw e; } }); parentPort.postMessage({ ready: true }); }
+if (!isMainThread && workerData === true) { parentPort.on('message', job => { try { parentPort.postMessage(runMatch(job, progress => parentPort.postMessage({ index: job.index, progress }))); } catch (e) { throw e; } }); parentPort.postMessage({ ready: true }); }
 else if (process.argv[1] && fileURLToPath(import.meta.url) === fileURLToPath(new URL(`file://${process.argv[1]}`))) await main();

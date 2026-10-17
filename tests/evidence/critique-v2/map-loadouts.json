@@ -1,0 +1,448 @@
+{
+  "match1": {
+    "match": 1,
+    "keys": [
+      "KeyW",
+      "KeyA",
+      "KeyS",
+      "KeyD",
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "Numpad8",
+      "Numpad2",
+      "Numpad4",
+      "Numpad6",
+      "ShiftLeft",
+      "ShiftRight",
+      "ControlLeft",
+      "ControlRight",
+      "Space",
+      "Numpad0",
+      "KeyE",
+      "KeyB",
+      "End",
+      "Numpad1",
+      "Escape"
+    ],
+    "weapons": [
+      "cannon"
+    ],
+    "blocks": [
+      1
+    ],
+    "repair": false,
+    "placement": false,
+    "autoFire": false,
+    "orders": false,
+    "weaponCycle": false,
+    "restore": false,
+    "hud": {
+      "gold": true,
+      "population": true,
+      "weaponCount": false,
+      "wind": true,
+      "ownMap": true,
+      "aim": true,
+      "impact": true,
+      "morale": false,
+      "enemyMap": false,
+      "jobs": false,
+      "income": true
+    }
+  },
+  "maps": [
+    {
+      "id": "forest-duel",
+      "slots": [
+        {
+          "castle": "default",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                7,
+                7,
+                23
+              ],
+              "facing": 3
+            },
+            {
+              "id": "cannon",
+              "at": [
+                40,
+                7,
+                23
+              ],
+              "facing": 1
+            }
+          ],
+          "mountSpots": [
+            [
+              7,
+              7,
+              23,
+              3
+            ],
+            [
+              40,
+              7,
+              23,
+              1
+            ]
+          ],
+          "population": 40
+        },
+        {
+          "castle": "default",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                7,
+                7,
+                23
+              ],
+              "facing": 3
+            },
+            {
+              "id": "cannon",
+              "at": [
+                40,
+                7,
+                23
+              ],
+              "facing": 1
+            }
+          ],
+          "mountSpots": [
+            [
+              7,
+              7,
+              23,
+              3
+            ],
+            [
+              40,
+              7,
+              23,
+              1
+            ]
+          ],
+          "population": 40
+        }
+      ]
+    },
+    {
+      "id": "desert-duel",
+      "slots": [
+        {
+          "castle": "orig-19",
+          "weapons": [],
+          "mountSpots": [
+            [
+              20,
+              5,
+              17,
+              2
+            ],
+            [
+              33,
+              5,
+              17,
+              2
+            ],
+            [
+              33,
+              5,
+              26,
+              2
+            ],
+            [
+              20,
+              5,
+              26,
+              2
+            ]
+          ],
+          "population": 40
+        },
+        {
+          "castle": "orig-20",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                34,
+                5,
+                13
+              ],
+              "facing": 0
+            }
+          ],
+          "mountSpots": [
+            [
+              34,
+              5,
+              13,
+              0
+            ],
+            [
+              42,
+              5,
+              21,
+              2
+            ],
+            [
+              26,
+              5,
+              21,
+              2
+            ],
+            [
+              26,
+              5,
+              32,
+              2
+            ],
+            [
+              41,
+              5,
+              32,
+              2
+            ]
+          ],
+          "population": 40
+        }
+      ]
+    },
+    {
+      "id": "ice-duel",
+      "slots": [
+        {
+          "castle": "orig-43",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                25,
+                5,
+                23
+              ],
+              "facing": 0
+            },
+            {
+              "id": "cannon",
+              "at": [
+                45,
+                5,
+                24
+              ],
+              "facing": 0
+            }
+          ],
+          "mountSpots": [
+            [
+              25,
+              5,
+              23,
+              0
+            ],
+            [
+              45,
+              5,
+              24,
+              0
+            ],
+            [
+              36,
+              5,
+              33,
+              0
+            ],
+            [
+              25,
+              5,
+              33,
+              0
+            ],
+            [
+              45,
+              6,
+              30,
+              0
+            ],
+            [
+              36,
+              6,
+              21,
+              0
+            ],
+            [
+              36,
+              6,
+              30,
+              0
+            ],
+            [
+              21,
+              5,
+              23,
+              0
+            ],
+            [
+              21,
+              5,
+              27,
+              0
+            ]
+          ],
+          "population": 40
+        },
+        {
+          "castle": "orig-44",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                31,
+                5,
+                12
+              ],
+              "facing": 0
+            }
+          ],
+          "mountSpots": [
+            [
+              31,
+              5,
+              12,
+              0
+            ],
+            [
+              31,
+              5,
+              22,
+              0
+            ],
+            [
+              18,
+              5,
+              22,
+              0
+            ],
+            [
+              22,
+              3,
+              12,
+              0
+            ]
+          ],
+          "population": 40
+        }
+      ]
+    },
+    {
+      "id": "volcano-duel",
+      "slots": [
+        {
+          "castle": "orig-67",
+          "weapons": [],
+          "mountSpots": [
+            [
+              10,
+              5,
+              14,
+              0
+            ],
+            [
+              29,
+              5,
+              17,
+              0
+            ],
+            [
+              19,
+              5,
+              14,
+              0
+            ],
+            [
+              10,
+              5,
+              25,
+              0
+            ],
+            [
+              29,
+              5,
+              25,
+              0
+            ],
+            [
+              19,
+              5,
+              25,
+              0
+            ],
+            [
+              18,
+              5,
+              17,
+              0
+            ]
+          ],
+          "population": 40
+        },
+        {
+          "castle": "orig-68",
+          "weapons": [
+            {
+              "id": "cannon",
+              "at": [
+                14,
+                5,
+                14
+              ],
+              "facing": 0
+            }
+          ],
+          "mountSpots": [
+            [
+              14,
+              5,
+              14,
+              0
+            ],
+            [
+              14,
+              5,
+              23,
+              0
+            ],
+            [
+              29,
+              5,
+              23,
+              0
+            ],
+            [
+              29,
+              5,
+              8,
+              0
+            ],
+            [
+              27,
+              5,
+              14,
+              0
+            ]
+          ],
+          "population": 40
+        }
+      ]
+    }
+  ]
+}

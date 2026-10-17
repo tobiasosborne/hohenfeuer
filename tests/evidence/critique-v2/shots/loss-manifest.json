@@ -1,0 +1,84 @@
+{
+  "captures": [
+    {
+      "name": "novice-L5-seed6-before-death",
+      "tick": 1291,
+      "hash": 3182043143,
+      "outcome": null,
+      "reasons": [
+        null,
+        null
+      ],
+      "texts": [
+        "1450",
+        "40 (40)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Shot!",
+        "Hit! Palace 99%",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "0",
+        "8",
+        "9",
+        "1",
+        "0",
+        "0",
+        "Charge 1-255",
+        "approx. 172 m (no wind)",
+        "Arrows: Aim",
+        "E: Leave",
+        "Reloading",
+        "Cannon (100%)",
+        "End: Impact view"
+      ]
+    },
+    {
+      "name": "novice-L5-seed6-loss",
+      "tick": 1381,
+      "hash": 1010707863,
+      "outcome": {
+        "winners": [
+          1
+        ],
+        "draw": false,
+        "tick": 1380
+      },
+      "reasons": [
+        "ruler",
+        null
+      ],
+      "texts": [
+        "Defeat!",
+        "Winner: Kunibert",
+        "Duration 0:46",
+        "Name",
+        "Shots",
+        "Hits",
+        "Damage",
+        "Losses",
+        "Spieler",
+        "2",
+        "2",
+        "995",
+        "0",
+        "Kunibert",
+        "2",
+        "2",
+        "1506",
+        "0",
+        "Continue",
+        "Back to title"
+      ],
+      "menu": "over"
+    }
+  ],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "expectedHash": 1010707863,
+  "hashMatches": true,
+  "status": "passed"
+}

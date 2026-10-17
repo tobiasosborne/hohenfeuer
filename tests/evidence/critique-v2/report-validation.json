@@ -1,0 +1,11 @@
+{
+  "scoreRows": 22,
+  "score": 60,
+  "priorScore": 52,
+  "provisionalSubset": 33,
+  "repairIssues": 8,
+  "allLinkedEvidenceExists": true,
+  "srcFilesUnchanged": 303,
+  "quietSpanConvention": "elapsed time between first and last one-second sample, maximum460s",
+  "moraleClockConvention": "46 consecutive samples spanning45s"
+}

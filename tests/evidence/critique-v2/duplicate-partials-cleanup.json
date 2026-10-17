@@ -1,0 +1,95 @@
+{
+  "removed": [
+    {
+      "path": "sweep-critique2-partial.json",
+      "bytes": 15698415,
+      "sha256": "dab5f8e61d8cfafbe36ab5bb2033f52461fa46807e7e42b6138816955708c408",
+      "completeReplacement": "sweep-critique2.json"
+    },
+    {
+      "path": "smoke-partial.json",
+      "bytes": 43507,
+      "sha256": "b2d76245570cda96f8eb4de59f1711fdbdbd826734de931e75dc3f289c642879",
+      "completeReplacement": "smoke.json"
+    },
+    {
+      "path": "ruler-tuning-partial.json",
+      "bytes": 6530808,
+      "sha256": "c92774adec8f242c86347db1496e83ead5cb8a147a7b4c180de4c090de867f28",
+      "completeReplacement": "ruler-tuning.json"
+    },
+    {
+      "path": "joint-tuning-partial.json",
+      "bytes": 3409508,
+      "sha256": "c6844cdaf530e64e9e6342f5a4cbbe61f0f96799e5804a409e26779a1540c51c",
+      "completeReplacement": "joint-tuning.json"
+    },
+    {
+      "path": "sweep-critique2-volcano-partial.json",
+      "bytes": 3185464,
+      "sha256": "bf0b7759ddea32cfbaf0c6cca2afdcdfe908252cbec5b1911c870a330e5d2a09",
+      "completeReplacement": "sweep-critique2-volcano.json"
+    },
+    {
+      "path": "sweep-critique2-desert-partial.json",
+      "bytes": 3566757,
+      "sha256": "56e20dccd8f5d6646a5bf382c11094b701ee483422f08afeb20ab8d9b8027de8",
+      "completeReplacement": "sweep-critique2-desert.json"
+    },
+    {
+      "path": "novice-default-aim-partial.json",
+      "bytes": 868142,
+      "sha256": "52986d4718de406a93e86b9406db8b64798831ffb4f3b3c11b1e0c1a3f4af8e5",
+      "completeReplacement": "novice-default-aim.json"
+    },
+    {
+      "path": "sweep-critique2-levels-tail-partial.json",
+      "bytes": 13000657,
+      "sha256": "ce91561e6eb7570717b821233527317ae995001657087d089464dfb505d84591",
+      "completeReplacement": "sweep-critique2-levels-tail.json"
+    },
+    {
+      "path": "novice-partial.json",
+      "bytes": 21135522,
+      "sha256": "1ce806abf6b778be11909810ab63767410335d183cda8d68b6763377900c1c0e",
+      "completeReplacement": "novice.json"
+    },
+    {
+      "path": "sweep-critique2-unequal-partial.json",
+      "bytes": 6738763,
+      "sha256": "368ce6facf5cde4aeeecabe4aac6bcbd2a8450103740909e15bfb7964a80dfaf",
+      "completeReplacement": "sweep-critique2-unequal.json"
+    },
+    {
+      "path": "replay-match1-partial.json",
+      "bytes": 385728,
+      "sha256": "faf2bf2622ee3a4cb3e5b8655d91658a5a07debf31ca78aeff7967866402f9af",
+      "completeReplacement": "replay-match1.json"
+    },
+    {
+      "path": "novice-embodied-partial.json",
+      "bytes": 5569133,
+      "sha256": "b30e53994940db29e5fb9f5793cb5be8811746fc8856ffdc486806b2a2be5367",
+      "completeReplacement": "novice-embodied.json"
+    },
+    {
+      "path": "sweep-critique2-ice-partial.json",
+      "bytes": 4665109,
+      "sha256": "755f6388426873e6ad8ae9453aab6e75fde3aef92c0752b89ea2096d45f9e2bd",
+      "completeReplacement": "sweep-critique2-ice.json"
+    },
+    {
+      "path": "embodied-smoke-partial.json",
+      "bytes": 82754,
+      "sha256": "64e39a5d6b07f61720e235f8073f4a831c19177c69f74207b07f45f104097372",
+      "completeReplacement": "embodied-smoke.json"
+    },
+    {
+      "path": "hiding-covered-partial.json",
+      "bytes": 2065469,
+      "sha256": "725b9f38085f9a087222f2891d0b1fba8f5fb85e07cd0c680b30ad06b3c1b3be",
+      "completeReplacement": "hiding-covered.json"
+    }
+  ],
+  "retained": "sweep-critique2-levels-partial.json is required by the batch merge reproducer; pilots without complete replacements retained"
+}

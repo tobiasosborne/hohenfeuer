@@ -12,3 +12,10 @@ assets-ripped/
 codex-logs/*.log
 research/screenshots-myabandonware/
 research/manual-*.txt
+# critique/sweep raw trajectories are reproducible from scripts/sweep.mjs and scripts/novice.mjs with the seeds in the reports
+tests/evidence/critique-v2/sweep-*.json
+tests/evidence/critique-v2/novice*.json
+tests/evidence/critique-v2/ruler-tuning.json
+tests/evidence/critique-v2/joint-tuning.json
+tests/evidence/critique-v2/hiding-covered.json
+tests/evidence/critique-v2/*-partial.json

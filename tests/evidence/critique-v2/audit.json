@@ -1,0 +1,106 @@
+{
+  "forestGoldBelowCannonShare": 0.17653258387493412,
+  "forestSampledRulerSeconds": 68316,
+  "forestFirstGunSeeds": [
+    3,
+    6,
+    7,
+    17
+  ],
+  "worstLevelSilence": {
+    "seed": 3,
+    "level": 3,
+    "swap": false,
+    "slot": 1,
+    "actualS": 707.4333333333333,
+    "readyS": 707.4666666666667
+  },
+  "noviceInRangeByLevel": {
+    "2": 0,
+    "5": 2,
+    "8": 0
+  },
+  "noviceUnder8ByLevel": {
+    "2": 4,
+    "5": 5,
+    "8": 5
+  },
+  "noviceOrders": [
+    {
+      "level": 5,
+      "seed": 3,
+      "purchases": [
+        {
+          "second": 277.03333333333336,
+          "slot": 0,
+          "cell": [
+            40,
+            7,
+            23
+          ],
+          "weapon": "cannon",
+          "kind": "build",
+          "reserved": 750
+        }
+      ],
+      "newGuns": [
+        {
+          "id": 4,
+          "type": "cannon",
+          "hp": 31,
+          "crew": 3,
+          "pos": {
+            "x": 112.5,
+            "y": 7,
+            "z": 127.5
+          }
+        }
+      ]
+    }
+  ],
+  "noviceWindowTotal": 629,
+  "noviceWinsByReason": {
+    "palace": 19,
+    "ruler": 0,
+    "surrender": 0
+  },
+  "noviceLossesByReason": {
+    "palace": 1,
+    "ruler": 10,
+    "surrender": 0
+  },
+  "desertWestShots": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "volcanoWestShots": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "moraleSurrenderOptimisticLowerBound": {
+    "fastFloor": 8,
+    "baselineStart": 70,
+    "maxBaselineFallPerS": 0.05,
+    "fastWeight": 0.7,
+    "baselineWeight": 0.3,
+    "requiredBaseline": 14.666666666666668,
+    "thresholdEarliestS": 1106.6666666666665,
+    "surrenderEarliestS": 1151.6666666666665
+  }
+}

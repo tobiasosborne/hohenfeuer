@@ -1,0 +1,3926 @@
+{
+  "schema": 1,
+  "policyDefinitions": "scripts/novice.mjs; command-only; 20 minute right-censoring",
+  "matches": [
+    {
+      "seed": 1,
+      "level": 2,
+      "policy": "novice",
+      "seconds": 120,
+      "outcome": null,
+      "winner": null,
+      "reason": "timeout",
+      "hash": 1070407708,
+      "firstHitS": 12.2,
+      "firstPalaceS": 12.2,
+      "shots": [
+        5,
+        4
+      ],
+      "palaces": [
+        1,
+        0.9885416666666667
+      ],
+      "gold": [
+        1431.1111111107612,
+        1491.0666666663183
+      ],
+      "paths": {
+        "sides": [
+          {
+            "minMorale": 70,
+            "minPopulation": 40,
+            "rulerMinHp": 100,
+            "rulerExposedS": 0,
+            "longestExposureS": 0,
+            "movingS": 8,
+            "below40S": 0,
+            "fleeEvents": 0,
+            "desertEvents": 0
+          },
+          {
+            "minMorale": 62.117884412666996,
+            "minPopulation": 40,
+            "rulerMinHp": 100,
+            "rulerExposedS": 0,
+            "longestExposureS": 0,
+            "movingS": 13,
+            "below40S": 0,
+            "fleeEvents": 0,
+            "desertEvents": 0
+          }
+        ],
+        "series": [
+          {
+            "second": 1,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 99.5000000000002,
+                  "y": 1,
+                  "z": 131.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 2,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 103.5000000000004,
+                  "y": 1,
+                  "z": 131.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 3,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 107.5000000000006,
+                  "y": 1,
+                  "z": 131.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 4,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 107.8768927320317,
+                  "y": 1,
+                  "z": 135.23170577515054
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 5,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 107.99497931016087,
+                  "y": 1,
+                  "z": 139.22996233962044
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 6,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 109.38495696424971,
+                  "y": 4,
+                  "z": 136.71377131681353
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 7,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 109.4825468076729,
+                  "y": 7,
+                  "z": 132.7149619708092
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 8,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.42694965204365,
+                  "y": 7,
+                  "z": 130.4148268872026
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 9,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 10,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 11,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 12,
+            "sides": [
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 70,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 287.5,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 13,
+            "sides": [
+              {
+                "morale": 71.37451083576954,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.20636574190837,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 288.4406824146978,
+                  "y": 1,
+                  "z": 127.5
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 14,
+            "sides": [
+              {
+                "morale": 71.34634920062001,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21226992095347,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 288.50003932068967,
+                  "y": 1,
+                  "z": 129.43382711750985
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 15,
+            "sides": [
+              {
+                "morale": 71.32075140967333,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21634034095446,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 289.42600129857516,
+                  "y": 1,
+                  "z": 130.50056317470685
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 16,
+            "sides": [
+              {
+                "morale": 71.29763336416306,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21863715255279,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 291.425999254622,
+                  "y": 1,
+                  "z": 130.50004319681182
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 17,
+            "sides": [
+              {
+                "morale": 71.27691372391577,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21921853333926,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 293.4259992546219,
+                  "y": 1,
+                  "z": 130.50004319681182
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 18,
+            "sides": [
+              {
+                "morale": 71.25851381686405,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21814075257345,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 295.4259992546218,
+                  "y": 1,
+                  "z": 130.50004319681182
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 19,
+            "sides": [
+              {
+                "morale": 71.2423575515278,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21545823378071,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 297.4259992546217,
+                  "y": 1,
+                  "z": 130.50004319681182
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 20,
+            "sides": [
+              {
+                "morale": 71.22837133236624,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.21122361529538,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 299.42599925462156,
+                  "y": 1,
+                  "z": 130.50004319681182
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 21,
+            "sides": [
+              {
+                "morale": 71.2164839779066,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.20548780881848,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.5000150026527,
+                  "y": 1,
+                  "z": 131.4260274487802
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 22,
+            "sides": [
+              {
+                "morale": 71.20662664155824,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.19830005605436,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.5000150026527,
+                  "y": 1,
+                  "z": 133.42602744878008
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 23,
+            "sides": [
+              {
+                "morale": 71.19873273502427,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.24720616632436,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.5000150026527,
+                  "y": 1,
+                  "z": 135.42602744877996
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 24,
+            "sides": [
+              {
+                "morale": 71.19273785422537,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.30417708582854,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.5000150026527,
+                  "y": 1,
+                  "z": 137.42602744877985
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 25,
+            "sides": [
+              {
+                "morale": 71.18857970765359,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.35763916405372,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.50004319681136
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 26,
+            "sides": [
+              {
+                "morale": 71.186198047076,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.40770749739416,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 27,
+            "sides": [
+              {
+                "morale": 71.18553460051162,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.45449340687239,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 28,
+            "sides": [
+              {
+                "morale": 71.18653300740665,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.49810456197838,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 29,
+            "sides": [
+              {
+                "morale": 71.1891387559364,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.53864510044639,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 30,
+            "sides": [
+              {
+                "morale": 71.19329912236338,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.57621574410308,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 31,
+            "sides": [
+              {
+                "morale": 71.19896311238492,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.61091391091551,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 32,
+            "sides": [
+              {
+                "morale": 71.20608140440439,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.64283382336365,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 33,
+            "sides": [
+              {
+                "morale": 71.21460629466357,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.6720666132583,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 34,
+            "sides": [
+              {
+                "morale": 71.22449164417449,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.69870042312064,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 35,
+            "sides": [
+              {
+                "morale": 71.2356928273922,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.72282050423637,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 36,
+            "sides": [
+              {
+                "morale": 71.24816668257094,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.74450931149352,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 37,
+            "sides": [
+              {
+                "morale": 71.261871463749,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.76384659510936,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 38,
+            "sides": [
+              {
+                "morale": 71.27024046379117,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.78090948934863,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 39,
+            "sides": [
+              {
+                "morale": 71.27024046379117,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.7957725983315,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 40,
+            "sides": [
+              {
+                "morale": 71.27024046379117,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.80850807902681,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 41,
+            "sides": [
+              {
+                "morale": 71.27024046379117,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 67.81918572152324,
+                "population": 40,
+                "palace": 0.99921875,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 42,
+            "sides": [
+              {
+                "morale": 72.64377036159503,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.04788334485255,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 43,
+            "sides": [
+              {
+                "morale": 72.6156955727068,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.07702703882134,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 44,
+            "sides": [
+              {
+                "morale": 72.5901817793056,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.10357467526671,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 45,
+            "sides": [
+              {
+                "morale": 72.56714497606814,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.1276114096107,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 46,
+            "sides": [
+              {
+                "morale": 72.54650391319889,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.14921960402225,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 47,
+            "sides": [
+              {
+                "morale": 72.5281800060439,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.16847891904091,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 48,
+            "sides": [
+              {
+                "morale": 72.51209724766912,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.1854664021952,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 49,
+            "sides": [
+              {
+                "morale": 72.49818212430662,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.20025657371417,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 50,
+            "sides": [
+              {
+                "morale": 72.48636353357418,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.21292150942747,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 51,
+            "sides": [
+              {
+                "morale": 72.47657270537731,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.22353092094603,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 52,
+            "sides": [
+              {
+                "morale": 72.46874312540615,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.29191726991846,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 53,
+            "sides": [
+              {
+                "morale": 72.46281046114147,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.36546258689188,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 54,
+            "sides": [
+              {
+                "morale": 72.45871249028811,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.43495539211699,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 55,
+            "sides": [
+              {
+                "morale": 72.4563890315556,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.50052861537108,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 56,
+            "sides": [
+              {
+                "morale": 72.45578187770963,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.56231082609226,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 57,
+            "sides": [
+              {
+                "morale": 72.45683473081921,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.62042637640658,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 58,
+            "sides": [
+              {
+                "morale": 72.45949313962838,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.67499553946348,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 59,
+            "sides": [
+              {
+                "morale": 72.46370443898155,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.72613464323383,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 60,
+            "sides": [
+              {
+                "morale": 72.4694176912364,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.77395619991873,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 61,
+            "sides": [
+              {
+                "morale": 72.47658362959807,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.8185690311139,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 62,
+            "sides": [
+              {
+                "morale": 72.48515460331251,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.86007838886833,
+                "population": 40,
+                "palace": 0.9934895833333334,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 63,
+            "sides": [
+              {
+                "morale": 73.85670976414467,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.11783741096223,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 64,
+            "sides": [
+              {
+                "morale": 73.82329026564477,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.17584821680159,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 65,
+            "sides": [
+              {
+                "morale": 73.79260707885618,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.23031607119341,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 66,
+            "sides": [
+              {
+                "morale": 73.76457044776362,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.281357189407615,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 67,
+            "sides": [
+              {
+                "morale": 73.7390935605128,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.329083974641364,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 68,
+            "sides": [
+              {
+                "morale": 73.71609245283666,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.3736051430619,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 69,
+            "sides": [
+              {
+                "morale": 73.69548591464924,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.41502584474785,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 70,
+            "sides": [
+              {
+                "morale": 73.6771953997035,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.453447780663495,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 71,
+            "sides": [
+              {
+                "morale": 73.6611449382126,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.488969315795956,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 72,
+            "sides": [
+              {
+                "morale": 73.6472610523373,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.52168558858138,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 73,
+            "sides": [
+              {
+                "morale": 73.63547267444545,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.609186799576364,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 74,
+            "sides": [
+              {
+                "morale": 73.62571106805296,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.70348683010272,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 75,
+            "sides": [
+              {
+                "morale": 73.59702607301662,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.1791156175927,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 76,
+            "sides": [
+              {
+                "morale": 73.5229984747887,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.21863893687124,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 77,
+            "sides": [
+              {
+                "morale": 73.45303920801392,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.25522572798333,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 78,
+            "sides": [
+              {
+                "morale": 73.38701482399988,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.28897231440916,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 79,
+            "sides": [
+              {
+                "morale": 73.3247962514146,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.31997186004313,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 80,
+            "sides": [
+              {
+                "morale": 73.2662586527013,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.34831447283389,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 81,
+            "sides": [
+              {
+                "morale": 73.19590289020559,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.37408730502507,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 82,
+            "sides": [
+              {
+                "morale": 73.11210583545376,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.39737465010771,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 83,
+            "sides": [
+              {
+                "morale": 73.02941738574496,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 65.4182580365926,
+                "population": 40,
+                "palace": 0.9919270833333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 84,
+            "sides": [
+              {
+                "morale": 74.33519760886337,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.656067656897214,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 85,
+            "sides": [
+              {
+                "morale": 74.26384266880831,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.69478343771447,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 86,
+            "sides": [
+              {
+                "morale": 74.24439200669664,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.73058917909979,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 87,
+            "sides": [
+              {
+                "morale": 74.22721945298301,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.76358033565458,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 88,
+            "sides": [
+              {
+                "morale": 74.2122502815566,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.79384923089519,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 89,
+            "sides": [
+              {
+                "morale": 74.19941221745934,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.82148515995823,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 90,
+            "sides": [
+              {
+                "morale": 74.18863535648362,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.84657448893696,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 91,
+            "sides": [
+              {
+                "morale": 74.1798520874073,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.86920075095926,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 92,
+            "sides": [
+              {
+                "morale": 74.17299701677976,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.88944473911404,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 93,
+            "sides": [
+              {
+                "morale": 74.1680068961747,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.9073845963295,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 94,
+            "sides": [
+              {
+                "morale": 74.16482055182965,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.980594085137994,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 95,
+            "sides": [
+              {
+                "morale": 74.16337881659312,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.061071188034234,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 96,
+            "sides": [
+              {
+                "morale": 74.16362446410415,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.13726840396003,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 97,
+            "sides": [
+              {
+                "morale": 74.16550214513073,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.2093261210147,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 98,
+            "sides": [
+              {
+                "morale": 74.16895832599668,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.27738012231182,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 99,
+            "sides": [
+              {
+                "morale": 74.173941229028,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.341561737031185,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 100,
+            "sides": [
+              {
+                "morale": 74.18040077495287,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.40199798651593,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 101,
+            "sides": [
+              {
+                "morale": 74.18828852719095,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 63.45881172557744,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 102,
+            "sides": [
+              {
+                "morale": 74.19522689722932,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 64.91056622360964,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 103,
+            "sides": [
+              {
+                "morale": 74.13710121512293,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 64.91461599040176,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 104,
+            "sides": [
+              {
+                "morale": 74.06336049485571,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 64.91689282625413,
+                "population": 40,
+                "palace": 0.9911458333333333,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 105,
+            "sides": [
+              {
+                "morale": 75.70665152551692,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.13746520472072,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 106,
+            "sides": [
+              {
+                "morale": 75.60138296231639,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.15875017667904,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 107,
+            "sides": [
+              {
+                "morale": 75.50120749120487,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.1776968715305,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 108,
+            "sides": [
+              {
+                "morale": 75.40595804947188,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.1943819890293,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 109,
+            "sides": [
+              {
+                "morale": 75.31547305436854,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.20887971303782,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 110,
+            "sides": [
+              {
+                "morale": 75.2295962233548,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.22126179405244,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 111,
+            "sides": [
+              {
+                "morale": 75.14817640024309,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.231597629022374,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 112,
+            "sides": [
+              {
+                "morale": 75.07339812778517,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.23995433855031,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 113,
+            "sides": [
+              {
+                "morale": 75.06918936241811,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.246396841560774,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 114,
+            "sides": [
+              {
+                "morale": 75.06675874343404,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.25098792751911,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 115,
+            "sides": [
+              {
+                "morale": 75.06604794438815,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.31355336298734,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 116,
+            "sides": [
+              {
+                "morale": 75.06700055204954,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.38146870303712,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 117,
+            "sides": [
+              {
+                "morale": 75.06956200364401,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.445516204850996,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 118,
+            "sides": [
+              {
+                "morale": 75.07367952615601,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.50582274057817,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 119,
+            "sides": [
+              {
+                "morale": 75.07930207762111,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.56251102072997,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          },
+          {
+            "second": 120,
+            "sides": [
+              {
+                "morale": 75.08638029034435,
+                "population": 40,
+                "palace": 1,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 111.49323338724233,
+                  "y": 7,
+                  "z": 128.9496587833125
+                },
+                "exposed": false,
+                "fleeing": 0
+              },
+              {
+                "morale": 62.615699730689094,
+                "population": 40,
+                "palace": 0.9885416666666667,
+                "rulerHp": 100,
+                "rulerPos": {
+                  "x": 300.7,
+                  "y": 1,
+                  "z": 138.4999661958074
+                },
+                "exposed": false,
+                "fleeing": 0
+              }
+            ]
+          }
+        ]
+      },
+      "commandCounts": {
+        "move": 252,
+        "man-weapon": 1,
+        "order-crew": 1,
+        "aim": 111,
+        "fire": 5,
+        "repair-priority": 15
+      },
+      "purchases": [],
+      "newGuns": [],
+      "windows": [
+        {
+          "startS": 9.033333333333333,
+          "weaponId": 1,
+          "types": [
+            "aim",
+            "order-crew"
+          ],
+          "match1": [
+            "aim"
+          ],
+          "executed": [],
+          "endS": 37.833333333333336
+        },
+        {
+          "startS": 38.03333333333333,
+          "weaponId": 1,
+          "types": [
+            "aim",
+            "order-crew"
+          ],
+          "match1": [
+            "aim"
+          ],
+          "executed": [],
+          "endS": 58.13333333333333
+        },
+        {
+          "startS": 59.03333333333333,
+          "weaponId": 1,
+          "types": [
+            "aim",
+            "move",
+            "order-crew",
+            "repair-priority"
+          ],
+          "match1": [
+            "aim",
+            "move"
+          ],
+          "executed": [
+            "repair-priority"
+          ],
+          "endS": 79.13333333333334
+        },
+        {
+          "startS": 80.03333333333333,
+          "weaponId": 1,
+          "types": [
+            "aim",
+            "ammo-priority",
+            "move",
+            "order-crew",
+            "repair-priority"
+          ],
+          "match1": [
+            "aim",
+            "move"
+          ],
+          "executed": [
+            "repair-priority"
+          ],
+          "endS": 100.13333333333334
+        },
+        {
+          "startS": 101.03333333333333,
+          "weaponId": 1,
+          "types": [
+            "aim",
+            "move",
+            "order-crew",
+            "repair-priority"
+          ],
+          "match1": [
+            "aim",
+            "move"
+          ],
+          "executed": [
+            "repair-priority"
+          ],
+          "endS": 120
+        }
+      ],
+      "shotEvents": [
+        {
+          "second": 9.033333333333333,
+          "weaponId": 1,
+          "defId": "cannon",
+          "aim": {
+            "az": 890,
+            "range": 1000
+          }
+        },
+        {
+          "second": 38.03333333333333,
+          "weaponId": 1,
+          "defId": "cannon",
+          "aim": {
+            "az": 890,
+            "range": 1000
+          }
+        },
+        {
+          "second": 59.03333333333333,
+          "weaponId": 1,
+          "defId": "cannon",
+          "aim": {
+            "az": 890,
+            "range": 1000
+          }
+        },
+        {
+          "second": 80.03333333333333,
+          "weaponId": 1,
+          "defId": "cannon",
+          "aim": {
+            "az": 890,
+            "range": 1000
+          }
+        },
+        {
+          "second": 101.03333333333333,
+          "weaponId": 1,
+          "defId": "cannon",
+          "aim": {
+            "az": 890,
+            "range": 1000
+          }
+        }
+      ],
+      "decisionSummary": {
+        "reloads": 5,
+        "meanTypes": 3.4,
+        "meanNonAim": 2.4,
+        "meanMatch1Types": 1.6,
+        "meanExecutedNonAim": 0.6,
+        "withTwoNonAim": 3
+      }
+    }
+  ]
+}

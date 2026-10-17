@@ -1,3 +1,28 @@
+<!-- owns: the current critique handoff and preserved earlier session records. -->
+# HANDOFF — Gameplay critique v2
+
+Updated 2026-10-18. Report: [research/19-gameplay-critique-v2.md](research/19-gameplay-critique-v2.md).
+
+## What was done
+Independent full score: **60/110**, up 8 from v1 and 10 short of 70. Completed all 150 requested AI matches, 30 embodied novice matches, 60 strategy trials, controls and isolated tuning probes. Captured and inspected SwiftShader 1024×768 timelines, prompts, impact views and a real 46-second ruler loss. All 303 src JS files remain unchanged; no git or Dolt push commands were run.
+
+## Remaining
+Eight ranked repairs are in Beads. Desert and volcano west starts are unarmed while match-1 disables placement. AI3 has a 707.5-second ready silence; ice times out 8/10. Human onboarding/workload/audio and first-hit snowball are unvalidated. The two-number ending candidate yields 5 palace/3 ruler/2 surrender in ten seeds but only 7/10 finish in 12–20 minutes; it is not a completed repair.
+
+## Key techniques
+Paired worlds are not independent seeds. All 40 focal forest outcomes/durations/hashes match wave1 exactly; physical wins are 16/24 despite 20/20 slot wins. The original low-motion check still finds 32/40 losing-palace stalls over three minutes (460 elapsed seconds maximum). Scored novice data is `novice-embodied.json`; `novice.json` retains the earlier engine controls and strategies, and `hiding-covered.json` corrects courtyard retreat to actual covered hiding. The embodied policy uses leave/look/repair/re-man, local visibility/range, one paid replacement, and zero remote manual shots. Matrix batches assert all 60 job identities. The morale floor/baseline-rate bound prevents automatic morale surrender before 19:12, later than all focal forest finishes. See `tests/evidence/critique-v2/analysis.json` and `audit.json`. Full npm test: 456 pass; build, three sweep checks, two probe checks and browser captures pass.
+
+## Issues touched
+`castle-game-mhl` completed with reason `research/19`. Created children `castle-game-uo7.9` through `.16`; descriptions and acceptance tests are copied into `tests/evidence/critique-v2/issues.json`. Existing `er7`, `me0` and `hoq` were not modified. The orchestrator had already closed `me0`; its browser/golden work is separate from the unperformed human study.
+
+## Next step
+Orchestrator reviews research/19 and assigns the eight repair issues. Fix playable starting loadouts, attributable danger/failure and broader AI recovery; re-test ending candidates with pacing guards. Re-score after implementation and run the three-person unbriefed first-match study. Git remains with the orchestrator.
+
+## Previous Sessions
+Earlier handoffs follow unchanged.
+
+---
+
 # HANDOFF — Repair wave 1 landed, critique v2 running (2026-10-18 04:00 AEDT, orchestrator)
 
 ## What was done
