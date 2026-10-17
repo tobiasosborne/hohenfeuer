@@ -9,3 +9,4 @@ assets-ripped/
 .dolt/
 *.db
 .beads-credential-key
+codex-logs/*.log
