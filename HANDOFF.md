@@ -1,6 +1,6 @@
 # HANDOFF — Hohenfeuer
 
-Updated 2026-10-17 ~19:25 AEDT by the orchestrator (Fable). Read order: docs/DESIGN.md -> research/00-scoping-decisions.md -> this file.
+Updated 2026-10-17 ~20:05 AEDT by the orchestrator (Fable). Read order: docs/DESIGN.md -> research/00-scoping-decisions.md -> this file.
 
 ## What was done
 - Scoped with Tobias (3 Socratic rounds) -> research/00. Ground truth in research/01..07.
@@ -13,7 +13,15 @@ Updated 2026-10-17 ~19:25 AEDT by the orchestrator (Fable). Read order: docs/DES
 - Exe static analysis (research/11): original ballistics = fixed elevation per weapon + charge 1-255 speed, gravity/drag/scatter/splash/wind constants. Ripped tables reconciled in research/10.
 - Workflow switched to tracer bullets (Tobias's preference): each iteration = one thin end-to-end slice + golden + headless test; send a screenshot/video per slice.
 
-## In flight (second wave, launched ~19:25; logs in codex-logs/*.log, finals in codex-logs/*-final.md)
+- **TB2 done and green (270 tests, 9 goldens)**: original ballistics model (research/11), NPCs wired (crews gate fire, runners, masons, civilians, morale), kit v1 assets, HUD likeness under the gate (blurred MAE 18), AI orders crews/retries, matches last 12-16 min (seeds 1-3). Video test-results/tb2.webm. Public repo: https://github.com/tobiasosborne/hohenfeuer
+- Second wave results: 08-tb2-sim, 09-kit-v1, 10-laneB, 11-tb2-stabilise finals in codex-logs/.
+
+## In flight (third wave, launched ~20:00)
+- codex astra, unsandboxed: look-and-feel loop pass 1 vs original captures (12-look-loop.log); owns src/render (not people-view/ghost-view), kit_v1_textures, goldens PNGs, research/12
+- codex sol: TB3 designate-and-build slice (13-tb3-build.log); owns sim command handling, economy, npc build jobs, player, hud messages, ai/build, render/ghost-view.js, main.js, tb3 script, goldens tb3-*
+- codex astra: original goldens capture (02c-goldens.log), 175+ shots; asked via `codex queue` to write research/09 now
+
+## Second wave (done)
 - codex sol: TB2 sim = original ballistics model + tuning recalibration + AI aim refit (08-tb2-sim.log); owns sim/ballistics,weapons,wind,damage, ai/*, tuning.js, tb1-script.js
 - codex sol: kit v1 assets re-authored from ripped references (09-kit-v1.log); owns tools/blender, assets/kit-v1
 - codex sol: lane B NPCs (10-laneB.log); owns src/npc
@@ -39,7 +47,8 @@ Updated 2026-10-17 ~19:25 AEDT by the orchestrator (Fable). Read order: docs/DES
 - beads epics castle-game-5se (Phase 0, in progress), -ot9, -byt, -uo7, -ko3.
 
 ## Next step
-- When TB2 sim lands: re-capture goldens (tb1-first-shot values change), wire npc hooks + crew gate into sim.js/weapons.js (orchestrator), switch renderer to kit-v1, then TB2 = 'duel that feels original' slice with a video; then the astra computer-use look-and-feel loop vs assets-ripped/goldens-original.
+- When TB3 and look-loop land: commit per session, re-capture goldens, send video; then TB4 = full weapon set as plugins (catapult, trebuchet, ballista, Hellfire...) + biomes, TB5 = human slots/hot-seat.
+- Earlier note: When TB2 sim lands: re-capture goldens (tb1-first-shot values change), wire npc hooks + crew gate into sim.js/weapons.js (orchestrator), switch renderer to kit-v1, then TB2 = 'duel that feels original' slice with a video; then the astra computer-use look-and-feel loop vs assets-ripped/goldens-original.
 
 ## Previous Sessions
 - 2026-10-17 session 1: everything above.

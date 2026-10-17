@@ -7,10 +7,13 @@ ordering crews. NPCs gate everything: gun crews, ammo runners, masons, and civil
 and hit points, with one morale number per castle. Opponents are AI castles in slots that humans can
 take over. Weapons, NPC types, maps and blocks are plugins.
 
-**Status (2026-10-17):** tracer bullet 1 works end to end in the browser: walk to a cannon, man it,
-aim with the original's direction/range readouts, fire, hit the enemy castle, and the AI fires back.
-Placeholder block kit; the original's ballistics model (fixed elevation, powder charge), NPCs and
-re-authored assets are in progress. See `HANDOFF.md` and `docs/worklog/`.
+**Status (2026-10-17, evening):** tracer bullets 1 and 2 work end to end in the browser: walk the
+ramparts among civilians and gun crews, man a cannon with its crew, aim with the original's
+direction/charge readouts and its ballistics (fixed elevation, powder charge, gravity, drag, scatter,
+splash, wind), fire, hit the enemy castle, watch walls take damage states, and the AI orders its
+crews and fires back; matches last 12-16 minutes. Re-authored block kit v1 and cannon; HUD redrawn
+to the original's layout. In progress: designation building by masons, the look-and-feel loop
+against captures of the original, the full weapon set. See `HANDOFF.md` and `docs/worklog/`.
 
 | Rampart, looking north | Weapon view | First shot (scripted golden) |
 |---|---|---|

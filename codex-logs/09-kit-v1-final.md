@@ -1,0 +1,15 @@
+- Created [kit-v1](/home/tobias/Projects/castle-game/assets/kit-v1/manifest.json) using [kit_v1.py](/home/tobias/Projects/castle-game/tools/blender/kit_v1.py).
+- Cannon: 932 tris; 2.60 m long, 1.40 m high.
+- Exported frame/turntable/barrel meshes and renderer nodes; Pitch pivots at the trunnion.
+- Person: 298 tris, 1.75 m, unrigged.
+- Air, stone, tower, gate, wood, floor: 12 tris each.
+- Door, magazine, palace, mount, foundation: 12 tris each.
+- Stairs: 20 tris; ladder: 84; roof: 8.
+- Added 42 damage variants: 12–72 tris, cracks and missing geometry.
+- Block textures: 256 px face tiles; shared 4096 px atlas.
+- Cannon atlas: 512 px; person atlas: 256 px.
+- Rendered [contact sheet](/home/tobias/Projects/castle-game/assets/kit-v1/thumbs/contact-sheet.png) and [damage sheet](/home/tobias/Projects/castle-game/assets/kit-v1/thumbs/damage-contact-sheet.png).
+- Rendered 58 [comparison strips](/home/tobias/Projects/castle-game/assets-ripped/compare-v1/contact-sheet.png); absent air/person references are labelled.
+- All 58 GLBs validate; clean-room test passes; zero collisions or forbidden paths across 16,229 reference files.
+- Timings: generation 48.18 s; comparisons 123.68 s; validation 1.95 s; hash scan 3.58 s.
+- Kit-v0 preserved; no git commands run.
