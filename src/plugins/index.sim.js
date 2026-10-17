@@ -15,6 +15,14 @@ import { registerBomb } from './weapons/bomb/bomb.sim.js';
 import { registerDefaultCastle } from './castles/default.sim.js';
 import { registerForestDuel } from './maps/forest-duel.sim.js';
 import { registerForest } from './biomes/forest.sim.js';
+import { registerGeneratedCastles } from './castles/generated/index.sim.js';
+import { registerCampaignMaps } from './maps/campaign/index.sim.js';
+import { registerDesertDuel } from './maps/desert-duel.sim.js';
+import { registerIceDuel } from './maps/ice-duel.sim.js';
+import { registerVolcanoDuel } from './maps/volcano-duel.sim.js';
+import { registerDesert } from './biomes/desert.sim.js';
+import { registerIce } from './biomes/ice.sim.js';
+import { registerVolcano } from './biomes/volcano.sim.js';
 
 /** Register compiled-in sim plugins; the orchestrator calls freezeRegistries afterward. */
 export function registerCoreSim() {
@@ -34,4 +42,12 @@ export function registerCoreSim() {
   registerDefaultCastle();
   registerForestDuel();
   registerForest();
+  registerGeneratedCastles();
+  registerCampaignMaps();
+  registerDesertDuel();
+  registerIceDuel();
+  registerVolcanoDuel();
+  registerDesert();
+  registerIce();
+  registerVolcano();
 }

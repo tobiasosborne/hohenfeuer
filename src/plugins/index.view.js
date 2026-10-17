@@ -13,6 +13,9 @@ import { registerHellfireView } from './weapons/hellfire/hellfire.view.js';
 import { registerZeppelinView } from './weapons/zeppelin/zeppelin.view.js';
 import { registerBombView } from './weapons/bomb/bomb.view.js';
 import { registerForestView } from './biomes/forest.view.js';
+import { registerDesertView } from './biomes/desert.view.js';
+import { registerIceView } from './biomes/ice.view.js';
+import { registerVolcanoView } from './biomes/volcano.view.js';
 
 /** Register compiled-in render descriptions before the orchestrator freezes registries. */
 export function registerCoreView() {
@@ -30,4 +33,7 @@ export function registerCoreView() {
   registerZeppelinView();
   registerBombView();
   registerForestView();
+  registerDesertView();
+  registerIceView();
+  registerVolcanoView();
 }

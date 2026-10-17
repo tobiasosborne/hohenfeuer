@@ -1,0 +1,16 @@
+# tests/evidence/castles-generated-previews.txt - owns the local, reference-only preview path inventory.
+assets-ripped/castles-preview/contact-sheet.png
+assets-ripped/castles-preview/orig-0.png
+assets-ripped/castles-preview/orig-1.png
+assets-ripped/castles-preview/orig-6.png
+assets-ripped/castles-preview/orig-19.png
+assets-ripped/castles-preview/orig-23.png
+assets-ripped/castles-preview/orig-40.png
+assets-ripped/castles-preview/orig-43.png
+assets-ripped/castles-preview/orig-46.png
+assets-ripped/castles-preview/orig-62.png
+assets-ripped/castles-preview/orig-67.png
+assets-ripped/castles-preview/orig-70.png
+assets-ripped/castles-preview/orig-88.png
+assets-ripped/castles-preview/index.json
+Each panel includes the original assets-ripped/data/layouts/plateau.N.png thumbnail on the left.
