@@ -24,7 +24,7 @@ The prior orchestrator handoff follows unchanged.
 
 # HANDOFF — Hohenfeuer
 
-Updated 2026-10-17 ~20:05 AEDT by the orchestrator (Fable). Read order: docs/DESIGN.md -> research/00-scoping-decisions.md -> this file.
+Updated 2026-10-17 ~20:50 AEDT by the orchestrator (Fable). Read order: docs/DESIGN.md -> research/00-scoping-decisions.md -> this file.
 
 ## What was done
 - Scoped with Tobias (3 Socratic rounds) -> research/00. Ground truth in research/01..07.
@@ -40,7 +40,15 @@ Updated 2026-10-17 ~20:05 AEDT by the orchestrator (Fable). Read order: docs/DES
 - **TB2 done and green (270 tests, 9 goldens)**: original ballistics model (research/11), NPCs wired (crews gate fire, runners, masons, civilians, morale), kit v1 assets, HUD likeness under the gate (blurred MAE 18), AI orders crews/retries, matches last 12-16 min (seeds 1-3). Video test-results/tb2.webm. Public repo: https://github.com/tobiasosborne/hohenfeuer
 - Second wave results: 08-tb2-sim, 09-kit-v1, 10-laneB, 11-tb2-stabilise finals in codex-logs/.
 
-## In flight (third wave, launched ~20:00)
+- **TB3 done**: designate-and-build (reserve/refund/cap/support rules, ghost block, masons build supported-first under the fear gate, AI rebuilds); goldens tb3-designate/tb3-built. 292 unit tests.
+- **Look-loop pass 1 done** (research/12): whole-frame MAE vs original 39.9 -> 28.1; 15 goldens stable. **Original capture done** (research/09): 120 catalogued PNGs + 3 videos, 4 biomes, 12 weapons (an earlier 169-shot set is in assets-ripped/backups/goldens-original-1939.tar).
+
+## In flight (fourth wave, launched ~20:30-20:50)
+- codex sol: TB4a full weapon set as plugins + per-weapon AI aim (14-tb4-weapons.log)
+- codex sol: kit v1 weapon meshes in Blender (15-kit-weapons.log)
+- codex astra: look-loop pass 2: weapon-view cannon framing + stone contrast (16-look-loop-2.log)
+
+## Third wave (done)
 - codex astra, unsandboxed: look-and-feel loop pass 1 vs original captures (12-look-loop.log); owns src/render (not people-view/ghost-view), kit_v1_textures, goldens PNGs, research/12
 - codex sol: TB3 designate-and-build slice (13-tb3-build.log); owns sim command handling, economy, npc build jobs, player, hud messages, ai/build, render/ghost-view.js, main.js, tb3 script, goldens tb3-*
 - codex astra: original goldens capture (02c-goldens.log), 175+ shots; asked via `codex queue` to write research/09 now
