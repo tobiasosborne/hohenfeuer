@@ -42,7 +42,7 @@ test('AI skips pending designations using NPC metadata and the open-designation 
   assert.ok(!at(controller, view, slot, 60).some(c => c.type === CMD.DESIGNATE));
 });
 
-test('entry signature returns integer next-tick commands only on staggered AI cadence', () => {
+test('entry signature returns integer next-tick commands only on shared AI cadence', () => {
   const { view, slot } = fixture(), before = structuredClone(view);
   const output = aiThink(view, slot, () => 0.5);
   assert.ok(output.some(c => c.type === CMD.AIM));
@@ -52,8 +52,9 @@ test('entry signature returns integer next-tick commands only on staggered AI ca
   assert.deepEqual(aiThink(view, { ...slot, controller: CONTROLLER.LOCAL }, rng), []);
   assert.deepEqual(aiThink({ ...view, castles: [{ ...view.castles[0], eliminated: true }] }, slot, rng), []);
   const second = createAiController();
-  assert.deepEqual(second.think(view, view.slots[1], rng), []);
-  assert.equal((10 + 1 * T.sim.aiSlotStaggerTicks) % T.sim.aiThinkEveryTicks, 0);
+  second.think(view, view.slots[1], rng);
+  assert.equal(second.snapshot().slots[0]?.id, 1, 'both slots think on tick zero');
+  assert.equal((0 + 1 * T.sim.aiSlotStaggerTicks) % T.sim.aiThinkEveryTicks, 0);
 });
 
 test('loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim', () => {
@@ -163,4 +164,33 @@ test('TB3: block rebuilds and cannon replacements share the last open designatio
   castle.npcDesignations=Array.from({length:T.world.maxOpenDesignations-1},()=>({cell:[0,1,0]}));
   const commands=at(controller,view,slot,T.ai.buildEveryS*T.sim.tickHz);
   assert.equal(commands.filter(c=>c.type===CMD.DESIGNATE||c.type===CMD.DESIGNATE_WEAPON).length,1);
+});
+test('critical resupply cancels unclaimed roof reservations when the designation queue is full', () => {
+  const {view,slot,weapon}=fixture(),ai=createAiController();at(ai,view,slot,0);weapon.ammo=0;
+  view.castles[0].npcDesignations=Array.from({length:T.world.maxOpenDesignations},(_,i)=>({cell:[i%8,2,Math.floor(i/8)],block:BLOCK.ROOF,reserved:T.blocks.roof.cost,kind:'build'}));
+  const before=structuredClone(view.castles[0]);const commands=at(ai,view,slot,60);
+  assert.equal(commands.filter(c=>c.type===CMD.CANCEL).length,T.ai.buildPerThink);assert.deepEqual(view.castles[0],before);
+});
+test('changing the aim point within a ranged castle retains learned confidence', () => {
+  const {view,slot}=fixture(),first=createAiController();at(first,view,slot,0);
+  const saved=first.snapshot();saved.slots[0].weapons[0].aim.observations=4;
+  view.castles[1].plot.type[90]=BLOCK.AIR;view.castles[1].plot.type[92]=BLOCK.PALACE;view.castles[1].plot.hp[92]=40;
+  const next=createAiController(saved);at(next,view,slot,15);
+  assert.equal(next.snapshot().slots[0].weapons[0].aim.observations,4);
+});
+test('a replacement cannon inherits its castle ranged confidence', () => {
+  const {view,slot,weapon}=fixture(),ai=createAiController();at(ai,view,slot,0);const saved=ai.snapshot();
+  saved.slots[0].windBias=[{slot:1,defId:'cannon',kind:'palace',biasAzDeg:0,biasDial:0,observations:4}];
+  view.weapons=[{...weapon,id:1}];const restored=createAiController(saved);at(restored,view,slot,15);
+  assert.equal(restored.snapshot().slots[0].weapons.find(w=>w.id===1).aim.observations,4);
+});
+test('a muzzle obstruction in our castle cannot poison enemy ranging memory', () => {
+  const {view,slot,weapon}=fixture(),ai=createAiController();at(ai,view,slot,0);at(ai,view,slot,15);weapon.loaded=false;
+  view.events=[{type:EV.IMPACT,tick:20,payload:{slot:0,weaponId:0,pos:[4.8,2,4],hit:'person'}}];at(ai,view,slot,30);
+  const s=ai.snapshot().slots[0],m=s.weapons[0].aim;assert.ok(Math.abs(m.biasAzDeg)<1);assert.ok(Math.abs(m.biasDial)<1);assert.equal(s.windBias.length,0);
+});
+test('AI waits for its own worker to clear the upcoming muzzle lane', () => {
+  const {view,slot}=fixture(),ai=createAiController();view.npcs=[{id:9,slot:0,hp:100,pos:{x:5,y:1.5,z:4}}];
+  at(ai,view,slot,0);assert.ok(!at(ai,view,slot,15).some(c=>c.type===CMD.FIRE));
+  view.npcs[0].pos.x=2;assert.ok(at(ai,view,slot,30).some(c=>c.type===CMD.FIRE));
 });

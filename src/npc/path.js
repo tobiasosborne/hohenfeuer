@@ -20,7 +20,7 @@ export function isStandable(plot, cell) {
 }
 
 /** Legal directed edges; every edge stays inside the owning plot. */
-export function neighbors(plot, cell) {
+export function neighbors(plot, cell, allowClamber = true) {
   const [x, y, z] = cell, id = typeAt(plot, cell), edges = [], costs = T.npc.pathCost;
   if (!isStandable(plot, cell)) return edges;
   const add = (c, cost) => { if (isStandable(plot, c)) edges.push({ cell: c, cost }); };
@@ -28,6 +28,12 @@ export function neighbors(plot, cell) {
     const [dx, dz] = directions[d], same = [x + dx, y, z + dz];
     if (isStandable(plot, same)) add(same, typeAt(plot, same) === BLOCK.DOOR ? costs.door : costs.flat);
     else if (clear(plot, same)) add([x + dx, y - 1, z + dz], costs.stepDown);
+    // A worker can climb rubble within arm reach, with clearance for the lift.
+    if (allowClamber && id!==BLOCK.STAIRS && !blockDef(id)?.climbable) for(let rise=1;rise<=T.npc.clamberMaxRiseM;rise++) {
+      const overhead=[x,y+rise+1,z];if(blockDef(typeAt(plot,overhead))?.solid!==false)break;
+      const up=[x+dx,y+rise,z+dz],under=[x+dx,y+rise-1,z+dz];
+      if(blockDef(typeAt(plot,under))?.walkOn)add(up,costs.clamber*rise);
+    }
     // A stair rises in its facing direction; reverse traversal descends onto that stair.
     if (id === BLOCK.STAIRS && (plot.meta[indexOf(plot, cell)] & META.FACING_MASK) === d
       && clear(plot, [x, y + 2, z])) add([x + dx, y + 1, z + dz], costs.stairs);
@@ -65,7 +71,7 @@ function pop(heap) {
 }
 
 /** A* to any standable work cell. Null means no path within the expansion budget. */
-export function findPathToAny(plot, start, goals, { maxExpansions = T.npc.pathMaxExpansions } = {}) {
+function searchPathToAny(plot, start, goals, { maxExpansions = T.npc.pathMaxExpansions, clamber = true } = {}) {
   if (!isStandable(plot, start)) return null;
   goals = goals.filter(c => isStandable(plot, c));
   if (!goals.length) return null;
@@ -83,7 +89,7 @@ export function findPathToAny(plot, start, goals, { maxExpansions = T.npc.pathMa
       while (i !== undefined) { path.push(cellOf(plot, i)); i = parents.get(i); }
       return path.reverse();
     }
-    for (const edge of neighbors(plot, cellOf(plot, node.i))) {
+    for (const edge of neighbors(plot, cellOf(plot, node.i), clamber)) {
       const i = indexOf(plot, edge.cell), g = node.g + edge.cost;
       if (g >= (scores.get(i) ?? Infinity)) continue;
       scores.set(i, g); parents.set(i, node.i);
@@ -92,6 +98,20 @@ export function findPathToAny(plot, start, goals, { maxExpansions = T.npc.pathMa
   }
   return null;
 }
+// Query results are derived from topology only; never retain caller-owned paths.
+const searchResults = new WeakMap();
+export function findPathToAny(plot, start, goals, options = {}) {
+  if (!Number.isInteger(plot.navVersion)) return searchPathToAny(plot,start,goals,options);
+  let cache=searchResults.get(plot);
+  if (!cache || cache.version!==plot.navVersion) { cache={version:plot.navVersion,paths:new Map()};searchResults.set(plot,cache); }
+  const key=`${indexOf(plot,start)}:${goals.map(c=>indexOf(plot,c)).sort((a,b)=>a-b).join(',')}:${options.maxExpansions ?? T.npc.pathMaxExpansions}:${options.clamber ?? true}`;
+  if (!cache.paths.has(key)) {
+    if (cache.paths.size>=T.npc.pathMaxExpansions) cache.paths.clear();
+    cache.paths.set(key,searchPathToAny(plot,start,goals,options));
+  }
+  return cache.paths.get(key)?.map(c=>[...c]) ?? null;
+}
+
 /** Return a start-inclusive path in plot-local cells, or null. */
 export function findPath(plot, start, goal, options) { return findPathToAny(plot, start, [goal], options); }
 

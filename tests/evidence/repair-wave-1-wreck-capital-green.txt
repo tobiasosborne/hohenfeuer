@@ -1,0 +1,12 @@
+✔ income stats count credited gold and exclude overflow at the cap (0.597619ms)
+✔ damage invalidates job scan after an unchanged tick; zero gold stops paid repair (2.515741ms)
+✔ map-only palace repairs consume materials rather than creating free keep health (0.500119ms)
+✔ a destroyed cannon returns capped wreck materials once, while replacement still costs gold (106.850923ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.810133

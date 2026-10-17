@@ -80,7 +80,7 @@ export const TUNING = deepFreeze({
     collapseRadius: 12, // D 2.2: support flood-fill radius around a destroyed cell
     collapseBudgetCells: 4096, // D 2.2: cells visited per tick
     aiThinkEveryTicks: 15, // D 3.2: 2 Hz
-    aiSlotStaggerTicks: 5, // D 3.2
+    aiSlotStaggerTicks: 0, // repair wave 1: both slots decide on the same public tick
     maxTicksPerFrame: 5, // D 3.2
     dtClampS: 0.25, // D 3.2
     hashEveryTicks: 30, // D 6.3: lockstep hash compare
@@ -126,8 +126,8 @@ export const TUNING = deepFreeze({
   // Core block numbers (D 2.2). hp in manual defence points; cost null = map-only.
   blocks: {
     air: { hp: 0, cost: 0, buildS: 0 }, // D 2.2
-    stone: { hp: 40, cost: 1, buildS: 0.125 }, // research/10: 90-block wall ~100g; time per voxel guessed
-    tower: { hp: 72, cost: 2, buildS: 18 }, // research/10: ~220-cell shell ~500g; small tower 18s
+    stone: { hp: 40, cost: 4, buildS: 0.125 }, // repair wave 1: 360g per 90-cell wall; build time remains the voxel calibration
+    tower: { hp: 72, cost: 8, buildS: 18 }, // repair wave 1: 1760g per 220-cell shell; small tower 18s
     gate: { hp: 96, cost: null, buildS: 0 }, // EN p.37 gatehouse 96 dp
     wood: { hp: 12, cost: 4, buildS: 2 }, // research/10: farmhouse 12 dp
     floor: { hp: 12, cost: 3, buildS: 2 }, // guess
@@ -136,8 +136,8 @@ export const TUNING = deepFreeze({
     door: { hp: 20, cost: 8, buildS: 3 }, // guess
     roof: { hp: 8, cost: 5, buildS: 2 }, // guess
     magazine: { hp: 24, cost: 75, buildS: 6 }, // research/10: eight-voxel workshop 600g, 24dp
-    palace: { hp: 6, cost: null, buildS: 0 }, // research/10: 48 core cells x 6 x 0.7 = 201.6 dp to defeat
-    mount: { hp: 60, cost: 1, buildS: 0.125 }, // EN p.36 large wall 60 dp
+    palace: { hp: 80, cost: null, buildS: 0 }, // repair wave 1: reinforced core; 3840 initial dp, paid repairs
+    mount: { hp: 60, cost: 6, buildS: 0.125 }, // EN p.36 large wall 60 dp
     foundation: { hp: 255, cost: null, buildS: 0 }, // D 2.1: 255 = indestructible
   },
   structures: { windmill: { hp: 24, cost: 300, buildS: 30 } }, // research/10: reference prefab; manual 4 dp is a typo
@@ -160,6 +160,9 @@ export const TUNING = deepFreeze({
 
   palace: {
     destroyedBelow: 0.3, // D 2.2 / D 3.7: integrity threshold
+    crackingStartS: 600, // repair wave 1: late pressure starts at minute 10
+    crackingEndS: 900, // repair wave 1: full threshold at minute 15
+    crackingDestroyedBelow: 0.55, // repair wave 1: probe11 stalled at 45.7%; 45% permanent damage ends the late tail
     moraleDrainBelow: 0.5, // D 4.6
   },
 
@@ -189,6 +192,8 @@ export const TUNING = deepFreeze({
   },
 
   weaponRules: {
+    muzzleClearanceM: 3, // keep standing goals and AI fire clear of allied bodies
+    muzzleSafetyPadM: 0.15, // one tick of movement plus projectile scatter
     wallFootprint: [1, 1, 1], // D 3.5
     groundFootprint: [3, 3, 2], // D 3.5, EN p.25 (3x3 squares)
     wallHp: 36, // EN p.43: half a 72 dp tower
@@ -249,10 +254,13 @@ export const TUNING = deepFreeze({
 
   economy: {
     startGold: 1500, // research/10, EN p.13 Tactics default
-    palaceIncomeS: 6, // D 3.8 (guess)
-    civilianIncomeS: 0.25, // D 3.8 (guess)
+    palaceIncomeS: 3, // D 3.8 (guess)
+    civilianIncomeS: 0.1, // D 3.8 (guess)
     goldCap: 2000, // research/10, EN p.39 without treasury
-    repairCostFrac: 0.5, // D 3.8
+    weaponSalvageFrac: 0.5, // recover wreck materials; replacement still costs half plus time and crew losses
+    demolishRefundFrac: 0.5, // retain salvage value while repair materials rise to 80%
+    mapOnlyRepairBlockCost: 8, // repair wave 1: unique keep/gate repairs still need materials
+    repairCostFrac: 0.8, // D 3.8
   },
 
   rules: {
@@ -278,10 +286,15 @@ export const TUNING = deepFreeze({
     stairsMul: 0.7, // D 4.1
     carryLoads: 2, // research/07
     draftEveryS: 10, // D 4.1
+    levyBelowPopFrac: 0.7, // research/16 P3: casualties accelerate civilian levy
+    levyEveryS: 5, // research/16 P3
     fleeCrew: { base: 10, spread: 10 }, // research/07: crew, runner, mason
     fleeCivilian: { base: 25, spread: 10 }, // research/07
     returnHysteresis: 15, // research/07
-    repairFullS: 8, // research/07: one block per 8 s
+    clamberMaxRiseM: 2, // repair wave 1: escape collapsed walkway pits
+    clamberSpeedMul: 0.5, // deliberate vertical lift, then traverse the ledge
+    autoRepairQuietS: 30, // routine wall patching resumes after focused shelling stops
+    repairFullS: 12, // repair wave 1 / research/16 P2
     repairJobBelow: 0.5, // research/07: hp < 50% posts a repair job
     workReachM: 2.0, // D 4.3
     claimBlockedS: 5, // D 4.3
@@ -294,7 +307,7 @@ export const TUNING = deepFreeze({
     pathSearchesPerTick: 8, // D 4.4
     pathReplanMinS: 1, // research/07
     pathRevalidateCells: 3, // D 4.4
-    pathCost: { flat: 1, door: 1.5, stairs: 2, ladder: 3, stepDown: 1.5 }, // D 4.4 (research/07 traffic)
+    pathCost: { flat: 1, door: 1.5, stairs: 2, ladder: 3, stepDown: 1.5, clamber: 3 }, // D 4.4 (research/07 traffic)
     shelterSolidAbove: 2, // D 4.7
     shelterAboveRange: 6, // D 4.7
     leadershipM: 8, // D 4.6 (guess)
@@ -328,7 +341,7 @@ export const TUNING = deepFreeze({
     palaceLowS: -0.2, // research/07
     shelterS: 0.05, // research/07
     shelterFrac: 0.8, // D 4.6
-    rallyBelow: 30, // research/07
+    rallyBelow: 50, // repair wave 1 / research/16 P3
     rally: 15, // research/07
     rallyCooldownS: 60, // research/07
     workBands: [[70, 1.1], [40, 1.0], [20, 0.8], [0, 0.5]], // research/07: [M >= threshold, workSpeed]
@@ -347,6 +360,8 @@ export const TUNING = deepFreeze({
     sMinRangeCoef: 0.000008, // TB2 calibration: fractional range floor; L1 8%, L5 1.0368%
     sMinRangeExponent: 4, // TB2 guess: preserve low-level misses while mid-level crews learn a breach
     windResetSteps: 2, // D 6.2
+    breachAimAbovePalaceM: 1, // strike the low shield segment within blast reach of the core
+    transferConfidenceMax: 4, // a new point in a ranged castle does not restart blind exploration
     windMemoryMinLevel: 4, // D 6.2
     fireDelayPerLevelS: 0.5, // D 6.2
     targetValue: { palace: 10, weapon: 8, magazine: 7, shieldWall: 4, crewCluster: 3 }, // D 6.2
@@ -354,9 +369,18 @@ export const TUNING = deepFreeze({
     crewClusterN: 3, // D 6.2
     crewClusterM: 2, // D 6.2
     targetRetryS: 5, // guess: back off unusable firing lanes rather than retrying at 2 Hz
-    retargetS: 60, // D 6.2
+    retargetS: 120, // research/16 P2: retain a breach across four volleys
+    breachAfterS: 120, // repair wave 1: three opening volleys, then a stable breach
+    rulerRetreatCooldownS: 30, // repair wave 1: reassess cover as the keep opens
+    rulerDangerM: 10, // repair wave 1: walk to shelter when nearby impacts expose the throne
+    rulerDangerWindowS: 30, // repair wave 1
+    recoveryWeapon: 'ballista', // repair wave 1: affordable cover while restoring the cannon blueprint
+    recoveryMountOffsetZ: 8, // repair wave 1: spare batteries flank the central breach
+    recoveryGunHpFrac: 0.5, // repair wave 1: automatic masonry preserves one replacement gun
+    maxFireSilenceS: 60, // repair wave 1: retry infeasible lanes before 90 s
     buildEveryS: 2, // D 6.2
     buildPerThink: 4, // D 6.2
+    recoveryDesignationSlots: 8, // repair wave 1: reserve one 2x2x2 magazine of queue space
     reserve: { worrier: 300, general: 500, daredevil: 800 }, // D 6.2
     repairShare: { worrier: 0.6, general: 0.4, daredevil: 0.2 }, // D 6.2 (general: guess)
     shelterBelow: 35, // D 6.2
@@ -368,6 +392,16 @@ export const TUNING = deepFreeze({
   },
 
   render: {
+    gpuExtras: false, // Modern only; forcibly disabled by golden=1 (2026-10-17).
+    modern: {
+      sun: 0xffefd6, sunGain: 2.2, ambientSky: 0xc5d7ed, ambientGround: 0x8b806b,
+      ambientGain: 0.85, wrap: 0.18, ironSpecular: 0.08,
+      fog: 0xa8c0d0, fogDensity: 0.0024, fogFalloff: 0.035,
+      zenith: 0x2467a7, horizon: 0xa8c1d4,
+      grass: 0x43552d, sand: 0xb1a083, rock: 0x85867e,
+      exposure: 1.05, shadowSize: 2048, shadowExtentM: 145,
+      fireMax: 256, bloomStrength: 0.16, bloomRadius: 0.35, bloomThreshold: 1.0,
+    },
     logicalW: 1024, // D 7.1, shots 03-12
     logicalH: 768, // D 7.1
     targetFps: 60, // D 7.1

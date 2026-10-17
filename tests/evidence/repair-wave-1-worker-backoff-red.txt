@@ -1,0 +1,43 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (26.099605ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (2.607919ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (2.894028ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (2.860877ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (6.645077ms)
+✔ a temporary ballista does not spend the savings for the missing blueprint cannon (3.052201ms)
+✔ another castle population cannot shift this castle bravery draws (13.667536ms)
+✔ urgent weapon construction preempts routine repairs without waiting for claim timeout (2.975037ms)
+✔ four surviving crew fill two minimum batteries instead of leaving one gun at one crew (4.701815ms)
+✔ opposing default populations have mirrored role positions, not the same left-first spawn order (801.507049ms)
+✔ levy restores full ordered crews when support roles and population allow it (6.744419ms)
+✖ a failed route for one mason does not block a mason on the reachable side (2.401377ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 895.816379
+
+✖ failing tests:
+
+test at tests/unit/npc-repair-wave.test.js:99:1
+✖ a failed route for one mason does not block a mason on the reachable side (2.401377ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 6
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:102:56)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 6,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

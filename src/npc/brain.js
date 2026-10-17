@@ -1,9 +1,10 @@
 // src/npc/brain.js - owns NPC population, roles, shelter and the per-tick state machine.
-import { ROLE, JOB, NPC_STATE, EV, RNG_STREAM, PLUGIN_KIND, getNpcType, listPlugins, K } from '../contracts.js';
+import { BLOCK, ROLE, JOB, NPC_STATE, EV, getBlockByKey, RNG_STREAM, PLUGIN_KIND, getNpcType, listPlugins, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
-import { castleDef, blockDef, cellOf, indexOf, typeAt, feet, localCell, distanceSq, manhattan, ticks, ownNpcs, ownWeapons, weaponDef } from './model.js';
+import { castleDef, blockDef, cellOf, indexOf, typeAt, feet, localCell, distanceSq, manhattan, ticks, ownNpcs, ownWeapons, weaponDef, blocksWeaponMuzzle } from './model.js';
 import { isStandable } from './path.js';
-import { emitJobs, expireClaims, claimJob, releaseClaim, planPath, setPath, tickWork } from './jobs.js';
+import { emitJobs, expireClaims, claimJob, releaseClaim, planPath, setPath, tickWork, weaponWorkCells, workCells, outsideBuildSites } from './jobs.js';
+import { personOverlapsWeaponSite, personOverlapsCell } from './designations.js';
 import { queueMoraleInput } from './morale.js';
 import { updateCrews } from './crew.js';
 
@@ -69,9 +70,13 @@ export function spawnPopulation(api, castle) {
     extras.sort((a, b) => manhattan(a, origin) - manhattan(b, origin) || indexOf(p, a) - indexOf(p, b));
     for (const c of extras) { unique.set(indexOf(p, c), c); if (unique.size >= population) break; }
   }
-  const cells = [...unique.values()];
+  let cells = [...unique.values()];
+  // Mirror role placement together with the attack direction on a symmetric plot.
+  // Asymmetric templates keep their authored valid rooms rather than spawning in masonry.
+  const mirrored = cells.map(c=>[p.width-1-c[0],c[1],c[2]]);
+  if (castle.facingDeg===270 && mirrored.every(c=>isStandable(p,c))) cells=mirrored;
   if (!cells.length) throw new Error(`Castle ${castle.id} has no standable population spawn`);
-  const rng = api.rng(RNG_STREAM.NPC);
+  const rng = api.rng(`${RNG_STREAM.NPC}:${castle.slot}`);
   api.state.nextEntityId ??= Math.max(K.MAX_SLOTS, ...api.state.npcs.map(n => n.id + 1));
   let ordinal = 0;
   for (let r = 0; r < roles.length; r++) for (let i = 0; i < counts[r] && ordinal < population; i++, ordinal++) {
@@ -88,15 +93,19 @@ export function spawnPopulation(api, castle) {
 
 function draft(api, castle, npcs) {
   const alive = npcs.filter(n => n.hp > 0 && !n.deserting), count = role => alive.filter(n => n.role === role).length;
-  const crewNeeded = ownWeapons(api, castle).filter(w => w.hp > 0 && w.crewOrdered).reduce((sum, w) => sum + Math.ceil(weaponDef(w).crewSlots * T.weaponRules.minCrewFrac), 0);
+  const ordered = ownWeapons(api,castle).filter(w=>w.hp>0&&w.crewOrdered);
+  const minimumCrew = ordered.reduce((n,w)=>n+Math.ceil(weaponDef(w).crewSlots*T.weaponRules.minCrewFrac),0);
+  const fullCrew = ordered.reduce((n,w)=>n+weaponDef(w).crewSlots,0);
+  const crewNeeded = Math.min(fullCrew,Math.max(minimumCrew,alive.length-T.npc.minRunners-T.npc.minMasons));
   // Release civilian conscripts when their crew order is no longer needed.
   let crew = count(ROLE.CREW);
   for (const npc of [...alive].reverse()) if (npc.drafted && npc.role === ROLE.CREW && crew > crewNeeded) {
     releaseClaim(castle, npc); setRole(npc, ROLE.CIVILIAN); npc.drafted = false; crew--;
   }
   castle.lastDraftTick ??= 0;
-  if (api.tick - castle.lastDraftTick < ticks(T.npc.draftEveryS)) return;
-  const role = count(ROLE.RUNNER) < T.npc.minRunners ? ROLE.RUNNER : count(ROLE.MASON) < T.npc.minMasons ? ROLE.MASON : crew < crewNeeded ? ROLE.CREW : null;
+  const levy = alive.length < castle.initialPopulation * T.npc.levyBelowPopFrac;
+  if (api.tick - castle.lastDraftTick < ticks(levy ? T.npc.levyEveryS : T.npc.draftEveryS)) return;
+  const role = levy && crew < crewNeeded ? ROLE.CREW : count(ROLE.RUNNER) < T.npc.minRunners ? ROLE.RUNNER : count(ROLE.MASON) < T.npc.minMasons ? ROLE.MASON : crew < crewNeeded ? ROLE.CREW : null;
   const candidate = alive.find(n => n.role === ROLE.CIVILIAN && !n.fleeing);
   if (role && candidate) { releaseClaim(castle, candidate); setRole(candidate, role); candidate.drafted = true; castle.lastDraftTick = api.tick; }
 }
@@ -127,6 +136,21 @@ function walkToShelter(api, castle, npc, npcs) {
   npc.state = path.length === 1 ? NPC_STATE.SHELTER : NPC_STATE.FLEE;
 }
 
+/** Idle bodies must not permanently occupy destroyed access blocks from the blueprint. */
+function blocksOriginal(castle,npc) {
+  const def=castleDef(castle);if(!def)return false;
+  const p=castle.plot,o=p.origin,r=npc.radius ?? T.people.npcRadius,h=npc.height ?? T.people.height;
+  for(let y=Math.floor(npc.pos.y-o.y);y<=Math.floor(npc.pos.y+h-o.y-1e-9);y++)
+    for(let z=Math.floor(npc.pos.z-o.z-r);z<=Math.floor(npc.pos.z-o.z+r-1e-9);z++)
+      for(let x=Math.floor(npc.pos.x-o.x-r);x<=Math.floor(npc.pos.x-o.x+r-1e-9);x++){
+        const cell=[x,y,z],char=def.layers[y-1]?.[z]?.[x],entry=def.legend[char];
+        if(!entry||typeAt(p,cell)!==BLOCK.AIR)continue;
+        const block=getBlockByKey(typeof entry==='object'?entry.key ?? entry.type:entry);
+        if(block?.solid&&block.cost!==null&&personOverlapsCell(p,cell,npc))return true;
+      }
+  return false;
+}
+
 /** Lane entry point, tick step seven: emit/expire jobs, then brains and work by NPC id. */
 export function npcTick(api, castle) {
   spawnPopulation(api, castle);
@@ -146,6 +170,7 @@ export function npcTick(api, castle) {
       }
       continue;
     }
+    if (npc.falling) continue;
     if (npc.deserting) {
       const exit = localCell(castle.plot, castle.exit ?? castle.rulerSpawn);
       if (distanceSq(npc.pos, feet(castle.plot, exit)) <= T.people.npcRadius * T.people.npcRadius) { npc.deserted = true; continue; }
@@ -169,6 +194,25 @@ export function npcTick(api, castle) {
     }
     if (npc.shelterCell || npc.state === NPC_STATE.FLEE || npc.state === NPC_STATE.SHELTER) {
       npc.shelterCell = null; npc.path = []; npc.pathIndex = 0; npc.target = null; npc.state = NPC_STATE.IDLE;
+    }
+    if (npc.state === NPC_STATE.WORK && npc.jobId == null) npc.state = NPC_STATE.IDLE;
+    const gunBlocked=ownWeapons(api,castle).some(w=>blocksWeaponMuzzle(w,npc));
+    const held=castle.jobs?.find(j=>j.id===npc.jobId);
+    if((npc.state===NPC_STATE.IDLE||held?.kind===JOB.REPAIR&&held.priority===0||held?.kind===JOB.CREW&&gunBlocked)&&api.tick>=(npc.nextPlanTick ?? 0)&&(blocksOriginal(castle,npc)||gunBlocked)){
+      const goals=outsideBuildSites(castle,npc,workCells(castle.plot,localCell(castle.plot,npc.pos),T.npc.workReachM+T.npc.clamberMaxRiseM),[],api.state.weapons).filter(c=>!blocksOriginal(castle,{...npc,pos:feet(castle.plot,c)}));
+      const path=planPath(api,castle,npc,goals);
+      if(path?.length>1){releaseClaim(castle,npc);setPath(api,castle,npc,path);continue;}
+    }
+    if (npc.state === NPC_STATE.IDLE && npc.jobId == null) {
+      const empty = (castle.mountSpots ?? []).find(spot => {
+        const pos = feet(castle.plot, spot);
+        return !ownWeapons(api, castle).some(w => w.hp > 0 && distanceSq(w.pos, pos) < 0.01)
+          && personOverlapsWeaponSite(castle.plot, spot, 'cannon', npc);
+      });
+      if (empty) {
+        const path = planPath(api, castle, npc, weaponWorkCells(castle, { pos: feet(castle.plot, empty), defId: 'cannon' }, npc));
+        if (path) { setPath(api, castle, npc, path); continue; }
+      }
     }
     const type = npc.typeId ? getNpcType(npc.typeId) : null;
     if (npc.state === NPC_STATE.IDLE || npc.state === NPC_STATE.CLAIM) claimJob(api, castle, npc, type?.pickJob);

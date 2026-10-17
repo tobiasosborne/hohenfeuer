@@ -1,0 +1,35 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (16.200089ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (2.206864ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (3.948039ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (2.884257ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (6.013433ms)
+✖ a temporary ballista does not spend the savings for the missing blueprint cannon (5.907666ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.4292
+
+✖ failing tests:
+
+test at tests/unit/npc-repair-wave.test.js:52:1
+✖ a temporary ballista does not spend the savings for the missing blueprint cannon (5.907666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 749.7599999999999
+  - 750
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:57:75)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 749.7599999999999,
+    expected: 750,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

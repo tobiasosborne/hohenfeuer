@@ -1,0 +1,45 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (16.372215ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (3.278134ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (3.795168ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (4.61121ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (2.698643ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (1.145658ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (2.592303ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (2.522845ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (4.841719ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (1.5907ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (1.723393ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (1.293759ms)
+✔ changing the aim point within a ranged castle retains learned confidence (1.581839ms)
+✖ a replacement cannon inherits its castle ranged confidence (1.72704ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.039224
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:181:1
+✖ a replacement cannon inherits its castle ranged confidence (1.72704ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 4
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:185:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

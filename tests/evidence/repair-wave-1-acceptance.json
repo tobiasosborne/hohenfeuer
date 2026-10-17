@@ -1,0 +1,223 @@
+{
+  "checks": {
+    "40 paired level-five matches": true,
+    "No timeouts": true,
+    "Every side at cap <20%": true,
+    "Loser damage in at least three minutes": true,
+    "No joint palace stall over five minutes": true,
+    "Each slot wins 40\u201360%": true,
+    "First-gun-loss comeback rate at least 25%": true,
+    "Both sides fire in every two-minute window": true,
+    "Loaded/crewed/funded silence at most 90 seconds": true,
+    "At least 80% finish in 12\u201320 minutes (critique protocol)": true,
+    "All 40 finish in 12\u201320 minutes (wave target)": true,
+    "A cannon is unaffordable during sampled midgame": true
+  },
+  "allPass": true,
+  "physicalPairEquality": {
+    "exactPairs": 20,
+    "pairs": 20
+  },
+  "netDeclineMinutes": [
+    {
+      "seed": 1,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 1,
+      "swap": true,
+      "minutes": 11
+    },
+    {
+      "seed": 2,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 2,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 3,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 3,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 4,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 4,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 5,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 5,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 6,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 6,
+      "swap": true,
+      "minutes": 11
+    },
+    {
+      "seed": 7,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 7,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 8,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 8,
+      "swap": true,
+      "minutes": 11
+    },
+    {
+      "seed": 9,
+      "swap": false,
+      "minutes": 12
+    },
+    {
+      "seed": 9,
+      "swap": true,
+      "minutes": 12
+    },
+    {
+      "seed": 10,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 10,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 11,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 11,
+      "swap": true,
+      "minutes": 11
+    },
+    {
+      "seed": 12,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 12,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 13,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 13,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 14,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 14,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 15,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 15,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 16,
+      "swap": false,
+      "minutes": 12
+    },
+    {
+      "seed": 16,
+      "swap": true,
+      "minutes": 12
+    },
+    {
+      "seed": 17,
+      "swap": false,
+      "minutes": 13
+    },
+    {
+      "seed": 17,
+      "swap": true,
+      "minutes": 13
+    },
+    {
+      "seed": 18,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 18,
+      "swap": true,
+      "minutes": 11
+    },
+    {
+      "seed": 19,
+      "swap": false,
+      "minutes": 10
+    },
+    {
+      "seed": 19,
+      "swap": true,
+      "minutes": 10
+    },
+    {
+      "seed": 20,
+      "swap": false,
+      "minutes": 11
+    },
+    {
+      "seed": 20,
+      "swap": true,
+      "minutes": 11
+    }
+  ]
+}

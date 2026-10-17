@@ -1,0 +1,42 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (106.401885ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (18.69592ms)
+✖ entry signature returns integer next-tick commands only on shared AI cadence (45.221096ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (35.310349ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (24.763383ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (12.140506ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (18.390849ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (29.830368ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (51.217343ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (25.417533ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (26.919447ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 442.751146
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:45:1
+✖ entry signature returns integer next-tick commands only on shared AI cadence (45.221096ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(second.think(view, view.slots[1], rng).some(c => c.type === CMD.AIM))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:55:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

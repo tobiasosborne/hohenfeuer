@@ -46,9 +46,9 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     const placement = mapDef.slots[slot.id], def = getCastle(slot.castleId ?? placement?.castle);
     if (!placement || !def) throw new TypeError(`Missing castle for slot ${slot.id}`);
     const loaded = loadCastle(def, { origin: placement.origin, id: slot.id, getBlock: getBlockByKey });
-    const castle = { ...loaded, id: slot.id, slot: slot.id, gold: mapDef.startGold ?? T.economy.startGold, stats: createStats(), eliminated: false, reason: null, surrendered: false, surrenderTicks: 0, population: 0, initialPopulation: 0, civiliansWorking: 0, morale: T.morale.start, magazines: [], shelter: false };
+    const castle = { ...loaded, id: slot.id, slot: slot.id, facingDeg: placement.facingDeg, gold: mapDef.startGold ?? T.economy.startGold, stats: createStats(), eliminated: false, reason: null, surrendered: false, surrenderTicks: 0, population: 0, initialPopulation: 0, civiliansWorking: 0, morale: T.morale.start, magazines: [], shelter: false };
     state.castles.push(castle);
-    state.rulers.push(createRuler(slot.id, loaded.rulerSpawn, slot.id));
+    state.rulers.push(createRuler(slot.id, slot.controller === CONTROLLER.AI ? loaded.throne ?? loaded.rulerSpawn : loaded.rulerSpawn, slot.id));
     for (const placement of loaded.weapons) {
       const weaponDef = getWeapon(placement.id);
       if (!weaponDef) throw new TypeError(`Unknown weapon: ${placement.id}`);
@@ -58,8 +58,23 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
   }
   const emit = (type, payload) => { events.push({ type, payload: snapshot(payload) }); recordNpcEvent(api, type, payload); };
   const castleOf = slot => state.castles.find(c => c.slot === slot);
+  // Randomness belongs to a physical castle. Reordering the slot table must not
+  // secretly reroll its crew, scatter or AI. Derive ranks from restored state too.
+  function castleRng(name) {
+    const [kind, owner, ...extra] = name.split(':');
+    if (!extra.length && owner !== undefined
+      && [RNG_STREAM.AI, RNG_STREAM.SCATTER, RNG_STREAM.NPC].includes(kind)) {
+      const castle = castleOf(Number(owner));
+      if (castle) {
+        const ordered = [...state.castles].sort((a, b) => a.plot.origin.x - b.plot.origin.x
+          || a.plot.origin.z - b.plot.origin.z || a.plot.origin.y - b.plot.origin.y || a.slot - b.slot);
+        return streams.get(`${kind}:${ordered.indexOf(castle)}`);
+      }
+    }
+    return streams.get(name);
+  }
   const ctx = {
-    get state() { return state; }, emit, getBlock, getWeapon, castleOf, rng: name => streams.get(name),
+    get state() { return state; }, emit, getBlock, getWeapon, castleOf, rng: castleRng,
     spawnProjectile(p) {
       const projectile = { ...p, id: state.nextEntityId++, pos: xyz(p.pos), vel: xyz(p.vel), payload: snapshot(p.payload ?? {}), age: 0 };
       state.projectiles.push(projectile); return projectile.id;
@@ -213,7 +228,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       stage('ai');
       const think = hooks.aiThink ?? aiController.think;
       for (const slot of state.slots) if (slot.controller === CONTROLLER.AI && !castleOf(slot.id).eliminated && (state.tick + slot.id * T.sim.aiSlotStaggerTicks) % T.sim.aiThinkEveryTicks === 0) {
-        const output = think(snapshot(state), { ...slot }, streams.get(`${RNG_STREAM.AI}:${slot.id}`)) ?? [];
+        const output = think(snapshot(state), { ...slot }, ctx.rng(`${RNG_STREAM.AI}:${slot.id}`)) ?? [];
         for (const cmd of output) { validateCommand(cmd); if (cmd.slot !== slot.id || cmd.tick !== state.tick + 1) throw new RangeError('AI commands must address their slot on the next tick'); state.pendingCommands.push({ ...cmd }); }
       }
       stage('weapons'); tickWeapons(ctx);

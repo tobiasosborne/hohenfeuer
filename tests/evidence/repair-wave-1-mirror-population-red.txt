@@ -1,0 +1,37 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (20.903277ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (2.621583ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (4.21087ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (3.946365ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (8.665833ms)
+✔ a temporary ballista does not spend the savings for the missing blueprint cannon (3.84765ms)
+✔ another castle population cannot shift this castle bravery draws (14.322154ms)
+✔ urgent weapon construction preempts routine repairs without waiting for claim timeout (4.248307ms)
+✔ four surviving crew fill two minimum batteries instead of leaving one gun at one crew (4.403617ms)
+✖ opposing default populations have mirrored role positions, not the same left-first spawn order (769.911471ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 864.346252
+
+✖ failing tests:
+
+test at tests/unit/npc-repair-wave.test.js:80:1
+✖ opposing default populations have mirrored role positions, not the same left-first spawn order (769.911471ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  33 !== 48
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:86:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 33,
+    expected: 48,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

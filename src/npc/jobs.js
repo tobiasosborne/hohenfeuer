@@ -2,11 +2,12 @@
 import { BLOCK, META, JOB, ROLE, NPC_STATE, EV, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { blockDef, cellOf, indexOf, typeAt, localCell, feet, distanceSq, manhattan, ticks,
-  ownNpcs, ownWeapons, operatorCell, weaponDef, workSpeed } from './model.js';
+  ownNpcs, ownWeapons, weaponDef, workSpeed, jobScanVersion, missingWeaponCost, blocksWeaponMuzzle } from './model.js';
 import { buildSiteReady, personOverlapsCell, personOverlapsWeaponSite } from './designations.js';
 import { refund, demolitionRefund } from '../sim/economy.js';
 import { isStandable, pathValid, findPathToAny } from './path.js';
 
+const scanCache = new WeakMap(), EMPTY_DESIGNATIONS = Object.freeze([]);
 const axes = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
 const keyOf = (kind, target) => `${kind}:${target.weaponId ?? target.cell.join(',')}`;
 const emit = (api, type, job) => api.emit(type, { jobId: job.id, kind: job.kind, castle: job.castle });
@@ -57,19 +58,31 @@ export function emitJobs(api, castle) {
       refund(castle, d.reserved ?? 0); return false;
     });
   }
-  const designations = castle.npcDesignations ?? castle.designations ?? [];
-  for (let i = p.width * p.depth; i < p.type.length; i++) {
+  const designations = castle.npcDesignations ?? castle.designations ?? EMPTY_DESIGNATIONS;
+  const cached = scanCache.get(p), damage = jobScanVersion(p);
+  if (!cached || cached.nav !== p.navVersion || cached.damage !== damage || cached.designations !== designations || cached.count !== designations.length) {
+    scanCache.set(p, { nav: p.navVersion, damage, designations, count: designations.length });
+    for (let i = p.width * p.depth; i < p.type.length; i++) {
     const id = p.type[i];
     if (id) { const def = blockDef(id);
       if (def && p.hp[i] > 0 && p.hp[i] < def.hp * T.npc.repairJobBelow) addJob(api, castle, JOB.REPAIR, { cell: cellOf(p, i) });
     }
     if (p.meta[i] & META.DESIGNATED_BIT) {
       const cell = cellOf(p, i), designation = designations.find(d => indexOf(p, d.cell) === i);
-      addJob(api, castle, designation?.kind ?? JOB.BUILD, { cell }, { priority: 1, block: designation?.weapon ? BLOCK.AIR : designation?.block ?? BLOCK.STONE, weapon: designation?.weapon });
+      addJob(api, castle, designation?.kind ?? JOB.BUILD, { cell }, { priority: designation?.weapon || [BLOCK.MAGAZINE,BLOCK.MOUNT,BLOCK.STAIRS,BLOCK.FLOOR].includes(designation?.block) ? 2 : 1, block: designation?.weapon ? BLOCK.AIR : designation?.block ?? BLOCK.STONE, weapon: designation?.weapon });
     }
   }
-  for (const weapon of ownWeapons(api, castle)) if (weapon.hp > 0) {
-    if (weapon.crewOrdered) addJob(api, castle, JOB.CREW, { weaponId: weapon.id }, { priority: 3, slots: weaponDef(weapon).crewSlots });
+  }
+  const weapons = ownWeapons(api,castle).filter(w=>w.hp>0), ordered=weapons.filter(w=>w.crewOrdered);
+  const minimum = ordered.reduce((n,w)=>n+Math.ceil(weaponDef(w).crewSlots*T.weaponRules.minCrewFrac),0);
+  let extras=Math.max(0,ownNpcs(api,castle).filter(n=>n.hp>0&&!n.deserting&&!n.fleeing&&n.role===ROLE.CREW).length-minimum);
+  for (const weapon of weapons) {
+    if (weapon.crewOrdered) {
+      const full=weaponDef(weapon).crewSlots,min=Math.ceil(full*T.weaponRules.minCrewFrac),slots=Math.min(full,min+extras);
+      extras-=slots-min;
+      const job=addJob(api,castle,JOB.CREW,{weaponId:weapon.id},{priority:3,slots});
+      for(const id of job.claimedBy.slice(slots)){const npc=ownNpcs(api,castle).find(n=>n.id===id);if(npc)releaseClaim(castle,npc);}
+    }
     if (weapon.ammo < T.weaponRules.bufferLoads) addJob(api, castle, JOB.HAUL_AMMO, { weaponId: weapon.id }, { priority: weapon.ammoPriority ? 3 : 2 });
   }
   for (const pos of castle.workSpots ?? []) addJob(api, castle, JOB.WORK, { cell: localCell(p, pos) });
@@ -95,8 +108,25 @@ export function workCells(plot, target, reach = T.npc.workReachM) {
   return cells.sort((a, b) => indexOf(plot, a) - indexOf(plot, b));
 }
 
+/** Keep people outside the weapon hull and its future replacement footprint. */
+export function weaponWorkCells(castle, weapon, npc) {
+  const cell = localCell(castle.plot, weapon.pos);
+  return workCells(castle.plot, cell).filter(c => !blocksWeaponMuzzle(weapon,{...npc,pos:feet(castle.plot,c)})&&!personOverlapsWeaponSite(castle.plot, cell, weapon.defId,
+    { ...npc, pos: feet(castle.plot, c) }));
+}
+
+/** Work destinations must leave every reserved construction footprint clear. */
+export function outsideBuildSites(castle,npc,cells,extra=[],weapons=[]) {
+  const sites=[...extra,...(castle.npcDesignations ?? []).filter(d=>d.kind===JOB.BUILD)];
+  return cells.filter(c=>!weapons.some(w=>w.slot===castle.slot&&blocksWeaponMuzzle(w,{...npc,pos:feet(castle.plot,c)}))&&!sites.some(d=>d.weapon?personOverlapsWeaponSite(castle.plot,d.cell,d.weapon,{...npc,pos:feet(castle.plot,c)}):personOverlapsCell(castle.plot,d.cell,{...npc,pos:feet(castle.plot,c)})));
+}
+
 /** Fear affects BUILD/REPAIR only; one highest-priority job breaks sustained-fire deadlock. */
 export function fearAllows(api, castle, job) {
+  if(job.kind===JOB.REPAIR&&job.priority===0&&typeAt(castle.plot,job.target.cell)!==BLOCK.PALACE){
+    const pos=feet(castle.plot,job.target.cell);
+    if((castle.enemyImpacts ?? []).some(e=>api.tick-e.tick<ticks(T.npc.autoRepairQuietS)&&distanceSq(pos,e.pos)<=T.npc.fearRadiusM*T.npc.fearRadiusM))return false;
+  }
   if (job.kind !== JOB.BUILD && job.kind !== JOB.REPAIR || castle.morale >= T.npc.fearMoraleOverride) return true;
   if (castle.fearOverrideJobId === job.id) return true;
   const pos = feet(castle.plot, job.target.cell);
@@ -130,28 +160,30 @@ export function setPath(api, castle, npc, path) {
   npc.state = npc.pathIndex < path.length ? NPC_STATE.WALK : NPC_STATE.WORK;
 }
 
+function blockWorker(api, job, npc) {
+  (job.blockedNpcUntil ??= {})[npc.id]=api.tick+ticks(T.npc.claimBlockedS);
+  emit(api,EV.JOB_UNREACHABLE,job);
+}
+
 function matching(npc, job) { return npc.jobs ? npc.jobs.includes(job.kind) : npc.role === job.role || npc.role === ROLE.CREW && job.kind === JOB.HAUL_AMMO; }
 function goalsFor(api, castle, npc, job) {
   if (job.target.cell) {
     const cells = job.kind === JOB.WORK ? [job.target.cell] : workCells(castle.plot, job.target.cell);
-    const sites = (castle.npcDesignations ?? []).filter(d => d.kind === JOB.BUILD);
-    return job.kind === JOB.BUILD ? cells.filter(c => ![{ ...job.target, weapon: job.weapon }, ...sites].some(d => d.weapon
-      ? personOverlapsWeaponSite(castle.plot, d.cell, d.weapon, { ...npc, pos: feet(castle.plot,c) })
-      : personOverlapsCell(castle.plot, d.cell, { ...npc, pos: feet(castle.plot,c) }))) : cells;
+    return outsideBuildSites(castle,npc,cells,job.kind===JOB.BUILD?[{...job.target,weapon:job.weapon}]:[],api.state.weapons);
   }
   const w = ownWeapons(api, castle).find(w => w.id === job.target.weaponId);
-  if (job.kind === JOB.CREW) return workCells(castle.plot, localCell(castle.plot, w.pos));
-  if (npc.carrying > 0) { npc.haulStage = 'deposit'; return [operatorCell(w, castle)]; }
+  if (job.kind === JOB.CREW) return outsideBuildSites(castle,npc,weaponWorkCells(castle,w,npc),[],api.state.weapons);
+  if (npc.carrying > 0) { npc.haulStage = 'deposit'; return outsideBuildSites(castle,npc,weaponWorkCells(castle,w,npc),[],api.state.weapons); }
   const stores = castle.magazines.filter(m => m.stock > 0);
   npc.haulStage = 'pickup';
-  return stores.flatMap(m => m.cells.flatMap(i => workCells(castle.plot, cellOf(castle.plot, i), 1)));
+  return outsideBuildSites(castle,npc,stores.flatMap(m=>m.cells.flatMap(i=>workCells(castle.plot,cellOf(castle.plot,i),1))),[],api.state.weapons);
 }
 
 /** Idle workers pull priority/distance/id jobs, with plugin pickJob as an optional preference. */
 export function claimJob(api, castle, npc, pickJob = null) {
   if (npc.hp <= 0 || npc.jobId !== null && npc.jobId !== undefined || api.tick < (npc.nextPlanTick ?? 0)) return null;
   const start = localCell(castle.plot, npc.pos);
-  const candidates = castle.jobs.filter(j => j.reachable && matching(npc, j) && j.claimedBy.length < j.slots
+  const candidates = castle.jobs.filter(j => j.reachable && (j.blockedNpcUntil?.[npc.id] ?? 0)<=api.tick && matching(npc, j) && j.claimedBy.length < j.slots
     && fearAllows(api, castle, j) && buildReady(api, castle, j));
   candidates.sort((a, b) => b.priority - a.priority || manhattan(start, a.target.cell ?? localCell(castle.plot, ownWeapons(api, castle).find(w => w.id === a.target.weaponId).pos))
     - manhattan(start, b.target.cell ?? localCell(castle.plot, ownWeapons(api, castle).find(w => w.id === b.target.weaponId).pos)) || a.id - b.id);
@@ -166,7 +198,8 @@ export function claimJob(api, castle, npc, pickJob = null) {
     if (!goals.length && job.kind === JOB.HAUL_AMMO) continue;
     const path = planPath(api, castle, npc, goals);
     if (path === undefined) return null;
-    if (!path) { job.reachable = false; job.blockedUntilTick = api.tick + ticks(T.npc.claimBlockedS); emit(api, EV.JOB_UNREACHABLE, job); continue; }
+    if (!path) { blockWorker(api,job,npc); continue; }
+    if(job.blockedNpcUntil) delete job.blockedNpcUntil[npc.id];
     npc.jobId = job.id; npc.target = { ...job.target }; job.claimedBy.push(npc.id); job.claimedBy.sort((a, b) => a - b);
     setPath(api, castle, npc, path); emit(api, EV.JOB_CLAIMED, job); return job;
   }
@@ -185,7 +218,10 @@ export function releaseClaim(castle, npc) {
 export function expireClaims(api, castle) {
   for (const npc of ownNpcs(api, castle)) {
     if (npc.jobId === null || npc.jobId === undefined) continue;
-    const preempted = npc.hp <= 0 || npc.deserting || npc.state === NPC_STATE.FLEE || npc.state === NPC_STATE.SHELTER || npc.state === NPC_STATE.DEAD;
+    const held = castle.jobs?.find(j=>j.id===npc.jobId);
+    const urgent = held?.kind===JOB.REPAIR && held.priority===0 && castle.jobs.some(j=>j.kind===JOB.BUILD
+      && j.priority>held.priority && j.priority>=2 && j.reachable && j.claimedBy.length<j.slots && buildReady(api,castle,j));
+    const preempted = urgent || npc.hp <= 0 || npc.deserting || npc.state === NPC_STATE.FLEE || npc.state === NPC_STATE.SHELTER || npc.state === NPC_STATE.DEAD;
     const broken = npc.pathNavVersion !== castle.plot.navVersion && !pathValid(castle.plot, npc.path, Math.max(0, npc.pathIndex - 1));
     if (preempted || broken || api.tick - npc.lastProgressTick > ticks(T.npc.claimTimeoutS)) releaseClaim(castle, npc);
     else npc.pathNavVersion = castle.plot.navVersion;
@@ -214,9 +250,9 @@ export function tickWork(api, castle, npc) {
       if (api.tick < (npc.nextPlanTick ?? 0)) return;
       const store = castle.magazines.filter(m => m.stock > 0 && m.cells.some(i => manhattan(localCell(p, npc.pos), cellOf(p, i)) <= 1)).sort((a, b) => a.id - b.id)[0];
       if (!store) { releaseClaim(castle, npc); return; }
-      const path = planPath(api, castle, npc, [operatorCell(weapon, castle)]);
+      const path = planPath(api, castle, npc, outsideBuildSites(castle,npc,weaponWorkCells(castle,weapon,npc),[],api.state.weapons));
       if (path === undefined) return;
-      if (!path) { job.reachable = false; job.blockedUntilTick = api.tick + ticks(T.npc.claimBlockedS); emit(api, EV.JOB_UNREACHABLE, job); releaseClaim(castle, npc); return; }
+      if (!path) { blockWorker(api,job,npc); releaseClaim(castle,npc); return; }
       npc.carrying = Math.min(T.npc.carryLoads, store.stock); store.stock -= npc.carrying; npc.haulStage = 'deposit'; setPath(api, castle, npc, path);
     } else {
       const loads = Math.min(npc.carrying, T.weaponRules.bufferLoads - weapon.ammo);
@@ -227,9 +263,15 @@ export function tickWork(api, castle, npc) {
   if (job.kind === JOB.REPAIR) {
     const def = blockDef(p.type[i]); if (!def || !p.type[i]) { finishJob(api, castle, job); return; }
     const rate = def.hp / T.npc.repairFullS * speed * K.DT;
-    const unitCost = (def.cost ?? 0) * T.economy.repairCostFrac / def.hp;
+    const unitCost = (def.cost ?? T.economy.mapOnlyRepairBlockCost) * T.economy.repairCostFrac / def.hp;
     job.repairRemainder = (job.repairRemainder ?? 0) + rate;
-    const amount = Math.min(def.hp - p.hp[i], Math.floor(job.repairRemainder + 1e-9), unitCost > 0 ? Math.floor(castle.gold / unitCost) : def.hp);
+    const live = ownWeapons(api, castle).filter(w => w.hp > 0);
+    const critical = live.filter(w => w.hp <= weaponDef(w).hp * T.ai.recoveryGunHpFrac);
+    const missingCost = missingWeaponCost(castle.weapons,live);
+    const costs = missingCost ? [missingCost] : critical.map(w => weaponDef(w).cost);
+    const reserve = job.priority > 0 ? 0 : Math.max(costs.length ? Math.min(...costs) : 0, ...live.map(w => weaponDef(w).fireCost), 0);
+    const available = Math.max(0, castle.gold - reserve);
+    const amount = Math.min(def.hp - p.hp[i], Math.floor(job.repairRemainder + 1e-9), unitCost > 0 ? Math.floor(available / unitCost) : def.hp);
     if (amount > 0) { p.hp[i] += amount; job.repairRemainder -= amount; castle.gold -= amount * unitCost;
       job.progress = p.hp[i] / def.hp; npc.lastProgressTick = api.tick; castle.lastRepairProgressTick = api.tick;
       api.emit(EV.BLOCK_DAMAGED, { plot: castle.id, cell, id: p.type[i], hp: p.hp[i], state: Math.min(T.damageStateAbove.length, T.damageStateAbove.filter(t => job.progress <= t).length) });

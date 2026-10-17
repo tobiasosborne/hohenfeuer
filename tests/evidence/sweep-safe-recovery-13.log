@@ -1,0 +1,47 @@
+worker ready
+worker ready
+progress 2: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 2, palace 1.000/1.000, shots 5/5
+progress 1: minute 2, palace 1.000/1.000, shots 5/5
+progress 2: minute 3, palace 1.000/0.999, shots 7/7
+progress 2: minute 4, palace 1.000/0.999, shots 9/10
+progress 2: minute 5, palace 0.991/0.996, shots 12/12
+progress 1: minute 3, palace 0.968/1.000, shots 7/7
+progress 2: minute 6, palace 0.972/0.992, shots 14/15
+progress 2: minute 7, palace 0.957/0.989, shots 16/17
+progress 2: minute 8, palace 0.946/0.989, shots 19/20
+progress 1: minute 4, palace 0.968/1.000, shots 9/10
+progress 2: minute 9, palace 0.931/0.987, shots 21/22
+progress 2: minute 10, palace 0.926/0.982, shots 23/25
+progress 2: minute 11, palace 0.926/0.982, shots 26/27
+progress 2: minute 12, palace 0.684/0.982, shots 28/30
+progress 1: minute 5, palace 0.945/0.999, shots 12/12
+progress 2: minute 13, palace 0.646/0.968, shots 30/32
+match 2: seed 13 swapped, 13.95m, winner 1, shots 33/35
+progress 1: minute 6, palace 0.917/0.984, shots 14/15
+progress 1: minute 7, palace 0.909/0.979, shots 16/17
+progress 1: minute 8, palace 0.892/0.979, shots 19/20
+progress 1: minute 9, palace 0.891/0.979, shots 21/22
+progress 1: minute 10, palace 0.853/0.978, shots 23/25
+progress 1: minute 11, palace 0.735/0.978, shots 26/27
+progress 1: minute 12, palace 0.523/0.978, shots 28/29
+match 1: seed 13, 12.94m, winner 1, shots 30/32
+| Metric | Result |
+|---|---|
+| Matches / timeouts | 2 / 0 |
+| Length min / mean / max (min) | 12.94 / 13.44 / 13.95 |
+| 12–20 min finishes | 2/2 |
+| Slot 0 / 1 wins | 0 / 2 (0.0% / 100.0%) |
+| Gold at cap, slot 0 / 1 | 0.0% / 0.0% |
+| Worst side at cap | 0.0% |
+| Gold >=95% cap, slot 0 / 1 | 0.0% / 0.0% |
+| Gold <=10% cap | 0.0% |
+| First-gun-loss comebacks | 0/0 (n/a) |
+| Loser damaged in >=3 minutes | 2/2 |
+| No palace stall >5 min | 2/2 |
+| Both fire every 2 min | 2/2 |
+| Longest no-fire / ready no-fire (s) | 35.5 / 35.5 |
+| Mean shots / hits (slots) | 31.5 / 33.5; 28.5 / 32.5 |
+| Mean built / repaired / deaths per side | 7.5 / 36.0 / 11.5 |
+| Elimination reasons | {"palace":2} |

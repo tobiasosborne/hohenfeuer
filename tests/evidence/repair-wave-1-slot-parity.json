@@ -1,0 +1,128 @@
+{
+  "sourceSha256": "9f520135d60c39c3fa5bc7d11607b6976dc84f96a506581dc8fca6da9c4b7266",
+  "controlSourceSha256": "ba87932c9ce27eb43fdc79efcd5d6412bf8cb329578998579f46b4fe177452d2",
+  "currentFingerprintMatches": true,
+  "unchangedDefaultOrderMatches": 20,
+  "matches": [
+    {
+      "seed": 1,
+      "beforeHash": 2964937773,
+      "afterHash": 2964937773,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 2,
+      "beforeHash": 1300855965,
+      "afterHash": 1300855965,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 3,
+      "beforeHash": 3752181321,
+      "afterHash": 3752181321,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 4,
+      "beforeHash": 4155230668,
+      "afterHash": 4155230668,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 5,
+      "beforeHash": 1320550160,
+      "afterHash": 1320550160,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 6,
+      "beforeHash": 280568766,
+      "afterHash": 280568766,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 7,
+      "beforeHash": 3309624782,
+      "afterHash": 3309624782,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 8,
+      "beforeHash": 1211147076,
+      "afterHash": 1211147076,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 9,
+      "beforeHash": 584683521,
+      "afterHash": 584683521,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 10,
+      "beforeHash": 2356486244,
+      "afterHash": 2356486244,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 11,
+      "beforeHash": 1215678914,
+      "afterHash": 1215678914,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 12,
+      "beforeHash": 2449543726,
+      "afterHash": 2449543726,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 13,
+      "beforeHash": 2517486730,
+      "afterHash": 2517486730,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 14,
+      "beforeHash": 2218135055,
+      "afterHash": 2218135055,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 15,
+      "beforeHash": 325488941,
+      "afterHash": 325488941,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 16,
+      "beforeHash": 68676503,
+      "afterHash": 68676503,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 17,
+      "beforeHash": 1414633017,
+      "afterHash": 1414633017,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 18,
+      "beforeHash": 1444110283,
+      "afterHash": 1444110283,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 19,
+      "beforeHash": 1264473433,
+      "afterHash": 1264473433,
+      "sameFullMatchRecord": true
+    },
+    {
+      "seed": 20,
+      "beforeHash": 70013823,
+      "afterHash": 70013823,
+      "sameFullMatchRecord": true
+    }
+  ]
+}

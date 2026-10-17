@@ -1,3 +1,25 @@
+# HANDOFF — Repair 5 onboarding (2026-10-18)
+
+## What was done
+Local career profile, pure feature ramp, three retiring reticle prompts, E auto-crew, UI/input/command gates, quick start at AI 2, HUD cleanup and profile fixtures are implemented. Details and ramp table: research/18-onboarding.md. Source changes stayed in UI/player/main and the new progression module; simulation and renderer files were not edited. No git commands were run.
+
+## Remaining
+Browser flow, after screenshots and legitimate HUD golden replacements are tracked by castle-game-me0. This runner denies localhost listen (EPERM) and Chromium crashpad sockets. No existing golden PNG was replaced; the repair issue stays in progress pending visual acceptance. Modern poses are excluded from the onboarding capture helper while the render session works.
+
+## Key techniques
+The same pure visibleFeatures result gates labels, key/mouse input, palettes and emitted commands. E emits ORDER_CREW before MAN_WEAPON; actual successful uses retire prompts. Career counts persist separately from ephemeral URL/debug fixtures. Goldens keep their script command streams. npm test passes 68 files in 513.827 s; the final UI suite passes 113 tests and build passes. A real sim/reticle/E/fire route repeats identically at tick 254, hash 2233218174. Evidence is tests/evidence/onboarding/.
+
+## Issues touched
+castle-game-uo7.7 implements the repair and depends on castle-game-me0 for remaining acceptance. Beads records remain local because the Dolt database has no configured origin.
+
+## Next step
+Run tests/ui-onboarding.mjs and tests/evidence/onboarding/capture.mjs on a socket-enabled SwiftShader runner, inspect actuals, accept only named HUD changes and the three new poses, run browser/ui-flow/goldens gates, then add after images to research/18-onboarding.md and close both issues.
+
+## Previous Sessions
+The earlier handoffs follow unchanged.
+
+---
+
 # HANDOFF — TB4a simulation weapon plugins
 
 Updated 2026-10-17 by Codex. The user prohibited every git command; none was run.

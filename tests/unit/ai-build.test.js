@@ -43,10 +43,10 @@ test('reserve is preserved after the entire plan; repair spending is bounded by 
   assert.equal(planRebuild(castle, blueprint, TACTIC.DAREDEVIL, { incomeGold: 100, spentGold: 20 }).length, 0);
 });
 
-test('lost blueprint weapons are replaced on free mount spots only when cost plus reserve fits', () => {
+test('lost blueprint weapons are replaced on free mount spots using emergency funds before the normal masonry reserve (research/16 P4)', () => {
   const { castle } = fixture(), blueprint = captureBlueprint(castle);
   castle.weapons = [];
-  castle.gold = T.ai.reserve.general + T.weapons.cannon.cost;
+  castle.gold = T.weapons.cannon.cost;
   const plan = planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, [], { weaponCap: 4 });
   assert.deepEqual(plan, [{ type: CMD.DESIGNATE_WEAPON, weapon: 'cannon', cell: [2, 2, 2], facing: FACING.E }]);
   castle.gold--;
@@ -80,4 +80,25 @@ test('TB3: replacement skips destroyed mounts, people and existing paid cannon d
   assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, [], { view }), []);
   castle.npcDesignations = [{ weapon: 'cannon', cell: site, reserved: T.weapons.cannon.cost }];
   assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, []), []);
+});
+test('recovery rebuilds a lost mount from replacement savings before ordinary walls', () => {
+  const {castle,index}=fixture(), blueprint=captureBlueprint(castle);
+  castle.plot.type[index([2,1,2])]=BLOCK.AIR;
+  castle.gold=T.weapons.cannon.cost+T.blocks.mount.cost;
+  const plan=planRebuild(castle,blueprint,TACTIC.GENERAL,{incomeGold:0,spentGold:0},{weapons:[]});
+  assert.deepEqual(plan,[{type:CMD.DESIGNATE,cell:[2,1,2],block:BLOCK.MOUNT,facing:0}]);
+});
+test('a castle buys one affordable ballista while saving for its lost cannon', async () => {
+  const C=await import('../../src/contracts.js'), {registerCoreSim}=await import('../../src/plugins/index.sim.js');
+  C.resetRegistriesForTests();registerCoreSim();C.freezeRegistries();
+  const {castle}=fixture();castle.mountSpots.push([4,2,2,1]);castle.weapons.push({defId:'cannon',at:[4,2,2],facing:1});
+  const bp=captureBlueprint(castle), live=[{id:0,slot:0,defId:'cannon',hp:36,at:[2,2,2]}];castle.gold=500;
+  const plan=planWeaponReplacement(castle,bp,TACTIC.GENERAL,live);
+  assert.equal(plan[0]?.weapon,'ballista');
+  assert.deepEqual(planWeaponReplacement(castle,bp,TACTIC.GENERAL,[...live,{id:1,slot:0,defId:'ballista',hp:36,at:[4,2,2]}]),[]);
+});
+test('essential supply work can use the last gold when no battery can spend a shot reserve', () => {
+  const {castle,index}=fixture(),bp=captureBlueprint(castle);castle.plot.type[index([2,1,2])]=BLOCK.AIR;castle.gold=T.blocks.mount.cost;
+  const view={weapons:[{id:0,slot:0,defId:'cannon',hp:36,ammo:0,crewPresent:3}]};
+  assert.equal(planRebuild(castle,bp,TACTIC.GENERAL,{incomeGold:0,spentGold:0},view,{shotReserve:0})[0]?.block,BLOCK.MOUNT);
 });

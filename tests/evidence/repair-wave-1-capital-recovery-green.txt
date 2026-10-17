@@ -1,0 +1,13 @@
+✔ tests/unit/ai-controller.test.js (163.113108ms)
+✔ tests/unit/ai-sweep.test.js (150.126635ms)
+✔ tests/unit/sim-damage.test.js (81.295677ms)
+✔ tests/unit/sim-economy-wave.test.js (197.355493ms)
+✔ tests/unit/tuning.test.js (76.607688ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.786623

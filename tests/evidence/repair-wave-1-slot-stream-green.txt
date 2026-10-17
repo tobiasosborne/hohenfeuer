@@ -1,0 +1,11 @@
+✔ opponent firing order never changes a side's scatter draws (221.846522ms)
+✔ renumbering map slots preserves each physical castle random streams and bravery (710.058103ms)
+✔ a restored swapped map keeps its physical random-stream ownership (2528.608199ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3483.029747

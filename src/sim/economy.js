@@ -13,7 +13,9 @@ export function demolitionRefund(cost) { return (cost ?? 0) * (T.economy.demolis
 export function tickEconomy(ctx, dt = K.DT) {
   for (const castle of ctx.state.castles) {
     if (castle.eliminated) continue;
+    const before = castle.gold;
     castle.gold = Math.min(T.economy.goldCap, castle.gold + (T.economy.palaceIncomeS + T.economy.civilianIncomeS * (castle.civiliansWorking ?? 0)) * dt);
+    if (castle.stats) castle.stats.income = (castle.stats.income ?? 0) + castle.gold - before;
     for (const magazine of castle.magazines ?? []) {
       magazine.restock = (magazine.restock ?? 0) + dt;
       while (magazine.restock >= T.magazine.restockS) { magazine.restock -= T.magazine.restockS; magazine.stock = Math.min(T.magazine.capacityLoads, magazine.stock + 1); }

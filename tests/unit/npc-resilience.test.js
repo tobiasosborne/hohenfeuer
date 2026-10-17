@@ -18,7 +18,7 @@ test('a changed cell beyond the initial revalidation window breaks the claim bef
 
 test('anti-deadlock allows its selected job to finish despite continuing impacts', () => {
   const f = fixture(); f.castle.npcSpawned = true; f.castle.morale = 50; f.put(3, 1, 2, BLOCK.STONE, 10);
-  const n = person(4, ROLE.MASON, [2, 1, 2]); f.state.npcs.push(n); emitJobs(f.api, f.castle);
+  const n = person(4, ROLE.MASON, [2, 1, 2]); f.state.npcs.push(n); emitJobs(f.api, f.castle);f.castle.jobs.find(j=>j.kind===JOB.REPAIR).priority=3;
   f.state.tick = T.npc.fearDeadlockS * K.TICK_HZ;
   f.castle.enemyImpacts = [{ tick: f.state.tick, pos: { x: 3.5, y: 1, z: 2.5 } }];
   const job = claimJob(f.api, f.castle, n); assert.ok(job);

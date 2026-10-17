@@ -1,0 +1,33 @@
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (176.597252ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (112.286843ms)
+✔ AI prepares paid flank batteries and replaces a lost front gun away from the breach (87.63403ms)
+✔ a threatened AI ruler walks to cover through normal next-tick movement commands (141.426688ms)
+✔ a ruler responds again when later impacts expose its previous shelter (151.118999ms)
+✖ ruler shelter search includes covered buildings away from the palace firing lane (183.48453ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 893.200403
+
+✖ failing tests:
+
+test at tests/unit/ai-repair-wave.test.js:60:1
+✖ ruler shelter search includes covered buildings away from the palace firing lane (183.48453ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(ai.snapshot().slots[0].rulerPath.at(-1)[2]>=29)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-repair-wave.test.js:63:70)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

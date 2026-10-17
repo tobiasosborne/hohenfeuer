@@ -4,7 +4,7 @@ import { TUNING as T } from '../tuning.js';
 import { atan2, DEG, pow } from '../core/fmath.js';
 import { buildRangeTable, dialToCharge, rangeToCharge, traceFlight, fixedElevation, weaponAvailable } from '../sim/ballistics.js';
 
-const tables = new WeakMap();
+const tables = new WeakMap(), solutions = new WeakMap();
 const wrap = deg => (deg % 360 + 360) % 360;
 const signed = deg => wrap(deg + 180) - 180;
 const round = n => Math.floor(n + 0.5);
@@ -21,7 +21,14 @@ export function rangeTableFor(weapon) {
  * state beyond geometry is read. metresPerCharge converts observed radial misses.
  */
 export function geometryAim(shooter, target, weapon, wind = { x: 0, z: 0 }, table = rangeTableFor(weapon)) {
-  const from = vector(shooter), to = vector(target), dx = to.x - from.x, dz = to.z - from.z;
+  const from = vector(shooter), to = vector(target);
+  // Public geometry and wind fully determine this expensive fixed-pitch solve.
+  // Derived caches are bounded and never serialized; every caller receives a value.
+  const key = [from.x, from.y, from.z, to.x, to.y, to.z, wind.x, wind.z].join(':');
+  let cache = solutions.get(weapon);
+  if (!cache) { cache = new Map(); solutions.set(weapon, cache); }
+  if (cache.has(key)) return { ...cache.get(key) };
+  const dx = to.x - from.x, dz = to.z - from.z;
   const distance = Math.sqrt(dx * dx + dz * dz), elevation = fixedElevation(weapon);
   let azDeg = wrap(atan2(dx, -dz) / DEG), dial = rangeToCharge(table, distance), reachable = true;
   const flight = (charge, azimuth = azDeg) => traceFlight({ ...weapon, charge, elevation, azimuth, wind, pos: from, landingY: to.y });
@@ -46,7 +53,10 @@ export function geometryAim(shooter, target, weapon, wind = { x: 0, z: 0 }, tabl
   const metresPerCharge = Math.max(1e-6, (flight(high).range - flight(low).range) / (high - low));
   // Range feasibility belongs to the actual plugin control law (charge-speed or
   // charge-duration), never a shared cannon range or a trajectory-band guess.
-  return { azDeg, dial, charge: dial, elevation, reachable: reachable && weaponAvailable(weapon), distance, metresPerCharge };
+  const result = { azDeg, dial, charge: dial, elevation, reachable: reachable && weaponAvailable(weapon), distance, metresPerCharge };
+  if (cache.size >= 256) cache.clear();
+  cache.set(key, result);
+  return { ...result };
 }
 
 /** Serializable controller-owned memory; helpers never mutate their inputs. */

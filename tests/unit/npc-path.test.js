@@ -18,7 +18,7 @@ test('standability requires two clear cells, excludes roofs, and passes paired d
   assert.equal(neighbors(f.plot, [3, 1, 3]).some(n => n.cell[0] === 4 && n.cell[2] === 2), false);
 });
 
-test('stairs ascend along facing and descend in reverse; ordinary blocks cannot be jumped', () => {
+test('stairs remain preferred; ordinary rubble can be climbed within reach', () => {
   const f = fixture({ depth: 3 });
   f.put(2, 1, 1, BLOCK.STAIRS, undefined, FACING.E);
   f.put(3, 1, 1, BLOCK.STONE);
@@ -26,18 +26,19 @@ test('stairs ascend along facing and descend in reverse; ordinary blocks cannot 
   assert.deepEqual(path, [[1, 1, 1], [2, 1, 1], [3, 2, 1]]);
   assert.deepEqual(findPath(f.plot, [3, 2, 1], [1, 1, 1]), [...path].reverse());
   f.put(2, 1, 1, BLOCK.STONE);
-  assert.equal(findPath(f.plot, [1, 1, 1], [3, 2, 1]), null);
+  assert.deepEqual(findPath(f.plot,[1,1,1],[3,2,1]),[[1,1,1],[2,2,1],[3,2,1]]);
+  assert.equal(findPath(f.plot,[1,1,1],[3,2,1],{clamber:false}),null);
 });
 
 test('ladder column permits vertical travel and platform exit with 2 m clearance', () => {
   const f = fixture({ depth: 3 });
-  for (let y = 1; y <= 3; y++) f.put(2, y, 1, BLOCK.LADDER);
-  f.put(3, 2, 1, BLOCK.STONE);
-  const p = findPath(f.plot, [1, 1, 1], [3, 3, 1]);
+  for (let y = 1; y <= 4; y++) f.put(2, y, 1, BLOCK.LADDER);
+  f.put(3, 3, 1, BLOCK.STONE);
+  const p = findPath(f.plot, [1, 1, 1], [3, 4, 1]);
   assert.ok(p.some(c => c[0] === 2 && c[1] === 2));
-  assert.deepEqual(p.at(-1), [3, 3, 1]);
-  f.put(2, 3, 1, BLOCK.STONE);
-  assert.equal(findPath(f.plot, [1, 1, 1], [3, 3, 1]), null);
+  assert.deepEqual(p.at(-1), [3, 4, 1]);
+  f.put(2, 4, 1, BLOCK.STONE);
+  assert.equal(findPath(f.plot, [1, 1, 1], [3, 4, 1]), null);
 });
 
 test('step down is one cell, moves never diagonal, deterministic f/h/index tie-break', () => {
@@ -54,9 +55,9 @@ test('step down is one cell, moves never diagonal, deterministic f/h/index tie-b
 test('versioned cache invalidates successful and unsuccessful paths on block changes', () => {
   const f = fixture({ width: 5, depth: 1 }); const cache = createPathCache();
   assert.equal(cache.find(f.plot, [0, 1, 0], [4, 1, 0]).length, 5);
-  f.put(2, 1, 0, BLOCK.STONE);
+  for(const y of [1,2,3])f.put(2,y,0,BLOCK.STONE);
   assert.equal(cache.find(f.plot, [0, 1, 0], [4, 1, 0]), null);
-  f.put(2, 1, 0, BLOCK.AIR);
+  for(const y of [1,2,3])f.put(2,y,0,BLOCK.AIR);
   assert.equal(cache.find(f.plot, [0, 1, 0], [4, 1, 0]).length, 5);
   assert.equal(findPath(f.plot, [0, 1, 0], [4, 1, 0], { maxExpansions: 1 }), null);
 });

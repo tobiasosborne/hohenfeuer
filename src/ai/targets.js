@@ -63,8 +63,8 @@ export function collectTargets(view, slot, weapon) {
 }
 
 /** Straight weapons require a clear DDA segment; lobbed weapons can attack covered blocks. */
-export function selectTarget(view, slot, weapon, { ballistic = false } = {}) {
-  if (ballistic) return selectBallisticTarget(view, slot, weapon);
+export function selectTarget(view, slot, weapon, { ballistic = false, breach = false } = {}) {
+  if (ballistic) return selectBallisticTarget(view, slot, weapon, breach);
   const def = weaponDefinition(weapon);
   if (!weaponAvailable(def)) return null;
   const lobbed = def.traj === TRAJ.LOBBED, wind = publicView(view,slot).wind;
@@ -95,13 +95,13 @@ export function refreshTarget(view, target) {
  * voxels with the production forces; an enemy obstruction is a breach target while
  * keeping the palace aim point. Own obstructions reject that firing lane entirely.
  */
-function selectBallisticTarget(view, slot, weapon) {
+function selectBallisticTarget(view, slot, weapon, breach = false) {
   const def = weaponDefinition(weapon), seenPalaces = new Set();
   if (!weaponAvailable(def)) return null;
   const origin = vector(weapon.pos), distance = target => (target.pos.x - origin.x) ** 2 + (target.pos.z - origin.z) ** 2;
-  const candidates = rankTargets(collectTargets(view, slot, weapon), slot.aiTactic).sort((a, b) =>
+  const candidates = rankTargets(collectTargets(view, slot, weapon).filter(t => !breach || t.kind === 'palace' || t.kind === 'shieldWall'), slot.aiTactic).sort((a, b) =>
     scoreTarget(b, slot.aiTactic) - scoreTarget(a, slot.aiTactic)
-    || (a.kind === 'weapon' && b.kind === 'weapon' ? distance(a) - distance(b) : 0));
+    || (a.kind === b.kind && (a.kind === 'weapon' || a.kind === 'palace') ? distance(a) - distance(b) : 0));
   // publicView supplies the same converted air vector used by the aim solver.
   const air = publicView(view, slot).wind;
   for (const target of candidates) {
@@ -114,24 +114,69 @@ function selectBallisticTarget(view, slot, weapon) {
     const from = firingPosition(weapon,target.pos);
     const solution = geometryAim(from, target.pos, def, air);
     if (!solution.reachable) continue;
-    const p = createFlightProjectile(def, { pos: from, charge: solution.dial, elevation: solution.elevation, azimuth: solution.azDeg });
-    let hit = null;
-    const h = 1 / T.sim.tickHz / T.sim.substeps;
-    for (let time = 0; time < T.sim.projectileMaxLifeS; time += h) {
-      const prev = { ...p.pos }; integrateProjectile(p, air, h);
-      hit = firstBlockOnLine(view, prev, p.pos);
-      if (hit || p.pos.y < target.pos.y && p.vel.y < 0) break;
-    }
+    const traced=traceBlocks(view,from,def,solution,air,target.pos.y);
+    const hit=traced.hit, feedbackPos=traced.feedbackPos;
     if (hit && hit.slot === slot.id) continue;
     if (hit && (hit.slot !== target.slot || hit.index !== target.index)) {
       if (target.kind === 'weapon') continue; // Breach the palace before chasing a shielded rear gun.
       const castle = view.castles.find(c => c.slot === hit.slot);
-      return { ...blockTarget(castle, hit.index, 'shieldWall'), pos: { ...target.pos }, occluded: true };
+      const base={...hit.pos,y:Math.min(hit.pos.y,target.pos.y+T.ai.breachAimAbovePalaceM)};
+      const baseFrom=firingPosition(weapon,base),baseAim=geometryAim(baseFrom,base,def,air);
+      const baseTrace=baseAim.reachable?traceBlocks(view,baseFrom,def,baseAim,air,vector(castle.plot.origin).y):null;
+      const low=baseTrace&&baseTrace.hit?.slot!==slot.id;
+      return {...blockTarget(castle,hit.index,'shieldWall'),key:`breach:${target.slot}:${target.cell[2]}`,
+        pos:low?base:{...target.pos},feedbackPos:low?baseTrace.feedbackPos ?? feedbackPos:feedbackPos,occluded:true};
     }
     return target;
   }
+  // A rear battery can be masked by its own keep after the enemy's front gun
+  // is gone. Fire at a visible upper shield instead of idling with crew and ammo.
+  const fallback = collectUpperShields(view, slot, weapon);
+  for (const target of fallback) {
+    const from = firingPosition(weapon, target.pos), solution = geometryAim(from, target.pos, def, air);
+    if (!solution.reachable) continue;
+    const p = createFlightProjectile(def, { pos: from, charge: solution.dial, elevation: solution.elevation, azimuth: solution.azDeg });
+    let hit = null;
+    for (let time = 0; time < T.sim.projectileMaxLifeS; time += 1 / T.sim.tickHz / T.sim.substeps) {
+      const before = { ...p.pos }; integrateProjectile(p, air);
+      hit = firstBlockOnLine(view, before, p.pos);
+      if (hit || p.pos.y < target.pos.y && p.vel.y < 0) break;
+    }
+    if (!hit || hit.slot !== slot.id) return target;
+  }
   return null;
 }
+
+function traceBlocks(view,from,def,solution,air,landingY) {
+  const p=createFlightProjectile(def,{pos:from,charge:solution.dial,elevation:solution.elevation,azimuth:solution.azDeg});
+  const h=1/T.sim.tickHz/T.sim.substeps;
+  for(let time=0;time<T.sim.projectileMaxLifeS;time+=h){
+    const before={...p.pos};integrateProjectile(p,air,h);const hit=firstBlockOnLine(view,before,p.pos);
+    if(hit)return {hit,feedbackPos:{x:before.x+(p.pos.x-before.x)*hit.t,y:before.y+(p.pos.y-before.y)*hit.t,z:before.z+(p.pos.z-before.z)*hit.t}};
+    if(p.pos.y<landingY&&p.vel.y<0)break;
+  }
+  return {hit:null,feedbackPos:null};
+}
+
+function collectUpperShields(view, slot, weapon) {
+  const targets = [];
+  for (const castle of view.castles ?? []) {
+    if (castle.slot === slot.id || castle.eliminated || (view.slots ?? []).find(s => s.id === castle.slot)?.team === slot.team) continue;
+    // One exposed high block per column, with nearest columns first. These are
+    // ordinary paid shots at public masonry, never shots through own walls.
+    const p = castle.plot;
+    if (!p) continue;
+    for (let z = 0; z < p.depth; z++) for (let x = 0; x < p.width; x++) {
+      for (let y = p.height - 1; y >= Math.floor(vector(weapon.pos).y); y--) {
+        const index = x + p.width * z + p.width * p.depth * y;
+        if (p.type[index] && p.type[index] !== BLOCK.FOUNDATION) { targets.push(blockTarget(castle, index, 'shieldWall')); break; }
+      }
+    }
+  }
+  const from = vector(weapon.pos);
+  return targets.sort((a,b) => b.pos.y - a.pos.y || (a.pos.x-from.x)**2+(a.pos.z-from.z)**2 - (b.pos.x-from.x)**2-(b.pos.z-from.z)**2 || a.id-b.id).slice(0, 4);
+}
+
 
 function firingPosition(weapon,target) {
   const from = shooterPosition(weapon,target);

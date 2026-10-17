@@ -1,0 +1,15 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (23.320342ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (1.845469ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (3.56317ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (3.189734ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (8.202111ms)
+✔ a temporary ballista does not spend the savings for the missing blueprint cannon (2.547319ms)
+✔ another castle population cannot shift this castle bravery draws (16.855099ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.787061

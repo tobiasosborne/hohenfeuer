@@ -1,0 +1,68 @@
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (15.276785ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (2.698596ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (3.538926ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (4.428884ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (2.693442ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (1.057926ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (2.394588ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (3.044671ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (4.248423ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (1.716163ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (2.645492ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (1.900621ms)
+✔ changing the aim point within a ranged castle retains learned confidence (1.744979ms)
+✔ a replacement cannon inherits its castle ranged confidence (0.987743ms)
+✖ a muzzle obstruction in our castle cannot poison enemy ranging memory (3.682289ms)
+✖ AI waits for its own worker to clear the upcoming muzzle lane (1.185439ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 58.893779
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:187:1
+✖ a muzzle obstruction in our castle cannot poison enemy ranging memory (3.682289ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(m.biasAzDeg)<1)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:190:60)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-controller.test.js:192:1
+✖ AI waits for its own worker to clear the upcoming muzzle lane (1.185439ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!at(ai,view,slot,15).some(c=>c.type===CMD.FIRE))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:194:29)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

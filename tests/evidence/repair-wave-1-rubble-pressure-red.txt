@@ -1,0 +1,76 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (4.406775ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (0.523791ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (0.819422ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (0.852157ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (1.695901ms)
+✔ a temporary ballista does not spend the savings for the missing blueprint cannon (0.727439ms)
+✔ another castle population cannot shift this castle bravery draws (3.05706ms)
+✔ urgent weapon construction preempts routine repairs without waiting for claim timeout (0.909273ms)
+✔ four surviving crew fill two minimum batteries instead of leaving one gun at one crew (0.663333ms)
+✔ opposing default populations have mirrored role positions, not the same left-first spawn order (161.109632ms)
+✔ levy restores full ordered crews when support roles and population allow it (0.927317ms)
+✔ a failed route for one mason does not block a mason on the reachable side (0.319709ms)
+✖ NPCs climb a two-metre rubble ledge by lifting before crossing the solid face (3.336365ms)
+✖ a worker moves out of missing original wall cells instead of blocking their rebuild (44.893082ms)
+✖ automatic wall repairs wait for a quiet interval; explicit priority and palace work remain available (0.76525ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 12
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 230.765169
+
+✖ failing tests:
+
+test at tests/unit/npc-repair-wave.test.js:104:1
+✖ NPCs climb a two-metre rubble ledge by lifting before crossing the solid face (3.336365ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(path)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:107:61)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-repair-wave.test.js:113:1
+✖ a worker moves out of missing original wall cells instead of blocking their rebuild (44.893082ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(n.path.length>1)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:118:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-repair-wave.test.js:120:1
+✖ automatic wall repairs wait for a quiet interval; explicit priority and palace work remain available (0.76525ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:123:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

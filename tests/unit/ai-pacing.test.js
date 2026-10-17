@@ -1,4 +1,4 @@
-// tests/unit/ai-pacing.test.js - owns TB2 level-five duel duration and one-shot keep survival acceptance.
+// tests/unit/ai-pacing.test.js - owns wave-1 level-five duel duration and one-shot keep survival acceptance.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as C from '../../src/contracts.js';
@@ -28,7 +28,7 @@ test('one scripted palace shot cannot flatten a protected keep', t => {
 });
 
 // Seeds 2-3 are opt-in (HOHENFEUER_SLOW=1): each match is ~15 sim-minutes and slows npm test.
-for (const seed of (process.env.HOHENFEUER_SLOW ? [1, 2, 3] : [1])) test(`level 5 forest-duel seed ${seed} ends with a winner in 8-20 sim minutes`, t => {
+for (const seed of (process.env.HOHENFEUER_SLOW ? [1, 2, 3] : [1])) test(`level 5 forest-duel seed ${seed} ends with a winner in 12-20 sim minutes (DESIGN 3.8; research/17)`, t => {
   content();
   const slots = createSlotTable(C.getMap('forest-duel'), { aiLevel: 5, aiTactic: C.TACTIC.GENERAL });
   const sim = createSim({ map: 'forest-duel', seed, slots });
@@ -47,6 +47,6 @@ for (const seed of (process.env.HOHENFEUER_SLOW ? [1, 2, 3] : [1])) test(`level 
   assert.ok(state.outcome, 'duel must finish before 20 sim minutes');
   assert.equal(state.outcome.draw, false);
   assert.equal(state.outcome.winners.length, 1);
-  assert.ok(state.tick >= 8 * 60 * T.sim.tickHz, `duel ended too soon: ${result.seconds}s`);
+  assert.ok(state.tick >= 12 * 60 * T.sim.tickHz, `duel ended too soon: ${result.seconds}s`);
   assert.ok(state.tick <= 20 * 60 * T.sim.tickHz);
 });

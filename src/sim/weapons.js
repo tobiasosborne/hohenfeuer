@@ -15,7 +15,7 @@ export function weaponRangeTable(def) { if (!tables.has(def)) tables.set(def, bu
 export function createWeapon(def, { id, slot, pos, facing = 0 }) {
   const table = weaponRangeTable(def), dial = rangeToCharge(table, T.world.duelDistanceM);
   const aim = { az: Math.round(facing * 90 * T.aim.azUnitsPerDeg), range: Math.round(dial * T.aim.rangeUnitsPerDial) };
-  return { id, slot, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
+  return { id, slot, facing, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
 }
 /** Fire one whole salvo atomically. Aim/scatter and due ticks are captured at payment,
  * so later AIM commands cannot steer a burst and saving mid-burst loses no rounds. */
@@ -24,7 +24,7 @@ export function fireWeapon(ctx, weapon) {
   if (!weaponAvailable(def) || !castle || castle.eliminated || weapon.hp <= 0 || weapon.burst
     || weapon.reload + 1e-9 < def.reloadS || !canFire(weapon, castle) || !spend(castle, def.fireCost)) return false;
   weapon.ammo -= def.ammoLoads;
-  const rng = ctx.rng(RNG_STREAM.SCATTER), charge = weapon.aim.range / T.aim.rangeUnitsPerDial;
+  const rng = ctx.rng(`${RNG_STREAM.SCATTER}:${weapon.slot}`), charge = weapon.aim.range / T.aim.rangeUnitsPerDial;
   const muzzleOffset = T.weaponRules.wallFootprint[0] / 2 + 2 * def.shot.radius;
   const calmAz = weapon.aim.az / T.aim.azUnitsPerDeg;
   const calmMuzzle = { x: weapon.pos.x + sin(calmAz * DEG) * muzzleOffset,

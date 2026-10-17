@@ -1,0 +1,31 @@
+✔ income stats count credited gold and exclude overflow at the cap (0.605138ms)
+✔ damage invalidates job scan after an unchanged tick; zero gold stops paid repair (2.584636ms)
+✔ map-only palace repairs consume materials rather than creating free keep health (0.514035ms)
+✖ a destroyed cannon returns capped wreck materials once, while replacement still costs gold (101.420913ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.668539
+
+✖ failing tests:
+
+test at tests/unit/sim-economy-wave.test.js:34:1
+✖ a destroyed cannon returns capped wreck materials once, while replacement still costs gold (101.420913ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  475 !== 700
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-economy-wave.test.js:40:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 475,
+    expected: 700,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

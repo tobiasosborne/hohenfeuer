@@ -1,8 +1,10 @@
 // src/sim/damage.js - owns swept entity intersections and index-ordered blast damage.
-import { BLOCK, EV, META, RNG_STREAM } from '../contracts.js';
+import { BLOCK, EV, META, RNG_STREAM, getWeapon } from '../contracts.js';
+import { refund } from './economy.js';
+import { markJobScanDirty } from '../npc/model.js';
 import { TUNING as T } from '../tuning.js';
 import { sqrt } from '../core/fmath.js';
-import { xyz, indexToCell, cellToWorld, setCell } from '../world/grid.js';
+import { xyz, indexToCell, cellToWorld, setCell, raycast } from '../world/grid.js';
 const distance = (a, b) => sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y) + (a.z - b.z) * (a.z - b.z));
 /** Earliest segment/AABB fraction, including starts inside. */
 export function segmentAabb(from, to, box) {
@@ -63,7 +65,9 @@ export function damagePeople(ctx, { pos, radius, peak = T.people.splashPeak, sou
   const people = [...(ctx.state.rulers ?? []), ...(ctx.state.npcs ?? [])].sort((a, b) => a.id - b.id);
   for (const person of people) {
     const centre = { ...person.pos, y: person.pos.y + (person.height ?? T.people.height) / 2 }, d = distance(pos, centre);
-    if (d < radius) damagePerson(ctx, person, Math.floor(peak * (1 - d / radius)), sourceSlot);
+    const covered = d < radius && ctx.state.castles.some(c => raycast(c.plot, pos, centre,
+      id => (ctx.getBlock?.(id)?.projectileSolid ?? (id !== BLOCK.AIR && id !== BLOCK.LADDER))));
+    if (d < radius && !covered) damagePerson(ctx, person, Math.floor(peak * (1 - d / radius)), sourceSlot);
   }
 }
 /** Damage one cell, preserving foundation and collecting destruction for support processing. */
@@ -71,6 +75,7 @@ export function damageBlock(ctx, plot, index, dp, sourceSlot) {
   if (index < 0 || index >= plot.type.length || plot.type[index] === BLOCK.AIR || plot.hp[index] === T.hpIndestructible) return null;
   dp = Math.max(0, Math.floor(dp));
   if (!dp) return null;
+  markJobScanDirty(plot);
   const id = plot.type[index], hp = plot.hp[index], amount = Math.min(hp, dp), cell = indexToCell(plot, index), def = ctx.getBlock?.(id);
   if (amount >= hp) {
     setCell(plot, cell.x, cell.y, cell.z, BLOCK.AIR, 0);
@@ -114,7 +119,13 @@ export function applyBlast(ctx, blast) {
     if (amount > 0) {
       weapon.hp = Math.max(0, weapon.hp - amount);
       ctx.emit?.(EV.WEAPON_DAMAGED, { weaponId: weapon.id, hp: weapon.hp });
-      if (weapon.hp === 0) ctx.emit?.(EV.WEAPON_DESTROYED, { weaponId: weapon.id, slot: weapon.slot });
+      if (weapon.hp === 0) {
+        const castle=ctx.castleOf?.(weapon.slot) ?? ctx.state.castles.find(c=>c.slot===weapon.slot);
+        const def=ctx.getWeapon?.(weapon.defId) ?? getWeapon(weapon.defId);
+        const salvageGold=(def?.cost ?? 0)*T.economy.weaponSalvageFrac;
+        if(castle&&Number.isFinite(castle.gold))refund(castle,salvageGold);
+        ctx.emit?.(EV.WEAPON_DESTROYED,{weaponId:weapon.id,slot:weapon.slot,salvageGold});
+      }
     }
   }
   // A bolt with no explosive payload never produces a one-metre people blast.

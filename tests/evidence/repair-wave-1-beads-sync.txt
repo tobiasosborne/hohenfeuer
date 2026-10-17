@@ -1,0 +1,16 @@
+Pushing to Dolt remote...
+Error: push to origin/main: Error 1105: fatal: remote 'origin' not found.
+Please make sure the remote exists.
+
+No remote is configured for this database.
+
+For solo use, pushing is optional — your issues are stored locally
+in .beads/ and versioned by Dolt automatically.
+
+To set up remote sync (for backup or team sharing):
+  bd dolt remote add origin <url>
+  bd dolt push
+
+Supported remote URLs:
+  • GitHub (via git):   git+ssh://git@github.com/org/repo.git
+  • DoltHub:            https://doltremoteapi.dolthub.com/org/repo

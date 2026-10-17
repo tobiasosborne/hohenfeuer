@@ -139,7 +139,7 @@ export function moraleTick(api, castle) {
     s.fast = clamp(s.fast + delta);
   }
   castle.moraleInputs = [];
-  castle.enemyImpacts = (castle.enemyImpacts ?? []).filter(e => api.tick - e.tick < ticks(T.morale.underFireWindowS));
+  castle.enemyImpacts = (castle.enemyImpacts ?? []).filter(e => api.tick - e.tick < ticks(Math.max(T.morale.underFireWindowS,T.npc.autoRepairQuietS,T.ai.rulerDangerWindowS)));
   let rate = api.tick - (castle.lastEnemyImpactTick ?? -ticks(T.morale.underFireWindowS)) < ticks(T.morale.underFireWindowS) ? T.morale.underFireS : 0;
   let integrity = castle.palaceIntegrity ?? 1;
   if (castle.initialPalaceHp > 0) integrity = castle.palaceCells.reduce((hp, i) => hp + (castle.plot.type[i] === BLOCK.PALACE ? castle.plot.hp[i] : 0), 0) / castle.initialPalaceHp;

@@ -1,0 +1,11 @@
+✔ tests/unit/ai-build.test.js (557.515722ms)
+✔ tests/unit/ai-controller.test.js (262.893191ms)
+✔ tests/unit/npc-repair-wave.test.js (158.750599ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 579.4106

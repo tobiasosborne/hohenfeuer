@@ -55,6 +55,6 @@ test('lobbed ballistic selection can reach an enemy gun behind a low sight-line 
   const enemy={id:1,slot:1,defId:'cannon',hp:36,pos:{x:192,y:1,z:1.5}};
   const view={tick:0,slots:[slot,{id:1,team:1}],castles:[{slot:0},{slot:1,plot:p}],wind:{x:0,z:0},weapons:[enemy],npcs:[],rulers:[]};
   const own={id:0,slot:0,hp:60,pos:{x:0,y:1,z:1.5}};
-  assert.equal(selectTarget(view,slot,{...own,defId:'cannon'},{ballistic:true}),null);
+  assert.equal(selectTarget(view,slot,{...own,defId:'cannon'},{ballistic:true})?.kind,'shieldWall'); // research/16 P4: pressure upper cover when a gun is masked
   assert.equal(selectTarget(view,slot,{...own,defId:'catapult'},{ballistic:true})?.key,'weapon:1');
 });

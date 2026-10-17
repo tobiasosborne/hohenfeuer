@@ -162,16 +162,19 @@ test("render and golden frame are 1024x768", () => {
   assert.equal(TUNING.golden.height, 768);
 });
 
-test("TB2: research/10 economy, prefab prices and corrected defence points", async () => {
+test("Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17)", async () => {
   const { DEFAULT_CASTLE } = await import('../../src/plugins/castles/default.sim.js');
   const count = DEFAULT_CASTLE.layers.flat().join('').split('P').length - 1;
   assert.equal(count, 48);
   const removalDp = count * TUNING.blocks.palace.hp * (1 - TUNING.palace.destroyedBelow);
-  assert.ok(Math.abs(removalDp - 200) < 10, `${count} palace cells require ~200 dp, got ${removalDp}`);
+  assert.equal(removalDp, 2688); // core masonry uses tower HP; paid repair prevents a free-health treadmill
   assert.equal(TUNING.economy.goldCap, 2000);
   assert.equal(TUNING.economy.startGold, 1500);
-  assert.ok(Math.abs(TUNING.blocks.stone.cost * 90 - 100) <= 10);
-  assert.ok(Math.abs(TUNING.blocks.tower.cost * 220 - 500) <= 60);
+  assert.equal(TUNING.blocks.stone.cost, 4);
+  assert.equal(TUNING.blocks.tower.cost, 8);
+  assert.equal(TUNING.economy.palaceIncomeS, 3);
+  assert.equal(TUNING.economy.civilianIncomeS, .1);
+  assert.equal(TUNING.economy.repairCostFrac, .8);
   assert.equal(TUNING.blocks.tower.buildS, 18);
   assert.equal(TUNING.blocks.wood.hp, 12);
   assert.equal(TUNING.structures.windmill.hp, 24);

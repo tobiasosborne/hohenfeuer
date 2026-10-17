@@ -93,7 +93,7 @@ test('TB3: demolition refunds the tuning fraction on completion and accepts dest
   emitJobs(f.api, f.castle); assert.ok(claimJob(f.api, f.castle, npc)); npc.state = NPC_STATE.WORK;
   work(f, npc, T.blocks.wood.buildS * K.TICK_HZ);
   assert.equal(f.plot.type[indexOf(f.plot, cell)], BLOCK.AIR);
-  assert.equal(f.castle.gold, gold + T.blocks.wood.cost * T.economy.repairCostFrac);
+  assert.equal(f.castle.gold, gold + T.blocks.wood.cost * T.economy.demolishRefundFrac);
   f.put(...cell, BLOCK.PALACE);
   assert.equal(npcCommand(f.api, order(CMD.DEMOLISH, cell)), true);
 });

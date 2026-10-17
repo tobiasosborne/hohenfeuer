@@ -1,5 +1,6 @@
 // src/npc/model.js - owns shared NPC coordinate and contract adapters.
 import { BLOCK, getBlock, getWeapon, getCastle, K } from '../contracts.js';
+import {sin,cos,DEG} from '../core/fmath.js';
 import { TUNING as T } from '../tuning.js';
 
 const coreKeys = Object.fromEntries(Object.entries(BLOCK).map(([k, id]) => [id, k.toLowerCase()]));
@@ -54,4 +55,30 @@ export function operatorCell(weapon, castle) {
   const c = localCell(castle.plot, weapon.pos), offsets = [[0, 1], [-1, 0], [0, -1], [1, 0]];
   const [dx, dz] = offsets[facing & 3];
   return [c[0] + dx, c[1], c[2] + dz];
+}
+
+// Derived scan invalidation is disposable, like path caches; saves rebuild it on demand.
+const damageVersions = new WeakMap();
+export function markJobScanDirty(plot) { damageVersions.set(plot, (damageVersions.get(plot) ?? 0) + 1); }
+export function jobScanVersion(plot) { return damageVersions.get(plot) ?? 0; }
+
+/** A temporary cheaper gun does not fulfil the original battery blueprint. */
+export function missingWeaponCost(initial = [], live = []) {
+  const missing=initial.map(w=>w.defId ?? w.weapon ?? w.id);
+  for(const w of live)if(w.hp>0){const i=missing.indexOf(w.defId ?? w.weapon ?? w.id);if(i>=0)missing.splice(i,1);}
+  const costs=missing.map(id=>weaponDef({defId:id})?.cost).filter(Number.isFinite);
+  return costs.length?Math.min(...costs):0;
+}
+
+/** Conservative short muzzle corridor shared by standing goals and AI fire safety. */
+export function blocksWeaponMuzzle(weapon,person) {
+  if(weapon.hp<=0||person.hp<=0)return false;
+  const p=vector(weapon.pos),q=vector(person.pos),dx=q.x-p.x,dz=q.z-p.z;
+  if(Math.abs(dx)>T.weaponRules.muzzleClearanceM+2||Math.abs(dz)>T.weaponRules.muzzleClearanceM+2)return false;
+  const def=weaponDef(weapon),r=(person.radius ?? T.people.npcRadius)+(def.shot?.radius ?? def.projRadius ?? 0)+T.weaponRules.muzzleSafetyPadM;
+  const angle=(weapon.aim?.az ?? (weapon.facing ?? 0)*90*T.aim.azUnitsPerDeg)/T.aim.azUnitsPerDeg*DEG;
+  const x=sin(angle),z=-cos(angle),along=dx*x+dz*z,side=Math.abs(dx*z-dz*x);
+  const offset=T.weaponRules.wallFootprint[0]/2+2*(def.shot?.radius ?? def.projRadius ?? 0),y=p.y+T.weaponRules.wallFootprint[2]/2;
+  return along>offset-r&&along<offset+T.weaponRules.muzzleClearanceM+r&&side<r
+    &&q.y+(person.height ?? T.people.height)>y-r&&q.y<y+T.weaponRules.muzzleClearanceM;
 }

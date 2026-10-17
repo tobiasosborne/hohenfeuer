@@ -90,12 +90,12 @@ export function integrateProjectile(projectile, wind = ZERO_WIND, h = 1 / T.sim.
   const { pos, vel } = projectile, k = projectile.k ?? 0;
   const vx = vel.x, vy = vel.y, vz = vel.z;
   const rx = wind.x - vx, ry = -vy, rz = wind.z - vz;
-  const drag = k * sqrt(rx * rx + ry * ry + rz * rz);
+  const drag = k * Math.sqrt(rx * rx + ry * ry + rz * rz);
   vel.x += drag * rx * h;
   vel.y += (drag * ry - T.sim.gravity) * h;
   vel.z += drag * rz * h;
   if (motor?.stage === 'powered') {
-    const speed = sqrt(vx * vx + vy * vy + vz * vz), thrust = speed ? motor.thrust * h / speed : 0;
+    const speed = Math.sqrt(vx * vx + vy * vy + vz * vz), thrust = speed ? motor.thrust * h / speed : 0;
     vel.x += vx * thrust; vel.y += vy * thrust; vel.z += vz * thrust;
     motor.burnS = Math.max(0, motor.burnS - h);
     motor.mass = Math.max(motor.massBase, motor.mass - motor.massRate * h);
@@ -131,10 +131,10 @@ export function traceFlight(options) {
       if (prevY < landingY) return { pos: { ...projectile.pos }, range: 0, time: elapsed, landed: false };
       const t = (prevY - landingY) / (prevY - projectile.pos.y);
       const point = { x: prevX + (projectile.pos.x - prevX) * t, y: landingY, z: prevZ + (projectile.pos.z - prevZ) * t };
-      return { pos: point, range: sqrt((point.x - pos.x) ** 2 + (point.z - pos.z) ** 2), time: elapsed - h + t * h, landed: true };
+      return { pos: point, range: Math.sqrt((point.x - pos.x) ** 2 + (point.z - pos.z) ** 2), time: elapsed - h + t * h, landed: true };
     }
   }
-  return { pos: projectile.pos, range: sqrt((projectile.pos.x - pos.x) ** 2 + (projectile.pos.z - pos.z) ** 2), time: elapsed, landed: false };
+  return { pos: projectile.pos, range: Math.sqrt((projectile.pos.x - pos.x) ** 2 + (projectile.pos.z - pos.z) ** 2), time: elapsed, landed: false };
 }
 /** Strictly increasing zero-wind ranges indexed by charge, with fixed elevation. */
 export function buildRangeTable(weapon) {

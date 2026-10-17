@@ -1,0 +1,17 @@
+✔ tests/unit/npc-brain.test.js (861.852863ms)
+✔ tests/unit/npc-fixture.test.js (95.28671ms)
+✔ tests/unit/npc-jobs.test.js (276.565119ms)
+✔ tests/unit/npc-morale.test.js (219.470339ms)
+✔ tests/unit/npc-path.test.js (293.450612ms)
+✔ tests/unit/npc-repair-wave.test.js (1359.062873ms)
+✔ tests/unit/npc-resilience.test.js (378.693874ms)
+✔ tests/unit/npc-sim.test.js (4220.042706ms)
+✔ tests/unit/npc-tb3.test.js (211.624623ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4304.137612

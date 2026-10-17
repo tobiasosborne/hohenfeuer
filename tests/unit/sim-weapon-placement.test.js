@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as C from '../../src/contracts.js';
+import { TUNING as T } from '../../src/tuning.js';
 import { content, fixture, IDS } from '../evidence/tb4-weapon-fixture.mjs';
 import { registerCoreSim } from '../../src/plugins/index.sim.js';
 import { createSim } from '../../src/sim/sim.js';
@@ -22,7 +23,7 @@ for(const id of IDS) test(`${id}: castle loader and paid designation accept its 
   const command={type:C.CMD.DESIGNATE_WEAPON,slot:0,seq:0,tick:0,cell,weapon:id,facing:0};
   assert.equal(canDesignate(castle,command,api.state),true);
   const before=castle.gold;sim.tick([command]);
-  assert.equal(castle.npcDesignations[0].weapon,id);assert.equal(castle.gold,before-def.cost+6/30);
+  assert.equal(castle.npcDesignations[0].weapon,id);assert.equal(castle.gold,before-def.cost+T.economy.palaceIncomeS/T.sim.tickHz);
   assert.equal(buildSiteReady(castle,cell,api.state,id),true);
   const blueprint={cells:[],palace:[],mountSpots:[[...cell,0]],weapons:[{defId:id,at:cell,facing:0}]};
   castle.gold=2000;castle.npcDesignations=[];
