@@ -175,6 +175,6 @@ independent fan re-imagining.
 
 ## License
 
-Not yet chosen. Until a LICENSE file is added, the code is all rights reserved by the author;
-contributions are accepted on the understanding that a permissive open-source license will be
-applied to the whole repository.
+MIT (`LICENSE`). Code, re-authored assets in `assets/` and the documentation are all under it; use
+it, fork it, sell it. The only things not covered are the things not in the repo: the original
+game's assets and manual, which stay as local references and are never distributed here.
