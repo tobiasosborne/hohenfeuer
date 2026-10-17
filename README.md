@@ -12,8 +12,9 @@ ramparts among civilians and gun crews, man a cannon with its crew, aim with the
 direction/charge readouts and its ballistics (fixed elevation, powder charge, gravity, drag, scatter,
 splash, wind), fire, hit the enemy castle, watch walls take damage states, and the AI orders its
 crews and fires back; matches last 12-16 minutes. Re-authored block kit v1 and cannon; HUD redrawn
-to the original's layout. In progress: designation building by masons, the look-and-feel loop
-against captures of the original, the full weapon set. See `HANDOFF.md` and `docs/worklog/`.
+to the original's layout. Designation building by masons, all ten original weapons as plugins, a title menu with skirmish setup
+and an end screen, and two look-and-feel passes against captures of the original are in. In progress:
+modern and period render presets, first-person feel, the original's 145 castle layouts as block castles. See `HANDOFF.md` and `docs/worklog/`.
 
 | Rampart, looking north | Weapon view | First shot (scripted golden) |
 |---|---|---|

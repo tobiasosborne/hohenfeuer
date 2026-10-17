@@ -26,7 +26,7 @@ function cachedChromium() {
 
 // Dev server on a free port (port 0 lets the OS choose).
 export async function startServer() {
-  const server = await createServer({ server: { port: 0, strictPort: false, host: "127.0.0.1" }, logLevel: "error" });
+  const server = await createServer({ server: { port: 0, strictPort: false, host: "127.0.0.1", hmr: false, watch: null }, logLevel: "error" });
   await server.listen();
   const url = server.resolvedUrls.local[0];
   return { server, url };
