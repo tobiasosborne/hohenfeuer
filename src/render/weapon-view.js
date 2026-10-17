@@ -5,7 +5,7 @@ import { TUNING } from "../tuning.js";
 const DEG = Math.PI / 180;
 const NODE_NAMES = ["Base", "Yaw", "Pitch", "Muzzle", "Sight"];
 /** Sight offset of the placeholder cannon from its yaw pivot [x, up, back] in metres. */
-export const PLACEHOLDER_SIGHT = Object.freeze([0, 1.25, 2.0]);
+export const PLACEHOLDER_SIGHT = Object.freeze([0, TUNING.ruler.sightUpM, TUNING.ruler.sightBackM]);
 
 /** Placeholder cannon (frame / turntable / barrel), built in code until a kit GLB with the node tree exists. */
 function placeholderCannon() {
@@ -31,7 +31,7 @@ function placeholderCannon() {
   pitch.add(new THREE.Mesh(mergeGeometries([barrelGeo, breech, trunnion]), iron));
   const muzzle = new THREE.Object3D(); muzzle.name = "Muzzle"; muzzle.position.set(0, 0, -1.25);
   pitch.add(muzzle);
-  // Placeholder sight: higher and further back than the TUNING default so the barrel sits low in frame (shot 04).
+  // Sight per TUNING.ruler.sightUpM / sightBackM (1.25 / 2.0 since 2026-10-17) so the barrel sits low in frame (shot 04).
   const sight = new THREE.Object3D(); sight.name = "Sight";
   sight.position.set(0, PLACEHOLDER_SIGHT[1], PLACEHOLDER_SIGHT[2]);
   yaw.add(sight);
@@ -79,7 +79,6 @@ export function createWeaponView({ model } = {}) {
     applySight(camera, { fovDeg = TUNING.ruler.weaponFovDeg, pitchDeg = -2 } = {}) {
       root.updateMatrixWorld(true);
       nodes.sight.getWorldPosition(tmp);
-    void TUNING; // TUNING.ruler.sight* is the default for GLB weapons without their own Sight placement
       camera.position.copy(tmp);
       camera.rotation.set(pitchDeg * DEG, -state.azDeg * DEG, 0, "YXZ");
       camera.fov = fovDeg;

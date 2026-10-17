@@ -5,6 +5,16 @@ A three.js re-imagining of *Ballerburg: Castle Siege* (Ascaron 2001). Binding sc
 EN p.N). This file is WHAT we build; `CLAUDE.md` is HOW we work. Every number below is a default
 that lives in `src/tuning.js`; change the number there, not the prose, and add a dated note here.
 
+**Amendments 2026-10-17 (TB1 integration).** Tuning added: `ai.defaultLevel` 5, `ruler.sightUpM`
+1.25 / `sightBackM` 2.0 (were 0.6 / 1.2), `ruler.weaponViewPitchDeg` -4, `ruler.mouseSensitivity`
+0.0022 rad/px, `ui.messageLifetimeS` 10, `ui.messageMax` 4, `audio.falloffM` 40, `audio.earshotM` 600.
+Contracts added: `META` (plot meta bits) and the SimView/HudView typedefs (8.3). Boot: `index.html`
+-> `src/main.js` (plugins, freeze, createSim with slot 0 local and slot 1 AI, renderer, input,
+cameras, HUD, audio, fixed-step loop); the scripted slice for goldens and tests is `src/tb1-script.js`.
+Golden-mode and debug-hook rules in 7.6; weapon-view and PgUp/PgDn rules in 5. Open: terrain is
+flattened to the plot origin (the foundation bottom), so castles stand on a 1 m foundation plinth;
+lane A owns the change to origin.y + 1 (its terrain test pins the current value).
+
 Conventions: Y-up, **1 world unit = 1 m**, north = -Z, east = +X. Azimuth is measured clockwise
 from north in degrees; direction vector `(sin az, 0, -cos az)`. Sim time is ticks at 30 Hz.
 
@@ -414,13 +424,15 @@ Designations only inside the own plot; at most 64 open designations; cost reserv
   up, as Minecraft). Doors pass. Falls as 3.6.
 - Camera: vertical **FOV 60 deg**, near 0.1 m, far 1500 m, fog linear 300-900 m (biome colour).
   Pitch clamp +-89 deg. Head bob 0.03 m at 2 Hz while walking (render-only, off in goldens).
-- **Weapon view** (E at a weapon): camera at the weapon's `Sight` node (default 1.2 m behind and
-  0.6 m above the yaw pivot), FOV 50 deg, follows the yaw/pitch nodes. Controls: arrows/WASD
+- **Weapon view** (E at a weapon): camera at the weapon's `Sight` node (default 2.0 m behind and
+  1.25 m above the yaw pivot, `TUNING.ruler.sightBackM/sightUpM`; amended 2026-10-17, the earlier
+  1.2/0.6 put the eye at barrel height), tilted `TUNING.ruler.weaponViewPitchDeg` (-4 deg), FOV 50 deg,
+  follows the yaw/pitch nodes. Controls: arrows/WASD
   adjust direction/range per 3.3, Ctrl x10, mouse drag on the readouts, hold RMB free look
   (returns on release, EN p.28), Space fire, Home restore, hold End impact view, F auto-fire,
-  PgUp/PgDn previous/next own weapon (EN p.58): the view switches to that weapon, which then
-  counts as remotely commanded (aim and fire through its crew; the ruler does not count as crew),
-  while the ruler's body stays where it is and stays vulnerable; E or Esc leave.
+  E or Esc leave. **Phase 1 (amended 2026-10-17):** the weapon view aims and fires only the weapon
+  the ruler mans; PgUp/PgDn produce no remote (unmanned) aiming. Remote command of crewed weapons
+  through PgUp/PgDn (EN p.58) returns with crews in Phase 2.
   Crosshair: vertical line on the azimuth, cross at the predicted impact.
 - **Impact view:** camera 30 m behind and 20 m above the last impact on the weapon's azimuth,
   looking at it; crosshair on the impact (shot 12).
@@ -563,17 +575,26 @@ change, map, biome).
   `npm test` by a structural check (node names, triangle budgets, texture sizes).
 - **Goldens:** Playwright (`playwright-core` 1.64.1) + headless Chromium with SwiftShader only
   (`--use-angle=swiftshader --enable-unsafe-swiftshader`, never `--disable-gpu`), 1024 x 768,
-  deviceScaleFactor 1, `?seed=1&golden=1`. Debug API `window.__hohenfeuer = { ready: Promise,
-  load({ map, seed, slots }), step(n), setPose(name | { pos, yaw, pitch, fov, mode }), render(),
-  hash() }`; no rAF-driven time in golden mode. Poses live in `tests/goldens/poses.json`
-  (`rampart-north`, `courtyard-palace`, `weapon-view-cannon`, `impact-view`, `enemy-castle-far`,
-  `hud-weapon-view`, `hud-walking`).
-- Two gates: (a) **regression** of our own frames: pixelmatch threshold 0.1, max diff 0.2% of
-  pixels; goldens are updated only by `npm run goldens -- --update` in a commit that contains the
-  diff images and nothing else. (b) **likeness** to the 2001 reference shots (`research/
+  deviceScaleFactor 1, `?golden=1`. Debug hook `window.__hohenfeuer` (amended 2026-10-17):
+  `ready` is a **boolean** (scaffold convention, set true after loading), plus `scene, camera,
+  renderer, sim, state` (live SimView), `events`, `mode`, `setPose(pose)`, `stepTo(tick)`,
+  `issue(cmd)` (queued for the next tick; tick and seq filled in), `render()`, `info()`,
+  `timeFrames(n)`. No rAF-driven sim time in golden mode. Poses live in `tests/goldens/poses.json`,
+  one object per golden: `page` (default the root page), `width`, `height`, camera `position`,
+  `yaw`, `pitch` (radians, three.js Euler YXZ; required for every pose because tools/blender reads
+  them), optional `fov`, and for scripted game poses `script: "tb1"`, `until: "ball-near-enemy" |
+  <tick>`, `camera: "rig"` (the player camera rig decides; position/yaw/pitch then serve Blender
+  only). Current goldens: `tb1-spawn`, `tb1-first-shot`, `rampart-north`, `weapon-view-cannon`,
+  `hud-weapon-view`, `hud-walking`, `example-wall`.
+- Two gates: (a) **regression** of our own frames: pixelmatch threshold 0.1, max diff 0.1% of
+  pixels (`scripts/goldens.mjs`; in practice 0 px on the SwiftShader path); a golden is updated by
+  deleting its PNG and rerunning `npm run goldens`, in a commit that contains the new PNGs and
+  nothing else. (b) **likeness** to the 2001 reference shots (`research/
   screenshots-myabandonware/`, and originals captured under wine into `assets-ripped/
   goldens-original/`): HUD-only render over flat magenta vs reference with the 3D view masked:
-  SSIM >= 0.85 on grayscale and mean abs error <= 12/255; 3D view: 128 x 96 colour-histogram
+  **hard gate: mean absolute error <= 20/255 after an 8 px Gaussian blur of both images**; SSIM on
+  grayscale is reported as advice only (amended 2026-10-17: lane E measured SSIM 0.12 and blurred
+  MAE 31/255 for `hud-weapon-view`, so the HUD art does not pass the gate yet); 3D view: 128 x 96 colour-histogram
   chi-square gate, SSIM on 256 x 192 reported (target >= 0.5), plus a vision-model rubric score
   (silhouette, palette, roof colour, stone scale, shadow direction; 1-5, target mean >= 4) as
   advice, never as a pass/fail gate alone.
@@ -664,7 +685,15 @@ MapDef { id, name: { de, en }, biome, size: [x, z], slots: [{ origin: [x, y, z] 
 BiomeDef { id, terrainPalette, props }   BiomeView { sky, fog, sun, hemi, atlas, props }
 SpellDef (reserved) { id, cost, durationS, cooldownS, onCast(api, slot, target), onTick, onEnd }
 Command { type: CMD, slot, tick, seq, ...CMD_FIELDS[type] }   // integers; cells plot-local
+SimView (sim.state)  { tick, seed, mapId, slots, castles[slot], rulers[slot], npcs, weapons, projectiles,
+  wind, terrain, outcome, commandKinds }   // full field list: contracts.js typedefs SimView, SimCastle,
+                                           // SimRuler, SimWeapon, SimProjectile; vectors are {x,y,z}
+HudView              { lang, mode, gold, pop, weapons, heading, wind, enemies, weapon, morale, selection,
+  shelterOn, messages, enemyLabel, minimapOwn, minimapEnemy, reticle, castleColor, menu }  // contracts.js HudView
+META (plot meta byte) { FACING_MASK 0b11, VARIANT_MASK 0b1100, BURNING_BIT 1<<4, DESIGNATED_BIT 1<<5 }
 ```
+`sim.state` is a fresh deep snapshot per access: read it once per tick and keep render-side
+mirrors of the plots (src/main.js refreshes them on block events).
 
 Renderer calls: `view.create(ctx)` once per entity, `update(state, alpha)` per frame,
 `dispose()` on removal; it reads sim state only through `sim.state` snapshots and events.

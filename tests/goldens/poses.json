@@ -1,14 +1,35 @@
 {
-  "example-wall": {
+  "tb1-spawn": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 0,
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
     "position": [
-      0,
-      1.7,
-      6
+      95.5,
+      2.6,
+      131.5
     ],
     "yaw": 0,
     "pitch": 0,
-    "width": 640,
-    "height": 360
+    "fov": 60
+  },
+  "tb1-first-shot": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": "ball-near-enemy",
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
+    "position": [
+      110.5,
+      8.25,
+      127.5
+    ],
+    "yaw": -1.557,
+    "pitch": -0.07,
+    "fov": 50
   },
   "rampart-north": {
     "page": "dev/render.html",
@@ -35,5 +56,43 @@
     "fov": 50,
     "width": 1024,
     "height": 768
+  },
+  "hud-weapon-view": {
+    "page": "dev/ui.html?pose=hud-weapon-view&bg=magenta&lang=de",
+    "pose": "hud-weapon-view",
+    "width": 1024,
+    "height": 768,
+    "position": [
+      0,
+      1.7,
+      6
+    ],
+    "yaw": 0,
+    "pitch": 0
+  },
+  "hud-walking": {
+    "page": "dev/ui.html?pose=hud-walking&bg=magenta&lang=de",
+    "pose": "hud-walking",
+    "width": 1024,
+    "height": 768,
+    "position": [
+      0,
+      1.7,
+      6
+    ],
+    "yaw": 0,
+    "pitch": 0
+  },
+  "example-wall": {
+    "page": "index.html?golden=1",
+    "position": [
+      0,
+      1.7,
+      6
+    ],
+    "yaw": 0,
+    "pitch": 0,
+    "width": 640,
+    "height": 360
   }
 }

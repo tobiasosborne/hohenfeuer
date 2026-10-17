@@ -229,3 +229,12 @@ test("validateSlot checks controller, level and tactic", () => {
   assert.throws(() => C.validateSlot({ ...s, aiLevel: 11 }), /field "aiLevel" must be an integer in 1\.\.10/);
   assert.throws(() => C.validateSlot({ ...s, controller: "cpu" }), /field "controller" must be one of/);
 });
+
+test("META documents the plot meta byte; the designated bit matches lane E's interact.js", async () => {
+  const { DESIGNATED_BIT } = await import("../../src/player/interact.js");
+  assert.ok(Object.isFrozen(C.META));
+  assert.equal(C.META.DESIGNATED_BIT, 1 << 5);
+  assert.equal(C.META.DESIGNATED_BIT, DESIGNATED_BIT);
+  assert.equal(C.META.FACING_MASK & C.META.VARIANT_MASK, 0);
+  assert.equal(C.META.BURNING_BIT & (C.META.FACING_MASK | C.META.VARIANT_MASK | C.META.DESIGNATED_BIT), 0);
+});

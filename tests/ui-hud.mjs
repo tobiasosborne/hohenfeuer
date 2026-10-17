@@ -9,7 +9,8 @@ import { launch, startServer, webglRenderer } from "./lib.mjs";
 
 const out = resolve("test-results");
 await mkdir(out, { recursive: true });
-const poses = JSON.parse(await readFile(resolve("tests/goldens/poses-ui.json"), "utf8"));
+// Integration (TB1): HUD poses now live in poses.json; keep only the dev/ui.html ones.
+const poses = Object.fromEntries(Object.entries(JSON.parse(await readFile(resolve("tests/goldens/poses.json"), "utf8"))).filter(([, p]) => String(p.page || "").startsWith("dev/ui.html")));
 const extra = { "menu-skirmish": { page: "dev/ui.html?pose=menu-skirmish&bg=sky&lang=de", width: 1024, height: 768 } };
 const report = { status: "running", renderer: null, errors: [], checks: [] };
 let browser, server;

@@ -22,7 +22,7 @@ function softDisk(size = 64) {
  * @param {number} [o.seed]
  * @param {number} [o.max] pooled sprites
  */
-export function createFx({ scene, seed = 1, max = 64 }) {
+export function createFx({ scene, seed = 1, max = 160 }) {
   const rng = createRng(seed);
   const tex = softDisk();
   const pool = [];
@@ -60,6 +60,10 @@ export function createFx({ scene, seed = 1, max = 64 }) {
         spawn({ pos: pos.clone().add(j), color, additive: false, life: 1.5 + rng(), size: 1 + rng(), grow: 2.2, vy: 0.5 + rng() * 0.5, alpha: 0.85 });
       }
       spawn({ pos, color: 0xffb060, additive: true, life: 0.18, size: 2.2, grow: 3 });
+    },
+    /** One grey smoke-trail puff behind a flying ball (spawn once per sim tick). */
+    trail(pos) {
+      spawn({ pos, color: 0xb8b2a8, additive: false, life: 1.4, size: 0.9, grow: 1.4, vy: 0.3, alpha: 0.75 });
     },
     /** Advance by dt seconds (fixed steps keep it deterministic). */
     update(dt) {

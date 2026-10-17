@@ -49,6 +49,9 @@ export const BLOCK = Object.freeze({
 });
 const CORE_KEY_BY_ID = Object.freeze(Object.fromEntries(Object.entries(BLOCK).map(([k, v]) => [v, k.toLowerCase()])));
 
+/** Plot `meta` byte layout (DESIGN 2.1): facing bits 0-1, shape/variant bits 2-3, burning bit 4, designated bit 5. */
+export const META = Object.freeze({ FACING_MASK: 0b11, VARIANT_SHIFT: 2, VARIANT_MASK: 0b1100, BURNING_BIT: 1 << 4, DESIGNATED_BIT: 1 << 5 });
+
 export const MOUNT = Object.freeze({ WALL: "wall", GROUND: "ground" });
 export const TRAJ = Object.freeze({ STRAIGHT: "straight", LOBBED: "lobbed" });
 export const COLLIDER = Object.freeze({ CUBE: "cube", STAIRS: "stairs", NONE: "none" });
@@ -230,7 +233,56 @@ export const EVENTS = EV;
  * @property {(pos: Vec3) => {x: number, z: number}} windAt
  * @property {(slot: number) => object} castleOf
  *
- * @typedef {object} SimView  read-only view for AI, player picking, render, ui (`sim.state`)
+ * @typedef {object} SimView  read-only snapshot for AI, player picking, render and ui (`sim.state`, a fresh deep copy per access)
+ * @property {number} tick @property {number} seed @property {string} mapId @property {Slot[]} slots
+ * @property {SimCastle[]} castles indexed by slot @property {SimRuler[]} rulers indexed by slot @property {object[]} npcs (Phase 2)
+ * @property {SimWeapon[]} weapons by id @property {SimProjectile[]} projectiles
+ * @property {{strength: number, change: number, speed: number, direction: number, previousDirection: number|null,
+ *   previousUntil: number, changeId: number, shotVersions: Object<number, number>, time: number}} wind
+ *   speed m/s, direction degrees the air blows toward (HUD via src/sim/wind.js windHud(wind, slot))
+ * @property {{width: number, depth: number, spacing: number, origin: {x: number, z: number}, heights: Float64Array,
+ *   plots: Array<{origin: number[], width: number, depth: number}>}} terrain
+ * @property {null|{winners: number[], draw: boolean, tick: number}} outcome
+ * @property {string[]} commandKinds CMD values the current phase accepts
+ *
+ * @typedef {object} SimPlot  GridView: {id, width, height, depth, origin: {x,y,z}, type, hp, meta: Uint8Array, navVersion}
+ * @typedef {object} SimCastle
+ * @property {number} id @property {number} slot @property {string} defId @property {SimPlot} plot
+ * @property {number[]} palaceCells plot cell indices @property {number} initialPalaceHp
+ * @property {{x: number, y: number, z: number}} rulerSpawn @property {{x: number, y: number, z: number}} throne
+ * @property {number} gold @property {number} morale @property {number} population @property {number} initialPopulation
+ * @property {boolean} shelter @property {boolean} eliminated @property {string|null} reason ELIM
+ * @property {{shots: number, directHits: number, damageDp: number, damageGold: number, losses: number,
+ *   ammoCosts: number, income: number, eliminatedTick: number|null}} stats
+ * @typedef {object} SimRuler
+ * @property {number} id @property {number} slot @property {{x: number, y: number, z: number}} pos feet, metres
+ * @property {number} yaw uint16 units (clockwise from north) @property {number} pitch int16 units
+ * @property {number} hp @property {boolean} grounded @property {number|null} manning weapon id
+ * @typedef {object} SimWeapon
+ * @property {number} id @property {number} slot @property {string} defId @property {{x: number, y: number, z: number}} pos feet
+ * @property {number} hp @property {{az: number, range: number}} aim command units @property {{az: number, range: number}} lastAim
+ * @property {number} reload seconds since the last shot (loaded at def.reloadS) @property {boolean} autoFire
+ * @property {boolean} crewOrdered @property {number} ammo loads in the buffer
+ * @property {null|{x: number, y: number, z: number}} lastImpact @property {null|{x: number, y: number, z: number}} predictedImpact
+ * @typedef {object} SimProjectile
+ * @property {number} id @property {{x: number, y: number, z: number}} pos @property {{x: number, y: number, z: number}} vel
+ * @property {number} sourceSlot @property {number} weaponId @property {number} age seconds
+ *
+ * @typedef {object} HudView  lane E src/ui/hud.js createHud(canvas).draw(view); built by src/main.js each frame
+ * @property {string} lang 'de'|'en' @property {string} mode CAMERA_MODE @property {number} [tick]
+ * @property {number} gold @property {{now: number, start: number}} pop @property {{now: number, cap: number}} weapons
+ * @property {number} heading camera heading, degrees clockwise from north
+ * @property {{speed: number, dirDeg: number|null, prevDirDeg: number|null}} wind
+ * @property {Array<{bearingDeg: number, ally?: boolean, color?: string}>} enemies
+ * @property {null|{name: string, hpPct: number, az: number, range: number, reload: number, loaded: boolean,
+ *   fireCost: number, affordable: boolean, autoFire?: boolean, crewOrdered?: boolean, restoreLit?: boolean}} weapon
+ * @property {null|{value: number}} morale @property {null|{name: string, cost: number, valid?: boolean}} selection
+ * @property {boolean} shelterOn @property {Array<{text: string, tone?: string}>} messages
+ * @property {null|{title: string, name: string, castle: string, color?: string}} enemyLabel
+ * @property {null|{w: number, d: number, codes: Uint8Array, craters?: Array<{x: number, z: number, r: number}>, missArrowDeg?: number|null}} minimapOwn
+ * @property {null|object} minimapEnemy same shape as minimapOwn
+ * @property {{predicted?: number[]}} reticle logical px of the predicted impact @property {string} [castleColor]
+ * @property {null|object} [menu] src/ui/menus.js createMenu() state drawn on top
  *
  * @typedef {object} Sim  returned by `createSim({map, seed, slots})` (src/sim/sim.js)
  * @property {(commands: Command[]) => void} tick @property {SimView} state

@@ -37,6 +37,10 @@ const de = {
   rulerDied: "Der Herrscher ist gefallen!",
   victory: "Sieg!",
   defeat: "Niederlage!",
+  shotFired: "Schuss!", // TB1 integration
+  hit: "Treffer! Palast {pct}%",
+  miss: "Daneben!",
+  enemyFires: "Der Gegner feuert!",
   notEnoughGold: "Nicht genug Gold!",
   invalidPlacement: "Hier kann nicht gebaut werden",
   // menus (shots 01, 02)
@@ -91,6 +95,10 @@ const en = {
   rulerDied: "The ruler has fallen!", // Der Herrscher ist gefallen!
   victory: "Victory!", // Sieg!
   defeat: "Defeat!", // Niederlage!
+  shotFired: "Shot!", // Schuss! (TB1 integration)
+  hit: "Hit! Palace {pct}%", // Treffer! Palast {pct}%
+  miss: "Missed!", // Daneben!
+  enemyFires: "The enemy fires!", // Der Gegner feuert!
   notEnoughGold: "Not enough gold!", // Nicht genug Gold!
   invalidPlacement: "Cannot build here", // Hier kann nicht gebaut werden
   gameTitle: "Hohenfeuer",

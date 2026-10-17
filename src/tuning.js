@@ -200,8 +200,10 @@ export const TUNING = deepFreeze({
     pitchClampDeg: 89, // D 5
     headBobM: 0.03, // D 5
     headBobHz: 2, // D 5
-    sightBackM: 1.2, // D 5: weapon view camera behind the yaw pivot
-    sightUpM: 0.6, // D 5
+    sightBackM: 2.0, // D 5 (amended 2026-10-17, lane D: 1.2 put the eye at barrel height)
+    sightUpM: 1.25, // D 5 (amended 2026-10-17, lane D)
+    weaponViewPitchDeg: -4, // D 5: fixed downward tilt of the weapon view (lane E, shot 04)
+    mouseSensitivity: 0.0022, // D 5: radians per pointer-locked pixel (lane E)
     impactBackM: 30, // D 5
     impactUpM: 20, // D 5
     deathCamS: 3, // D 5
@@ -299,6 +301,7 @@ export const TUNING = deepFreeze({
   ai: {
     levelMin: 1, // EN p.12
     levelMax: 10, // EN p.12
+    defaultLevel: 5, // guess: mid level, the skirmish menu default (lane E)
     sAz0PerLevelDeg: 0.4, // D 6.2: sAz0 = 0.4 * (11 - L)
     sR0PerLevel: 0.015, // D 6.2: sR0 = 1.5% * (11 - L)
     alphaBase: 0.4, // D 6.2
@@ -353,6 +356,16 @@ export const TUNING = deepFreeze({
     blockTrisGreebled: 96, // D 7.4
     treeTris: 150, // D 7.4
     handsTris: 400, // D 7.4
+  },
+
+  ui: {
+    messageLifetimeS: 10, // D 7.5: info-bar message lifetime (lane E console)
+    messageMax: 4, // D 7.5: visible message lines (lane E console)
+  },
+
+  audio: {
+    falloffM: 40, // guess: distance attenuation 1 / (1 + d / falloffM) (lane E sfx)
+    earshotM: 600, // guess: silent beyond this distance (lane E sfx)
   },
 
   golden: {

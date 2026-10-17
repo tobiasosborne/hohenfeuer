@@ -15,7 +15,7 @@ const MAX_DRAW_CALLS = 250; // DESIGN 7.1 / TUNING.render.maxDrawCalls
 const goldenDir = resolve("tests/goldens");
 const out = resolve("test-results");
 await mkdir(out, { recursive: true });
-const poses = Object.entries(JSON.parse(await readFile(resolve(goldenDir, "poses.json"), "utf8"))).filter(([, p]) => p.page);
+const poses = Object.entries(JSON.parse(await readFile(resolve(goldenDir, "poses.json"), "utf8"))).filter(([, p]) => String(p.page || "").startsWith("dev/render.html"));
 
 const report = { status: "running", renderer: null, kit: null, poses: {}, errors: [] };
 let browser, server, failed = 0;
