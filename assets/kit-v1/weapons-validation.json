@@ -1,0 +1,298 @@
+{
+  "blender": "4.5.14",
+  "triangles_max_exclusive": 1500,
+  "geometry": [
+    {
+      "file": "catapult.glb",
+      "meshes": 3,
+      "triangles": 784,
+      "bounds_min_m": [
+        -1.2999999523162842,
+        0.0,
+        -2.7999999970197678
+      ],
+      "bounds_max_m": [
+        1.2999999523162842,
+        3.059999994933605,
+        2.299999952316284
+      ],
+      "dimensions_m": [
+        2.5999999046325684,
+        3.059999994933605,
+        5.099999949336052
+      ]
+    },
+    {
+      "file": "trebuchet.glb",
+      "meshes": 3,
+      "triangles": 456,
+      "bounds_min_m": [
+        -4.800000190734863,
+        0.0,
+        -7.409999847412109
+      ],
+      "bounds_max_m": [
+        4.800000190734863,
+        7.060736171901226,
+        4.900000095367432
+      ],
+      "dimensions_m": [
+        9.600000381469727,
+        7.060736171901226,
+        12.309999942779541
+      ]
+    },
+    {
+      "file": "ballista.glb",
+      "meshes": 3,
+      "triangles": 339,
+      "bounds_min_m": [
+        -1.5275079011917114,
+        0.0,
+        -1.5800000429153442
+      ],
+      "bounds_max_m": [
+        1.5275079011917114,
+        1.8508397564291954,
+        1.350000023841858
+      ],
+      "dimensions_m": [
+        3.055015802383423,
+        1.8508397564291954,
+        2.930000066757202
+      ]
+    },
+    {
+      "file": "hellfire.glb",
+      "meshes": 3,
+      "triangles": 1376,
+      "bounds_min_m": [
+        -1.9900000095367432,
+        0.0,
+        -2.950000047683716
+      ],
+      "bounds_max_m": [
+        1.9900000095367432,
+        3.3149191066622734,
+        2.950000047683716
+      ],
+      "dimensions_m": [
+        3.9800000190734863,
+        3.3149191066622734,
+        5.900000095367432
+      ]
+    },
+    {
+      "file": "double-cannon.glb",
+      "meshes": 3,
+      "triangles": 944,
+      "bounds_min_m": [
+        -1.0199999809265137,
+        0.0,
+        -1.5604000575840473
+      ],
+      "bounds_max_m": [
+        1.0199999809265137,
+        1.224999986588955,
+        1.1200000047683716
+      ],
+      "dimensions_m": [
+        2.0399999618530273,
+        1.224999986588955,
+        2.680400062352419
+      ]
+    },
+    {
+      "file": "fire-catapult.glb",
+      "meshes": 3,
+      "triangles": 850,
+      "bounds_min_m": [
+        -1.2999999523162842,
+        0.0,
+        -2.7999999970197678
+      ],
+      "bounds_max_m": [
+        1.2999999523162842,
+        3.3599999472498894,
+        2.299999952316284
+      ],
+      "dimensions_m": [
+        2.5999999046325684,
+        3.3599999472498894,
+        5.099999949336052
+      ]
+    },
+    {
+      "file": "rocket.glb",
+      "meshes": 3,
+      "triangles": 918,
+      "bounds_min_m": [
+        -1.0399999618530273,
+        0.0,
+        -1.0399999618530273
+      ],
+      "bounds_max_m": [
+        1.0399999618530273,
+        1.6939877346158028,
+        1.0399999618530273
+      ],
+      "dimensions_m": [
+        2.0799999237060547,
+        1.6939877346158028,
+        2.0799999237060547
+      ]
+    },
+    {
+      "file": "arcaballista.glb",
+      "meshes": 3,
+      "triangles": 1152,
+      "bounds_min_m": [
+        -4.128142833709717,
+        0.0,
+        -4.849999904632568
+      ],
+      "bounds_max_m": [
+        4.128142833709717,
+        1.6708398088812828,
+        4.849999904632568
+      ],
+      "dimensions_m": [
+        8.256285667419434,
+        1.6708398088812828,
+        9.699999809265137
+      ]
+    },
+    {
+      "file": "fat-freda.glb",
+      "meshes": 3,
+      "triangles": 800,
+      "bounds_min_m": [
+        -1.7000000476837158,
+        0.0,
+        -2.403999902307987
+      ],
+      "bounds_max_m": [
+        1.7000000476837158,
+        2.90499996393919,
+        2.125
+      ],
+      "dimensions_m": [
+        3.4000000953674316,
+        2.90499996393919,
+        4.528999902307987
+      ]
+    },
+    {
+      "file": "zeppelin.glb",
+      "meshes": 3,
+      "triangles": 978,
+      "bounds_min_m": [
+        -2.299999952316284,
+        0.0,
+        -6.0
+      ],
+      "bounds_max_m": [
+        2.299999952316284,
+        7.000000111758709,
+        6.0
+      ],
+      "dimensions_m": [
+        4.599999904632568,
+        7.000000111758709,
+        12.0
+      ]
+    }
+  ],
+  "three_r186": [
+    {
+      "key": "catapult",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "trebuchet",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "ballista",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "hellfire",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "double-cannon",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "fire-catapult",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "rocket",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "arcaballista",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "fat-freda",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    },
+    {
+      "key": "zeppelin",
+      "poses": 4,
+      "finite": true,
+      "rawPivot": true,
+      "muzzle": true,
+      "staticFrame": true,
+      "sight": true
+    }
+  ]
+}

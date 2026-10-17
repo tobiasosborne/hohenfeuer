@@ -81,7 +81,23 @@ def check(directory):
     person = validator.validate(directory / "person.glb", [-0.6, 0, -0.4], [0.6, 1.75, 0.4], 300)
     assert abs(person["dimensions_m"][1] - 1.75) < 0.001
     results.extend([cannon, person])
-    assert len(list(directory.rglob("*.glb"))) == len(results) == 58
+    for weapon in manifest.get("weapons", []):
+        if weapon["key"] == "cannon":
+            continue
+        result = validator.validate(directory / weapon["mesh"],
+            [v - .0001 for v in weapon["bounds_min_m"]],
+            [v + .0001 for v in weapon["bounds_max_m"]], 1499)
+        assert result["triangles"] == weapon["triangles"]
+        document, _ = validator.parse_glb(directory / weapon["mesh"])
+        nodes = {node["name"]: node for node in document["nodes"]}
+        assert set(weapon["nodes"] + weapon["parts"]) <= nodes.keys()
+        assert nodes["Pitch"]["extras"]["pivot"] == [0, 0, 0], "r186 requires a numeric pivot"
+        assert png_size((directory / weapon["atlas"]).read_bytes()) == (512, 512)
+        assert png_size((directory / weapon["thumbnail"]).read_bytes()) == (256, 256)
+        results.append(result)
+    # Weapon additions merge into the manifest; the original kit had 58 GLBs.
+    expected = len(manifest["blocks"]) * 4 + len(manifest["weapons"]) + len(manifest["people"])
+    assert len(list(directory.rglob("*.glb"))) == len(results) == expected
     assert (directory / "thumbs/contact-sheet.png").is_file()
     return dict(results=results, failures=[], seconds=round(time.perf_counter() - started, 3))
 

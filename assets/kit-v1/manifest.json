@@ -688,6 +688,466 @@
         1.07,
         -1.6
       ]
+    },
+    {
+      "key": "catapult",
+      "mesh": "catapult.glb",
+      "triangles": 784,
+      "atlas": "catapult-atlas.png",
+      "thumbnail": "thumbs/catapult.png",
+      "dimensions_m": [
+        2.6,
+        3.06,
+        5.1
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "arm"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        0.82,
+        0.2
+      ],
+      "muzzle_m": [
+        0.0,
+        2.97,
+        -2.43
+      ],
+      "bounds_min_m": [
+        -1.3,
+        0.0,
+        -2.8
+      ],
+      "bounds_max_m": [
+        1.3,
+        3.06,
+        2.3
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "trebuchet",
+      "mesh": "trebuchet.glb",
+      "triangles": 456,
+      "atlas": "trebuchet-atlas.png",
+      "thumbnail": "thumbs/trebuchet.png",
+      "dimensions_m": [
+        9.6,
+        7.06074,
+        12.31
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "arm"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        5.78,
+        -0.0
+      ],
+      "muzzle_m": [
+        0.0,
+        0.73,
+        -6.95
+      ],
+      "bounds_min_m": [
+        -4.8,
+        0.0,
+        -7.41
+      ],
+      "bounds_max_m": [
+        4.8,
+        7.06074,
+        4.9
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "ballista",
+      "mesh": "ballista.glb",
+      "triangles": 339,
+      "atlas": "ballista-atlas.png",
+      "thumbnail": "thumbs/ballista.png",
+      "dimensions_m": [
+        3.05502,
+        1.85084,
+        2.93
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        1.54,
+        -0.0
+      ],
+      "muzzle_m": [
+        0.0,
+        1.77,
+        -1.58
+      ],
+      "bounds_min_m": [
+        -1.52751,
+        0.0,
+        -1.58
+      ],
+      "bounds_max_m": [
+        1.52751,
+        1.85084,
+        1.35
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "hellfire",
+      "mesh": "hellfire.glb",
+      "triangles": 1376,
+      "atlas": "hellfire-atlas.png",
+      "thumbnail": "thumbs/hellfire.png",
+      "dimensions_m": [
+        3.98,
+        3.31492,
+        5.9
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        2.52,
+        -0.42
+      ],
+      "muzzle_m": [
+        0.0,
+        2.52,
+        -2.404
+      ],
+      "bounds_min_m": [
+        -1.99,
+        0.0,
+        -2.95
+      ],
+      "bounds_max_m": [
+        1.99,
+        3.31492,
+        2.95
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "double-cannon",
+      "mesh": "double-cannon.glb",
+      "triangles": 944,
+      "atlas": "double-cannon-atlas.png",
+      "thumbnail": "thumbs/double-cannon.png",
+      "dimensions_m": [
+        2.04,
+        1.225,
+        2.6804
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        0.94,
+        -0.05
+      ],
+      "muzzle_m": [
+        0.0,
+        0.94,
+        -1.5604
+      ],
+      "bounds_min_m": [
+        -1.02,
+        0.0,
+        -1.5604
+      ],
+      "bounds_max_m": [
+        1.02,
+        1.225,
+        1.12
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "fire-catapult",
+      "mesh": "fire-catapult.glb",
+      "triangles": 850,
+      "atlas": "fire-catapult-atlas.png",
+      "thumbnail": "thumbs/fire-catapult.png",
+      "dimensions_m": [
+        2.6,
+        3.36,
+        5.1
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "arm"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        0.82,
+        0.2
+      ],
+      "muzzle_m": [
+        0.0,
+        2.97,
+        -2.43
+      ],
+      "bounds_min_m": [
+        -1.3,
+        0.0,
+        -2.8
+      ],
+      "bounds_max_m": [
+        1.3,
+        3.36,
+        2.3
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "rocket",
+      "mesh": "rocket.glb",
+      "triangles": 918,
+      "atlas": "rocket-atlas.png",
+      "thumbnail": "thumbs/rocket.png",
+      "dimensions_m": [
+        2.08,
+        1.69399,
+        2.08
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        1.48,
+        -0.0
+      ],
+      "muzzle_m": [
+        0.0,
+        1.48,
+        -0.98
+      ],
+      "bounds_min_m": [
+        -1.04,
+        0.0,
+        -1.04
+      ],
+      "bounds_max_m": [
+        1.04,
+        1.69399,
+        1.04
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "arcaballista",
+      "mesh": "arcaballista.glb",
+      "triangles": 1152,
+      "atlas": "arcaballista-atlas.png",
+      "thumbnail": "thumbs/arcaballista.png",
+      "dimensions_m": [
+        8.25629,
+        1.67084,
+        9.7
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        1.35,
+        -0.0
+      ],
+      "muzzle_m": [
+        0.0,
+        1.59,
+        -4.7
+      ],
+      "bounds_min_m": [
+        -4.12814,
+        0.0,
+        -4.85
+      ],
+      "bounds_max_m": [
+        4.12814,
+        1.67084,
+        4.85
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "fat-freda",
+      "mesh": "fat-freda.glb",
+      "triangles": 800,
+      "atlas": "fat-freda-atlas.png",
+      "thumbnail": "thumbs/fat-freda.png",
+      "dimensions_m": [
+        3.4,
+        2.905,
+        4.529
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        1.9,
+        -0.1
+      ],
+      "muzzle_m": [
+        0.0,
+        1.9,
+        -2.404
+      ],
+      "bounds_min_m": [
+        -1.7,
+        0.0,
+        -2.404
+      ],
+      "bounds_max_m": [
+        1.7,
+        2.905,
+        2.125
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
+    },
+    {
+      "key": "zeppelin",
+      "mesh": "zeppelin.glb",
+      "triangles": 978,
+      "atlas": "zeppelin-atlas.png",
+      "thumbnail": "thumbs/zeppelin.png",
+      "dimensions_m": [
+        4.6,
+        7.0,
+        12.0
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0.0,
+        0.42,
+        -0.9
+      ],
+      "muzzle_m": [
+        0.0,
+        0.42,
+        -1.55
+      ],
+      "bounds_min_m": [
+        -2.3,
+        0.0,
+        -6.0
+      ],
+      "bounds_max_m": [
+        2.3,
+        7.0,
+        6.0
+      ],
+      "atlas_size_px": 512,
+      "pivot_encoding": "Pitch extras.pivot is numeric [0,0,0]; joint is carried by node translation."
     }
   ],
   "people": [

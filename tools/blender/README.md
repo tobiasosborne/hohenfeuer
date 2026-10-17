@@ -255,3 +255,45 @@ their reference panels explicitly state that absence. `renders.json` records
 source hashes, bounds, camera scales and timings. `--only cannon stone tower
 palace` is useful during review and preserves other existing index records;
 run without `--only` to generate the full index from scratch.
+
+## Kit v1 weapon expansion
+
+`kit_v1_weapons.py` independently authors ten weapons in pinned Blender 4.5.14.
+Generation reads no reference art, leaves the existing cannon and block textures
+alone, and merges weapon entries into the latest manifest. Every weapon has three
+named meshes (`frame`, `turntable`, `arm` or `barrel`), the existing
+`Base -> Yaw -> Pitch -> Muzzle` rig and a `Sight` under `Yaw`, an embedded 512px
+procedural wood/iron/rope/canvas atlas, and fewer than 1,500 exported triangles.
+Dimensions in the manifest are `[width, height, depth]` in game metres.
+
+```bash
+/home/tobias/Apps/blender-4.5.14-linux-x64/blender -b -t 6 --python-exit-code 1 \
+  --python tools/blender/kit_v1_weapons.py
+python3 -I tools/blender/kit_v1_weapons.py --validate
+python3 -I tools/blender/verify_kit_v1.py
+node --test tests/unit/rules-cleanroom.test.js
+/home/tobias/Apps/blender-4.5.14-linux-x64/blender -b -t 6 --python-exit-code 1 \
+  --python tools/blender/kit_v1_weapons.py -- --study
+/home/tobias/Apps/blender-4.5.14-linux-x64/blender -b -t 6 --python-exit-code 1 \
+  --python tools/blender/kit_v1_weapons.py -- --compare
+```
+
+`--only catapult ballista` restricts generation or comparison; `--no-render`
+skips thumbnails. The production contact sheet is
+`assets/kit-v1/thumbs/weapons-contact-sheet.png`. The isolated `--study` and
+`--compare` modes import tagged ReferenceOnly data, never export meshes, and
+write only under `assets-ripped/compare-v1/weapons/`. Comparisons use the same
+orthographic metre scale on both sides and include a 1 m yellow cube. Part
+origins have no surviving hierarchy: preview joint placements are explicitly
+inferred. The zeppelin is the requested 12 m versus the original roughly 14 m
+envelope; the rocket is the requested tube rack versus one original housing.
+CPU Cycles renders are inspection evidence, separate from SwiftShader goldens.
+
+**Pivot correction:** three r186 interprets `extras.pivot` as a numeric array.
+Prose there produces NaN transforms. New weapons export `[0, 0, 0]` at the
+existing `Pitch` joint, with its zero-offset moving mesh first among children
+(r186 clears that child's translation). Joint coordinates live in `pivot_m`
+and node translations; prose lives in `joint_description`. The weapon validator
+checks raw GLTFLoader output before the renderer's compatibility repair, then
+checks 40 aim poses through the actual renderer. It also calls `validate_glb.py`
+for byte-level geometry, material, bounds, UV and triangle-budget validation.
