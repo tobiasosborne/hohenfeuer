@@ -1,0 +1,38 @@
+✖ tests/unit/sim-damage.test.js (0.406008ms)
+✖ tests/unit/sim-ruler.test.js (0.081786ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14.248989
+
+✖ failing tests:
+
+✖ tests/unit/sim-damage.test.js (0.406008ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/sim/damage.js' imported from /home/tobias/Projects/castle-game/tests/unit/sim-damage.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/castle-game/src/sim/damage.js'
+  }
+
+✖ tests/unit/sim-ruler.test.js (0.081786ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/sim/ruler.js' imported from /home/tobias/Projects/castle-game/tests/unit/sim-ruler.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+      at moduleResolve (node:internal/modules/esm/resolve:864:10)
+      at defaultResolve (node:internal/modules/esm/resolve:990:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+      at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+      at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+      at #link (node:internal/modules/esm/module_job:208:49) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///home/tobias/Projects/castle-game/src/sim/ruler.js'
+  }

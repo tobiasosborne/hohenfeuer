@@ -1,0 +1,12 @@
+✔ fmath agrees with reference values over the simulation domain (3.148756ms)
+✔ seeded streams replay, fork independently, and restore state (1.586038ms)
+✔ canonical FNV hashes typed bytes, object keys and entities in id order (0.417577ms)
+✔ fixed-step loop clamps elapsed time, caps work and pauses visibility (0.265885ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27.556988

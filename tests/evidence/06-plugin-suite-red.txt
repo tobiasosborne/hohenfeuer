@@ -1,0 +1,83 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (513.375716ms)
+✔ tests/unit/ai-aim.test.js (86.959853ms)
+✔ tests/unit/ai-build.test.js (65.056407ms)
+✔ tests/unit/ai-controller.test.js (130.232778ms)
+✔ tests/unit/ai-slots.test.js (65.455271ms)
+✔ tests/unit/ai-targets.test.js (83.407818ms)
+✔ tests/unit/contracts.test.js (90.466135ms)
+✔ tests/unit/plugin-blocks.test.js (109.333192ms)
+✔ tests/unit/plugin-castle.test.js (192.885028ms)
+✔ tests/unit/plugin-forest.test.js (97.183309ms)
+✔ tests/unit/plugin-registration.test.js (377.206996ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (63.877286ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/render/chunks.js' imported from /home/tobias/Projects/castle-game/tests/unit/render-chunks.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/render/chunks.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/render-chunks.test.js (96.13881ms)
+✔ tests/unit/render-mesher.test.js (287.466904ms)
+✔ tests/unit/rules-cleanroom.test.js (1118.132329ms)
+✔ tests/unit/rules-purity.test.js (108.370581ms)
+✔ tests/unit/sim-ballistics.test.js (445.266105ms)
+✔ tests/unit/sim-core.test.js (94.967849ms)
+✔ tests/unit/sim-damage.test.js (82.917875ms)
+✔ tests/unit/sim-engine.test.js (5407.017209ms)
+✔ tests/unit/sim-ruler.test.js (101.351064ms)
+✔ tests/unit/sim-world.test.js (230.568548ms)
+✔ tests/unit/smoke.test.js (79.919565ms)
+✔ tests/unit/tuning.test.js (118.089376ms)
+✔ tests/unit/ui-commands.test.js (191.584751ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/ui/font.js' imported from /home/tobias/Projects/castle-game/tests/unit/ui-font.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/ui/font.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ui-font.test.js (93.702607ms)
+✔ tests/unit/ui-layout.test.js (101.837229ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 25
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5564.482227
+
+✖ failing tests:
+
+test at tests/unit/render-chunks.test.js:1:1
+✖ tests/unit/render-chunks.test.js (96.13881ms)
+  'test failed'
+
+test at tests/unit/ui-font.test.js:1:1
+✖ tests/unit/ui-font.test.js (93.702607ms)
+  'test failed'

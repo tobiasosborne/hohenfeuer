@@ -1,0 +1,12 @@
+✔ forest duel validates with two centred non-overlapping plots exactly one duel distance apart (2.043041ms)
+✔ forest map uses tuning for terrain, wind, gold and the weapon cap; seed is a separate sim input (1.368047ms)
+✔ forest biome and view validate with green grass, grey stone, Lambert light and tuned fog (1.12125ms)
+✔ forest map, biome and view register through contracts and reject duplicates (2.020823ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29.93866

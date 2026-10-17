@@ -1,0 +1,30 @@
+✔ all fourteen core blocks validate and use the shared ids and tuning (3.126875ms)
+✔ blocks distinguish walking, climbing, shots and structural support (1.20306ms)
+✔ kit v0 block views validate with flat colours and named damage states (1.2416ms)
+✔ core block and block view registrations reject duplicates (0.451993ms)
+✔ starter castle validates, fits the plot, and has exact east/west geometry symmetry (5.673924ms)
+✔ starter castle has a palace core, four towers, magazine prefab and two cannon mounts (2.126367ms)
+✔ courtyard markers and both six-step north-facing rampart stairs have clearance (0.423212ms)
+✔ every castle block connects to the foundation through six-neighbour support (7.153195ms)
+✔ both timber houses have level entrances and two-cell interior clearance (0.427062ms)
+✔ starter castle loads through Lane A castle-load with exact block hp and placements (7.909399ms)
+✔ forest duel validates with two centred non-overlapping plots exactly one duel distance apart (0.6549ms)
+✔ forest map uses tuning for terrain, wind, gold and the weapon cap; seed is a separate sim input (0.245551ms)
+✔ forest biome and view validate with green grass, grey stone, Lambert light and tuned fog (0.518449ms)
+✔ forest map, biome and view register through contracts and reject duplicates (0.506217ms)
+✔ entry points register every sim def and view while leaving freeze to the orchestrator (4.652137ms)
+✔ a second complete sim or view registration throws before freeze (0.924946ms)
+✔ registryHash is stable across fresh registrations and independent of view registration (3.41613ms)
+✔ every weapon folder has exactly one import line and one registration call in each index (1.067992ms)
+✔ real core plugins boot deterministic duel sims and their cannon fires, lands and damages blocks (95.977741ms)
+✔ cannon validates and preserves every cannon tuning input (0.333229ms)
+✔ cannon view describes the kit node hierarchy, muzzle and Lambert materials (0.957092ms)
+✔ cannon and its view register through contracts and reject a second registration (0.32417ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 177.233561

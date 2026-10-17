@@ -1,0 +1,47 @@
+✖ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (69.790289ms)
+ℹ level 10: 98/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,4,5,5,5
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (98.77688ms)
+ℹ level 1: 0/400 hits; 20/20 seeds never hit within 20 shots
+✖ tests/unit/ai-aim.test.js (0.080104ms)
+✔ entry signature returns integer next-tick commands only on staggered AI cadence (1.182921ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (0.856856ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (2.158423ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (0.609637ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 192.895927
+
+✖ failing tests:
+
+test at tests/unit/ai-accuracy.test.js:46:1
+✖ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (69.790289ms)
+  AssertionError [ERR_ASSERTION]: majority of all 200 shots hit
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-accuracy.test.js:53:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+✖ tests/unit/ai-aim.test.js (0.080104ms)
+  file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:4
+  import { geometryAim, createAimMemory, aimShot, recordAim, observeImpact, windChanged, aimNoise } from '../../src/ai/aim.js';
+                                                  ^^^^^^^^^
+  SyntaxError: The requested module '../../src/ai/aim.js' does not provide an export named 'recordAim'
+      at #_instantiate (node:internal/modules/esm/module_job:254:21)
+      at async ModuleJob.run (node:internal/modules/esm/module_job:369:5)
+      at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+      at async node:internal/test_runner/runner:823:15
+      at async runFiles (node:internal/test_runner/runner:789:9)
+      at async runChain (node:internal/test_runner/runner:864:5)

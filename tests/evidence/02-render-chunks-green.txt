@@ -1,0 +1,15 @@
+✔ a 48x24x48 plot is 3x2x3 = 18 chunks, all dirty on add (2.354894ms)
+✔ update remeshes at most maxPerFrame (2) chunks per call (26.812332ms)
+✔ flush meshes everything; empty chunks get no mesh (12.82861ms)
+✔ markCell dirties the chunk and every chunk within one cell (AO and culling reach) (15.819924ms)
+✔ update picks the dirty chunk nearest the focus first (14.912254ms)
+✔ chunk meshes sit at the plot origin and vanish when emptied (6.965212ms)
+✔ test scene: two castles 192 m apart, deterministic, with palace core and cannon mounts (12.097709ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 270.105624

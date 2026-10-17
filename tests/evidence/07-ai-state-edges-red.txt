@@ -1,0 +1,112 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (6.016729ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (0.999608ms)
+✔ lost blueprint weapons are replaced on free mount spots only when cost plus reserve fits (1.027143ms)
+✖ replacement understands public world positions and counts pending same-type replacements (2.335657ms)
+✔ entry signature returns integer next-tick commands only on staggered AI cadence (13.254056ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (6.85168ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (10.348107ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (2.878521ms)
+✖ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (2.494647ms)
+✖ wind change rolls back learning even when an impact arrives on the same think (2.933069ms)
+✖ target loss triggers immediate retarget and visible moving targets update their aim (8.711725ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (2.857125ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 8
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.993267
+
+✖ failing tests:
+
+test at tests/unit/ai-build.test.js:57:1
+✖ replacement understands public world positions and counts pending same-type replacements (2.335657ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  -   4,
+      2,
+      2,
+  +   2
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-build.test.js:64:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-controller.test.js:76:1
+✖ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (2.494647ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:81:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-controller.test.js:92:1
+✖ wind change rolls back learning even when an impact arrives on the same think (2.933069ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:99:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-controller.test.js:102:1
+✖ target loss triggers immediate retarget and visible moving targets update their aim (8.711725ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(moved.some(c => c.type === CMD.AIM))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:110:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,13 @@
+✔ i18n: every key exists in every language and t() formats params (1.265491ms)
+✔ font has a glyph for every character the UI needs (0.350197ms)
+✔ every glyph has consistent rows and draws pixels (except space) (0.825579ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (4.10213ms)
+✔ rasterize is deterministic and distinguishes glyphs (0.461036ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.022749

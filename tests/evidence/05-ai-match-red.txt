@@ -1,0 +1,35 @@
+✖ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (5.478626ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41.920254
+
+✖ failing tests:
+
+test at tests/unit/ai-match.test.js:51:1
+✖ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (5.478626ms)
+  ContractError: castle "west": field "population" must be an integer in 20..80 (got 0)
+      at fail (file:///home/tobias/Projects/castle-game/src/contracts.js:263:33)
+      at Object.int (file:///home/tobias/Projects/castle-game/src/contracts.js:283:7)
+      at validateCastlePlugin (file:///home/tobias/Projects/castle-game/src/contracts.js:477:5)
+      at registerPlugin (file:///home/tobias/Projects/castle-game/src/contracts.js:713:3)
+      at Module.registerCastle (file:///home/tobias/Projects/castle-game/src/contracts.js:747:40)
+      at content (file:///home/tobias/Projects/castle-game/tests/unit/ai-match.test.js:37:7)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-match.test.js:52:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+✔ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (1122.274881ms)
+ℹ seed 1 winner 0, 4925 ticks (164.16666666666666s), shots 8/8, hash 2204776966
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1192.920747

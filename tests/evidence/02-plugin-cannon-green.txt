@@ -1,0 +1,11 @@
+✔ cannon validates and preserves every cannon tuning input (2.54266ms)
+✔ cannon view describes the kit node hierarchy, muzzle and Lambert materials (0.68551ms)
+✔ cannon and its view register through contracts and reject a second registration (2.692556ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28.654053

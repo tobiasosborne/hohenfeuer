@@ -1,0 +1,14 @@
+✔ starter castle validates, fits the plot, and has exact east/west geometry symmetry (8.105202ms)
+✔ starter castle has a palace core, four towers, magazine prefab and two cannon mounts (2.577597ms)
+✔ courtyard markers and both six-step north-facing rampart stairs have clearance (0.548964ms)
+✔ every castle block connects to the foundation through six-neighbour support (9.448984ms)
+✔ both timber houses have level entrances and two-cell interior clearance (0.877674ms)
+✔ starter castle loads through Lane A castle-load with exact block hp and placements (13.64071ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.142202

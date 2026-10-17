@@ -1,0 +1,74 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-aim.test.js (153.039886ms)
+✔ tests/unit/ai-build.test.js (123.170131ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/ai/controller.js' imported from /home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/ai/controller.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ai-controller.test.js (157.22205ms)
+✔ tests/unit/ai-slots.test.js (212.099051ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/ai/targets.js' imported from /home/tobias/Projects/castle-game/tests/unit/ai-targets.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/ai/targets.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ai-targets.test.js (88.760822ms)
+✔ tests/unit/contracts.test.js (233.692003ms)
+✔ tests/unit/plugin-blocks.test.js (128.400753ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (183.907276ms)
+✔ tests/unit/rules-cleanroom.test.js (3097.233615ms)
+✔ tests/unit/rules-purity.test.js (197.332535ms)
+✔ tests/unit/sim-ballistics.test.js (604.771894ms)
+✔ tests/unit/sim-core.test.js (129.86403ms)
+✔ tests/unit/sim-damage.test.js (195.686865ms)
+✔ tests/unit/sim-engine.test.js (10057.479171ms)
+✔ tests/unit/sim-ruler.test.js (236.3597ms)
+✔ tests/unit/sim-world.test.js (335.421883ms)
+✔ tests/unit/smoke.test.js (184.340703ms)
+✔ tests/unit/tuning.test.js (165.021892ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 16
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10238.031599
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:1:1
+✖ tests/unit/ai-controller.test.js (157.22205ms)
+  'test failed'
+
+test at tests/unit/ai-targets.test.js:1:1
+✖ tests/unit/ai-targets.test.js (88.760822ms)
+  'test failed'

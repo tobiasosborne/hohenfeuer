@@ -1,0 +1,13 @@
+✔ zero wind k=0 semi-implicit flight is within 0.5% of analytic range (6.008944ms)
+✔ straight and lobbed range tables are monotonic and invert the dial within 0.1 (15.10454ms)
+✔ 15 m/s crosswind at 192 m meets all three drift targets within 25% (10.905195ms)
+✔ wind walk replays seed, respects strength and preserves previous arrow per slot (315.974464ms)
+✔ launch convention is north=-z, east=+x and elevations are degrees (0.468924ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 389.089542

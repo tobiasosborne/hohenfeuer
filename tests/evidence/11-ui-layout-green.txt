@@ -1,0 +1,14 @@
+✔ every rect is integer, non-empty and inside 1024 x 768 (1.986417ms)
+✔ DESIGN 7.5 anchor values (+-4 px) (0.369907ms)
+✔ top-level HUD elements do not overlap each other (0.499921ms)
+✔ console children lie inside the console and do not overlap (0.423492ms)
+✔ letterbox scale and inverse mapping (1.587903ms)
+✔ hitTest finds weapon-view controls (0.530997ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.37915

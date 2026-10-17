@@ -1,0 +1,23 @@
+✔ zero wind k=0 semi-implicit flight is within 0.5% of analytic range (6.309206ms)
+✔ straight and lobbed range tables are monotonic and invert the dial within 0.1 (18.457186ms)
+✔ 15 m/s crosswind at 192 m meets all three drift targets within 25% (15.052346ms)
+✔ wind walk replays seed, respects strength and preserves previous arrow per slot (433.656155ms)
+✔ launch convention is north=-z, east=+x and elevations are degrees (0.533813ms)
+✔ fmath agrees with reference values over the simulation domain (4.233337ms)
+✔ seeded streams replay, fork independently, and restore state (4.475846ms)
+✔ canonical FNV hashes typed bytes, object keys and entities in id order (1.37029ms)
+✔ fixed-step loop clamps elapsed time, caps work and pauses visibility (1.402129ms)
+✔ plot storage has DESIGN indexing, indestructible foundation and coordinate transforms (1.928807ms)
+✔ DDA never tunnels a 1 m wall in 10,000 seeded 150 m/s segments (72.726151ms)
+✔ DDA handles outside starts, reverse rays, starts inside, zero rays and corner ties (0.528606ms)
+✔ ASCII castle loader resolves legend data and retains plot placements (1.493682ms)
+✔ terrain is seeded, bilinear, flat under plots and skirt is continuous (37.548935ms)
+✔ cut tower collapses with a resumable budget; a remote foundation path stays supported (3.677464ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 675.589124

@@ -1,0 +1,15 @@
+✔ direct plus linear splash is floored in index order and foundation survives (8.424623ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (1.445892ms)
+✔ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (1.677358ms)
+✔ economy applies palace and civilian income and caps gold (0.707224ms)
+✔ ruler cannot fit a one-high gap or tunnel a wall (18.280391ms)
+✔ ruler climbs two-box stairs and ladder with forward input (7.304487ms)
+✔ shooting away a floor makes the ruler fall and take height-based damage (6.381439ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151.454561

@@ -1,0 +1,12 @@
+✔ cannon reloads, fires atomically and pays exactly once per shot (7.829913ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (5367.518326ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (10.135977ms)
+✔ a cannonball through the opposing ruler eliminates its castle (18.35857ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5433.510976

@@ -1,0 +1,12 @@
+✔ all fourteen core blocks validate and use the shared ids and tuning (3.434327ms)
+✔ blocks distinguish walking, climbing, shots and structural support (1.27966ms)
+✔ kit v0 block views validate with flat colours and named damage states (1.483098ms)
+✔ core block and block view registrations reject duplicates (0.55686ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28.383498

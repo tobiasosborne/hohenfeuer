@@ -1,0 +1,21 @@
+✔ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (79.230488ms)
+ℹ level 10: 129/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,4
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (115.607595ms)
+ℹ level 1: 0/400 hits; 20/20 seeds never hit within 20 shots
+✔ geometry obeys north/east dial semantics and clamps through the production table (0.185132ms)
+✔ published crosswind is compensated using the production integrator (0.505966ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (0.205489ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (0.372227ms)
+✔ correction starts from actual fired settings including the previous exploration error (0.157812ms)
+✔ entry signature returns integer next-tick commands only on staggered AI cadence (1.698129ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (1.289321ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (2.529645ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (0.891703ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 229.828141

@@ -1,0 +1,38 @@
+✔ starter castle validates, fits the plot, and has exact east/west geometry symmetry (12.817441ms)
+✔ starter castle has a palace core, four towers, magazine prefab and two cannon mounts (4.327709ms)
+✔ courtyard markers and both six-step north-facing rampart stairs have clearance (1.027921ms)
+✔ every castle block connects to the foundation through six-neighbour support (12.231153ms)
+✖ both timber houses have level entrances and two-cell interior clearance (2.04508ms)
+✔ starter castle loads through Lane A castle-load with exact block hp and placements (13.289371ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.077875
+
+✖ failing tests:
+
+test at tests/unit/plugin-castle.test.js:110:1
+✖ both timber houses have level entrances and two-cell interior clearance (2.04508ms)
+  AssertionError [ERR_ASSERTION]: feet at 14,1,30
+  
+  false !== true
+  
+      at assertStandable (file:///home/tobias/Projects/castle-game/tests/unit/plugin-castle.test.js:22:10)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/plugin-castle.test.js:112:68)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

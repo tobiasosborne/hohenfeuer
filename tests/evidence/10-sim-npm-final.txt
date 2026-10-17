@@ -1,0 +1,119 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-aim.test.js (169.417864ms)
+✔ tests/unit/ai-build.test.js (130.447328ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/ai/controller.js' imported from /home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/ai/controller.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ai-controller.test.js (89.535253ms)
+✔ tests/unit/ai-slots.test.js (101.347795ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/ai/targets.js' imported from /home/tobias/Projects/castle-game/tests/unit/ai-targets.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/ai/targets.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ai-targets.test.js (76.405219ms)
+✔ tests/unit/contracts.test.js (172.889706ms)
+✔ tests/unit/plugin-blocks.test.js (174.616268ms)
+✔ tests/unit/plugin-castle.test.js (323.313921ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (171.809808ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/render/mesher.js' imported from /home/tobias/Projects/castle-game/tests/unit/render-mesher.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/render/mesher.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/render-mesher.test.js (71.283497ms)
+✔ tests/unit/rules-cleanroom.test.js (1967.098078ms)
+✔ tests/unit/rules-purity.test.js (188.478164ms)
+✔ tests/unit/sim-ballistics.test.js (633.594219ms)
+✔ tests/unit/sim-core.test.js (194.203398ms)
+✔ tests/unit/sim-damage.test.js (193.692593ms)
+✔ tests/unit/sim-engine.test.js (13371.776985ms)
+✔ tests/unit/sim-ruler.test.js (213.3064ms)
+✔ tests/unit/sim-world.test.js (266.858615ms)
+✔ tests/unit/smoke.test.js (174.360257ms)
+✔ tests/unit/tuning.test.js (151.90798ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/player/commands.js' imported from /home/tobias/Projects/castle-game/tests/unit/ui-commands.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/player/commands.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ui-commands.test.js (94.20453ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 17
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13519.278298
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:1:1
+✖ tests/unit/ai-controller.test.js (89.535253ms)
+  'test failed'
+
+test at tests/unit/ai-targets.test.js:1:1
+✖ tests/unit/ai-targets.test.js (76.405219ms)
+  'test failed'
+
+test at tests/unit/render-mesher.test.js:1:1
+✖ tests/unit/render-mesher.test.js (71.283497ms)
+  'test failed'
+
+test at tests/unit/ui-commands.test.js:1:1
+✖ tests/unit/ui-commands.test.js (94.20453ms)
+  'test failed'

@@ -1,0 +1,20 @@
+✔ FACE_DIRS lists the six axis directions (0.85974ms)
+✔ a lone stone emits 6 quads in plot-local coordinates (0.786838ms)
+✔ faces between opaque neighbours are culled, also across chunk borders (0.363377ms)
+✔ non-opaque neighbours (floor slab, stairs, ladder, roof) do not cull (0.79371ms)
+✔ opacity is derived from model coverage (0.424037ms)
+✔ foundation layer: bottom faces below y=0 are culled by default (1.699434ms)
+✔ vertex AO darkens corners next to occluders and leaves open faces bright (0.616761ms)
+✔ sun term: an overhang shadows the top face only when the sun is above (0.339969ms)
+✔ damage states tint per TUNING (hp 20/40 is state 2 = 0.8) (0.640061ms)
+✔ modelFromTriangles classifies faces and detects full cubes (0.415532ms)
+✔ rotateModel turns a north-facing model clockwise by facing (0.329371ms)
+✔ meshing is deterministic and fast enough for a full wall chunk (13.704235ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.219807

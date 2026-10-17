@@ -1,0 +1,11 @@
+✔ no file under src/, assets/, dist/ references assets-ripped or downloads/ (6.961216ms)
+✔ no asset under assets/ is byte-identical to a file in assets-ripped/ (1147.247629ms)
+✔ pure modules contain no forbidden imports or globals (10.819858ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1185.862296

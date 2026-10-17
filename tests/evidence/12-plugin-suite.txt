@@ -1,0 +1,40 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (878.344033ms)
+✔ tests/unit/ai-aim.test.js (134.517464ms)
+✔ tests/unit/ai-build.test.js (83.740113ms)
+✔ tests/unit/ai-controller.test.js (140.797864ms)
+✔ tests/unit/ai-match.test.js (2739.717247ms)
+✔ tests/unit/ai-slots.test.js (88.14107ms)
+✔ tests/unit/ai-targets.test.js (103.42521ms)
+✔ tests/unit/contracts.test.js (202.934837ms)
+✔ tests/unit/plugin-blocks.test.js (119.811467ms)
+✔ tests/unit/plugin-castle.test.js (313.193375ms)
+✔ tests/unit/plugin-forest.test.js (168.918545ms)
+✔ tests/unit/plugin-registration.test.js (855.090487ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (151.654831ms)
+✔ tests/unit/render-chunks.test.js (386.52527ms)
+✔ tests/unit/render-mesher.test.js (399.821149ms)
+✔ tests/unit/rules-cleanroom.test.js (2611.775454ms)
+✔ tests/unit/rules-purity.test.js (238.064857ms)
+✔ tests/unit/sim-ballistics.test.js (644.64329ms)
+✔ tests/unit/sim-core.test.js (168.58812ms)
+✔ tests/unit/sim-damage.test.js (241.999948ms)
+✔ tests/unit/sim-engine.test.js (14999.736901ms)
+✔ tests/unit/sim-ruler.test.js (193.960104ms)
+✔ tests/unit/sim-world.test.js (477.051829ms)
+✔ tests/unit/smoke.test.js (105.629009ms)
+✔ tests/unit/tuning.test.js (301.272366ms)
+✔ tests/unit/ui-commands.test.js (408.461372ms)
+✔ tests/unit/ui-font.test.js (266.788201ms)
+✔ tests/unit/ui-layout.test.js (248.322317ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15358.068839

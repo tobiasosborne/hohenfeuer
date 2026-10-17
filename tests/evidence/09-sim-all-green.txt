@@ -1,0 +1,38 @@
+✔ zero wind k=0 semi-implicit flight is within 0.5% of analytic range (5.184306ms)
+✔ straight and lobbed range tables are monotonic and invert the dial within 0.1 (11.128499ms)
+✔ 15 m/s crosswind at 192 m meets all three drift targets within 25% (9.924121ms)
+✔ wind walk replays seed, respects strength and preserves previous arrow per slot (319.53225ms)
+✔ launch convention is north=-z, east=+x and elevations are degrees (0.390248ms)
+✔ fmath agrees with reference values over the simulation domain (4.034433ms)
+✔ seeded streams replay, fork independently, and restore state (3.813596ms)
+✔ canonical FNV hashes typed bytes, object keys and entities in id order (1.036244ms)
+✔ fixed-step loop clamps elapsed time, caps work and pauses visibility (2.02588ms)
+✔ direct plus linear splash is floored in index order and foundation survives (3.687768ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (1.836933ms)
+✔ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (1.233094ms)
+✔ economy applies palace and civilian income and caps gold (3.56354ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (0.415024ms)
+✔ cannon reloads, fires atomically and pays exactly once per shot (33.908525ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (10939.444579ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (10.89673ms)
+✔ a cannonball through the opposing ruler eliminates its castle (20.491296ms)
+✔ firing publishes the calm prediction and restores the last fired aim (9.744205ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (2628.879847ms)
+✔ ruler cannot fit a one-high gap or tunnel a wall (1.979685ms)
+✔ ruler climbs two-box stairs and ladder with forward input (0.721291ms)
+✔ shooting away a floor makes the ruler fall and take height-based damage (0.581732ms)
+✔ plot storage has DESIGN indexing, indestructible foundation and coordinate transforms (0.162046ms)
+✔ DDA never tunnels a 1 m wall in 10,000 seeded 150 m/s segments (19.987602ms)
+✔ DDA handles outside starts, reverse rays, starts inside, zero rays and corner ties (0.236435ms)
+✔ ASCII castle loader resolves legend data and retains plot placements (0.42398ms)
+✔ terrain is seeded, bilinear, flat under plots and skirt is continuous (11.556211ms)
+✔ cut tower collapses with a resumable budget; a remote foundation path stays supported (1.069998ms)
+✔ odd-origin plot skirts meet the flat interior continuously (2.091823ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14124.475172
