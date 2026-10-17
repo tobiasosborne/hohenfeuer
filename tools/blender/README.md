@@ -183,3 +183,75 @@ layers when assigning data. Operators here use `bpy.context.temp_override`.
 Headless EEVEE on this machine prints `EGL_BAD_MATCH` warnings while falling back
 to a working software context. Successful PNG writes and repeat checks verify
 the render path; these Blender frames do not certify browser SwiftShader.
+
+## Kit v1: original authored skins and cannon
+
+```bash
+/home/tobias/Apps/blender-4.5.14-linux-x64/blender -b --python-exit-code 1 \
+  --python tools/blender/kit_v1.py
+python3 -I tools/blender/verify_kit_v1.py
+node --test tests/unit/rules-cleanroom.test.js
+/home/tobias/Apps/blender-4.5.14-linux-x64/blender -b --python-exit-code 1 \
+  --python tools/blender/compare_v1.py
+```
+
+`kit_v1.py` has no reference-art inputs. It builds all geometry from metric
+primitives and runs `kit_v1_textures.py` to paint deterministic texels with
+host Python, Pillow and NumPy. It writes **only `assets/kit-v1/`**; kit v0 stays
+available. `--no-render` skips thumbnails for geometry development. All bpy
+entry points enforce Blender 4.5.14. The standalone acceptance checker imports
+`validate_glb.py` and validates every exported GLB, including actual transformed
+vertex bounds, 96-triangle block budgets, the 1.4 m high / 2.6 m long cannon,
+the 1.75 m humanoid and articulation names.
+
+The fourteen IDs/keys and existing manifest fields are retained. Each block has
+an intact `<key>.glb` and `_z1`, `_z2`, `_z3` files. The unsuffixed file is z0;
+there is no redundant `_z0` copy. Cubes lose a chipped corner in z1 and actual
+half-cell masonry chunks in z2/z3. Thin panels and wedges have increasingly
+clipped corners; ladders lose rungs. All variants have procedural branching
+cracks and 0.9/0.8/0.7 vertex tint. Air remains an invisible inspection proxy.
+Damage selection remains the renderer integration owner's responsibility.
+
+The shared atlas is **4096x4096, 256px tiles, 8px edge gutters**, with 240px of
+paint per tile. This increases the v0 atlas resolution to preserve the requested
+256px face sets. Each type/state occupies four tiles: side, north/front, top,
+bottom. Their indices and variant filenames are manifest metadata. The floor's
+top is walkway flagstone and its underside is timber. Gates and magazines have
+north-facing iron-bound timber details. Tower bands and palace window/ivy
+motifs use original painted linework. Red roofs use overlapping scallop tiles.
+
+Block GLBs have **two UV channels**: `TEXCOORD_0` addresses the shared atlas
+consumed by `src/render/assets.js`; `TEXCOORD_1` addresses an embedded compact
+1024x256 face strip. The glTF material selects channel 1. This keeps standalone
+GLB previews correct without embedding a 4096px atlas 56 times. The strips are
+also saved in `textures/`. Materials retain v0's base-only, unlit + baked-colour
+contract. Cannon and person use their own 512px and 256px atlases respectively.
+
+The cannon node tree is `Base -> Yaw -> Pitch -> barrel/Muzzle`, with `Sight`
+under `Yaw`; the other named meshes are `frame` and `turntable`. Yaw is 0.16 m
+above ground. Pitch is at the trunnion **(0, 1.07, -0.15)** in game metres;
+the neutral muzzle is **(0, 1.07, -1.60)**. Forward is -Z, elevation rotates
+around local +X and the renderer supplies its existing negative-Y yaw rotation.
+The carriage, wheels and axle move with Yaw; the barrel and trunnions move with
+Pitch. The `person` placeholder is unrigged, red crew tunic, relaxed A-pose.
+
+`render_v1.py` uses CPU Cycles (8 samples, deterministic seed, no denoising)
+because EEVEE's EGL context stalls in this restricted worker. It preserves
+`common.py`'s warm sun, explicit normal-weighted hemisphere, neutral Standard
+sRGB output and no realtime shadows. These are inspection renders, not browser
+SwiftShader goldens. `thumbs/contact-sheet.png` shows the 16 intact assets;
+`thumbs/damage-contact-sheet.png` shows the four states for all fourteen IDs.
+
+Reference evidence is a separate process: **`compare_v1.py` never exports a
+mesh and writes only `assets-ripped/compare-v1/`**. It imports original OBJ/MTL
+data into tagged ReferenceOnly collections and imports the already-generated
+authored GLBs for the other panel. Each 1536x656 strip has the original on the
+left and the authored result on the right. Building context and 1 m skins are
+fitted independently and labelled accordingly; the cannon uses one 4.1 m
+orthographic height for both panels. The original cannon's barrel and turntable
+placement is a preview-only inference because the ripped parts have separate
+origins and no recovered hierarchy. No matching humanoid or air mesh exists;
+their reference panels explicitly state that absence. `renders.json` records
+source hashes, bounds, camera scales and timings. `--only cannon stone tower
+palace` is useful during review and preserves other existing index records;
+run without `--only` to generate the full index from scratch.

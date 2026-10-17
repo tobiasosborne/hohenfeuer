@@ -1,0 +1,1179 @@
+{
+  "results": [
+    {
+      "file": "air.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "air_z1.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "air_z2.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "air_z3.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stone.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stone_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stone_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stone_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "tower.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "tower_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "tower_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "tower_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "gate.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "gate_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "gate_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "gate_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "wood.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "wood_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "wood_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "wood_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "floor.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.8199999928474426,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        0.18000000715255737,
+        1.0
+      ]
+    },
+    {
+      "file": "floor_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.8199999928474426,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        0.18000000715255737,
+        1.0
+      ]
+    },
+    {
+      "file": "floor_z2.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.8199999928474426,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        0.18000000715255737,
+        1.0
+      ]
+    },
+    {
+      "file": "floor_z3.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.8199999928474426,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        0.18000000715255737,
+        1.0
+      ]
+    },
+    {
+      "file": "stairs.glb",
+      "meshes": 1,
+      "triangles": 20,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stairs_z1.glb",
+      "meshes": 1,
+      "triangles": 24,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stairs_z2.glb",
+      "meshes": 1,
+      "triangles": 24,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "stairs_z3.glb",
+      "meshes": 1,
+      "triangles": 24,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "ladder.glb",
+      "meshes": 1,
+      "triangles": 84,
+      "bounds_min_m": [
+        -0.4000000059604645,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.4000000059604645,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.800000011920929,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "ladder_z1.glb",
+      "meshes": 1,
+      "triangles": 72,
+      "bounds_min_m": [
+        -0.4000000059604645,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.4000000059604645,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.800000011920929,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "ladder_z2.glb",
+      "meshes": 1,
+      "triangles": 60,
+      "bounds_min_m": [
+        -0.4000000059604645,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.4000000059604645,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.800000011920929,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "ladder_z3.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.4000000059604645,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.4000000059604645,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.800000011920929,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "door.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.44999998807907104,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.44999998807907104,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.8999999761581421,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "door_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.44999998807907104,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.44999998807907104,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.8999999761581421,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "door_z2.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.44999998807907104,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.44999998807907104,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.8999999761581421,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "door_z3.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.44999998807907104,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.44999998807907104,
+        1.0,
+        -0.4000000059604645
+      ],
+      "dimensions_m": [
+        0.8999999761581421,
+        1.0,
+        0.09999999403953552
+      ]
+    },
+    {
+      "file": "roof.glb",
+      "meshes": 1,
+      "triangles": 8,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "roof_z1.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "roof_z2.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "roof_z3.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "magazine.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "magazine_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "magazine_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "magazine_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "palace.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "palace_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "palace_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "palace_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "mount.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "mount_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "mount_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "mount_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "foundation.glb",
+      "meshes": 1,
+      "triangles": 12,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "foundation_z1.glb",
+      "meshes": 1,
+      "triangles": 16,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "foundation_z2.glb",
+      "meshes": 1,
+      "triangles": 48,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "foundation_z3.glb",
+      "meshes": 1,
+      "triangles": 40,
+      "bounds_min_m": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max_m": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_m": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "file": "cannon.glb",
+      "meshes": 3,
+      "triangles": 932,
+      "bounds_min_m": [
+        -0.7749999761581421,
+        0.0,
+        -1.6000000536441803
+      ],
+      "bounds_max_m": [
+        0.7749999761581421,
+        1.4000000953674316,
+        1.0
+      ],
+      "dimensions_m": [
+        1.5499999523162842,
+        1.4000000953674316,
+        2.6000000536441803
+      ]
+    },
+    {
+      "file": "person.glb",
+      "meshes": 1,
+      "triangles": 298,
+      "bounds_min_m": [
+        -0.3930000066757202,
+        0.0,
+        -0.18000000715255737
+      ],
+      "bounds_max_m": [
+        0.3930000066757202,
+        1.75,
+        0.14499999582767487
+      ],
+      "dimensions_m": [
+        0.7860000133514404,
+        1.75,
+        0.32500000298023224
+      ]
+    }
+  ],
+  "failures": [],
+  "seconds": 1.953,
+  "integrity": {
+    "reference_files_hashed": 16229,
+    "asset_files_hashed": 213,
+    "sha256_collisions": 0,
+    "forbidden_path_occurrences": 0,
+    "byte_limit": null,
+    "seconds": 3.577
+  },
+  "quality_gates": {
+    "glb_validator": "PASS 58/58",
+    "articulation_uv_scale_and_embedded_paint": "PASS",
+    "rules_cleanroom": "PASS"
+  }
+}

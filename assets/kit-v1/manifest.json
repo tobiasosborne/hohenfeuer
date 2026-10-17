@@ -1,0 +1,704 @@
+{
+  "blender": "4.5.14",
+  "units": "metres",
+  "up": "+Y",
+  "north": "-Z",
+  "seed": 1,
+  "bounds_min_m": [
+    -0.5,
+    0,
+    -0.5
+  ],
+  "bounds_max_m": [
+    0.5,
+    1,
+    0.5
+  ],
+  "atlas": {
+    "file": "atlas.png",
+    "size_px": 4096,
+    "tile_px": 256,
+    "gutter_px": 8
+  },
+  "provenance": "Independent hand-authored metric primitives and deterministic painted procedural texels; seed 1.",
+  "uv_contract": "TEXCOORD_0 addresses shared atlas; TEXCOORD_1 addresses compact embedded side/front/top/bottom face strip.",
+  "blocks": [
+    {
+      "id": 0,
+      "key": "air",
+      "mesh": "air.glb",
+      "thumbnail": "thumbs/air.png",
+      "triangles": 12,
+      "note": "Transparent empty-cell preview proxy.",
+      "damage_variants": [
+        "air_z1.glb",
+        "air_z2.glb",
+        "air_z3.glb"
+      ],
+      "damage_triangles": [
+        12,
+        12,
+        12
+      ],
+      "face_textures": "textures/air.png",
+      "atlas_tiles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "damage_atlas_tiles": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          12,
+          13,
+          14,
+          15
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "key": "stone",
+      "mesh": "stone.glb",
+      "thumbnail": "thumbs/stone.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "stone_z1.glb",
+        "stone_z2.glb",
+        "stone_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/stone.png",
+      "atlas_tiles": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "damage_atlas_tiles": [
+        [
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          24,
+          25,
+          26,
+          27
+        ],
+        [
+          28,
+          29,
+          30,
+          31
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "key": "tower",
+      "mesh": "tower.glb",
+      "thumbnail": "thumbs/tower.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "tower_z1.glb",
+        "tower_z2.glb",
+        "tower_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/tower.png",
+      "atlas_tiles": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "damage_atlas_tiles": [
+        [
+          36,
+          37,
+          38,
+          39
+        ],
+        [
+          40,
+          41,
+          42,
+          43
+        ],
+        [
+          44,
+          45,
+          46,
+          47
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "key": "gate",
+      "mesh": "gate.glb",
+      "thumbnail": "thumbs/gate.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "gate_z1.glb",
+        "gate_z2.glb",
+        "gate_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/gate.png",
+      "atlas_tiles": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "damage_atlas_tiles": [
+        [
+          52,
+          53,
+          54,
+          55
+        ],
+        [
+          56,
+          57,
+          58,
+          59
+        ],
+        [
+          60,
+          61,
+          62,
+          63
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "key": "wood",
+      "mesh": "wood.glb",
+      "thumbnail": "thumbs/wood.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "wood_z1.glb",
+        "wood_z2.glb",
+        "wood_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/wood.png",
+      "atlas_tiles": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "damage_atlas_tiles": [
+        [
+          68,
+          69,
+          70,
+          71
+        ],
+        [
+          72,
+          73,
+          74,
+          75
+        ],
+        [
+          76,
+          77,
+          78,
+          79
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "key": "floor",
+      "mesh": "floor.glb",
+      "thumbnail": "thumbs/floor.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "floor_z1.glb",
+        "floor_z2.glb",
+        "floor_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        16,
+        16
+      ],
+      "face_textures": "textures/floor.png",
+      "atlas_tiles": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "damage_atlas_tiles": [
+        [
+          84,
+          85,
+          86,
+          87
+        ],
+        [
+          88,
+          89,
+          90,
+          91
+        ],
+        [
+          92,
+          93,
+          94,
+          95
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "key": "stairs",
+      "mesh": "stairs.glb",
+      "thumbnail": "thumbs/stairs.png",
+      "triangles": 20,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "stairs_z1.glb",
+        "stairs_z2.glb",
+        "stairs_z3.glb"
+      ],
+      "damage_triangles": [
+        24,
+        24,
+        24
+      ],
+      "face_textures": "textures/stairs.png",
+      "atlas_tiles": [
+        96,
+        97,
+        98,
+        99
+      ],
+      "damage_atlas_tiles": [
+        [
+          100,
+          101,
+          102,
+          103
+        ],
+        [
+          104,
+          105,
+          106,
+          107
+        ],
+        [
+          108,
+          109,
+          110,
+          111
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "key": "ladder",
+      "mesh": "ladder.glb",
+      "thumbnail": "thumbs/ladder.png",
+      "triangles": 84,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "ladder_z1.glb",
+        "ladder_z2.glb",
+        "ladder_z3.glb"
+      ],
+      "damage_triangles": [
+        72,
+        60,
+        48
+      ],
+      "face_textures": "textures/ladder.png",
+      "atlas_tiles": [
+        112,
+        113,
+        114,
+        115
+      ],
+      "damage_atlas_tiles": [
+        [
+          116,
+          117,
+          118,
+          119
+        ],
+        [
+          120,
+          121,
+          122,
+          123
+        ],
+        [
+          124,
+          125,
+          126,
+          127
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "key": "door",
+      "mesh": "door.glb",
+      "thumbnail": "thumbs/door.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "door_z1.glb",
+        "door_z2.glb",
+        "door_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        16,
+        16
+      ],
+      "face_textures": "textures/door.png",
+      "atlas_tiles": [
+        128,
+        129,
+        130,
+        131
+      ],
+      "damage_atlas_tiles": [
+        [
+          132,
+          133,
+          134,
+          135
+        ],
+        [
+          136,
+          137,
+          138,
+          139
+        ],
+        [
+          140,
+          141,
+          142,
+          143
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "key": "roof",
+      "mesh": "roof.glb",
+      "thumbnail": "thumbs/roof.png",
+      "triangles": 8,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "roof_z1.glb",
+        "roof_z2.glb",
+        "roof_z3.glb"
+      ],
+      "damage_triangles": [
+        12,
+        12,
+        12
+      ],
+      "face_textures": "textures/roof.png",
+      "atlas_tiles": [
+        144,
+        145,
+        146,
+        147
+      ],
+      "damage_atlas_tiles": [
+        [
+          148,
+          149,
+          150,
+          151
+        ],
+        [
+          152,
+          153,
+          154,
+          155
+        ],
+        [
+          156,
+          157,
+          158,
+          159
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "key": "magazine",
+      "mesh": "magazine.glb",
+      "thumbnail": "thumbs/magazine.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "magazine_z1.glb",
+        "magazine_z2.glb",
+        "magazine_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/magazine.png",
+      "atlas_tiles": [
+        160,
+        161,
+        162,
+        163
+      ],
+      "damage_atlas_tiles": [
+        [
+          164,
+          165,
+          166,
+          167
+        ],
+        [
+          168,
+          169,
+          170,
+          171
+        ],
+        [
+          172,
+          173,
+          174,
+          175
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "key": "palace",
+      "mesh": "palace.glb",
+      "thumbnail": "thumbs/palace.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "palace_z1.glb",
+        "palace_z2.glb",
+        "palace_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/palace.png",
+      "atlas_tiles": [
+        176,
+        177,
+        178,
+        179
+      ],
+      "damage_atlas_tiles": [
+        [
+          180,
+          181,
+          182,
+          183
+        ],
+        [
+          184,
+          185,
+          186,
+          187
+        ],
+        [
+          188,
+          189,
+          190,
+          191
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "key": "mount",
+      "mesh": "mount.glb",
+      "thumbnail": "thumbs/mount.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "mount_z1.glb",
+        "mount_z2.glb",
+        "mount_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/mount.png",
+      "atlas_tiles": [
+        192,
+        193,
+        194,
+        195
+      ],
+      "damage_atlas_tiles": [
+        [
+          196,
+          197,
+          198,
+          199
+        ],
+        [
+          200,
+          201,
+          202,
+          203
+        ],
+        [
+          204,
+          205,
+          206,
+          207
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "key": "foundation",
+      "mesh": "foundation.glb",
+      "thumbnail": "thumbs/foundation.png",
+      "triangles": 12,
+      "note": "One metric cell; north-facing details; variants derive from hp quartiles.",
+      "damage_variants": [
+        "foundation_z1.glb",
+        "foundation_z2.glb",
+        "foundation_z3.glb"
+      ],
+      "damage_triangles": [
+        16,
+        48,
+        40
+      ],
+      "face_textures": "textures/foundation.png",
+      "atlas_tiles": [
+        208,
+        209,
+        210,
+        211
+      ],
+      "damage_atlas_tiles": [
+        [
+          212,
+          213,
+          214,
+          215
+        ],
+        [
+          216,
+          217,
+          218,
+          219
+        ],
+        [
+          220,
+          221,
+          222,
+          223
+        ]
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "key": "cannon",
+      "mesh": "cannon.glb",
+      "triangles": 932,
+      "atlas": "cannon-atlas.png",
+      "thumbnail": "thumbs/cannon.png",
+      "dimensions_m": [
+        1.55,
+        1.4,
+        2.6
+      ],
+      "parts": [
+        "frame",
+        "turntable",
+        "barrel"
+      ],
+      "nodes": [
+        "Base",
+        "Yaw",
+        "Pitch",
+        "Muzzle",
+        "Sight"
+      ],
+      "trunnion_m": [
+        0,
+        1.07,
+        -0.15
+      ],
+      "muzzle_m": [
+        0,
+        1.07,
+        -1.6
+      ]
+    }
+  ],
+  "people": [
+    {
+      "key": "person",
+      "mesh": "person.glb",
+      "triangles": 298,
+      "height_m": 1.75,
+      "atlas": "person-atlas.png",
+      "thumbnail": "thumbs/person.png",
+      "rigged": false
+    }
+  ]
+}
