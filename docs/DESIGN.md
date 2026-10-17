@@ -197,7 +197,7 @@ No tunnelling at any speed. Projectiles die after 30 s, below y = -50, or outsid
   (shown as `floor(range/10)`). "Higher = further" holds exactly (EN p.28); tutorial values
   038-057 map to 190-285 m, our duel distance is 192 m = 038. Arrow tap 0.2 units (1 m), Ctrl
   2 units (10 m), drag 0.05 units per px.
-- At `freezeRegistries()` each weapon builds a monotonic table range(elevation) with this same
+- At `createSim` (cached per registry hash) each weapon gets a monotonic table range(elevation) with this same
   integrator (launch height = landing height, w = 0) at 0.25 deg steps over its elevation band;
   dial -> elevation by binary search + linear interpolation. Straight weapons use the low branch
   (-5..+25 deg), lobbed weapons the high branch (80 -> 45 deg, range grows as elevation drops).
@@ -284,7 +284,7 @@ hp, palace-destroyed threshold, direct damage, income. Measured by the headless 
 
 ### 4.1 Population and roles
 
-Default population P = 40 per castle (map setting 20-80). Role is a tag, not a class.
+Default population P = 40 per castle (`CastleDef.population`, 20-80). Role is a tag, not a class.
 
 | role | share | count at 40 | jobs | speed m/s | flee threshold |
 |---|---|---|---|---|---|
@@ -589,19 +589,24 @@ change, map, biome).
 registries:
 
 ```
-registerBlock(def)    registerWeapon(def)    registerNpcType(def)
-registerMap(def)      registerCastle(def)    registerBiome(def)    registerSpell(def) // reserved
-registerBlockView(key, view)  registerWeaponView(id, view)  registerNpcView(id, view)
-registerBiomeView(id, view)
-freezeRegistries() -> registryHash   getBlock(id) getWeapon(id) ...   (read-only after freeze)
+registerPlugin(kind, def)   registerView(kind, id, view)          // kind: PLUGIN_KIND
+registerBlock registerWeapon registerNpcType registerCastle registerMap registerBiome
+registerSpell (reserved: always throws)
+registerBlockView(key, v) registerWeaponView(id, v) registerNpcView(id, v) registerBiomeView(id, v)
+validate{Block,Weapon,NpcType,Castle,Map,Biome}Plugin(def)   validate{Block,Weapon,Npc,Biome}View(id, v)
+validateCommand(cmd) (fields per CMD_FIELDS)   validateSlot(slot)   ContractError
+freezeRegistries() -> registryHash   isFrozen()   registryHash()
+getBlock(id) getBlockByKey(key) getWeapon getNpcType getCastle getMap getBiome getView(kind, id)
+listPlugins(kind)   resetRegistriesForTests()                      // tests only
 ```
 
 Each plugin is a folder with a pure `*.sim.js` (registers the sim def; imports only
 `src/contracts.js`) and an optional `*.view.js` (registers the view; may import three).
 `src/plugins/index.sim.js` and `src/plugins/index.view.js` import every plugin, one line each.
 Node tests import only `index.sim.js`. Registration validates required fields and throws on
-duplicates or unknown keys. Lifecycle: import index files -> `freezeRegistries()` (precomputes
-range tables, returns the registry hash) -> `createSim` -> ticks -> `dispose`.
+duplicates or unknown keys. Lifecycle: import index files -> `freezeRegistries()` (cross-checks
+references such as castle legend keys, map castles and biomes, views without defs; returns the
+registry hash over sim defs only) -> `createSim` (builds range tables) -> ticks -> `dispose`.
 
 ### 8.2 The sim API handed to hooks (`SimApi`, no three.js, deterministic)
 
@@ -633,6 +638,7 @@ WeaponDef {
   cost, hp, reloadS, crewSlots, fireCost, ammoLoads: 1,
   traj: TRAJ.STRAIGHT | TRAJ.LOBBED, elevDeg: [min, max], v0, k, scatter: { azDeg, vFrac },
   shot: { count, intervalS, spreadDeg, radius, direct, splash, splashRadius, ignite, pierce },
+  variantOf?: 'catapult',              // data variants (Long John etc.)
   onFire?(api, weapon) -> handled?     // default: spawn `count` projectiles per `shot`
   onImpact?(api, proj, hit)            // default: api.applyBlast from `shot`
   onTick?(api, weapon)
@@ -641,27 +647,28 @@ WeaponView { model: 'assets/weapons/cannon.glb', nodes: { yaw, pitch, muzzle, si
   fx: { muzzle, trail, impact }, sfx: { fire, impact },
   create?(ctx) -> { update(weaponState, alpha), dispose() } }   // ctx = { THREE, scene, assets, fx }
 
-NpcTypeDef { id: 'gunner', role: ROLE.CREW, hp: 100, speed: 3.0, carrySpeed: 2.0,
+NpcTypeDef { id: 'gunner', name?, role: ROLE.CREW, hp: 100, speed: 3.0, carrySpeed: 2.0,
   climbSpeed: 1.0, jobs: [JOB.CREW, JOB.HAUL_AMMO], flee: { base: 10, spread: 10 },
   workMul: 1.0, share: 0.4, pickJob?(api, npc, jobs) -> jobId | null }
 NpcView { model, tint, clips: { idle, walk, run, carry, work, climb, die }, billboard }
 
-CastleDef { id, size: [w, h, d], legend: { '#': 'stone', 'T': 'tower', ... },
+CastleDef { id, name?, size: [w, h, d], legend: { '#': 'stone', 'T': 'tower', ... },
   layers: [ [ 'row z0', 'row z1', ... ] /* y = 1 */, ... ],      // ASCII, one string per z row
   weapons: [{ id, at: [x, y, z], facing }], mountSpots: [[x, y, z, facing]],
   shelters: [[x0, y0, z0, x1, y1, z1]], workSpots: [[x, y, z]], exit: [x, y, z],
-  rulerSpawn: [x, y, z], throne: [x, y, z], population: 40 }
-MapDef { id, name: { de, en }, biome, size: [x, z], slots: [{ origin: [x, y, z], facingDeg,
-  castle }], terrain: { amp, octaves, ridge: { height, axis } }, water: { y } | null,
+  rulerSpawn: [x, y, z], throne: [x, y, z], population: 40 }   // castle-local x 0..w-1, y 1..h, z 0..d-1
+                                                    // block cost null is allowed only with mapOnly
+MapDef { id, name: { de, en }, biome, size: [x, z], slots: [{ origin: [x, y, z] /* plot min
+  corner, plots may not overlap */, facingDeg, castle }], terrain: { amp, octaves, ridge: { height, axis } }, water: { y } | null,
   wind: { strength, change }, startGold, weaponCap, suddenDeathS: null }
 BiomeDef { id, terrainPalette, props }   BiomeView { sky, fog, sun, hemi, atlas, props }
 SpellDef (reserved) { id, cost, durationS, cooldownS, onCast(api, slot, target), onTick, onEnd }
+Command { type: CMD, slot, tick, seq, ...CMD_FIELDS[type] }   // integers; cells plot-local
 ```
 
 Renderer calls: `view.create(ctx)` once per entity, `update(state, alpha)` per frame,
 `dispose()` on removal; it reads sim state only through `sim.state` snapshots and events.
-Sim calls: precompute at `freezeRegistries()` (range tables), `onFire`, `onImpact`, `onTick`,
-`onDestroyed`, `pickJob`.
+Sim calls: `onFire`, `onImpact`, `onTick`, `onDestroyed`, `pickJob`.
 A new weapon = one folder (`plugins/weapons/<id>/<id>.sim.js`, `<id>.view.js`, GLB) + one line in
 each index + passing `tests/unit/plugin-weapon-conformance.test.js` (fires, lands, damages,
 range table monotonic, all fields valid).
@@ -671,8 +678,8 @@ range table monotonic, all fields valid).
 ## 9. Module map and ownership
 
 Pure = no DOM/three/clock/random; testable with `node --test` (`tests/unit/*.test.js`). Test
-file prefixes: lane A `sim-`, B `npc-`, C `ai-`, D `render-`, E `ui-`, F `plugin-`, orchestrator
-`rules-` and `contracts-`. IO = browser; tested with Playwright (`tests/browser.mjs`, goldens).
+file prefixes: lane A `sim-`, B `npc-`, C `ai-`, D `render-`, E `ui-`, F `plugin-`; orchestrator
+`rules-`, `contracts`, `tuning`, `smoke`. IO = browser; tested with Playwright (`tests/browser.mjs`, goldens).
 
 ```
 src/contracts.js          orchestrator: enums, constants, typedefs, registries        pure
