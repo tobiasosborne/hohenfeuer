@@ -1,0 +1,60 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (2718.707857ms)
+✔ tests/unit/ai-aim.test.js (835.818585ms)
+✔ tests/unit/ai-build.test.js (181.617941ms)
+✔ tests/unit/ai-controller.test.js (1163.652358ms)
+✔ tests/unit/ai-match.test.js (8475.100127ms)
+✔ tests/unit/ai-slots.test.js (205.345252ms)
+✔ tests/unit/ai-targets.test.js (1066.518964ms)
+✔ tests/unit/contracts.test.js (364.44236ms)
+✔ tests/unit/npc-brain.test.js (3492.048228ms)
+✔ tests/unit/npc-fixture.test.js (228.807516ms)
+✔ tests/unit/npc-jobs.test.js (204.613262ms)
+✔ tests/unit/npc-morale.test.js (688.471644ms)
+✔ tests/unit/npc-path.test.js (190.028089ms)
+✔ tests/unit/npc-resilience.test.js (484.072377ms)
+✔ tests/unit/npc-sim.test.js (6192.543986ms)
+✔ tests/unit/plugin-blocks.test.js (325.536057ms)
+✔ tests/unit/plugin-castle.test.js (563.598836ms)
+✔ tests/unit/plugin-forest.test.js (345.920554ms)
+✔ tests/unit/plugin-registration.test.js (1368.846562ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (316.071839ms)
+✔ tests/unit/render-chunks.test.js (529.223567ms)
+✔ tests/unit/render-mesher.test.js (899.535997ms)
+✔ tests/unit/rules-cleanroom.test.js (4675.277636ms)
+✔ tests/unit/rules-purity.test.js (387.173753ms)
+✔ tests/unit/rules-tb1-boot.test.js (4853.892869ms)
+✔ tests/unit/rules-tb1.test.js (2630.349676ms)
+✔ tests/unit/sim-ballistics.test.js (593.114328ms)
+✔ tests/unit/sim-core.test.js (583.906438ms)
+✔ tests/unit/sim-damage.test.js (322.763236ms)
+✖ tests/unit/sim-engine.test.js (22678.682835ms)
+✔ tests/unit/sim-ruler.test.js (227.750744ms)
+✔ tests/unit/sim-world.test.js (620.56687ms)
+✔ tests/unit/smoke.test.js (223.041208ms)
+✔ tests/unit/tuning.test.js (616.066805ms)
+✔ tests/unit/ui-audio.test.js (152.177532ms)
+✔ tests/unit/ui-camera.test.js (361.555494ms)
+✔ tests/unit/ui-commands.test.js (697.306168ms)
+✔ tests/unit/ui-font.test.js (314.073215ms)
+✔ tests/unit/ui-hud.test.js (489.07176ms)
+✔ tests/unit/ui-input.test.js (278.288088ms)
+✔ tests/unit/ui-interact.test.js (265.307868ms)
+✔ tests/unit/ui-layout.test.js (280.963144ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 41
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24712.349279
+
+✖ failing tests:
+
+test at tests/unit/sim-engine.test.js:1:1
+✖ tests/unit/sim-engine.test.js (22678.682835ms)
+  'test failed'

@@ -1,0 +1,19 @@
+✔ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (560.138235ms)
+ℹ level 10: 131/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,4
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (582.117619ms)
+ℹ level 1: 0/400 hits; 20/20 seeds never hit within 20 shots
+✔ geometry obeys north/east dial semantics and clamps through the production table (1.89386ms)
+✔ published crosswind is compensated using the production integrator (14.032589ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (28.742122ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (1.39777ms)
+✔ correction starts from actual fired settings including the previous exploration error (0.994516ms)
+✔ TB2: fixed-elevation charge solver accounts for target height with wind (18.645993ms)
+✔ TB2: a ground impact past an elevated target does not create a false short-charge correction (10.764162ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1330.622394

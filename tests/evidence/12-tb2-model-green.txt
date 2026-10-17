@@ -1,0 +1,37 @@
+✔ TB2: native length/time conversion preserves gravity, K and quadratic C/M (5.748956ms)
+✔ zero-drag production flight agrees with the analytic parabola within 0.5% (9.231102ms)
+✔ TB2: range is charge at a fixed elevation, with monotonic invertible tables (116.088569ms)
+✔ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (1.127972ms)
+✔ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (46.984977ms)
+✔ wind changes retain previous direction per slot until its next shot or timeout (0.674028ms)
+✔ launch convention remains north=-z, east=+x with elevations in degrees (0.640703ms)
+✔ TB2: direct target excludes splash, collateral rounds upward, foundation survives (2.537079ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (0.811405ms)
+✔ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (1.017839ms)
+✔ economy applies palace and civilian income and caps gold (0.30385ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (0.26975ms)
+✔ TUNING is deep-frozen (0.978441ms)
+✔ every number in TUNING is finite (0.737251ms)
+✔ has the documented groups (0.19616ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (0.163204ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.109541ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.150964ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.118925ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.208177ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.119754ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.554671ms)
+✔ every weapon can reach the duel distance under production quadratic drag (6.735814ms)
+✔ npc role shares leave civilians and respect minimums (0.297233ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.219395ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.19788ms)
+✔ render and golden frame are 1024x768 (0.135955ms)
+✔ TB2: research/10 economy, prefab prices and corrected defence points (5.04649ms)
+✔ TB2: building blast radii retain original renderer footprints on voxel castles (research/11 2.4) (0.148578ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 259.851268

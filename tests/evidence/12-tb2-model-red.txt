@@ -1,0 +1,204 @@
+✖ TB2: native length/time conversion preserves gravity, K and quadratic C/M (3.751001ms)
+✔ zero-drag production flight agrees with the analytic parabola within 0.5% (3.076497ms)
+✖ TB2: range is charge at a fixed elevation, with monotonic invertible tables (5.084668ms)
+✖ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (0.46775ms)
+✖ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (0.7064ms)
+✔ wind changes retain previous direction per slot until its next shot or timeout (2.863447ms)
+✔ launch convention remains north=-z, east=+x with elevations in degrees (0.327918ms)
+✖ TB2: direct target excludes splash, collateral rounds upward, foundation survives (2.239389ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (0.874931ms)
+✔ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (1.336154ms)
+✔ economy applies palace and civilian income and caps gold (0.642328ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (0.409549ms)
+✔ TUNING is deep-frozen (1.339919ms)
+✔ every number in TUNING is finite (0.860507ms)
+✔ has the documented groups (0.227328ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (0.197348ms)
+✖ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.383453ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.31847ms)
+✖ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.359955ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.276523ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.168388ms)
+✖ weapon numbers match the manual (research/06 sections 1 and 10) (0.523775ms)
+✔ every weapon can reach the duel distance in vacuum (0.366209ms)
+✔ npc role shares leave civilians and respect minimums (0.200647ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.203243ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.22956ms)
+✔ render and golden frame are 1024x768 (0.175632ms)
+✖ TB2: research/10 economy, prefab prices and corrected defence points (5.011593ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 19
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.551129
+
+✖ failing tests:
+
+test at tests/unit/sim-ballistics.test.js:10:1
+✖ TB2: native length/time conversion preserves gravity, K and quadratic C/M (3.751001ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 0.00244140625
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-ballistics.test.js:11:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 0.00244140625,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-ballistics.test.js:33:1
+✖ TB2: range is charge at a fixed elevation, with monotonic invertible tables (5.084668ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 0.28137381165276665
+  - undefined
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-ballistics.test.js:38:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0.28137381165276665,
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-ballistics.test.js:51:1
+✖ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (0.46775ms)
+  TypeError: B.scatterAngles is not a function
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-ballistics.test.js:52:62)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-ballistics.test.js:59:1
+✖ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (0.7064ms)
+  TypeError: Cannot read properties of undefined (reading 'length')
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-ballistics.test.js:60:45)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-damage.test.js:11:1
+✖ TB2: direct target excludes splash, collateral rounds upward, foundation survives (2.239389ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 24
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-damage.test.js:17:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 24,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/tuning.test.js:44:1
+✖ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.383453ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 9.81
+  - 20.959002666493237
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:47:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 9.81,
+    expected: 20.959002666493237,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/tuning.test.js:61:1
+✖ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.359955ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 1
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:62:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/tuning.test.js:86:1
+✖ weapon numbers match the manual (research/06 sections 1 and 10) (0.523775ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  30 !== 60
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:105:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 30,
+    expected: 60,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/tuning.test.js:168:1
+✖ TB2: research/10 economy, prefab prices and corrected defence points (5.011593ms)
+  AssertionError [ERR_ASSERTION]: 48 palace cells require ~200 dp, got 1344
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:173:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

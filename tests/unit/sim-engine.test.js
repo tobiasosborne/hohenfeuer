@@ -4,16 +4,17 @@ import assert from 'node:assert/strict';
 import { createSim, restoreSim } from '../../src/sim/sim.js';
 import { createWeapon, fireWeapon, tickWeapons } from '../../src/sim/weapons.js';
 import * as C from '../../src/contracts.js';
+import { geometryAim } from '../../src/ai/aim.js';
 import { TUNING as T } from '../../src/tuning.js';
 
-function content({ close = false } = {}) {
+function content({ close = false, noSplash = false } = {}) {
   C.resetRegistriesForTests();
   for (const [key, row] of Object.entries(T.blocks)) {
     const id = C.BLOCK[key.toUpperCase()], passable = [C.BLOCK.AIR, C.BLOCK.LADDER, C.BLOCK.DOOR].includes(id);
     C.registerBlock({ id, key, name: { de: key, en: key }, ...row, solid: !passable, walkOn: !passable, passable, projectileSolid: id !== C.BLOCK.AIR && id !== C.BLOCK.LADDER, climbable: id === C.BLOCK.LADDER, burnable: false, oriented: false, collider: id === C.BLOCK.AIR || id === C.BLOCK.LADDER ? C.COLLIDER.NONE : id === C.BLOCK.STAIRS ? C.COLLIDER.STAIRS : C.COLLIDER.CUBE, mapOnly: row.cost === null });
   }
   const row = T.weapons.cannon;
-  C.registerWeapon({ id: 'cannon', name: { de: 'Kanone', en: 'Cannon' }, mount: C.MOUNT.WALL, footprint: [...T.weaponRules.wallFootprint], cost: row.cost, hp: row.hp, reloadS: row.reloadS, crewSlots: row.crewSlots, fireCost: row.fireCost, ammoLoads: 1, traj: C.TRAJ.STRAIGHT, elevDeg: [...T.aim.straightElevDeg], v0: row.v0, k: row.k, scatter: { azDeg: 0, vFrac: 0 }, shot: { count: 1, intervalS: 0, spreadDeg: 0, radius: row.projRadius, direct: row.direct, splash: row.splash, splashRadius: row.splashRadius, ignite: 0, pierce: 0 } });
+  C.registerWeapon({ id: 'cannon', name: { de: 'Kanone', en: 'Cannon' }, mount: C.MOUNT.WALL, footprint: [...T.weaponRules.wallFootprint], cost: row.cost, hp: row.hp, reloadS: row.reloadS, crewSlots: row.crewSlots, fireCost: row.fireCost, ammoLoads: 1, traj: C.TRAJ.STRAIGHT, elevDeg: [...T.aim.straightElevDeg], v0: row.v0, k: row.k, scatter: { azDeg: 0, vFrac: 0 }, shot: { count: 1, intervalS: 0, spreadDeg: 0, radius: row.projRadius, direct: row.direct, splash: noSplash ? 0 : row.splash, splashRadius: noSplash ? 0 : row.splashRadius, ignite: 0, pierce: 0 } });
   const castle = { id: 'fixture', size: [8, 4, 8], legend: { '#': 'stone', P: 'palace', M: 'mount' }, layers: [['########', '#P######', '########', '########', '####M###', '########', '########', '########']], weapons: [{ id: 'cannon', at: [4, 2, 4], facing: C.FACING.E }], mountSpots: [], shelters: [], workSpots: [], exit: [0, 2, 0], rulerSpawn: [2, 2, 4], throne: [2, 2, 4], population: T.npc.population };
   C.registerCastle(castle);
   C.registerCastle({ ...castle, id: 'target', weapons: [], rulerSpawn: [6, 2, 4], throne: [6, 2, 4] });
@@ -70,9 +71,12 @@ test('fixed tick order applies AI only on schedule and defers its commands to ne
 });
 
 test('a cannonball through the opposing ruler eliminates its castle', () => {
-  const opts = content({ close: true }), sim = createSim(opts);
-  const rangeM = 64 + 6.5 - 4.5;
-  sim.tick([command(C.CMD.AIM, 0, { weaponId: 0, az: 900, range: Math.round(rangeM / T.aim.dialUnitM * T.aim.rangeUnitsPerDial) }), command(C.CMD.FIRE, 0, { weaponId: 0 }, 1)]);
+  const opts = content({ close: true, noSplash: true }), sim = createSim(opts);
+  const w = sim.state.weapons[0], r = sim.state.rulers[1];
+  const from = { x: w.pos.x + 0.5 + 2 * T.weapons.cannon.projRadius, y: w.pos.y + 0.5, z: w.pos.z };
+  const target = { ...r.pos, y: r.pos.y + T.people.height / 2 };
+  const solution = geometryAim(from, target, C.getWeapon('cannon'));
+  sim.tick([command(C.CMD.AIM, 0, { weaponId: 0, az: 900, range: Math.round(solution.dial * T.aim.rangeUnitsPerDial) }), command(C.CMD.FIRE, 0, { weaponId: 0 }, 1)]);
   for (let i = 0; i < 80 && !sim.state.outcome; i++) sim.tick([]);
   assert.equal(sim.state.rulers[1].hp, 0);
   assert.equal(sim.state.castles[1].reason, C.ELIM.RULER);

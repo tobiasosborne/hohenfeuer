@@ -10,12 +10,23 @@ function deepFreeze(o) {
   return o;
 }
 
-/** One weapon row. Original columns: cost, hp, reloadS, fireCost (EN pp.41-48). Rest: D 3.5 design. */
-function weapon(mount, cost, hp, reloadS, crewSlots, fireCost, traj, v0, k, sAzDeg, sV,
-  count, direct, splash, splashRadius, extra = {}) {
+// research/11 sections 2-4: one original renderer unit becomes 1/8 m (TB2 calibration).
+const ORIGINAL_WORLD_M = 1 / 8, ORIGINAL_NATIVE_UNIT = 5 / 256;
+const NATIVE_M = ORIGINAL_NATIVE_UNIT * ORIGINAL_WORLD_M, NATIVE_TICK_S = 0.062;
+/** Native C/M/K, pitch code, scatter and damage; contract v0 remains full-charge speed.
+ * Ballista uses its default pitch (original human dial changed elevation); rocket uses a
+ * guessed charge-speed surrogate for the powered carrier. Those two control exceptions
+ * need future plugins; ordinary artillery below uses the recovered constants directly.
+ */
+function weapon(mount, cost, hp, reloadS, crewSlots, fireCostWorkshop, traj,
+  C, M, K, pitch, scatterTurnUnits, count, direct, splash, nativeRadius, extra = {}) {
+  const speedPerCharge = K * NATIVE_M / NATIVE_TICK_S;
   return {
-    mount, cost, hp, reloadS, crewSlots, fireCost, traj, v0, k, sAzDeg, sV,
-    count, direct, splash, splashRadius,
+    mount, cost, hp, reloadS, crewSlots, fireCost: Math.floor(fireCostWorkshop * 1.5), fireCostWorkshop,
+    traj, v0: speedPerCharge * 255, speedPerCharge, nativeK: K, nativeC: C, nativeM: M,
+    k: C / (M * 65536 * NATIVE_M), elevationDeg: pitch * 11 * 360 / 4096, scatterTurnUnits,
+    sAzDeg: scatterTurnUnits * 360 / 4096, sV: 0, count, direct, splash,
+    splashRadius: nativeRadius * ORIGINAL_NATIVE_UNIT, nativeSplashRadius: nativeRadius,
     intervalS: 0, spreadDeg: 0, ignite: 0, pierce: 0, projRadius: 0.15,
     ...extra,
   };
@@ -31,7 +42,7 @@ export const TUNING = deepFreeze({
     buildMinY: 1, // D 2.1
     buildMaxY: 23, // D 2.1
     chunk: 16, // D 7.3: chunk edge in cells
-    duelDistanceM: 192, // D 2.1: plot centres, dial 038
+    duelDistanceM: 192, // D 2.1: plot centres; dial now charge, research/11
     ringRadiusM: 110, // D 2.1: 3-4 slot maps
     duelMapM: [384, 256], // D 2.1
     ringMapM: [384, 384], // D 2.1
@@ -50,7 +61,20 @@ export const TUNING = deepFreeze({
   sim: {
     tickHz: 30, // D 3.1
     substeps: 4, // D 3.3: projectile substeps per tick (120 Hz)
-    gravity: 9.81, // D 3.3
+    // research/11 3.2-3.4: q=5/2048 m/native unit, h=62 ms, default scenario g=33.
+    // Calibration: renderer distances x1/8; full-charge cannon ~278 m vs 192 m duel.
+    // research/08/10 give local 32x24-cell plateaus (256 native units/cell),
+    // but no established castle-centre spacing. This metric scale is a design choice.
+    // Blast geometry keeps research/11 renderer-unit radii on the 1m voxel castle:
+    // scaling those by the flight factor too made 72dp shell cells stall >15 minutes.
+    // This is an explicit footprint calibration, not a single-scale original-world replica.
+    splashNativePositionM: ORIGINAL_NATIVE_UNIT,
+    originalWorldUnitM: ORIGINAL_WORLD_M,
+    nativePositionM: NATIVE_M,
+    nativeTickS: NATIVE_TICK_S,
+    nativeGravity: 33, // research/11: Lv1_1_1=33; custom scenarios vary 33..40
+    nativeDragDivisor: 65536,
+    gravity: 33 * NATIVE_M / NATIVE_TICK_S ** 2,
     projectileMaxLifeS: 30, // D 3.3
     projectileMinY: -50, // D 3.3
     collapseRadius: 12, // D 2.2: support flood-fill radius around a destroyed cell
@@ -69,7 +93,11 @@ export const TUNING = deepFreeze({
     azTapDeg: 0.5, // D 3.3
     azCtrlDeg: 5, // D 3.3
     azDragDegPerPx: 0.1, // D 3.3
-    dialUnitM: 5, // D 3.3: one range-dial unit = 5 m flat-ground range
+    dialUnitM: 5, // Legacy UI/fixture compatibility only; no distance-per-charge mapping.
+    chargeMin: 1, // research/11 4.2
+    chargeMax: 255, // AIM remains 0..9999 tenths; 0..2550 maps to charge 1..255, above clamps
+    fallbackStraightDeg: 22 * 11 * 360 / 4096, // guess for unknown plugins
+    fallbackLobbedDeg: 38 * 11 * 360 / 4096, // guess for unknown plugins
     rangeUnitsPerDial: 10, // D 3.3: range stored in tenths of a dial unit
     rangeTapDial: 0.2, // D 3.3 (1 m)
     rangeCtrlDial: 2, // D 3.3 (10 m)
@@ -80,36 +108,39 @@ export const TUNING = deepFreeze({
   },
 
   wind: {
-    maxSpeedByStrength: [0, 3, 6, 9, 12, 15], // D 3.4: m/s per setting 0..5
-    meanIntervalSByChange: [0, 180, 120, 90, 60, 30], // D 3.4: 0 = never changes
-    defaultStrength: 2, // D 3.4
-    defaultChange: 2, // D 3.4
-    intervalJitter: [0.7, 1.3], // D 3.4
-    decay: 0.9, // D 3.4 (Kruse-style mean reversion, research/05)
-    gustFrac: 0.4, // D 3.4: U(-0.4, 0.4) * max
-    turnDeg: 60, // D 3.4
+    nativeSpeedByStrength: [0, 10, 25, 45, 70, 100, 135, 175, 220], // research/11 6.2
+    maxSpeedByStrength: [0, 10, 25, 45, 70, 100, 135, 175, 220].map(v => v * NATIVE_M / NATIVE_TICK_S),
+    segmentBaseByChange: [64, 32, 16, 8, 4, 1], // research/11 6.3; change 0 constant
+    scheduleEntries: 256,
+    ticksPerEntry: 32,
+    turnUnits: 4096,
+    turnLimitUnits: 682, // +/-59.94140625 degrees, research/11
+    initialDirectionDeg: 270, // native theta=0 points west in our east-positive axes
+    defaultStrength: 2,
+    defaultChange: 2,
     redArrowMinSpeed: 0.5, // D 3.4
     blueArrowS: 20, // D 3.4
-    driftTest: { windMs: 15, distanceM: 192, cannonM: 2, catapultM: 8, rocketM: 15, tolerance: 0.25 }, // D 3.4
+    driftTest: { windMs: 15, distanceM: 192 }, // legacy test wind, no guessed per-weapon drift targets
   },
 
   // Core block numbers (D 2.2). hp in manual defence points; cost null = map-only.
   blocks: {
     air: { hp: 0, cost: 0, buildS: 0 }, // D 2.2
-    stone: { hp: 40, cost: 10, buildS: 4 }, // EN p.36 small wall 40 dp
-    tower: { hp: 72, cost: 16, buildS: 5 }, // EN p.37 small tower 72 dp
+    stone: { hp: 40, cost: 1, buildS: 0.125 }, // research/10: 90-block wall ~100g; time per voxel guessed
+    tower: { hp: 72, cost: 2, buildS: 18 }, // research/10: ~220-cell shell ~500g; small tower 18s
     gate: { hp: 96, cost: null, buildS: 0 }, // EN p.37 gatehouse 96 dp
-    wood: { hp: 16, cost: 4, buildS: 2 }, // EN p.38 farmhouse 12 dp, raised (guess)
+    wood: { hp: 12, cost: 4, buildS: 2 }, // research/10: farmhouse 12 dp
     floor: { hp: 12, cost: 3, buildS: 2 }, // guess
     stairs: { hp: 20, cost: 6, buildS: 3 }, // guess
     ladder: { hp: 6, cost: 3, buildS: 2 }, // guess
     door: { hp: 20, cost: 8, buildS: 3 }, // guess
     roof: { hp: 8, cost: 5, buildS: 2 }, // guess
-    magazine: { hp: 24, cost: 20, buildS: 6 }, // EN p.39 ammo workshop 24 dp
-    palace: { hp: 40, cost: null, buildS: 0 }, // D 2.2 (palace 200 dp, EN p.36, spread over a core)
-    mount: { hp: 60, cost: 12, buildS: 5 }, // EN p.36 large wall 60 dp
+    magazine: { hp: 24, cost: 75, buildS: 6 }, // research/10: eight-voxel workshop 600g, 24dp
+    palace: { hp: 6, cost: null, buildS: 0 }, // research/10: 48 core cells x 6 x 0.7 = 201.6 dp to defeat
+    mount: { hp: 60, cost: 1, buildS: 0.125 }, // EN p.36 large wall 60 dp
     foundation: { hp: 255, cost: null, buildS: 0 }, // D 2.1: 255 = indestructible
   },
+  structures: { windmill: { hp: 24, cost: 300, buildS: 30 } }, // research/10: reference prefab; manual 4 dp is a typo
   hpIndestructible: 255, // D 2.1
   damageStateAbove: [0.75, 0.5, 0.25], // D 2.2: hp fraction thresholds for states 0/1/2, else 3
   pluginBlockIdMin: 64, // D 2.2
@@ -138,19 +169,19 @@ export const TUNING = deepFreeze({
     spreadP: 0.15, // D 2.2: per second per burnable neighbour (guess)
   },
 
-  // D 3.5 table. Fields: mount, cost, hp, reloadS, crewSlots, fireCost, traj, v0 m/s, k 1/s,
-  // sAzDeg, sV, count, direct, splash, splashRadius (+ intervalS, spreadDeg, ignite, pierce, projRadius).
+  // research/11 tables 2.3/2.4. Ground HP follows requested support values 60/96;
+  // original removes weapons below half support HP (5.3), unlike our independent entities.
   weapons: {
-    catapult: weapon("ground", 600, 30, 18, 4, 52, "lobbed", 52, 0.010, 1.0, 0.025, 1, 16, 12, 2.5, { projRadius: 0.25 }), // EN p.42
-    cannon: weapon("wall", 750, 36, 22, 3, 90, "straight", 75, 0.030, 0.3, 0.01, 1, 24, 10, 1.25), // EN p.43
-    "double-cannon": weapon("wall", 750, 36, 22, 4, 150, "straight", 75, 0.030, 0.4, 0.01, 2, 24, 10, 1.25, { intervalS: 0.3 }), // EN p.43
-    "fire-catapult": weapon("ground", 750, 30, 24, 4, 150, "lobbed", 50, 0.008, 0.6, 0.015, 1, 8, 4, 1.25, { ignite: 2, projRadius: 0.25 }), // EN p.44
-    ballista: weapon("wall", 400, 36, 15, 2, 22, "lobbed", 60, 0.006, 0.15, 0.005, 1, 6, 0, 0, { pierce: 3, projRadius: 0.08 }), // EN p.45
-    rocket: weapon("wall", 800, 36, 30, 3, 150, "lobbed", 60, 0.016, 1.6, 0.04, 1, 40, 20, 2.5), // EN p.46
-    trebuchet: weapon("ground", 850, 48, 18, 6, 225, "lobbed", 58, 0.010, 1.0, 0.025, 5, 16, 10, 2.5, { spreadDeg: 1.5, projRadius: 0.25 }), // EN p.47
-    arcaballista: weapon("ground", 850, 48, 18, 4, 300, "straight", 80, 0.020, 0.6, 0.015, 4, 40, 0, 0.75, { spreadDeg: 0.8, projRadius: 0.1 }), // EN p.47
-    "fat-freda": weapon("ground", 850, 48, 22, 6, 225, "lobbed", 55, 0.008, 0.3, 0.01, 1, 64, 40, 3.5, { projRadius: 0.3 }), // EN p.48
-    hellfire: weapon("ground", 850, 48, 22, 5, 330, "straight", 75, 0.030, 0.6, 0.015, 5, 24, 10, 1.25, { intervalS: 0.4 }), // EN p.48
+    catapult: weapon("ground", 600, 60, 18, 4, 35, "lobbed", 94, 48, 60, 38, 16, 1, 12, 10, 1024, { projRadius: 0.25 }),
+    cannon: weapon("wall", 750, 36, 22, 3, 60, "straight", 80, 52, 40, 22, 11, 1, 16, 20, 640),
+    "double-cannon": weapon("wall", 750, 36, 22, 4, 100, "straight", 80, 52, 40, 22, 11, 2, 16, 20, 640),
+    "fire-catapult": weapon("ground", 750, 60, 24, 4, 100, "lobbed", 90, 40, 70, 38, 11, 1, 8, 4, 153, { ignite: 2, projRadius: 0.25 }),
+    ballista: weapon("wall", 400, 36, 15, 2, 15, "lobbed", 10, 31, 45, 38, 8, 1, 4, 0, 0, { pierce: 3, projRadius: 0.08, controlGuess: true }),
+    rocket: weapon("wall", 800, 36, 30, 3, 100, "lobbed", 54, 55, 60, 68, 20, 1, 24, 28, 1152, { controlGuess: true, nativeK: 1000, nativeThrust: 45 }), // guessed K=60 surrogate; effective child payload
+    trebuchet: weapon("ground", 850, 96, 18, 6, 150, "lobbed", 94, 48, 60, 38, 16, 5, 12, 10, 1024, { projRadius: 0.25 }),
+    arcaballista: weapon("ground", 850, 96, 18, 4, 200, "straight", 10, 31, 45, 20, 14, 4, 24, 12, 320, { projRadius: 0.1 }),
+    "fat-freda": weapon("ground", 850, 96, 22, 6, 150, "lobbed", 90, 76, 38, 38, 11, 1, 40, 48, 1536, { projRadius: 0.3 }),
+    hellfire: weapon("ground", 850, 96, 22, 5, 220, "straight", 80, 52, 40, 22, 14, 5, 16, 20, 640, { intervalS: 9 * NATIVE_TICK_S }),
   },
 
   weaponRules: {
@@ -212,10 +243,10 @@ export const TUNING = deepFreeze({
   },
 
   economy: {
-    startGold: 2000, // D 3.8 (EN p.13 Tactics 1500, raised)
+    startGold: 1500, // research/10, EN p.13 Tactics default
     palaceIncomeS: 6, // D 3.8 (guess)
     civilianIncomeS: 0.25, // D 3.8 (guess)
-    goldCap: 4000, // D 3.8 (EN p.39 ~2000 without treasury, doubled)
+    goldCap: 2000, // research/10, EN p.39 without treasury
     repairCostFrac: 0.5, // D 3.8
   },
 
@@ -315,6 +346,7 @@ export const TUNING = deepFreeze({
     tacticWeight: { daredevil: { palace: 1.5 }, general: { weapon: 1.5 }, worrier: { weapon: 1.2 } }, // D 6.2
     crewClusterN: 3, // D 6.2
     crewClusterM: 2, // D 6.2
+    targetRetryS: 5, // guess: back off unusable firing lanes rather than retrying at 2 Hz
     retargetS: 60, // D 6.2
     buildEveryS: 2, // D 6.2
     buildPerThink: 4, // D 6.2

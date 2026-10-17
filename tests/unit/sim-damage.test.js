@@ -8,14 +8,14 @@ import { createPlot, setCell, getCell, cellIndex } from '../../src/world/grid.js
 import { TUNING as T } from '../../src/tuning.js';
 import * as C from '../../src/contracts.js';
 
-test('direct plus linear splash is floored in index order and foundation survives', () => {
+test('TB2: direct target excludes splash, collateral rounds upward, foundation survives', () => {
   const plot = createPlot({ width: 8, height: 8, depth: 8 });
   const cells = [[3, 2, 3], [4, 2, 3], [5, 2, 3]];
   for (const p of cells) setCell(plot, ...p, C.BLOCK.STONE, T.blocks.stone.hp);
   const events = [], context = { state: { tick: 0, castles: [{ id: 0, plot }], weapons: [], rulers: [], npcs: [] }, emit: (type, data) => events.push({ type, ...data }), getBlock: () => ({ hp: T.blocks.stone.hp }) };
-  const result = applyBlast(context, { pos: { x: 3.5, y: 2.5, z: 3.5 }, hit: { plot, index: cellIndex(plot, ...cells[0]) }, direct: 24, splash: 10, radius: 1.25, sourceSlot: 1 });
-  assert.equal(getCell(plot, ...cells[0]).hp, 6);
-  assert.equal(getCell(plot, ...cells[1]).hp, 39);
+  const result = applyBlast(context, { pos: { x: 3.5, y: 2.5, z: 3.5 }, hit: { plot, index: cellIndex(plot, ...cells[0]) }, direct: 16, splash: 20, radius: 1.25, sourceSlot: 1 });
+  assert.equal(getCell(plot, ...cells[0]).hp, 24);
+  assert.equal(getCell(plot, ...cells[1]).hp, 36);
   assert.equal(getCell(plot, ...cells[2]).hp, 40);
   assert.deepEqual(result.cells.map(c => c.index), [...result.cells.map(c => c.index)].sort((a, b) => a - b));
   applyBlast(context, { pos: { x: 3.5, y: 0.5, z: 3.5 }, hit: { plot, index: cellIndex(plot, 3, 0, 3) }, direct: 1000, splash: 1000, radius: 1.25, sourceSlot: 1 });

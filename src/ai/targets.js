@@ -1,8 +1,9 @@
 // src/ai/targets.js - owns deterministic public target scoring and palace-shield selection.
 import { BLOCK, TRAJ } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
-import { vector } from './aim.js';
-import { blockTarget, firstBlockOnLine, shooterPosition, visibleTarget, weaponDefinition } from './view.js';
+import { vector, geometryAim } from './aim.js';
+import { launchVelocity, launchSpeed, integrateProjectile } from '../sim/ballistics.js';
+import { blockTarget, firstBlockOnLine, publicView, shooterPosition, visibleTarget, weaponDefinition } from './view.js';
 
 /** Visible rulers share palace's immediate-elimination value until tuning defines ruler. */
 export function scoreTarget(target, tactic) {
@@ -62,7 +63,8 @@ export function collectTargets(view, slot, weapon) {
 }
 
 /** Straight weapons require a clear DDA segment; lobbed weapons can attack covered blocks. */
-export function selectTarget(view, slot, weapon) {
+export function selectTarget(view, slot, weapon, { ballistic = false } = {}) {
+  if (ballistic) return selectBallisticTarget(view, slot, weapon);
   const lobbed = weaponDefinition(weapon)?.traj === TRAJ.LOBBED;
   return rankTargets(collectTargets(view, slot, weapon).filter(t => lobbed || visibleTarget(view, shooterPosition(weapon, t.pos), t)), slot.aiTactic)[0] ?? null;
 }
@@ -83,4 +85,46 @@ export function refreshTarget(view, target) {
   const entities = target.kind === 'weapon' ? view.weapons : target.kind === 'ruler' ? view.rulers : view.npcs;
   const entity = (entities ?? []).find(e => target.kind === 'ruler' ? e.slot === target.slot : e.id === target.id);
   return entity ? { ...target, pos: entityPosition(entity, target.kind) } : target;
+}
+
+/** Fixed pitches can arc over a parapet that blocks a direct sight line. Trace public
+ * voxels with the production forces; an enemy obstruction is a breach target while
+ * keeping the palace aim point. Own obstructions reject that firing lane entirely.
+ */
+function selectBallisticTarget(view, slot, weapon) {
+  const def = weaponDefinition(weapon), seenPalaces = new Set();
+  const origin = vector(weapon.pos), distance = target => (target.pos.x - origin.x) ** 2 + (target.pos.z - origin.z) ** 2;
+  const candidates = rankTargets(collectTargets(view, slot, weapon), slot.aiTactic).sort((a, b) =>
+    scoreTarget(b, slot.aiTactic) - scoreTarget(a, slot.aiTactic)
+    || (a.kind === 'weapon' && b.kind === 'weapon' ? distance(a) - distance(b) : 0));
+  // publicView supplies the same converted air vector used by the aim solver.
+  const air = publicView(view, slot).wind;
+  for (const target of candidates) {
+    if (target.kind === 'shieldWall') continue;
+    if (target.kind === 'weapon' && !visibleTarget(view, shooterPosition(weapon, target.pos), target)) continue;
+    if (target.kind === 'palace') {
+      if (seenPalaces.has(target.slot)) continue;
+      seenPalaces.add(target.slot);
+    }
+    const from = shooterPosition(weapon, target.pos);
+    if (!weapon.muzzle) from.y = vector(weapon.pos).y + T.weaponRules.wallFootprint[2] / 2;
+    const solution = geometryAim(from, target.pos, def, air);
+    if (!solution.reachable) continue;
+    const p = { pos: { ...from }, vel: launchVelocity(launchSpeed(def, solution.dial), solution.elevation, solution.azDeg), k: def.k };
+    let hit = null;
+    const h = 1 / T.sim.tickHz / T.sim.substeps;
+    for (let time = 0; time < T.sim.projectileMaxLifeS; time += h) {
+      const prev = { ...p.pos }; integrateProjectile(p, air, h);
+      hit = firstBlockOnLine(view, prev, p.pos);
+      if (hit || p.pos.y < target.pos.y && p.vel.y < 0) break;
+    }
+    if (hit && hit.slot === slot.id) continue;
+    if (hit && (hit.slot !== target.slot || hit.index !== target.index)) {
+      if (target.kind === 'weapon') continue; // Breach the palace before chasing a shielded rear gun.
+      const castle = view.castles.find(c => c.slot === hit.slot);
+      return { ...blockTarget(castle, hit.index, 'shieldWall'), pos: { ...target.pos }, occluded: true };
+    }
+    return target;
+  }
+  return null;
 }

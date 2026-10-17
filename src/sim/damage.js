@@ -84,7 +84,8 @@ export function damageBlock(ctx, plot, index, dp, sourceSlot) {
   }
   return { plot: plot.id, index, damage: amount, destroyed: amount >= hp };
 }
-/** Apply direct and splash together once per cell in index order. */
+/** research/11 5.2: direct excludes collateral; splash uses S-floor(S*d/R), d<R.
+ * Voxel centres stand in for original building reference points; obstruction is not modelled. */
 export function applyBlast(ctx, blast) {
   const pos = xyz(blast.pos), direct = blast.direct ?? 0, splash = blast.splash ?? 0, radius = blast.radius ?? 0, hit = blast.hit;
   const cells = [], destroyed = [];
@@ -98,9 +99,9 @@ export function applyBlast(ctx, blast) {
       const index = x + plot.width * z + plot.width * plot.depth * y;
       if (!plot.type[index] || plot.hp[index] === T.hpIndestructible || radius <= 0) continue;
       const d = distance(pos, cellToWorld(plot, x, y, z));
-      if (d <= radius) damages.set(index, splash * (1 - d / radius));
+      if (d < radius) damages.set(index, splash - Math.floor(splash * d / radius));
     }
-    if (hit && (hit.plot === plot || hit.plot === plot.id) && Number.isInteger(hit.index)) damages.set(hit.index, (damages.get(hit.index) ?? 0) + direct);
+    if (hit && (hit.plot === plot || hit.plot === plot.id) && Number.isInteger(hit.index)) damages.set(hit.index, direct);
     for (const [index, dp] of [...damages].sort(([a], [b]) => a - b)) {
       const result = damageBlock(ctx, plot, index, dp, blast.sourceSlot);
       if (result) { cells.push(result); if (result.destroyed) destroyed.push({ plot, index }); }
@@ -108,7 +109,8 @@ export function applyBlast(ctx, blast) {
   }
   for (const weapon of [...ctx.state.weapons ?? []].sort((a, b) => a.id - b.id)) {
     if (weapon.hp <= 0) continue;
-    const d = distance(pos, weapon.pos), amount = Math.floor((hit?.weaponId === weapon.id ? direct : 0) + (radius > 0 && d <= radius ? splash * (1 - d / radius) : 0));
+    const d = distance(pos, weapon.pos), amount = hit?.weaponId === weapon.id ? direct
+      : radius > 0 && d < radius ? splash - Math.floor(splash * d / radius) : 0;
     if (amount > 0) {
       weapon.hp = Math.max(0, weapon.hp - amount);
       ctx.emit?.(EV.WEAPON_DAMAGED, { weaponId: weapon.id, hp: weapon.hp });

@@ -1,37 +1,51 @@
-// src/sim/wind.js - owns the seeded mean-reverting wind walk and per-slot arrow memory.
+// src/sim/wind.js - owns the seeded original 256-entry wind cycle and per-slot arrow memory.
 import { TUNING as T } from '../tuning.js';
 import { RNG_STREAM } from '../contracts.js';
 import { createRng } from '../core/rng.js';
 import { sin, cos, DEG } from '../core/fmath.js';
 const wrap = degrees => (degrees % 360 + 360) % 360;
-function interval(wind) { const mean = T.wind.meanIntervalSByChange[wind.change]; return mean ? mean * (T.wind.intervalJitter[0] + wind.rng() * (T.wind.intervalJitter[1] - T.wind.intervalJitter[0])) : null; }
-/** Wind state accepts an independent injected stream, otherwise derives the wind stream. */
-export function createWind({ seed = 0, rng = createRng(seed).fork(RNG_STREAM.WIND), strength = T.wind.defaultStrength, change = T.wind.defaultChange } = {}) {
-  if (!Number.isInteger(strength) || strength < 0 || strength >= T.wind.maxSpeedByStrength.length || !Number.isInteger(change) || change < 0 || change >= T.wind.meanIntervalSByChange.length) throw new RangeError('Invalid wind setting');
-  const wind = { strength, change, speed: rng() * T.wind.maxSpeedByStrength[strength], direction: rng() * 360, previousDirection: null, previousUntil: 0, changeId: 0, shotVersions: {}, time: 0, nextChange: null, rng };
-  wind.nextChange = interval(wind);
-  return wind;
+const entryS = T.wind.ticksPerEntry * T.sim.nativeTickS;
+/** Precompute once: magnitude is selected, directions change by +/-682 turn units.
+ * research/11 6.3; independent seeded stream replaces the original shared 15-bit RNG.
+ * Plain arrays/records deliberately survive existing sim snapshots and save/restore.
+ */
+export function createWind({ seed = 0, rng = createRng(seed).fork(RNG_STREAM.WIND), strength = T.wind.defaultStrength, change = T.wind.defaultChange, direction = T.wind.initialDirectionDeg } = {}) {
+  if (!Number.isInteger(strength) || strength < 0 || strength >= T.wind.nativeSpeedByStrength.length || !Number.isInteger(change) || change < 0 || change >= T.wind.segmentBaseByChange.length) throw new RangeError('Invalid wind setting');
+  const schedule = [], segments = [], draw = () => Math.floor(rng() * 32768);
+  let angle = Math.round(direction * T.wind.turnUnits / 360), i = 0;
+  while (i < T.wind.scheduleEntries) {
+    let end = change ? i + T.wind.segmentBaseByChange[change] + (draw() & 31) : T.wind.scheduleEntries;
+    if (end > T.wind.scheduleEntries - 10) end = T.wind.scheduleEntries;
+    if (change) angle = (angle + draw() % (2 * T.wind.turnLimitUnits + 1) - T.wind.turnLimitUnits + T.wind.turnUnits) % T.wind.turnUnits;
+    const dir = wrap(angle * 360 / T.wind.turnUnits);
+    segments.push({ entry: i, direction: dir });
+    while (i < end) { schedule.push(dir); i++; }
+  }
+  return { strength, change, speed: T.wind.maxSpeedByStrength[strength], direction: schedule[0],
+    schedule, segments, segmentIndex: 0, cycle: 0, previousDirection: null, previousUntil: 0,
+    changeId: 0, shotVersions: {}, time: 0,
+    nextChange: change ? (segments[1]?.entry ?? T.wind.scheduleEntries) * entryS : null, rng };
 }
-/** Advance seconds (default one tick); return changes in chronological order. */
+/** Advance seconds; emit each segment transition, including cycle wrap, in order. */
 export function tickWind(wind, dt = 1 / T.sim.tickHz) {
   if (!(dt >= 0) || !Number.isFinite(dt)) throw new RangeError('Wind dt must be finite and nonnegative');
   wind.time += dt;
-  const changes = [], max = T.wind.maxSpeedByStrength[wind.strength];
-  while (wind.nextChange !== null && wind.time >= wind.nextChange) {
-    wind.previousDirection = wind.direction;
-    wind.previousUntil = wind.nextChange + T.wind.blueArrowS;
-    wind.speed = Math.max(0, Math.min(max, T.wind.decay * wind.speed + (wind.rng() * 2 - 1) * T.wind.gustFrac * max));
-    wind.direction = wrap(wind.direction + (wind.rng() * 2 - 1) * T.wind.turnDeg);
-    wind.changeId++;
-    changes.push({ time: wind.nextChange, speed: wind.speed, direction: wind.direction, previousDirection: wind.previousDirection });
-    const next = interval(wind);
-    wind.nextChange = next === null ? null : wind.nextChange + next;
+  const changes = [];
+  while (wind.nextChange !== null && wind.time + 1e-10 >= wind.nextChange) {
+    const time = wind.nextChange;
+    if (++wind.segmentIndex === wind.segments.length) { wind.segmentIndex = 0; wind.cycle++; }
+    const direction = wind.segments[wind.segmentIndex].direction;
+    if (direction !== wind.direction) {
+      wind.previousDirection = wind.direction; wind.direction = direction;
+      wind.previousUntil = time + T.wind.blueArrowS; wind.changeId++;
+      changes.push({ time, speed: wind.speed, direction, previousDirection: wind.previousDirection });
+    }
+    const nextEntry = wind.segments[wind.segmentIndex + 1]?.entry ?? T.wind.scheduleEntries;
+    wind.nextChange = (wind.cycle * T.wind.scheduleEntries + nextEntry) * entryS;
   }
   return changes;
 }
-/** Horizontal wind velocity; exactly zero for calm wind. */
 export function windVector(wind) { return wind.speed === 0 ? { x: 0, z: 0 } : { x: wind.speed * sin(wind.direction * DEG), z: -wind.speed * cos(wind.direction * DEG) }; }
-/** Clear only this slot's blue arrow on its next shot. */
 export function markWindShot(wind, slot = 0) { wind.shotVersions[slot] = wind.changeId; }
-/** Compass values; directions are degrees the air blows toward. */
-export function windHud(wind, slot = 0) { return { speed: Math.round(wind.speed), direction: wind.speed >= T.wind.redArrowMinSpeed ? wind.direction : null, previousDirection: wind.time < wind.previousUntil && wind.shotVersions[slot] !== wind.changeId ? wind.previousDirection : null }; }
+/** Keep the public HUD shape; central number is original strength 0..8, not m/s. */
+export function windHud(wind, slot = 0) { return { speed: wind.strength, direction: wind.strength > 0 ? wind.direction : null, previousDirection: wind.time < wind.previousUntil && wind.shotVersions[slot] !== wind.changeId ? wind.previousDirection : null }; }

@@ -1,0 +1,23 @@
+✔ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (508.906716ms)
+ℹ level 10: 131/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,4
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (643.288624ms)
+ℹ level 1: 0/400 hits; 20/20 seeds never hit within 20 shots
+✔ geometry obeys north/east dial semantics and clamps through the production table (2.022606ms)
+✔ published crosswind is compensated using the production integrator (8.592947ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (21.625874ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (1.378409ms)
+✔ correction starts from actual fired settings including the previous exploration error (0.656531ms)
+✔ TB2: fixed-elevation charge solver accounts for target height with wind (11.962567ms)
+✔ TB2: a ground impact past an elevated target does not create a false short-charge correction (9.601931ms)
+✔ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (491.472422ms)
+ℹ seed 1 winner 0, 118 ticks (3.933333333333333s), shots 1/1, hash 2554070442
+✔ TB2: registered forest-duel seed 1 general AIs produce a winner in 15 minutes (4841.523855ms)
+ℹ forest-duel seed 1: {"tick":1493,"hash":3619448650,"winner":0,"shots":[3,3]}, 49.766666666666666s
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6659.054371

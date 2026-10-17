@@ -36,7 +36,7 @@ function shots(level, seed, count) {
     // Analytic harness: production range-table inverse and exact production trajectory,
     // no collisions, scatter or wind, interpolated at target height.
     const impact = traceFlight({ ...T.weapons.cannon, pos: { x: 0.5, y: 1.5, z: 0.5 },
-      elevation: dialToElevation(table, aim.range / T.aim.rangeUnitsPerDial), azimuth: aim.az / T.aim.azUnitsPerDeg }).pos;
+      charge: aim.range / T.aim.rangeUnitsPerDial, elevation: dialToElevation(table, aim.range / T.aim.rangeUnitsPerDial), azimuth: aim.az / T.aim.azUnitsPerDeg }).pos;
     const hit = Math.abs(impact.x - target[0]) <= T.ai.hitTest.targetM / 2 && Math.abs(impact.z - target[2]) <= T.ai.hitTest.targetM / 2;
     if (hit) { hits++; firstHit = Math.min(firstHit, shot + 1); }
     view.events = [{ type: EV.IMPACT, tick: view.tick - 1, payload: { slot: 0, weaponId: 0, pos: [impact.x, impact.y, impact.z] } }];

@@ -1,0 +1,31 @@
+✔ target values and tactic weights follow tuning and score ties use id order (1.408735ms)
+✔ straight guns target the wall shielding palace; lobbed guns can retain palace (2.678778ms)
+✔ allies and eliminated castles are excluded; visible rulers are immediate-win targets (0.373513ms)
+✔ magazines, weapons and public crew clusters can be selected without private enemy state (0.387615ms)
+✔ visibility starts at the cannon muzzle above a low own parapet, rather than at its feet (0.262808ms)
+✔ weapons on mounts and people on foundations are aimed at their visible body centres (0.29285ms)
+✖ TB2: ballistic targeting prefers an exposed enemy gun over a gun behind its keep (74.037111ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.853767
+
+✖ failing tests:
+
+test at tests/unit/ai-targets.test.js:86:1
+✖ TB2: ballistic targeting prefers an exposed enemy gun over a gun behind its keep (74.037111ms)
+  AssertionError [ERR_ASSERTION]: breach the palace before chasing a rear gun behind its keep
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-targets.test.js:96:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'weapon',
+    expected: 'weapon',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

@@ -48,6 +48,10 @@ test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy
   assert.ok(near.script.firedTick !== null, "fired");
   assert.ok(ballNearEnemy(near.state), `ball near enemy by tick ${near.state.tick}`);
   assert.ok(near.events.some((e) => e.type === C.EV.SHOT_FIRED && e.payload.slot === 0));
+  assert.deepEqual(near.script.aim, { az: 893, range: 1016, flat: near.script.aim.flat });
+  assert.equal(near.script.firedTick, 254);
+  assert.equal(near.state.tick, 307, 'new golden capture tick');
+  const enemyHp = near.state.castles[1].plot.hp.slice();
   const midTick = near.state.tick, midHash = near.sim.hash();
   // Continue: the ball lands on the enemy plot (block damage or impact inside its footprint).
   const sim = near.sim, script = near.script;
@@ -58,6 +62,8 @@ test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy
     state = sim.state;
   }
   assert.ok(landed, "slot 0 ball impacted");
+  assert.equal(state.tick, 348, 'first shot reproducibly hits the keep');
+  assert.ok(state.castles[1].plot.hp.some((hp, i) => hp < enemyHp[i]), 'first scripted shot damages the enemy');
   const enemy = state.castles[1].plot;
   assert.ok(landed.pos[0] >= enemy.origin.x - 10 && landed.pos[0] <= enemy.origin.x + enemy.width + 10, `impact x ${landed.pos[0]} near the enemy plot`);
   // Determinism of the golden tick across two runs.

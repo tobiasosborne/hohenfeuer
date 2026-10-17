@@ -82,3 +82,16 @@ test('weapons on mounts and people on foundations are aimed at their visible bod
   assert.equal(ruler.kind, 'ruler');
   assert.equal(ruler.pos.y, 1 + T.people.height / 2);
 });
+
+test('TB2: ballistic targeting prefers an exposed enemy gun over a gun behind its keep', async () => {
+  const C = await import('../../src/contracts.js');
+  const { registerCoreSim } = await import('../../src/plugins/index.sim.js');
+  const { createSim } = await import('../../src/sim/sim.js');
+  C.resetRegistriesForTests(); registerCoreSim(); C.freezeRegistries();
+  const sim = createSim({ map: 'forest-duel', seed: 1 });
+  const view = sim.state, slot = view.slots[1], gun = view.weapons[2];
+  const target = selectTarget(view, slot, gun, { ballistic: true });
+  assert.equal(target.key, 'weapon:1');
+  view.weapons[1].hp = 0;
+  assert.notEqual(selectTarget(view, slot, gun, { ballistic: true }).kind, 'weapon', 'breach the palace before chasing a rear gun behind its keep');
+});

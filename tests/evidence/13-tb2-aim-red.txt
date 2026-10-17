@@ -1,0 +1,140 @@
+✖ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (236.551584ms)
+ℹ level 10: 0/200 hits; median first hit Infinity; first-hit shots Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity,Infinity
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (259.070723ms)
+ℹ level 1: 2/400 hits; 19/20 seeds never hit within 20 shots
+✖ geometry obeys north/east dial semantics and clamps through the production table (0.759537ms)
+✖ published crosswind is compensated using the production integrator (1.644895ms)
+✖ observed angular and radial miss, rather than guessed error, drives correction (1.669181ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (0.589607ms)
+✖ correction starts from actual fired settings including the previous exploration error (0.711889ms)
+✖ TB2: fixed-elevation charge solver accounts for target height with wind (12.512346ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 2
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 567.953654
+
+✖ failing tests:
+
+test at tests/unit/ai-accuracy.test.js:47:1
+✖ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (236.551584ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(median <= T.ai.hitTest.level10Shots)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-accuracy.test.js:53:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-aim.test.js:14:1
+✖ geometry obeys north/east dial semantics and clamps through the production table (0.759537ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 38.4
+  - 119.33820516082176
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:17:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 38.4,
+    expected: 119.33820516082176,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-aim.test.js:26:1
+✖ published crosswind is compensated using the production integrator (1.644895ms)
+  AssertionError [ERR_ASSERTION]: {"x":-10.143407876143467,"y":0,"z":-68.77976967095013}
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:30:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-aim.test.js:35:1
+✖ observed angular and radial miss, rather than guessed error, drives correction (1.669181ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(corrected.biasDial + alpha * missM / solution.metresPerCharge) < 1e-10)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:46:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-aim.test.js:66:1
+✖ correction starts from actual fired settings including the previous exploration error (0.711889ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(final.range - T.ai.hitTest.distanceM) <= 0.5)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:75:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-aim.test.js:78:1
+✖ TB2: fixed-elevation charge solver accounts for target height with wind (12.512346ms)
+  AssertionError [ERR_ASSERTION]: {"pos":{"x":76.20992237067807,"y":1.5,"z":-2.459635027892362},"range":76.2496037512013,"time":2.046101386077133,"landed":true}
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:84:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

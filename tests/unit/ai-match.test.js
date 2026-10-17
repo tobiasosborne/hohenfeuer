@@ -5,6 +5,7 @@ import { existsSync } from 'node:fs';
 import * as C from '../../src/contracts.js';
 import { TUNING as T } from '../../src/tuning.js';
 import { createAiController } from '../../src/ai/controller.js';
+import { registerCoreSim } from '../../src/plugins/index.sim.js';
 import { createSlotTable } from '../../src/ai/slots.js';
 
 const simModule = existsSync(new URL('../../src/sim/sim.js', import.meta.url)) ? await import('../../src/sim/sim.js') : null;
@@ -72,4 +73,24 @@ test('AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and i
   const a = run(), b = run();
   assert.deepEqual(a, b);
   t.diagnostic(`seed 1 winner ${a.winners[0]}, ${a.tick} ticks (${a.tick / T.sim.tickHz}s), shots ${a.shots.join('/')}, hash ${a.hash}`);
+});
+
+test('TB2: registered forest-duel seed 1 general AIs produce a winner in 15 minutes', options, t => {
+  C.resetRegistriesForTests(); registerCoreSim(); C.freezeRegistries();
+  const map = C.getMap('forest-duel');
+  const slots = createSlotTable(map, { aiLevel: 10, aiTactic: C.TACTIC.GENERAL });
+  function run() {
+    const sim = simModule.createSim({ map: map.id, seed: 1, slots });
+    for (let tick = 0; tick < 15 * 60 * T.sim.tickHz; tick++) {
+      sim.tick([]);
+      if (tick % T.sim.tickHz === 0 && sim.state.outcome) break;
+    }
+    const state = sim.state;
+    assert.ok(state.outcome, `forest-duel stalled: shots ${state.castles.map(c => c.stats.shots)}, weapons ${state.weapons.map(w => w.hp)}`);
+    assert.equal(state.outcome.draw, false);
+    assert.equal(state.outcome.winners.length, 1);
+    return { tick: state.tick, hash: sim.hash(), winner: state.outcome.winners[0], shots: state.castles.map(c => c.stats.shots) };
+  }
+  const a = run(); assert.deepEqual(run(), a);
+  t.diagnostic(`forest-duel seed 1: ${JSON.stringify(a)}, ${a.tick / T.sim.tickHz}s`);
 });

@@ -37,7 +37,7 @@ test('reserve is preserved after the entire plan; repair spending is bounded by 
   castle.gold--;
   assert.equal(planRebuild(castle, blueprint, TACTIC.WORRIER).length, 0);
   castle.gold = 2000;
-  assert.equal(planRebuild(castle, blueprint, TACTIC.DAREDEVIL, { incomeGold: 100, spentGold: 10 }).length, 1);
+  assert.equal(planRebuild(castle, blueprint, TACTIC.DAREDEVIL, { incomeGold: 100, spentGold: 100 * T.ai.repairShare[TACTIC.DAREDEVIL] - T.blocks.stone.cost }).length, 1);
   assert.equal(planRebuild(castle, blueprint, TACTIC.DAREDEVIL, { incomeGold: 100, spentGold: 20 }).length, 0);
 });
 

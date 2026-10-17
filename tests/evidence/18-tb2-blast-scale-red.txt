@@ -1,0 +1,65 @@
+✔ TUNING is deep-frozen (13.0464ms)
+✔ every number in TUNING is finite (5.132535ms)
+✔ has the documented groups (0.667699ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (2.676077ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.486166ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.410226ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.964591ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.90552ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.752349ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.933533ms)
+✔ every weapon can reach the duel distance under production quadratic drag (11.144111ms)
+✔ npc role shares leave civilians and respect minimums (0.576017ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.424045ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.475249ms)
+✔ render and golden frame are 1024x768 (0.274242ms)
+✖ TB2: research/10 economy, prefab prices and corrected defence points (14.416622ms)
+✖ TB2: building blast radii retain original renderer footprints on voxel castles (research/11 2.4) (0.588475ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 15
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77.359986
+
+✖ failing tests:
+
+test at tests/unit/tuning.test.js:165:1
+✖ TB2: research/10 economy, prefab prices and corrected defence points (14.416622ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1.5625 !== 12.5
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:184:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1.5625,
+    expected: 12.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/tuning.test.js:187:1
+✖ TB2: building blast radii retain original renderer footprints on voxel castles (research/11 2.4) (0.588475ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1.5625 !== 12.5
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:188:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1.5625,
+    expected: 12.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

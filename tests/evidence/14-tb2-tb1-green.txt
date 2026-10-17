@@ -1,0 +1,19 @@
+✔ TB1 boot: slot 0 local, slot 1 AI at the default level (4.963157ms)
+✔ TB1 script: the ruler walks the stairs to the east cannon and mans it (773.220632ms)
+✔ TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot (1658.40508ms)
+✔ TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless) (196.089104ms)
+✔ TB1: the same shot sequence is deterministic (hash equal across two sims) (368.19676ms)
+✔ cannon reloads, fires atomically and pays exactly once per shot (28.136844ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (13371.554674ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (43.021537ms)
+✔ a cannonball through the opposing ruler eliminates its castle (82.145427ms)
+✔ firing publishes the calm prediction and restores the last fired aim (32.538724ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (6165.201287ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22889.361426

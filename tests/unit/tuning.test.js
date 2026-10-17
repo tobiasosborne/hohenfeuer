@@ -1,6 +1,7 @@
 // tests/unit/tuning.test.js - owns sanity, freezing and manual-number checks for src/tuning.js.
 import test from "node:test";
 import assert from "node:assert/strict";
+import { traceFlight } from "../../src/sim/ballistics.js";
 import { TUNING } from "../../src/tuning.js";
 
 function walk(obj, path, visit) {
@@ -41,10 +42,10 @@ test("world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks", () => {
   assert.equal(w.maxSlots, 4);
 });
 
-test("sim: 30 Hz, 4 substeps, earth gravity", () => {
+test("sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3)", () => {
   assert.equal(TUNING.sim.tickHz, 30);
   assert.equal(TUNING.sim.substeps, 4);
-  assert.equal(TUNING.sim.gravity, 9.81);
+  assert.equal(TUNING.sim.gravity, 33 * (5 / 2048) / 0.062 ** 2);
 });
 
 test("ruler fits a 2-cell walkway and jumps one block", () => {
@@ -58,15 +59,11 @@ test("ruler fits a 2-cell walkway and jumps one block", () => {
   assert.ok(r.autoStep > 0.5 && r.autoStep < 1, "auto-step must clear a half-step stair");
 });
 
-test("duel distance reads 038 on the range dial", () => {
-  const dial = Math.floor(TUNING.world.duelDistanceM / TUNING.aim.dialUnitM);
-  assert.equal(dial, 38);
-});
-
-test("wind tables have one entry per setting 0..5", () => {
-  assert.equal(TUNING.wind.maxSpeedByStrength.length, 6);
-  assert.equal(TUNING.wind.meanIntervalSByChange.length, 6);
-  assert.equal(TUNING.wind.maxSpeedByStrength[0], 0);
+test("TB2: native charge limits and nine wind settings (research/11 sections 4/6)", () => {
+  assert.equal(TUNING.aim.chargeMin, 1);
+  assert.equal(TUNING.aim.chargeMax, 255);
+  assert.deepEqual(TUNING.wind.nativeSpeedByStrength, [0, 10, 25, 45, 70, 100, 135, 175, 220]);
+  assert.deepEqual(TUNING.wind.segmentBaseByChange, [64, 32, 16, 8, 4, 1]);
 });
 
 test("block table: hp in 0..255, cost integer or null (map-only)", () => {
@@ -105,11 +102,11 @@ test("weapon numbers match the manual (research/06 sections 1 and 10)", () => {
     const w = TUNING.weapons[id];
     for (const f of Object.keys(m)) assert.equal(w[f], m[f], `${id}.${f}`);
   }
-  // ground weapons: 30 dp (catapult line, EN pp.42, 44), 48 dp (royal weapons, EN pp.47-48)
-  assert.equal(TUNING.weapons.catapult.hp, 30);
-  assert.equal(TUNING.weapons["fire-catapult"].hp, 30);
+  // research/11: 60/96 support HP; half-HP loss threshold is not a separate entity pool here.
+  assert.equal(TUNING.weapons.catapult.hp, 60);
+  assert.equal(TUNING.weapons["fire-catapult"].hp, 60);
   for (const id of ["trebuchet", "arcaballista", "fat-freda", "hellfire"]) {
-    assert.equal(TUNING.weapons[id].hp, 48, id);
+    assert.equal(TUNING.weapons[id].hp, 96, id);
   }
   // wall weapons: half a 72 dp tower (EN p.43)
   for (const [id, w] of Object.entries(TUNING.weapons)) {
@@ -117,15 +114,11 @@ test("weapon numbers match the manual (research/06 sections 1 and 10)", () => {
   }
 });
 
-test("every weapon can reach the duel distance in vacuum", () => {
-  const g = TUNING.sim.gravity;
-  const d = TUNING.world.duelDistanceM;
+test("every weapon can reach the duel distance under production quadratic drag", () => {
   for (const [id, w] of Object.entries(TUNING.weapons)) {
-    const [lo, hi] = w.traj === "lobbed" ? TUNING.aim.lobbedElevDeg : TUNING.aim.straightElevDeg;
-    const best = Math.min(Math.max(45, lo), hi) * Math.PI / 180;
-    const range = (w.v0 * w.v0 * Math.sin(2 * best)) / g;
-    assert.ok(range >= d, `${id} max range ${range.toFixed(0)} m < ${d} m`);
-    assert.ok(w.k >= 0 && w.k < 0.1, `${id}.k`);
+    const range = traceFlight({ ...w, charge: TUNING.aim.chargeMax, elevation: w.elevationDeg }).range;
+    assert.ok(range >= TUNING.world.duelDistanceM, `${id} max range ${range.toFixed(0)}m`);
+    assert.ok(w.k >= 0 && w.k < 1, `${id}.k`);
     assert.ok(Number.isInteger(w.crewSlots) && w.crewSlots >= 1 && w.crewSlots <= 12, id);
     assert.ok(Number.isInteger(w.count) && w.count >= 1, id);
     assert.ok(w.direct >= 0 && w.splash >= 0 && w.splashRadius >= 0, id);
@@ -167,4 +160,33 @@ test("render and golden frame are 1024x768", () => {
   assert.equal(TUNING.render.logicalH, 768);
   assert.equal(TUNING.golden.width, 1024);
   assert.equal(TUNING.golden.height, 768);
+});
+
+test("TB2: research/10 economy, prefab prices and corrected defence points", async () => {
+  const { DEFAULT_CASTLE } = await import('../../src/plugins/castles/default.sim.js');
+  const count = DEFAULT_CASTLE.layers.flat().join('').split('P').length - 1;
+  assert.equal(count, 48);
+  const removalDp = count * TUNING.blocks.palace.hp * (1 - TUNING.palace.destroyedBelow);
+  assert.ok(Math.abs(removalDp - 200) < 10, `${count} palace cells require ~200 dp, got ${removalDp}`);
+  assert.equal(TUNING.economy.goldCap, 2000);
+  assert.equal(TUNING.economy.startGold, 1500);
+  assert.ok(Math.abs(TUNING.blocks.stone.cost * 90 - 100) <= 10);
+  assert.ok(Math.abs(TUNING.blocks.tower.cost * 220 - 500) <= 60);
+  assert.equal(TUNING.blocks.tower.buildS, 18);
+  assert.equal(TUNING.blocks.wood.hp, 12);
+  assert.equal(TUNING.structures.windmill.hp, 24);
+  assert.equal(TUNING.blocks.magazine.cost * 8, 600);
+  for (const [id, w] of Object.entries(TUNING.weapons)) {
+    assert.equal(Math.floor(w.fireCostWorkshop * 1.5), w.fireCost, id);
+  }
+  assert.equal(TUNING.weapons.cannon.direct, 16);
+  assert.equal(TUNING.weapons.cannon.splash, 20);
+  assert.equal(TUNING.weapons.cannon.splashRadius, 640 * TUNING.sim.splashNativePositionM);
+});
+
+test("TB2: building blast radii retain original renderer footprints on voxel castles (research/11 2.4)", () => {
+  assert.equal(TUNING.weapons.cannon.splashRadius, 12.5);
+  assert.equal(TUNING.weapons.catapult.splashRadius, 20);
+  assert.equal(TUNING.weapons['fat-freda'].splashRadius, 30);
+  assert.equal(TUNING.weapons.rocket.splashRadius, 22.5);
 });

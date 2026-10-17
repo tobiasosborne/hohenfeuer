@@ -2,7 +2,7 @@
 import { K, CMD, CMD_FIELDS } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { atan2, DEG, pow } from '../core/fmath.js';
-import { buildRangeTable, dialToElevation, traceFlight } from '../sim/ballistics.js';
+import { buildRangeTable, dialToCharge, rangeToCharge, traceFlight, fixedElevation } from '../sim/ballistics.js';
 
 const tables = new WeakMap();
 const wrap = deg => (deg % 360 + 360) % 360;
@@ -16,32 +16,35 @@ export function rangeTableFor(weapon) {
   return tables.get(weapon);
 }
 
-/**
- * Geometry uses flat zero-wind metres / dialUnitM; the production table clamps the band.
- * Two inverse-drift iterations use only the published wind vector. Height error remains
- * observable, as in DESIGN 3.3; no enemy aim or projectile internals are read.
- * @param {number[]|object} shooter @param {number[]|object} target
- * @param {object} weapon @param {{x:number,z:number}} wind
- * @param {object[]} table @returns {{azDeg:number,dial:number,elevation:number,reachable:boolean}}
+/** Solve charge at the fixed pitch using public position/height and wind. The range
+ * table seeds flat shots; height/wind use the same production integrator. No enemy
+ * state beyond geometry is read. metresPerCharge converts observed radial misses.
  */
 export function geometryAim(shooter, target, weapon, wind = { x: 0, z: 0 }, table = rangeTableFor(weapon)) {
-  const from = vector(shooter), to = vector(target);
-  const dx = to.x - from.x, dz = to.z - from.z;
-  let aimX = dx, aimZ = dz;
-  const lo = table[0].range, hi = table.at(-1).range;
-  let azDeg, dial, elevation, distance;
-  for (let i = 0; i <= 2; i++) {
-    distance = Math.sqrt(aimX * aimX + aimZ * aimZ);
-    azDeg = wrap(atan2(aimX, -aimZ) / DEG);
-    dial = Math.max(lo, Math.min(hi, distance)) / T.aim.dialUnitM;
-    elevation = dialToElevation(table, dial);
-    if (i === 2 || wind.x === 0 && wind.z === 0) break;
-    const calm = traceFlight({ ...weapon, elevation, azimuth: azDeg });
-    const windy = traceFlight({ ...weapon, elevation, azimuth: azDeg, wind });
-    aimX = dx - (windy.pos.x - calm.pos.x);
-    aimZ = dz - (windy.pos.z - calm.pos.z);
+  const from = vector(shooter), to = vector(target), dx = to.x - from.x, dz = to.z - from.z;
+  const distance = Math.sqrt(dx * dx + dz * dz), elevation = fixedElevation(weapon);
+  let azDeg = wrap(atan2(dx, -dz) / DEG), dial = rangeToCharge(table, distance), reachable = true;
+  const flight = (charge, azimuth = azDeg) => traceFlight({ ...weapon, charge, elevation, azimuth, wind, pos: from, landingY: to.y });
+  if (from.y === to.y && wind.x === 0 && wind.z === 0) {
+    reachable = distance >= table[0].range && distance <= table.at(-1).range;
+  } else {
+    // Alternate charge bisection and bearing correction; wind drift is nonlinear in charge.
+    for (let i = 0; i < 4; i++) {
+      let lo = T.aim.chargeMin, hi = T.aim.chargeMax;
+      const near = flight(lo), far = flight(hi);
+      reachable = far.landed && distance <= far.range && distance >= near.range;
+      for (let j = 0; j < 20; j++) {
+        const mid = (lo + hi) / 2, result = flight(mid);
+        if (!result.landed || result.range < distance) lo = mid; else hi = mid;
+      }
+      dial = (lo + hi) / 2;
+      const result = flight(dial), ix = result.pos.x - from.x, iz = result.pos.z - from.z;
+      azDeg = wrap(azDeg - signed(atan2(ix, -iz) / DEG - atan2(dx, -dz) / DEG));
+    }
   }
-  return { azDeg, dial, elevation, reachable: distance >= lo && distance <= hi };
+  const low = dialToCharge(dial - 0.5), high = dialToCharge(dial + 0.5);
+  const metresPerCharge = Math.max(1e-6, (flight(high).range - flight(low).range) / (high - low));
+  return { azDeg, dial, charge: dial, elevation, reachable, distance, metresPerCharge };
 }
 
 /** Serializable controller-owned memory; helpers never mutate their inputs. */
@@ -72,27 +75,30 @@ function normal(rng, sigma) { return (rng() + rng() + rng() - 1.5) * 2 * sigma; 
 export function aimShot(solution, level, rng, memory = createAimMemory(null, null)) {
   const sigma = aimNoise(level, memory.observations);
   const az = wrap(solution.azDeg + memory.biasAzDeg + normal(rng, sigma.azDeg));
-  const dial = solution.dial + memory.biasDial + normal(rng, sigma.rangeFrac) * solution.dial;
+  const dial = solution.dial + memory.biasDial + normal(rng, sigma.rangeFrac) * solution.distance / solution.metresPerCharge;
   return { az: round(az * T.aim.azUnitsPerDeg) % K.AZ_UNITS,
-    range: Math.max(0, Math.min(CMD_FIELDS[CMD.AIM].range.max, round(dial * T.aim.rangeUnitsPerDial))) };
+    range: Math.max(0, Math.min(CMD_FIELDS[CMD.AIM].range.max, round(dialToCharge(dial) * T.aim.rangeUnitsPerDial))) };
 }
 
 /** Anchor the next correction to the actual quantized shot, including exploration noise. */
 export function recordAim(memory, solution, command) {
   return { ...memory, biasAzDeg: signed(command.az / T.aim.azUnitsPerDeg - solution.azDeg),
-    biasDial: command.range / T.aim.rangeUnitsPerDial - solution.dial, lastShot: { ...command } };
+    biasDial: command.range / T.aim.rangeUnitsPerDial - solution.dial, metresPerCharge: solution.metresPerCharge, lastShot: { ...command } };
 }
 
 /**
  * Correct the actual angular/radial impact offset, including drag, wind and height misses.
  * @param {object} memory @param {{shooter:object|number[],target:object|number[],impact:object|number[],level:number}} feedback
  */
-export function observeImpact(memory, { shooter, target, impact, level }) {
+export function observeImpact(memory, { shooter, target, impact, level, weapon, wind = { x: 0, z: 0 } }) {
   aimNoise(level, 0);
   const a = vector(shooter), b = vector(target), p = vector(impact);
   const dx = b.x - a.x, dz = b.z - a.z, ix = p.x - a.x, iz = p.z - a.z;
   const azError = signed((atan2(ix, -iz) - atan2(dx, -dz)) / DEG);
-  const rangeError = (Math.sqrt(ix * ix + iz * iz) - Math.sqrt(dx * dx + dz * dz)) / T.aim.dialUnitM;
+  const metresPerCharge = memory.metresPerCharge ?? geometryAim(a, b, T.weapons.cannon).metresPerCharge;
+  const rangeError = weapon
+    ? geometryAim(a, p, weapon, wind).dial - geometryAim(a, b, weapon, wind).dial
+    : (Math.sqrt(ix * ix + iz * iz) - Math.sqrt(dx * dx + dz * dz)) / metresPerCharge;
   const alpha = T.ai.alphaBase + T.ai.alphaPerLevel * level;
   return { ...memory, observations: memory.observations + 1,
     biasAzDeg: memory.biasAzDeg - alpha * azError, biasDial: memory.biasDial - alpha * rangeError };

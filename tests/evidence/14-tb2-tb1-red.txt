@@ -1,0 +1,78 @@
+✔ TB1 boot: slot 0 local, slot 1 AI at the default level (1.510205ms)
+✔ TB1 script: the ruler walks the stairs to the east cannon and mans it (312.353014ms)
+✖ TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot (739.902614ms)
+✖ TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless) (195.944561ms)
+✔ TB1: the same shot sequence is deterministic (hash equal across two sims) (159.7145ms)
+✔ cannon reloads, fires atomically and pays exactly once per shot (22.11831ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (10095.28408ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (23.741281ms)
+✖ a cannonball through the opposing ruler eliminates its castle (52.673985ms)
+✔ firing publishes the calm prediction and restores the last fired aim (16.899427ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (2849.17362ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 8
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14525.454765
+
+✖ failing tests:
+
+test at tests/unit/rules-tb1-boot.test.js:46:1
+✖ TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot (739.902614ms)
+  AssertionError [ERR_ASSERTION]: ball near enemy by tick 1800
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/rules-tb1-boot.test.js:49:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/rules-tb1.test.js:28:1
+✖ TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless) (195.944561ms)
+  AssertionError [ERR_ASSERTION]: a cannon shot damaged the enemy plot after 17 shots (az 893, range 417, flat 208.5 m)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/rules-tb1.test.js:53:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-engine.test.js:72:1
+✖ a cannonball through the opposing ruler eliminates its castle (52.673985ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  100 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:77:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 100,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

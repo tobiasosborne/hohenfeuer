@@ -1,0 +1,15 @@
+Verified by rules-tb1-boot.test.js and repeated deterministic seed-1 runs.
+Map forest-duel; seed 1; slot 0 local; slot 1 general AI level 5.
+TB1 aim: az=893 (89.3 degrees), range=1016 (charge=101.6).
+Fire tick=254; near-enemy golden tick=307; capture hash=4263786595.
+First slot-0 impact tick=348; position=[283,7.827144030086551,125.77766868031298]; hit=block.
+Original renderer unit -> flight metre: 0.125.
+Native position unit -> flight metre: 5/2048 = 0.00244140625.
+Native tick -> seconds: 0.062.
+Gravity: 33*q/h^2 = 20.959002666493237 m/s^2.
+Cannon speed coefficient: 40*q/h = 1.575100806451613 m/s per charge.
+Cannon quadratic drag: 80/(52*65536*q) = 0.009615384615384616 per metre.
+Full-charge calm cannon range=277.6496184132153m; flight time=4.380586160513031s.
+Blast footprint conversion is separate: 5/256 m/native radius; cannon=12.5m.
+The spatial calibration is intentionally not a uniformly scaled original-world replica.
+Forest-duel general AI level 10 seed 1: winner=0, tick=1493, 49.766666666666666s, shots=3/3, hash=3619448650, identical twice.

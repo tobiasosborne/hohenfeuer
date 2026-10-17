@@ -1,10 +1,10 @@
 // src/ai/controller.js - owns scheduled AI command generation and serializable command-source memory.
-import { CMD, CMD_FIELDS, EV, CONTROLLER, TRAJ, validateCommand, validateSlot } from '../contracts.js';
+import { CMD, CMD_FIELDS, EV, CONTROLLER, validateCommand, validateSlot } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector, windChanged } from './aim.js';
 import { blockCost, captureBlueprint, planRebuild, planWeaponReplacement, weaponCost } from './build.js';
 import { refreshTarget, selectTarget, targetAlive } from './targets.js';
-import { publicView, shooterPosition, visibleTarget, weaponDefinition } from './view.js';
+import { publicView, shooterPosition, weaponDefinition } from './view.js';
 
 /** Clone only serializable command-source records; never retain or mutate SimView references. */
 function copy(v) { return Array.isArray(v) ? v.map(copy) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, value]) => [k, copy(value)])) : v; }
@@ -83,8 +83,9 @@ function think(view, slot, rng, memory) {
     const impact = feedback(view, weapon);
     if (wm.shotTarget && impact && impact.key !== wm.feedbackKey) {
       wm.feedbackKey = impact.key;
+      // Invert at the actual impact height, so a shielding voxel is useful feedback.
       const corrected = observeImpact(wm.shotTarget.aim, { shooter: wm.shotTarget.shooter,
-        target: wm.shotTarget.pos, impact: impact.pos, level: slot.aiLevel });
+          target: wm.shotTarget.pos, impact: impact.pos, level: slot.aiLevel, weapon: def, wind: wm.shotTarget.wind });
       if (wm.aim?.targetId === corrected.targetId) { wm.aim = corrected; wm.needsAim = true; }
       if (slot.aiLevel >= T.ai.windMemoryMinLevel) {
         const bias = { slot: corrected.castleSlot, biasAzDeg: corrected.biasAzDeg, biasDial: corrected.biasDial };
@@ -95,9 +96,9 @@ function think(view, slot, rng, memory) {
     if (changedWind && wm.aim) { wm.aim = windChanged(wm.aim); wm.needsAim = true; }
     const current = refreshTarget(view, wm.target);
     if (current && vectorKey(current.pos) !== vectorKey(wm.target.pos)) { wm.target = current; wm.needsAim = true; }
-    const blocked = wm.target && (def.traj === TRAJ.STRAIGHT || wm.target.kind === 'ruler') && !visibleTarget(view, shooterPosition(weapon, wm.target.pos), wm.target);
-    if (!targetAlive(view, wm.target) || blocked || world.tick - wm.targetTick >= T.ai.retargetS * T.sim.tickHz) {
-      const target = selectTarget(view, slot, weapon);
+    if ((!targetAlive(view, wm.target) && (wm.target || !wm.targetTried || world.tick - wm.targetTick >= T.ai.targetRetryS * T.sim.tickHz)) || world.tick - wm.targetTick >= T.ai.retargetS * T.sim.tickHz) {
+      const target = selectTarget(view, slot, weapon, { ballistic: true });
+      wm.targetTried = true;
       if (target?.key !== wm.target?.key) {
         wm.aim = target ? createAimMemory(target.key, target.slot) : null;
         const bias = target && slot.aiLevel >= T.ai.windMemoryMinLevel ? state.windBias.find(b => b.slot === target.slot) : null;
@@ -112,6 +113,7 @@ function think(view, slot, rng, memory) {
     if (!wm.target) { if (weapon.autoFire) emit(CMD.AUTO_FIRE, { weaponId: weapon.id, on: 0 }); continue; }
     if (wm.needsAim) {
       wm.shooter = shooterPosition(weapon, wm.target.pos);
+      if (!weapon.muzzle) wm.shooter.y = vector(weapon.pos).y + T.weaponRules.wallFootprint[2] / 2;
       wm.solution = geometryAim(wm.shooter, wm.target.pos, def, world.wind, weapon.rangeTable);
       wm.commandAim = aimShot(wm.solution, slot.aiLevel, rng, wm.aim);
       emit(CMD.AIM, { weaponId: weapon.id, ...wm.commandAim }); wm.needsAim = false;
@@ -121,7 +123,7 @@ function think(view, slot, rng, memory) {
       emit(CMD.FIRE, { weaponId: weapon.id });
       emit(CMD.AUTO_FIRE, { weaponId: weapon.id, on: 1 });
       wm.firedWhileLoaded = true; wm.lastShotTick = world.tick + 1; wm.feedbackKey = impact?.key ?? null;
-      wm.shotTarget = { aim: recordAim(wm.aim, wm.solution, wm.commandAim), shooter: copy(wm.shooter), pos: copy(wm.target.pos) };
+      wm.shotTarget = { aim: recordAim(wm.aim, wm.solution, wm.commandAim), shooter: copy(wm.shooter), pos: copy(wm.target.pos), occluded: wm.target.occluded ?? false, wind: copy(world.wind) };
       gold -= def.fireCost;
     } else if (weapon.autoFire) emit(CMD.AUTO_FIRE, { weaponId: weapon.id, on: 0 });
   }

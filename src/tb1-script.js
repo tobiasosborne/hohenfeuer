@@ -2,6 +2,8 @@
 // Pure: produces integer Commands for slot 0 from the sim's public state; no DOM, clock or randomness.
 import { CMD, CONTROLLER, TACTIC, K, getMap } from "./contracts.js";
 import { TUNING as T } from "./tuning.js";
+import { geometryAim } from "./ai/aim.js";
+import { windVector } from "./sim/wind.js";
 import { atan2, sqrt, PI, TAU } from "./core/fmath.js";
 
 /** Slice constants: map, seed, the enemy-facing cannon of slot 0 and the walking route (castle-local x/z). */
@@ -29,13 +31,14 @@ export function tb1Slots(aiLevel = T.ai.defaultLevel) {
 /** Yaw (radians, clockwise from north) -> uint16 command units. */
 function yawUnits(rad) { const u = Math.round(rad / TAU * K.YAW_UNITS); return ((u % K.YAW_UNITS) + K.YAW_UNITS) % K.YAW_UNITS; }
 
-/** Aim solution for a target point: az tenths of a degree, range dial tenths from flat distance (rules-tb1.test.js). */
-export function solveAim(from, to) {
-  const dx = to.x - from.x, dz = to.z - from.z;
-  let azDeg = atan2(dx, -dz) * 180 / PI;
-  if (azDeg < 0) azDeg += 360;
-  const flat = sqrt(dx * dx + dz * dz);
-  return { az: Math.round(azDeg * T.aim.azUnitsPerDeg) % 3600, range: Math.round(flat / T.aim.dialUnitM * T.aim.rangeUnitsPerDial), flat };
+/** Fixed-elevation charge solution from the public weapon feet, targeting palace height. */
+export function solveAim(from, to, wind = { x: 0, z: 0 }) {
+  const dx = to.x - from.x, dz = to.z - from.z, flat = sqrt(dx * dx + dz * dz);
+  const offset = T.weaponRules.wallFootprint[0] / 2 + 2 * T.weapons.cannon.projRadius;
+  const muzzle = { x: from.x + dx / flat * offset, y: from.y + 0.5, z: from.z + dz / flat * offset };
+  const aim = geometryAim(muzzle, to, T.weapons.cannon, wind);
+  return { az: Math.round(aim.azDeg * T.aim.azUnitsPerDeg) % 3600,
+    range: Math.round(aim.dial * T.aim.rangeUnitsPerDial), flat };
 }
 
 /** World centre of a castle's palace cells (feet of the centroid cell row). */
@@ -84,7 +87,7 @@ export function createTb1Script({ slot = TB1.playerSlot } = {}) {
       }
       if (phase === "aim") {
         const w = state.weapons.find((x) => x.id === weaponId);
-        aim = solveAim(w.pos, palaceCentre(state.castles[1 - slot]));
+        aim = solveAim(w.pos, palaceCentre(state.castles[1 - slot]), windVector(state.wind));
         phase = "fire";
         return [cmd(CMD.AIM, { weaponId, az: aim.az, range: aim.range })];
       }

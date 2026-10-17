@@ -2,7 +2,7 @@
 import { EV, K, RNG_STREAM } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { sin, cos, DEG } from '../core/fmath.js';
-import { buildRangeTable, dialToElevation, elevationToDial, launchVelocity, traceFlight } from './ballistics.js';
+import { buildRangeTable, rangeToCharge, launchSpeed, fixedElevation, scatterAngles, launchVelocity, traceFlight } from './ballistics.js';
 import { spend } from './economy.js';
 import { markWindShot } from './wind.js';
 import { sampleHeight } from '../world/terrain.js';
@@ -11,17 +11,17 @@ const tables = new WeakMap();
 export function weaponRangeTable(def) { if (!tables.has(def)) tables.set(def, buildRangeTable(def)); return tables.get(def); }
 /** Create an initially loaded cannon; facing is N/E/S/W in quarter turns. */
 export function createWeapon(def, { id, slot, pos, facing = 0 }) {
-  const table = weaponRangeTable(def), dial = T.world.duelDistanceM / T.aim.dialUnitM;
-  const aim = { az: Math.round(facing * 90 * T.aim.azUnitsPerDeg), range: Math.round(elevationToDial(table, dialToElevation(table, dial)) * T.aim.rangeUnitsPerDial) };
+  const table = weaponRangeTable(def), dial = rangeToCharge(table, T.world.duelDistanceM);
+  const aim = { az: Math.round(facing * 90 * T.aim.azUnitsPerDeg), range: Math.round(dial * T.aim.rangeUnitsPerDial) };
   return { id, slot, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
 }
-function normal(rng, sigma) { return (rng() + rng() + rng() - 1.5) * 2 * sigma; }
 /** Fire one cannon shot if loaded and affordable; Phase 1 intentionally has no crew gate. */
 export function fireWeapon(ctx, weapon) {
   const def = ctx.getWeapon(weapon.defId), castle = ctx.castleOf(weapon.slot);
   if (!def || !castle || castle.eliminated || weapon.hp <= 0 || weapon.reload + 1e-9 < def.reloadS || !spend(castle, def.fireCost)) return false;
-  const rng = ctx.rng(RNG_STREAM.SCATTER), az = weapon.aim.az / T.aim.azUnitsPerDeg + normal(rng, def.scatter.azDeg);
-  const v0 = def.v0 * (1 + normal(rng, def.scatter.vFrac)), elevation = dialToElevation(weaponRangeTable(def), weapon.aim.range / T.aim.rangeUnitsPerDial);
+  const rng = ctx.rng(RNG_STREAM.SCATTER), charge = weapon.aim.range / T.aim.rangeUnitsPerDial;
+  const scatter = scatterAngles(def, weapon.aim.az / T.aim.azUnitsPerDeg, rng);
+  const az = scatter.azimuth, elevation = scatter.elevation, v0 = launchSpeed(def, charge);
   const vel = launchVelocity(v0, elevation, az);
   // Half-cell hull plus one projectile diameter, with muzzle at the hull centre height.
   const muzzleOffset = T.weaponRules.wallFootprint[0] / 2 + 2 * def.shot.radius;
@@ -29,7 +29,7 @@ export function fireWeapon(ctx, weapon) {
   const calmAz = weapon.aim.az / T.aim.azUnitsPerDeg;
   const calmMuzzle = { x: weapon.pos.x + sin(calmAz * DEG) * muzzleOffset, y: pos.y, z: weapon.pos.z - cos(calmAz * DEG) * muzzleOffset };
   const landingY = ctx.state.terrain ? sampleHeight(ctx.state.terrain, weapon.pos.x, weapon.pos.z) : weapon.pos.y;
-  weapon.predictedImpact = traceFlight({ v0: def.v0, k: def.k, elevation, azimuth: calmAz, pos: calmMuzzle, landingY }).pos;
+  weapon.predictedImpact = traceFlight({ v0, k: def.k, elevation: fixedElevation(def), azimuth: calmAz, pos: calmMuzzle, landingY }).pos;
   weapon.reload = 0; weapon.lastAim = { ...weapon.aim };
   castle.stats ??= { shots: 0, ammoCosts: 0 };
   castle.stats.shots++; castle.stats.ammoCosts += def.fireCost;
