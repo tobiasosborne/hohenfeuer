@@ -1,3 +1,25 @@
+# HANDOFF — Repair wave 1 landed, critique v2 running (2026-10-18 04:00 AEDT, orchestrator)
+
+## What was done
+Repair wave 1 (codex sol, research/17) committed as f069da7 after a green 456-test run (192 s): economy scarcity, breach and keep cracking, slot symmetry, supply/gun recovery, headless sweep harness (`node scripts/sweep.mjs --seeds 20 --swap-slot`). Onboarding (research/18) committed as 1932f4e with 28 goldens stable at 0 px (d940f70). Worklog docs/worklog/2026-10-18.md and README status updated. Beads closed: me0, ec7, plk, ot9.2, ot9.3, ot9.4, uo7.3-uo7.6, uo7.8.
+
+## Remaining
+Critique v2 (castle-game-mhl) is running on codex astra from codex-logs/20-critique-v2-prompt.md; it writes research/19-gameplay-critique-v2.md, scripts/novice.mjs, tests/evidence/critique-v2/ and files the next repair beads under castle-game-uo7. Win-path variety regressed in wave 1 (all 40 endings are palace defeats); the critique must quantify the ruler and surrender paths. Goldens may need recapture after sim changes (see Next step). LICENSE undecided.
+
+## Key techniques
+Sim-dependent goldens (tb*, hud-match*) are replayed from scripted command streams, so sim tuning changes legitimately move them; accept only after inspecting test-results/*.actual.png and recapture with `rm tests/goldens/<name>.png && npm run goldens` three times for stability. Codex workspace-write cannot open sockets (Wine, X11, Playwright); run browser gates on the main thread or launch codex with danger-full-access (user-approved). Quota: `~/.claude/scripts/claude-usage`; keep Fable within 2 points of weekly and both under the per-day ceiling before launching any Claude agent.
+
+## Issues touched
+Closed me0, ec7, plk, ot9.2, ot9.3, ot9.4. In progress mhl (critique v2). Open follow-ups: er7, uo7.1, ko3.1, ko3.2, ot9.5, hoq, hyr, sdx, m7d, ryk, v7s, yfq, iq8, bxe, utr, kqn.
+
+## Next step
+When codex-logs/20-critique-v2.log finishes: read codex-logs/20-critique-v2-final.md and research/19, commit research/19 + scripts/novice.mjs + evidence, push, then brief repair wave 2 from the ranked list (sim/ai lanes on codex sol, UI lane on Opus or codex astra depending on quota).
+
+## Previous Sessions
+The earlier handoffs follow unchanged.
+
+---
+
 # HANDOFF — Repair 5 onboarding (2026-10-18)
 
 ## What was done

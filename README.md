@@ -7,14 +7,18 @@ ordering crews. NPCs gate everything: gun crews, ammo runners, masons, and civil
 and hit points, with one morale number per castle. Opponents are AI castles in slots that humans can
 take over. Weapons, NPC types, maps and blocks are plugins.
 
-**Status (2026-10-17, evening):** tracer bullets 1 and 2 work end to end in the browser: walk the
+**Status (2026-10-18, early morning):** tracer bullets 1-4 work end to end in the browser: walk the
 ramparts among civilians and gun crews, man a cannon with its crew, aim with the original's
 direction/charge readouts and its ballistics (fixed elevation, powder charge, gravity, drag, scatter,
 splash, wind), fire, hit the enemy castle, watch walls take damage states, and the AI orders its
-crews and fires back; matches last 12-16 minutes. Re-authored block kit v1 and cannon; HUD redrawn
-to the original's layout. Designation building by masons, all ten original weapons as plugins, a title menu with skirmish setup
-and an end screen, and two look-and-feel passes against captures of the original are in. In progress:
-modern and period render presets, first-person feel, the original's 145 castle layouts as block castles. See `HANDOFF.md` and `docs/worklog/`.
+crews and fires back. Designation building by masons, all ten original weapons as plugins, the
+original's 145 castle layouts as block castles with forest/desert/ice/volcano biomes, a title menu
+with skirmish setup and an end screen, classic and modern render presets, first-person feel (recoil,
+shake, head bob) and an onboarding ramp (match 1 shows only the cannon, prompts retire as you use
+them) are in. Gameplay is run as a critic-repair loop against a 22-criterion rubric
+(`research/15`): critique v1 scored 52/110, repair wave 1 (`research/17`) fixed economy scarcity,
+match shape and slot fairness (40 paired AI duels: 12-17 min, slot wins 20/20, gold never at cap);
+critique v2 is in progress. See `HANDOFF.md` and `docs/worklog/`.
 
 | Rampart, looking north | Weapon view | First shot (scripted golden) |
 |---|---|---|

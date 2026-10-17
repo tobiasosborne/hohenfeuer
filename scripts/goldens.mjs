@@ -11,7 +11,10 @@ const MAX_DIFF_RATIO = 0.001; // fraction of differing pixels allowed
 const goldenDir = resolve("tests/goldens");
 const outDir = resolve("test-results");
 await mkdir(outDir, { recursive: true });
-const poses = JSON.parse(await readFile(resolve(goldenDir, "poses.json"), "utf8"));
+const allPoses = JSON.parse(await readFile(resolve(goldenDir, "poses.json"), "utf8"));
+// GOLDENS_ONLY=a,b limits the run to named poses (verification of a recapture under load).
+const only = process.env.GOLDENS_ONLY ? new Set(process.env.GOLDENS_ONLY.split(",")) : null;
+const poses = only ? Object.fromEntries(Object.entries(allPoses).filter(([n]) => only.has(n))) : allPoses;
 
 const { server, url } = await startServer();
 const browser = await launch();
