@@ -27,9 +27,9 @@ Version 0.4. Playable against the AI from the title screen; no multiplayer, no c
 - Walk the castle in first person among crews, runners, masons and civilians; man any gun; aim with
   the original's dials (direction in tenths of a degree, charge 1-255) and its ballistics: fixed
   elevation per weapon, charge-driven speed, gravity, drag, scatter, splash and a wind that turns.
-- All ten original weapons as plugins (cannon, double cannon, catapult, fire catapult, trebuchet,
-  ballista, arcaballista, bomb, rocket, Fat Freda, hellfire, zeppelin), each with its own mesh and
-  AI aim profile.
+- The original's weapons as twelve plugins, ten playable (cannon, double cannon, catapult, fire
+  catapult, trebuchet, ballista, arcaballista, bomb, rocket, Fat Freda) and two map-only (hellfire,
+  zeppelin), each with its own mesh and AI aim profile.
 - Designation building: pick stone, tower, mount or a weapon, outline it on the wall, masons pay
   for it and build it under fire. Repairs cost materials and take 12 s per block.
 - NPC roles and morale: gun crews are required to fire, runners keep magazines stocked, masons
