@@ -1,0 +1,43 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (29.262325ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (6.732694ms)
+✔ move axes quantise to int8 and clamp (0.62139ms)
+✔ walk mode emits one MOVE per tick with integer fields (3.702205ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (7.373759ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.849601ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (2.070794ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (5.75079ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (4.761777ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (132.521928ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (8.932598ms)
+✖ playable aim commands clamp charge to the labelled 1-255 range (2.836203ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 235.766539
+
+✖ failing tests:
+
+test at tests/unit/ui-commands.test.js:205:1
+✖ playable aim commands clamp charge to the labelled 1-255 range (2.836203ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  8 !== 10
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-commands.test.js:208:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 8,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

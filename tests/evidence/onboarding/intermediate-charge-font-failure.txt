@@ -1,0 +1,60 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (25.818881ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (9.857444ms)
+✔ move axes quantise to int8 and clamp (0.617271ms)
+✔ walk mode emits one MOVE per tick with integer fields (3.918929ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (1.15293ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.551981ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (2.125362ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (2.08109ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.303548ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (100.012403ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (3.319686ms)
+✔ playable aim commands clamp charge to the labelled 1-255 range (0.674332ms)
+✔ i18n: every key exists in every language and t() formats params (0.903888ms)
+✖ font has a glyph for every character the UI needs (7.027227ms)
+✔ every glyph has consistent rows and draws pixels (except space) (1.033501ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (13.01783ms)
+✔ rasterize is deterministic and distinguishes glyphs (1.76658ms)
+✔ lookDir: yaw clockwise from north, pitch up (0.722137ms)
+✔ facingFromYaw maps to FACING N/E/S/W (0.283711ms)
+✔ pick hits the first block face under the reticle with distance and normal (3.834802ms)
+✔ pick respects the 24 m order range and returns kind none on a miss (1.407042ms)
+✔ pick prefers a nearer weapon AABB and reports its id and crew state (1.331799ms)
+✔ pick sees designated air cells (0.87201ms)
+✔ ghost: block designation adjacent to the hit face, with every invalid reason (3.477146ms)
+✔ ghost: wall weapons need a mount below, ground weapons a clear 3x3x2 on solid floor (1.384109ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 24
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 306.356733
+
+✖ failing tests:
+
+test at tests/unit/ui-font.test.js:23:1
+✖ font has a glyph for every character the UI needs (7.027227ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   '·'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-font.test.js:25:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

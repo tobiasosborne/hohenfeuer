@@ -1,0 +1,37 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (16.459137ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (2.474696ms)
+✔ move axes quantise to int8 and clamp (0.524479ms)
+✔ walk mode emits one MOVE per tick with integer fields (3.20916ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.894163ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.480778ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.538356ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (1.885221ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.201451ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (51.32596ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (1.74185ms)
+✔ playable aim commands clamp charge to the labelled 1-255 range (0.692921ms)
+✔ newcomer RMB cancels a plan but does not introduce demolition (0.498347ms)
+✔ a locked weapon in a custom map cannot bypass the input palette through E or firing (0.453539ms)
+✔ i18n: every key exists in every language and t() formats params (0.97278ms)
+✔ font has a glyph for every character the UI needs (1.499579ms)
+✔ every glyph has consistent rows and draws pixels (except space) (0.830641ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (6.849886ms)
+✔ rasterize is deterministic and distinguishes glyphs (0.741273ms)
+✔ first match exposes one cannon and stone, no advanced keys or morale (0.556127ms)
+✔ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (1.005944ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.326555ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (1.230216ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.723212ms)
+✔ live counters persist, completion is idempotent and changes the next match only (1.220376ms)
+✔ one scheduled lesson plus the optional cannon milestone each announce once (0.31328ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.346954ms)
+✔ quick start pins newcomer controls while retaining the real persistent career counters (0.519783ms)
+✔ the construction palette grows gradually instead of dumping seven block types in match 10 (1.199041ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.642646

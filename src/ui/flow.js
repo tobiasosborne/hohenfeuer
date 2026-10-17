@@ -83,3 +83,11 @@ export function matchResult(state, me, settings) {
     durationS: (o.tick ?? state.tick) / TUNING.sim.tickHz, rows,
   };
 }
+
+/** One-click newcomer duel, independent of previous setup choices. */
+export function quickStartSettings(maps) {
+  const map = maps.find(m => m.id === "forest-duel") ?? maps[0];
+  const s = defaultSettings([map]);
+  s.slots.forEach((slot, i) => { slot.controller = i === 0 ? CONTROLLER.LOCAL : CONTROLLER.AI; slot.aiLevel = 2; });
+  return { ...s, profile: 0 };
+}

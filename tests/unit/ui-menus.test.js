@@ -16,10 +16,10 @@ const goto = (m, id) => { for (let i = 0; i < 40 && m.focusId !== id; i++) m.key
 test("main menu lists the original's entries in order and navigates by keyboard", () => {
   const m = fresh();
   assert.equal(m.screen, SCREEN.MAIN);
-  assert.deepEqual(m.items.map((i) => i.id), ["skirmish", "tutorial", "options", "credits", "exit"]);
-  assert.equal(m.focusId, "skirmish");
+  assert.deepEqual(m.items.map((i) => i.id), ["quickStart", "skirmish", "tutorial", "options", "credits", "exit"]);
+  assert.equal(m.focusId, "quickStart");
   m.key("ArrowUp"); assert.equal(m.focusId, "exit");
-  m.key("ArrowDown"); m.key("ArrowDown"); assert.equal(m.focusId, "tutorial");
+  m.key("ArrowDown"); m.key("ArrowDown"); m.key("ArrowDown"); assert.equal(m.focusId, "tutorial");
   m.key("Enter"); assert.equal(m.screen, SCREEN.TUTORIAL);
   m.key("Escape"); assert.equal(m.screen, SCREEN.MAIN);
   goto(m, "credits"); m.key("Enter"); assert.equal(m.screen, SCREEN.CREDITS);
@@ -150,4 +150,13 @@ test("every screen draws without throwing and labels its items in the menu langu
   const dr = fresh({ screen: SCREEN.OVER, result: { ...result, draw: true } });
   const t3 = []; drawMenu(fakeCtx(), dr, { note: (s) => t3.push(s) });
   assert.ok(t3.includes("Unentschieden!"));
+});
+
+test('quick start is the first action and boots forest duel at AI 2 with newcomer controls', () => {
+  const m = fresh(); assert.equal(m.focusId, 'quickStart');
+  const ev = m.key('Enter'); assert.equal(ev.type, MENU_EVENT.START);
+  assert.equal(ev.settings.map, 'forest-duel'); assert.equal(ev.settings.slots[1].aiLevel, 2);
+  assert.equal(ev.settings.profile, 0);
+  const setup = fresh(); setup.pointer(...centre(item(setup, 'skirmish')), true);
+  assert.equal(setup.screen, SCREEN.SKIRMISH, 'full setup is one click away');
 });

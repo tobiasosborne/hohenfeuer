@@ -71,10 +71,11 @@ test("textures are deterministic RGBA buffers", () => {
   for (let i = 0; i < 100; i++) { const v = hashNoise(i, i * 3, 5); assert.ok(v >= 0 && v < 1); }
 });
 
-test("readouts format as three digits: floor(az/10), floor(range/10)", () => {
+test("readouts format as direction and effective charge clamped to 1-255", () => {
   assert.deepEqual(formatReadouts(0, 380), ["000", "038"]);
+  assert.deepEqual(formatReadouts(0, 0), ["000", "001"]);
   assert.deepEqual(formatReadouts(3549, 489), ["354", "048"]);
-  assert.deepEqual(formatReadouts(3599, 9999), ["359", "999"]);
+  assert.deepEqual(formatReadouts(3599, 9999), ["359", "255"]);
 });
 
 function fakeCtx(w = 1024, h = 768) {
@@ -149,4 +150,32 @@ test("hud draws NPC overlays under the console and a morale band pennant", () =>
   assert.equal(hud.frame.moraleBand, 2);
   hud.draw(demoView("hud-weapon-view"));
   assert.equal(hud.frame.moraleBand, null, "no morale in the fake weapon view");
+});
+
+import { visibleFeatures, freshProfile, profileForMatch } from '../../src/progression.js';
+
+test('match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map', () => {
+  const { ctx } = fakeCtx(); const hud = createHud(ctx);
+  const features = visibleFeatures(freshProfile());
+  hud.draw({ ...demoView('hud-walking'), features, incomeRate: 4.2, prompt: { id: 'build', text: 'B: Bauen' } });
+  const texts = hud.frame.texts;
+  assert.ok(texts.includes('Einkommen +4.2 Gold/s')); assert.ok(texts.includes('B: Bauen'));
+  assert.equal(hud.frame.moraleBand, null); assert.equal(hud.frame.enemyMap, false);
+  for (const s of ['70%', 'Reparieren', 'Feuer frei', 'Mannschaft']) assert.ok(!texts.includes(s), s);
+  hud.draw({ ...demoView('hud-weapon-view'), features, weapon: { ...demoView('hud-weapon-view').weapon, rangeM: 192 } });
+  assert.equal(hud.frame.enemyMap, true);
+  assert.ok(hud.frame.texts.includes('Ladung 1-255'));
+  assert.ok(hud.frame.texts.includes('ca. 192 m (windstill)'));
+  assert.ok(!hud.frame.texts.includes('F: Feuer frei'));
+  hud.draw({ ...demoView('hud-walking'), features: visibleFeatures(profileForMatch(3)), incomeRate: 4.2 });
+  assert.ok(hud.frame.texts.includes('R: Priorität')); assert.ok(hud.frame.texts.includes('G: Geschütz setzen'));
+  assert.equal(hud.frame.moraleBand, 0);
+});
+
+import { messageLines } from '../../src/ui/console.js';
+import { measure } from '../../src/ui/font.js';
+test('console wraps lesson messages inside its panel without exceeding four lines', () => {
+  const lines = messageLines([{ text: 'Mauer beschädigt? R: Reparatur zuerst. Die Fahne zeigt Moral.', tone: 'good' }], 140, 4);
+  assert.ok(lines.length > 1 && lines.length <= 4);
+  for (const l of lines) assert.ok(measure(l.text, { bold: true, outline: true }).w <= 140);
 });

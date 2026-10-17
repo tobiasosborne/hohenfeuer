@@ -1,0 +1,38 @@
+✔ first match exposes one cannon and stone, no advanced keys or morale (5.121719ms)
+✔ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (1.048087ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.429397ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (1.023937ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.699882ms)
+✔ live counters persist, completion is idempotent and changes the next match only (0.922529ms)
+✔ one scheduled lesson plus the optional cannon milestone each announce once (0.355981ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.39118ms)
+✔ quick start pins newcomer controls while retaining the real persistent career counters (0.835668ms)
+✖ the construction palette grows gradually instead of dumping seven block types in match 10 (1.771916ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30.480072
+
+✖ failing tests:
+
+test at tests/unit/ui-progression.test.js:100:1
+✖ the construction palette grows gradually instead of dumping seven block types in match 10 (1.771916ms)
+  AssertionError [ERR_ASSERTION]: match 10: too many new materials
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-progression.test.js:105:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

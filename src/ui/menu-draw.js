@@ -179,7 +179,7 @@ function drawItems(ctx, m, lang, note, o = {}) {
   m.items.forEach((it, i) => {
     const focused = i === m.focus;
     if (it.kind === "field") spinner(ctx, it.rect, it.text((k, p) => t(k, lang, p), lang), focused, note);
-    else plateButton(ctx, it.rect, t(it.label, lang), focused, note, { green: it.id === "start", scale: o.scale });
+    else plateButton(ctx, it.rect, t(it.label, lang), focused, note, { green: it.id === "start" || it.id === "quickStart", scale: o.scale });
   });
 }
 
@@ -195,6 +195,7 @@ function drawMain(ctx, m, lang, note, mk) {
     ctx.fillStyle = "#cfc8c0"; ctx.fillRect(352, cy - 4, it.rect.x0 - 352, 2); ctx.fillRect(it.rect.x1, cy - 4, 672 - it.rect.x1, 2);
   }
   drawItems(ctx, m, lang, note);
+  label(ctx, t("quickStartHint", lang), 512, 514, note, { align: "center", color: "#f4dfaa" });
   label(ctx, t("version", lang), 1012, 748, note, { align: "right", color: "#c8c0b4" });
 }
 

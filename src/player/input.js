@@ -52,7 +52,12 @@ export function createInput(o) {
   const el = o.element;
   const doc = o.doc || el.ownerDocument || globalThis.document;
   const toLogical = o.toLogical || ((x, y) => ({ x, y }));
-  const blockIds = o.blockIds || [1, 2, 4, 5, 6, 7, 8, 9, 10];
+  const allBlockIds = o.blockIds || [1, 2, 4, 5, 6, 7, 8, 9, 10];
+  const allWeaponDefs = o.weaponDefs || ["cannon"];
+  const features = () => typeof o.features === "function" ? o.features() : o.features;
+  const blocks = () => { const f = features(); return f ? allBlockIds.filter(id => f.blocks.includes(id)) : allBlockIds; };
+  const weapons = () => { const f = features(); return f ? allWeaponDefs.filter(id => f.weapons.includes(id)) : allWeaponDefs; };
+  const allowedKey = code => { const f = features(); return !f || f.keys.includes(code); };
   let sensitivity = o.sensitivity ?? DEFAULT_SENSITIVITY;
   let mode = CAMERA_MODE.WALK;
   const keys = new Set();
@@ -64,7 +69,7 @@ export function createInput(o) {
   const freeLook = { active: false, yaw: 0, pitch: 0 };
   const aim = { azTaps: 0, rangeTaps: 0, pendX: 0, pendY: 0 };
   let drag = null; // 'dir' | 'range'
-  const build = { mode: BUILD.NONE, block: blockIds[0], weapon: (o.weaponDefs || ["cannon"])[0] };
+  const build = { mode: BUILD.NONE, block: blocks()[0], weapon: weapons()[0] };
 
   const locked = () => !!doc && doc.pointerLockElement === el;
   const lock = () => { try { const p = el.requestPointerLock && el.requestPointerLock(); if (p && p.catch) p.catch(() => {}); } catch { /* headless */ } };
@@ -72,18 +77,24 @@ export function createInput(o) {
 
   function onKeyDown(e) {
     const b = KEYMAP[e.code];
-    if (!b) return;
+    if (!b || !allowedKey(e.code)) return;
     if (e.preventDefault && (e.code === "Tab" || e.code === "Space" || e.code.startsWith("Arrow") || e.code.startsWith("Page"))) e.preventDefault();
     keys.add(e.code);
     if (b.hold) holds[b.hold] = true;
     const weapon = isWeaponMode(mode);
     if (weapon && b.aim) { if (b.aim[0] === "az") aim.azTaps += b.aim[1]; else aim.rangeTaps += b.aim[1]; }
     if (e.repeat) return;
+    if (!weapon && build.mode === BUILD.WEAPON && ["PageUp", "Numpad9", "PageDown", "Numpad3"].includes(e.code)) {
+      cycleSelection(["PageDown", "Numpad3"].includes(e.code) ? 1 : -1); return;
+    }
     if (weapon) { if (b.weaponAction) actions.push(b.weaponAction); return; }
     if (b.action) actions.push(b.action);
     if (b.menu) menu = true;
     if (b.toggle) build.mode = build.mode === b.toggle ? BUILD.NONE : b.toggle;
-    if (b.digit && b.digit <= blockIds.length) build.block = blockIds[b.digit - 1];
+    if (b.digit) {
+      const list = build.mode === BUILD.WEAPON ? weapons() : blocks();
+      if (b.digit <= list.length) build[build.mode === BUILD.WEAPON ? "weapon" : "block"] = list[b.digit - 1];
+    }
   }
   function onKeyUp(e) {
     const b = KEYMAP[e.code];
@@ -102,7 +113,7 @@ export function createInput(o) {
       if (e.button === 2) { freeLook.active = true; return; }
       if (e.button !== 0) return;
       const p = toLogical(e.clientX, e.clientY);
-      const hit = hitTest(p.x, p.y, "weapon");
+      const hit = hitTest(p.x, p.y, "weapon", features());
       if (hit === "fire") actions.push(ACTION.FIRE);
       else if (hit === "pad-up") aim.rangeTaps += 1;
       else if (hit === "pad-down") aim.rangeTaps -= 1;
@@ -114,10 +125,17 @@ export function createInput(o) {
       else if (hit === "btnL2") actions.push(ACTION.ORDER_CREW);
       else if (hit === "btnR1") actions.push(ACTION.RESTORE);
       else if (hit === "btnR2") mouseImpact = true;
-      else if (hit === "rightColumn") menu = true;
+
       return;
     }
-    if (!locked()) { lock(); return; }
+    if (!locked()) {
+      const p = toLogical(e.clientX, e.clientY), hit = hitTest(p.x, p.y, "walk", features());
+      if (e.button === 0 && hit === "btnR1") build.mode = build.mode === BUILD.BLOCK ? BUILD.NONE : BUILD.BLOCK;
+      else if (e.button === 0 && hit === "btnL1") build.mode = build.mode === BUILD.WEAPON ? BUILD.NONE : BUILD.WEAPON;
+      else if (e.button === 0 && hit === "btnL2") actions.push(ACTION.PRIORITY);
+      else lock();
+      return;
+    }
     if (e.button === 0) actions.push(ACTION.PRIMARY);
     else if (e.button === 2) actions.push(ACTION.SECONDARY);
   }
@@ -140,12 +158,14 @@ export function createInput(o) {
     look.yaw = ((look.yaw + mx * sensitivity) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
     look.pitch = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, look.pitch - my * sensitivity));
   }
+  function cycleSelection(dir) {
+    const weapon = build.mode === BUILD.WEAPON;
+    const list = weapon ? weapons() : blocks(), key = weapon ? "weapon" : "block";
+    if (list.length) build[key] = list[(list.indexOf(build[key]) + dir + list.length) % list.length];
+  }
   function onWheel(e) {
-    if (mode !== CAMERA_MODE.WALK || build.mode !== BUILD.BLOCK) return;
-    e.preventDefault?.();
-    const i = blockIds.indexOf(build.block);
-    const n = blockIds.length;
-    build.block = blockIds[(i + (e.deltaY > 0 ? 1 : -1) + n) % n];
+    if (mode !== CAMERA_MODE.WALK || build.mode === BUILD.NONE) return;
+    e.preventDefault?.(); cycleSelection(e.deltaY > 0 ? 1 : -1);
   }
   const onContext = (e) => { if (e.preventDefault) e.preventDefault(); };
 
@@ -198,9 +218,16 @@ export function createInput(o) {
       s.target = ctx.target || null;
       s.ghost = ctx.ghost || null;
       s.shelterOn = !!ctx.shelterOn;
+      const f = features();
+      if (f) {
+        if (!f.placement && build.mode === BUILD.WEAPON) build.mode = BUILD.NONE;
+        if (!blocks().includes(build.block)) build.block = blocks()[0];
+        if (!weapons().includes(build.weapon)) build.weapon = weapons()[0];
+        s.features = f;
+      }
       s.build = { ...build };
       s.impactHeld = holds.impact || mouseImpact;
-      s.showJobs = holds.jobs;
+      s.showJobs = holds.jobs && (!f || f.hud.jobs);
       s.freeLook = { yaw: freeLook.yaw, pitch: freeLook.pitch };
       s.menu = menu; menu = false;
       return s;

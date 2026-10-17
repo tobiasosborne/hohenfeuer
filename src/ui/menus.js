@@ -6,7 +6,7 @@
 import { CONTROLLER, TACTIC } from "../contracts.js";
 import { TUNING } from "../tuning.js";
 import { OPTION_VALUES, sanitizeOptions, DEFAULT_OPTIONS } from "./options.js";
-import { defaultSettings } from "./flow.js";
+import { defaultSettings, quickStartSettings } from "./flow.js";
 
 export const SCREEN = Object.freeze({
   SPLASH: "splash", MAIN: "main", SKIRMISH: "skirmish", OPTIONS: "options", CREDITS: "credits", TUTORIAL: "tutorial",
@@ -80,7 +80,7 @@ export function createMenu(o) {
   function items() {
     switch (screen) {
       case SCREEN.SPLASH: return [{ id: "continue", kind: "button", label: "pressKey", rect: rect(312, 560, 712, 600) }];
-      case SCREEN.MAIN: return [...stack(["skirmish", "tutorial", "options", "credits"], 238, 52), bottom("exit")];
+      case SCREEN.MAIN: return [...stack(["quickStart", "skirmish", "tutorial", "options", "credits"], 220, 52), bottom("exit")];
       case SCREEN.SKIRMISH: {
         const mapDef = maps.find((m) => m.id === settings.map) ?? maps[0];
         const W = TUNING.wind;
@@ -123,6 +123,7 @@ export function createMenu(o) {
   function activate(it) {
     switch (it.id) {
       case "continue": go(SCREEN.MAIN); return null;
+      case "quickStart": return { type: MENU_EVENT.START, settings: quickStartSettings(maps) };
       case "skirmish": go(SCREEN.SKIRMISH); return null;
       case "tutorial": go(SCREEN.TUTORIAL); return null;
       case "credits": go(SCREEN.CREDITS); return null;

@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { CMD, CMD_FIELDS, CAMERA_MODE, K, validateCommand } from "../../src/contracts.js";
 import { TUNING } from "../../src/tuning.js";
 import {
-  ACTION, buildCommands, quantizeYaw, dequantizeYaw, quantizePitch, dequantizePitch, quantizeAxis,
+  ACTION, BUILD, buildCommands, quantizeYaw, dequantizeYaw, quantizePitch, dequantizePitch, quantizeAxis,
   aimAfter, dragUnits, emptySample,
 } from "../../src/player/commands.js";
 
@@ -121,7 +121,7 @@ test("weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE", () =
 test("ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates", () => {
   const I = TUNING.ruler;
   const pick = (target, action, extra = {}) => buildCommands(sample({ target, actions: [action], ...extra }), 5).slice(1);
-  assert.deepEqual(types(pick(ownWeapon(I.interactWeaponM), ACTION.INTERACT)), [CMD.MAN_WEAPON]);
+  assert.deepEqual(types(pick(ownWeapon(I.interactWeaponM), ACTION.INTERACT)), [CMD.ORDER_CREW, CMD.MAN_WEAPON]);
   assert.deepEqual(types(pick(ownWeapon(I.interactWeaponM + 0.01), ACTION.INTERACT)), []);
   assert.deepEqual(types(pick(ownWeapon(10, { own: false }), ACTION.INTERACT)), []);
   const q = pick(ownWeapon(I.interactOrderM), ACTION.ORDER_CREW);
@@ -184,4 +184,42 @@ test("fuzz: every emitted command validates, all fields are integers, seq is den
       if (Array.isArray(v)) assert.ok(v.every(Number.isInteger)); else assert.ok(Number.isInteger(v), `${c.type}.${k}=${v}`);
     }
   }
+});
+
+import { visibleFeatures, freshProfile } from '../../src/progression.js';
+
+test('E orders crew automatically; locked orders and foreign build ids never produce commands', () => {
+  const features = visibleFeatures(freshProfile());
+  const man = buildCommands(sample({ features, target: ownWeapon(2), actions: [ACTION.INTERACT] }), 0);
+  assert.deepEqual(types(man), [CMD.MOVE, CMD.ORDER_CREW, CMD.MAN_WEAPON]);
+  assert.equal(man[1].on, 1); allValid(man);
+  assert.deepEqual(types(buildCommands(sample({ features, target: ownWeapon(2), actions: [ACTION.SHELTER, ACTION.PRIORITY, ACTION.ORDER_CREW] }), 0)), [CMD.MOVE]);
+  const weapon = { id: 3, az: 0, range: 380, autoFire: false };
+  assert.deepEqual(buildCommands(sample({ features, mode: CAMERA_MODE.WEAPON, weapon, actions: [ACTION.AUTO_FIRE, ACTION.ORDER_CREW] }), 0), []);
+  const ghost = { cell: [5,4,9], valid: true, facing: 0 };
+  for (const build of [{ mode: BUILD.WEAPON, weapon: 'cannon' }, { mode: BUILD.BLOCK, block: 2 }]) {
+    assert.deepEqual(types(buildCommands(sample({ features, build, ghost, actions: [ACTION.PRIMARY] }), 0)), [CMD.MOVE]);
+  }
+});
+
+test('playable aim commands clamp charge to the labelled 1-255 range', () => {
+  for (const [range, taps, expected] of [[10, -1, 10], [2550, 1, 2550], [0, 1, 10], [9999, -1, 2550]]) {
+    const cmds = buildCommands(sample({ mode: CAMERA_MODE.WEAPON, weapon: { id: 1, az: 0, range }, aim: { azTaps: 0, rangeTaps: taps, dragX: 0, dragY: 0 } }), 0);
+    assert.equal(cmds.find(c => c.type === CMD.AIM)?.range ?? range, expected);
+  }
+});
+
+test('newcomer RMB cancels a plan but does not introduce demolition', () => {
+  const features = visibleFeatures(freshProfile());
+  const base = { features, build: { mode: BUILD.BLOCK, block: 1 }, target: ownBlock(3), actions: [ACTION.SECONDARY] };
+  assert.deepEqual(types(buildCommands(sample(base), 0)), [CMD.MOVE]);
+  assert.deepEqual(types(buildCommands(sample({ ...base, target: ownBlock(3, { designated: true }) }), 0)), [CMD.MOVE, CMD.CANCEL]);
+});
+
+test('a locked weapon in a custom map cannot bypass the input palette through E or firing', () => {
+  const features = visibleFeatures(freshProfile());
+  const cmds = buildCommands(sample({ features, target: ownWeapon(2, { defId: 'rocket' }), actions: [ACTION.INTERACT] }), 0);
+  assert.deepEqual(types(cmds), [CMD.MOVE]);
+  const manned = sample({ features, mode: CAMERA_MODE.WEAPON, weapon: { id: 2, defId: 'rocket', az: 0, range: 380 }, actions: [ACTION.FIRE, ACTION.INTERACT] });
+  assert.deepEqual(types(buildCommands(manned, 0)), [CMD.LEAVE_WEAPON]);
 });

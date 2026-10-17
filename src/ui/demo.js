@@ -3,6 +3,7 @@
 
 import { CAMERA_MODE } from "../contracts.js";
 import { TUNING } from "../tuning.js";
+import { fixedElevation, traceFlight } from "../sim/ballistics.js";
 import { t } from "./i18n.js";
 import { MAP_CODE } from "./minimap.js";
 
@@ -32,7 +33,7 @@ export function demoMinimap(variant = 0) {
 export function demoView(name, o = {}) {
   const lang = o.lang || "de";
   const common = {
-    lang, tick: 0,
+    lang, tick: 0, incomeRate: TUNING.economy.palaceIncomeS + 20 * TUNING.economy.civilianIncomeS,
     gold: TUNING.economy.startGold, pop: { now: 40, start: 40 }, weapons: { now: 2, cap: TUNING.world.weaponCapDefault },
     wind: { speed: 12, dirDeg: 65, prevDirDeg: 20 },
     enemies: [{ bearingDeg: 8, ally: false, color: "#34c034" }],
@@ -55,6 +56,7 @@ export function demoView(name, o = {}) {
     ...common, mode: CAMERA_MODE.WEAPON, heading: 0,
     weapon: {
       name: t("cannon", lang), hpPct: 100, az: 0, range: 380, reload: 0.4, loaded: false,
+      rangeM: traceFlight({ ...TUNING.weapons.cannon, charge: 38, elevation: fixedElevation(TUNING.weapons.cannon) }).range,
       fireCost: TUNING.weapons.cannon.fireCost, affordable: true, autoFire: false, crewOrdered: false, restoreLit: false,
     },
     messages: [{ text: t("windChanged", lang), tone: "info" }],

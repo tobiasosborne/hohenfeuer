@@ -121,13 +121,14 @@ const inPlot = (c) => Array.isArray(c) && c.length === 3 && c.every(Number.isInt
 function weaponModeCommands(s, push) {
   const w = s.weapon;
   const has = (a) => s.actions.includes(a);
-  if (!w) { if (has(ACTION.LEAVE) || has(ACTION.INTERACT)) push(CMD.LEAVE_WEAPON, {}); return; }
+  if (!w || s.features && w.defId && !s.features.weapons.includes(w.defId)) { if (has(ACTION.LEAVE) || has(ACTION.INTERACT)) push(CMD.LEAVE_WEAPON, {}); return; }
   const next = aimAfter(w, s.aim, s.ctrl);
+  next.range = clamp(next.range, A.chargeMin * A.rangeUnitsPerDial, A.chargeMax * A.rangeUnitsPerDial);
   if (next.az !== w.az || next.range !== w.range) push(CMD.AIM, { weaponId: w.id, az: next.az, range: next.range });
   if (has(ACTION.FIRE)) push(CMD.FIRE, { weaponId: w.id });
-  if (has(ACTION.RESTORE)) push(CMD.RESTORE_AIM, { weaponId: w.id });
-  if (has(ACTION.AUTO_FIRE)) push(CMD.AUTO_FIRE, { weaponId: w.id, on: bit(!w.autoFire) });
-  if (has(ACTION.ORDER_CREW)) push(CMD.ORDER_CREW, { weaponId: w.id, on: bit(!w.crewOrdered) });
+  if ((!s.features || s.features.restore) && has(ACTION.RESTORE)) push(CMD.RESTORE_AIM, { weaponId: w.id });
+  if ((!s.features || s.features.autoFire) && has(ACTION.AUTO_FIRE)) push(CMD.AUTO_FIRE, { weaponId: w.id, on: bit(!w.autoFire) });
+  if ((!s.features || s.features.orders) && has(ACTION.ORDER_CREW)) push(CMD.ORDER_CREW, { weaponId: w.id, on: bit(!w.crewOrdered) });
   if (has(ACTION.LEAVE) || has(ACTION.INTERACT)) push(CMD.LEAVE_WEAPON, {});
 }
 
@@ -142,15 +143,19 @@ function walkModeCommands(s, push) {
   const own = t && t.own;
   const ownWeapon = own && t.kind === "weapon" && Number.isInteger(t.weaponId);
   const ownCell = own && (t.kind === "block" || t.kind === "designation") && inPlot(t.cell);
-  if (has(ACTION.INTERACT) && ownWeapon && t.dist <= R.interactWeaponM) push(CMD.MAN_WEAPON, { weaponId: t.weaponId });
-  if (has(ACTION.ORDER_CREW) && ownWeapon && t.dist <= R.interactOrderM) push(CMD.ORDER_CREW, { weaponId: t.weaponId, on: bit(!t.crewOrdered) });
-  if (has(ACTION.PRIORITY) && own && t.dist <= R.interactOrderM) {
+  if (has(ACTION.INTERACT) && ownWeapon && t.dist <= R.interactWeaponM && (!s.features || !t.defId || s.features.weapons.includes(t.defId))) {
+    if (!t.crewOrdered) push(CMD.ORDER_CREW, { weaponId: t.weaponId, on: 1 });
+    push(CMD.MAN_WEAPON, { weaponId: t.weaponId });
+  }
+  if ((!s.features || s.features.orders) && has(ACTION.ORDER_CREW) && ownWeapon && t.dist <= R.interactOrderM) push(CMD.ORDER_CREW, { weaponId: t.weaponId, on: bit(!t.crewOrdered) });
+  if ((!s.features || s.features.repair) && has(ACTION.PRIORITY) && own && t.dist <= R.interactOrderM) {
     if (ownWeapon) push(CMD.AMMO_PRIORITY, { weaponId: t.weaponId });
     else if (ownCell && t.kind === "block") push(CMD.REPAIR_PRIORITY, { cell: cell3(t.cell) });
   }
-  if (has(ACTION.SHELTER)) push(CMD.SHELTER, { on: bit(!s.shelterOn) });
+  if ((!s.features || s.features.orders) && has(ACTION.SHELTER)) push(CMD.SHELTER, { on: bit(!s.shelterOn) });
   const mode = s.build ? s.build.mode : BUILD.NONE;
   if (mode === BUILD.NONE) return;
+  if (s.features && (mode === BUILD.WEAPON ? !s.features.placement || !s.features.weapons.includes(s.build.weapon) : !s.features.blocks.includes(s.build.block))) return;
   const g = s.ghost;
   if (has(ACTION.PRIMARY) && g && g.valid && inPlot(g.cell)) {
     const facing = (g.facing | 0) & 3;
@@ -159,7 +164,7 @@ function walkModeCommands(s, push) {
   }
   if (has(ACTION.SECONDARY) && ownCell && t.dist <= R.interactOrderM) {
     if (t.designated || t.kind === "designation") push(CMD.CANCEL, { cell: cell3(t.cell) });
-    else push(CMD.DEMOLISH, { cell: cell3(t.cell) });
+    else if (!s.features || s.features.placement) push(CMD.DEMOLISH, { cell: cell3(t.cell) });
   }
 }
 

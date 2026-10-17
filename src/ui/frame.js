@@ -218,12 +218,8 @@ function pad(ctx) {
 
 /** Walking console centre: morale track and scrollwork around the shield. */
 function walkCentre(ctx) {
-  const m = L.moraleBox;
-  roundRectPath(ctx, 452, 592, 570, 626, 14); ctx.fillStyle = "#3a3330"; ctx.fill();
-  roundRectPath(ctx, 454, 594, 568, 624, 12); ctx.fillStyle = "#8e847b"; ctx.fill();
-  tri(ctx, m.x0 - 22, 610, m.x0 - 8, 600, m.x0 - 8, 620, "#2c2622");
-  tri(ctx, m.x1 + 22, 610, m.x1 + 8, 600, m.x1 + 8, 620, "#2c2622");
-  ctx.fillStyle = "#000000"; ctx.fillRect(m.x0, m.y0 - 1, m.x1 - m.x0, m.y1 - m.y0 + 2);
+  roundRectPath(ctx, 434, 594, 590, 624, 10); ctx.fillStyle = "#3a3330"; ctx.fill();
+  roundRectPath(ctx, 437, 597, 587, 621, 8); ctx.fillStyle = "#1a1715"; ctx.fill();
   // scrollwork: light curled bands either side of the shield
   ctx.lineCap = "round";
   for (const s of [-1, 1]) {
@@ -264,7 +260,7 @@ function infoBar(ctx) {
 
 /* ------------------------------------------------------------------ top */
 
-function counterIcons(ctx) {
+function counterIcons(ctx, features) {
   ctx.fillStyle = "#5a2e10"; ctx.fillRect(274, 14, 30, 20);
   ctx.fillStyle = "#9a5a22"; ctx.fillRect(276, 16, 26, 16);
   ctx.fillStyle = "#e8c040"; ctx.fillRect(276, 10, 26, 7);
@@ -274,6 +270,7 @@ function counterIcons(ctx) {
   ctx.fillStyle = "#4e6a3a"; ctx.fillRect(482, 18, 10, 10);
   ctx.fillStyle = "#c8c0b0"; ctx.fillRect(483, 18, 8, 3);
   ctx.fillStyle = "#3a3026"; ctx.fillRect(482, 28, 4, 7); ctx.fillRect(488, 28, 4, 7);
+  if (features && !features.hud.weaponCount) return;
   ctx.save(); ctx.translate(670, 24); ctx.rotate(-0.25);
   ctx.fillStyle = "#2c2a28"; ctx.fillRect(-14, -5, 30, 10);
   ctx.fillStyle = "#4a4643"; ctx.fillRect(-14, -5, 30, 3);
@@ -335,44 +332,35 @@ function infoBox(ctx, use) {
   ctx.fillStyle = "#020406"; ctx.fillRect(b.cx - 5, b.cy + 10, 10, 14);
 }
 
-function sideButtons(ctx) {
-  const rc = L.rightColumn;
-  for (let i = 0; i < 10; i++) {
-    const y = rc.y0 + 15 + i * 30;
-    circlePath(ctx, 1017, y, 14); ctx.fillStyle = "#1c1b1a"; ctx.fill();
-    circlePath(ctx, 1017, y, 12); ctx.fillStyle = "#5e605e"; ctx.fill();
-    ctx.lineWidth = 2; ctx.strokeStyle = "#9a9c98"; circlePath(ctx, 1017, y, 9); ctx.stroke();
-    circlePath(ctx, 1017, y, 5); ctx.fillStyle = "#2e302f"; ctx.fill();
-  }
-  for (let i = 0; i < 2; i++) {
-    const y = L.leftColumn.y0 + 16 + i * 32;
-    circlePath(ctx, 8, y, 14); ctx.fillStyle = "#1c1b1a"; ctx.fill();
-    circlePath(ctx, 8, y, 12); ctx.fillStyle = "#5e605e"; ctx.fill();
-    circlePath(ctx, 8, y, 6); ctx.fillStyle = "#3cd25a"; ctx.fill();
-  }
-}
-
 /**
  * Paint the static frame for one console kind ('weapon' | 'walk') in logical coordinates.
  * @param {CanvasRenderingContext2D} ctx @param {object|null} tex from makeTextures @param {string} kind
  */
-export function paintStatic(ctx, tex, kind) {
+export function paintStatic(ctx, tex, kind, features = null, enemyMap = true) {
   const use = painter(ctx, tex);
   const walk = kind === "walk";
   stoneBand(ctx, use);
   mapFrame(ctx, 9, 198, L.leftMapInner);
-  mapFrame(ctx, 824, 1013, L.rightMapInner);
+  if (enemyMap) mapFrame(ctx, 824, 1013, L.rightMapInner);
   sidePlate(ctx, use, 214, 432, false);
   sidePlate(ctx, use, 592, 810, true);
   arch(ctx, use);
   if (walk) walkCentre(ctx);
   else { readoutHousing(ctx); pad(ctx); cornerPlates(ctx); }
   for (const id of ["reloadBar", "weaponBar"]) barFrame(ctx, L[id]);
-  if (walk) { capsule(ctx, L.btnL1, true); capsule(ctx, L.btnL2); capsule(ctx, L.btnR1, true); }
-  else for (const id of ["btnL1", "btnL2", "btnR1", "btnR2"]) capsule(ctx, L[id]);
+  if (walk) {
+    if (!features || features.placement) capsule(ctx, L.btnL1, true);
+    if (!features || features.repair) capsule(ctx, L.btnL2);
+    capsule(ctx, L.btnR1, true);
+  } else {
+    if (!features || features.autoFire) capsule(ctx, L.btnL1);
+    if (!features || features.orders) capsule(ctx, L.btnL2);
+    if (!features || features.restore) capsule(ctx, L.btnR1);
+    capsule(ctx, L.btnR2);
+  }
   infoBar(ctx);
-  counterIcons(ctx);
+  counterIcons(ctx, features);
   compassRing(ctx);
   infoBox(ctx, use);
-  sideButtons(ctx);
+
 }

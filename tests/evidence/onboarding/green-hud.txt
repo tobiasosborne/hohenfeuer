@@ -1,0 +1,41 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (5.793608ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (6.740276ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (2.583767ms)
+✔ textures are deterministic RGBA buffers (9.349981ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.561861ms)
+✔ hud draws a weapon view and a walking view without throwing (62.901551ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (0.548581ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (0.797494ms)
+✔ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (7.361414ms)
+✔ hud draws NPC overlays under the console and a morale band pennant (7.355725ms)
+✔ match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map (12.156242ms)
+✔ KEYMAP covers DESIGN 4.8 / 5 keys (0.394382ms)
+✔ walk: WASD + Shift -> move axes, Space jump; edge actions fire once (3.423361ms)
+✔ mouse look only while pointer-locked; pitch clamps (1.391752ms)
+✔ weapon view: arrows/WASD tap aim, Ctrl, Space fires, Esc leaves, F/Home actions (2.859306ms)
+✔ weapon view: HUD clicks (fire, pad, buttons) and readout drags keep sub-unit remainders (1.845729ms)
+✔ build mode toggles (B, G), digits pick a block, LMB/RMB become PRIMARY/SECONDARY (0.787274ms)
+✔ Tab holds the job overlay; blur clears held keys (0.579463ms)
+✔ newcomer key, mouse and palette gates share the same feature set, unlocks are live (1.501761ms)
+✔ every rect is integer, non-empty and inside 1024 x 768 (0.726511ms)
+✔ DESIGN 7.5 anchor values (+-4 px) (0.33737ms)
+✔ top-level HUD elements do not overlap each other (0.513284ms)
+✔ console children lie inside the console and do not overlap (0.446578ms)
+✔ letterbox scale and inverse mapping (0.404787ms)
+✔ hitTest finds weapon-view controls (0.302266ms)
+✔ main menu lists the original's entries in order and navigates by keyboard (2.634166ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (5.292544ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (4.63622ms)
+✔ options: sensitivity, language, volume emit an options event and clamp (0.671435ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (0.495625ms)
+✔ end screen shows the result and returns to setup or title (0.537888ms)
+✔ every screen draws without throwing and labels its items in the menu language (57.246345ms)
+✔ quick start is the first action and boots forest duel at AI 2 with newcomer controls (0.734905ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 293.362009

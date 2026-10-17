@@ -1,0 +1,17 @@
+✔ first match exposes one cannon and stone, no advanced keys or morale (14.416028ms)
+✔ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (0.977718ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.505785ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (9.280482ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.724057ms)
+✔ live counters persist, completion is idempotent and changes the next match only (1.064906ms)
+✔ one scheduled lesson plus the optional cannon milestone each announce once (0.633399ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.4539ms)
+✔ quick start pins newcomer controls while retaining the real persistent career counters (1.077887ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.242522

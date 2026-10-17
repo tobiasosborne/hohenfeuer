@@ -1,0 +1,76 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (27.708426ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (4.302829ms)
+✔ move axes quantise to int8 and clamp (0.551885ms)
+✔ walk mode emits one MOVE per tick with integer fields (3.4956ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.943147ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.511666ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.722929ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (1.953907ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.518984ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (74.403757ms)
+✖ E orders crew automatically; locked orders and foreign build ids never produce commands (4.308528ms)
+✔ KEYMAP covers DESIGN 4.8 / 5 keys (0.364996ms)
+✔ walk: WASD + Shift -> move axes, Space jump; edge actions fire once (3.181991ms)
+✔ mouse look only while pointer-locked; pitch clamps (1.32191ms)
+✔ weapon view: arrows/WASD tap aim, Ctrl, Space fires, Esc leaves, F/Home actions (1.842593ms)
+✔ weapon view: HUD clicks (fire, pad, buttons) and readout drags keep sub-unit remainders (5.046179ms)
+✔ build mode toggles (B, G), digits pick a block, LMB/RMB become PRIMARY/SECONDARY (0.816577ms)
+✔ Tab holds the job overlay; blur clears held keys (0.646588ms)
+✖ newcomer key, mouse and palette gates share the same feature set, unlocks are live (1.199966ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 17
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 215.181759
+
+✖ failing tests:
+
+test at tests/unit/ui-commands.test.js:191:1
+✖ E orders crew automatically; locked orders and foreign build ids never produce commands (4.308528ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'move',
+  -   'order-crew',
+      'man-weapon'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-commands.test.js:194:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-input.test.js:148:1
+✖ newcomer key, mouse and palette gates share the same feature set, unlocks are live (1.199966ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'weapon' !== 'none'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-input.test.js:152:34)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'weapon',
+    expected: 'none',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

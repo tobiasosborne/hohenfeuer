@@ -1,0 +1,73 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (2.910496ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (4.04142ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (2.268693ms)
+✔ textures are deterministic RGBA buffers (5.732978ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.395825ms)
+✔ hud draws a weapon view and a walking view without throwing (22.757914ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (0.413804ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (0.629932ms)
+✔ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (4.899246ms)
+✔ hud draws NPC overlays under the console and a morale band pennant (4.879296ms)
+✖ match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map (11.838297ms)
+✔ main menu lists the original's entries in order and navigates by keyboard (2.876685ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (4.549047ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (4.082685ms)
+✔ options: sensitivity, language, volume emit an options event and clamp (0.549834ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (1.328393ms)
+✔ end screen shows the result and returns to setup or title (0.532143ms)
+✔ every screen draws without throwing and labels its items in the menu language (56.291338ms)
+✖ quick start is the first action and boots forest duel at AI 2 with newcomer controls (1.426289ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 17
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 206.410604
+
+✖ failing tests:
+
+test at tests/unit/ui-hud.test.js:156:1
+✖ match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map (11.838297ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(texts.includes('Einkommen +4.2 Gold/s'))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-hud.test.js:161:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-menus.test.js:155:1
+✖ quick start is the first action and boots forest duel at AI 2 with newcomer controls (1.426289ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'skirmish'
+  - 'quickStart'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-menus.test.js:156:29)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'skirmish',
+    expected: 'quickStart',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

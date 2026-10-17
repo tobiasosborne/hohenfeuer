@@ -90,7 +90,7 @@ export function pick(q) {
   for (const w of q.weapons || []) {
     const t = rayBox(o, d, L, w.min, w.max);
     if (t < 0 || t >= best.dist) continue;
-    best = { kind: "weapon", dist: t, own: w.slot === q.slot, weaponId: w.id, crewOrdered: !!w.crewOrdered };
+    best = { kind: "weapon", dist: t, own: w.slot === q.slot, weaponId: w.id, defId: w.defId, crewOrdered: !!w.crewOrdered };
   }
   return best;
 }

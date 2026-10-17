@@ -52,6 +52,7 @@ try {
   report.checks.push("options-persist");
 
   // 3. Keyboard: Skirmish -> setup (Start focused), raise the AI level, Start -> the match boots.
+  await page.keyboard.press("ArrowDown");
   await page.keyboard.press("Enter");
   assert.equal(await page.evaluate(`${H}.menu.screen`), "skirmish");
   await shot(page, "skirmish");

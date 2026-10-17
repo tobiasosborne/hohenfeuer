@@ -1,0 +1,43 @@
+{
+  "status": "implementation-tested-visual-acceptance-pending",
+  "sourceSha256": "502c4e34db594380a29c82a582c68e5f4decc3d3ea2d4befee5a0f1adc4930e4",
+  "npmTest": {
+    "files": 68,
+    "passed": 68,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 513.827,
+    "log": "npm-test-final.txt"
+  },
+  "finalUiTests": {
+    "tests": 113,
+    "passed": 113,
+    "failed": 0,
+    "skipped": 0,
+    "log": "ui-suite.txt"
+  },
+  "build": {
+    "status": "passed",
+    "log": "build.txt"
+  },
+  "headless": {
+    "runs": 2,
+    "tick": 254,
+    "hash": 2233218174,
+    "identical": true
+  },
+  "browser": {
+    "status": "blocked",
+    "reason": "localhost listen EPERM; offline Chromium crashpad socket denied"
+  },
+  "goldens": {
+    "recaptured": [],
+    "addedPoses": [
+      "hud-match1",
+      "hud-match3",
+      "quick-start-title"
+    ],
+    "modernPoses": "ignored by capture helper; normal comparison blocked before capture"
+  },
+  "remainingIssue": "castle-game-me0"
+}

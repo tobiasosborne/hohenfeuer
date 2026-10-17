@@ -142,3 +142,24 @@ test("Tab holds the job overlay; blur clears held keys", () => {
   input.dispose();
   assert.ok(element);
 });
+
+import { freshProfile, visibleFeatures, profileForMatch } from '../../src/progression.js';
+
+test('newcomer key, mouse and palette gates share the same feature set, unlocks are live', () => {
+  let features = visibleFeatures(freshProfile());
+  const { input, key, mouse } = rig({ features: () => features, blockIds: [1,2,4], weaponDefs: ['cannon','catapult','zeppelin'] });
+  for (const code of ['KeyG','KeyR','KeyX','KeyQ','Tab','Digit2']) key(code);
+  let s = input.sample(); assert.equal(s.build.mode, BUILD.NONE); assert.equal(s.build.block, 1); assert.equal(s.showJobs, false); assert.deepEqual(s.actions, []);
+  key('KeyB'); key('Digit3'); mouse('wheel', { deltaY: 1 });
+  assert.equal(input.sample().build.block, 1);
+  input.setMode(CAMERA_MODE.WEAPON); key('KeyF'); key('KeyQ');
+  mouse('mousedown', { button: 0, clientX: 300, clientY: 674 });
+  mouse('mousedown', { button: 0, clientX: 300, clientY: 708 });
+  assert.deepEqual(input.sample().actions, []);
+  key('Space'); assert.deepEqual(input.sample().actions, [ACTION.FIRE]);
+  features = visibleFeatures(profileForMatch(3)); input.setMode(CAMERA_MODE.WALK);
+  key('KeyG'); mouse('wheel', { deltaY: 1 }); assert.equal(input.sample().build.weapon, 'catapult');
+  mouse('wheel', { deltaY: 1 }); assert.equal(input.sample().build.weapon, 'cannon', 'unavailable weapons never enter the palette');
+  key('PageDown'); assert.equal(input.sample().build.weapon, 'catapult');
+  key('KeyR'); assert.deepEqual(input.sample().actions, [ACTION.PRIORITY]);
+});

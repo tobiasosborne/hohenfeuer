@@ -86,10 +86,10 @@ const inCircle = (c, x, y) => (x - c.cx) * (x - c.cx) + (y - c.cy) * (y - c.cy) 
  * Weapon view: fire, pad-up/down/left/right, readoutDir, readoutRange, btnL1..btnR2.
  * @param {number} x @param {number} y @param {'weapon'|'walk'|string} mode
  */
-export function hitTest(x, y, mode) {
-  if (inRect(LAYOUT.rightColumn, x, y)) return "rightColumn";
+export function hitTest(x, y, mode, features = null) {
+
   if (mode !== "weapon" && mode !== "impact") {
-    for (const id of ["btnL1", "btnL2", "btnR1", "btnR2"]) if (inRect(LAYOUT[id], x, y)) return id;
+    for (const id of [...(features && !features.placement ? [] : ["btnL1"]), ...(features && !features.repair ? [] : ["btnL2"]), "btnR1"]) if (inRect(LAYOUT[id], x, y)) return id;
     return null;
   }
   if (inCircle(LAYOUT.fire, x, y)) return "fire";
@@ -98,6 +98,6 @@ export function hitTest(x, y, mode) {
     if (Math.abs(dx) >= Math.abs(dy)) return dx < 0 ? "pad-left" : "pad-right";
     return dy < 0 ? "pad-up" : "pad-down";
   }
-  for (const id of ["readoutDir", "readoutRange", "btnL1", "btnL2", "btnR1", "btnR2"]) if (inRect(LAYOUT[id], x, y)) return id;
+  for (const id of ["readoutDir", "readoutRange", ...(features && !features.autoFire ? [] : ["btnL1"]), ...(features && !features.orders ? [] : ["btnL2"]), ...(features && !features.restore ? [] : ["btnR1"]), "btnR2"]) if (inRect(LAYOUT[id], x, y)) return id;
   return null;
 }

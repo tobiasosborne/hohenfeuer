@@ -9,7 +9,7 @@ import { CAMERA_MODE, EV, JOB } from "../contracts.js";
 import { TUNING } from "../tuning.js";
 import { LAYOUT, letterbox } from "./layout.js";
 import { t } from "./i18n.js";
-import { drawText, drawTextIn } from "./font.js";
+import { drawText, drawTextIn, measure } from "./font.js";
 import { compassGeometry, drawCompass } from "./compass.js";
 import { drawMinimap } from "./minimap.js";
 import { drawMessages } from "./console.js";
@@ -50,10 +50,10 @@ export function designationMessages(events, { slot, lang }) {
   return out;
 }
 
-/** Readout strings: direction floor(az/10) and range floor(range/10), three digits each (DESIGN 3.3). */
+/** Readout strings: direction floor(az/10) and effective charge 1-255, three digits each. */
 export function formatReadouts(az, range) {
   const dir = Math.floor(az / 10) % 360;
-  const rng = Math.min(999, Math.floor(range / 10));
+  const rng = Math.min(TUNING.aim.chargeMax, Math.max(TUNING.aim.chargeMin, Math.floor(range / TUNING.aim.rangeUnitsPerDial)));
   return [String(dir).padStart(3, "0"), String(rng).padStart(3, "0")];
 }
 
@@ -173,6 +173,14 @@ function pennant(ctx, band) {
   ctx.lineWidth = 1.5; ctx.strokeStyle = "#1a1410"; ctx.stroke();
 }
 
+function caption(ctx, text, y, note) {
+  const w = Math.min(740, measure(text, { bold: true, outline: true }).w + 24);
+  roundRectPath(ctx, 512 - w / 2, y, 512 + w / 2, y + 30, 5);
+  ctx.fillStyle = "rgba(20,16,12,0.9)"; ctx.fill();
+  ctx.strokeStyle = "#d8bb70"; ctx.lineWidth = 1; ctx.stroke();
+  drawTextIn(ctx, text, { x0: 512 - w / 2, y0: y, x1: 512 + w / 2, y1: y + 30 }, { bold: true, outline: true, color: "#fff1c8" }); note(text);
+}
+
 /**
  * Lane E entry point (DESIGN 9). Accepts a canvas or its 2D context.
  * @param {HTMLCanvasElement|OffscreenCanvas|CanvasRenderingContext2D} canvas2d
@@ -183,14 +191,15 @@ export function createHud(canvas2d, o = {}) {
   const makeCanvas = o.createCanvas === undefined ? defaultMakeCanvas : o.createCanvas;
   let tex;
   const statics = {};
-  const frame = { texts: [], readouts: null, moraleBand: null };
+  const frame = { texts: [], readouts: null, moraleBand: null, enemyMap: false };
 
-  function staticFor(kind) {
-    if (statics[kind] !== undefined) return statics[kind];
+  function staticFor(kind, features, enemyMap) {
+    const key = `${kind}:${enemyMap}:${!!features?.autoFire}:${!!features?.orders}:${!!features?.repair}:${!!features?.placement}:${!features}`;
+    if (statics[key] !== undefined) return statics[key];
     if (tex === undefined) tex = makeCanvas ? makeTextures(makeCanvas) : null;
     const c = tex && makeCanvas ? makeCanvas(LW, LH) : null;
-    if (c) paintStatic(c.getContext("2d"), tex, kind);
-    statics[kind] = c;
+    if (c) paintStatic(c.getContext("2d"), tex, kind, features, enemyMap);
+    statics[key] = c;
     return c;
   }
 
@@ -198,6 +207,8 @@ export function createHud(canvas2d, o = {}) {
   function draw(view) {
     const v = view || { mode: CAMERA_MODE.WALK };
     const lang = v.lang || "de";
+    const f = v.features;
+    const unlocked = k => !f || f[k];
     const texts = [];
     const note = (s) => texts.push(s);
     const cw = ctx.canvas ? ctx.canvas.width : LW, ch = ctx.canvas ? ctx.canvas.height : LH;
@@ -208,23 +219,30 @@ export function createHud(canvas2d, o = {}) {
     ctx.imageSmoothingEnabled = false;
     frame.readouts = null;
     frame.moraleBand = null;
+    frame.enemyMap = false;
     if (v.overlays) drawOverlays(ctx, v.overlays, note);
 
     const weaponMode = v.mode === CAMERA_MODE.WEAPON || v.mode === CAMERA_MODE.IMPACT;
     const showConsole = v.mode !== CAMERA_MODE.DEATH;
     if (showConsole) {
       const kind = weaponMode ? "weapon" : "walk";
-      const s = staticFor(kind);
-      if (s) ctx.drawImage(s, 0, 0); else paintStatic(ctx, null, kind);
+      const enemyMap = weaponMode || !f || f.hud.enemyMap;
+      frame.enemyMap = enemyMap;
+      const s = staticFor(kind, f, enemyMap);
+      if (s) ctx.drawImage(s, 0, 0); else paintStatic(ctx, null, kind, f, enemyMap);
 
       if (v.gold !== undefined) counter(ctx, L.topGold, String(v.gold), false, note);
       if (v.pop) counter(ctx, L.topPop, `${v.pop.now} (${v.pop.start})`, v.pop.now >= v.pop.start, note);
-      if (v.morale) { const band = moraleBand(v.morale.value, lang); pennant(ctx, band); frame.moraleBand = band.index; }
-      if (v.weapons) counter(ctx, L.topWeapons, `${v.weapons.now} (${v.weapons.cap})`, v.weapons.now >= v.weapons.cap, note);
+      if (v.morale && (!f || f.hud.morale)) {
+        const band = moraleBand(v.morale.value, lang); pennant(ctx, band); frame.moraleBand = band.index;
+        const label = `${t("moraleStatus", lang, { band: band.name })} ${Math.round(v.morale.value)}%`;
+        drawText(ctx, label, 478, 42, { bold: true, outline: true, color: band.color }); note(label);
+      }
+      if (v.weapons && (!f || f.hud.weaponCount)) counter(ctx, L.topWeapons, `${v.weapons.now} (${v.weapons.cap})`, v.weapons.now >= v.weapons.cap, note);
 
       drawCompass(ctx, compassGeometry({ heading: v.heading || 0, wind: v.wind, enemies: v.enemies, lang }), note);
       drawMessages(ctx, L.infoText, v.messages || [], note);
-      if (v.enemyLabel) {
+      if (v.enemyLabel && enemyMap) {
         const e = v.enemyLabel, r = L.enemyLabel;
         drawText(ctx, e.title, r.x1, r.y0, { bold: true, outline: true, color: "#f0c8c8", align: "right" });
         drawText(ctx, e.name, r.x1, r.y0 + 18, { bold: true, outline: true, color: e.color || "#3cc83c", align: "right" });
@@ -232,27 +250,30 @@ export function createHud(canvas2d, o = {}) {
         note(e.title); note(e.name); note(e.castle);
       }
       drawMinimap(ctx, L.leftMapInner, v.minimapOwn || null);
-      drawMinimap(ctx, L.rightMapInner, v.minimapEnemy || null, { enemy: true });
+      if (enemyMap) drawMinimap(ctx, L.rightMapInner, v.minimapEnemy || null, { enemy: true });
 
       if (weaponMode) {
         const w = v.weapon || { name: "", hpPct: 0, az: 0, range: 0, reload: 0, loaded: false, fireCost: 0, affordable: true };
         frame.readouts = readouts(ctx, w, note);
+        drawText(ctx, t("chargeUnit", lang), 511, 577, { bold: true, outline: true, align: "center" }); note(t("chargeUnit", lang));
+        const range = Number.isFinite(w.rangeM) ? t("rangeEstimate", lang, { m: Math.round(w.rangeM) }) : null;
+        const hints = [range, t("aimHint", lang), t("leaveHint", lang)].filter(Boolean).join("   /   ");
+        drawTextIn(ctx, hints, L.infoBar, { bold: true });
+        if (range) note(range); note(t("aimHint", lang)); note(t("leaveHint", lang));
         if (w.loaded) {
           textBar(ctx, L.reloadBar, 1, [214, 156, 34], "#8c8c8c", t("fireCost", lang, { cost: w.fireCost }), note, w.affordable ? "#141008" : "#c01010");
         } else {
           textBar(ctx, L.reloadBar, w.reload, [222, 156, 100], "#a4a4a4", t("reloading", lang), note);
         }
         textBar(ctx, L.weaponBar, w.hpPct / 100, [86, 168, 212], "#5a5a5a", t("weaponCondition", lang, { name: w.name, pct: Math.round(w.hpPct) }), note);
-        buttonLabel(ctx, L.btnL1, t("fireAtWill", lang), !!w.autoFire, note);
-        buttonLabel(ctx, L.btnL2, t("crew", lang), !!w.crewOrdered, note);
-        buttonLabel(ctx, L.btnR1, t("restore", lang), !!w.restoreLit, note);
-        buttonLabel(ctx, L.btnR2, t("impactView", lang), v.mode === CAMERA_MODE.IMPACT, note);
+        if (unlocked("autoFire")) buttonLabel(ctx, L.btnL1, t("autoFireHint", lang), !!w.autoFire, note);
+        if (unlocked("orders")) buttonLabel(ctx, L.btnL2, t("crewHint", lang), !!w.crewOrdered, note);
+        if (unlocked("restore")) buttonLabel(ctx, L.btnR1, t("restoreHint", lang), !!w.restoreLit, note);
+        buttonLabel(ctx, L.btnR2, t("impactHint", lang), v.mode === CAMERA_MODE.IMPACT, note);
         fireButton(ctx, !!w.loaded);
       } else {
-        const m = v.morale ? Math.round(v.morale.value) : null;
-        const mb = L.moraleBox;
-        ctx.fillStyle = "#1a1715"; ctx.fillRect(mb.x0, mb.y0, mb.x1 - mb.x0, mb.y1 - mb.y0);
-        if (m !== null) { const s = `${m}%`; drawTextIn(ctx, s, mb, { bold: true, outline: true, color: moraleBand(m, lang).color }); note(s); }
+        const income = t("incomeRate", lang, { rate: Number(v.incomeRate ?? 0).toFixed(1) });
+        drawTextIn(ctx, income, { x0: 434, y0: 594, x1: 590, y1: 624 }, { bold: true, color: "#f2da84" }); note(income);
         emblem(ctx, v.castleColor || "#c82020");
         const sel = v.selection;
         if (sel) textBar(ctx, L.selectionBar, 1, sel.valid === false ? [200, 70, 50] : [70, 190, 80], "#5a5a5a", t("cost", lang, { name: sel.name, cost: sel.cost }), note);
@@ -261,12 +282,18 @@ export function createHud(canvas2d, o = {}) {
         else if (v.shelterOn) textBar(ctx, L.statusBar, 1, [214, 156, 34], "#6a6a6a", t("shelter", lang), note);
         else if (v.target) textBar(ctx, L.statusBar, v.target.hpPct / 100, [86, 168, 212], "#5a5a5a", t("weaponCondition", lang, { name: v.target.name, pct: Math.round(v.target.hpPct) }), note);
         else textBar(ctx, L.statusBar, 0, [0, 0, 0], "#6a6a6a", "", note);
-        buttonLabel(ctx, L.btnL1, t("demolish", lang), false, note);
-        buttonLabel(ctx, L.btnL2, t("repair", lang), false, note);
-        buttonLabel(ctx, L.btnR1, t("build", lang), false, note);
+        if (unlocked("placement")) buttonLabel(ctx, L.btnL1, t("placementHint", lang), false, note);
+        if (unlocked("repair")) buttonLabel(ctx, L.btnL2, t("repairHint", lang), false, note);
+        buttonLabel(ctx, L.btnR1, t("buildHint", lang), !!sel, note);
+        const hints = sel ? [t(unlocked("placement") ? "buildConfirmFull" : "buildConfirm", lang), ...(f?.placement ? [t("cycleHint", lang)] : [])] :
+          [t("walkHint", lang), ...(unlocked("orders") ? [t("crewHint", lang), t("shelterHint", lang), t("jobsHint", lang)] : [])];
+        drawTextIn(ctx, hints.join("   /   "), L.infoBar, { bold: true }); hints.forEach(note);
+        if (v.paletteLabel) { drawText(ctx, v.paletteLabel, 512, 552, { bold: true, outline: true, align: "center" }); note(v.paletteLabel); }
       }
     }
     reticle(ctx, v);
+    if (!v.menu && v.prompt) caption(ctx, v.prompt.text, 420, note);
+    if (!v.menu && v.toast) caption(ctx, v.toast, 124, note);
     if (v.menu) drawMenu(ctx, v.menu, { note });
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     frame.texts = texts;

@@ -13,7 +13,7 @@ import { registerCoreView } from "./plugins/index.view.js";
 import { reservedGold } from "./sim/economy.js";
 import { createSim } from "./sim/sim.js";
 import { createLoop } from "./core/loop.js";
-import { fixedElevation, launchSpeed, traceFlight } from "./sim/ballistics.js";
+import { fixedElevation, traceFlight, weaponAvailable } from "./sim/ballistics.js";
 import { windHud } from "./sim/wind.js";
 import { palaceIntegrity } from "./sim/rules.js";
 import { readStyle } from "./render/styles.js";
@@ -29,10 +29,10 @@ import { createFx } from "./render/fx.js";
 import { createAssets } from "./render/assets.js";
 import { installDebugApi } from "./render/debug-api.js";
 import { createInput } from "./player/input.js";
-import { buildCommands, BUILD } from "./player/commands.js";
+import { buildCommands, BUILD, ACTION } from "./player/commands.js";
 import { createCameraRig, applyPose, followPose, impactPose } from "./player/camera.js";
 import { createFeel, createFollow } from "./player/feel.js";
-import { createBubbles, npcMarker } from "./ui/overlay.js";
+import { createBubbles, npcMarker, moraleBand } from "./ui/overlay.js";
 import { pick, ghost } from "./player/interact.js";
 import { createHud, designationMessages } from "./ui/hud.js";
 import { createMessageLog, eventsToMessages, TONE } from "./ui/console.js";
@@ -46,6 +46,7 @@ import { createSfx } from "./audio/sfx.js";
 import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-script.js";
 import { createTb3Script, TB3 } from "./tb3-script.js";
 import { windVector } from "./sim/wind.js";
+import { createProgression, loadProfile, freshProfile, profileForMatch, contextualPrompt, WEAPON_ORDER } from "./progression.js";
 
 /** Scripted slices: tb1 = palace shot; tb2 = crewed wall shot; tb3 = rampart designation and mason construction. */
 const SCRIPTS = { tb1: () => createTb1Script(), feel: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }), tb3: () => createTb3Script() };
@@ -84,6 +85,17 @@ const sim = createSim({ map: MATCH.map, seed: MATCH.seed, slots: MATCH.slots, ho
 const mapDef = MATCH.map;
 const ME_IS_AI = MATCH.slots[ME]?.controller === "ai";
 let view = sim.state;
+// Goldens/demos never read or write a real career. URL overrides are ephemeral fixtures.
+const profileParam = ["0", "3", "10"].includes(q.get("profile")) ? Number(q.get("profile")) : null;
+const fixtureProfile = profileParam ?? (GOLDEN || DEMO ? (settings?.profile === 0 ? 0 : 10) : null);
+let progression = createProgression({
+  profile: fixtureProfile === null ? loadProfile(storage) : profileForMatch(fixtureProfile),
+  storage: fixtureProfile === null && !ME_IS_AI ? storage : null,
+  matchOverride: settings?.profile === 0 ? 0 : null,
+});
+let wallHit = false, showJobs = false, previousBuildMode = BUILD.NONE, previousHits = 0, previousShots = 0;
+let toast = null;
+let moraleReason = null;
 let prev = capture(view);
 let lastEvents = [];
 
@@ -99,7 +111,7 @@ const lerp3 = (a, b, k) => (a ? [a.x + (b.x - a.x) * k, a.y + (b.y - a.y) * k, a
 /* ------------------------------------------------------------------ renderer */
 const biome = getView("biome", "forest");
 const sunDir = biome?.sun?.direction ? [...biome.sun.direction] : [-0.55, 0.7, 0.45];
-const r = createRenderer({ biome: "forest", sunDir, style: readStyle(q, storage), golden: GOLDEN }); // style= URL overrides the saved options style
+const r = createRenderer({ biome: "forest", sunDir, style: readStyle(q, GOLDEN ? null : storage), golden: GOLDEN }); // style= URL overrides the saved options style
 document.body.appendChild(r.domElement);
 const camera = r.camera;
 
@@ -160,13 +172,24 @@ function sizeHud() { hudCanvas.width = globalThis.innerWidth; hudCanvas.height =
 sizeHud();
 globalThis.addEventListener("resize", sizeHud);
 const log = createMessageLog({ max: T.ui.messageMax, ttlTicks: T.ui.messageLifetimeS * K.TICK_HZ });
+function announceUnlock() {
+  if (toast && view.tick < toast.until) return;
+  const concept = progression.takeAnnouncement();
+  if (!concept) return;
+  const key = `new${concept[0].toUpperCase()}${concept.slice(1)}`;
+  const text = t(key, LANG);
+  log.push(text, { tick: view.tick, tone: TONE.GOOD });
+  const shortKey = { triage: "repairHint", placement: "placementHint", autoFire: "autoFireHint", orders: "shelterHint", catapult: "catapultFound" }[concept] ?? key;
+  toast = { key: shortKey, until: view.tick + 6 * K.TICK_HZ };
+}
+announceUnlock();
 const sfx = createSfx();
 const craters = [];
 let menu = null;
 
 const el = r.domElement;
 const toLogical = (x, y) => { const b = el.getBoundingClientRect(); return { x: (x - b.left) / b.width * T.render.logicalW, y: (y - b.top) / b.height * T.render.logicalH }; };
-const input = createInput({ element: el, toLogical, slot: ME, blockIds: listPlugins(PLUGIN_KIND.BLOCK).filter(b => b.id !== 0 && !b.mapOnly && b.cost !== null).map(b => b.id), weaponDefs: ["cannon"], sensitivity: options.sensitivity });
+const input = createInput({ element: el, toLogical, slot: ME, features: () => progression.features, blockIds: listPlugins(PLUGIN_KIND.BLOCK).filter(b => b.id !== 0 && !b.mapOnly && b.cost !== null).map(b => b.id), weaponDefs: WEAPON_ORDER.filter(id => weaponAvailable(getWeapon(id))), sensitivity: options.sensitivity });
 input.setLook(Math.PI / 2, 0); // face the enemy (east)
 const unlockAudio = () => { sfx.unlock(); };
 globalThis.addEventListener("pointerdown", unlockAudio);
@@ -222,7 +245,7 @@ const rig = createCameraRig(camera, { seed: MATCH.seed, golden: GOLDEN || DEMO }
 const feel = createFeel({ seed: MATCH.seed, bob: !GOLDEN && (!DEMO || DEMO_FEEL) });
 const follow = createFollow({ enabled: GOLDEN || (DEMO && !DEMO_FEEL) ? false : DEMO_FEEL || options.followCam });
 const bubbles = createBubbles();
-let lastBand = null;
+let lastBand = moraleBand(view.castles[ME].morale).index;
 const WP = (id) => view.weapons.find((x) => x.id === id) ?? null;
 function blastRadius(weaponId) { const w = WP(weaponId), d = w ? getWeapon(w.defId) : null; return d ? Math.max(d.shot.splashRadius, d.shot.radius) : 1.25; }
 function camDist(pos) { return Math.hypot(pos[0] - camera.position.x, pos[1] - camera.position.y, pos[2] - camera.position.z); }
@@ -284,7 +307,7 @@ let impactHeld = false, freeLook = { yaw: 0, pitch: 0 };
 
 /* ------------------------------------------------------------------ tick */
 function ownWeaponsAabbs() {
-  return view.weapons.filter((w) => w.hp > 0).map((w) => ({ id: w.id, slot: w.slot, crewOrdered: w.crewOrdered,
+  return view.weapons.filter((w) => w.hp > 0).map((w) => ({ defId: w.defId, id: w.id, slot: w.slot, crewOrdered: w.crewOrdered,
     min: [w.pos.x - 0.5, w.pos.y, w.pos.z - 0.5], max: [w.pos.x + 0.5, w.pos.y + 1, w.pos.z + 0.5] }));
 }
 
@@ -300,7 +323,10 @@ const mannedWeapon = () => { const m = view.rulers[ME].manning; return m === nul
 /** The same reticle/site query feeds input, preview, HUD and the debug evidence hook. */
 function constructionContext(sample = null) {
   const me = view.rulers[ME], castle = view.castles[ME];
-  const build = sample?.build ?? script?.build ?? input.build;
+  let build = sample?.build ?? script?.build ?? input.build;
+  const f = progression.features;
+  if (build.mode === BUILD.WEAPON && (!f.placement || !f.weapons.includes(build.weapon)) ||
+      build.mode === BUILD.BLOCK && !f.blocks.includes(build.block)) build = { ...build, mode: BUILD.NONE };
   const aim = sample?.look ?? script?.look?.(view) ?? input.look;
   const target = mannedWeapon() ? null : pick({ eye: [me.pos.x, me.pos.y + T.ruler.eye, me.pos.z], ...aim, slot: ME,
     plots: view.castles.map(c => ({ plot: c.plot, slot: c.slot })), weapons: ownWeaponsAabbs() });
@@ -317,9 +343,12 @@ function constructionContext(sample = null) {
 function playerCommands() {
   input.setMode(cameraMode());
   const w = mannedWeapon();
-  const s = input.sample({ weapon: w ? { id: w.id, az: w.aim.az, range: w.aim.range, autoFire: w.autoFire, crewOrdered: w.crewOrdered } : null,
+  const s = input.sample({ weapon: w ? { id: w.id, defId: w.defId, az: w.aim.az, range: w.aim.range, autoFire: w.autoFire, crewOrdered: w.crewOrdered } : null,
     shelterOn: view.castles[ME].shelter });
   const c = constructionContext(s); s.target = c.target; s.ghost = c.ghost;
+  if (s.build.mode === BUILD.BLOCK && previousBuildMode !== BUILD.BLOCK && wallHit) progression.usePrompt("build");
+  previousBuildMode = s.build.mode;
+  showJobs = !!s.showJobs;
   impactHeld = !!s.impactHeld;
   freeLook = s.freeLook || freeLook;
   if (s.menu && !GOLDEN) { openMenu(SCREEN.PAUSE); return []; }
@@ -336,9 +365,13 @@ function tick(forcePlayer = false) {
     const slot = c.slot ?? ME;
     cmds.push({ ...c, slot, tick: view.tick, seq: cmds.filter((x) => x.slot === slot).length });
   }
+  const previousManning = view.rulers[ME].manning;
   sim.tick(cmds);
   const events = sim.drainEvents();
   view = sim.state;
+  const man = cmds.find(c => c.slot === ME && c.type === CMD.MAN_WEAPON);
+  if (man && previousManning !== man.weaponId && view.rulers[ME].manning === man.weaponId) progression.usePrompt("man");
+  if (cmds.some(c => c.slot === ME && c.type === CMD.FIRE) && (view.castles[ME].stats?.shots ?? 0) > previousShots) progression.usePrompt("fire");
   handleEvents(events);
   feelEvents(events);
   feel.step({ ruler: view.rulers[ME] });
@@ -353,6 +386,18 @@ function handleEvents(events) {
   const touched = new Set();
   for (const e of events) {
     const p = e.payload;
+    if (p.plot === ME && (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED) && [1, 2, 12].includes(p.id)) wallHit = true;
+    if (e.type === EV.NPC_DIED && p.castle === ME) moraleReason = { key: "moraleLoss", tick: view.tick };
+    else if (e.type === EV.BLOCK_DAMAGED && p.plot === ME) moraleReason = { key: "moraleDamage", tick: view.tick };
+    else if (e.type === EV.IMPACT && p.slot === ME && p.hit !== "terrain") moraleReason = { key: "moraleRally", tick: view.tick };
+    if (e.type === EV.MORALE_BAND && p.castle === ME && progression.features.hud.morale) {
+      const band = moraleBand(p.morale, LANG);
+      const recent = moraleReason && view.tick - moraleReason.tick < 20 * K.TICK_HZ;
+      const rising = band.index < lastBand;
+      const fits = recent && (rising ? moraleReason.key === "moraleRally" : moraleReason.key !== "moraleRally");
+      const reason = fits ? moraleReason.key : rising ? "moraleQuiet" : "moraleStrain";
+      log.push(`${t("moraleStatus", LANG, { band: band.name })}: ${t(reason, LANG)}`, { tick: view.tick, tone: TONE.INFO });
+    }
     if (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED || e.type === EV.BLOCK_BUILT) touched.add(p.plot), chunks.markCell(mirrors[p.plot], ...p.cell);
     else if (e.type === EV.DESIGNATION_ADDED || e.type === EV.DESIGNATION_CANCELLED) touched.add(p.slot);
     else if (e.type === EV.COLLAPSE) { touched.add(p.plot); for (const c of p.cells) chunks.markCell(mirrors[p.plot], ...c); }
@@ -370,8 +415,19 @@ function handleEvents(events) {
           log.push(t("hit", LANG, { pct: Math.round(palaceIntegrity(enemy) * 100) }), { tick: view.tick, tone: TONE.GOOD });
         } else log.push(t("miss", LANG), { tick: view.tick, tone: TONE.INFO });
       }
-    } else if (e.type === EV.GAME_OVER) openMenu(SCREEN.OVER, { result: matchResult(view, ME, settings) });
+    } else if (e.type === EV.GAME_OVER) {
+      if (!ME_IS_AI) progression.finish(!p.draw && (p.winners ?? []).includes(ME));
+      openMenu(SCREEN.OVER, { result: matchResult(view, ME, settings) });
+    }
   }
+  const shots = view.castles[ME].stats?.shots ?? 0;
+  const cannonShots = events.filter(e => e.type === EV.SHOT_FIRED && e.payload.slot === ME && WP(e.payload.weaponId)?.defId === "cannon").length;
+  for (let i = 0; i < shots - previousShots; i++) progression.shot(i < cannonShots ? "cannon" : "other");
+  previousShots = shots;
+  const hits = view.castles[ME].stats?.directHits ?? 0;
+  if (hits > previousHits) progression.hit(hits - previousHits);
+  previousHits = hits;
+  announceUnlock();
   for (const id of touched) {
     const src = view.castles[id].plot, m = mirrors[id];
     m.type.set(src.type); m.hp.set(src.hp); m.meta.set(src.meta);
@@ -448,6 +504,7 @@ const ovV = new THREE.Vector3();
 function overlays(mode) {
   if (mode === CAMERA_MODE.DEATH) return null;
   const out = { markers: [], bubbles: [] };
+  const f = progression.features;
   const jobKind = new Map((view.castles[ME].jobs ?? []).map((j) => [j.id, j.kind]));
   const project = (x, y, z) => {
     ovV.set(x, y, z).project(camera);
@@ -461,7 +518,7 @@ function overlays(mode) {
     const icon = npcMarker(n, jobKind.get(n.jobId) ?? null);
     if (!icon) continue;
     const s = project(n.pos.x, n.pos.y + 2.25, n.pos.z);
-    if (s) out.markers.push({ x: s[0], y: s[1], icon, scale: d < 20 ? 1 : 0.8 });
+    if (s && ((f.hud.jobs && showJobs) || icon === "flame" || icon === "bed")) out.markers.push({ x: s[0], y: s[1], icon, scale: d < 20 ? 1 : 0.8 });
   }
   for (const b of bubbles.visible(view.tick)) {
     const n = view.npcs.find((x) => x.id === b.entityId);
@@ -477,11 +534,16 @@ function predicted(w) {
   const key = `${w.id}:${w.aim.az}:${w.aim.range}`;
   if (predictedCache.key !== key) {
     const def = getWeapon(w.defId), az = w.aim.az / T.aim.azUnitsPerDeg;
-    const res = traceFlight({ v0: launchSpeed(def, w.aim.range / T.aim.rangeUnitsPerDial), k: def.k, elevation: elevationOf(w), azimuth: az, pos: { x: w.pos.x, y: w.pos.y + 0.5, z: w.pos.z }, landingY: w.pos.y });
+    const res = traceFlight({ ...def, v0: def.v0, charge: w.aim.range / T.aim.rangeUnitsPerDial, k: def.k, elevation: elevationOf(w), azimuth: az, pos: { x: w.pos.x, y: w.pos.y + 0.5, z: w.pos.z }, landingY: w.pos.y });
     predictedCache.key = key; predictedCache.point = res.pos;
   }
   const v = new THREE.Vector3(predictedCache.point.x, predictedCache.point.y, predictedCache.point.z).project(camera);
   return [Math.round((v.x + 1) / 2 * T.render.logicalW), Math.round((1 - v.y) / 2 * T.render.logicalH)];
+}
+
+function flatRange(w) {
+  predicted(w);
+  return Math.hypot(predictedCache.point.x - w.pos.x, predictedCache.point.z - w.pos.z);
 }
 
 const minimapCache = { tick: -1, own: null, enemy: null };
@@ -501,14 +563,19 @@ function hudView(mode) {
   const c = constructionContext();
   const selection = !w && c.build.mode !== BUILD.NONE && c.def ? { name: c.def.name[LANG], cost: c.def.cost, valid: c.ghost?.valid ?? false } : null;
   return {
-    lang: LANG, mode, tick: view.tick,
+    lang: LANG, mode, tick: view.tick, features: progression.features,
+    incomeRate: T.economy.palaceIncomeS + T.economy.civilianIncomeS * (meC.civiliansWorking ?? 0),
+    prompt: contextualPrompt(progression.profile, { mode, target: c.target, wallHit, building: c.build.mode !== BUILD.NONE,
+      loaded: !!w && w.reload + 1e-9 >= def.reloadS, affordable: !!w && meC.gold >= def.fireCost, hasAmmo: !!w && w.ammo >= def.ammoLoads }, LANG),
+    toast: toast && view.tick < toast.until ? t(toast.key, LANG) : null,
+    paletteLabel: c.build.mode === BUILD.WEAPON ? t("arsenalHint", LANG, { name: c.def?.name?.[LANG] ?? "" }) : null,
     gold: Math.floor(meC.gold), pop: { now: meC.population, start: meC.initialPopulation },
     weapons: { now: view.weapons.filter((x) => x.slot === ME && x.hp > 0).length, cap: mapDef.weaponCap },
     heading: camYaw,
     wind: { speed: wind.speed, dirDeg: wind.direction, prevDirDeg: wind.previousDirection },
     enemies: [{ bearingDeg: bearing, ally: false, color: SLOT_COLORS[1 - ME] }],
     weapon: w ? {
-      name: t("cannon", LANG), hpPct: (w.hp / def.hp) * 100, az: w.aim.az, range: w.aim.range,
+      name: def.name[LANG], rangeM: flatRange(w), hpPct: (w.hp / def.hp) * 100, az: w.aim.az, range: w.aim.range,
       reload: Math.min(1, w.reload / def.reloadS), loaded: w.reload + 1e-9 >= def.reloadS,
       fireCost: def.fireCost, affordable: meC.gold >= def.fireCost, autoFire: w.autoFire, crewOrdered: w.crewOrdered,
       restoreLit: w.aim.az !== w.lastAim.az || w.aim.range !== w.lastAim.range,
@@ -542,7 +609,13 @@ const api = installDebugApi({
   view: r,
   stepTo: (target) => stepTo(target),
   extras: {
-    sim, kit, kitError, chunks, ghosts, hud, input, construction: () => constructionContext(), script: () => script,
+    sim, kit, kitError, chunks, ghosts, hud, input,
+    setProfile(value) {
+      progression = createProgression({ profile: typeof value === "number" ? profileForMatch(value) : value ?? freshProfile() });
+      toast = null; previousHits = view.castles[ME].stats?.directHits ?? 0; previousShots = view.castles[ME].stats?.shots ?? 0;
+      input.blur(); announceUnlock(); frame(0); return progression.features;
+    },
+    construction: () => constructionContext(), script: () => script,
     /** Drive the exact keyboard/reticle command path while golden time is paused. */
     playerStep() { tick(true); chunks.flush(); frame(0); return view.tick; },
     setBuild(build, aim) { script = null; Object.assign(input.build, build); if (aim) input.setLook(aim.yaw, aim.pitch); frame(0); return constructionContext(); },
@@ -575,6 +648,9 @@ Object.defineProperties(api, {
   state: { get: () => view, enumerable: true },
   events: { get: () => lastEvents, enumerable: true },
   mode: { get: () => cameraMode(), enumerable: true },
+  profile: { get: () => progression.profile, enumerable: true },
+  features: { get: () => progression.features, enumerable: true },
+  onboarding: { get: () => ({ wallHit, prompt: hudView(cameraMode()).prompt, toast: hudView(cameraMode()).toast }), enumerable: true },
 });
 const lanePose = api.setPose;
 /**
@@ -583,6 +659,8 @@ const lanePose = api.setPose;
  * camera: "rig" (the player camera rig decides; position/yaw/pitch then only serve tools/blender, which needs them).
  */
 api.setPose = (p) => {
+  if (p.profile !== undefined) api.setProfile(p.profile);
+  if (p.showJobs !== undefined) showJobs = p.showJobs && progression.features.hud.jobs;
   if (p.followCam) follow.setEnabled(true);
   if (SCRIPTS[p.script]) {
     script ??= SCRIPTS[p.script]();

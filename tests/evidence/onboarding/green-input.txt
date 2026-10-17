@@ -1,0 +1,35 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (27.666039ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (3.066521ms)
+✔ move axes quantise to int8 and clamp (0.490278ms)
+✔ walk mode emits one MOVE per tick with integer fields (2.800131ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.713573ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (1.042167ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (6.808404ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (8.500935ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.444769ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (96.177422ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (2.959653ms)
+✔ KEYMAP covers DESIGN 4.8 / 5 keys (0.780145ms)
+✔ walk: WASD + Shift -> move axes, Space jump; edge actions fire once (2.372833ms)
+✔ mouse look only while pointer-locked; pitch clamps (1.521534ms)
+✔ weapon view: arrows/WASD tap aim, Ctrl, Space fires, Esc leaves, F/Home actions (2.416258ms)
+✔ weapon view: HUD clicks (fire, pad, buttons) and readout drags keep sub-unit remainders (3.551819ms)
+✔ build mode toggles (B, G), digits pick a block, LMB/RMB become PRIMARY/SECONDARY (1.81581ms)
+✔ Tab holds the job overlay; blur clears held keys (0.600958ms)
+✔ newcomer key, mouse and palette gates share the same feature set, unlocks are live (1.569919ms)
+✔ first match exposes one cannon and stone, no advanced keys or morale (0.581129ms)
+✔ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (0.699578ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.234162ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (0.88648ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.548ms)
+✔ live counters persist, completion is idempotent and changes the next match only (0.857249ms)
+✔ a scheduled concept and a cannon milestone never cause two announcements in one match (0.197154ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.221488ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.58507

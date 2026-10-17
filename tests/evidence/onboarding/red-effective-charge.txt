@@ -1,0 +1,78 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (3.473493ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (9.171954ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (2.127066ms)
+✔ textures are deterministic RGBA buffers (14.275537ms)
+✖ readouts format as direction and effective charge clamped to 1-255 (2.542892ms)
+✔ hud draws a weapon view and a walking view without throwing (60.079355ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (2.44578ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (1.030217ms)
+✔ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (7.768645ms)
+✔ hud draws NPC overlays under the console and a morale band pennant (8.884508ms)
+✔ match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map (20.575013ms)
+✔ console wraps lesson messages inside its panel without exceeding four lines (0.471414ms)
+✔ first match exposes one cannon and stone, no advanced keys or morale (2.781208ms)
+✖ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (1.193775ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.266808ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (1.007345ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.499267ms)
+✔ live counters persist, completion is idempotent and changes the next match only (0.885587ms)
+✔ one scheduled lesson plus the optional cannon milestone each announce once (0.200776ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.255623ms)
+✔ quick start pins newcomer controls while retaining the real persistent career counters (0.388717ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 19
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 216.852751
+
+✖ failing tests:
+
+test at tests/unit/ui-hud.test.js:74:1
+✖ readouts format as direction and effective charge clamped to 1-255 (2.542892ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      '000',
+  +   '000'
+  -   '001'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-hud.test.js:76:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-progression.test.js:16:1
+✖ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (1.193775ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  9 !== 10
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-progression.test.js:29:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 9,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

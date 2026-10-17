@@ -1,0 +1,48 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (29.376092ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (10.449034ms)
+✔ move axes quantise to int8 and clamp (0.553378ms)
+✔ walk mode emits one MOVE per tick with integer fields (4.116062ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.981485ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.689559ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (2.006033ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (1.978987ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.730769ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (128.064178ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (1.478932ms)
+✔ playable aim commands clamp charge to the labelled 1-255 range (0.499784ms)
+✖ newcomer RMB cancels a plan but does not introduce demolition (8.982951ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 212.980016
+
+✖ failing tests:
+
+test at tests/unit/ui-commands.test.js:212:1
+✖ newcomer RMB cancels a plan but does not introduce demolition (8.982951ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'move',
+  +   'demolish'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-commands.test.js:215:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

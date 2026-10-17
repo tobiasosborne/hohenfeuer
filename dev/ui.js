@@ -4,7 +4,10 @@
 
 import { createHud } from "../src/ui/hud.js";
 import { demoView } from "../src/ui/demo.js";
-import { createMenu } from "../src/ui/menus.js";
+import { createMenu, SCREEN } from "../src/ui/menus.js";
+
+/** Stand-in map list (the harness does not load the plugin registry). */
+const MAPS = [{ id: "forest-duel", name: { de: "Waldduell", en: "Forest duel" }, slots: [{ castle: "default" }, { castle: "default" }], wind: { strength: 2, change: 2 }, startGold: 1500 }];
 
 const q = new URLSearchParams(location.search);
 const state = { pose: q.get("pose") || "hud-weapon-view", bg: q.get("bg") || "magenta", lang: q.get("lang") || "de" };
@@ -14,9 +17,7 @@ const hud = createHud(hudCanvas);
 
 function viewFor(pose) {
   if (pose.startsWith("menu-")) {
-    const menu = createMenu();
-    menu.settings.lang = state.lang;
-    if (pose === "menu-skirmish") menu.key("Enter");
+    const menu = createMenu({ maps: MAPS, screen: pose === "menu-skirmish" ? SCREEN.SKIRMISH : SCREEN.MAIN, options: { lang: state.lang } });
     return { ...demoView("hud-walking", { lang: state.lang }), menu };
   }
   return demoView(pose, { lang: state.lang });

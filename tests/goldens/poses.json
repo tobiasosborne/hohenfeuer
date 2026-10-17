@@ -331,6 +331,42 @@
     "fov": 60,
     "showRuler": false,
     "width": 1024,
+    "height": 768,
+    "showJobs": true
+  },
+  "hud-match1": {
+    "page": "index.html?golden=1&profile=0",
+    "script": "tb1",
+    "until": 150,
+    "position": [
+      95.5,
+      9.6,
+      144
+    ],
+    "yaw": 0,
+    "pitch": -0.3,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "hud-match3": {
+    "page": "index.html?golden=1&profile=3",
+    "script": "tb1",
+    "until": 150,
+    "position": [
+      95.5,
+      9.6,
+      144
+    ],
+    "yaw": 0,
+    "pitch": -0.3,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "quick-start-title": {
+    "page": "index.html?golden=1&screen=main&profile=0",
+    "width": 1024,
     "height": 768
   }
 }

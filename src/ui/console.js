@@ -3,7 +3,7 @@
 
 import { EV } from "../contracts.js";
 import { t } from "./i18n.js";
-import { drawText, FONT } from "./font.js";
+import { drawText, FONT, measure } from "./font.js";
 
 /** Message tones -> text colours. */
 export const TONE = Object.freeze({ INFO: "info", GOOD: "good", BAD: "bad" });
@@ -54,6 +54,22 @@ export function eventsToMessages(events, o) {
   return out;
 }
 
+/** Wrap by actual bitmap widths; retain at most the panel's newest rows. */
+export function messageLines(messages, width, max = 4) {
+  const rows = [];
+  for (const m of messages) {
+    let line = "";
+    for (const ch of m.text) {
+      if (line && measure(line + ch, { bold: true, outline: true }).w > width) {
+        rows.push({ ...m, text: line.trimEnd() }); line = "";
+      }
+      line += ch;
+    }
+    if (line.trim()) rows.push({ ...m, text: line.trim() });
+  }
+  return rows.slice(-max);
+}
+
 /**
  * Paint messages (oldest first) into a text rect, one line each.
  * @param {CanvasRenderingContext2D} ctx @param {{x0: number, y0: number, x1: number, y1: number}} rect
@@ -62,7 +78,7 @@ export function eventsToMessages(events, o) {
 export function drawMessages(ctx, rect, messages, note = () => {}) {
   const lineH = FONT.rows + 4;
   const n = Math.min(messages.length, Math.floor((rect.y1 - rect.y0) / lineH));
-  const list = messages.slice(-n);
+  const list = messageLines(messages, rect.x1 - rect.x0, n);
   list.forEach((m, i) => {
     drawText(ctx, m.text, rect.x0, rect.y0 + i * lineH, { bold: true, outline: true, color: TONE_COLOR[m.tone] || TONE_COLOR.info });
     note(m.text);
