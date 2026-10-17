@@ -1,0 +1,15 @@
+1. Delivered src/npc/{path,jobs,brain,morale,kinematics,index,crew,model}.js; edits confined to NPC modules and permitted tests/evidence.
+2. Validation: npm test 42/42 files; expanded NPC acceptance 51/51 checks; npm run build and node --check pass; red/green evidence retained.
+3. Advisory: 160 NPCs averaged 2.159 ms/tick against the 4 ms target (never fails under load); actual SimApi save/restore hashes match.
+4. Fields: weapon.crewPresent = NPC crew only; weapon.rulerManning = live ruler at gun; crewPresent() includes ruler and caps at N; weapon.crewWorkSpeed = mean work multiplier; castle.magazines = connected {id,cells,stock,restock} stores.
+5. sim.js import: import { npcTick, moraleTick, npcKinematics, recordNpcEvent, beginNpcImpact, endNpcImpact, npcCommand } from '../npc/index.js';
+6. sim.js after ctx.api = api: hooks = { npcTick, moraleTick, npcKinematics, ...hooks }; hooks.npcKinematics?.(api);
+7. sim.js replace emit: const emit = (type, payload) => { events.push({ type, payload: snapshot(payload) }); recordNpcEvent(api, type, payload); };
+8. sim.js at start of each blastsTick loop, after declaring blast and before direct person damage: const npcImpact = beginNpcImpact(api, blast);
+9. sim.js at end of that same blast loop, after plugin/default blast resolution: endNpcImpact(api, npcImpact);
+10. sim.js replace commandKinds: const commandKinds = Object.freeze(Object.values(CMD).filter(type => type !== CMD.DESIGNATE_WEAPON));
+11. sim.js replace command switch default: default: if (!npcCommand(api, cmd)) throw new Error('Unsupported command'); break;
+12. weapons.js import: import { canFire, reloadMultiplier } from '../npc/index.js';
+13. weapons.js replace fire guard: if (!def || !castle || castle.eliminated || weapon.hp <= 0 || weapon.reload + 1e-9 < def.reloadS || !canFire(weapon, castle) || !spend(castle, def.fireCost)) return false; weapon.ammo -= def.ammoLoads;
+14. weapons.js replace reload increment: weapon.reload = Math.min(def.reloadS, weapon.reload + dt / reloadMultiplier(weapon, ctx.castleOf(weapon.slot)));
+15. No git run; lane issue castle-game-d6q complete; orchestrator integration tracked by castle-game-utr; full logs are tests/evidence/20-30-npc-*.

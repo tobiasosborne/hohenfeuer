@@ -1,0 +1,25 @@
+✔ morale row: own crew killed, counted once (6.336244ms)
+✔ morale row: own runner killed, counted once (0.625085ms)
+✔ morale row: own mason killed, counted once (0.553685ms)
+✔ morale row: own civilian killed, counted once (0.624675ms)
+✔ morale row: deaths capped at -15 in a rolling 10 second window (1.349808ms)
+✔ morale row: palace damaged -4 per projectile regardless of number of cells (1.165257ms)
+✔ morale row: our damaging hit gives +2 once per projectile (0.535075ms)
+✔ morale row: enemy blocks destroyed +0.5 each capped +3 per projectile (0.455023ms)
+✔ morale row: enemy weapon destroyed +5 each (0.582ms)
+✔ morale row: enemy NPC kills +0.5 each capped +3 per projectile (0.823614ms)
+✔ morale row: under fire -0.1 per second, expires after 10 seconds (1.211139ms)
+✔ morale row: palace integrity below half drains -0.2 per second (0.418165ms)
+✔ morale row: shelter bonus needs order and at least 80% of civilians sheltered (0.905469ms)
+✔ morale row: rally on first damaging hit after <30, only once per 60 seconds (0.474543ms)
+✔ layers floor at 8, baseline moves no faster than 0.05/s, bands emit once per crossing (0.543742ms)
+✔ work bands, ruler leadership radius and cap follow tuning (0.690987ms)
+✔ surrender requires 45 continuous seconds at <=10, resets above threshold (11.01445ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.845072

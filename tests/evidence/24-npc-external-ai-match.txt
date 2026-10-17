@@ -1,0 +1,12 @@
+✔ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (371.392624ms)
+ℹ seed 1 winner 0, 118 ticks (3.933333333333333s), shots 1/1, hash 2554070442
+✔ TB2: registered forest-duel seed 1 general AIs produce a winner in 15 minutes (2640.298942ms)
+ℹ forest-duel seed 1: {"tick":1493,"hash":3619448650,"winner":0,"shots":[3,3]}, 49.766666666666666s
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3021.894075

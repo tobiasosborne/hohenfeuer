@@ -1,0 +1,14 @@
+✔ a changed cell beyond the initial revalidation window breaks the claim before entry (10.428855ms)
+✔ anti-deadlock allows its selected job to finish despite continuing impacts (2.733878ms)
+✔ magazine destruction queues the stock-scaled explosion once for a connected store (1.322916ms)
+✔ designations reserve gold, cancel only that cell, build supported cells, never into a person (1.924485ms)
+✔ path searches are limited to eight per castle per tick and queued workers advance next tick (21.160387ms)
+✔ plugin pickJob may decline work, and haul legs respect the one-second replan limit (3.996088ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.598302

@@ -1,0 +1,20 @@
+NPC advisory: 160 NPCs average 2.485 ms/tick; target <= 4 ms
+✔ tick zero creates P NPCs with seeded thresholds and research role shares at usable spots (9.080725ms)
+✔ ORDER_CREW claims crew, counts only arrived living workers, release drops assignments (36.647962ms)
+✔ N=3 reload table for 0..3 crew, ruler counts, and minimum crew fire gate (0.87998ms)
+✔ runner takes two loads and deposits at operator cell; destroyed magazine starves buffer (32.224991ms)
+✔ shelter preempts civilians and empty runners, reserves one cell each, carrying runners continue (21.081699ms)
+✔ flee/return hysteresis holds at thresholds and drops claims (7.932797ms)
+✔ low morale deserts highest-id civilian after 20s, then one each 10s, without death penalties (54.935914ms)
+✔ draft retags one civilian every 10s for minimum runners, then masons, then needed crew (0.765414ms)
+✔ path following uses carry, stair and ladder speeds and stops exactly at arrival (0.958169ms)
+✔ impact adapter credits a multi-cell projectile once and persists through plain snapshots (1.902038ms)
+✔ 160 NPC steady-state average tick advisory (4 ms target, no failure under load) (529.026702ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 705.755873

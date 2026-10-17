@@ -1,0 +1,32 @@
+✖ actual SimApi hooks spawn both populations and resume deterministic NPC state from saves (2695.739136ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2711.975641
+
+✖ failing tests:
+
+test at tests/unit/npc-sim.test.js:9:1
+✖ actual SimApi hooks spawn both populations and resume deterministic NPC state from saves (2695.739136ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 2841019228
+  - 2624355569
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-sim.test.js:22:65)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2841019228,
+    expected: 2624355569,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

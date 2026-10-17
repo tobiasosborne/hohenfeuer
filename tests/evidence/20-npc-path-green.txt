@@ -1,0 +1,13 @@
+✔ standability requires two clear cells, excludes roofs, and passes paired doors (4.07187ms)
+✔ stairs ascend along facing and descend in reverse; ordinary blocks cannot be jumped (8.138296ms)
+✔ ladder column permits vertical travel and platform exit with 2 m clearance (3.815234ms)
+✔ step down is one cell, moves never diagonal, deterministic f/h/index tie-break (1.640946ms)
+✔ versioned cache invalidates successful and unsuccessful paths on block changes (1.696929ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.926355

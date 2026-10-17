@@ -1,0 +1,18 @@
+✔ emitters create repair, designated build, ammo, crew and civilian work exactly once (9.835842ms)
+✔ claim selection uses priority, distance, id, respects roles and reports unreachable jobs (4.195692ms)
+✔ claims expire on death (3.73808ms)
+✔ claims expire on flee (1.8333ms)
+✔ claims expire on shelter (1.549206ms)
+✔ claims expire on path (1.527926ms)
+✔ claims expire on timeout (1.401276ms)
+✔ fear rejects recent nearby enemy impacts but lifts highest-priority repair at 30 seconds (1.233339ms)
+✔ repairs progress at maxHp/8 per second, debit repair gold and finish once (4.396847ms)
+✔ magazines are connected stores, preserve stock, and disappear when destroyed (1.8814ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.265131

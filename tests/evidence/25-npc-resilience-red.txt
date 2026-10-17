@@ -1,0 +1,76 @@
+✖ a changed cell beyond the initial revalidation window breaks the claim before entry (9.020304ms)
+✖ anti-deadlock allows its selected job to finish despite continuing impacts (2.270521ms)
+✖ magazine destruction queues the stock-scaled explosion once for a connected store (0.717681ms)
+✔ designations reserve gold, cancel only that cell, build supported cells, never into a person (2.242844ms)
+✔ path searches are limited to eight per castle per tick and queued workers advance next tick (11.405465ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 2
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32.377767
+
+✖ failing tests:
+
+test at tests/unit/npc-resilience.test.js:10:1
+✖ a changed cell beyond the initial revalidation window breaks the claim before entry (9.020304ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(n.pos.x < 7)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-resilience.test.js:16:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-resilience.test.js:19:1
+✖ anti-deadlock allows its selected job to finish despite continuing impacts (2.270521ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-resilience.test.js:26:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-resilience.test.js:29:1
+✖ magazine destruction queues the stock-scaled explosion once for a connected store (0.717681ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-resilience.test.js:33:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,37 @@
+✔ cannon reloads, fires atomically and pays exactly once per shot (84.856863ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (17775.157531ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (77.211241ms)
+✖ a cannonball through the opposing ruler eliminates its castle (197.195342ms)
+✔ firing publishes the calm prediction and restores the last fired aim (67.321739ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (5516.408974ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23756.694715
+
+✖ failing tests:
+
+test at tests/unit/sim-engine.test.js:73:1
+✖ a cannonball through the opposing ruler eliminates its castle (197.195342ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'palace' !== 'ruler'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:82:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'palace',
+    expected: 'ruler',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

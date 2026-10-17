@@ -1,0 +1,10 @@
+✔ TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless) (486.050774ms)
+✔ TB1: the same shot sequence is deterministic (hash equal across two sims) (370.671238ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 903.923615

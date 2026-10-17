@@ -1,0 +1,102 @@
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/npc/index.js' imported from /home/tobias/Projects/castle-game/tests/unit/npc-brain.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/npc/index.js'
+}
+
+Node.js v24.11.1
+NPC advisory: 160 NPCs average 2.456 ms/tick; target <= 4 ms
+✔ tick zero creates P NPCs with seeded thresholds and research role shares at usable spots (16.578199ms)
+✔ ORDER_CREW claims crew, counts only arrived living workers, release drops assignments (36.63514ms)
+✖ N=3 reload table for 0..3 crew, ruler counts, and minimum crew fire gate (8.966933ms)
+✖ runner takes two loads and deposits at operator cell; destroyed magazine starves buffer (24.03598ms)
+✔ shelter preempts civilians and empty runners, reserves one cell each, carrying runners continue (31.503945ms)
+✖ flee/return hysteresis holds at thresholds and drops claims (7.749865ms)
+✔ low morale deserts highest-id civilian after 20s, then one each 10s, without death penalties (60.992972ms)
+✔ draft retags one civilian every 10s for minimum runners, then masons, then needed crew (2.207127ms)
+✔ path following uses carry, stair and ladder speeds and stops exactly at arrival (1.293908ms)
+✔ impact adapter credits a multi-cell projectile once and persists through plain snapshots (2.936235ms)
+✔ 160 NPC steady-state average tick advisory (4 ms target, no failure under load) (521.293276ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 8
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 728.754849
+
+✖ failing tests:
+
+test at tests/unit/npc-brain.test.js:34:1
+✖ N=3 reload table for 0..3 crew, ruler counts, and minimum crew fire gate (8.966933ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(canFire(w, f.castle))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-brain.test.js:43:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-brain.test.js:49:1
+✖ runner takes two loads and deposits at operator cell; destroyed magazine starves buffer (24.03598ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(canFire(w, f.castle))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-brain.test.js:56:64)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-brain.test.js:71:1
+✖ flee/return hysteresis holds at thresholds and drops claims (7.749865ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'shelter' !== 'flee'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-brain.test.js:73:58)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'shelter',
+    expected: 'flee',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,78 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (2118.685324ms)
+✖ tests/unit/ai-aim.test.js (387.321631ms)
+✖ tests/unit/ai-build.test.js (242.604814ms)
+✔ tests/unit/ai-controller.test.js (762.274033ms)
+✖ tests/unit/ai-match.test.js (29331.21221ms)
+✔ tests/unit/ai-slots.test.js (242.176578ms)
+✖ tests/unit/ai-targets.test.js (617.634062ms)
+✔ tests/unit/contracts.test.js (347.055899ms)
+✖ tests/unit/npc-brain.test.js (2766.384288ms)
+✔ tests/unit/npc-fixture.test.js (223.710554ms)
+✔ tests/unit/npc-jobs.test.js (474.649666ms)
+✔ tests/unit/npc-morale.test.js (538.696738ms)
+✔ tests/unit/npc-path.test.js (334.460954ms)
+✔ tests/unit/plugin-blocks.test.js (355.427745ms)
+✔ tests/unit/plugin-castle.test.js (477.239674ms)
+✔ tests/unit/plugin-forest.test.js (181.590475ms)
+✔ tests/unit/plugin-registration.test.js (1112.419448ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (228.54292ms)
+✔ tests/unit/render-chunks.test.js (851.348826ms)
+✔ tests/unit/render-mesher.test.js (668.753531ms)
+✔ tests/unit/rules-cleanroom.test.js (4150.812049ms)
+✔ tests/unit/rules-purity.test.js (316.999422ms)
+✔ tests/unit/rules-tb1-boot.test.js (3425.162734ms)
+✔ tests/unit/rules-tb1.test.js (1696.947339ms)
+✔ tests/unit/sim-ballistics.test.js (808.294579ms)
+✔ tests/unit/sim-core.test.js (303.183755ms)
+✔ tests/unit/sim-damage.test.js (394.017732ms)
+✔ tests/unit/sim-engine.test.js (20576.257751ms)
+✔ tests/unit/sim-ruler.test.js (250.591121ms)
+✔ tests/unit/sim-world.test.js (615.11719ms)
+✔ tests/unit/smoke.test.js (386.847419ms)
+✔ tests/unit/tuning.test.js (260.208903ms)
+✔ tests/unit/ui-audio.test.js (415.163371ms)
+✔ tests/unit/ui-camera.test.js (273.586233ms)
+✔ tests/unit/ui-commands.test.js (492.506709ms)
+✔ tests/unit/ui-font.test.js (311.356793ms)
+✖ tests/unit/ui-hud.test.js (456.255844ms)
+✔ tests/unit/ui-input.test.js (362.545582ms)
+✔ tests/unit/ui-interact.test.js (322.738724ms)
+✔ tests/unit/ui-layout.test.js (230.904898ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 34
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29366.34351
+
+✖ failing tests:
+
+test at tests/unit/ai-aim.test.js:1:1
+✖ tests/unit/ai-aim.test.js (387.321631ms)
+  'test failed'
+
+test at tests/unit/ai-build.test.js:1:1
+✖ tests/unit/ai-build.test.js (242.604814ms)
+  'test failed'
+
+test at tests/unit/ai-match.test.js:1:1
+✖ tests/unit/ai-match.test.js (29331.21221ms)
+  'test failed'
+
+test at tests/unit/ai-targets.test.js:1:1
+✖ tests/unit/ai-targets.test.js (617.634062ms)
+  'test failed'
+
+test at tests/unit/npc-brain.test.js:1:1
+✖ tests/unit/npc-brain.test.js (2766.384288ms)
+  'test failed'
+
+test at tests/unit/ui-hud.test.js:1:1
+✖ tests/unit/ui-hud.test.js (456.255844ms)
+  'test failed'

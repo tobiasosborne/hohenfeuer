@@ -1,0 +1,15 @@
+✔ geometry obeys north/east dial semantics and clamps through the production table (4.802675ms)
+✔ published crosswind is compensated using the production integrator (11.272586ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (20.256539ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (1.154866ms)
+✔ correction starts from actual fired settings including the previous exploration error (1.258778ms)
+✔ TB2: fixed-elevation charge solver accounts for target height with wind (15.21781ms)
+✔ TB2: a ground impact past an elevated target does not create a false short-charge correction (7.940931ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.753593

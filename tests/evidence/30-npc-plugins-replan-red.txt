@@ -1,0 +1,62 @@
+✔ a changed cell beyond the initial revalidation window breaks the claim before entry (16.369734ms)
+✔ anti-deadlock allows its selected job to finish despite continuing impacts (3.517846ms)
+✔ magazine destruction queues the stock-scaled explosion once for a connected store (1.140281ms)
+✔ designations reserve gold, cancel only that cell, build supported cells, never into a person (2.430499ms)
+✔ path searches are limited to eight per castle per tick and queued workers advance next tick (27.829859ms)
+✖ plugin pickJob may decline work, and haul legs respect the one-second replan limit (9.836129ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 76.004728
+
+✖ failing tests:
+
+test at tests/unit/npc-resilience.test.js:67:1
+✖ plugin pickJob may decline work, and haul legs respect the one-second replan limit (9.836129ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   block: null,
+  +   blockedUntilTick: 0,
+  +   castle: 0,
+  +   claimedBy: [
+  +     4
+  +   ],
+  +   createdTick: 0,
+  +   id: 1,
+  +   key: 'work:1,1,1',
+  +   kind: 'work',
+  +   priority: 0,
+  +   progress: 0,
+  +   reachable: true,
+  +   role: 'civilian',
+  +   slots: 1,
+  +   target: {
+  +     cell: [
+  +       1,
+  +       1,
+  +       1
+  +     ]
+  +   }
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-resilience.test.js:70:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Object],
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

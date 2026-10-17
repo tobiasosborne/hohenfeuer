@@ -1,0 +1,12 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (6.074627ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (1.161459ms)
+✔ lost blueprint weapons are replaced on free mount spots only when cost plus reserve fits (1.324098ms)
+✔ replacement understands public world positions and counts pending same-type replacements (2.414359ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25.078207
