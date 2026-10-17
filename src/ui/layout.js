@@ -21,7 +21,7 @@ export const LAYOUT = Object.freeze({
   compass: circle(908, 110, 68),
   compassBox: rect(804, 6, 1012, 214),
   infoBox: rect(0, 0, 262, 108),
-  infoText: rect(12, 12, 160, 100),
+  infoText: rect(20, 24, 160, 100),
   infoBadge: circle(208, 56, 44),
   rightColumn: rect(1000, 228, 1024, 528),
   leftColumn: rect(0, 480, 24, 544),

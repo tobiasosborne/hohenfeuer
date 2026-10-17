@@ -66,12 +66,19 @@ function crown(ctx, x, y, color, ally) {
   ctx.lineWidth = 1.5; ctx.strokeStyle = ally ? color : "#0b2a0b"; ctx.stroke();
 }
 
-/** One rose point: a kite split in a light and a dark half. */
-function rosePoint(ctx, c, a, len, width, light, dark) {
+/** Grey for a rose facet facing screen angle `face`, lit from the top (slightly left). */
+function facet(face, lo, hi) {
+  const v = Math.cos((face - 330) * D2R);
+  const g = Math.round(lo + (hi - lo) * (v + 1) / 2);
+  return `rgb(${g},${g},${Math.round(g * 0.97)})`;
+}
+
+/** One rose point: a kite split in two facets shaded by the direction they face. */
+function rosePoint(ctx, c, a, len, width, lo, hi) {
   const tip = polar(c, len, a);
   const l = polar(c, width, a - 45), r = polar(c, width, a + 45);
-  tri(ctx, c.cx, c.cy, tip.x, tip.y, l.x, l.y, light);
-  tri(ctx, c.cx, c.cy, tip.x, tip.y, r.x, r.y, dark);
+  tri(ctx, c.cx, c.cy, tip.x, tip.y, l.x, l.y, facet(a - 30, lo, hi));
+  tri(ctx, c.cx, c.cy, tip.x, tip.y, r.x, r.y, facet(a + 30, lo, hi));
 }
 
 /**
@@ -81,15 +88,16 @@ function rosePoint(ctx, c, a, len, width, light, dark) {
  */
 export function drawCompass(ctx, g, note = () => {}) {
   const c = LAYOUT.compass;
-  for (const a of [45, 135, 225, 315]) rosePoint(ctx, c, g.rose + a, 44, 10, "#6f7a72", "#2c332e");
-  for (const a of [0, 90, 180, 270]) rosePoint(ctx, c, g.rose + a, a === 0 ? 74 : 66, 13, a === 0 ? "#f2eee6" : "#c9c4ba", "#3b423d");
+  for (const a of [45, 135, 225, 315]) rosePoint(ctx, c, g.rose + a, 47, 10, 24, 190);
+  for (const a of [0, 90, 180, 270]) rosePoint(ctx, c, g.rose + a, a === 0 ? 74 : 68, 13, 18, 236);
   // hub with a bead ring
-  circlePath(ctx, c.cx, c.cy, 18); ctx.fillStyle = "#2a2a2a"; ctx.fill();
-  for (let i = 0; i < 16; i++) {
-    const p = polar(c, 15, i * 22.5);
-    circlePath(ctx, p.x, p.y, 2.2); ctx.fillStyle = rgb([120, 118, 112]); ctx.fill();
+  circlePath(ctx, c.cx, c.cy, 19); ctx.fillStyle = "#262626"; ctx.fill();
+  for (let i = 0; i < 18; i++) {
+    const p = polar(c, 16, i * 20);
+    circlePath(ctx, p.x, p.y, 2.2); ctx.fillStyle = rgb([104, 102, 98]); ctx.fill();
   }
-  circlePath(ctx, c.cx, c.cy, 12); ctx.fillStyle = "#121212"; ctx.fill();
+  circlePath(ctx, c.cx, c.cy, 12); ctx.fillStyle = "#3a3a3a"; ctx.fill();
+  circlePath(ctx, c.cx, c.cy, 10); ctx.fillStyle = "#0e0e0e"; ctx.fill();
   drawText(ctx, g.hub, c.cx, c.cy - 8, { bold: true, outline: true, align: "center" });
   note(g.hub);
   if (g.blue !== null) windArrow(ctx, c, g.blue, "#3c78e6", "#0d1f4a");

@@ -47,37 +47,54 @@ export function topDown(plot, weapons = []) {
 }
 
 const COLORS = ["#000000", "#62d662", "#a6c24e", "#d08a3c", "#d6402e", "#5ab4e6", "#e6d25a"];
+/** Severity order when 2 x 2 plot cells share one overview square (worst wins, weapons on top). */
+const RANK = [0, 1, 2, 3, 4, 6, 5];
+/** Overview grid pitch (px) and size in pitches, measured on the original overview maps. */
+export const MAP_PITCH = 5;
+const ZONE_W = 32, ZONE_H = 24;
+
+/** Downsample per-column codes 2:1 (one 5 px square per 2 x 2 plot cells). */
+export function binCodes(map) {
+  const bw = Math.ceil(map.w / 2), bd = Math.ceil(map.d / 2);
+  const out = new Uint8Array(bw * bd);
+  for (let z = 0; z < map.d; z++) for (let x = 0; x < map.w; x++) {
+    const c = map.codes[x + map.w * z], i = (x >> 1) + bw * (z >> 1);
+    if (RANK[c] > RANK[out[i]]) out[i] = c;
+  }
+  return { w: bw, d: bd, codes: out };
+}
 
 /**
- * Paint an overview map into `rect` (the inner black area).
+ * Paint an overview map into `rect` (the inner black area): a 32 x 24 grid of 5 px pitches and one
+ * square per 2 x 2 plot cells, centred; no grid when there is nothing to show (as the original).
  * @param {CanvasRenderingContext2D} ctx @param {{x0: number, y0: number, x1: number, y1: number}} rect
  * @param {null|{w: number, d: number, codes: Uint8Array, craters?: Array<{x: number, z: number, r: number}>,
  *   missArrowDeg?: number|null}} map @param {{enemy?: boolean}} [o]
  */
 export function drawMinimap(ctx, rect, map, o = {}) {
   const W = rect.x1 - rect.x0, H = rect.y1 - rect.y0;
-  ctx.fillStyle = "#000000"; ctx.fillRect(rect.x0, rect.y0, W, H);
-  const n = map ? Math.max(map.w, map.d) : 48;
-  const cell = Math.max(1, Math.floor(Math.min(W, H) / n));
-  const ox = rect.x0 + Math.floor((W - cell * n) / 2), oy = rect.y0 + Math.floor((H - cell * n) / 2);
-  ctx.fillStyle = "#262626";
-  for (let i = 0; i <= n; i += 2) {
-    ctx.fillRect(ox + i * cell, oy, 1, cell * n);
-    ctx.fillRect(ox, oy + i * cell, cell * n, 1);
-  }
   if (!map) return;
-  for (let z = 0; z < map.d; z++) for (let x = 0; x < map.w; x++) {
-    const c = map.codes[x + map.w * z];
+  const P = MAP_PITCH;
+  const zx = rect.x0 + Math.floor((W - ZONE_W * P) / 2), zy = rect.y0 + Math.floor((H - ZONE_H * P) / 2);
+  ctx.fillStyle = "#080808"; ctx.fillRect(zx, zy, ZONE_W * P, ZONE_H * P);
+  ctx.fillStyle = "#3e3e3e";
+  for (let i = 0; i <= ZONE_W; i++) ctx.fillRect(zx + i * P, zy, 1, ZONE_H * P);
+  for (let j = 0; j <= ZONE_H; j++) ctx.fillRect(zx, zy + j * P, ZONE_W * P, 1);
+  const b = binCodes(map);
+  const ox = zx + Math.floor((ZONE_W - b.w) / 2) * P, oy = zy + Math.floor((ZONE_H - b.d) / 2) * P;
+  for (let z = 0; z < b.d; z++) for (let x = 0; x < b.w; x++) {
+    const c = b.codes[x + b.w * z];
     if (!c) continue;
     ctx.fillStyle = o.enemy && c !== MAP_CODE.DESIGNATED ? COLORS[MAP_CODE.BLOCK] : COLORS[c];
-    ctx.fillRect(ox + x * cell, oy + z * cell, cell, cell);
+    ctx.fillRect(ox + x * P, oy + z * P, P, P);
   }
+  const cell = P / 2;
   for (const cr of map.craters || []) {
-    circlePath(ctx, ox + (cr.x + 0.5) * cell, oy + (cr.z + 0.5) * cell, Math.max(2, cr.r * cell));
+    circlePath(ctx, ox + (cr.x + 0.5) * cell, oy + (cr.z + 0.5) * cell, Math.max(2, cr.r * P));
     ctx.fillStyle = "rgba(170,170,170,0.75)"; ctx.fill();
   }
   if (map.missArrowDeg !== null && map.missArrowDeg !== undefined) {
-    const a = map.missArrowDeg * Math.PI / 180, cx = ox + cell * n / 2, cy = oy + cell * n / 2, R = cell * n / 2 - 4;
+    const a = map.missArrowDeg * Math.PI / 180, cx = ox + b.w * P / 2, cy = oy + b.d * P / 2, R = b.w * P / 2 - 4;
     const tx = cx + Math.sin(a) * R, ty = cy - Math.cos(a) * R;
     ctx.beginPath();
     ctx.moveTo(tx, ty);

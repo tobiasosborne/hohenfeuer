@@ -6,22 +6,21 @@ import { TUNING } from "../tuning.js";
 import { t } from "./i18n.js";
 import { MAP_CODE } from "./minimap.js";
 
-/** A 48 x 48 overview: curtain wall ring, corner towers, keep, a few weapons and damage. */
+/** A 48 x 48 overview: one-cell curtain wall, corner towers, keep, a few houses and weapons, some damage. */
 export function demoMinimap(variant = 0) {
   const w = TUNING.world.plotW, d = TUNING.world.plotD;
   const codes = new Uint8Array(w * d);
   const set = (x, z, c) => { if (x >= 0 && x < w && z >= 0 && z < d) codes[x + w * z] = c; };
-  const lo = 12 + variant * 2, hi = 35 - variant;
-  for (let i = lo; i <= hi; i++) for (let k = 0; k < 3; k++) {
-    set(i, lo + k, MAP_CODE.BLOCK); set(i, hi - k, MAP_CODE.BLOCK); set(lo + k, i, MAP_CODE.BLOCK); set(hi - k, i, MAP_CODE.BLOCK);
-  }
-  for (const [cx, cz] of [[lo, lo], [hi, lo], [lo, hi], [hi, hi]]) for (let a = -2; a <= 2; a++) for (let b = -2; b <= 2; b++) set(cx + a, cz + b, MAP_CODE.BLOCK);
-  for (let x = 20; x <= 27; x++) for (let z = 20; z <= 27; z++) set(x, z, MAP_CODE.BLOCK);
-  for (let i = 0; i < 5; i++) set(lo + 6 + i, lo, i < 2 ? MAP_CODE.DAMAGED2 : MAP_CODE.DAMAGED1);
+  const box = (x0, z0, x1, z1, c) => { for (let x = x0; x <= x1; x++) for (let z = z0; z <= z1; z++) set(x, z, c); };
+  const lo = 14 + variant * 2, hi = 33 - variant;
+  for (let i = lo; i <= hi; i++) { set(i, lo, MAP_CODE.BLOCK); set(i, hi, MAP_CODE.BLOCK); set(lo, i, MAP_CODE.BLOCK); set(hi, i, MAP_CODE.BLOCK); }
+  for (const [cx, cz] of [[lo, lo], [hi, lo], [lo, hi], [hi, hi]]) box(cx - 1, cz - 1, cx + 1, cz + 1, MAP_CODE.BLOCK);
+  box(20, 20, 27, 27, MAP_CODE.BLOCK);
+  for (let i = 0; i < 4; i++) set(lo + 6 + i, lo, i < 2 ? MAP_CODE.DAMAGED2 : MAP_CODE.DAMAGED1);
   set(lo + 9, hi, MAP_CODE.DAMAGED3);
-  for (const [x, z] of [[lo + 1, lo + 10], [hi - 1, lo + 12]]) set(x, z, MAP_CODE.WEAPON);
-  for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) set(30 + a, 30 + b, MAP_CODE.WEAPON);
-  for (const [x, z] of [[5, 6], [40, 8], [6, 40], [42, 41]]) for (let a = 0; a < 2; a++) for (let b = 0; b < 2; b++) set(x + a, z + b, MAP_CODE.BLOCK);
+  box(hi - 1, lo - 1, hi + 1, lo + 1, MAP_CODE.WEAPON);
+  box(36, 6, 38, 8, MAP_CODE.WEAPON);
+  for (const [x, z] of [[6, 10], [8, 30], [30, 38], [40, 26], [10, 40], [24, 40]]) box(x, z, x + 1, z + 1, MAP_CODE.BLOCK);
   return { w, d, codes };
 }
 
@@ -46,6 +45,8 @@ export function demoView(name, o = {}) {
     return {
       ...common, mode: CAMERA_MODE.WALK, heading: 30,
       morale: { value: 70 }, selection: { name: "Stein", cost: TUNING.blocks.stone.cost }, shelterOn: false,
+      target: { name: t("cannon", lang), hpPct: 100 },
+      minimapEnemy: null, // castle view: no enemy targeted, the overview stays dark (as the original)
       messages: [{ text: t("windChanged", lang), tone: "info" }],
       reticle: {},
     };
@@ -56,6 +57,7 @@ export function demoView(name, o = {}) {
       name: t("cannon", lang), hpPct: 100, az: 0, range: 380, reload: 0.4, loaded: false,
       fireCost: TUNING.weapons.cannon.fireCost, affordable: true, autoFire: false, crewOrdered: false, restoreLit: false,
     },
+    messages: [{ text: t("windChanged", lang), tone: "info" }],
     reticle: { predicted: [512, 384] },
   };
 }

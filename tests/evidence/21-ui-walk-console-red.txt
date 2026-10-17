@@ -1,0 +1,38 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (1.460834ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (3.335023ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (1.331744ms)
+✔ menus: keyboard navigation through title and skirmish setup (0.672545ms)
+✔ textures are deterministic RGBA buffers (3.040956ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.302591ms)
+✔ hud draws a weapon view and a walking view without throwing (14.103683ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (0.261644ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (0.428355ms)
+✖ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (2.210663ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.065464
+
+✖ failing tests:
+
+test at tests/unit/ui-hud.test.js:158:1
+✖ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (2.210663ms)
+  AssertionError [ERR_ASSERTION]: 1500|40 (40)|2 (4)|12|N|O|S|W|Der Wind hat gedreht!|Gegner|Kunibert I|Waldburg|70%|Stein: 1 Gold|Abreißen|Reparieren|Bauen|Schutzraum
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-hud.test.js:163:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

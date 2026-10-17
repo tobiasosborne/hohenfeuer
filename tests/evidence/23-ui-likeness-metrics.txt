@@ -1,0 +1,28 @@
+HUD likeness after the likeness pass (blurred 8 px grayscale MAE over our non-magenta HUD mask; reference captures are measurement-only).
+Before: hud-weapon-view vs 049-cannon-default-aim 32.3; hud-walking vs 029-tutorial-first-screen 33.1 (vs 155: 32.3).
+== hud-weapon-view (tests/goldens) vs 049-cannon-default-aim
+overall blurred MAE 18.4  signed +4.5  blocks 4018
+  console   n=1820 MAE  16.2 signed   +0.3  share 39.9%
+  leftmap   n= 702 MAE  13.7 signed   +1.9  share 13.0%
+  rightmap  n= 729 MAE  23.2 signed  +16.2  share 22.9%
+  compass   n= 242 MAE  20.2 signed  +11.0  share  6.6%
+  infobox   n= 366 MAE  23.2 signed   -2.8  share 11.5%
+  counters  n=  32 MAE  31.1 signed  +20.7  share  1.3%
+  rightcol  n=  89 MAE  29.8 signed  +23.5  share  3.6%
+  leftcol   n=  20 MAE  14.9 signed   +6.3  share  0.4%
+  enemylbl  n=  17 MAE  29.3 signed  +10.8  share  0.7%
+mask 33.0% of frame  SSIM 0.325  MAE 32.8/255
+== hud-walking (tests/goldens) vs 029-tutorial-first-screen
+overall blurred MAE 18.0  signed +3.2  blocks 4018
+  console   n=1820 MAE  18.5 signed   +1.2  share 46.6%
+  leftmap   n= 702 MAE  14.1 signed   +1.4  share 13.7%
+  rightmap  n= 729 MAE   6.8 signed   +0.1  share  6.9%
+  compass   n= 242 MAE  44.2 signed  +31.8  share 14.8%
+  infobox   n= 366 MAE  23.6 signed   +1.0  share 12.0%
+  counters  n=  32 MAE  32.3 signed  +26.7  share  1.4%
+  rightcol  n=  89 MAE  26.3 signed  +17.4  share  3.2%
+  leftcol   n=  20 MAE  15.3 signed   +3.4  share  0.4%
+  enemylbl  n=  17 MAE  41.3 signed  -41.3  share  1.0%
+mask 33.0% of frame  SSIM 0.384  MAE 31.3/255
+== hud-walking vs 155-controlled-forest-start
+overall blurred MAE 19.3  signed +1.2  blocks 4018

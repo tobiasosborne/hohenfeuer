@@ -1,0 +1,17 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (3.075537ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (4.560399ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (2.355461ms)
+✔ menus: keyboard navigation through title and skirmish setup (1.364717ms)
+✔ textures are deterministic RGBA buffers (5.141834ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.506413ms)
+✔ hud draws a weapon view and a walking view without throwing (23.581572ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (0.47473ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (0.843738ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 163.256608

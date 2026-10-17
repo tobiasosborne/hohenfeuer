@@ -5,11 +5,11 @@ import { BLOCK, CAMERA_MODE, EV } from "../../src/contracts.js";
 import { TUNING } from "../../src/tuning.js";
 import { createPlot, setCell } from "../../src/world/grid.js";
 import { compassGeometry, LETTER_RADIUS } from "../../src/ui/compass.js";
-import { topDown, MAP_CODE } from "../../src/ui/minimap.js";
+import { topDown, MAP_CODE, binCodes } from "../../src/ui/minimap.js";
 import { createMessageLog, eventsToMessages } from "../../src/ui/console.js";
 import { createMenu, SCREEN } from "../../src/ui/menus.js";
 import { createHud, formatReadouts } from "../../src/ui/hud.js";
-import { demoView } from "../../src/ui/demo.js";
+import { demoView, demoMinimap } from "../../src/ui/demo.js";
 import { stoneTexture, steelTexture, hashNoise } from "../../src/ui/paint.js";
 import { LAYOUT } from "../../src/ui/layout.js";
 
@@ -136,4 +136,33 @@ test("hud draws a weapon view and a walking view without throwing", () => {
   assert.ok(hud.frame.texts.some((s) => s.includes("%")));
   hud.draw({ mode: CAMERA_MODE.WALK });
   hud.draw({ mode: CAMERA_MODE.DEATH, lang: "en" });
+});
+
+test("overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top", () => {
+  const codes = new Uint8Array(16);
+  codes[0] = MAP_CODE.BLOCK; codes[1] = MAP_CODE.DAMAGED2;
+  codes[2] = MAP_CODE.BLOCK; codes[2 + 4] = MAP_CODE.WEAPON; codes[3 + 4] = MAP_CODE.DAMAGED3;
+  const b = binCodes({ w: 4, d: 4, codes });
+  assert.equal(b.w, 2); assert.equal(b.d, 2);
+  assert.deepEqual([...b.codes], [MAP_CODE.DAMAGED2, MAP_CODE.WEAPON, 0, 0]);
+});
+
+test("demo views: castle view has no targeted enemy map; overviews are sparse like the original's", () => {
+  assert.equal(demoView("hud-walking").minimapEnemy, null);
+  assert.ok(demoView("hud-weapon-view").minimapEnemy);
+  const m = demoMinimap(0);
+  const lit = m.codes.reduce((n, c) => n + (c ? 1 : 0), 0) / m.codes.length;
+  assert.ok(lit > 0.03 && lit < 0.12, `lit fraction ${lit}`);
+});
+
+test("walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button", () => {
+  const { ctx } = fakeCtx();
+  const hud = createHud(ctx);
+  const w = demoView("hud-walking");
+  hud.draw(w);
+  assert.ok(hud.frame.texts.includes("Kanone (100%)"), hud.frame.texts.join("|"));
+  assert.ok(!hud.frame.texts.includes("Schutzraum"));
+  hud.draw({ ...w, shelterOn: true });
+  assert.ok(hud.frame.texts.includes("Schutzraum"));
+  assert.ok(!hud.frame.texts.includes("Kanone (100%)"));
 });

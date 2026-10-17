@@ -22,7 +22,7 @@ function skirmishFields(o) {
       names: { [TACTIC.WORRIER]: "tacticWorrier", [TACTIC.GENERAL]: "tacticGeneral", [TACTIC.DAREDEVIL]: "tacticDaredevil" } },
     { id: "startGold", label: "startGold", values: [1000, 1500, 2000, 3000, 4000] },
     { id: "windStrength", label: "windStrength", values: range(0, W.maxSpeedByStrength.length - 1) },
-    { id: "windChange", label: "windChange", values: range(0, W.meanIntervalSByChange.length - 1) },
+    { id: "windChange", label: "windChange", values: range(0, W.segmentBaseByChange.length - 1) },
     { id: "map", label: "map", values: o.maps || ["forest-duel"] },
     { id: "biome", label: "biome", values: o.biomes || ["forest", "desert", "ice", "volcano"], names: { forest: "forest", desert: "desert", ice: "ice", volcano: "volcano" } },
     { id: "lang", label: "language", values: ["de", "en"], names: { de: "langName", en: "langName" } },
