@@ -1,0 +1,48 @@
+{
+  "errors": [],
+  "poses": {
+    "modern-rampart-north": {
+      "exactDiffPx": 0,
+      "repositoryDiffPx": 0,
+      "calls": 19,
+      "triangles": 95088,
+      "geometries": 19,
+      "textures": 11,
+      "style": "modern",
+      "gpuExtras": false
+    },
+    "modern-weapon-view-cannon": {
+      "exactDiffPx": 0,
+      "repositoryDiffPx": 0,
+      "calls": 24,
+      "triangles": 103176,
+      "geometries": 22,
+      "textures": 11,
+      "style": "modern",
+      "gpuExtras": false
+    },
+    "modern-courtyard-palace": {
+      "exactDiffPx": 100,
+      "repositoryDiffPx": 100,
+      "calls": 16,
+      "triangles": 118942,
+      "geometries": 30,
+      "textures": 13,
+      "style": "modern",
+      "gpuExtras": false
+    },
+    "modern-impact-dust": {
+      "exactDiffPx": 25073,
+      "repositoryDiffPx": 891,
+      "calls": 57,
+      "triangles": 121664,
+      "geometries": 29,
+      "textures": 14,
+      "style": "modern",
+      "gpuExtras": false
+    }
+  },
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(repository/(a.width*a.height)<=.001)\n\n    at file:///home/tobias/Projects/castle-game/[eval1]:21:58"
+}

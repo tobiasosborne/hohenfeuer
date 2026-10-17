@@ -1,0 +1,10 @@
+✔ walk phase advances with distance walked (one stride per cycle), not with time (2.171847ms)
+✔ swing grows with speed and is capped; vertical motion (ladders) does not swing the legs (0.601154ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.681868

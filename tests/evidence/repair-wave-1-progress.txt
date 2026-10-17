@@ -1,0 +1,85 @@
+1 [
+  { g: 1511.066666666493, p: 1, pop: 40, shots: 2 },
+  { g: 1409.3733333331566, p: 1, pop: 40, shots: 2 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 2 },
+  { id: 2, hp: 36, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+2 [
+  { g: 1273.466666666318, p: 1, pop: 40, shots: 5 },
+  { g: 1254.5733333329815, p: 1, pop: 40, shots: 5 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 1 },
+  { id: 2, hp: 28, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+3 [
+  { g: 1210.1999999994766, p: 0.9852430555555556, pop: 40, shots: 7 },
+  { g: 1181.693333332846, p: 1, pop: 37, shots: 7 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 1 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+4 [
+  { g: 1016.6266666659922, p: 0.9852430555555556, pop: 40, shots: 10 },
+  { g: 1193.6933333326713, p: 1, pop: 34, shots: 9 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 24, crew: 3, ammo: 2 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+5 [
+  { g: 1003.5599999992702, p: 0.9791666666666666, pop: 33, shots: 12 },
+  { g: 1115.6933333324966, p: 0.9973958333333334, pop: 34, shots: 12 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 24, crew: 3, ammo: 2 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+6 [
+  { g: 992.0666666659556, p: 0.9435763888888888, pop: 30, shots: 14 },
+  { g: 1011.3066666657115, p: 0.9973958333333334, pop: 30, shots: 14 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 13, crew: 3, ammo: 2 },
+  { id: 2, hp: 10, crew: 0, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+]
+7 [
+  { g: 908.5555555548772, p: 0.9435763888888888, pop: 30, shots: 17 },
+  { g: 324.0666666656971, p: 0.9565972222222222, pop: 22, shots: 15 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 13, crew: 3, ammo: 1 },
+  { id: 2, hp: 0, crew: 0, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 36, crew: 0, ammo: 2 }
+]
+8 [
+  { g: 917.0355555549054, p: 0.9435763888888888, pop: 30, shots: 19 },
+  { g: 311.1699999990473, p: 0.9522569444444444, pop: 17, shots: 17 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 13, crew: 3, ammo: 1 },
+  { id: 2, hp: 0, crew: 0, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 20, crew: 1, ammo: 2 }
+]
+9 [
+  { g: 839.0355555549354, p: 0.9435763888888888, pop: 30, shots: 22 },
+  { g: 471.98777777685825, p: 0.9157986111111112, pop: 17, shots: 17 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 13, crew: 3, ammo: 2 },
+  { id: 2, hp: 0, crew: 0, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 20, crew: 1, ammo: 2 }
+]
+{ winners: [ 0 ], draw: false, tick: 17591 } 1240520369

@@ -33,4 +33,7 @@ test("sanitize snaps to the nearest allowed value and drops unknown keys", () =>
   assert.ok(OPTION_VALUES.sensitivity.includes(o.sensitivity));
   assert.deepEqual(Object.keys(o).sort(), Object.keys(DEFAULT_OPTIONS).sort());
   assert.ok(OPTION_VALUES.sensitivity.includes(DEFAULT_OPTIONS.sensitivity));
+  assert.equal(DEFAULT_OPTIONS.followCam, true);
+  assert.equal(sanitizeOptions({ followCam: false }).followCam, false);
+  assert.equal(sanitizeOptions({ followCam: "yes" }).followCam, true);
 });

@@ -1,0 +1,86 @@
+10:24:32 PM [vite] (client) [console.error] THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false
+
+Material Name: modern-block
+Material Type: ShaderMaterial
+
+Program Info Log: Vertex shader is not compiled.
+VERTEX
+
+ERROR: 0:195: '=' : dimension mismatch
+ERROR: 0:195: 'assign' : cannot convert from 'in highp 4-component vector of float' to 'out highp 3-component vector of float'
+
+  190: varying vec2 vFaceUv;
+  191: varying vec3 vWorld, vNormalWorld, vBaked;
+  192: void main() {
+  193:   vFaceUv=uv; vBaked=vec3(1.0);
+  194:   #ifdef USE_COLOR
+> 195:     vBaked=color;
+  196:   #endif
+  197:   vec4 local=vec4(position,1.0);
+  198:   vec3 localNormal=normal;
+  199:   #ifdef USE_INSTANCING
+  200:     local=instanceMatrix*local;
+  201:     localNormal=mat3(instanceMatrix)*localNormal;
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   'THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n' +
++     '\n' +
++     'Material Name: modern-block\n' +
++     'Material Type: ShaderMaterial\n' +
++     '\n' +
++     'Program Info Log: Vertex shader is not compiled.\n' +
++     'VERTEX\n' +
++     '\n' +
++     "ERROR: 0:195: '=' : dimension mismatch\n" +
++     "ERROR: 0:195: 'assign' : cannot convert from 'in highp 4-component vector of float' to 'out highp 3-component vector of float'\n" +
++     '\n' +
++     '  190: varying vec2 vFaceUv;\n' +
++     '  191: varying vec3 vWorld, vNormalWorld, vBaked;\n' +
++     '  192: void main() {\n' +
++     '  193:   vFaceUv=uv; vBaked=vec3(1.0);\n' +
++     '  194:   #ifdef USE_COLOR\n' +
++     '> 195:     vBaked=color;\n' +
++     '  196:   #endif\n' +
++     '  197:   vec4 local=vec4(position,1.0);\n' +
++     '  198:   vec3 localNormal=normal;\n' +
++     '  199:   #ifdef USE_INSTANCING\n' +
++     '  200:     local=instanceMatrix*local;\n' +
++     '  201:     localNormal=mat3(instanceMatrix)*localNormal;\n'
++ ]
+- []
+
+    at file:///home/tobias/Projects/castle-game/tests/render-modern.mjs:54:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+} [
+  'THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n' +
+    '\n' +
+    'Material Name: modern-block\n' +
+    'Material Type: ShaderMaterial\n' +
+    '\n' +
+    'Program Info Log: Vertex shader is not compiled.\n' +
+    'VERTEX\n' +
+    '\n' +
+    "ERROR: 0:195: '=' : dimension mismatch\n" +
+    "ERROR: 0:195: 'assign' : cannot convert from 'in highp 4-component vector of float' to 'out highp 3-component vector of float'\n" +
+    '\n' +
+    '  190: varying vec2 vFaceUv;\n' +
+    '  191: varying vec3 vWorld, vNormalWorld, vBaked;\n' +
+    '  192: void main() {\n' +
+    '  193:   vFaceUv=uv; vBaked=vec3(1.0);\n' +
+    '  194:   #ifdef USE_COLOR\n' +
+    '> 195:     vBaked=color;\n' +
+    '  196:   #endif\n' +
+    '  197:   vec4 local=vec4(position,1.0);\n' +
+    '  198:   vec3 localNormal=normal;\n' +
+    '  199:   #ifdef USE_INSTANCING\n' +
+    '  200:     local=instanceMatrix*local;\n' +
+    '  201:     localNormal=mat3(instanceMatrix)*localNormal;\n'
+]

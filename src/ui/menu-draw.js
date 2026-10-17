@@ -163,7 +163,7 @@ function steelPanel(ctx, mk, x0, y0, x1, y1, inset = false) {
 
 const HELP = {
   map: "helpMap", seed: "helpSeed", windStrength: "helpWind", windChange: "helpWind", startGold: "helpGold", start: "helpStart", back: "helpBack",
-  sensitivity: "helpSensitivity", lang: "helpLanguage", volume: "helpVolume",
+  sensitivity: "helpSensitivity", lang: "helpLanguage", volume: "helpVolume", followCam: "helpFollowCam",
 };
 const helpKey = (id) => HELP[id] ?? (id?.endsWith(".ctrl") ? "helpSlot" : id?.endsWith(".tactic") ? "helpTactic" : null);
 

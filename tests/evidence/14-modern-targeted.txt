@@ -1,0 +1,46 @@
+✔ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (40.454206ms)
+✔ terrain grain tiles continuously between the heightfield and horizon skirt (50.036221ms)
+✔ weapon sight uses the design pitch by default (5.522149ms)
+✔ effect pools remain deterministic, bounded, and retire all particles (24.392405ms)
+✔ muzzle emission resolves the nearby rendered attachment instead of the sim collision origin (7.115094ms)
+✔ forest props are repeatable and leave castle plot skirts clear (80.988017ms)
+✔ stone face contrast increases without brightening mortar, timber or empty tiles (3.61519ms)
+✔ renderer sight and gameplay pivot agree through all cardinal yaws (15.90193ms)
+✔ incoming weapon models keep their authored sight even when a mesh is named barrel (6.558104ms)
+✔ impact debris is pooled, ballistic and gone after the dust clears (20.871209ms)
+✔ a 48x24x48 plot is 3x2x3 = 18 chunks, all dirty on add (2.592358ms)
+✔ update remeshes at most maxPerFrame (2) chunks per call (38.09041ms)
+✔ flush meshes everything; empty chunks get no mesh (27.092936ms)
+✔ markCell dirties the chunk and every chunk within one cell (AO and culling reach) (27.76723ms)
+✔ update picks the dirty chunk nearest the focus first (11.401741ms)
+✔ chunk meshes sit at the plot origin and vanish when emptied (4.565722ms)
+✔ test scene: two castles 192 m apart, deterministic, with palace core and cannon mounts (12.392278ms)
+✔ FACE_DIRS lists the six axis directions (2.867634ms)
+✔ a lone stone emits 6 quads in plot-local coordinates (2.489496ms)
+✔ faces between opaque neighbours are culled, also across chunk borders (1.08777ms)
+✔ non-opaque neighbours (floor slab, stairs, ladder, roof) do not cull (2.82219ms)
+✔ opacity is derived from model coverage (0.345231ms)
+✔ foundation layer: bottom faces below y=0 are culled by default (3.938359ms)
+✔ vertex AO darkens corners next to occluders and leaves open faces bright (1.652601ms)
+✔ sun term: an overhang shadows the top face only when the sun is above (1.108537ms)
+✔ damage states tint per TUNING (hp 20/40 is state 2 = 0.8) (1.169483ms)
+✔ modelFromTriangles classifies faces and detects full cubes (2.270288ms)
+✔ rotateModel turns a north-facing model clockwise by facing (1.119175ms)
+✔ meshing is deterministic and fast enough for a full wall chunk (34.916989ms)
+✔ damage variants replace the model per hp state, without the tint (5.135909ms)
+✔ a non-opaque damage variant does not hide its neighbour's face (3.826069ms)
+✔ classic default; period reserved; storage ignored by goldens; URL wins (2.054328ms)
+✔ atlas damage lookup matches top-origin glTF UVs; stone has no specular (1.634866ms)
+✔ modern materials are node-constructible; dry terrain adds no water (0.961703ms)
+✔ switch replaces materials, preserves geometry and restores exact classic objects (6.679062ms)
+✔ switch disposes modern materials without disposing shared classic atlas or geometry (1.151059ms)
+✔ fire instances obey the fixed cap, cell positions and explicit tick including rewind (4.835837ms)
+✔ all authored stone damage GLBs address the matching LUT quartile (11.219904ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 391.199364

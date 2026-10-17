@@ -1,0 +1,25 @@
+file:///home/tobias/Projects/castle-game/tests/unit/ui-people.test.js:5
+import { WALK, walkUpdate } from "../../src/render/people-view.js";
+         ^^^^
+SyntaxError: The requested module '../../src/render/people-view.js' does not provide an export named 'WALK'
+    at #_instantiate (node:internal/modules/esm/module_job:254:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:369:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.11.1
+✖ tests/unit/ui-people.test.js (240.605305ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 291.523725
+
+✖ failing tests:
+
+test at tests/unit/ui-people.test.js:1:1
+✖ tests/unit/ui-people.test.js (240.605305ms)
+  'test failed'

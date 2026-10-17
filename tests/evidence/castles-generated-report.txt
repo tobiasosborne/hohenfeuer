@@ -1,0 +1,15 @@
+# tests/evidence/castles-generated-report.txt - owns the completed conversion handoff.
+145/145 non-empty templates ship as orig-<index> plugins; no reduced-content flag.
+Scale: 1.25 one-metre blocks per original 5m cell, a 1:4 horizontal scale.
+Generated content: 893899 bytes; preferred biomes forest77/desert31/ice20/volcano17.
+32 primary campaign maps retain exact template order: 13 two-slot, 12 three-slot, 7 four-slot.
+Added desert-duel, ice-duel, volcano-duel and their biome sim/view descriptions.
+191 starting cannons, 887 reachable mount spots and all 75 complete magazine prefabs.
+Every castle passes loading, support, headroom, connected palace and real NPC navigation checks.
+Ten distinct castles each tick 600 times with two real AIs; all 32 campaign maps also boot/tick.
+Registry hash 2e44b19f repeats across view/registration-order changes; isolated regeneration is identical.
+npm test: all 60 files pass, no failures/skips, 587743.836104ms; build and purity/cleanroom checks pass.
+Generator: scripts/rip/castles_to_defs.py; policy and losses: src/plugins/castles/CONVERSION.md.
+Previews: assets-ripped/castles-preview/contact-sheet.png; all panel paths: tests/evidence/castles-generated-previews.txt.
+Lost: 236 ground weapons, 20 over-cap wall weapons, exact geometry/terrain and mission scripting; treasury uses a stone vault.
+Handoff: castle-game-azc closed; no git run by instruction; Dolt sync unavailable because its origin remote is absent.

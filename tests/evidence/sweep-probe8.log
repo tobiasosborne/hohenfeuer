@@ -1,0 +1,86 @@
+worker ready
+worker ready
+worker ready
+worker ready
+progress 4: minute 1, palace 1.000/1.000, shots 2/2
+progress 3: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 1, palace 1.000/1.000, shots 2/2
+progress 4: minute 2, palace 1.000/0.972, shots 5/5
+progress 3: minute 2, palace 1.000/0.997, shots 5/4
+progress 1: minute 1, palace 1.000/1.000, shots 2/2
+progress 2: minute 2, palace 1.000/1.000, shots 5/5
+progress 3: minute 3, palace 1.000/0.965, shots 7/7
+progress 4: minute 3, palace 1.000/0.960, shots 7/7
+progress 2: minute 3, palace 1.000/1.000, shots 7/7
+progress 3: minute 4, palace 1.000/0.964, shots 9/9
+progress 2: minute 4, palace 0.997/1.000, shots 10/9
+progress 4: minute 4, palace 1.000/0.960, shots 8/9
+progress 3: minute 5, palace 0.988/0.944, shots 12/11
+progress 2: minute 5, palace 0.996/1.000, shots 12/12
+progress 1: minute 2, palace 1.000/1.000, shots 5/5
+progress 4: minute 5, palace 1.000/0.960, shots 10/12
+progress 2: minute 6, palace 0.973/1.000, shots 14/14
+progress 3: minute 6, palace 0.988/0.905, shots 14/14
+progress 2: minute 7, palace 0.973/1.000, shots 15/17
+progress 4: minute 6, palace 1.000/0.960, shots 12/14
+progress 3: minute 7, palace 0.988/0.876, shots 17/16
+progress 2: minute 8, palace 0.969/1.000, shots 17/19
+progress 4: minute 7, palace 0.909/0.936, shots 15/17
+progress 1: minute 3, palace 0.985/1.000, shots 7/7
+progress 2: minute 9, palace 0.964/1.000, shots 19/22
+progress 3: minute 8, palace 0.988/0.860, shots 19/18
+progress 2: minute 10, palace 0.956/0.964, shots 21/24
+progress 2: minute 11, palace 0.913/0.964, shots 24/27
+progress 4: minute 8, palace 0.909/0.936, shots 17/19
+progress 1: minute 4, palace 0.985/1.000, shots 10/10
+progress 2: minute 12, palace 0.754/0.925, shots 26/29
+progress 3: minute 9, palace 0.851/0.652, shots 22/21
+progress 2: minute 13, palace 0.756/0.925, shots 28/32
+progress 1: minute 5, palace 0.985/1.000, shots 12/12
+progress 4: minute 9, palace 0.909/0.930, shots 20/22
+progress 2: minute 14, palace 0.756/0.898, shots 31/34
+progress 1: minute 6, palace 0.985/0.958, shots 15/14
+progress 2: minute 15, palace 0.756/0.890, shots 33/37
+progress 3: minute 10, palace 0.850/0.652, shots 24/23
+match 2: seed 1 swapped, 15.42m, winner 1, shots 34/38
+progress 5: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 7, palace 0.985/0.958, shots 17/14
+progress 5: minute 2, palace 1.000/1.000, shots 5/5
+progress 4: minute 10, palace 0.909/0.896, shots 22/24
+progress 5: minute 3, palace 0.995/0.970, shots 7/7
+progress 5: minute 4, palace 0.995/0.970, shots 9/10
+progress 3: minute 11, palace 0.786/0.652, shots 27/25
+progress 5: minute 5, palace 0.995/0.970, shots 10/12
+progress 1: minute 8, palace 0.985/0.909, shots 20/14
+progress 5: minute 6, palace 0.995/0.970, shots 12/15
+progress 5: minute 7, palace 0.911/0.952, shots 15/17
+progress 5: minute 8, palace 0.878/0.917, shots 17/20
+progress 1: minute 9, palace 0.985/0.907, shots 22/16
+progress 3: minute 12, palace 0.780/0.524, shots 29/28
+progress 5: minute 9, palace 0.878/0.913, shots 19/22
+progress 4: minute 11, palace 0.890/0.895, shots 25/27
+progress 1: minute 10, palace 0.970/0.905, shots 25/18
+progress 5: minute 10, palace 0.875/0.913, shots 22/25
+progress 3: minute 13, palace 0.693/0.524, shots 32/30
+progress 1: minute 11, palace 0.970/0.819, shots 27/20
+progress 5: minute 11, palace 0.875/0.913, shots 24/27
+progress 4: minute 12, palace 0.887/0.598, shots 27/29
+match 3: seed 2, 13.81m, winner 0, shots 34/32
+match 4: seed 2 swapped, 12.48m, winner 1, shots 28/31
+progress 6: minute 1, palace 1.000/1.000, shots 2/2
+progress 1: minute 12, palace 0.927/0.800, shots 30/23
+progress 6: minute 2, palace 1.000/1.000, shots 5/5
+progress 6: minute 3, palace 1.000/0.997, shots 7/7
+progress 5: minute 12, palace 0.898/0.601, shots 27/30
+progress 1: minute 13, palace 0.922/0.810, shots 32/25
+progress 6: minute 4, palace 0.983/0.997, shots 10/10
+match 1: seed 1, 13.55m, winner 0, shots 34/26
+progress 6: minute 5, palace 0.983/0.997, shots 12/12
+progress 6: minute 6, palace 0.980/0.997, shots 15/15
+progress 5: minute 13, palace 0.595/0.689, shots 29/32
+progress 6: minute 7, palace 0.953/0.978, shots 17/17
+progress 6: minute 8, palace 0.953/0.929, shots 20/20
+progress 6: minute 9, palace 0.952/0.929, shots 22/22
+match 5: seed 3, 13.99m, winner 1, shots 31/35
+progress 6: minute 10, palace 0.606/0.927, shots 25/25
+progress 6: minute 11, palace 0.619/0.927, shots 27/27

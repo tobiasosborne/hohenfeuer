@@ -1,0 +1,16 @@
+✔ every recipe is keyed by an EV value and the combat events all have one (1.321844ms)
+✔ noise is deterministic and in [-1, 1] (1.25227ms)
+✔ distance attenuation: 1 at the listener, falls off, silent beyond the cutoff (0.250091ms)
+✔ play starts nodes for known events, ignores unknown ones, unlock resumes (5.87301ms)
+✔ createSfx without WebAudio is a silent no-op (0.301685ms)
+✔ panning: sources right of the listener's view pan right, left pan left, ahead centre (0.322976ms)
+✔ ambience: wind bed follows wind speed against the strongest setting, crowd follows population (0.479143ms)
+✔ positional play uses a stereo panner; ambience loops start once; the morale bell rings (1.687192ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.481408

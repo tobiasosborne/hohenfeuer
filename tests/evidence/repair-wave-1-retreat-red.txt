@@ -1,0 +1,31 @@
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (108.937498ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (58.843082ms)
+✔ AI prepares paid flank batteries and replaces a lost front gun away from the breach (50.214486ms)
+✖ a threatened AI ruler walks to cover through normal next-tick movement commands (105.483882ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 338.419364
+
+✖ failing tests:
+
+test at tests/unit/ai-repair-wave.test.js:43:1
+✖ a threatened AI ruler walks to cover through normal next-tick movement commands (105.483882ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(move?.fwd>0)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-repair-wave.test.js:50:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

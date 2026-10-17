@@ -1,0 +1,15 @@
+✔ recoil: cannon kicks hard and settles fast, catapult throws slowly; both return to rest (0.718957ms)
+✔ feel: own shot adds recoil and an FOV punch; sampling interpolates between ticks (1.911345ms)
+✔ shake scales with blast radius and falls off with distance; seeded and deterministic (0.683976ms)
+✔ head bob is tick-stepped by walking speed and off when disabled; landing dips after a fall (0.462011ms)
+✔ follow cam: rides the projectile, holds 1.5 s on the impact, then returns (0.419355ms)
+✔ followPose sits behind and above the ball, looking along its flight (0.174765ms)
+✔ rig composes feel offsets onto the base pose (weapon view recoil pitches up and pulls back) (0.386348ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61.130126

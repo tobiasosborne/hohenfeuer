@@ -1,0 +1,50 @@
+run 1: modern-rampart-north: 0 exact pixels
+run 1: paired rampart-north: 0 baseline pixels
+run 1: modern-weapon-view-cannon: 0 exact pixels
+run 1: paired weapon-view-cannon: 0 baseline pixels
+run 1: modern-courtyard-palace: 0 exact pixels
+run 1: paired courtyard-palace: 100 baseline pixels
+run 1: modern-impact-dust: 0 exact pixels
+run 1: paired impact-dust: 26791 baseline pixels
+run 2: modern-rampart-north: 0 exact pixels
+run 2: paired rampart-north: 0 baseline pixels
+run 2: modern-weapon-view-cannon: 0 exact pixels
+run 2: paired weapon-view-cannon: 0 baseline pixels
+run 2: modern-courtyard-palace: 0 exact pixels
+run 2: paired courtyard-palace: 100 baseline pixels
+run 2: modern-impact-dust: 0 exact pixels
+run 2: paired impact-dust: 26791 baseline pixels
+{
+  "blur_radius_px": 8,
+  "poses": {
+    "rampart-north": {
+      "reference": "049-cannon-default-aim.png",
+      "reference_sha256": "25464123189a9b58f50a1edb61431f4d54bcc437ebab9d36dd7f53ecc9aeceee",
+      "classic": 31.548,
+      "modern": 63.396
+    },
+    "weapon-view-cannon": {
+      "reference": "049-cannon-default-aim.png",
+      "reference_sha256": "25464123189a9b58f50a1edb61431f4d54bcc437ebab9d36dd7f53ecc9aeceee",
+      "classic": 31.734,
+      "modern": 62.476
+    },
+    "courtyard-palace": {
+      "reference": "074-forest-overview-south.png",
+      "reference_sha256": "4737b4a1b59fac67517bda49c29b2ab07b295903dc5ca62224a5fa8c38771409",
+      "classic": 27.16,
+      "modern": 35.948
+    },
+    "impact-dust": {
+      "reference": "170-no-rebuild-first-strike.png",
+      "reference_sha256": "1c8c955db4e07a87f4a1c86a16f3c2422b74be989681cef776c3c92823841af1",
+      "classic": 20.988,
+      "modern": 43.088
+    }
+  },
+  "mean_mae": {
+    "classic": 27.857,
+    "modern": 51.227
+  }
+}
+

@@ -1,0 +1,15 @@
+✖ tests/unit/plugin-castles-generated.test.js (2228.044044ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2237.005738
+
+✖ failing tests:
+
+test at tests/unit/plugin-castles-generated.test.js:1:1
+✖ tests/unit/plugin-castles-generated.test.js (2228.044044ms)
+  'test failed'

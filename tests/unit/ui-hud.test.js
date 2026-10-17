@@ -139,3 +139,14 @@ test("walking console: status bar shows the reticle target's condition, shelter 
   assert.ok(hud.frame.texts.includes("Schutzraum"));
   assert.ok(!hud.frame.texts.includes("Kanone (100%)"));
 });
+
+test("hud draws NPC overlays under the console and a morale band pennant", () => {
+  const { ctx } = fakeCtx();
+  const hud = createHud(ctx);
+  const w = demoView("hud-walking");
+  hud.draw({ ...w, morale: { value: 30 }, overlays: { markers: [{ x: 400, y: 300, icon: "hammer" }], bubbles: [{ x: 420, y: 280, text: "Mauer steht!" }] } });
+  assert.ok(hud.frame.texts.includes("Mauer steht!"));
+  assert.equal(hud.frame.moraleBand, 2);
+  hud.draw(demoView("hud-weapon-view"));
+  assert.equal(hud.frame.moraleBand, null, "no morale in the fake weapon view");
+});

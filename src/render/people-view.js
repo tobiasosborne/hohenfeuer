@@ -1,5 +1,27 @@
-// src/render/people-view.js - owns NPC and ruler figures: one InstancedMesh of the kit person (role-tinted, facing its motion) plus instanced blob shadows (DESIGN 7.4).
+// src/render/people-view.js - owns NPC and ruler figures: one InstancedMesh of the kit person (role-tinted, facing its motion, procedural walk cycle) plus instanced blob shadows (DESIGN 7.4).
 import * as THREE from "three";
+import { TUNING } from "../tuning.js";
+
+/**
+ * Walk cycle of the unrigged kit person: legs swing about the hip and arms (opposite) about the
+ * shoulder in the vertex shader, per instance (phase, swing). Phase advances with distance walked,
+ * swing with tick speed, so it is deterministic on the golden path. Model heights from person.glb.
+ */
+export const WALK = Object.freeze({ strideM: 1.4, swingPerMs: 0.17, maxSwingRad: 0.55, hipY: 0.72, shoulderY: 1.3, armX: 0.27 });
+
+/**
+ * Advance one figure's walk state. @param {{dist?: number, x?: number, z?: number}} rec per-figure memory
+ * @param {{pos: number[], prev?: {x: number, y: number, z: number}, now?: {x: number, y: number, z: number}}} p
+ * @returns {{phase: number, amp: number}} phase radians, amp swing radians
+ */
+export function walkUpdate(rec, p) {
+  if (rec.x === undefined) { rec.x = p.pos[0]; rec.z = p.pos[2]; rec.dist = 0; }
+  rec.dist += Math.hypot(p.pos[0] - rec.x, p.pos[2] - rec.z);
+  rec.x = p.pos[0]; rec.z = p.pos[2];
+  const speed = p.prev && p.now ? Math.hypot(p.now.x - p.prev.x, p.now.z - p.prev.z) * TUNING.sim.tickHz : 0;
+  const cycles = rec.dist / WALK.strideM;
+  return { phase: (cycles - Math.floor(cycles)) * 2 * Math.PI, amp: Math.min(WALK.maxSwingRad, speed * WALK.swingPerMs) };
+}
 
 /** Tunic tints by role (DESIGN 7.4: crew red, runner yellow, mason grey, civilian brown; ruler gold). sRGB hex. */
 export const ROLE_TINT = Object.freeze({ crew: 0xd04030, runner: 0xe0c040, mason: 0xa8a8a0, civilian: 0x9a6a40, ruler: 0xf0c040 });
@@ -31,6 +53,20 @@ function personGeometry(model) {
  */
 function tintTunic(material) {
   material.onBeforeCompile = (shader) => {
+    shader.vertexShader = shader.vertexShader
+      .replace("#include <common>", "#include <common>\nattribute vec2 aWalk;")
+      .replace("#include <begin_vertex>", `#include <begin_vertex>
+      {
+        float hfS = sin(aWalk.x) * aWalk.y;
+        float hfSide = transformed.x < 0.0 ? 1.0 : -1.0;
+        float hfLeg = 1.0 - smoothstep(${(WALK.hipY - 0.12).toFixed(2)}, ${(WALK.hipY + 0.02).toFixed(2)}, transformed.y);
+        float hfArm = step(${WALK.armX.toFixed(2)}, abs(transformed.x)) * step(0.5, transformed.y) * step(transformed.y, ${(WALK.shoulderY + 0.08).toFixed(2)});
+        float hfA = hfS * hfSide * (hfArm > 0.5 ? -0.8 : hfLeg);
+        float hfPivot = hfArm > 0.5 ? ${WALK.shoulderY.toFixed(2)} : ${WALK.hipY.toFixed(2)};
+        float hfY = transformed.y - hfPivot, hfZ = transformed.z, hfC = cos(hfA), hfSn = sin(hfA);
+        transformed.y = hfPivot + hfY * hfC - hfZ * hfSn;
+        transformed.z = hfY * hfSn + hfZ * hfC;
+      }`);
     shader.fragmentShader = shader.fragmentShader.replace("#include <color_fragment>", `
       #if defined( USE_COLOR )
         float hfRed = diffuseColor.r;
@@ -39,7 +75,7 @@ function tintTunic(material) {
         diffuseColor.rgb = mix(diffuseColor.rgb, hfTint, hfMask);
       #endif`);
   };
-  material.customProgramCacheKey = () => "hohenfeuer-people-tint";
+  material.customProgramCacheKey = () => "hohenfeuer-people-tint-walk";
 }
 
 /**
@@ -52,7 +88,10 @@ export function createPeopleView({ scene, model = null, max = 256 }) {
   const baked = model ? personGeometry(model) : null;
   const geometry = baked ? baked.geometry : new THREE.BoxGeometry(0.5, 1.75, 0.3).translate(0, 0.875, 0);
   const material = baked ? baked.material : new THREE.MeshLambertMaterial({ color: 0xffffff });
-  if (baked) tintTunic(material);
+  const walkAttr = new THREE.InstancedBufferAttribute(new Float32Array(max * 2), 2);
+  walkAttr.setUsage(THREE.DynamicDrawUsage);
+  if (baked) { geometry.setAttribute("aWalk", walkAttr); tintTunic(material); }
+  const walkRec = new Map(); // id -> walk memory
   const bodies = new THREE.InstancedMesh(geometry, material, max);
   bodies.name = "people";
   bodies.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
@@ -92,6 +131,9 @@ export function createPeopleView({ scene, model = null, max = 256 }) {
         m.compose(pos, q, one);
         bodies.setMatrixAt(i, m);
         bodies.setColorAt(i, col.setHex(p.tint ?? ROLE_TINT[p.role] ?? 0xffffff));
+        if (!walkRec.has(p.id)) walkRec.set(p.id, {});
+        const w = walkUpdate(walkRec.get(p.id), p);
+        walkAttr.setXY(i, w.phase, w.amp);
         pos.y += 0.03;
         m.compose(pos, q.identity(), one);
         shadows.setMatrixAt(i, m);
@@ -100,6 +142,7 @@ export function createPeopleView({ scene, model = null, max = 256 }) {
       bodies.instanceMatrix.needsUpdate = true;
       if (bodies.instanceColor) bodies.instanceColor.needsUpdate = true;
       shadows.instanceMatrix.needsUpdate = true;
+      walkAttr.needsUpdate = true;
       return n;
     },
     dispose() { scene.remove(bodies, shadows); geometry.dispose(); material.dispose(); shadows.geometry.dispose(); shadows.material.dispose(); shadowTex.dispose(); },

@@ -1,0 +1,17 @@
+✖ tests/unit/ai-repair-wave.test.js (1832.665969ms)
+✔ tests/unit/npc-repair-wave.test.js (367.181447ms)
+✔ tests/unit/rules-repair-wave.test.js (374.965508ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1873.779645
+
+✖ failing tests:
+
+test at tests/unit/ai-repair-wave.test.js:1:1
+✖ tests/unit/ai-repair-wave.test.js (1832.665969ms)
+  'test failed'

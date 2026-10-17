@@ -1,0 +1,14 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (1270.631563ms)
+✔ tests/unit/ai-aim.test.js (447.364421ms)
+✔ tests/unit/ai-build.test.js (1550.339694ms)
+✔ tests/unit/ai-controller.test.js (681.443435ms)
+✔ tests/unit/ai-match.test.js (167248.889374ms)
+✔ tests/unit/ai-pacing.test.js (224254.696185ms)
+✔ tests/unit/ai-repair-wave.test.js (3705.858422ms)
+✔ tests/unit/ai-slots.test.js (266.752316ms)
+✔ tests/unit/ai-sweep.test.js (729.955977ms)
+✔ tests/unit/ai-targets.test.js (2322.966427ms)

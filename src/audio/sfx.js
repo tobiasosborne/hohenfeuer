@@ -3,6 +3,7 @@
 // noise comes from a seeded hash (no Math.random), so a recipe always sounds the same.
 
 import { EV } from "../contracts.js";
+import { TUNING } from "../tuning.js";
 import { hashNoise } from "../ui/paint.js";
 
 /** Silent beyond this distance (m). */
@@ -54,6 +55,26 @@ export function noiseSamples(n, seed) {
 export function attenuation(d) { return d >= EARSHOT_M ? 0 : 1 / (1 + d / 40); }
 
 /**
+ * Stereo pan (-1 left .. 1 right) of a world source for a listener {pos, yaw}; yaw clockwise from
+ * north, so the listener's right is (cos yaw, sin yaw) in x/z.
+ */
+export function panFor(listener, pos) {
+  if (!listener || !listener.pos || typeof listener.yaw !== "number" || !pos) return 0;
+  const dx = pos[0] - listener.pos[0], dz = pos[2] - listener.pos[2], len = Math.hypot(dx, dz);
+  if (len < 1e-9) return 0;
+  return Math.max(-1, Math.min(1, (dx * Math.cos(listener.yaw) + dz * Math.sin(listener.yaw)) / len));
+}
+
+/** Ambient bed levels 0..1: wind against the strongest wind setting, crowd murmur by population (80 = full). */
+export function ambienceLevels({ windSpeed, population }) {
+  const max = Math.max(...TUNING.wind.maxSpeedByStrength) || 1;
+  return { wind: Math.max(0, Math.min(1, windSpeed / max)), crowd: Math.max(0, Math.min(1, Math.sqrt(Math.max(0, population) / 80))) };
+}
+
+/** Bell partials (Hz ratio, gain) for the morale-band warning. */
+const BELL = [[1, 1], [2.0, 0.5], [2.4, 0.35], [3.0, 0.25], [4.2, 0.15]];
+
+/**
  * @param {{context?: object|null, volume?: number}} [o] context: an AudioContext, null to disable,
  *   undefined to create one lazily on unlock().
  */
@@ -62,6 +83,7 @@ export function createSfx(o = {}) {
   const lazy = o.context === undefined;
   let volume = o.volume ?? 0.6;
   let noiseBuf = null;
+  let ambience = null;
 
   function noise() {
     if (!noiseBuf) {
@@ -119,16 +141,49 @@ export function createSfx(o = {}) {
       const r = RECIPES[type];
       if (!r || !ctx || volume <= 0) return false;
       let d = 0;
-      if (payload && payload.pos && listener) {
-        const dx = payload.pos[0] - listener[0], dy = payload.pos[1] - listener[1], dz = payload.pos[2] - listener[2];
+      const lp = Array.isArray(listener) ? listener : listener?.pos ?? null;
+      if (payload && payload.pos && lp) {
+        const dx = payload.pos[0] - lp[0], dy = payload.pos[1] - lp[1], dz = payload.pos[2] - lp[2];
         d = Math.sqrt(dx * dx + dy * dy + dz * dz);
       }
       const a = attenuation(d);
       if (a <= 0) return false;
       const master = ctx.createGain();
       master.gain.setValueAtTime(volume * r.gain * a, ctx.currentTime);
-      master.connect(ctx.destination);
+      if (payload && payload.pos && listener && !Array.isArray(listener) && ctx.createStereoPanner) {
+        const pan = ctx.createStereoPanner();
+        pan.pan.setValueAtTime(panFor(listener, payload.pos), ctx.currentTime);
+        master.connect(pan); pan.connect(ctx.destination);
+      } else master.connect(ctx.destination);
       for (const l of r.layers) layer(l, master, ctx.currentTime);
+      return true;
+    },
+    /** Continuous beds: wind (low rushing noise) and crowd murmur; loops start once, gains glide. */
+    setAmbience(levelsIn) {
+      if (!ctx) return false;
+      const lv = ambienceLevels(levelsIn);
+      if (!ambience) {
+        const loop = (type, freq, q) => {
+          const src = ctx.createBufferSource(); src.buffer = noise(); src.loop = true;
+          const f = ctx.createBiquadFilter(); f.type = type; f.frequency.setValueAtTime(freq, ctx.currentTime); f.Q.setValueAtTime(q, ctx.currentTime);
+          const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, ctx.currentTime);
+          src.connect(f); f.connect(g); g.connect(ctx.destination); src.start(ctx.currentTime);
+          return g;
+        };
+        ambience = { wind: loop("lowpass", 420, 0.7), crowd: loop("bandpass", 700, 0.9) };
+      }
+      const now = ctx.currentTime;
+      ambience.wind.gain.setTargetAtTime(0.0001 + volume * 0.18 * lv.wind, now, 0.6);
+      ambience.crowd.gain.setTargetAtTime(0.0001 + volume * 0.06 * lv.crowd, now, 0.6);
+      return true;
+    },
+    /** Short bell when our morale drops a band. */
+    bell() {
+      if (!ctx || volume <= 0) return false;
+      const master = ctx.createGain();
+      master.gain.setValueAtTime(volume * 0.35, ctx.currentTime);
+      master.connect(ctx.destination);
+      for (const [ratio, g] of BELL) layer({ wave: "sine", freq: 660 * ratio, dur: 2.2, gain: g, attack: 0.003 }, master, ctx.currentTime);
       return true;
     },
     /** Play a drained event batch, at most VOICES_PER_TYPE per type. @returns {number} voices started */

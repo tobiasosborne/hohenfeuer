@@ -1,0 +1,68 @@
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+worker ready
+match 4: seed 2 swapped, 1.55m, winner 0, shots 4/4
+match 6: seed 3 swapped, 4.21m, winner 0, shots 10/10
+match 10: seed 5 swapped, 10.94m, winner 1, shots 9/27
+match 12: seed 6 swapped, 5.12m, winner 1, shots 12/10
+match 9: seed 5, 11.41m, winner 1, shots 21/28
+match 8: seed 4 swapped, 11.13m, winner 1, shots 21/25
+match 5: seed 3, 13.64m, winner 0, shots 31/23
+match 3: seed 2, 15.00m, winner 0, shots 37/13
+match 16: seed 8 swapped, 2.93m, winner 0, shots 7/6
+match 7: seed 4, 14.61m, winner 0, shots 35/22
+match 13: seed 7, 7.65m, winner 0, shots 18/20
+match 11: seed 6, 15.14m, winner 0, shots 38/13
+match 1: seed 1, 16.73m, winner 0, shots 41/20
+match 22: seed 11 swapped, 2.79m, winner 0, shots 6/7
+match 14: seed 7 swapped, 12.00m, winner 1, shots 15/24
+match 17: seed 9, 8.14m, winner 0, shots 18/18
+match 2: seed 1 swapped, 19.55m, winner 0, shots 49/10
+match 20: seed 10 swapped, 7.75m, winner 1, shots 17/19
+match 28: seed 14 swapped, 0.75m, winner 1, shots 2/2
+match 18: seed 9 swapped, 10.16m, winner 1, shots 15/25
+match 26: seed 13 swapped, 2.37m, winner 1, shots 6/6
+match 21: seed 11, 10.68m, winner 0, shots 21/24
+match 23: seed 12, 7.85m, winner 0, shots 17/16
+match 27: seed 14, 7.16m, winner 0, shots 15/16
+match 15: seed 8, 20.00m, winner null, shots 20/47
+match 31: seed 16, 8.02m, winner 0, shots 19/13
+match 30: seed 15 swapped, 8.93m, winner 1, shots 18/22
+match 19: seed 10, 16.64m, winner 0, shots 41/16
+match 37: seed 19, 0.34m, winner 0, shots 1/1
+match 33: seed 17, 8.46m, winner 0, shots 21/9
+match 29: seed 15, 12.53m, winner 0, shots 31/17
+match 32: seed 16 swapped, 12.75m, winner 1, shots 10/32
+match 24: seed 12 swapped, 18.45m, winner 1, shots 21/38
+match 36: seed 18 swapped, 10.35m, winner 0, shots 26/9
+match 25: seed 13, 20.00m, winner null, shots 49/19
+match 38: seed 19 swapped, 10.81m, winner 1, shots 9/26
+match 34: seed 17 swapped, 16.10m, winner 0, shots 40/35
+match 40: seed 20 swapped, 11.86m, winner 1, shots 24/28
+match 35: seed 18, 19.08m, winner 1, shots 30/45
+match 39: seed 20, 12.74m, winner 0, shots 32/12
+| Metric | Result |
+|---|---|
+| Matches / timeouts | 40 / 2 |
+| Length min / mean / max (min) | 0.34 / 10.66 / 20.00 |
+| 12–20 min finishes | 13/40 |
+| Slot 0 / 1 wins | 23 / 15 (57.5% / 37.5%) |
+| Gold at cap, slot 0 / 1 | 22.8% / 22.9% |
+| Worst side at cap | 67.5% |
+| Gold >=95% cap, slot 0 / 1 | 48.8% / 43.8% |
+| Gold <=10% cap | 0.0% |
+| First-gun-loss comebacks | 11/33 (33.3%) |
+| Loser damaged in >=3 minutes | 11/40 |
+| No palace stall >5 min | 21/40 |
+| Both fire every 2 min | 19/40 |
+| Longest no-fire / ready no-fire (s) | 912.4 / 912.4 |
+| Mean shots / hits (slots) | 21.4 / 18.9; 19.1 / 17.4 |
+| Mean built / repaired / deaths per side | 7.1 / 73.4 / 17.1 |
+| Elimination reasons | {"palace":2,"surrender":21,"ruler":15,"timeout":2} |

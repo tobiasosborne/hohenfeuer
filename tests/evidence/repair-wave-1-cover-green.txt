@@ -1,0 +1,10 @@
+✔ AI rulers use their throne behind the keep; local rulers use the terrace spawn (1214.588653ms)
+✔ solid cover stops blast injury; exposed people still take the same blast (23.548115ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1328.992382

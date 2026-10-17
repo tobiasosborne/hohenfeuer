@@ -1,0 +1,59 @@
+{
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "errors": [],
+  "checks": [
+    {
+      "style": "modern",
+      "shader": true,
+      "geometry": true,
+      "dirty": true,
+      "info": {
+        "calls": 19,
+        "triangles": 95088,
+        "geometries": 19,
+        "textures": 12,
+        "style": "modern",
+        "gpuExtras": false
+      }
+    },
+    {
+      "count": 1,
+      "time": 1,
+      "extras": false,
+      "shadows": false,
+      "repeat": 1,
+      "samePixels": true,
+      "next": 2,
+      "animatedPixels": true,
+      "extinguished": 0,
+      "gpu": {
+        "calls": 24,
+        "triangles": 113,
+        "geometries": 3,
+        "textures": 20,
+        "style": "modern",
+        "gpuExtras": true,
+        "shadowSize": 2048,
+        "programs": 14
+      },
+      "gpuDisabled": true,
+      "freshDepthBinding": true,
+      "gpuRoundTripPixels": true
+    },
+    {
+      "kit": "fallback",
+      "style": "modern",
+      "shader": true
+    },
+    {
+      "kit": "kit-v0",
+      "style": "modern",
+      "shader": true
+    },
+    {
+      "impactRoundTrip": true,
+      "simHashUnchanged": true
+    }
+  ],
+  "status": "passed"
+}

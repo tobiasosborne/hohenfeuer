@@ -1,0 +1,35 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (29.60264ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (4.9099ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (4.654257ms)
+✖ an idle survivor clears a vacant mount so replacement is possible (30.519188ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 100.594998
+
+✖ failing tests:
+
+test at tests/unit/npc-repair-wave.test.js:36:1
+✖ an idle survivor clears a vacant mount so replacement is possible (30.519188ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(n.path.length>1)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-repair-wave.test.js:41:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

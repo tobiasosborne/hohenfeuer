@@ -1,0 +1,66 @@
+✖ opponent firing order never changes a side's scatter draws (559.45708ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 668.597649
+
+✖ failing tests:
+
+test at tests/unit/sim-weapon-order.test.js:8:1
+✖ opponent firing order never changes a side's scatter draws (559.45708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        pos: {
+  +       x: 0.7999538797408192,
+  -       x: 0.8000000000000003,
+          y: 7.5,
+  +       z: 22.99140987266619
+  -       z: 23
+        },
+        vel: {
+  +       x: 175.82163421405176,
+  +       y: 66.28105579258543,
+  +       z: -1.888021627480477
+  -       x: 175.21428895496408,
+  -       y: 67.89656093169827,
+  -       z: -0
+        }
+      },
+      {
+        pos: {
+  +       x: 192.8,
+  -       x: 192.79995387974083,
+          y: 7.5,
+  +       z: 23
+  -       z: 22.99140987266619
+        },
+        vel: {
+  +       x: 175.21428895496408,
+  +       y: 67.89656093169827,
+  +       z: -0
+  -       x: 175.82163421405176,
+  -       y: 66.28105579258543,
+  -       z: -1.888021627480477
+        }
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-order.test.js:17:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

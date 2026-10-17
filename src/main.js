@@ -16,6 +16,7 @@ import { createLoop } from "./core/loop.js";
 import { fixedElevation, launchSpeed, traceFlight } from "./sim/ballistics.js";
 import { windHud } from "./sim/wind.js";
 import { palaceIntegrity } from "./sim/rules.js";
+import { readStyle } from "./render/styles.js";
 import { createRenderer } from "./render/renderer.js";
 import { createSky } from "./render/sky.js";
 import { createTerrainView } from "./render/terrain-view.js";
@@ -29,7 +30,9 @@ import { createAssets } from "./render/assets.js";
 import { installDebugApi } from "./render/debug-api.js";
 import { createInput } from "./player/input.js";
 import { buildCommands, BUILD } from "./player/commands.js";
-import { createCameraRig, applyPose } from "./player/camera.js";
+import { createCameraRig, applyPose, followPose, impactPose } from "./player/camera.js";
+import { createFeel, createFollow } from "./player/feel.js";
+import { createBubbles, npcMarker } from "./ui/overlay.js";
 import { pick, ghost } from "./player/interact.js";
 import { createHud, designationMessages } from "./ui/hud.js";
 import { createMessageLog, eventsToMessages, TONE } from "./ui/console.js";
@@ -45,12 +48,13 @@ import { createTb3Script, TB3 } from "./tb3-script.js";
 import { windVector } from "./sim/wind.js";
 
 /** Scripted slices: tb1 = palace shot; tb2 = crewed wall shot; tb3 = rampart designation and mason construction. */
-const SCRIPTS = { tb1: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }), tb3: () => createTb3Script() };
+const SCRIPTS = { tb1: () => createTb1Script(), feel: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }), tb3: () => createTb3Script() };
 
 const DEG = Math.PI / 180;
 const q = new URLSearchParams(globalThis.location.search);
 const GOLDEN = q.get("golden") === "1";
-const DEMO = q.get("demo") === "1" || ["tb2", "tb3"].includes(q.get("demo"));
+const DEMO = q.get("demo") === "1" || ["tb2", "tb3", "feel"].includes(q.get("demo"));
+const DEMO_FEEL = q.get("demo") === "feel"; // TB1 slice with head bob and the follow cam on (feel video)
 const DEMO_TB2 = q.get("demo") === "tb2";
 const SEED = Number(q.get("seed") ?? TB1.seed) >>> 0;
 const LANG_PARAM = q.get("lang") === "en" || q.get("lang") === "de" ? q.get("lang") : null;
@@ -95,7 +99,7 @@ const lerp3 = (a, b, k) => (a ? [a.x + (b.x - a.x) * k, a.y + (b.y - a.y) * k, a
 /* ------------------------------------------------------------------ renderer */
 const biome = getView("biome", "forest");
 const sunDir = biome?.sun?.direction ? [...biome.sun.direction] : [-0.55, 0.7, 0.45];
-const r = createRenderer({ biome: "forest", sunDir });
+const r = createRenderer({ biome: "forest", sunDir, style: readStyle(q, storage), golden: GOLDEN }); // style= URL overrides the saved options style
 document.body.appendChild(r.domElement);
 const camera = r.camera;
 
@@ -189,6 +193,7 @@ function handleMenuEvent(ev) {
   else if (ev.type === MENU_EVENT.OPTIONS) {
     options = ev.options; if (!GOLDEN) saveOptions(storage, options);
     LANG = LANG_PARAM ?? options.lang; input.setSensitivity(options.sensitivity); sfx.setVolume(options.volume / 10);
+    if (!GOLDEN && !DEMO) follow.setEnabled(options.followCam);
   }
 }
 globalThis.addEventListener("keydown", (e) => {
@@ -213,6 +218,38 @@ document.addEventListener("pointerlockchange", () => {
 });
 
 const rig = createCameraRig(camera, { seed: MATCH.seed, golden: GOLDEN || DEMO });
+/* First-person feel (src/player/feel.js): stepped per sim tick from sim state and events, sampled per frame. */
+const feel = createFeel({ seed: MATCH.seed, bob: !GOLDEN && (!DEMO || DEMO_FEEL) });
+const follow = createFollow({ enabled: GOLDEN || (DEMO && !DEMO_FEEL) ? false : DEMO_FEEL || options.followCam });
+const bubbles = createBubbles();
+let lastBand = null;
+const WP = (id) => view.weapons.find((x) => x.id === id) ?? null;
+function blastRadius(weaponId) { const w = WP(weaponId), d = w ? getWeapon(w.defId) : null; return d ? Math.max(d.shot.splashRadius, d.shot.radius) : 1.25; }
+function camDist(pos) { return Math.hypot(pos[0] - camera.position.x, pos[1] - camera.position.y, pos[2] - camera.position.z); }
+function cellWorld(plotId, cell) { const o = view.castles[plotId].plot.origin; return [o.x + cell[0] + 0.5, o.y + cell[1] + 0.5, o.z + cell[2] + 0.5]; }
+/** Feel, follow cam, bubbles and morale bell from one tick's events. */
+function feelEvents(events) {
+  for (const e of events) {
+    const p = e.payload;
+    if (e.type === EV.SHOT_FIRED && p.slot === ME) {
+      const w = WP(p.weaponId);
+      if (w && mannedWeapon()?.id === w.id) {
+        feel.ownShot(getWeapon(w.defId).traj === "lobbed" ? "throw" : "hard");
+        const mine = view.projectiles.filter((x) => x.sourceSlot === ME);
+        if (mine.length) follow.start(Math.max(...mine.map((x) => x.id)));
+      }
+    } else if (e.type === EV.IMPACT) {
+      feel.impact(blastRadius(p.weaponId), camDist(p.pos));
+      if (p.slot === ME) follow.impact(p.pos);
+    } else if (e.type === EV.MAGAZINE_EXPLODED) feel.impact(4, camDist(cellWorld(p.plot, p.cell)));
+    else if (e.type === EV.COLLAPSE && p.cells?.length) feel.impact(2, camDist(cellWorld(p.plot, p.cells[0])));
+    else if (e.type === EV.MORALE_BAND && p.castle === ME) {
+      if (lastBand !== null && p.band > lastBand && !GOLDEN) sfx.bell();
+      lastBand = p.band;
+    }
+  }
+  bubbles.onEvents(events, view, { slot: ME, lang: LANG });
+}
 let script = DEMO ? (SCRIPTS[q.get("demo")] ?? SCRIPTS.tb1)() : null;
 
 /**
@@ -254,6 +291,7 @@ function ownWeaponsAabbs() {
 function cameraMode() {
   const me = view.rulers[ME];
   if (me.hp <= 0) return CAMERA_MODE.DEATH;
+  if (follow.active) return CAMERA_MODE.IMPACT;
   if (me.manning !== null && me.manning !== undefined) return impactHeld && mannedWeapon()?.lastImpact ? CAMERA_MODE.IMPACT : CAMERA_MODE.WEAPON;
   return CAMERA_MODE.WALK;
 }
@@ -302,6 +340,10 @@ function tick(forcePlayer = false) {
   const events = sim.drainEvents();
   view = sim.state;
   handleEvents(events);
+  feelEvents(events);
+  feel.step({ ruler: view.rulers[ME] });
+  follow.step(view);
+  if (!GOLDEN && view.tick % 15 === 0) sfx.setAmbience({ windSpeed: view.wind.speed, population: view.castles[ME].population });
   fx.update(K.DT);
   for (const p of view.projectiles) fx.trail(new THREE.Vector3(p.pos.x, p.pos.y, p.pos.z));
 }
@@ -335,7 +377,7 @@ function handleEvents(events) {
     m.type.set(src.type); m.hp.set(src.hp); m.meta.set(src.meta);
   }
   for (const m of [...eventsToMessages(events, { lang: LANG, slot: ME }), ...designationMessages(events, { lang: LANG, slot: ME })]) log.push(m.text, { tick: view.tick, tone: m.tone });
-  if (!GOLDEN) sfx.handle(events, [camera.position.x, camera.position.y, camera.position.z]);
+  if (!GOLDEN) sfx.handle(events, { pos: [camera.position.x, camera.position.y, camera.position.z], yaw: -camera.rotation.y });
 }
 
 /* ------------------------------------------------------------------ render */
@@ -382,6 +424,8 @@ function frame(alpha) {
       weapon: w ? { pivot: [w.pos.x, w.pos.y, w.pos.z], azDeg: w.aim.az / T.aim.azUnitsPerDeg } : undefined,
       freeLook,
       impact: w && w.lastImpact ? { point: [w.lastImpact.x, w.lastImpact.y, w.lastImpact.z], azDeg: w.aim.az / T.aim.azUnitsPerDeg } : undefined,
+      follow: followCamPose(alpha, w),
+      feel: feel.sample(alpha),
       groundY: me.pos.y,
     });
   }
@@ -389,6 +433,43 @@ function frame(alpha) {
   chunks.update(camera.position);
   r.render();
   hud.draw(hudView(mode));
+}
+
+/** Impact-view follow cam: ride the ball, then hold on the impact (src/player/feel.js createFollow). */
+function followCamPose(alpha, w) {
+  const tg = follow.target(alpha);
+  if (!tg) return undefined;
+  if (tg.pos) return followPose(tg);
+  return impactPose({ point: tg.impact, azDeg: w ? w.aim.az / T.aim.azUnitsPerDeg : 0 });
+}
+
+/** Job markers and speech bubbles of own NPCs, projected to logical HUD pixels. */
+const ovV = new THREE.Vector3();
+function overlays(mode) {
+  if (mode === CAMERA_MODE.DEATH) return null;
+  const out = { markers: [], bubbles: [] };
+  const jobKind = new Map((view.castles[ME].jobs ?? []).map((j) => [j.id, j.kind]));
+  const project = (x, y, z) => {
+    ovV.set(x, y, z).project(camera);
+    if (ovV.z >= 1 || ovV.z <= -1 || Math.abs(ovV.x) > 1.05 || Math.abs(ovV.y) > 1.05) return null;
+    return [Math.round((ovV.x + 1) / 2 * T.render.logicalW), Math.round((1 - ovV.y) / 2 * T.render.logicalH)];
+  };
+  for (const n of view.npcs) {
+    if (n.slot !== ME || n.hp <= 0 || n.deserted) continue;
+    const d = camDist([n.pos.x, n.pos.y, n.pos.z]);
+    if (d > 45) continue;
+    const icon = npcMarker(n, jobKind.get(n.jobId) ?? null);
+    if (!icon) continue;
+    const s = project(n.pos.x, n.pos.y + 2.25, n.pos.z);
+    if (s) out.markers.push({ x: s[0], y: s[1], icon, scale: d < 20 ? 1 : 0.8 });
+  }
+  for (const b of bubbles.visible(view.tick)) {
+    const n = view.npcs.find((x) => x.id === b.entityId);
+    if (!n || camDist([n.pos.x, n.pos.y, n.pos.z]) > 60) continue;
+    const s = project(n.pos.x, n.pos.y + 2.6, n.pos.z);
+    if (s) out.bubbles.push({ x: s[0], y: s[1], text: b.text });
+  }
+  return out;
 }
 
 const predictedCache = { key: null, point: null };
@@ -437,6 +518,7 @@ function hudView(mode) {
     enemyLabel: { title: t("enemy", LANG), name: settings?.slots?.[1 - ME]?.name ?? "KI", castle: getCastle(enemy.defId ?? "default")?.name?.[LANG] ?? "" },
     minimapOwn: minimapCache.own, minimapEnemy: minimapCache.enemy,
     reticle: w && mode === CAMERA_MODE.WEAPON ? { predicted: predicted(w) } : {},
+    overlays: overlays(mode),
     castleColor: SLOT_COLORS[ME],
     menu,
   };
@@ -501,6 +583,7 @@ const lanePose = api.setPose;
  * camera: "rig" (the player camera rig decides; position/yaw/pitch then only serve tools/blender, which needs them).
  */
 api.setPose = (p) => {
+  if (p.followCam) follow.setEnabled(true);
   if (SCRIPTS[p.script]) {
     script ??= SCRIPTS[p.script]();
     if (p.until === "ball-near-enemy") api.toFirstShotMidFlight();

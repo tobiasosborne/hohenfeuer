@@ -1,0 +1,19 @@
+✔ tests/unit/ai-build.test.js (697.366097ms)
+✔ tests/unit/ai-controller.test.js (640.371519ms)
+✔ tests/unit/ai-weapon-aim.test.js (7307.976568ms)
+✔ tests/unit/npc-repair-wave.test.js (482.660843ms)
+✖ tests/unit/sim-weapon-placement.test.js (5583.580529ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7404.090213
+
+✖ failing tests:
+
+test at tests/unit/sim-weapon-placement.test.js:1:1
+✖ tests/unit/sim-weapon-placement.test.js (5583.580529ms)
+  'test failed'

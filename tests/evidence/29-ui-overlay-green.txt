@@ -1,0 +1,17 @@
+✔ i18n: every key exists in every language and t() formats params (1.117179ms)
+✔ font has a glyph for every character the UI needs (0.463923ms)
+✔ every glyph has consistent rows and draws pixels (except space) (1.012157ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (2.220433ms)
+✔ rasterize is deterministic and distinguishes glyphs (0.245145ms)
+✔ job markers: hammer for working masons, shell for ammo runners, flame for fleeing, bed for sheltering (0.612607ms)
+✔ bubbles: event -> the right own NPC says a short line for 2 s; cooldown per line; enemies stay silent (0.508311ms)
+✔ morale band follows TUNING.morale.workBands (0.199021ms)
+✔ drawOverlays draws icons and bubbles and notes the bubble text (1.134982ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 54.196678

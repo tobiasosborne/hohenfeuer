@@ -1,0 +1,1559 @@
+{
+  "schema": 1,
+  "options": {
+    "label": "profile",
+    "matches": 2,
+    "seeds": null,
+    "levels": [
+      5,
+      5
+    ],
+    "swapSlot": true,
+    "maxMinutes": 1,
+    "workers": 1,
+    "map": "forest-duel"
+  },
+  "sourceSha256": "c4ca0c051682f7b17650821bd666e129ba72929bed2d688f6ad82b7e0a01e4a1",
+  "tickHz": 30,
+  "tuning": {
+    "economy": {
+      "startGold": 1500,
+      "palaceIncomeS": 3,
+      "civilianIncomeS": 0.1,
+      "goldCap": 2000,
+      "repairCostFrac": 0.8
+    },
+    "blocks": {
+      "stone": {
+        "hp": 40,
+        "cost": 4,
+        "buildS": 0.125
+      },
+      "tower": {
+        "hp": 72,
+        "cost": 8,
+        "buildS": 18
+      }
+    },
+    "palace": {
+      "destroyedBelow": 0.3,
+      "crackingStartS": 600,
+      "crackingEndS": 900,
+      "crackingDestroyedBelow": 0.45,
+      "moraleDrainBelow": 0.5
+    },
+    "repairFullS": 12
+  },
+  "summary": {
+    "matches": 2,
+    "slotWins": [
+      0,
+      0
+    ],
+    "slotWinShares": [
+      0,
+      0
+    ],
+    "timeouts": 2,
+    "lengthMinS": 60,
+    "lengthMeanS": 60,
+    "lengthMaxS": 60,
+    "lengthStdDevS": 0,
+    "pacingPass": 0,
+    "goldAtCapShares": [
+      0,
+      0
+    ],
+    "goldNearCapShares": [
+      0,
+      0
+    ],
+    "maxGoldAtCapShare": 0,
+    "goldNearZeroMeanShare": 0,
+    "firstGunMatches": 0,
+    "firstGunComebacks": 0,
+    "firstGunComebackShare": null,
+    "palaceStepsPass": 0,
+    "palaceStallPass": 2,
+    "fireWindowPass": 2,
+    "maxNoFireS": 25,
+    "maxReadyNoFireS": 25,
+    "shots": [
+      2,
+      2
+    ],
+    "hits": [
+      2,
+      1
+    ],
+    "blocksBuilt": 0.5,
+    "blocksRepaired": 3,
+    "npcDeaths": 0,
+    "reasons": {
+      "timeout": 2
+    }
+  },
+  "table": "| Metric | Result |\n|---|---|\n| Matches / timeouts | 2 / 2 |\n| Length min / mean / max (min) | 1.00 / 1.00 / 1.00 |\n| 12–20 min finishes | 0/2 |\n| Slot 0 / 1 wins | 0 / 0 (0.0% / 0.0%) |\n| Gold at cap, slot 0 / 1 | 0.0% / 0.0% |\n| Worst side at cap | 0.0% |\n| Gold >=95% cap, slot 0 / 1 | 0.0% / 0.0% |\n| Gold <=10% cap | 0.0% |\n| First-gun-loss comebacks | 0/0 (n/a) |\n| Loser damaged in >=3 minutes | 0/2 |\n| No palace stall >5 min | 2/2 |\n| Both fire every 2 min | 2/2 |\n| Longest no-fire / ready no-fire (s) | 25.0 / 25.0 |\n| Mean shots / hits (slots) | 2.0 / 2.0; 2.0 / 1.0 |\n| Mean built / repaired / deaths per side | 0.5 / 3.0 / 0.0 |\n| Elimination reasons | {\"timeout\":2} |",
+  "matches": [
+    {
+      "index": 0,
+      "seed": 1,
+      "swap": false,
+      "levels": [
+        5,
+        5
+      ],
+      "map": "forest-duel",
+      "maxMinutes": 1,
+      "ticks": 1800,
+      "seconds": 60,
+      "winnerSlot": null,
+      "eliminationReason": null,
+      "outcome": null,
+      "hash": 835448676,
+      "firstGunLoss": null,
+      "gunLossEvents": [],
+      "longestPalaceStallS": 60,
+      "loserDamageMinutes": 0,
+      "sides": [
+        {
+          "shots": 2,
+          "hits": 2,
+          "goldAtCapShare": 0,
+          "goldNearCapShare": 0,
+          "goldNearZeroShare": 0,
+          "longestNoFireS": 24.5,
+          "longestReadyNoFireS": 24.5,
+          "npcDeaths": 0,
+          "blocksDestroyed": 0,
+          "blocksCollapsed": 0,
+          "blocksBuilt": 0,
+          "blocksRepaired": 0,
+          "shotsByMinute": [
+            2
+          ],
+          "damageMinutes": [],
+          "spend": {
+            "weapons": 180,
+            "jobs": 0
+          }
+        },
+        {
+          "shots": 2,
+          "hits": 1,
+          "goldAtCapShare": 0,
+          "goldNearCapShare": 0,
+          "goldNearZeroShare": 0,
+          "longestNoFireS": 25,
+          "longestReadyNoFireS": 25,
+          "npcDeaths": 0,
+          "blocksDestroyed": 24,
+          "blocksCollapsed": 0,
+          "blocksBuilt": 2,
+          "blocksRepaired": 12,
+          "shotsByMinute": [
+            2
+          ],
+          "damageMinutes": [],
+          "spend": {
+            "weapons": 180,
+            "jobs": 101.69333333333634
+          }
+        }
+      ],
+      "minuteCurve": [
+        {
+          "second": 0,
+          "sides": [
+            {
+              "gold": 1500,
+              "palace": 1,
+              "morale": 70,
+              "population": 0,
+              "shots": 0,
+              "hits": 0,
+              "guns": 2
+            },
+            {
+              "gold": 1500,
+              "palace": 1,
+              "morale": 70,
+              "population": 0,
+              "shots": 0,
+              "hits": 0,
+              "guns": 2
+            }
+          ]
+        },
+        {
+          "second": 60,
+          "sides": [
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 73.10211022915443,
+              "population": 40,
+              "shots": 2,
+              "hits": 2,
+              "guns": 2
+            },
+            {
+              "gold": 1409.3733333331566,
+              "palace": 1,
+              "morale": 69.78129771088499,
+              "population": 40,
+              "shots": 2,
+              "hits": 1,
+              "guns": 2
+            }
+          ]
+        },
+        {
+          "second": 60,
+          "sides": [
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 73.10211022915443,
+              "population": 40,
+              "shots": 2,
+              "hits": 2,
+              "guns": 2
+            },
+            {
+              "gold": 1409.3733333331566,
+              "palace": 1,
+              "morale": 69.78129771088499,
+              "population": 40,
+              "shots": 2,
+              "hits": 1,
+              "guns": 2
+            }
+          ]
+        }
+      ],
+      "goldTrajectory": [
+        {
+          "second": 1,
+          "gold": [
+            1502.9999999999973,
+            1502.9999999999973
+          ]
+        },
+        {
+          "second": 2,
+          "gold": [
+            1505.9999999999945,
+            1505.9999999999945
+          ]
+        },
+        {
+          "second": 3,
+          "gold": [
+            1508.9999999999918,
+            1508.9999999999918
+          ]
+        },
+        {
+          "second": 4,
+          "gold": [
+            1511.999999999989,
+            1511.999999999989
+          ]
+        },
+        {
+          "second": 5,
+          "gold": [
+            1515.066666666653,
+            1515.066666666653
+          ]
+        },
+        {
+          "second": 6,
+          "gold": [
+            1518.26666666665,
+            1518.26666666665
+          ]
+        },
+        {
+          "second": 7,
+          "gold": [
+            1521.4666666666471,
+            1521.4666666666471
+          ]
+        },
+        {
+          "second": 8,
+          "gold": [
+            1524.6666666666442,
+            1524.6666666666442
+          ]
+        },
+        {
+          "second": 9,
+          "gold": [
+            1527.8666666666413,
+            1527.8666666666413
+          ]
+        },
+        {
+          "second": 10,
+          "gold": [
+            1531.0666666666384,
+            1531.0666666666384
+          ]
+        },
+        {
+          "second": 11,
+          "gold": [
+            1534.2666666666355,
+            1534.2666666666355
+          ]
+        },
+        {
+          "second": 12,
+          "gold": [
+            1537.4666666666326,
+            1537.4666666666326
+          ]
+        },
+        {
+          "second": 13,
+          "gold": [
+            1540.6666666666297,
+            1540.6666666666297
+          ]
+        },
+        {
+          "second": 14,
+          "gold": [
+            1543.8666666666268,
+            1543.8666666666268
+          ]
+        },
+        {
+          "second": 15,
+          "gold": [
+            1547.0666666666239,
+            1547.0666666666239
+          ]
+        },
+        {
+          "second": 16,
+          "gold": [
+            1550.266666666621,
+            1550.266666666621
+          ]
+        },
+        {
+          "second": 17,
+          "gold": [
+            1553.466666666618,
+            1553.466666666618
+          ]
+        },
+        {
+          "second": 18,
+          "gold": [
+            1466.6666666666151,
+            1466.6666666666151
+          ]
+        },
+        {
+          "second": 19,
+          "gold": [
+            1469.8666666666122,
+            1469.8666666666122
+          ]
+        },
+        {
+          "second": 20,
+          "gold": [
+            1473.0666666666093,
+            1473.0666666666093
+          ]
+        },
+        {
+          "second": 21,
+          "gold": [
+            1476.2666666666064,
+            1456.2666666666064
+          ]
+        },
+        {
+          "second": 22,
+          "gold": [
+            1479.4666666666035,
+            1459.4666666666035
+          ]
+        },
+        {
+          "second": 23,
+          "gold": [
+            1482.6666666666006,
+            1457.6666666666006
+          ]
+        },
+        {
+          "second": 24,
+          "gold": [
+            1485.8666666665977,
+            1460.8666666665977
+          ]
+        },
+        {
+          "second": 25,
+          "gold": [
+            1489.0666666665948,
+            1459.0666666665948
+          ]
+        },
+        {
+          "second": 26,
+          "gold": [
+            1492.2666666665918,
+            1462.2666666665918
+          ]
+        },
+        {
+          "second": 27,
+          "gold": [
+            1495.466666666589,
+            1465.466666666589
+          ]
+        },
+        {
+          "second": 28,
+          "gold": [
+            1498.666666666586,
+            1468.666666666586
+          ]
+        },
+        {
+          "second": 29,
+          "gold": [
+            1501.8666666665831,
+            1466.8666666665831
+          ]
+        },
+        {
+          "second": 30,
+          "gold": [
+            1505.0666666665802,
+            1469.8666666665802
+          ]
+        },
+        {
+          "second": 31,
+          "gold": [
+            1508.2666666665773,
+            1472.066666666577
+          ]
+        },
+        {
+          "second": 32,
+          "gold": [
+            1511.4666666665744,
+            1474.0666666665738
+          ]
+        },
+        {
+          "second": 33,
+          "gold": [
+            1514.6666666665715,
+            1471.0666666665707
+          ]
+        },
+        {
+          "second": 34,
+          "gold": [
+            1517.8666666665686,
+            1473.0666666665675
+          ]
+        },
+        {
+          "second": 35,
+          "gold": [
+            1521.0666666665657,
+            1475.0666666665643
+          ]
+        },
+        {
+          "second": 36,
+          "gold": [
+            1524.2666666665627,
+            1477.066666666561
+          ]
+        },
+        {
+          "second": 37,
+          "gold": [
+            1527.4666666665598,
+            1474.066666666558
+          ]
+        },
+        {
+          "second": 38,
+          "gold": [
+            1530.666666666557,
+            1476.2666666665548
+          ]
+        },
+        {
+          "second": 39,
+          "gold": [
+            1533.866666666554,
+            1478.599999999885
+          ]
+        },
+        {
+          "second": 40,
+          "gold": [
+            1537.066666666551,
+            1481.2666666665489
+          ]
+        },
+        {
+          "second": 41,
+          "gold": [
+            1540.2666666665482,
+            1478.9333333332127
+          ]
+        },
+        {
+          "second": 42,
+          "gold": [
+            1453.4666666665453,
+            1481.5999999998764
+          ]
+        },
+        {
+          "second": 43,
+          "gold": [
+            1456.6666666665424,
+            1394.2666666665402
+          ]
+        },
+        {
+          "second": 44,
+          "gold": [
+            1459.8666666665395,
+            1396.933333333204
+          ]
+        },
+        {
+          "second": 45,
+          "gold": [
+            1463.0666666665365,
+            1394.5999999998678
+          ]
+        },
+        {
+          "second": 46,
+          "gold": [
+            1466.2666666665336,
+            1397.2666666665316
+          ]
+        },
+        {
+          "second": 47,
+          "gold": [
+            1469.4666666665307,
+            1396.9333333331954
+          ]
+        },
+        {
+          "second": 48,
+          "gold": [
+            1472.6666666665278,
+            1400.1333333331925
+          ]
+        },
+        {
+          "second": 49,
+          "gold": [
+            1475.866666666525,
+            1400.3333333331896
+          ]
+        },
+        {
+          "second": 50,
+          "gold": [
+            1479.066666666522,
+            1402.8133333331866
+          ]
+        },
+        {
+          "second": 51,
+          "gold": [
+            1482.266666666519,
+            1404.5733333331837
+          ]
+        },
+        {
+          "second": 52,
+          "gold": [
+            1485.4666666665162,
+            1406.0933333331807
+          ]
+        },
+        {
+          "second": 53,
+          "gold": [
+            1488.6666666665133,
+            1402.6133333331777
+          ]
+        },
+        {
+          "second": 54,
+          "gold": [
+            1491.8666666665104,
+            1404.1733333331747
+          ]
+        },
+        {
+          "second": 55,
+          "gold": [
+            1495.0666666665074,
+            1405.4933333331717
+          ]
+        },
+        {
+          "second": 56,
+          "gold": [
+            1498.2666666665045,
+            1406.8133333331687
+          ]
+        },
+        {
+          "second": 57,
+          "gold": [
+            1501.4666666665016,
+            1403.3733333331656
+          ]
+        },
+        {
+          "second": 58,
+          "gold": [
+            1504.6666666664987,
+            1404.9733333331626
+          ]
+        },
+        {
+          "second": 59,
+          "gold": [
+            1507.8666666664958,
+            1406.8133333331596
+          ]
+        },
+        {
+          "second": 60,
+          "gold": [
+            1511.066666666493,
+            1409.3733333331566
+          ]
+        }
+      ],
+      "spendEvents": [
+        {
+          "second": 17,
+          "slot": 0,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 17,
+          "slot": 1,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 20,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 20
+        },
+        {
+          "second": 22,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 5
+        },
+        {
+          "second": 24,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 5
+        },
+        {
+          "second": 28,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 5
+        },
+        {
+          "second": 29,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.20000000000004547
+        },
+        {
+          "second": 30,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.0000000000002274
+        },
+        {
+          "second": 31,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.2000000000002728
+        },
+        {
+          "second": 32,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 6.200000000000273
+        },
+        {
+          "second": 33,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.2000000000002728
+        },
+        {
+          "second": 34,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.2000000000002728
+        },
+        {
+          "second": 35,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.2000000000002728
+        },
+        {
+          "second": 36,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 6.200000000000273
+        },
+        {
+          "second": 37,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.0000000000002274
+        },
+        {
+          "second": 38,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.8666666666667879
+        },
+        {
+          "second": 39,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.533333333333303
+        },
+        {
+          "second": 40,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 5.533333333333303
+        },
+        {
+          "second": 41,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.533333333333303
+        },
+        {
+          "second": 41,
+          "slot": 0,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 42,
+          "slot": 1,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 42,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.533333333333303
+        },
+        {
+          "second": 43,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.533333333333303
+        },
+        {
+          "second": 44,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 5.533333333333303
+        },
+        {
+          "second": 45,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.533333333333303
+        },
+        {
+          "second": 46,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 3.533333333333303
+        },
+        {
+          "second": 48,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 3
+        },
+        {
+          "second": 49,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.7200000000000273
+        },
+        {
+          "second": 50,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.4400000000000546
+        },
+        {
+          "second": 51,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.6800000000000637
+        },
+        {
+          "second": 52,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 6.680000000000064
+        },
+        {
+          "second": 53,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.6400000000001
+        },
+        {
+          "second": 54,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.8800000000001091
+        },
+        {
+          "second": 55,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.8800000000001091
+        },
+        {
+          "second": 56,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 6.6400000000001
+        },
+        {
+          "second": 57,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.6000000000001364
+        },
+        {
+          "second": 58,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 1.3600000000001273
+        },
+        {
+          "second": 59,
+          "slot": 1,
+          "kind": "jobs",
+          "gold": 0.6400000000001
+        }
+      ],
+      "shotEvents": [
+        {
+          "second": 17.066666666666666,
+          "slot": 0,
+          "weaponId": 1
+        },
+        {
+          "second": 17.4,
+          "slot": 1,
+          "weaponId": 2
+        },
+        {
+          "second": 41.56666666666667,
+          "slot": 0,
+          "weaponId": 1
+        },
+        {
+          "second": 42.4,
+          "slot": 1,
+          "weaponId": 2
+        }
+      ],
+      "moraleBandEvents": [
+        {
+          "second": 20.233333333333334,
+          "castle": 1,
+          "morale": 69.99716925925925,
+          "band": 1
+        },
+        {
+          "second": 45.43333333333333,
+          "castle": 1,
+          "morale": 70.45550045674858,
+          "band": 0
+        },
+        {
+          "second": 50.6,
+          "castle": 1,
+          "morale": 69.99915156384348,
+          "band": 1
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "seed": 1,
+      "swap": true,
+      "levels": [
+        5,
+        5
+      ],
+      "map": "forest-duel",
+      "maxMinutes": 1,
+      "ticks": 1800,
+      "seconds": 60,
+      "winnerSlot": null,
+      "eliminationReason": null,
+      "outcome": null,
+      "hash": 1963802850,
+      "firstGunLoss": null,
+      "gunLossEvents": [],
+      "longestPalaceStallS": 60,
+      "loserDamageMinutes": 0,
+      "sides": [
+        {
+          "shots": 2,
+          "hits": 2,
+          "goldAtCapShare": 0,
+          "goldNearCapShare": 0,
+          "goldNearZeroShare": 0,
+          "longestNoFireS": 24.5,
+          "longestReadyNoFireS": 24.5,
+          "npcDeaths": 0,
+          "blocksDestroyed": 0,
+          "blocksCollapsed": 0,
+          "blocksBuilt": 0,
+          "blocksRepaired": 0,
+          "shotsByMinute": [
+            2
+          ],
+          "damageMinutes": [],
+          "spend": {
+            "weapons": 180,
+            "jobs": 0
+          }
+        },
+        {
+          "shots": 2,
+          "hits": 1,
+          "goldAtCapShare": 0,
+          "goldNearCapShare": 0,
+          "goldNearZeroShare": 0,
+          "longestNoFireS": 25,
+          "longestReadyNoFireS": 25,
+          "npcDeaths": 0,
+          "blocksDestroyed": 0,
+          "blocksCollapsed": 0,
+          "blocksBuilt": 0,
+          "blocksRepaired": 0,
+          "shotsByMinute": [
+            2
+          ],
+          "damageMinutes": [],
+          "spend": {
+            "weapons": 180,
+            "jobs": 0
+          }
+        }
+      ],
+      "minuteCurve": [
+        {
+          "second": 0,
+          "sides": [
+            {
+              "gold": 1500,
+              "palace": 1,
+              "morale": 70,
+              "population": 0,
+              "shots": 0,
+              "hits": 0,
+              "guns": 2
+            },
+            {
+              "gold": 1500,
+              "palace": 1,
+              "morale": 70,
+              "population": 0,
+              "shots": 0,
+              "hits": 0,
+              "guns": 2
+            }
+          ]
+        },
+        {
+          "second": 60,
+          "sides": [
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 71.88573122987688,
+              "population": 40,
+              "shots": 2,
+              "hits": 2,
+              "guns": 2
+            },
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 69.78079364249295,
+              "population": 40,
+              "shots": 2,
+              "hits": 1,
+              "guns": 2
+            }
+          ]
+        },
+        {
+          "second": 60,
+          "sides": [
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 71.88573122987688,
+              "population": 40,
+              "shots": 2,
+              "hits": 2,
+              "guns": 2
+            },
+            {
+              "gold": 1511.066666666493,
+              "palace": 1,
+              "morale": 69.78079364249295,
+              "population": 40,
+              "shots": 2,
+              "hits": 1,
+              "guns": 2
+            }
+          ]
+        }
+      ],
+      "goldTrajectory": [
+        {
+          "second": 1,
+          "gold": [
+            1502.9999999999973,
+            1502.9999999999973
+          ]
+        },
+        {
+          "second": 2,
+          "gold": [
+            1505.9999999999945,
+            1505.9999999999945
+          ]
+        },
+        {
+          "second": 3,
+          "gold": [
+            1508.9999999999918,
+            1508.9999999999918
+          ]
+        },
+        {
+          "second": 4,
+          "gold": [
+            1511.999999999989,
+            1511.999999999989
+          ]
+        },
+        {
+          "second": 5,
+          "gold": [
+            1515.066666666653,
+            1515.066666666653
+          ]
+        },
+        {
+          "second": 6,
+          "gold": [
+            1518.26666666665,
+            1518.26666666665
+          ]
+        },
+        {
+          "second": 7,
+          "gold": [
+            1521.4666666666471,
+            1521.4666666666471
+          ]
+        },
+        {
+          "second": 8,
+          "gold": [
+            1524.6666666666442,
+            1524.6666666666442
+          ]
+        },
+        {
+          "second": 9,
+          "gold": [
+            1527.8666666666413,
+            1527.8666666666413
+          ]
+        },
+        {
+          "second": 10,
+          "gold": [
+            1531.0666666666384,
+            1531.0666666666384
+          ]
+        },
+        {
+          "second": 11,
+          "gold": [
+            1534.2666666666355,
+            1534.2666666666355
+          ]
+        },
+        {
+          "second": 12,
+          "gold": [
+            1537.4666666666326,
+            1537.4666666666326
+          ]
+        },
+        {
+          "second": 13,
+          "gold": [
+            1540.6666666666297,
+            1540.6666666666297
+          ]
+        },
+        {
+          "second": 14,
+          "gold": [
+            1543.8666666666268,
+            1543.8666666666268
+          ]
+        },
+        {
+          "second": 15,
+          "gold": [
+            1547.0666666666239,
+            1547.0666666666239
+          ]
+        },
+        {
+          "second": 16,
+          "gold": [
+            1550.266666666621,
+            1550.266666666621
+          ]
+        },
+        {
+          "second": 17,
+          "gold": [
+            1553.466666666618,
+            1553.466666666618
+          ]
+        },
+        {
+          "second": 18,
+          "gold": [
+            1466.6666666666151,
+            1466.6666666666151
+          ]
+        },
+        {
+          "second": 19,
+          "gold": [
+            1469.8666666666122,
+            1469.8666666666122
+          ]
+        },
+        {
+          "second": 20,
+          "gold": [
+            1473.0666666666093,
+            1473.0666666666093
+          ]
+        },
+        {
+          "second": 21,
+          "gold": [
+            1476.2666666666064,
+            1476.2666666666064
+          ]
+        },
+        {
+          "second": 22,
+          "gold": [
+            1479.4666666666035,
+            1479.4666666666035
+          ]
+        },
+        {
+          "second": 23,
+          "gold": [
+            1482.6666666666006,
+            1482.6666666666006
+          ]
+        },
+        {
+          "second": 24,
+          "gold": [
+            1485.8666666665977,
+            1485.8666666665977
+          ]
+        },
+        {
+          "second": 25,
+          "gold": [
+            1489.0666666665948,
+            1489.0666666665948
+          ]
+        },
+        {
+          "second": 26,
+          "gold": [
+            1492.2666666665918,
+            1492.2666666665918
+          ]
+        },
+        {
+          "second": 27,
+          "gold": [
+            1495.466666666589,
+            1495.466666666589
+          ]
+        },
+        {
+          "second": 28,
+          "gold": [
+            1498.666666666586,
+            1498.666666666586
+          ]
+        },
+        {
+          "second": 29,
+          "gold": [
+            1501.8666666665831,
+            1501.8666666665831
+          ]
+        },
+        {
+          "second": 30,
+          "gold": [
+            1505.0666666665802,
+            1505.0666666665802
+          ]
+        },
+        {
+          "second": 31,
+          "gold": [
+            1508.2666666665773,
+            1508.2666666665773
+          ]
+        },
+        {
+          "second": 32,
+          "gold": [
+            1511.4666666665744,
+            1511.4666666665744
+          ]
+        },
+        {
+          "second": 33,
+          "gold": [
+            1514.6666666665715,
+            1514.6666666665715
+          ]
+        },
+        {
+          "second": 34,
+          "gold": [
+            1517.8666666665686,
+            1517.8666666665686
+          ]
+        },
+        {
+          "second": 35,
+          "gold": [
+            1521.0666666665657,
+            1521.0666666665657
+          ]
+        },
+        {
+          "second": 36,
+          "gold": [
+            1524.2666666665627,
+            1524.2666666665627
+          ]
+        },
+        {
+          "second": 37,
+          "gold": [
+            1527.4666666665598,
+            1527.4666666665598
+          ]
+        },
+        {
+          "second": 38,
+          "gold": [
+            1530.666666666557,
+            1530.666666666557
+          ]
+        },
+        {
+          "second": 39,
+          "gold": [
+            1533.866666666554,
+            1533.866666666554
+          ]
+        },
+        {
+          "second": 40,
+          "gold": [
+            1537.066666666551,
+            1537.066666666551
+          ]
+        },
+        {
+          "second": 41,
+          "gold": [
+            1540.2666666665482,
+            1540.2666666665482
+          ]
+        },
+        {
+          "second": 42,
+          "gold": [
+            1453.4666666665453,
+            1543.4666666665453
+          ]
+        },
+        {
+          "second": 43,
+          "gold": [
+            1456.6666666665424,
+            1456.6666666665424
+          ]
+        },
+        {
+          "second": 44,
+          "gold": [
+            1459.8666666665395,
+            1459.8666666665395
+          ]
+        },
+        {
+          "second": 45,
+          "gold": [
+            1463.0666666665365,
+            1463.0666666665365
+          ]
+        },
+        {
+          "second": 46,
+          "gold": [
+            1466.2666666665336,
+            1466.2666666665336
+          ]
+        },
+        {
+          "second": 47,
+          "gold": [
+            1469.4666666665307,
+            1469.4666666665307
+          ]
+        },
+        {
+          "second": 48,
+          "gold": [
+            1472.6666666665278,
+            1472.6666666665278
+          ]
+        },
+        {
+          "second": 49,
+          "gold": [
+            1475.866666666525,
+            1475.866666666525
+          ]
+        },
+        {
+          "second": 50,
+          "gold": [
+            1479.066666666522,
+            1479.066666666522
+          ]
+        },
+        {
+          "second": 51,
+          "gold": [
+            1482.266666666519,
+            1482.266666666519
+          ]
+        },
+        {
+          "second": 52,
+          "gold": [
+            1485.4666666665162,
+            1485.4666666665162
+          ]
+        },
+        {
+          "second": 53,
+          "gold": [
+            1488.6666666665133,
+            1488.6666666665133
+          ]
+        },
+        {
+          "second": 54,
+          "gold": [
+            1491.8666666665104,
+            1491.8666666665104
+          ]
+        },
+        {
+          "second": 55,
+          "gold": [
+            1495.0666666665074,
+            1495.0666666665074
+          ]
+        },
+        {
+          "second": 56,
+          "gold": [
+            1498.2666666665045,
+            1498.2666666665045
+          ]
+        },
+        {
+          "second": 57,
+          "gold": [
+            1501.4666666665016,
+            1501.4666666665016
+          ]
+        },
+        {
+          "second": 58,
+          "gold": [
+            1504.6666666664987,
+            1504.6666666664987
+          ]
+        },
+        {
+          "second": 59,
+          "gold": [
+            1507.8666666664958,
+            1507.8666666664958
+          ]
+        },
+        {
+          "second": 60,
+          "gold": [
+            1511.066666666493,
+            1511.066666666493
+          ]
+        }
+      ],
+      "spendEvents": [
+        {
+          "second": 17,
+          "slot": 0,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 17,
+          "slot": 1,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 41,
+          "slot": 0,
+          "kind": "weapons",
+          "gold": 90
+        },
+        {
+          "second": 42,
+          "slot": 1,
+          "kind": "weapons",
+          "gold": 90
+        }
+      ],
+      "shotEvents": [
+        {
+          "second": 17.066666666666666,
+          "slot": 0,
+          "weaponId": 0
+        },
+        {
+          "second": 17.4,
+          "slot": 1,
+          "weaponId": 3
+        },
+        {
+          "second": 41.56666666666667,
+          "slot": 0,
+          "weaponId": 0
+        },
+        {
+          "second": 42.4,
+          "slot": 1,
+          "weaponId": 3
+        }
+      ],
+      "moraleBandEvents": [
+        {
+          "second": 20.333333333333332,
+          "castle": 1,
+          "morale": 69.99716925925925,
+          "band": 1
+        },
+        {
+          "second": 45.5,
+          "castle": 1,
+          "morale": 70.4639045170378,
+          "band": 0
+        },
+        {
+          "second": 50.766666666666666,
+          "castle": 1,
+          "morale": 69.99935340245233,
+          "band": 1
+        }
+      ]
+    }
+  ]
+}

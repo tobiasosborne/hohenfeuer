@@ -1,0 +1,11 @@
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (924.556272ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (569.65546ms)
+✔ AI prepares paid flank batteries and replaces a lost front gun away from the breach (365.205961ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1894.199299

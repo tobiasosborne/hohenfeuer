@@ -1,0 +1,1 @@
+Generated 145 castles, 32 campaign maps, 3 duels, 3 biomes; 893,899 content bytes; SHA256 7598c51fa944b3e011f781e11eaee9a632396fcce0d79cce4aba338332592345

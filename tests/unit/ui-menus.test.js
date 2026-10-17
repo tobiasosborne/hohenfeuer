@@ -80,7 +80,7 @@ test("skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10
 
 test("options: sensitivity, language, volume emit an options event and clamp", () => {
   const m = fresh({ screen: SCREEN.OPTIONS });
-  assert.deepEqual(m.items.map((i) => i.id), ["sensitivity", "lang", "volume", "back"]);
+  assert.deepEqual(m.items.map((i) => i.id), ["sensitivity", "lang", "volume", "followCam", "back"]);
   goto(m, "volume");
   const ev = m.key("ArrowRight");
   assert.equal(ev.type, MENU_EVENT.OPTIONS);
@@ -88,6 +88,8 @@ test("options: sensitivity, language, volume emit an options event and clamp", (
   goto(m, "lang"); const ev2 = m.key("ArrowRight");
   assert.equal(ev2.options.lang, "en"); assert.equal(m.lang, "en");
   assert.equal(m.key("ArrowRight"), null, "no change at the end, no event");
+  goto(m, "followCam"); const ev3 = m.key("ArrowLeft");
+  assert.equal(ev3.options.followCam, false);
 });
 
 test("in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes", () => {

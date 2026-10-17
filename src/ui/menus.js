@@ -104,6 +104,7 @@ export function createMenu(o) {
           () => `${Math.round((options.sensitivity / OPTION_VALUES.sensitivity[3]) * 100)}%`),
         listField("lang", "language", rect(250, 320, 540, 360), OPTION_VALUES.lang, options, "lang", (t) => t("langName", options.lang)),
         listField("volume", "volume", rect(250, 390, 540, 430), OPTION_VALUES.volume, options, "volume", () => `${options.volume * 10}%`),
+        listField("followCam", "followCam", rect(250, 460, 540, 500), OPTION_VALUES.followCam, options, "followCam", (t) => t(options.followCam ? "on" : "off")),
         bottom("back"),
       ];
       case SCREEN.CREDITS: case SCREEN.TUTORIAL: return [bottom("back")];

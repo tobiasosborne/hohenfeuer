@@ -1,0 +1,50 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (18.750241ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (7.95216ms)
+✔ lost blueprint weapons are replaced on free mount spots using emergency funds before the normal masonry reserve (research/16 P4) (7.046644ms)
+✔ replacement understands public world positions and counts pending same-type replacements (1.992881ms)
+✔ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (3.899366ms)
+✖ recovery rebuilds a lost mount from replacement savings before ordinary walls (7.963193ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.765664
+
+✖ failing tests:
+
+test at tests/unit/ai-build.test.js:84:1
+✖ recovery rebuilds a lost mount from replacement savings before ordinary walls (7.963193ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     block: 12,
+  -     cell: [
+  -       2,
+  -       1,
+  -       2
+  -     ],
+  -     facing: 0,
+  -     type: 'designate'
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-build.test.js:89:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

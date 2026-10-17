@@ -1,0 +1,22 @@
+worker ready
+worker ready
+match 2: seed 1 swapped, 9.54m, winner 1, shots 15/23
+match 1: seed 1, 9.77m, winner 0, shots 24/17
+| Metric | Result |
+|---|---|
+| Matches / timeouts | 2 / 0 |
+| Length min / mean / max (min) | 9.54 / 9.66 / 9.77 |
+| 12–20 min finishes | 0/2 |
+| Slot 0 / 1 wins | 1 / 1 (50.0% / 50.0%) |
+| Gold at cap, slot 0 / 1 | 0.0% / 0.0% |
+| Worst side at cap | 0.0% |
+| Gold >=95% cap, slot 0 / 1 | 0.0% / 0.0% |
+| Gold <=10% cap | 0.0% |
+| First-gun-loss comebacks | 0/2 (0.0%) |
+| Loser damaged in >=3 minutes | 2/2 |
+| No palace stall >5 min | 2/2 |
+| Both fire every 2 min | 0/2 |
+| Longest no-fire / ready no-fire (s) | 208.1 / 208.1 |
+| Mean shots / hits (slots) | 19.5 / 20.0; 19.5 / 19.0 |
+| Mean built / repaired / deaths per side | 8.5 / 58.5 / 18.0 |
+| Elimination reasons | {"ruler":2} |

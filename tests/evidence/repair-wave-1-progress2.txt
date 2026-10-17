@@ -1,0 +1,1656 @@
+1 [
+  { g: 1511.066666666493, p: 1, pop: 40, shots: 2 },
+  { g: 1409.3733333331566, p: 1, pop: 40, shots: 2 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 2 },
+  { id: 2, hp: 36, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+] []
+2 [
+  { g: 1273.466666666318, p: 1, pop: 40, shots: 5 },
+  { g: 1249.5733333329815, p: 1, pop: 40, shots: 5 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 1 },
+  { id: 2, hp: 28, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+] []
+3 [
+  { g: 1208.5999999994767, p: 0.9852430555555556, pop: 40, shots: 7 },
+  { g: 1181.693333332846, p: 1, pop: 40, shots: 7 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 36, crew: 3, ammo: 1 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+] []
+4 [
+  { g: 1016.6266666659922, p: 0.9852430555555556, pop: 40, shots: 10 },
+  { g: 1103.6933333326713, p: 1, pop: 37, shots: 10 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 17, crew: 3, ammo: 2 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+] []
+5 [
+  { g: 243.65333333261535, p: 0.9852430555555556, pop: 35, shots: 12 },
+  { g: 1115.6933333324966, p: 1, pop: 37, shots: 12 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 }
+] []
+6 [
+  { g: 161.7199999992674, p: 0.9852430555555556, pop: 30, shots: 14 },
+  { g: 1037.693333332322, p: 1, pop: 37, shots: 15 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 21, crew: 3, ammo: 2 }
+] []
+7 [
+  { g: 143.31999999925083, p: 0.9852430555555556, pop: 30, shots: 16 },
+  { g: 1049.6933333321888, p: 1, pop: 37, shots: 17 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 21, crew: 3, ammo: 2 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 276.9666666666667, y: 1, z: 138.5 },
+    job: 117,
+    state: 'walk',
+    path: 28,
+    npi: 13
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+8 [
+  { g: 35.71999999924976, p: 0.9678819444444444, pop: 30, shots: 19 },
+  { g: 971.6933333321256, p: 1, pop: 37, shots: 20 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 21, crew: 3, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+9 [
+  { g: 47.47999999925322, p: 0.9678819444444444, pop: 30, shots: 21 },
+  { g: 983.6933333321435, p: 0.9383680555555556, pop: 37, shots: 22 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 21, crew: 3, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+10 [
+  { g: 59.116666665922544, p: 0.9678819444444444, pop: 26, shots: 23 },
+  { g: 880.6933333321736, p: 0.9383680555555556, pop: 37, shots: 25 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 5, crew: 0, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 274.5, y: 3.25233405971121, z: 137.24766594028875 },
+    job: 130,
+    state: 'walk',
+    path: 28,
+    npi: 11
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+11 [
+  { g: 65.2533333325925, p: 0.9678819444444444, pop: 26, shots: 25 },
+  { g: 892.6933333322036, p: 0.9383680555555556, pop: 37, shots: 27 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 1 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 5, crew: 3, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 276.9666666666667, y: 1, z: 138.5 },
+    job: 131,
+    state: 'walk',
+    path: 28,
+    npi: 13
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+12 [
+  { g: 77.159999999262, p: 0.9609375, pop: 25, shots: 27 },
+  { g: 808.1333333322302, p: 0.9383680555555556, pop: 37, shots: 30 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 5, crew: 3, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+13 [
+  { g: 83.51999999926525, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 795.9733333322492, p: 0.9314236111111112, pop: 36, shots: 32 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 22, crew: 3, ammo: 2 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 44,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 46,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 47,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 3,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+14 [
+  { g: 275.5199999992552, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 733.1733333322553, p: 0.9314236111111112, pop: 32, shots: 34 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 274.5, y: 7, z: 131.71455368975032 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 51,
+    pos: { x: 285.5, y: 1, z: 123.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 52,
+    pos: { x: 284.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+15 [
+  { g: 467.51999999928523, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 163.81333333226553, p: 0.9314236111111112, pop: 32, shots: 34 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 36, crew: 1, ammo: 2 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 50,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 216,
+    state: 'work',
+    path: 6,
+    npi: 6
+  },
+  {
+    id: 51,
+    pos: { x: 287.1999999999996, y: 1, z: 130.5 },
+    job: 216,
+    state: 'walk',
+    path: 43,
+    npi: 10
+  },
+  {
+    id: 52,
+    pos: { x: 287.19999999999936, y: 1, z: 130.5 },
+    job: 216,
+    state: 'walk',
+    path: 43,
+    npi: 10
+  },
+  {
+    id: 53,
+    pos: { x: 285.5, y: 1, z: 124.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 54,
+    pos: { x: 284.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 55,
+    pos: { x: 285.5, y: 1, z: 125.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 284.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+16 [
+  { g: 634.5199999993152, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 168.83666666558136, p: 0.9314236111111112, pop: 23, shots: 36 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 5, crew: 3, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 53,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 216,
+    state: 'work',
+    path: 42,
+    npi: 42
+  },
+  {
+    id: 54,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 216,
+    state: 'work',
+    path: 1,
+    npi: 1
+  },
+  {
+    id: 55,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: 216,
+    state: 'work',
+    path: 41,
+    npi: 41
+  },
+  {
+    id: 56,
+    pos: { x: 274.5, y: 5.507872050608493, z: 133.99212794939146 },
+    job: 249,
+    state: 'walk',
+    path: 31,
+    npi: 23
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+17 [
+  { g: 826.5199999993453, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 246.236666665559, p: 0.9314236111111112, pop: 19, shots: 37 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 55,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+18 [
+  { g: 1018.5199999993753, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 403.2766666655921, p: 0.9314236111111112, pop: 19, shots: 37 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 55,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+19 [
+  { g: 1210.5199999992064, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 530.3166666656251, p: 0.9314236111111112, pop: 19, shots: 37 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 55,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+20 [
+  { g: 1402.5199999990318, p: 0.9609375, pop: 25, shots: 29 },
+  { g: 720.3966666656542, p: 0.9314236111111112, pop: 19, shots: 37 }
+] [
+  { id: 0, hp: 36, crew: 3, ammo: 2 },
+  { id: 1, hp: 0, crew: 0, ammo: 0 },
+  { id: 2, hp: 0, crew: 0, ammo: 0 },
+  { id: 3, hp: 36, crew: 3, ammo: 2 },
+  { id: 4, hp: 0, crew: 0, ammo: 1 },
+  { id: 5, hp: 0, crew: 0, ammo: 1 }
+] [
+  {
+    id: 45,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 26,
+    npi: 26
+  },
+  {
+    id: 48,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 46,
+    npi: 46
+  },
+  {
+    id: 49,
+    pos: { x: 303.5, y: 7, z: 128.5 },
+    job: 4,
+    state: 'work',
+    path: 45,
+    npi: 45
+  },
+  {
+    id: 55,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 56,
+    pos: { x: 272.5, y: 7, z: 128.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 57,
+    pos: { x: 285.5, y: 1, z: 126.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 58,
+    pos: { x: 284.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  },
+  {
+    id: 59,
+    pos: { x: 285.5, y: 1, z: 127.5 },
+    job: null,
+    state: 'idle',
+    path: 0,
+    npi: 0
+  }
+]
+null 1341915905

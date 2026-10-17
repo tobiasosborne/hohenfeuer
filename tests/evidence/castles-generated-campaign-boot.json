@@ -1,0 +1,226 @@
+[
+  {
+    "map": "campaign-1-1",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 1,
+    "hash": 4028668948
+  },
+  {
+    "map": "campaign-1-2",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 0,
+    "hash": 1252744826
+  },
+  {
+    "map": "campaign-1-3",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 1,
+    "hash": 692124222
+  },
+  {
+    "map": "campaign-1-4",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 3,
+    "hash": 155860377
+  },
+  {
+    "map": "campaign-1-5",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 2,
+    "hash": 3895822799
+  },
+  {
+    "map": "campaign-1-6",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 0,
+    "hash": 2523206095
+  },
+  {
+    "map": "campaign-1-7",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 3,
+    "hash": 3871402765
+  },
+  {
+    "map": "campaign-1-8",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 4,
+    "hash": 611963310
+  },
+  {
+    "map": "campaign-2-1",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 1,
+    "hash": 483537828
+  },
+  {
+    "map": "campaign-2-2",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 1,
+    "hash": 4093849600
+  },
+  {
+    "map": "campaign-2-3",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 2,
+    "hash": 3476736876
+  },
+  {
+    "map": "campaign-2-4",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 1,
+    "hash": 2898775135
+  },
+  {
+    "map": "campaign-2-5",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 2,
+    "hash": 3809940356
+  },
+  {
+    "map": "campaign-2-6",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 3,
+    "hash": 2393850234
+  },
+  {
+    "map": "campaign-2-7",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 2,
+    "hash": 4161566579
+  },
+  {
+    "map": "campaign-2-8",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 7,
+    "hash": 3502774547
+  },
+  {
+    "map": "campaign-3-1",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 3,
+    "hash": 1801382063
+  },
+  {
+    "map": "campaign-3-2",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 4,
+    "hash": 1418226434
+  },
+  {
+    "map": "campaign-3-3",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 6,
+    "hash": 656453892
+  },
+  {
+    "map": "campaign-3-4",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 3,
+    "hash": 1052546431
+  },
+  {
+    "map": "campaign-3-5",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 4,
+    "hash": 2583260371
+  },
+  {
+    "map": "campaign-3-6",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 5,
+    "hash": 1042121763
+  },
+  {
+    "map": "campaign-3-7",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 5,
+    "hash": 2937546449
+  },
+  {
+    "map": "campaign-3-8",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 6,
+    "hash": 2121459228
+  },
+  {
+    "map": "campaign-4-1",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 3,
+    "hash": 3149617383
+  },
+  {
+    "map": "campaign-4-2",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 1,
+    "hash": 3615646143
+  },
+  {
+    "map": "campaign-4-3",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 4,
+    "hash": 591928897
+  },
+  {
+    "map": "campaign-4-4",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 2,
+    "hash": 413544053
+  },
+  {
+    "map": "campaign-4-5",
+    "castles": 2,
+    "npcs": 80,
+    "weapons": 4,
+    "hash": 812371940
+  },
+  {
+    "map": "campaign-4-6",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 2,
+    "hash": 2507015008
+  },
+  {
+    "map": "campaign-4-7",
+    "castles": 3,
+    "npcs": 120,
+    "weapons": 2,
+    "hash": 3580980343
+  },
+  {
+    "map": "campaign-4-8",
+    "castles": 4,
+    "npcs": 160,
+    "weapons": 3,
+    "hash": 3997699812
+  }
+]

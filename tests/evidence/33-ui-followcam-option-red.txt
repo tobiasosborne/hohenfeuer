@@ -1,0 +1,71 @@
+✔ main menu lists the original's entries in order and navigates by keyboard (4.378271ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (4.294086ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (4.674244ms)
+✖ options: sensitivity, language, volume emit an options event and clamp (2.351698ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (0.57432ms)
+✔ end screen shows the result and returns to setup or title (0.590602ms)
+✔ every screen draws without throwing and labels its items in the menu language (39.974826ms)
+✔ defaults when nothing is stored, storage is missing, broken or throws (3.095499ms)
+✔ save then load round-trips every allowed value (1.143666ms)
+✖ sanitize snaps to the nearest allowed value and drops unknown keys (1.764383ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 179.884833
+
+✖ failing tests:
+
+test at tests/unit/ui-menus.test.js:81:1
+✖ options: sensitivity, language, volume emit an options event and clamp (2.351698ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'sensitivity',
+      'lang',
+      'volume',
+  -   'followCam',
+      'back'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-menus.test.js:83:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'sensitivity', 'lang', 'volume', 'back' ],
+    expected: [ 'sensitivity', 'lang', 'volume', 'followCam', 'back' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-options.test.js:29:1
+✖ sanitize snaps to the nearest allowed value and drops unknown keys (1.764383ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-options.test.js:36:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

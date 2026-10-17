@@ -1,0 +1,26 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-spawn: ok (534 px differ)
+tb1-first-shot: ok (354 px differ)
+rampart-north: ok (0 px differ)
+weapon-view-cannon: ok (0 px differ)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (430 px differ)
+example-wall: ok (91 px differ)
+courtyard-palace: ok (549 px differ)
+crew-at-cannon: ok (358 px differ)
+cannon-sight: ok (350 px differ)
+muzzle-flash: ok (350 px differ)
+smoke-trail: FAIL 17181 px differ (2.185%)
+impact-dust: ok (456 px differ)
+tb3-designate: ok (513 px differ)
+tb3-built: FAIL 2182 px differ (0.277%)
+menu-title: ok (0 px differ)
+menu-skirmish: ok (521 px differ)
+match-over: ok (0 px differ)
+modern-rampart-north: ok (0 px differ)
+modern-weapon-view-cannon: ok (0 px differ)
+modern-courtyard-palace: ok (0 px differ)
+modern-impact-dust: ok (0 px differ)

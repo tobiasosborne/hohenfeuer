@@ -1,0 +1,41 @@
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (0.893061ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (1.917589ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (0.716127ms)
+✔ textures are deterministic RGBA buffers (1.798286ms)
+✔ readouts format as three digits: floor(az/10), floor(range/10) (0.144095ms)
+✔ hud draws a weapon view and a walking view without throwing (8.334011ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (0.215382ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (0.214611ms)
+✔ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (1.470305ms)
+✖ hud draws NPC overlays under the console and a morale band pennant (4.138574ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.679002
+
+✖ failing tests:
+
+test at tests/unit/ui-hud.test.js:143:1
+✖ hud draws NPC overlays under the console and a morale band pennant (4.138574ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(hud.frame.texts.includes("Mauer steht!"))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-hud.test.js:148:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,4510 @@
+{
+  "generator": "python3 -I scripts/rip/castles_to_defs.py",
+  "scaleBlocksPerCell": 1.25,
+  "horizontalScale": 0.25,
+  "castles": 145,
+  "primaryCampaignMaps": 32,
+  "files": [
+    "src/plugins/biomes/desert.sim.js",
+    "src/plugins/biomes/desert.view.js",
+    "src/plugins/biomes/ice.sim.js",
+    "src/plugins/biomes/ice.view.js",
+    "src/plugins/biomes/volcano.sim.js",
+    "src/plugins/biomes/volcano.view.js",
+    "src/plugins/castles/CONVERSION.md",
+    "src/plugins/castles/generated-support.sim.js",
+    "src/plugins/castles/generated/index.sim.js",
+    "src/plugins/castles/generated/orig-0.sim.js",
+    "src/plugins/castles/generated/orig-1.sim.js",
+    "src/plugins/castles/generated/orig-10.sim.js",
+    "src/plugins/castles/generated/orig-100.sim.js",
+    "src/plugins/castles/generated/orig-101.sim.js",
+    "src/plugins/castles/generated/orig-102.sim.js",
+    "src/plugins/castles/generated/orig-103.sim.js",
+    "src/plugins/castles/generated/orig-109.sim.js",
+    "src/plugins/castles/generated/orig-11.sim.js",
+    "src/plugins/castles/generated/orig-110.sim.js",
+    "src/plugins/castles/generated/orig-12.sim.js",
+    "src/plugins/castles/generated/orig-13.sim.js",
+    "src/plugins/castles/generated/orig-14.sim.js",
+    "src/plugins/castles/generated/orig-140.sim.js",
+    "src/plugins/castles/generated/orig-15.sim.js",
+    "src/plugins/castles/generated/orig-150.sim.js",
+    "src/plugins/castles/generated/orig-151.sim.js",
+    "src/plugins/castles/generated/orig-152.sim.js",
+    "src/plugins/castles/generated/orig-153.sim.js",
+    "src/plugins/castles/generated/orig-154.sim.js",
+    "src/plugins/castles/generated/orig-155.sim.js",
+    "src/plugins/castles/generated/orig-156.sim.js",
+    "src/plugins/castles/generated/orig-157.sim.js",
+    "src/plugins/castles/generated/orig-16.sim.js",
+    "src/plugins/castles/generated/orig-167.sim.js",
+    "src/plugins/castles/generated/orig-168.sim.js",
+    "src/plugins/castles/generated/orig-169.sim.js",
+    "src/plugins/castles/generated/orig-17.sim.js",
+    "src/plugins/castles/generated/orig-170.sim.js",
+    "src/plugins/castles/generated/orig-171.sim.js",
+    "src/plugins/castles/generated/orig-172.sim.js",
+    "src/plugins/castles/generated/orig-173.sim.js",
+    "src/plugins/castles/generated/orig-18.sim.js",
+    "src/plugins/castles/generated/orig-180.sim.js",
+    "src/plugins/castles/generated/orig-19.sim.js",
+    "src/plugins/castles/generated/orig-190.sim.js",
+    "src/plugins/castles/generated/orig-191.sim.js",
+    "src/plugins/castles/generated/orig-199.sim.js",
+    "src/plugins/castles/generated/orig-2.sim.js",
+    "src/plugins/castles/generated/orig-20.sim.js",
+    "src/plugins/castles/generated/orig-200.sim.js",
+    "src/plugins/castles/generated/orig-201.sim.js",
+    "src/plugins/castles/generated/orig-202.sim.js",
+    "src/plugins/castles/generated/orig-203.sim.js",
+    "src/plugins/castles/generated/orig-204.sim.js",
+    "src/plugins/castles/generated/orig-21.sim.js",
+    "src/plugins/castles/generated/orig-210.sim.js",
+    "src/plugins/castles/generated/orig-211.sim.js",
+    "src/plugins/castles/generated/orig-212.sim.js",
+    "src/plugins/castles/generated/orig-213.sim.js",
+    "src/plugins/castles/generated/orig-214.sim.js",
+    "src/plugins/castles/generated/orig-22.sim.js",
+    "src/plugins/castles/generated/orig-220.sim.js",
+    "src/plugins/castles/generated/orig-221.sim.js",
+    "src/plugins/castles/generated/orig-222.sim.js",
+    "src/plugins/castles/generated/orig-223.sim.js",
+    "src/plugins/castles/generated/orig-224.sim.js",
+    "src/plugins/castles/generated/orig-23.sim.js",
+    "src/plugins/castles/generated/orig-230.sim.js",
+    "src/plugins/castles/generated/orig-231.sim.js",
+    "src/plugins/castles/generated/orig-232.sim.js",
+    "src/plugins/castles/generated/orig-233.sim.js",
+    "src/plugins/castles/generated/orig-234.sim.js",
+    "src/plugins/castles/generated/orig-24.sim.js",
+    "src/plugins/castles/generated/orig-240.sim.js",
+    "src/plugins/castles/generated/orig-241.sim.js",
+    "src/plugins/castles/generated/orig-248.sim.js",
+    "src/plugins/castles/generated/orig-249.sim.js",
+    "src/plugins/castles/generated/orig-25.sim.js",
+    "src/plugins/castles/generated/orig-250.sim.js",
+    "src/plugins/castles/generated/orig-251.sim.js",
+    "src/plugins/castles/generated/orig-252.sim.js",
+    "src/plugins/castles/generated/orig-253.sim.js",
+    "src/plugins/castles/generated/orig-254.sim.js",
+    "src/plugins/castles/generated/orig-26.sim.js",
+    "src/plugins/castles/generated/orig-27.sim.js",
+    "src/plugins/castles/generated/orig-28.sim.js",
+    "src/plugins/castles/generated/orig-29.sim.js",
+    "src/plugins/castles/generated/orig-3.sim.js",
+    "src/plugins/castles/generated/orig-30.sim.js",
+    "src/plugins/castles/generated/orig-31.sim.js",
+    "src/plugins/castles/generated/orig-32.sim.js",
+    "src/plugins/castles/generated/orig-33.sim.js",
+    "src/plugins/castles/generated/orig-34.sim.js",
+    "src/plugins/castles/generated/orig-35.sim.js",
+    "src/plugins/castles/generated/orig-36.sim.js",
+    "src/plugins/castles/generated/orig-37.sim.js",
+    "src/plugins/castles/generated/orig-38.sim.js",
+    "src/plugins/castles/generated/orig-39.sim.js",
+    "src/plugins/castles/generated/orig-4.sim.js",
+    "src/plugins/castles/generated/orig-40.sim.js",
+    "src/plugins/castles/generated/orig-41.sim.js",
+    "src/plugins/castles/generated/orig-42.sim.js",
+    "src/plugins/castles/generated/orig-43.sim.js",
+    "src/plugins/castles/generated/orig-44.sim.js",
+    "src/plugins/castles/generated/orig-45.sim.js",
+    "src/plugins/castles/generated/orig-46.sim.js",
+    "src/plugins/castles/generated/orig-47.sim.js",
+    "src/plugins/castles/generated/orig-48.sim.js",
+    "src/plugins/castles/generated/orig-49.sim.js",
+    "src/plugins/castles/generated/orig-5.sim.js",
+    "src/plugins/castles/generated/orig-50.sim.js",
+    "src/plugins/castles/generated/orig-51.sim.js",
+    "src/plugins/castles/generated/orig-52.sim.js",
+    "src/plugins/castles/generated/orig-53.sim.js",
+    "src/plugins/castles/generated/orig-54.sim.js",
+    "src/plugins/castles/generated/orig-55.sim.js",
+    "src/plugins/castles/generated/orig-56.sim.js",
+    "src/plugins/castles/generated/orig-57.sim.js",
+    "src/plugins/castles/generated/orig-58.sim.js",
+    "src/plugins/castles/generated/orig-59.sim.js",
+    "src/plugins/castles/generated/orig-6.sim.js",
+    "src/plugins/castles/generated/orig-60.sim.js",
+    "src/plugins/castles/generated/orig-61.sim.js",
+    "src/plugins/castles/generated/orig-62.sim.js",
+    "src/plugins/castles/generated/orig-64.sim.js",
+    "src/plugins/castles/generated/orig-65.sim.js",
+    "src/plugins/castles/generated/orig-66.sim.js",
+    "src/plugins/castles/generated/orig-67.sim.js",
+    "src/plugins/castles/generated/orig-68.sim.js",
+    "src/plugins/castles/generated/orig-69.sim.js",
+    "src/plugins/castles/generated/orig-7.sim.js",
+    "src/plugins/castles/generated/orig-70.sim.js",
+    "src/plugins/castles/generated/orig-71.sim.js",
+    "src/plugins/castles/generated/orig-72.sim.js",
+    "src/plugins/castles/generated/orig-73.sim.js",
+    "src/plugins/castles/generated/orig-74.sim.js",
+    "src/plugins/castles/generated/orig-75.sim.js",
+    "src/plugins/castles/generated/orig-76.sim.js",
+    "src/plugins/castles/generated/orig-77.sim.js",
+    "src/plugins/castles/generated/orig-78.sim.js",
+    "src/plugins/castles/generated/orig-79.sim.js",
+    "src/plugins/castles/generated/orig-8.sim.js",
+    "src/plugins/castles/generated/orig-80.sim.js",
+    "src/plugins/castles/generated/orig-81.sim.js",
+    "src/plugins/castles/generated/orig-82.sim.js",
+    "src/plugins/castles/generated/orig-83.sim.js",
+    "src/plugins/castles/generated/orig-84.sim.js",
+    "src/plugins/castles/generated/orig-85.sim.js",
+    "src/plugins/castles/generated/orig-86.sim.js",
+    "src/plugins/castles/generated/orig-87.sim.js",
+    "src/plugins/castles/generated/orig-88.sim.js",
+    "src/plugins/castles/generated/orig-89.sim.js",
+    "src/plugins/castles/generated/orig-9.sim.js",
+    "src/plugins/castles/generated/orig-99.sim.js",
+    "src/plugins/maps/campaign/campaign-1-1.sim.js",
+    "src/plugins/maps/campaign/campaign-1-2.sim.js",
+    "src/plugins/maps/campaign/campaign-1-3.sim.js",
+    "src/plugins/maps/campaign/campaign-1-4.sim.js",
+    "src/plugins/maps/campaign/campaign-1-5.sim.js",
+    "src/plugins/maps/campaign/campaign-1-6.sim.js",
+    "src/plugins/maps/campaign/campaign-1-7.sim.js",
+    "src/plugins/maps/campaign/campaign-1-8.sim.js",
+    "src/plugins/maps/campaign/campaign-2-1.sim.js",
+    "src/plugins/maps/campaign/campaign-2-2.sim.js",
+    "src/plugins/maps/campaign/campaign-2-3.sim.js",
+    "src/plugins/maps/campaign/campaign-2-4.sim.js",
+    "src/plugins/maps/campaign/campaign-2-5.sim.js",
+    "src/plugins/maps/campaign/campaign-2-6.sim.js",
+    "src/plugins/maps/campaign/campaign-2-7.sim.js",
+    "src/plugins/maps/campaign/campaign-2-8.sim.js",
+    "src/plugins/maps/campaign/campaign-3-1.sim.js",
+    "src/plugins/maps/campaign/campaign-3-2.sim.js",
+    "src/plugins/maps/campaign/campaign-3-3.sim.js",
+    "src/plugins/maps/campaign/campaign-3-4.sim.js",
+    "src/plugins/maps/campaign/campaign-3-5.sim.js",
+    "src/plugins/maps/campaign/campaign-3-6.sim.js",
+    "src/plugins/maps/campaign/campaign-3-7.sim.js",
+    "src/plugins/maps/campaign/campaign-3-8.sim.js",
+    "src/plugins/maps/campaign/campaign-4-1.sim.js",
+    "src/plugins/maps/campaign/campaign-4-2.sim.js",
+    "src/plugins/maps/campaign/campaign-4-3.sim.js",
+    "src/plugins/maps/campaign/campaign-4-4.sim.js",
+    "src/plugins/maps/campaign/campaign-4-5.sim.js",
+    "src/plugins/maps/campaign/campaign-4-6.sim.js",
+    "src/plugins/maps/campaign/campaign-4-7.sim.js",
+    "src/plugins/maps/campaign/campaign-4-8.sim.js",
+    "src/plugins/maps/campaign/index.sim.js",
+    "src/plugins/maps/desert-duel.sim.js",
+    "src/plugins/maps/generated-support.sim.js",
+    "src/plugins/maps/ice-duel.sim.js",
+    "src/plugins/maps/volcano-duel.sim.js"
+  ],
+  "castlesMetadata": {
+    "orig-0": {
+      "templateIndex": 0,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-1-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 17,
+      "types": {
+        "12": 4,
+        "18": 6,
+        "20": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "34": 1,
+        "35": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": true,
+      "accessDoorCells": 4,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-1": {
+      "templateIndex": 1,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-1-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 55,
+      "types": {
+        "0": 39,
+        "12": 5,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "21": 1,
+        "25": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-2": {
+      "templateIndex": 2,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 56,
+      "types": {
+        "0": 35,
+        "12": 9,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "24": 1,
+        "29": 1,
+        "34": 1,
+        "35": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-3": {
+      "templateIndex": 3,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 54,
+      "types": {
+        "0": 37,
+        "12": 5,
+        "15": 3,
+        "18": 5,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-4": {
+      "templateIndex": 4,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 54,
+      "types": {
+        "0": 32,
+        "12": 8,
+        "15": 3,
+        "18": 5,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-5": {
+      "templateIndex": 5,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 63,
+      "types": {
+        "0": 44,
+        "12": 6,
+        "15": 3,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-6": {
+      "templateIndex": 6,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-4-1",
+        "1-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 89,
+      "types": {
+        "0": 65,
+        "12": 5,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "34": 3,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-7": {
+      "templateIndex": 7,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-4-1",
+        "1-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 57,
+      "types": {
+        "0": 39,
+        "12": 5,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "34": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-8": {
+      "templateIndex": 8,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-5-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 51,
+      "types": {
+        "0": 40,
+        "12": 4,
+        "15": 1,
+        "18": 3,
+        "20": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-9": {
+      "templateIndex": 9,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-5-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 93,
+      "types": {
+        "0": 69,
+        "12": 6,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 17,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-10": {
+      "templateIndex": 10,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-6-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 126,
+      "types": {
+        "0": 92,
+        "12": 20,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "27": 1,
+        "29": 1,
+        "49": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 37,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-11": {
+      "templateIndex": 11,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-6-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 72,
+      "types": {
+        "0": 52,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 2,
+        "38": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-12": {
+      "templateIndex": 12,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 100,
+      "types": {
+        "0": 82,
+        "12": 4,
+        "15": 3,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "24": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-13": {
+      "templateIndex": 13,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 82,
+      "types": {
+        "0": 60,
+        "12": 6,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "34": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 13,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-14": {
+      "templateIndex": 14,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 66,
+      "types": {
+        "0": 48,
+        "12": 4,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "27": 1,
+        "29": 1,
+        "34": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-15": {
+      "templateIndex": 15,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 110,
+      "types": {
+        "0": 72,
+        "12": 20,
+        "15": 1,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "36": 2,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 33,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-16": {
+      "templateIndex": 16,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 80,
+        "12": 10,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "36": 1,
+        "45": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 18,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-17": {
+      "templateIndex": 17,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 91,
+      "types": {
+        "0": 66,
+        "12": 8,
+        "15": 2,
+        "18": 6,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2,
+        "50": 1
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 19,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-18": {
+      "templateIndex": 18,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [
+        "1-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 86,
+      "types": {
+        "6": 64,
+        "13": 7,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "47": 1,
+        "49": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-19": {
+      "templateIndex": 19,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-1-1",
+        "2-1-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 41,
+      "types": {
+        "0": 28,
+        "12": 4,
+        "15": 1,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-20": {
+      "templateIndex": 20,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-1-1",
+        "2-1-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 62,
+      "types": {
+        "0": 47,
+        "12": 5,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-21": {
+      "templateIndex": 21,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 69,
+      "types": {
+        "0": 54,
+        "12": 4,
+        "15": 3,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-22": {
+      "templateIndex": 22,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 14,
+      "types": {
+        "18": 8,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-23": {
+      "templateIndex": 23,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 52,
+      "types": {
+        "0": 14,
+        "6": 22,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "28": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-24": {
+      "templateIndex": 24,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 53,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "21": 1,
+        "24": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-25": {
+      "templateIndex": 25,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 55,
+      "types": {
+        "0": 40,
+        "12": 4,
+        "15": 3,
+        "18": 3,
+        "20": 1,
+        "22": 1,
+        "28": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-26": {
+      "templateIndex": 26,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 62,
+      "types": {
+        "0": 44,
+        "12": 4,
+        "15": 2,
+        "18": 4,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-27": {
+      "templateIndex": 27,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 60,
+      "types": {
+        "0": 38,
+        "12": 6,
+        "15": 2,
+        "18": 8,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-28": {
+      "templateIndex": 28,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-4-1",
+        "2-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 51,
+      "types": {
+        "0": 36,
+        "12": 5,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "26": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-29": {
+      "templateIndex": 29,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-4-1",
+        "2-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 65,
+      "types": {
+        "0": 46,
+        "12": 8,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-30": {
+      "templateIndex": 30,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-4-1",
+        "2-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 54,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-31": {
+      "templateIndex": 31,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-4-1",
+        "2-4-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 64,
+      "types": {
+        "0": 45,
+        "12": 7,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-32": {
+      "templateIndex": 32,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-5-1",
+        "2-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 71,
+      "types": {
+        "0": 54,
+        "12": 4,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "26": 1,
+        "29": 1,
+        "36": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-33": {
+      "templateIndex": 33,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-5-1",
+        "2-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 74,
+      "types": {
+        "0": 43,
+        "12": 8,
+        "15": 1,
+        "18": 10,
+        "19": 1,
+        "20": 2,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "28": 3,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-34": {
+      "templateIndex": 34,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-6-1",
+        "2-6-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 47,
+      "types": {
+        "0": 34,
+        "12": 4,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "27": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 5,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-35": {
+      "templateIndex": 35,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-6-1",
+        "2-6-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 55,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-36": {
+      "templateIndex": 36,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-6-1",
+        "2-6-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 40,
+      "types": {
+        "0": 27,
+        "12": 3,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "47": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-37": {
+      "templateIndex": 37,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 33,
+      "types": {
+        "0": 12,
+        "12": 9,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": true,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-38": {
+      "templateIndex": 38,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 47,
+      "types": {
+        "0": 22,
+        "12": 12,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 13,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-39": {
+      "templateIndex": 39,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 44,
+      "types": {
+        "0": 25,
+        "12": 8,
+        "18": 5,
+        "20": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "36": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-40": {
+      "templateIndex": 40,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 60,
+      "types": {
+        "6": 43,
+        "13": 4,
+        "15": 2,
+        "18": 6,
+        "20": 1,
+        "26": 1,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-41": {
+      "templateIndex": 41,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 65,
+      "types": {
+        "0": 45,
+        "12": 7,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-42": {
+      "templateIndex": 42,
+      "biome": "desert",
+      "biomes": [
+        "desert"
+      ],
+      "campaigns": [
+        "2-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 57,
+      "types": {
+        "0": 36,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "25": 1,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-43": {
+      "templateIndex": 43,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-1-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 68,
+      "types": {
+        "0": 29,
+        "6": 14,
+        "12": 5,
+        "13": 4,
+        "15": 2,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-44": {
+      "templateIndex": 44,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-1-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 45,
+      "types": {
+        "0": 33,
+        "12": 3,
+        "15": 1,
+        "18": 3,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-45": {
+      "templateIndex": 45,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-1-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 55,
+      "types": {
+        "0": 34,
+        "12": 6,
+        "15": 2,
+        "18": 6,
+        "20": 1,
+        "21": 2,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-46": {
+      "templateIndex": 46,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-2-1",
+        "3-2-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 63,
+      "types": {
+        "0": 39,
+        "12": 9,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-47": {
+      "templateIndex": 47,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 59,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 2,
+        "21": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 13,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-48": {
+      "templateIndex": 48,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-2-1",
+        "3-2-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 54,
+      "types": {
+        "0": 34,
+        "12": 6,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-49": {
+      "templateIndex": 49,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 58,
+      "types": {
+        "0": 40,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-50": {
+      "templateIndex": 50,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 49,
+      "types": {
+        "0": 25,
+        "12": 6,
+        "15": 1,
+        "18": 7,
+        "19": 1,
+        "20": 2,
+        "21": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "36": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-51": {
+      "templateIndex": 51,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 39,
+      "types": {
+        "0": 20,
+        "12": 6,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-52": {
+      "templateIndex": 52,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 48,
+      "types": {
+        "0": 34,
+        "12": 6,
+        "15": 1,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-53": {
+      "templateIndex": 53,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 65,
+      "types": {
+        "0": 45,
+        "12": 6,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "25": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-54": {
+      "templateIndex": 54,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-4-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 53,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-55": {
+      "templateIndex": 55,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "ice"
+      ],
+      "campaigns": [
+        "2-3-2",
+        "3-4-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 65,
+      "types": {
+        "6": 43,
+        "13": 9,
+        "15": 1,
+        "18": 6,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "25": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-56": {
+      "templateIndex": 56,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "ice"
+      ],
+      "campaigns": [
+        "2-3-2",
+        "3-4-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 79,
+      "types": {
+        "6": 62,
+        "13": 4,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "47": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-57": {
+      "templateIndex": 57,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "ice"
+      ],
+      "campaigns": [
+        "2-3-2",
+        "3-5-1",
+        "3-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 53,
+      "types": {
+        "0": 33,
+        "12": 7,
+        "15": 2,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-58": {
+      "templateIndex": 58,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-5-1",
+        "3-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 56,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 2,
+        "18": 6,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-59": {
+      "templateIndex": 59,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-6-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 53,
+      "types": {
+        "0": 38,
+        "12": 6,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-60": {
+      "templateIndex": 60,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-6-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 63,
+      "types": {
+        "0": 39,
+        "12": 9,
+        "15": 2,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-61": {
+      "templateIndex": 61,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-6-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 38,
+      "types": {
+        "0": 20,
+        "12": 8,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "28": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-62": {
+      "templateIndex": 62,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-8-1",
+        "3-9-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 65,
+      "types": {
+        "0": 44,
+        "12": 6,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-64": {
+      "templateIndex": 64,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-8-1",
+        "3-9-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 76,
+      "types": {
+        "0": 52,
+        "12": 10,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "22": 1,
+        "27": 3,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 13,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-65": {
+      "templateIndex": 65,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 86,
+      "types": {
+        "6": 54,
+        "13": 12,
+        "15": 2,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 24,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-66": {
+      "templateIndex": 66,
+      "biome": "ice",
+      "biomes": [
+        "ice"
+      ],
+      "campaigns": [
+        "3-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 97,
+      "types": {
+        "6": 61,
+        "13": 13,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "35": 1,
+        "47": 3
+      },
+      "wallWeapons": 3,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 21,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-67": {
+      "templateIndex": 67,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-1-1",
+        "4-1-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 66,
+      "types": {
+        "0": 47,
+        "12": 7,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-68": {
+      "templateIndex": 68,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-1-1",
+        "4-1-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 71,
+      "types": {
+        "0": 56,
+        "12": 5,
+        "15": 1,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-69": {
+      "templateIndex": 69,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-1-1",
+        "4-1-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 22,
+      "types": {
+        "12": 8,
+        "18": 8,
+        "19": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "43": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-70": {
+      "templateIndex": 70,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 83,
+      "types": {
+        "0": 59,
+        "12": 8,
+        "15": 2,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "51": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 19,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-71": {
+      "templateIndex": 71,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "volcano"
+      ],
+      "campaigns": [
+        "2-8-2",
+        "4-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 45,
+      "types": {
+        "0": 27,
+        "12": 5,
+        "15": 2,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 9,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-72": {
+      "templateIndex": 72,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "volcano"
+      ],
+      "campaigns": [
+        "2-8-2",
+        "4-2-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 61,
+      "types": {
+        "0": 39,
+        "12": 5,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "24": 1,
+        "28": 4,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-73": {
+      "templateIndex": 73,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "volcano"
+      ],
+      "campaigns": [
+        "2-8-2",
+        "4-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 52,
+        "12": 16,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "28": 1,
+        "29": 1,
+        "47": 1,
+        "50": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-74": {
+      "templateIndex": 74,
+      "biome": "desert",
+      "biomes": [
+        "desert",
+        "volcano"
+      ],
+      "campaigns": [
+        "2-8-2",
+        "4-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 41,
+      "types": {
+        "0": 22,
+        "12": 6,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-75": {
+      "templateIndex": 75,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-3-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 53,
+      "types": {
+        "0": 36,
+        "12": 6,
+        "15": 1,
+        "18": 4,
+        "20": 1,
+        "21": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "47": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-76": {
+      "templateIndex": 76,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-4-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 42,
+      "types": {
+        "0": 14,
+        "6": 10,
+        "12": 4,
+        "13": 2,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-77": {
+      "templateIndex": 77,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-4-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 47,
+      "types": {
+        "6": 26,
+        "13": 5,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 2,
+        "22": 2,
+        "25": 1,
+        "26": 1,
+        "29": 1,
+        "49": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-78": {
+      "templateIndex": 78,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-5-1",
+        "4-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 68,
+      "types": {
+        "0": 39,
+        "6": 8,
+        "12": 4,
+        "13": 3,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-79": {
+      "templateIndex": 79,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-5-1",
+        "4-5-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 69,
+      "types": {
+        "0": 49,
+        "12": 7,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "26": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-80": {
+      "templateIndex": 80,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-6-1",
+        "4-6-2",
+        "4-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 81,
+      "types": {
+        "6": 54,
+        "13": 10,
+        "15": 1,
+        "18": 8,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "27": 1,
+        "29": 1,
+        "36": 1,
+        "47": 1,
+        "49": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-81": {
+      "templateIndex": 81,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-6-1",
+        "4-6-2"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 93,
+      "types": {
+        "0": 68,
+        "12": 9,
+        "15": 1,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "27": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-82": {
+      "templateIndex": 82,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-6-1",
+        "4-6-2",
+        "4-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 69,
+      "types": {
+        "6": 46,
+        "13": 7,
+        "15": 1,
+        "18": 6,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "36": 2,
+        "45": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 22,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-83": {
+      "templateIndex": 83,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 74,
+      "types": {
+        "6": 54,
+        "13": 6,
+        "15": 1,
+        "18": 7,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "36": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-84": {
+      "templateIndex": 84,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 76,
+      "types": {
+        "6": 52,
+        "13": 6,
+        "15": 1,
+        "18": 7,
+        "20": 2,
+        "21": 1,
+        "22": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "36": 2,
+        "45": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 17,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-85": {
+      "templateIndex": 85,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-7-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 81,
+      "types": {
+        "0": 61,
+        "12": 5,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "25": 1,
+        "26": 1,
+        "29": 1,
+        "47": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-86": {
+      "templateIndex": 86,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 81,
+      "types": {
+        "6": 54,
+        "13": 10,
+        "15": 1,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "29": 1,
+        "36": 2,
+        "38": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 21,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-87": {
+      "templateIndex": 87,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 1,
+      "types": {
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-88": {
+      "templateIndex": 88,
+      "biome": "volcano",
+      "biomes": [
+        "volcano"
+      ],
+      "campaigns": [
+        "4-8-1"
+      ],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 144,
+      "types": {
+        "6": 115,
+        "13": 8,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "47": 2,
+        "50": 1
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 19,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-89": {
+      "templateIndex": 89,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 1,
+      "types": {
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-99": {
+      "templateIndex": 99,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 56,
+      "types": {
+        "0": 40,
+        "12": 4,
+        "18": 4,
+        "20": 1,
+        "24": 1,
+        "27": 2,
+        "28": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-100": {
+      "templateIndex": 100,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 69,
+      "types": {
+        "0": 54,
+        "12": 5,
+        "15": 1,
+        "18": 4,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 11,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-101": {
+      "templateIndex": 101,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 62,
+      "types": {
+        "0": 46,
+        "12": 4,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1,
+        "35": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-102": {
+      "templateIndex": 102,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "0": 31,
+        "12": 5,
+        "15": 1,
+        "18": 4,
+        "20": 1,
+        "26": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-103": {
+      "templateIndex": 103,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "0": 32,
+        "12": 6,
+        "15": 1,
+        "18": 3,
+        "20": 1,
+        "29": 1,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-109": {
+      "templateIndex": 109,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 64,
+      "types": {
+        "0": 44,
+        "12": 6,
+        "15": 1,
+        "18": 4,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "37": 1,
+        "45": 1,
+        "50": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 4,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-110": {
+      "templateIndex": 110,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 68,
+      "types": {
+        "0": 46,
+        "12": 4,
+        "15": 1,
+        "18": 9,
+        "19": 1,
+        "20": 1,
+        "21": 2,
+        "22": 1,
+        "25": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 12,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-140": {
+      "templateIndex": 140,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 65,
+        "12": 13,
+        "15": 3,
+        "18": 11,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "35": 1,
+        "37": 1,
+        "45": 1,
+        "47": 1,
+        "49": 1,
+        "50": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-150": {
+      "templateIndex": 150,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 38,
+      "types": {
+        "0": 22,
+        "12": 4,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "24": 1,
+        "29": 1,
+        "34": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-151": {
+      "templateIndex": 151,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 37,
+      "types": {
+        "0": 22,
+        "12": 4,
+        "15": 1,
+        "18": 5,
+        "19": 1,
+        "21": 1,
+        "25": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 10,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-152": {
+      "templateIndex": 152,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 24,
+      "types": {
+        "18": 12,
+        "19": 3,
+        "21": 2,
+        "22": 1,
+        "24": 2,
+        "25": 1,
+        "26": 2,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 1,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-153": {
+      "templateIndex": 153,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 8,
+      "types": {
+        "18": 5,
+        "19": 1,
+        "24": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-154": {
+      "templateIndex": 154,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 56,
+      "types": {
+        "0": 34,
+        "12": 6,
+        "15": 1,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-155": {
+      "templateIndex": 155,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 5,
+      "types": {
+        "18": 3,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-156": {
+      "templateIndex": 156,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 4,
+      "types": {
+        "18": 2,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-157": {
+      "templateIndex": 157,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 6,
+      "types": {
+        "18": 4,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 0,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-167": {
+      "templateIndex": 167,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 73,
+      "types": {
+        "0": 56,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-168": {
+      "templateIndex": 168,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 74,
+      "types": {
+        "0": 56,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 2
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-169": {
+      "templateIndex": 169,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 75,
+      "types": {
+        "0": 56,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 2,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-170": {
+      "templateIndex": 170,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 73,
+      "types": {
+        "0": 56,
+        "12": 4,
+        "15": 1,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 8,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-171": {
+      "templateIndex": 171,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 9,
+      "types": {
+        "0": 1,
+        "12": 1,
+        "18": 3,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 2,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-172": {
+      "templateIndex": 172,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 9,
+      "types": {
+        "12": 1,
+        "18": 3,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 1,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-173": {
+      "templateIndex": 173,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 11,
+      "types": {
+        "12": 1,
+        "18": 3,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "29": 1,
+        "34": 2,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": true,
+      "accessDoorCells": 1,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-180": {
+      "templateIndex": 180,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 108,
+      "types": {
+        "0": 106,
+        "15": 1,
+        "29": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": false,
+      "accessDoorCells": 5,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-190": {
+      "templateIndex": 190,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 61,
+      "types": {
+        "0": 46,
+        "12": 4,
+        "18": 5,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "43": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 7,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-191": {
+      "templateIndex": 191,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 16,
+      "types": {
+        "12": 4,
+        "18": 7,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "29": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 0,
+      "syntheticGate": true,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-199": {
+      "templateIndex": 199,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 51,
+      "types": {
+        "0": 38,
+        "12": 4,
+        "15": 1,
+        "18": 5,
+        "20": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": false,
+      "accessDoorCells": 6,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-200": {
+      "templateIndex": 200,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 52,
+        "12": 10,
+        "15": 2,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 8,
+        "25": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 29,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-201": {
+      "templateIndex": 201,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 52,
+        "12": 10,
+        "15": 2,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 8,
+        "25": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 32,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-202": {
+      "templateIndex": 202,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 54,
+        "12": 10,
+        "15": 2,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 6,
+        "25": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 26,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-203": {
+      "templateIndex": 203,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 52,
+        "12": 10,
+        "15": 2,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 8,
+        "25": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 33,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-204": {
+      "templateIndex": 204,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 52,
+        "12": 10,
+        "15": 2,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 8,
+        "25": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-210": {
+      "templateIndex": 210,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 116,
+      "types": {
+        "0": 65,
+        "12": 9,
+        "15": 2,
+        "18": 12,
+        "20": 2,
+        "21": 1,
+        "22": 8,
+        "24": 1,
+        "25": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-211": {
+      "templateIndex": 211,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 116,
+      "types": {
+        "0": 64,
+        "12": 11,
+        "15": 2,
+        "18": 12,
+        "20": 2,
+        "21": 1,
+        "22": 6,
+        "24": 1,
+        "25": 1,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 33,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-212": {
+      "templateIndex": 212,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 116,
+      "types": {
+        "0": 68,
+        "12": 8,
+        "15": 1,
+        "18": 12,
+        "20": 2,
+        "21": 1,
+        "22": 6,
+        "24": 1,
+        "25": 1,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 20,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-213": {
+      "templateIndex": 213,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 116,
+      "types": {
+        "0": 68,
+        "12": 8,
+        "15": 1,
+        "18": 12,
+        "20": 2,
+        "21": 1,
+        "22": 6,
+        "24": 1,
+        "25": 1,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 20,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-214": {
+      "templateIndex": 214,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 116,
+      "types": {
+        "0": 68,
+        "12": 8,
+        "15": 1,
+        "18": 12,
+        "20": 2,
+        "21": 1,
+        "22": 6,
+        "24": 1,
+        "25": 1,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 20,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-220": {
+      "templateIndex": 220,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 38,
+        "12": 8,
+        "15": 1,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-221": {
+      "templateIndex": 221,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 38,
+        "12": 8,
+        "15": 1,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 20,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-222": {
+      "templateIndex": 222,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 38,
+        "12": 8,
+        "15": 1,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 22,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-223": {
+      "templateIndex": 223,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 39,
+        "12": 7,
+        "15": 1,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 25,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-224": {
+      "templateIndex": 224,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 84,
+      "types": {
+        "0": 38,
+        "12": 8,
+        "15": 1,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-230": {
+      "templateIndex": 230,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "12": 9,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": true,
+      "accessDoorCells": 16,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-231": {
+      "templateIndex": 231,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "12": 9,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": true,
+      "accessDoorCells": 18,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-232": {
+      "templateIndex": 232,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "12": 9,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": true,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-233": {
+      "templateIndex": 233,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "12": 9,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": true,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-234": {
+      "templateIndex": 234,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 46,
+      "types": {
+        "12": 9,
+        "18": 15,
+        "20": 2,
+        "22": 8,
+        "27": 1,
+        "29": 1,
+        "34": 5,
+        "46": 5
+      },
+      "wallWeapons": 5,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": true,
+      "accessDoorCells": 15,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-240": {
+      "templateIndex": 240,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 89,
+      "types": {
+        "0": 39,
+        "6": 14,
+        "12": 12,
+        "13": 4,
+        "15": 2,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "34": 2,
+        "35": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 3,
+      "syntheticGate": false,
+      "accessDoorCells": 29,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-241": {
+      "templateIndex": 241,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 88,
+      "types": {
+        "0": 39,
+        "6": 14,
+        "12": 12,
+        "13": 4,
+        "15": 2,
+        "18": 6,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "28": 1,
+        "29": 1,
+        "35": 1,
+        "36": 1,
+        "46": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 29,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-248": {
+      "templateIndex": 248,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 14,
+      "types": {
+        "12": 4,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 4,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-249": {
+      "templateIndex": 249,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 16,
+      "types": {
+        "12": 4,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 4,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-250": {
+      "templateIndex": 250,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 105,
+      "types": {
+        "0": 65,
+        "12": 13,
+        "15": 3,
+        "18": 11,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "24": 1,
+        "26": 1,
+        "27": 1,
+        "29": 1,
+        "35": 1,
+        "37": 1,
+        "45": 1,
+        "47": 1,
+        "49": 1,
+        "50": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 5,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-251": {
+      "templateIndex": 251,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 80,
+      "types": {
+        "0": 54,
+        "12": 7,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "34": 2,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 13,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-252": {
+      "templateIndex": 252,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 80,
+      "types": {
+        "0": 54,
+        "12": 7,
+        "15": 2,
+        "18": 7,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "24": 1,
+        "26": 1,
+        "29": 1,
+        "34": 2,
+        "46": 2
+      },
+      "wallWeapons": 2,
+      "groundWeaponsOmitted": 2,
+      "syntheticGate": false,
+      "accessDoorCells": 14,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-253": {
+      "templateIndex": 253,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 12,
+      "types": {
+        "12": 4,
+        "18": 3,
+        "19": 1,
+        "20": 1,
+        "22": 1,
+        "29": 1,
+        "34": 1
+      },
+      "wallWeapons": 0,
+      "groundWeaponsOmitted": 1,
+      "syntheticGate": true,
+      "accessDoorCells": 4,
+      "relocatedMagazineBays": 0,
+      "unsupportedDecorationRemoved": 0
+    },
+    "orig-254": {
+      "templateIndex": 254,
+      "biome": "forest",
+      "biomes": [
+        "forest"
+      ],
+      "campaigns": [],
+      "scaleBlocksPerCell": 1.25,
+      "pieces": 98,
+      "types": {
+        "0": 50,
+        "12": 10,
+        "15": 3,
+        "18": 12,
+        "20": 4,
+        "21": 1,
+        "22": 8,
+        "25": 1,
+        "29": 1,
+        "36": 5,
+        "38": 2,
+        "47": 1
+      },
+      "wallWeapons": 1,
+      "groundWeaponsOmitted": 7,
+      "syntheticGate": false,
+      "accessDoorCells": 27,
+      "relocatedMagazineBays": 1,
+      "unsupportedDecorationRemoved": 0
+    }
+  },
+  "contentSha256": "7598c51fa944b3e011f781e11eaee9a632396fcce0d79cce4aba338332592345"
+}

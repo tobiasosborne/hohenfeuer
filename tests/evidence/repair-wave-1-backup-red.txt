@@ -1,0 +1,36 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (2.797203ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (0.490263ms)
+✔ lost blueprint weapons are replaced on free mount spots using emergency funds before the normal masonry reserve (research/16 P4) (0.576803ms)
+✔ replacement understands public world positions and counts pending same-type replacements (0.321672ms)
+✔ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (0.321335ms)
+✔ recovery rebuilds a lost mount from replacement savings before ordinary walls (0.236746ms)
+✖ a castle buys one affordable ballista while saving for its lost cannon (117.311785ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.686417
+
+✖ failing tests:
+
+test at tests/unit/ai-build.test.js:91:1
+✖ a castle buys one affordable ballista while saving for its lost cannon (117.311785ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'ballista'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-build.test.js:97:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'ballista',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

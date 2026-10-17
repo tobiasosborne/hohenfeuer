@@ -1,0 +1,28 @@
+✖ tests/unit/ai-build.test.js (344.660838ms)
+✔ tests/unit/ai-controller.test.js (1116.88638ms)
+✔ tests/unit/npc-brain.test.js (1872.424653ms)
+✖ tests/unit/npc-jobs.test.js (448.227272ms)
+✔ tests/unit/npc-morale.test.js (312.804938ms)
+✖ tests/unit/tuning.test.js (480.31246ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1966.870033
+
+✖ failing tests:
+
+test at tests/unit/ai-build.test.js:1:1
+✖ tests/unit/ai-build.test.js (344.660838ms)
+  'test failed'
+
+test at tests/unit/npc-jobs.test.js:1:1
+✖ tests/unit/npc-jobs.test.js (448.227272ms)
+  'test failed'
+
+test at tests/unit/tuning.test.js:1:1
+✖ tests/unit/tuning.test.js (480.31246ms)
+  'test failed'

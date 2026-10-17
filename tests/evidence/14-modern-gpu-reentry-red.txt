@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: GPU re-entry must bind the new depth texture and preserve pixels
+    at file:///home/tobias/Projects/castle-game/tests/render-modern.mjs:59:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

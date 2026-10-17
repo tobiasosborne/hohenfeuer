@@ -1,0 +1,9 @@
+✔ ten distinct converted castles run 600 ticks with two real AIs on their biome maps (31394.596188ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31961.939065

@@ -1,0 +1,12 @@
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (32.36918ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (1.588807ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (13.624647ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (9.333403ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.180298

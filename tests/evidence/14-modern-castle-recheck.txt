@@ -1,0 +1,13 @@
+✔ all 145 converted castles load, are supported, have one palace core and reachable population/mount markers (5032.513418ms)
+✔ 32 campaign maps preserve every decoded primary scenario castle and slot count, with all biome views valid (69.002959ms)
+✔ ten distinct converted castles run 600 ticks with two real AIs on their biome maps (31499.592951ms)
+✔ complete registry hash repeats with views and registration order changes (305.097239ms)
+✔ isolated Python generator reproduces all shipped content within the 2 MB budget (23091.722632ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60396.74961

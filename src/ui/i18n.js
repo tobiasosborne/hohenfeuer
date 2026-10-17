@@ -117,6 +117,19 @@ const de = {
   helpSensitivity: "Wie schnell die Maus den Blick dreht.",
   helpLanguage: "Sprache der Oberfläche.",
   helpVolume: "Lautstärke der Geräusche.",
+  followCam: "Trefferansicht folgt",
+  helpFollowCam: "Nach dem Schuss der Kugel folgen.",
+  on: "An",
+  bubbleAmmo: "Munition!",
+  bubbleCrew: "Zur Kanone!",
+  bubbleCover: "Deckung!",
+  bubbleWall: "Mauer steht!",
+  bubbleLoaded: "Geladen!",
+  bubbleFlee: "Rückzug!",
+  bandBold: "Mutig",
+  bandSteady: "Ruhig",
+  bandUneasy: "Unruhig",
+  bandDespair: "Verzagt",
 };
 
 const en = {
@@ -223,6 +236,19 @@ const en = {
   helpSensitivity: "How fast the mouse turns the view.",
   helpLanguage: "Interface language.",
   helpVolume: "Sound volume.",
+  followCam: "Follow shot", // Trefferansicht folgt
+  helpFollowCam: "Follow the ball after firing.", // Nach dem Schuss der Kugel folgen.
+  on: "On", // An
+  bubbleAmmo: "Ammo!", // Munition!
+  bubbleCrew: "To the gun!", // Zur Kanone!
+  bubbleCover: "Take cover!", // Deckung!
+  bubbleWall: "Wall's up!", // Mauer steht!
+  bubbleLoaded: "Loaded!", // Geladen!
+  bubbleFlee: "Fall back!", // Rückzug!
+  bandBold: "Bold", // Mutig
+  bandSteady: "Steady", // Ruhig
+  bandUneasy: "Uneasy", // Unruhig
+  bandDespair: "Despairing", // Verzagt
 };
 
 export const STRINGS = Object.freeze({ de: Object.freeze(de), en: Object.freeze(en) });

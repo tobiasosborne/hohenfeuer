@@ -72,6 +72,29 @@ export function deathPose(start, groundY, t) {
   return { pos: [start.pos[0], y, start.pos[2]], yaw: start.yaw, pitch: start.pitch * (1 - e), roll: R.deathRollDeg * DEG * e, fov: start.fov };
 }
 
+/** Follow cam behind and above a flying ball, looking along its flight (impact view ride). */
+export function followPose({ pos, vel }) {
+  const sp = Math.hypot(vel[0], vel[1], vel[2]) || 1, hz = Math.hypot(vel[0], vel[2]);
+  const d = [vel[0] / sp, vel[1] / sp, vel[2] / sp];
+  const yaw = Math.atan2(vel[0], -vel[2]);
+  const pitch = Math.max(-0.6, Math.min(0.3, Math.atan2(vel[1], hz || 1))) - FOLLOW.tiltRad;
+  return { pos: [pos[0] - d[0] * FOLLOW.backM, pos[1] - d[1] * FOLLOW.backM + FOLLOW.upM, pos[2] - d[2] * FOLLOW.backM], yaw, pitch, roll: 0, fov: R.fovDeg };
+}
+/** Follow-cam offsets (proposed TUNING.feel). */
+export const FOLLOW = Object.freeze({ backM: 7, upM: 2, tiltRad: 0.12 });
+
+/** Add feel offsets (src/player/feel.js sample) to a pose: pull back along the view, lift, rotate, widen. */
+export function composeFeel(pose, f) {
+  if (!f) return pose;
+  const yaw = pose.yaw + f.yaw, pitch = pose.pitch + f.pitch;
+  const cp = Math.cos(pose.pitch);
+  const fwd = [Math.sin(pose.yaw) * cp, Math.sin(pose.pitch), -Math.cos(pose.yaw) * cp];
+  return {
+    pos: [pose.pos[0] - fwd[0] * f.back, pose.pos[1] - fwd[1] * f.back + f.up, pose.pos[2] - fwd[2] * f.back],
+    yaw, pitch, roll: pose.roll + f.roll, fov: pose.fov + f.fov,
+  };
+}
+
 /** Ghost view of a dead ruler: free camera. */
 export function ghostPose(g) { return { pos: [g.pos[0], g.pos[1], g.pos[2]], yaw: g.yaw, pitch: g.pitch, roll: 0, fov: R.fovDeg }; }
 
@@ -91,12 +114,13 @@ const MODES = new Set(Object.values(CAMERA_MODE));
 /**
  * Camera rig: picks the pose for the current CAMERA_MODE each frame and applies it.
  * frame = {mode, dt, ruler?: {pos, yaw, pitch, moving?}, weapon?: {pivot, azDeg, sight?}, freeLook?,
- *          impact?: {point, azDeg}, ghost?: {pos, yaw, pitch}, groundY?}
+ *          impact?: {point, azDeg}, follow?: Pose (impact-view ride/hold), ghost?: {pos, yaw, pitch}, groundY?,
+ *          feel?: src/player/feel.js sample (tick-driven recoil, shake, bob, dip, FOV punch)}
+ * Head bob lives in feel (stepped by sim ticks); the rig itself adds no wall-clock motion.
  * @param {object} camera three PerspectiveCamera (or anything with the same fields)
  * @param {{seed?: number, golden?: boolean}} [o]
  */
 export function createCameraRig(camera, o = {}) {
-  const bob = createHeadBob(o.seed ?? 1, { enabled: !o.golden });
   let mode = CAMERA_MODE.WALK, pose = null, deathStart = null, deathT = 0;
   camera.near = R.nearM; camera.far = R.farM;
   return {
@@ -111,18 +135,16 @@ export function createCameraRig(camera, o = {}) {
       }
       const dt = f.dt ?? K.DT;
       switch (mode) {
-        case CAMERA_MODE.WALK:
-          bob.step(f.ruler.moving !== false, dt);
-          pose = walkPose(f.ruler, bob.offset());
-          break;
+        case CAMERA_MODE.WALK: pose = walkPose(f.ruler, 0); break;
         case CAMERA_MODE.WEAPON: pose = weaponPose(f.weapon, f.freeLook); break;
-        case CAMERA_MODE.IMPACT: pose = impactPose(f.impact); break;
+        case CAMERA_MODE.IMPACT: pose = f.follow ?? impactPose(f.impact); break;
         case CAMERA_MODE.DEATH:
           deathT += dt;
           pose = deathPose(deathStart, f.groundY ?? deathStart.pos[1] - R.eye, deathT);
           break;
         case CAMERA_MODE.GHOST: pose = ghostPose(f.ghost); break;
       }
+      if (mode !== CAMERA_MODE.DEATH && mode !== CAMERA_MODE.GHOST) pose = composeFeel(pose, f.feel);
       applyPose(camera, pose);
       return pose;
     },

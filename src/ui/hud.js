@@ -16,6 +16,7 @@ import { drawMessages } from "./console.js";
 import { drawMenu } from "./menu-draw.js";
 import { roundRectPath, circlePath, rgb } from "./paint.js";
 import { makeTextures, paintStatic } from "./frame.js";
+import { drawOverlays, moraleBand } from "./overlay.js";
 
 const LW = TUNING.render.logicalW, LH = TUNING.render.logicalH;
 const L = LAYOUT;
@@ -163,7 +164,14 @@ function reticle(ctx, view) {
   }
 }
 
-function moraleColor(v) { return v >= 60 ? "#7ef06a" : v >= 30 ? "#f0d850" : "#ff5a3a"; }
+/** Swallow-tailed pennant in the morale band colour, hung right of the population counter. */
+function pennant(ctx, band) {
+  const x = 618, y = 6;
+  ctx.fillStyle = "#3a3026"; ctx.fillRect(x - 1, y, 2, 30);
+  ctx.beginPath(); ctx.moveTo(x + 1, y + 2); ctx.lineTo(x + 19, y + 2); ctx.lineTo(x + 19, y + 24); ctx.lineTo(x + 10, y + 18); ctx.lineTo(x + 1, y + 24); ctx.closePath();
+  ctx.fillStyle = band.color; ctx.fill();
+  ctx.lineWidth = 1.5; ctx.strokeStyle = "#1a1410"; ctx.stroke();
+}
 
 /**
  * Lane E entry point (DESIGN 9). Accepts a canvas or its 2D context.
@@ -175,7 +183,7 @@ export function createHud(canvas2d, o = {}) {
   const makeCanvas = o.createCanvas === undefined ? defaultMakeCanvas : o.createCanvas;
   let tex;
   const statics = {};
-  const frame = { texts: [], readouts: null };
+  const frame = { texts: [], readouts: null, moraleBand: null };
 
   function staticFor(kind) {
     if (statics[kind] !== undefined) return statics[kind];
@@ -199,6 +207,8 @@ export function createHud(canvas2d, o = {}) {
     ctx.setTransform(lb.scale, 0, 0, lb.scale, lb.x, lb.y);
     ctx.imageSmoothingEnabled = false;
     frame.readouts = null;
+    frame.moraleBand = null;
+    if (v.overlays) drawOverlays(ctx, v.overlays, note);
 
     const weaponMode = v.mode === CAMERA_MODE.WEAPON || v.mode === CAMERA_MODE.IMPACT;
     const showConsole = v.mode !== CAMERA_MODE.DEATH;
@@ -209,6 +219,7 @@ export function createHud(canvas2d, o = {}) {
 
       if (v.gold !== undefined) counter(ctx, L.topGold, String(v.gold), false, note);
       if (v.pop) counter(ctx, L.topPop, `${v.pop.now} (${v.pop.start})`, v.pop.now >= v.pop.start, note);
+      if (v.morale) { const band = moraleBand(v.morale.value, lang); pennant(ctx, band); frame.moraleBand = band.index; }
       if (v.weapons) counter(ctx, L.topWeapons, `${v.weapons.now} (${v.weapons.cap})`, v.weapons.now >= v.weapons.cap, note);
 
       drawCompass(ctx, compassGeometry({ heading: v.heading || 0, wind: v.wind, enemies: v.enemies, lang }), note);
@@ -241,7 +252,7 @@ export function createHud(canvas2d, o = {}) {
         const m = v.morale ? Math.round(v.morale.value) : null;
         const mb = L.moraleBox;
         ctx.fillStyle = "#1a1715"; ctx.fillRect(mb.x0, mb.y0, mb.x1 - mb.x0, mb.y1 - mb.y0);
-        if (m !== null) { const s = `${m}%`; drawTextIn(ctx, s, mb, { bold: true, outline: true, color: moraleColor(m) }); note(s); }
+        if (m !== null) { const s = `${m}%`; drawTextIn(ctx, s, mb, { bold: true, outline: true, color: moraleBand(m, lang).color }); note(s); }
         emblem(ctx, v.castleColor || "#c82020");
         const sel = v.selection;
         if (sel) textBar(ctx, L.selectionBar, 1, sel.valid === false ? [200, 70, 50] : [70, 190, 80], "#5a5a5a", t("cost", lang, { name: sel.name, cost: sel.cost }), note);

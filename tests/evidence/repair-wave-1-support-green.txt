@@ -1,0 +1,14 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (7.656109ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (1.315549ms)
+✔ lost blueprint weapons are replaced on free mount spots using emergency funds before the normal masonry reserve (research/16 P4) (1.705999ms)
+✔ replacement understands public world positions and counts pending same-type replacements (2.938691ms)
+✔ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (0.9878ms)
+✔ recovery rebuilds a lost mount from replacement savings before ordinary walls (0.746297ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.632882

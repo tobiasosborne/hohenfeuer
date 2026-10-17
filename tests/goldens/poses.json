@@ -243,5 +243,94 @@
     },
     "width": 1024,
     "height": 768
+  },
+  "modern-rampart-north": {
+    "page": "dev/render.html?style=modern&golden=1",
+    "position": [
+      109.5,
+      12.6,
+      118.5
+    ],
+    "yaw": -1.62,
+    "pitch": -0.06,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "modern-weapon-view-cannon": {
+    "page": "dev/render.html?style=modern&golden=1",
+    "position": [
+      108.5,
+      12.31,
+      127.5
+    ],
+    "yaw": -1.5708,
+    "pitch": -0.06,
+    "fov": 50,
+    "width": 1024,
+    "height": 768
+  },
+  "modern-courtyard-palace": {
+    "page": "index.html?golden=1&style=modern",
+    "script": "tb2",
+    "until": 150,
+    "position": [
+      95.5,
+      9.6,
+      144
+    ],
+    "yaw": 0,
+    "pitch": -0.3,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "modern-impact-dust": {
+    "page": "index.html?golden=1&style=modern",
+    "script": "tb2",
+    "until": 352,
+    "width": 1024,
+    "height": 768,
+    "position": [
+      246,
+      22,
+      120
+    ],
+    "yaw": -1.5708,
+    "pitch": -0.48,
+    "fov": 50
+  },
+  "feel-recoil": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 258,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768
+  },
+  "impact-view": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 355,
+    "camera": "rig",
+    "followCam": true,
+    "width": 1024,
+    "height": 768
+  },
+  "npc-markers": {
+    "page": "index.html?golden=1",
+    "script": "tb3",
+    "until": 726,
+    "position": [
+      111.5,
+      8.6,
+      125.5
+    ],
+    "yaw": -2.9,
+    "pitch": -0.18,
+    "fov": 60,
+    "showRuler": false,
+    "width": 1024,
+    "height": 768
   }
 }

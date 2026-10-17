@@ -1,0 +1,4 @@
+ui-feel: passed
+  feel-recoil: 0 px over two runs (mode weapon)
+  impact-view: 0 px over two runs (mode impact)
+  npc-markers: 0 px over two runs (mode walk)

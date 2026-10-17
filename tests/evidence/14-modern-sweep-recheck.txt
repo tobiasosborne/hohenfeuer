@@ -1,0 +1,10 @@
+✔ sweep defaults to twenty paired matches, supports sixty and unequal AI levels (47.383539ms)
+✔ sweep reports first-gun comebacks and excludes timeouts from wins (12.69373ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1520.129719

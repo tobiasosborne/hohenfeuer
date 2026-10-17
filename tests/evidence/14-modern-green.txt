@@ -1,0 +1,12 @@
+✔ classic default; period reserved; storage ignored by goldens; URL wins (1.074433ms)
+✔ atlas damage lookup uses manifest tile states; stone has no specular (0.954287ms)
+✔ modern materials are node-constructible; dry terrain adds no water (0.518789ms)
+✔ switch replaces materials, preserves geometry and restores exact classic objects (3.973645ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 81.522034

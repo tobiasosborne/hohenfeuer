@@ -1,0 +1,13 @@
+✔ tests/unit/ai-repair-wave.test.js (2801.356773ms)
+✔ tests/unit/ai-sweep.test.js (516.766014ms)
+✔ tests/unit/npc-repair-wave.test.js (341.872987ms)
+✔ tests/unit/rules-repair-wave.test.js (514.016056ms)
+✔ tests/unit/sim-repair-cover.test.js (1916.135935ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2871.54946

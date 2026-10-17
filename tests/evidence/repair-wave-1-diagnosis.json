@@ -1,0 +1,4829 @@
+{
+  "tick": 10800,
+  "castles": [
+    {
+      "slot": 0,
+      "gold": 1202.8222222211712,
+      "shots": 15,
+      "designations": [
+        {
+          "cell": [
+            20,
+            11,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            21,
+            11,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            19,
+            11,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            21,
+            11,
+            25
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            19,
+            11,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            20,
+            11,
+            25
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            19,
+            11,
+            25
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            20,
+            12,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            20,
+            12,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        }
+      ],
+      "jobs": [
+        {
+          "id": 3,
+          "key": "crew:0",
+          "kind": "crew",
+          "castle": 0,
+          "target": {
+            "weaponId": 0
+          },
+          "priority": 3,
+          "role": "crew",
+          "slots": 3,
+          "claimedBy": [
+            4,
+            6,
+            7
+          ],
+          "reachable": true,
+          "blockedUntilTick": 0,
+          "createdTick": 1,
+          "progress": 0,
+          "block": null
+        },
+        {
+          "id": 4,
+          "key": "crew:1",
+          "kind": "crew",
+          "castle": 0,
+          "target": {
+            "weaponId": 1
+          },
+          "priority": 3,
+          "role": "crew",
+          "slots": 3,
+          "claimedBy": [
+            5,
+            8,
+            9
+          ],
+          "reachable": true,
+          "blockedUntilTick": 0,
+          "createdTick": 1,
+          "progress": 0,
+          "block": null
+        },
+        {
+          "id": 20,
+          "key": "build:19,11,23",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              19,
+              11,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10861,
+          "createdTick": 3661,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 21,
+          "key": "build:20,11,23",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              20,
+              11,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10861,
+          "createdTick": 3661,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 22,
+          "key": "build:21,11,24",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              21,
+              11,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10861,
+          "createdTick": 3661,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 23,
+          "key": "build:21,11,25",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              21,
+              11,
+              25
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10861,
+          "createdTick": 3661,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 24,
+          "key": "build:19,11,24",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              19,
+              11,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10921,
+          "createdTick": 3721,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 25,
+          "key": "build:19,11,25",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              19,
+              11,
+              25
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10921,
+          "createdTick": 3721,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 26,
+          "key": "build:20,11,25",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              20,
+              11,
+              25
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10921,
+          "createdTick": 3721,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 27,
+          "key": "build:20,12,23",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              20,
+              12,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10921,
+          "createdTick": 3721,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 28,
+          "key": "build:20,12,24",
+          "kind": "build",
+          "castle": 0,
+          "target": {
+            "cell": [
+              20,
+              12,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10831,
+          "createdTick": 3781,
+          "progress": 0,
+          "block": 9
+        }
+      ]
+    },
+    {
+      "slot": 1,
+      "gold": 1695.293333332323,
+      "shots": 8,
+      "designations": [
+        {
+          "cell": [
+            25,
+            11,
+            22
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            26,
+            11,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            11,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            26,
+            11,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            27,
+            11,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            27,
+            11,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            28,
+            11,
+            22
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            12,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            12,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            12,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            12,
+            22
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            26,
+            12,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            12,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            27,
+            12,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            12,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            26,
+            12,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            27,
+            12,
+            24
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            13,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            13,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            13,
+            22
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            26,
+            13,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            13,
+            23
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            25,
+            14,
+            20
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            14,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            14,
+            22
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            24,
+            15,
+            21
+          ],
+          "block": 9,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 5,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            37,
+            6,
+            29
+          ],
+          "block": 6,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 6,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            38,
+            6,
+            27
+          ],
+          "block": 5,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 3,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            38,
+            6,
+            28
+          ],
+          "block": 5,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 3,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            38,
+            6,
+            29
+          ],
+          "block": 6,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 6,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            40,
+            5,
+            18
+          ],
+          "block": 1,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 4,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            40,
+            6,
+            18
+          ],
+          "block": 1,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 4,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            40,
+            6,
+            17
+          ],
+          "block": 1,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 4,
+          "previousMeta": 0
+        },
+        {
+          "cell": [
+            41,
+            6,
+            18
+          ],
+          "block": 1,
+          "facing": 0,
+          "kind": "build",
+          "reserved": 4,
+          "previousMeta": 0
+        }
+      ],
+      "jobs": [
+        {
+          "id": 3,
+          "key": "crew:2",
+          "kind": "crew",
+          "castle": 1,
+          "target": {
+            "weaponId": 2
+          },
+          "priority": 3,
+          "role": "crew",
+          "slots": 3,
+          "claimedBy": [
+            44,
+            46,
+            47
+          ],
+          "reachable": true,
+          "blockedUntilTick": 0,
+          "createdTick": 11,
+          "progress": 0,
+          "block": null
+        },
+        {
+          "id": 4,
+          "key": "crew:3",
+          "kind": "crew",
+          "castle": 1,
+          "target": {
+            "weaponId": 3
+          },
+          "priority": 3,
+          "role": "crew",
+          "slots": 3,
+          "claimedBy": [
+            45,
+            48,
+            49
+          ],
+          "reachable": true,
+          "blockedUntilTick": 0,
+          "createdTick": 11,
+          "progress": 0,
+          "block": null
+        },
+        {
+          "id": 43,
+          "key": "build:26,11,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              26,
+              11,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2111,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 44,
+          "key": "build:25,11,22",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              11,
+              22
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2111,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 45,
+          "key": "build:25,11,23",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              11,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2111,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 46,
+          "key": "build:26,11,23",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              26,
+              11,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2111,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 47,
+          "key": "build:27,11,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              27,
+              11,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2171,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 48,
+          "key": "build:28,11,22",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              28,
+              11,
+              22
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2171,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 49,
+          "key": "build:27,11,23",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              27,
+              11,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2171,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 50,
+          "key": "build:25,12,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              12,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 2171,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 51,
+          "key": "build:26,12,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              26,
+              12,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2231,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 52,
+          "key": "build:24,12,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              12,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 2231,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 53,
+          "key": "build:25,12,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              12,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2231,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 54,
+          "key": "build:24,12,22",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              12,
+              22
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2231,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 55,
+          "key": "build:27,12,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              27,
+              12,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2291,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 56,
+          "key": "build:24,12,23",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              12,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 2291,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 57,
+          "key": "build:25,12,24",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              12,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2351,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 58,
+          "key": "build:26,12,24",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              26,
+              12,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2471,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 59,
+          "key": "build:27,12,24",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              27,
+              12,
+              24
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10818,
+          "createdTick": 2591,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 60,
+          "key": "build:25,13,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              13,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 2711,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 61,
+          "key": "build:24,13,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              13,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 2831,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 62,
+          "key": "build:24,13,22",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              13,
+              22
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 2951,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 63,
+          "key": "build:26,13,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              26,
+              13,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 3071,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 64,
+          "key": "build:24,13,23",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              13,
+              23
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10819,
+          "createdTick": 3191,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 65,
+          "key": "build:25,14,20",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              25,
+              14,
+              20
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 3311,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 66,
+          "key": "build:24,14,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              14,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10821,
+          "createdTick": 3431,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 67,
+          "key": "build:24,14,22",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              14,
+              22
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10820,
+          "createdTick": 3551,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 69,
+          "key": "build:24,15,21",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              24,
+              15,
+              21
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10821,
+          "createdTick": 3671,
+          "progress": 0,
+          "block": 9
+        },
+        {
+          "id": 127,
+          "key": "build:38,6,27",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              38,
+              6,
+              27
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10811,
+          "createdTick": 5711,
+          "progress": 0,
+          "block": 5
+        },
+        {
+          "id": 128,
+          "key": "build:38,6,28",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              38,
+              6,
+              28
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10811,
+          "createdTick": 5711,
+          "progress": 0,
+          "block": 5
+        },
+        {
+          "id": 129,
+          "key": "build:37,6,29",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              37,
+              6,
+              29
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10811,
+          "createdTick": 5711,
+          "progress": 0,
+          "block": 6
+        },
+        {
+          "id": 130,
+          "key": "build:38,6,29",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              38,
+              6,
+              29
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10811,
+          "createdTick": 5711,
+          "progress": 0,
+          "block": 6
+        },
+        {
+          "id": 148,
+          "key": "build:40,5,18",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              40,
+              5,
+              18
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10931,
+          "createdTick": 10031,
+          "progress": 0,
+          "block": 1
+        },
+        {
+          "id": 149,
+          "key": "build:40,6,17",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              40,
+              6,
+              17
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10931,
+          "createdTick": 10031,
+          "progress": 0,
+          "block": 1
+        },
+        {
+          "id": 150,
+          "key": "build:40,6,18",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              40,
+              6,
+              18
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10931,
+          "createdTick": 10031,
+          "progress": 0,
+          "block": 1
+        },
+        {
+          "id": 151,
+          "key": "build:41,6,18",
+          "kind": "build",
+          "castle": 1,
+          "target": {
+            "cell": [
+              41,
+              6,
+              18
+            ]
+          },
+          "priority": 1,
+          "role": "mason",
+          "slots": 1,
+          "claimedBy": [],
+          "reachable": false,
+          "blockedUntilTick": 10931,
+          "createdTick": 10031,
+          "progress": 0,
+          "block": 1
+        }
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "id": 0,
+      "slot": 0,
+      "facing": 3,
+      "defId": "cannon",
+      "pos": {
+        "x": 271.5,
+        "y": 7,
+        "z": 127.5
+      },
+      "hp": 36,
+      "aim": {
+        "az": 2696,
+        "range": 958
+      },
+      "lastAim": {
+        "az": 2693,
+        "range": 967
+      },
+      "reload": 6.771929824561421,
+      "autoFire": false,
+      "fireRequested": false,
+      "crewOrdered": true,
+      "ammo": 1,
+      "lastImpact": {
+        "x": 101,
+        "y": 1.234940258220117,
+        "z": 129.21687455070355
+      },
+      "predictedImpact": {
+        "x": 96.90574477656182,
+        "y": 0,
+        "z": 129.63317736164453
+      },
+      "crewPresent": 3,
+      "rulerManning": false,
+      "crewWorkSpeed": 1.1
+    },
+    {
+      "id": 1,
+      "slot": 0,
+      "facing": 1,
+      "defId": "cannon",
+      "pos": {
+        "x": 304.5,
+        "y": 7,
+        "z": 127.5
+      },
+      "hp": 36,
+      "aim": {
+        "az": 900,
+        "range": 1193
+      },
+      "lastAim": {
+        "az": 900,
+        "range": 1193
+      },
+      "reload": 22,
+      "autoFire": false,
+      "fireRequested": false,
+      "crewOrdered": true,
+      "ammo": 2,
+      "lastImpact": null,
+      "predictedImpact": null,
+      "crewPresent": 3,
+      "rulerManning": false,
+      "crewWorkSpeed": 1.1
+    },
+    {
+      "id": 2,
+      "slot": 1,
+      "facing": 3,
+      "defId": "cannon",
+      "pos": {
+        "x": 79.5,
+        "y": 7,
+        "z": 127.5
+      },
+      "hp": 36,
+      "aim": {
+        "az": 2700,
+        "range": 1193
+      },
+      "lastAim": {
+        "az": 2700,
+        "range": 1193
+      },
+      "reload": 22,
+      "autoFire": false,
+      "fireRequested": false,
+      "crewOrdered": true,
+      "ammo": 2,
+      "lastImpact": null,
+      "predictedImpact": null,
+      "crewPresent": 3,
+      "rulerManning": false,
+      "crewWorkSpeed": 1
+    },
+    {
+      "id": 3,
+      "slot": 1,
+      "facing": 1,
+      "defId": "cannon",
+      "pos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 127.5
+      },
+      "hp": 18,
+      "aim": {
+        "az": 875,
+        "range": 926
+      },
+      "lastAim": {
+        "az": 893,
+        "range": 964
+      },
+      "reload": 22,
+      "autoFire": false,
+      "fireRequested": false,
+      "crewOrdered": true,
+      "ammo": 0,
+      "lastImpact": {
+        "x": 283,
+        "y": 3.3494883245748066,
+        "z": 122.81905963015373
+      },
+      "predictedImpact": {
+        "x": 286.7467455128817,
+        "y": 0,
+        "z": 125.3710684816479
+      },
+      "crewPresent": 3,
+      "rulerManning": false,
+      "crewWorkSpeed": 1
+    }
+  ],
+  "npcs": [
+    {
+      "id": 44,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 2
+      },
+      "path": [
+        [
+          16,
+          1,
+          27
+        ],
+        [
+          15,
+          1,
+          27
+        ],
+        [
+          14,
+          1,
+          27
+        ],
+        [
+          13,
+          1,
+          27
+        ],
+        [
+          12,
+          1,
+          27
+        ],
+        [
+          11,
+          1,
+          27
+        ],
+        [
+          11,
+          1,
+          28
+        ],
+        [
+          11,
+          1,
+          29
+        ],
+        [
+          11,
+          1,
+          30
+        ],
+        [
+          11,
+          1,
+          31
+        ],
+        [
+          11,
+          1,
+          32
+        ],
+        [
+          11,
+          1,
+          33
+        ],
+        [
+          11,
+          1,
+          34
+        ],
+        [
+          10,
+          1,
+          34
+        ],
+        [
+          10,
+          2,
+          33
+        ],
+        [
+          10,
+          3,
+          32
+        ],
+        [
+          10,
+          4,
+          31
+        ],
+        [
+          10,
+          5,
+          30
+        ],
+        [
+          10,
+          6,
+          29
+        ],
+        [
+          10,
+          7,
+          28
+        ],
+        [
+          10,
+          7,
+          27
+        ],
+        [
+          9,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          26
+        ],
+        [
+          8,
+          7,
+          25
+        ],
+        [
+          8,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 26,
+      "pathNavVersion": 3785,
+      "jobId": 3,
+      "bravery": -0.9596901251934469,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 0.40309874806553125,
+      "pathCheckIndex": 25
+    },
+    {
+      "id": 45,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 4,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 3
+      },
+      "path": [
+        [
+          31,
+          1,
+          27
+        ],
+        [
+          32,
+          1,
+          27
+        ],
+        [
+          33,
+          1,
+          27
+        ],
+        [
+          34,
+          1,
+          27
+        ],
+        [
+          35,
+          1,
+          27
+        ],
+        [
+          36,
+          1,
+          27
+        ],
+        [
+          36,
+          1,
+          28
+        ],
+        [
+          36,
+          1,
+          29
+        ],
+        [
+          36,
+          1,
+          30
+        ],
+        [
+          36,
+          1,
+          31
+        ],
+        [
+          36,
+          1,
+          32
+        ],
+        [
+          36,
+          1,
+          33
+        ],
+        [
+          36,
+          1,
+          34
+        ],
+        [
+          37,
+          1,
+          34
+        ],
+        [
+          37,
+          2,
+          33
+        ],
+        [
+          37,
+          3,
+          32
+        ],
+        [
+          37,
+          4,
+          31
+        ],
+        [
+          37,
+          5,
+          30
+        ],
+        [
+          37,
+          6,
+          29
+        ],
+        [
+          37,
+          7,
+          28
+        ],
+        [
+          37,
+          7,
+          27
+        ],
+        [
+          38,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          26
+        ],
+        [
+          39,
+          7,
+          25
+        ],
+        [
+          39,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 26,
+      "pathNavVersion": 3785,
+      "jobId": 4,
+      "bravery": 0.09472276736050844,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 10.947227673605084,
+      "pathCheckIndex": 25,
+      "lastDamageTick": 5654,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 46,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 2
+      },
+      "path": [
+        [
+          20,
+          1,
+          17
+        ],
+        [
+          20,
+          1,
+          18
+        ],
+        [
+          20,
+          1,
+          19
+        ],
+        [
+          20,
+          1,
+          20
+        ],
+        [
+          20,
+          1,
+          21
+        ],
+        [
+          20,
+          1,
+          22
+        ],
+        [
+          20,
+          1,
+          23
+        ],
+        [
+          20,
+          1,
+          24
+        ],
+        [
+          21,
+          1,
+          24
+        ],
+        [
+          22,
+          1,
+          24
+        ],
+        [
+          23,
+          1,
+          24
+        ],
+        [
+          23,
+          1,
+          25
+        ],
+        [
+          23,
+          1,
+          26
+        ],
+        [
+          22,
+          1,
+          26
+        ],
+        [
+          21,
+          1,
+          26
+        ],
+        [
+          20,
+          1,
+          26
+        ],
+        [
+          19,
+          1,
+          26
+        ],
+        [
+          18,
+          1,
+          26
+        ],
+        [
+          17,
+          1,
+          26
+        ],
+        [
+          16,
+          1,
+          26
+        ],
+        [
+          15,
+          1,
+          26
+        ],
+        [
+          14,
+          1,
+          26
+        ],
+        [
+          13,
+          1,
+          26
+        ],
+        [
+          12,
+          1,
+          26
+        ],
+        [
+          11,
+          1,
+          26
+        ],
+        [
+          11,
+          1,
+          27
+        ],
+        [
+          11,
+          1,
+          28
+        ],
+        [
+          11,
+          1,
+          29
+        ],
+        [
+          11,
+          1,
+          30
+        ],
+        [
+          11,
+          1,
+          31
+        ],
+        [
+          11,
+          1,
+          32
+        ],
+        [
+          11,
+          1,
+          33
+        ],
+        [
+          11,
+          1,
+          34
+        ],
+        [
+          10,
+          1,
+          34
+        ],
+        [
+          10,
+          2,
+          33
+        ],
+        [
+          10,
+          3,
+          32
+        ],
+        [
+          10,
+          4,
+          31
+        ],
+        [
+          10,
+          5,
+          30
+        ],
+        [
+          10,
+          6,
+          29
+        ],
+        [
+          10,
+          7,
+          28
+        ],
+        [
+          10,
+          7,
+          27
+        ],
+        [
+          9,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          26
+        ],
+        [
+          8,
+          7,
+          25
+        ],
+        [
+          8,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 46,
+      "pathNavVersion": 3785,
+      "jobId": 3,
+      "bravery": -0.9173196749761701,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 0.8268032502382994,
+      "pathCheckIndex": 45
+    },
+    {
+      "id": 47,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 80.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 2
+      },
+      "path": [
+        [
+          21,
+          1,
+          17
+        ],
+        [
+          21,
+          1,
+          18
+        ],
+        [
+          21,
+          1,
+          19
+        ],
+        [
+          21,
+          1,
+          20
+        ],
+        [
+          21,
+          1,
+          21
+        ],
+        [
+          21,
+          1,
+          22
+        ],
+        [
+          21,
+          1,
+          23
+        ],
+        [
+          21,
+          1,
+          24
+        ],
+        [
+          22,
+          1,
+          24
+        ],
+        [
+          23,
+          1,
+          24
+        ],
+        [
+          23,
+          1,
+          25
+        ],
+        [
+          23,
+          1,
+          26
+        ],
+        [
+          22,
+          1,
+          26
+        ],
+        [
+          21,
+          1,
+          26
+        ],
+        [
+          20,
+          1,
+          26
+        ],
+        [
+          19,
+          1,
+          26
+        ],
+        [
+          18,
+          1,
+          26
+        ],
+        [
+          17,
+          1,
+          26
+        ],
+        [
+          16,
+          1,
+          26
+        ],
+        [
+          15,
+          1,
+          26
+        ],
+        [
+          14,
+          1,
+          26
+        ],
+        [
+          13,
+          1,
+          26
+        ],
+        [
+          12,
+          1,
+          26
+        ],
+        [
+          11,
+          1,
+          26
+        ],
+        [
+          11,
+          1,
+          27
+        ],
+        [
+          11,
+          1,
+          28
+        ],
+        [
+          11,
+          1,
+          29
+        ],
+        [
+          11,
+          1,
+          30
+        ],
+        [
+          11,
+          1,
+          31
+        ],
+        [
+          11,
+          1,
+          32
+        ],
+        [
+          11,
+          1,
+          33
+        ],
+        [
+          11,
+          1,
+          34
+        ],
+        [
+          10,
+          1,
+          34
+        ],
+        [
+          10,
+          2,
+          33
+        ],
+        [
+          10,
+          3,
+          32
+        ],
+        [
+          10,
+          4,
+          31
+        ],
+        [
+          10,
+          5,
+          30
+        ],
+        [
+          10,
+          6,
+          29
+        ],
+        [
+          10,
+          7,
+          28
+        ],
+        [
+          10,
+          7,
+          27
+        ],
+        [
+          9,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          27
+        ],
+        [
+          8,
+          7,
+          26
+        ],
+        [
+          8,
+          7,
+          25
+        ],
+        [
+          8,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 45,
+      "pathNavVersion": 3785,
+      "jobId": 3,
+      "bravery": -0.2686303532682359,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 7.313696467317641,
+      "pathCheckIndex": 44
+    },
+    {
+      "id": 48,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 4,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 3
+      },
+      "path": [
+        [
+          20,
+          1,
+          18
+        ],
+        [
+          21,
+          1,
+          18
+        ],
+        [
+          21,
+          1,
+          19
+        ],
+        [
+          21,
+          1,
+          20
+        ],
+        [
+          21,
+          1,
+          21
+        ],
+        [
+          21,
+          1,
+          22
+        ],
+        [
+          21,
+          1,
+          23
+        ],
+        [
+          22,
+          1,
+          23
+        ],
+        [
+          23,
+          1,
+          23
+        ],
+        [
+          24,
+          1,
+          23
+        ],
+        [
+          24,
+          1,
+          24
+        ],
+        [
+          24,
+          1,
+          25
+        ],
+        [
+          24,
+          1,
+          26
+        ],
+        [
+          25,
+          1,
+          26
+        ],
+        [
+          26,
+          1,
+          26
+        ],
+        [
+          27,
+          1,
+          26
+        ],
+        [
+          28,
+          1,
+          26
+        ],
+        [
+          29,
+          1,
+          26
+        ],
+        [
+          30,
+          1,
+          26
+        ],
+        [
+          31,
+          1,
+          26
+        ],
+        [
+          32,
+          1,
+          26
+        ],
+        [
+          33,
+          1,
+          26
+        ],
+        [
+          34,
+          1,
+          26
+        ],
+        [
+          35,
+          1,
+          26
+        ],
+        [
+          36,
+          1,
+          26
+        ],
+        [
+          36,
+          1,
+          27
+        ],
+        [
+          36,
+          1,
+          28
+        ],
+        [
+          36,
+          1,
+          29
+        ],
+        [
+          36,
+          1,
+          30
+        ],
+        [
+          36,
+          1,
+          31
+        ],
+        [
+          36,
+          1,
+          32
+        ],
+        [
+          36,
+          1,
+          33
+        ],
+        [
+          36,
+          1,
+          34
+        ],
+        [
+          37,
+          1,
+          34
+        ],
+        [
+          37,
+          2,
+          33
+        ],
+        [
+          37,
+          3,
+          32
+        ],
+        [
+          37,
+          4,
+          31
+        ],
+        [
+          37,
+          5,
+          30
+        ],
+        [
+          37,
+          6,
+          29
+        ],
+        [
+          37,
+          7,
+          28
+        ],
+        [
+          37,
+          7,
+          27
+        ],
+        [
+          38,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          26
+        ],
+        [
+          39,
+          7,
+          25
+        ],
+        [
+          39,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 46,
+      "pathNavVersion": 3785,
+      "jobId": 4,
+      "bravery": 0.2712908680550754,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 12.712908680550754,
+      "pathCheckIndex": 45,
+      "lastDamageTick": 5654,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 49,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "work",
+      "pos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.5
+      },
+      "prevPos": {
+        "x": 111.5,
+        "y": 7,
+        "z": 128.54061017820945
+      },
+      "hp": 4,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "weaponId": 3
+      },
+      "path": [
+        [
+          21,
+          1,
+          18
+        ],
+        [
+          21,
+          1,
+          19
+        ],
+        [
+          21,
+          1,
+          20
+        ],
+        [
+          21,
+          1,
+          21
+        ],
+        [
+          21,
+          1,
+          22
+        ],
+        [
+          21,
+          1,
+          23
+        ],
+        [
+          22,
+          1,
+          23
+        ],
+        [
+          23,
+          1,
+          23
+        ],
+        [
+          24,
+          1,
+          23
+        ],
+        [
+          24,
+          1,
+          24
+        ],
+        [
+          24,
+          1,
+          25
+        ],
+        [
+          24,
+          1,
+          26
+        ],
+        [
+          25,
+          1,
+          26
+        ],
+        [
+          26,
+          1,
+          26
+        ],
+        [
+          27,
+          1,
+          26
+        ],
+        [
+          28,
+          1,
+          26
+        ],
+        [
+          29,
+          1,
+          26
+        ],
+        [
+          30,
+          1,
+          26
+        ],
+        [
+          31,
+          1,
+          26
+        ],
+        [
+          32,
+          1,
+          26
+        ],
+        [
+          33,
+          1,
+          26
+        ],
+        [
+          34,
+          1,
+          26
+        ],
+        [
+          35,
+          1,
+          26
+        ],
+        [
+          36,
+          1,
+          26
+        ],
+        [
+          36,
+          1,
+          27
+        ],
+        [
+          36,
+          1,
+          28
+        ],
+        [
+          36,
+          1,
+          29
+        ],
+        [
+          36,
+          1,
+          30
+        ],
+        [
+          36,
+          1,
+          31
+        ],
+        [
+          36,
+          1,
+          32
+        ],
+        [
+          36,
+          1,
+          33
+        ],
+        [
+          36,
+          1,
+          34
+        ],
+        [
+          37,
+          1,
+          34
+        ],
+        [
+          37,
+          2,
+          33
+        ],
+        [
+          37,
+          3,
+          32
+        ],
+        [
+          37,
+          4,
+          31
+        ],
+        [
+          37,
+          5,
+          30
+        ],
+        [
+          37,
+          6,
+          29
+        ],
+        [
+          37,
+          7,
+          28
+        ],
+        [
+          37,
+          7,
+          27
+        ],
+        [
+          38,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          27
+        ],
+        [
+          39,
+          7,
+          26
+        ],
+        [
+          39,
+          7,
+          25
+        ],
+        [
+          39,
+          7,
+          24
+        ]
+      ],
+      "pathIndex": 45,
+      "pathNavVersion": 3785,
+      "jobId": 4,
+      "bravery": -0.8733687573112547,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 41,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 1.2663124268874526,
+      "pathCheckIndex": 44,
+      "lastDamageTick": 5654,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 50,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 109.5,
+        "y": 5,
+        "z": 134.5
+      },
+      "prevPos": {
+        "x": 109.5,
+        "y": 4.979898987322519,
+        "z": 134.52010101267746
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 2,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3780,
+      "jobId": null,
+      "bravery": 0.11952603328973055,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 5669,
+      "nextPlanTick": 5346,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 11.195260332897305,
+      "haulStage": "deposit",
+      "pathCheckIndex": 19,
+      "shelterCell": null
+    },
+    {
+      "id": 51,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "prevPos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.9127490995451808,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 0.872509004548192
+    },
+    {
+      "id": 52,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 124.5
+      },
+      "prevPos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 124.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.20253305369988084,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 12.025330536998808
+    },
+    {
+      "id": 53,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 124.5
+      },
+      "prevPos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 124.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.2754712039604783,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 7.245287960395217
+    },
+    {
+      "id": 54,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 125.5
+      },
+      "prevPos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 125.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.21460128435865045,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 12.146012843586504
+    },
+    {
+      "id": 55,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 125.5
+      },
+      "prevPos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 125.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.632892167661339,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 16.32892167661339
+    },
+    {
+      "id": 56,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 126.5
+      },
+      "prevPos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 126.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.9861173857934773,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 0.13882614206522703
+    },
+    {
+      "id": 57,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 126.5
+      },
+      "prevPos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 126.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.17377175390720367,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 8.262282460927963
+    },
+    {
+      "id": 58,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 127.5
+      },
+      "prevPos": {
+        "x": 92.5,
+        "y": 1,
+        "z": 127.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.003568746615201235,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 9.964312533847988
+    },
+    {
+      "id": 59,
+      "castle": 1,
+      "slot": 1,
+      "role": "crew",
+      "state": "idle",
+      "pos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 127.5
+      },
+      "prevPos": {
+        "x": 93.5,
+        "y": 1,
+        "z": 127.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.6446175388991833,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "crew",
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 3.5538246110081673
+    },
+    {
+      "id": 60,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 121.5
+      },
+      "prevPos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 121.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.07065098220482469,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 10.706509822048247
+    },
+    {
+      "id": 61,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 121.5
+      },
+      "prevPos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 121.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.2971445978619158,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 12.971445978619158
+    },
+    {
+      "id": 62,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 122.5
+      },
+      "prevPos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 122.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.7955288607627153,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 2.0447113923728466
+    },
+    {
+      "id": 63,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 122.5
+      },
+      "prevPos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 122.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.19721063040196896,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 11.97210630401969
+    },
+    {
+      "id": 64,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "prevPos": {
+        "x": 98.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.6695120702497661,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 16.69512070249766
+    },
+    {
+      "id": 65,
+      "castle": 1,
+      "slot": 1,
+      "role": "runner",
+      "state": "idle",
+      "pos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "prevPos": {
+        "x": 99.5,
+        "y": 1,
+        "z": 123.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.6141657950356603,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "haul-ammo"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 3.8583420496433973
+    },
+    {
+      "id": 68,
+      "castle": 1,
+      "slot": 1,
+      "role": "mason",
+      "state": "idle",
+      "pos": {
+        "x": 110.5,
+        "y": 7,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 110.60000000000005,
+        "y": 7,
+        "z": 131.5
+      },
+      "hp": 1,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3774,
+      "jobId": null,
+      "bravery": -0.7908787494525313,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 5652,
+      "nextPlanTick": 5601,
+      "typeId": null,
+      "jobs": [
+        "build",
+        "repair",
+        "demolish"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 2.0912125054746866,
+      "pathCheckIndex": 8,
+      "lastDamageTick": 5654,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 69,
+      "castle": 1,
+      "slot": 1,
+      "role": "mason",
+      "state": "idle",
+      "pos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 124.5
+      },
+      "prevPos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 124.60000000000005
+      },
+      "hp": 46,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3780,
+      "jobId": null,
+      "bravery": 0.16038069501519203,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 5771,
+      "nextPlanTick": 5503,
+      "typeId": null,
+      "jobs": [
+        "build",
+        "repair",
+        "demolish"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 11.60380695015192,
+      "pathCheckIndex": 2,
+      "lastDamageTick": 9976,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 71,
+      "castle": 1,
+      "slot": 1,
+      "role": "mason",
+      "state": "idle",
+      "pos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 123.5
+      },
+      "prevPos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 123.60000000000005
+      },
+      "hp": 22,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3780,
+      "jobId": null,
+      "bravery": -0.030703827273100615,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 5710,
+      "nextPlanTick": 5477,
+      "typeId": null,
+      "jobs": [
+        "build",
+        "repair",
+        "demolish"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 9.692961727268994,
+      "pathCheckIndex": 1,
+      "lastDamageTick": 9976,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 73,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "work",
+      "pos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 131.39999999999995
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "cell": [
+          16,
+          1,
+          27
+        ]
+      },
+      "path": [
+        [
+          27,
+          1,
+          23
+        ],
+        [
+          26,
+          1,
+          23
+        ],
+        [
+          25,
+          1,
+          23
+        ],
+        [
+          24,
+          1,
+          23
+        ],
+        [
+          23,
+          1,
+          23
+        ],
+        [
+          23,
+          1,
+          24
+        ],
+        [
+          23,
+          1,
+          25
+        ],
+        [
+          23,
+          1,
+          26
+        ],
+        [
+          22,
+          1,
+          26
+        ],
+        [
+          21,
+          1,
+          26
+        ],
+        [
+          20,
+          1,
+          26
+        ],
+        [
+          19,
+          1,
+          26
+        ],
+        [
+          18,
+          1,
+          26
+        ],
+        [
+          17,
+          1,
+          26
+        ],
+        [
+          16,
+          1,
+          26
+        ],
+        [
+          16,
+          1,
+          27
+        ]
+      ],
+      "pathIndex": 16,
+      "pathNavVersion": 3785,
+      "jobId": 1,
+      "bravery": -0.9921738165430725,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 30,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 15.078261834569275,
+      "pathCheckIndex": 15
+    },
+    {
+      "id": 74,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "work",
+      "pos": {
+        "x": 103.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 103.5,
+        "y": 1,
+        "z": 131.39999999999995
+      },
+      "hp": 41,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": {
+        "cell": [
+          31,
+          1,
+          27
+        ]
+      },
+      "path": [
+        [
+          16,
+          1,
+          26
+        ],
+        [
+          17,
+          1,
+          26
+        ],
+        [
+          18,
+          1,
+          26
+        ],
+        [
+          19,
+          1,
+          26
+        ],
+        [
+          20,
+          1,
+          26
+        ],
+        [
+          21,
+          1,
+          26
+        ],
+        [
+          22,
+          1,
+          26
+        ],
+        [
+          23,
+          1,
+          26
+        ],
+        [
+          24,
+          1,
+          26
+        ],
+        [
+          25,
+          1,
+          26
+        ],
+        [
+          26,
+          1,
+          26
+        ],
+        [
+          27,
+          1,
+          26
+        ],
+        [
+          28,
+          1,
+          26
+        ],
+        [
+          29,
+          1,
+          26
+        ],
+        [
+          30,
+          1,
+          26
+        ],
+        [
+          31,
+          1,
+          26
+        ],
+        [
+          31,
+          1,
+          27
+        ]
+      ],
+      "pathIndex": 17,
+      "pathNavVersion": 3785,
+      "jobId": 2,
+      "bravery": 0.886138653382659,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 10799,
+      "nextPlanTick": 8572,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 33.86138653382659,
+      "pathCheckIndex": 16,
+      "lastDamageTick": 10704,
+      "lastDamageBy": 0
+    },
+    {
+      "id": 75,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.3792573809623718,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 28.79257380962372
+    },
+    {
+      "id": 76,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 89.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 89.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.012273747473955154,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 24.87726252526045
+    },
+    {
+      "id": 77,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 132.5
+      },
+      "prevPos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 132.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.09465807490050793,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 25.94658074900508
+    },
+    {
+      "id": 78,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 129.5
+      },
+      "prevPos": {
+        "x": 88.5,
+        "y": 1,
+        "z": 129.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.7754949140362442,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 17.24505085963756
+    },
+    {
+      "id": 79,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 130.5
+      },
+      "prevPos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 130.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.31013888120651245,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 28.101388812065125
+    },
+    {
+      "id": 80,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 89.5,
+        "y": 1,
+        "z": 130.5
+      },
+      "prevPos": {
+        "x": 89.5,
+        "y": 1,
+        "z": 130.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.31420384906232357,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 21.857961509376764
+    },
+    {
+      "id": 81,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 86.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 86.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.1688246768899262,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 26.688246768899262
+    },
+    {
+      "id": 82,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 90.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "prevPos": {
+        "x": 90.5,
+        "y": 1,
+        "z": 131.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": -0.9470431073568761,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 15.529568926431239
+    },
+    {
+      "id": 83,
+      "castle": 1,
+      "slot": 1,
+      "role": "civilian",
+      "state": "idle",
+      "pos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 132.5
+      },
+      "prevPos": {
+        "x": 87.5,
+        "y": 1,
+        "z": 132.5
+      },
+      "hp": 100,
+      "height": 1.75,
+      "radius": 0.25,
+      "carrying": 0,
+      "target": null,
+      "path": [],
+      "pathIndex": 0,
+      "pathNavVersion": 3724,
+      "jobId": null,
+      "bravery": 0.6481464328244328,
+      "fleeing": false,
+      "deserting": false,
+      "deserted": false,
+      "lastProgressTick": 0,
+      "nextPlanTick": 0,
+      "typeId": null,
+      "jobs": [
+        "work"
+      ],
+      "speed": 3,
+      "carrySpeed": 2,
+      "climbSpeed": 1,
+      "workMul": 1,
+      "fleeThreshold": 31.48146432824433
+    }
+  ],
+  "ai": [
+    {
+      "id": 0,
+      "weapons": [
+        {
+          "id": 0,
+          "target": {
+            "id": 12604,
+            "key": "breach:1:22",
+            "slot": 1,
+            "index": 12604,
+            "kind": "shieldWall",
+            "cell": [
+              28,
+              5,
+              22
+            ],
+            "pos": {
+              "x": 97.5,
+              "y": 1.5,
+              "z": 126.5
+            },
+            "feedbackPos": {
+              "x": 101,
+              "y": 5.895077190403537,
+              "z": 126.59409476313016
+            },
+            "occluded": true
+          },
+          "targetTick": 7200,
+          "aim": {
+            "targetId": "breach:1:22",
+            "castleSlot": 1,
+            "observations": 3,
+            "biasAzDeg": -0.18412921076347866,
+            "biasDial": -0.6027942657470677,
+            "lastShot": {
+              "az": 2693,
+              "range": 967
+            },
+            "metresPerCharge": 1.115571472549533
+          },
+          "needsAim": false,
+          "loadedAt": null,
+          "firedWhileLoaded": false,
+          "lastShotTick": 10606,
+          "feedbackKey": "101:1.234940258220117:129.21687455070355",
+          "shotTarget": null,
+          "targetTried": true,
+          "shooter": {
+            "x": 270.70001321145764,
+            "y": 7.5,
+            "z": 127.4954023747785
+          },
+          "solution": {
+            "azDeg": 270.1039832617928,
+            "dial": 99.5137300491333,
+            "charge": 99.5137300491333,
+            "elevation": 21.26953125,
+            "reachable": true,
+            "distance": 173.20287353949072,
+            "metresPerCharge": 1.115571472549533
+          },
+          "commandAim": {
+            "az": 2696,
+            "range": 958
+          }
+        },
+        {
+          "id": 1,
+          "target": null,
+          "targetTick": 10650,
+          "aim": null,
+          "needsAim": true,
+          "loadedAt": 0,
+          "firedWhileLoaded": false,
+          "lastShotTick": null,
+          "feedbackKey": null,
+          "shotTarget": null,
+          "targetTried": true
+        }
+      ],
+      "recovery": [
+        [
+          7,
+          8,
+          15,
+          3
+        ],
+        [
+          7,
+          8,
+          31,
+          3
+        ]
+      ]
+    },
+    {
+      "id": 1,
+      "weapons": [
+        {
+          "id": 2,
+          "target": null,
+          "targetTick": 10660,
+          "aim": null,
+          "needsAim": true,
+          "loadedAt": 10,
+          "firedWhileLoaded": false,
+          "lastShotTick": null,
+          "feedbackKey": null,
+          "shotTarget": null,
+          "targetTried": true
+        },
+        {
+          "id": 3,
+          "target": {
+            "id": 12595,
+            "key": "breach:0:22",
+            "slot": 0,
+            "index": 12595,
+            "kind": "shieldWall",
+            "cell": [
+              19,
+              5,
+              22
+            ],
+            "pos": {
+              "x": 286.5,
+              "y": 1.5,
+              "z": 126.5
+            },
+            "feedbackPos": {
+              "x": 283,
+              "y": 5.719352526230673,
+              "z": 126.59046912604555
+            },
+            "occluded": true
+          },
+          "targetTick": 7210,
+          "aim": {
+            "targetId": "breach:0:22",
+            "castleSlot": 0,
+            "observations": 0,
+            "biasAzDeg": 0,
+            "biasDial": 0,
+            "lastShot": null
+          },
+          "needsAim": false,
+          "loadedAt": 6370,
+          "firedWhileLoaded": true,
+          "lastShotTick": 10796,
+          "feedbackKey": "283:3.3494883245748066:122.81905963015373",
+          "shotTarget": {
+            "aim": {
+              "targetId": "breach:0:22",
+              "castleSlot": 0,
+              "observations": 0,
+              "biasAzDeg": -2.384773269354014,
+              "biasDial": -2.317595863342291,
+              "lastShot": {
+                "az": 875,
+                "range": 926
+              },
+              "metresPerCharge": 1.2019553926278377
+            },
+            "shooter": {
+              "x": 113.29998678854236,
+              "y": 7.5,
+              "z": 127.4954023747785
+            },
+            "pos": {
+              "x": 286.5,
+              "y": 1.5,
+              "z": 126.5
+            },
+            "feedbackPos": {
+              "x": 283,
+              "y": 5.719352526230673,
+              "z": 126.59046912604555
+            },
+            "occluded": true,
+            "wind": {
+              "x": 0.9333206530390351,
+              "z": -0.3130986144872015
+            }
+          },
+          "targetTried": true,
+          "shooter": {
+            "x": 113.29998678854236,
+            "y": 7.5,
+            "z": 127.4954023747785
+          },
+          "solution": {
+            "azDeg": 89.88477326935401,
+            "dial": 94.91759586334229,
+            "charge": 94.91759586334229,
+            "elevation": 21.26953125,
+            "reachable": true,
+            "distance": 173.20287353949072,
+            "metresPerCharge": 1.2019553926278377
+          },
+          "commandAim": {
+            "az": 875,
+            "range": 926
+          }
+        }
+      ],
+      "recovery": [
+        [
+          40,
+          8,
+          15,
+          1
+        ],
+        [
+          40,
+          8,
+          31,
+          1
+        ]
+      ]
+    }
+  ]
+}

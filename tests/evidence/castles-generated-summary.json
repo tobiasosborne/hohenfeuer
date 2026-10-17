@@ -1,0 +1,19 @@
+{
+  "castles": 145,
+  "campaignMaps": 32,
+  "slots": {
+    "2": 13,
+    "3": 12,
+    "4": 7
+  },
+  "registryHash": "2e44b19f",
+  "cannons": 191,
+  "mountSpots": 887,
+  "magazineBlocks": 600,
+  "preferredBiomes": {
+    "forest": 77,
+    "desert": 31,
+    "ice": 20,
+    "volcano": 17
+  }
+}

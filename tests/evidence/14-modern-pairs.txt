@@ -1,0 +1,11 @@
+run 1: rampart-north: 0 exact pixels; 19 calls; 95088 triangles; median 113.80 ms
+run 1: weapon-view-cannon: 0 exact pixels; 24 calls; 103176 triangles; median 202.90 ms
+run 1: courtyard-palace: 549 exact pixels; 16 calls; 118942 triangles; median 325.30 ms
+run 1: impact-dust: 469 exact pixels; 56 calls; 121620 triangles; median 246.80 ms
+run 1: modern-rampart-north: 0 exact pixels; 19 calls; 95088 triangles; median 119.10 ms
+run 1: modern-weapon-view-cannon: 0 exact pixels; 24 calls; 103176 triangles; median 189.20 ms
+run 1: modern-courtyard-palace: 0 exact pixels; 16 calls; 118942 triangles; median 374.50 ms
+page.evaluate: Target page, context or browser has been closed
+    at /home/tobias/Projects/castle-game/tests/render-style-goldens.mjs:41:18 {
+  log: []
+}
