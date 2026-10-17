@@ -1,6 +1,6 @@
 # Ballerburg: Castle Siege (Ascaron 2001) - mechanics from the official manuals
 
-Sources (raw text in this directory): `manual-en.txt` (English, 62 printed pages, NOT 6 as the task brief assumed) and `manual-de.txt` (German, 66 pdf pages, text layer present; no OCR needed).
+Sources (raw text in this directory): `assets-ripped/manual-text/manual-en.txt` (local, git-ignored) (English, 62 printed pages, NOT 6 as the task brief assumed) and `assets-ripped/manual-text/manual-de.txt` (local, git-ignored) (German, 66 pdf pages, text layer present; no OCR needed).
 Citations: "EN p.N" = printed page number of the English manual; "DE §x.y" = German section number (the German printed page numbers differ from its TOC, so sections are the reliable key). Weapon and building numbers were compared EN vs DE; differences are listed in section 9.
 Anything not stated in the manuals is marked UNKNOWN. Nothing is filled from memory.
 
