@@ -103,6 +103,8 @@ export const CMD = Object.freeze({
  *  DESIGNATION_ADDED / DESIGNATION_CANCELLED {slot, cell, block}
  *  SHELTER_TOGGLED {slot, on}                      CASTLE_ELIMINATED {slot, reason: ELIM}
  *  GAME_OVER {winners: slot[], draw}               DESYNC {tick, localHash, remoteHash}
+ *  RULER_THREAT {castle, fromCastle, fromWeapon, projectileId, impactPos, etaTicks}  (predicted at launch)
+ *  WEAPON_IDLE {castle, weaponId, reason: IDLE_REASON, detail}  (emitted when the reason changes)
  */
 export const EV = Object.freeze({
   SHOT_FIRED: "shot-fired", IMPACT: "impact",
@@ -116,6 +118,12 @@ export const EV = Object.freeze({
   DESIGNATION_ADDED: "designation-added", DESIGNATION_CANCELLED: "designation-cancelled",
   SHELTER_TOGGLED: "shelter-toggled", CASTLE_ELIMINATED: "castle-eliminated", GAME_OVER: "game-over",
   DESYNC: "desync",
+  RULER_THREAT: "ruler-threat", WEAPON_IDLE: "weapon-idle",
+});
+/** Why a weapon is not firing right now; carried as weapon.idleReason and in EV.WEAPON_IDLE. */
+export const IDLE_REASON = Object.freeze({
+  NO_CREW: "no-crew", NO_AMMO: "no-ammo", NO_GOLD: "no-gold", OBSTRUCTED: "obstructed",
+  DAMAGED: "damaged", RELOADING: "reloading", READY: "ready",
 });
 /** Alias kept from the scaffold; same object as EV. */
 export const EVENTS = EV;
