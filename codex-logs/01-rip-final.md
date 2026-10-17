@@ -1,0 +1,15 @@
+- [Full report and format specs](/home/tobias/Projects/castle-game/research/08-iso-formats-and-rip.md).
+- [Reproducible rip tools](/home/tobias/Projects/castle-game/scripts/rip/rip_all.py).
+- Cracked CPR, TEX, SKS, 6DO and 7DO formats.
+- Unpacked all 2,382 CPR members.
+- Exported 615 meshes as OBJ/MTL plus JSON.
+- Preserved 121,863 triangles after removing duplicate reflection passes.
+- Converted 2,845 texture/reference images to PNG.
+- Created 808 additional building theme variants.
+- Decoded 257 castle layouts containing 9,153 placements.
+- Recovered 74 scenarios and 28 terrain sets.
+- Extracted costs, defence, construction-time and reload tables.
+- Extracted 1,680 portrait-animation frames.
+- Visually checked [17 previews](/home/tobias/Projects/castle-game/assets-ripped/thumbs/contact-sheet.png); fixed the 6DO triangle-strip bug.
+- Verified two Binks and one MP3; saved ten video frames; nine tests and deterministic mesh reruns passed.
+- Remaining uncertainties: articulation, ballistics and some renderer fields; no git commands or CD software execution.
