@@ -23,3 +23,8 @@ Working name: **Hohenfeuer**.
 ## Consolidated scope (what we build)
 Hohenfeuer: a real-time, first-person-only castle artillery duel. Castles are coarse block structures; the player (mortal ruler) walks the ramparts, designates blocks/weapons/repairs, mans guns or orders crews. NPCs gate everything: gun crews, ammo runners from a magazine, masons, civilians as population/HP, one morale number per castle with spiral guards. Opponents are AI castles in slots that humans can take over (hot-seat/network later). Weapons, NPC types, maps and blocks are plugins. Original 2001 numbers (reload times, costs, defence points, palace as win target, wind HUD) from the manuals are the baseline; the original 3D assets ripped from the ISO are the visual design target, re-authored in Blender.
 Out of scope: research tree, spells/mana, campaigns, RTS camera.
+
+## Round 4 (2026-10-17, evening)
+- Design target stated by Tobias: **a balance between easy pick-up-and-play and not too encyclopaedic or daunting.** Complexity should be discovered incrementally in play, not front-loaded; the original's 12-weapon / research / spell encyclopaedia is explicitly not the model for onboarding.
+- Look: pursue both a period and a modern style preset (beads castle-game-uo7.1 / uo7.2); classic stays default for now.
+- Gameplay from here runs as a critic-repair loop (research/15 rubric, research/16+ critiques).
