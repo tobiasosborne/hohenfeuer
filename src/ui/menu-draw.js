@@ -8,6 +8,7 @@ import { t } from "./i18n.js";
 import { drawText, drawTextIn } from "./font.js";
 import { stoneTexture, steelTexture, meshTexture, roundRectPath, circlePath, rivet, rgb } from "./paint.js";
 import { SCREEN } from "./menus.js";
+import { messageLines } from "./console.js";
 
 const LW = TUNING.render.logicalW, LH = TUNING.render.logicalH;
 const SLOT_CSS = ["#c02828", "#2860c0", "#28a040", "#c0a020"];
@@ -282,16 +283,22 @@ function drawOver(ctx, m, lang, note, mk) {
   if (!r.draw && r.winnerName) sub.push(t("winner", lang, { name: r.winnerName }));
   sub.push(t("duration", lang, mmss(r.durationS)));
   sub.forEach((s, i) => label(ctx, s, 512, 178 + i * 22, note, { align: "center" }));
-  meshPanel(ctx, mk, 162, 240, 862, 560);
+  meshPanel(ctx, mk, 162, 240, 862, 634);
   const cols = [["slotName", 200, null], ["shots", 470, "center"], ["hits", 570, "center"], ["damage", 680, "center"], ["losses", 790, "center"]];
   for (const [k, x, al] of cols) label(ctx, t(k, lang), x, 268, note, { align: al ?? undefined, color: "#e8d27a" });
   ctx.fillStyle = "#8a8680"; ctx.fillRect(186, 290, 652, 2);
   r.rows.forEach((row, i) => {
-    const y = 312 + i * 40;
+    const y = 304 + i * 28;
     circlePath(ctx, 190, y + 6, 8); ctx.fillStyle = row.color ?? SLOT_CSS[row.slot] ?? "#888"; ctx.fill();
     label(ctx, row.name, 206, y, note);
     for (const [k, x] of [["shots", 470], ["hits", 570], ["damage", 680], ["losses", 790]]) label(ctx, String(Math.round(row[k])), x, y, note, { align: "center" });
   });
+  if (r.account) {
+    const lines = messageLines([{ text: r.account.cause }], 640, 3);
+    lines.forEach((line, i) => label(ctx, line.text, 190, 438 + i * 18, note, { color: "#ffd4a4" }));
+    label(ctx, t("decisiveEvents", lang), 190, 508, note, { color: "#e8d27a" });
+    r.account.events.slice(-3).forEach((event, i) => label(ctx, event, 190, 534 + i * 22, note));
+  }
   drawItems(ctx, m, lang, note);
 }
 

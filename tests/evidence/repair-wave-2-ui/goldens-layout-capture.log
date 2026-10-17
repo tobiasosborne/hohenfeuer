@@ -1,0 +1,5 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+danger-match1: golden written

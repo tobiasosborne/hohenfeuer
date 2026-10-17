@@ -1,0 +1,24 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (318.991788ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (63.807887ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (81.441467ms)
+✔ a salvo keeps every threat but sounds at most once per second (3.046233ms)
+✔ world progress labels avoid fixed HUD areas and each other (1.756569ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (1.360364ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.618558ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.57452ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.99698ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (0.618576ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (1.985634ms)
+✔ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (1.20302ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (1.222835ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.826075ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (0.845013ms)
+✔ defeat offers Enter retry as its first action and preserves setup (2.629429ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1889.214062

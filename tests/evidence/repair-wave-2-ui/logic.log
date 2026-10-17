@@ -1,0 +1,60 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (36.588379ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (10.99381ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (9.48986ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (1.065905ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.646807ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (0.408564ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.230846ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (0.528125ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.170298ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (0.29484ms)
+✔ defeat offers Enter retry as its first action and preserves setup (0.497115ms)
+✔ bare URL opens the title menu; golden/demo/play URLs keep booting a match directly (2.109165ms)
+✔ session hand-off: start a match, restart it, or come back to setup/title (0.634537ms)
+✔ default settings come from the map and tuning (0.227775ms)
+✔ settingsToMatch builds a map copy with wind/gold and contract-valid slots (0.954661ms)
+✔ matchResult turns sim stats and the outcome into end-screen rows (0.589095ms)
+✔ main menu lists the original's entries in order and navigates by keyboard (3.309398ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (3.427963ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (1.842941ms)
+✔ options: sensitivity, language, volume emit an options event and clamp (0.247674ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (0.176925ms)
+✖ end screen shows the result and returns to setup or title (0.941172ms)
+✔ every screen draws without throwing and labels its items in the menu language (16.720583ms)
+✔ quick start is the first action and boots forest duel at AI 2 with newcomer controls (0.261282ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 23
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 244.056768
+
+✖ failing tests:
+
+test at tests/unit/ui-menus.test.js:105:1
+✖ end screen shows the result and returns to setup or title (0.941172ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'restart',
+      'setup',
+      'title'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-menus.test.js:110:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'restart', 'setup', 'title' ],
+    expected: [ 'setup', 'title' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

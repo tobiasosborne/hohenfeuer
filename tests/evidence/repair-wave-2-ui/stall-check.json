@@ -1,0 +1,119 @@
+{
+  "source": "sweep-endings-probe4.json",
+  "sourceSha256": "9a4187acf1bcf63d9063eb113266c935e4afb6f34751bea7b1210cd5d7f2d20c",
+  "definition": "After 120s, longest elapsed span where palace max-min stays below .02 (2 percentage points); same original strict metric in scripts/sweep.mjs:180.",
+  "matches": [
+    {
+      "seed": 1,
+      "seconds": 858.3333333333334,
+      "reason": "palace",
+      "winner": 0,
+      "lowMotion": [
+        175,
+        115
+      ],
+      "loserLowMotion": 115
+    },
+    {
+      "seed": 2,
+      "seconds": 920.7666666666667,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        415,
+        239
+      ],
+      "loserLowMotion": 415
+    },
+    {
+      "seed": 3,
+      "seconds": 858.3,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        220,
+        215
+      ],
+      "loserLowMotion": 220
+    },
+    {
+      "seed": 4,
+      "seconds": 801.7666666666667,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        75,
+        221
+      ],
+      "loserLowMotion": 75
+    },
+    {
+      "seed": 5,
+      "seconds": 924.9,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        191,
+        254
+      ],
+      "loserLowMotion": 191
+    },
+    {
+      "seed": 6,
+      "seconds": 884.8666666666667,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        191,
+        367
+      ],
+      "loserLowMotion": 191
+    },
+    {
+      "seed": 7,
+      "seconds": 723.8666666666667,
+      "reason": "palace",
+      "winner": 1,
+      "lowMotion": [
+        263,
+        191
+      ],
+      "loserLowMotion": 263
+    },
+    {
+      "seed": 8,
+      "seconds": 883.8,
+      "reason": "palace",
+      "winner": 0,
+      "lowMotion": [
+        215,
+        191
+      ],
+      "loserLowMotion": 191
+    },
+    {
+      "seed": 9,
+      "seconds": 743.9666666666667,
+      "reason": "surrender",
+      "winner": 1,
+      "lowMotion": [
+        133,
+        228
+      ],
+      "loserLowMotion": 133
+    },
+    {
+      "seed": 10,
+      "seconds": 890.3666666666667,
+      "reason": "palace",
+      "winner": 0,
+      "lowMotion": [
+        144,
+        263
+      ],
+      "loserLowMotion": 263
+    }
+  ],
+  "loserOverThreeMinutes": 7,
+  "maxLoserSeconds": 415
+}

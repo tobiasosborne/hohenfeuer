@@ -1,0 +1,262 @@
+{
+  "poses": 48,
+  "allPassed": true,
+  "allZeroPixels": true,
+  "method": "All 48 compared; inspected layout refinements verified in five poses, and two fixture-consistency refinements verified separately. Every final pose has a zero-pixel comparison.",
+  "cases": {
+    "tb1-spawn": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "tb1-first-shot": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "rampart-north": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "weapon-view-cannon": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "hud-weapon-view": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "hud-walking": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "example-wall": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "courtyard-palace": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "crew-at-cannon": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "cannon-sight": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "muzzle-flash": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "smoke-trail": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "impact-dust": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "tb3-designate": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "tb3-built": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "menu-title": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "menu-skirmish": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "match-over": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "modern-rampart-north": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "modern-weapon-view-cannon": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "modern-courtyard-palace": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "modern-impact-dust": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "feel-recoil": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "impact-view": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "npc-markers": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "hud-match1": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "hud-match3": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "quick-start-title": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "danger-match1": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-layout-verify.log"
+    },
+    "reload-choices": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "repair-progress": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "idle-no-crew": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "idle-no-ammo": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "idle-no-gold": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "idle-obstructed": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "idle-damaged": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-fixture-verify.log"
+    },
+    "palace-0959": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-layout-verify.log"
+    },
+    "palace-1001": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-layout-verify.log"
+    },
+    "palace-1230": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-layout-verify.log"
+    },
+    "palace-1501": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-layout-verify.log"
+    },
+    "surrender-pressure": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "impact-wall-offset": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "impact-palace-offset": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-fixture-verify.log"
+    },
+    "defeat-ruler": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "defeat-palace": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "defeat-surrender": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "reload-replacement": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    },
+    "first-damage-match1": {
+      "pixels": 0,
+      "passed": true,
+      "log": "goldens-frozen-compare.log"
+    }
+  },
+  "sharedTreeDifferences": [
+    "src/tuning.js",
+    "src/ai/controller.js",
+    "src/ai/view.js",
+    "src/ai/build.js",
+    "src/sim/weapons.js",
+    "src/sim/rules.js",
+    "src/sim/sim.js",
+    "src/npc/kinematics.js",
+    "src/npc/jobs.js",
+    "src/npc/path.js",
+    "src/npc/brain.js"
+  ],
+  "poseSha256": "b3b13719862637c091dc458df154ad127856bb18252dbe379d6e36776e5fb22a"
+}

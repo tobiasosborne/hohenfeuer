@@ -1,0 +1,92 @@
+{
+  "policy": "scripts/novice.mjs unchanged; UI is not observed by this proxy",
+  "matches": [
+    {
+      "level": 2,
+      "seed": 1,
+      "seconds": 711.4,
+      "reason": "palace",
+      "winner": 0,
+      "hash": 2577622243,
+      "decisionSummary": {
+        "reloads": 33,
+        "meanTypes": 5.7272727272727275,
+        "meanNonAim": 4.7272727272727275,
+        "meanMatch1Types": 2.727272727272727,
+        "meanExecutedNonAim": 0.696969696969697,
+        "withTwoNonAim": 31
+      },
+      "meanLocalTypes": 2.909090909090909,
+      "baseline": {
+        "seconds": 669.3,
+        "reason": "palace",
+        "decisionSummary": {
+          "reloads": 31,
+          "meanTypes": 5.67741935483871,
+          "meanNonAim": 4.67741935483871,
+          "meanMatch1Types": 2.7096774193548385,
+          "meanExecutedNonAim": 0.7096774193548387,
+          "withTwoNonAim": 29
+        }
+      }
+    },
+    {
+      "level": 5,
+      "seed": 1,
+      "seconds": 669.3,
+      "reason": "palace",
+      "winner": 0,
+      "hash": 1953397861,
+      "decisionSummary": {
+        "reloads": 31,
+        "meanTypes": 5.967741935483871,
+        "meanNonAim": 4.967741935483871,
+        "meanMatch1Types": 2.774193548387097,
+        "meanExecutedNonAim": 0.9354838709677419,
+        "withTwoNonAim": 30
+      },
+      "meanLocalTypes": 3.7096774193548385,
+      "baseline": {
+        "seconds": 753.3,
+        "reason": "palace",
+        "decisionSummary": {
+          "reloads": 35,
+          "meanTypes": 6.0285714285714285,
+          "meanNonAim": 5.0285714285714285,
+          "meanMatch1Types": 2.8,
+          "meanExecutedNonAim": 0.9428571428571428,
+          "withTwoNonAim": 34
+        }
+      }
+    },
+    {
+      "level": 8,
+      "seed": 1,
+      "seconds": 734.2666666666667,
+      "reason": "palace",
+      "winner": 0,
+      "hash": 1447521136,
+      "decisionSummary": {
+        "reloads": 34,
+        "meanTypes": 5.970588235294118,
+        "meanNonAim": 4.970588235294118,
+        "meanMatch1Types": 2.7058823529411766,
+        "meanExecutedNonAim": 0.9705882352941176,
+        "withTwoNonAim": 34
+      },
+      "meanLocalTypes": 3.676470588235294,
+      "baseline": {
+        "seconds": 711.3333333333334,
+        "reason": "palace",
+        "decisionSummary": {
+          "reloads": 32,
+          "meanTypes": 5.96875,
+          "meanNonAim": 4.96875,
+          "meanMatch1Types": 2.6875,
+          "meanExecutedNonAim": 0.96875,
+          "withTwoNonAim": 32
+        }
+      }
+    }
+  ]
+}

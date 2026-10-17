@@ -1,0 +1,41 @@
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (6.374448ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (2.344862ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.428386ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.932039ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (1.032089ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (2.176792ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (1.186391ms)
+✖ a surrender account groups casualties from one blast instead of filling its three rows (2.834038ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.609707ms)
+✔ defeat offers Enter retry as its first action and preserves setup (2.958859ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 278.387415
+
+✖ failing tests:
+
+test at tests/unit/ui-feedback.test.js:76:1
+✖ a surrender account groups casualties from one blast instead of filling its three rows (2.834038ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 3
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-feedback.test.js:80:49)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -5,7 +5,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { startServer, launch } from './lib.mjs';
 
-const out = resolve('tests/evidence/onboarding');
+const out = resolve(process.env.UI_EVIDENCE_DIR ?? 'tests/evidence/onboarding');
 await mkdir(out, { recursive: true });
 const report = { status: 'running', checks: [], errors: [] };
 let server, browser;
@@ -52,7 +52,7 @@ try {
     const dx = w.pos.x - r.pos.x, dz = w.pos.z - r.pos.z, dy = w.pos.y + 0.5 - (r.pos.y + 1.6);
     h.setBuild({ mode: 'none' }, { yaw: Math.atan2(dx, -dz), pitch: Math.atan2(dy, Math.hypot(dx,dz)) });
   });
-  assert.equal(await page.evaluate(`${H}.onboarding.prompt?.id`), 'man');
+  assert.match(await page.evaluate(`${H}.onboarding.prompt?.text ?? ''`), /E:/, 'first cannon has the reachable E action, including its crew diagnosis');
   await press(page, 'KeyE');
   assert.ok(await page.evaluate(`${H}.state.weapons.find(w => w.id === ${H}.state.rulers[0].manning).crewOrdered`));
   assert.equal(await page.evaluate(`${H}.onboarding.prompt?.id`), 'fire');
@@ -64,9 +64,13 @@ try {
   assert.notEqual(await page.evaluate(`${H}.onboarding.prompt?.id`), 'man');
   report.checks.push('real-reticle-E-auto-crew-fire-and-man-retirement');
 
-  await page.evaluate(`${H}.enemyShot(); ${H}.stepTo(${H}.state.tick + 30)`);
+  await page.evaluate(() => {
+    const h=window.__hohenfeuer;h.enemyShot([41,7,26]);h.stepTo(h.state.tick+30);
+    const p=h.state.castles[0].plot,r=h.state.rulers[0],dx=p.origin.x+41.5-r.pos.x,dz=p.origin.z+26.5-r.pos.z,dy=p.origin.y+7.5-r.pos.y-1.6;
+    h.setBuild({mode:'none'},{yaw:Math.atan2(dx,-dz),pitch:Math.atan2(dy,Math.hypot(dx,dz))});
+  });
   assert.equal(await page.evaluate(`${H}.onboarding.wallHit`), true);
-  assert.equal(await page.evaluate(`${H}.onboarding.prompt?.id`), 'build');
+  assert.ok(await page.evaluate(`${H}.battleHud.guidance?.lines.some(s=>s.startsWith('B +'))`), 'first damage suggests a legal visible stone action');
   await page.screenshot({ path: resolve(out, 'after-first-damage.png') });
   await press(page, 'KeyB'); await press(page, 'KeyB'); await press(page, 'KeyB'); await press(page, 'KeyB');
   assert.equal(await page.evaluate(`${H}.profile.promptUses.build`), 2);

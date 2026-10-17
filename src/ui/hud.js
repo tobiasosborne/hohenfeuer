@@ -17,6 +17,7 @@ import { drawMenu } from "./menu-draw.js";
 import { roundRectPath, circlePath, rgb } from "./paint.js";
 import { makeTextures, paintStatic } from "./frame.js";
 import { drawOverlays, moraleBand } from "./overlay.js";
+import { drawBattleFeedback } from "./battle-draw.js";
 
 const LW = TUNING.render.logicalW, LH = TUNING.render.logicalH;
 const L = LAYOUT;
@@ -294,6 +295,7 @@ export function createHud(canvas2d, o = {}) {
     reticle(ctx, v);
     if (!v.menu && v.prompt) caption(ctx, v.prompt.text, 420, note);
     if (!v.menu && v.toast) caption(ctx, v.toast, 124, note);
+    drawBattleFeedback(ctx, v, note);
     if (v.menu) drawMenu(ctx, v.menu, { note });
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     frame.texts = texts;

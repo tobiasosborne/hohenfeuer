@@ -1,0 +1,23 @@
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (4.383673ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (3.226425ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (2.162848ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.870709ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (0.837501ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (1.992992ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (1.306103ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.754362ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.178825ms)
+✔ defeat offers Enter retry as its first action and preserves setup (3.246064ms)
+✔ i18n: every key exists in every language and t() formats params (5.682001ms)
+✔ font has a glyph for every character the UI needs (7.236911ms)
+✔ every glyph has consistent rows and draws pixels (except space) (2.465821ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (35.276447ms)
+✔ rasterize is deterministic and distinguishes glyphs (6.579152ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 396.543547

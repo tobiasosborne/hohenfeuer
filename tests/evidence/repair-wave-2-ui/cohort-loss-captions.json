@@ -1,0 +1,106 @@
+{
+  "source": "tests/evidence/critique-v2/novice-embodied.json",
+  "matches": 30,
+  "losses": [
+    {
+      "level": 2,
+      "seed": 2,
+      "reason": "ruler",
+      "captions": {
+        "de": "11:08: Euer Herrscher starb durch Verletzungen.",
+        "en": "11:08: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 2,
+      "seed": 6,
+      "reason": "ruler",
+      "captions": {
+        "de": "7:59: Euer Herrscher starb durch Verletzungen.",
+        "en": "7:59: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 2,
+      "seed": 7,
+      "reason": "ruler",
+      "captions": {
+        "de": "11:08: Euer Herrscher starb durch Verletzungen.",
+        "en": "11:08: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 5,
+      "seed": 4,
+      "reason": "ruler",
+      "captions": {
+        "de": "1:36: Euer Herrscher starb durch Verletzungen.",
+        "en": "1:36: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 5,
+      "seed": 6,
+      "reason": "ruler",
+      "captions": {
+        "de": "0:46: Euer Herrscher starb durch Verletzungen.",
+        "en": "0:46: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 5,
+      "seed": 7,
+      "reason": "ruler",
+      "captions": {
+        "de": "6:17: Euer Herrscher starb durch Verletzungen.",
+        "en": "6:17: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 8,
+      "seed": 4,
+      "reason": "ruler",
+      "captions": {
+        "de": "1:55: Euer Herrscher starb durch Verletzungen.",
+        "en": "1:55: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 8,
+      "seed": 5,
+      "reason": "ruler",
+      "captions": {
+        "de": "1:06: Euer Herrscher starb durch Verletzungen.",
+        "en": "1:06: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 8,
+      "seed": 7,
+      "reason": "palace",
+      "captions": {
+        "de": "11:08: Euer Palast wurde zerstört.",
+        "en": "11:08: Your palace was destroyed."
+      }
+    },
+    {
+      "level": 8,
+      "seed": 8,
+      "reason": "ruler",
+      "captions": {
+        "de": "1:56: Euer Herrscher starb durch Verletzungen.",
+        "en": "1:56: Your ruler died from injuries."
+      }
+    },
+    {
+      "level": 8,
+      "seed": 9,
+      "reason": "ruler",
+      "captions": {
+        "de": "1:32: Euer Herrscher starb durch Verletzungen.",
+        "en": "1:32: Your ruler died from injuries."
+      }
+    }
+  ],
+  "limitation": "Legacy summary data has no killer event; these are honest cause fallbacks. Exact killer attribution is checked separately by ui-repair-replay.mjs."
+}

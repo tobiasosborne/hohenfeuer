@@ -15,7 +15,6 @@ import { createSim } from "./sim/sim.js";
 import { createLoop } from "./core/loop.js";
 import { fixedElevation, traceFlight, weaponAvailable } from "./sim/ballistics.js";
 import { windHud } from "./sim/wind.js";
-import { palaceIntegrity } from "./sim/rules.js";
 import { readStyle } from "./render/styles.js";
 import { createRenderer } from "./render/renderer.js";
 import { createSky } from "./render/sky.js";
@@ -47,6 +46,9 @@ import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-s
 import { createTb3Script, TB3 } from "./tb3-script.js";
 import { windVector } from "./sim/wind.js";
 import { createProgression, loadProfile, freshProfile, profileForMatch, contextualPrompt, WEAPON_ORDER } from "./progression.js";
+import { createBattleFeedback, palaceStatus, pressureText, idleDiagnosis, impactText, cardinal, lossAccount, readableWork } from "./ui/battle-feedback.js";
+import { localInterventions, localWorkProgress, interventionText } from "./player/interventions.js";
+import { raycast } from "./world/grid.js";
 
 /** Scripted slices: tb1 = palace shot; tb2 = crewed wall shot; tb3 = rampart designation and mason construction. */
 const SCRIPTS = { tb1: () => createTb1Script(), feel: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }), tb3: () => createTb3Script() };
@@ -98,6 +100,16 @@ let toast = null;
 let moraleReason = null;
 let prev = capture(view);
 let lastEvents = [];
+const battleFeedback = createBattleFeedback(ME);
+const initialWalls = [];
+{
+  const p = view.castles[ME].plot;
+  for (let i = 0; i < p.type.length; i++) if (p.type[i] === 1) initialWalls.push({ block: 1,
+    cell: [i % p.width, Math.floor(i / (p.width * p.depth)), Math.floor(i / p.width) % p.depth] });
+}
+let lastShotWeapon = null, battleNotice = null, feedbackPose = null;
+let triageUsed = false;
+const idleEvents = new Map();
 
 function capture(s) {
   return {
@@ -369,6 +381,8 @@ function tick(forcePlayer = false) {
   sim.tick(cmds);
   const events = sim.drainEvents();
   view = sim.state;
+  if (cmds.some(c => c.slot === ME && c.type === CMD.REPAIR_PRIORITY && view.castles[ME].jobs?.some(j =>
+    j.kind === "repair" && j.priority > 0 && j.target.cell?.every((n, i) => n === c.cell[i])))) triageUsed = true;
   const man = cmds.find(c => c.slot === ME && c.type === CMD.MAN_WEAPON);
   if (man && previousManning !== man.weaponId && view.rulers[ME].manning === man.weaponId) progression.usePrompt("man");
   if (cmds.some(c => c.slot === ME && c.type === CMD.FIRE) && (view.castles[ME].stats?.shots ?? 0) > previousShots) progression.usePrompt("fire");
@@ -383,10 +397,36 @@ function tick(forcePlayer = false) {
 
 function handleEvents(events) {
   lastEvents = events;
+  // SHOT_FIRED's legacy payload has no projectile ID. Match newly public IDs in launch order,
+  // including a projectile that hit in its launch tick, so overlapping flights retain their own aim.
+  const launched = new Map();
+  const newIds = [...view.projectiles.filter(p => p.sourceSlot === ME && !prev.projectiles.has(p.id)).map(p => ({ id: p.id, weaponId: p.weaponId })),
+    ...events.filter(e => e.type === EV.IMPACT && e.payload.slot === ME && Number.isInteger(e.payload.projectileId) && !prev.projectiles.has(e.payload.projectileId))
+      .map(e => ({ id: e.payload.projectileId, weaponId: e.payload.weaponId }))].sort((a,b) => a.id-b.id);
+  for (const projectile of newIds) { if (!launched.has(projectile.weaponId)) launched.set(projectile.weaponId, []); launched.get(projectile.weaponId).push(projectile.id); }
+  for (const e of events) if (e.type === EV.SHOT_FIRED && e.payload.slot === ME) {
+    const p = e.payload, w = WP(p.weaponId);
+    if (w) {
+      const fired = { ...w, aim: w.lastAim ?? w.aim };
+      predicted(fired);
+      battleFeedback.shot({ weaponId: w.id, projectileId: p.projectileId ?? launched.get(w.id)?.shift(), origin: p.pos,
+        aimPoint: predictedCache.point, aim: fired.aim }, view.tick);
+      lastShotWeapon = w.id;
+    }
+  }
+  const feedback = battleFeedback.ingest(events, view);
+  for (const notice of feedback.notices) battleNotice = { key: notice, until: view.tick + 6 * K.TICK_HZ };
+  if (feedback.sound && !GOLDEN) sfx.play(EV.RULER_THREAT);
   const touched = new Set();
   for (const e of events) {
     const p = e.payload;
-    if (p.plot === ME && (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED) && [1, 2, 12].includes(p.id)) wallHit = true;
+    if (p.plot === ME && (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED) && [1, 2, 12].includes(p.id)) {
+      const m = mirrors[ME], i = p.cell[0] + m.width * p.cell[2] + m.width * m.depth * p.cell[1];
+      if (e.type === EV.BLOCK_DESTROYED || p.hp < m.hp[i]) wallHit = true;
+    }
+    if (e.type === EV.WEAPON_IDLE && p.castle === ME) idleEvents.set(p.weaponId, { idleReason: p.reason, detail: p.detail });
+    if (e.type === EV.JOB_CREATED && p.castle === ME && p.kind === "repair" && view.castles[ME].jobs?.some(j => j.id === p.jobId && j.priority > 0)) triageUsed = true;
+    if (e.type === EV.DESIGNATION_ADDED && p.slot === ME) triageUsed = true;
     if (e.type === EV.NPC_DIED && p.castle === ME) moraleReason = { key: "moraleLoss", tick: view.tick };
     else if (e.type === EV.BLOCK_DAMAGED && p.plot === ME) moraleReason = { key: "moraleDamage", tick: view.tick };
     else if (e.type === EV.IMPACT && p.slot === ME && p.hit !== "terrain") moraleReason = { key: "moraleRally", tick: view.tick };
@@ -412,12 +452,16 @@ function handleEvents(events) {
         const inside = p.pos[0] >= o.x && p.pos[0] < o.x + enemy.plot.width && p.pos[2] >= o.z && p.pos[2] < o.z + enemy.plot.depth;
         if (inside && p.hit !== "terrain") {
           craters.push({ x: p.pos[0] - o.x, z: p.pos[2] - o.z, r: 1.5 });
-          log.push(t("hit", LANG, { pct: Math.round(palaceIntegrity(enemy) * 100) }), { tick: view.tick, tone: TONE.GOOD });
+          const impact = battleFeedback.impact(p.weaponId, view.tick);
+          log.push(t(impact?.kind === "palace" ? "impactPalace" : p.hit === "block" ? "impactWall" : "impactGun", LANG), { tick: view.tick, tone: TONE.GOOD });
         } else log.push(t("miss", LANG), { tick: view.tick, tone: TONE.INFO });
       }
+    } else if (e.type === EV.CASTLE_ELIMINATED && p.slot === ME && !view.outcome) {
+      if (!ME_IS_AI) progression.finish(false);
+      openMenu(SCREEN.OVER, { result: resultFor({ ...view, outcome: { winners: [], draw: false, tick: view.tick } }) });
     } else if (e.type === EV.GAME_OVER) {
       if (!ME_IS_AI) progression.finish(!p.draw && (p.winners ?? []).includes(ME));
-      openMenu(SCREEN.OVER, { result: matchResult(view, ME, settings) });
+      openMenu(SCREEN.OVER, { result: resultFor(view) });
     }
   }
   const shots = view.castles[ME].stats?.shots ?? 0;
@@ -433,7 +477,16 @@ function handleEvents(events) {
     m.type.set(src.type); m.hp.set(src.hp); m.meta.set(src.meta);
   }
   for (const m of [...eventsToMessages(events, { lang: LANG, slot: ME }), ...designationMessages(events, { lang: LANG, slot: ME })]) log.push(m.text, { tick: view.tick, tone: m.tone });
-  if (!GOLDEN) sfx.handle(events, { pos: [camera.position.x, camera.position.y, camera.position.z], yaw: -camera.rotation.y });
+  if (!GOLDEN) sfx.handle(events.filter(e => e.type !== EV.RULER_THREAT), { pos: [camera.position.x, camera.position.y, camera.position.z], yaw: -camera.rotation.y });
+}
+
+function resultFor(state) {
+  const result = matchResult(state, ME, settings);
+  if (!result.won && !result.draw) result.account = lossAccount(state, ME, battleFeedback, {
+    lang: LANG, nameOf: slot => result.rows.find(row => row.slot === slot)?.name,
+    weaponName: (id, defId) => getWeapon(defId ?? WP(id)?.defId)?.name?.[LANG] ?? t("enemyWeapon", LANG),
+  });
+  return result;
 }
 
 /* ------------------------------------------------------------------ render */
@@ -477,7 +530,8 @@ function frame(alpha) {
     rig.update({
       mode, dt,
       ruler: { pos: lerp3(prev.rulers.get(ME), me.pos, alpha), yaw, pitch, moving: !scripted },
-      weapon: w ? { pivot: [w.pos.x, w.pos.y, w.pos.z], azDeg: w.aim.az / T.aim.azUnitsPerDeg } : undefined,
+      weapon: w ? { pivot: [w.pos.x, w.pos.y, w.pos.z], azDeg: w.aim.az / T.aim.azUnitsPerDeg,
+        sight: weaponViews.get(w.id)?.nodes.sight.getWorldPosition(new THREE.Vector3()).toArray() } : undefined,
       freeLook,
       impact: w && w.lastImpact ? { point: [w.lastImpact.x, w.lastImpact.y, w.lastImpact.z], azDeg: w.aim.az / T.aim.azUnitsPerDeg } : undefined,
       follow: followCamPose(alpha, w),
@@ -547,6 +601,30 @@ function flatRange(w) {
 }
 
 const minimapCache = { tick: -1, own: null, enemy: null };
+const interventionCache = { key: null, choices: [] };
+function projectFeedback(pos) {
+  const v = new THREE.Vector3(...pos).project(camera);
+  if (v.z <= -1 || v.z >= 1 || Math.abs(v.x) > .96 || Math.abs(v.y) > .92) return null;
+  const y = Math.round((1 - v.y) / 2 * K.LOGICAL_H);
+  return y < 540 ? [Math.round((v.x + 1) / 2 * K.LOGICAL_W), y] : null;
+}
+const feedbackRay = new THREE.Raycaster();
+function visibleFeedback(pos, kind) {
+  const point = projectFeedback(pos);
+  if (!point || point[1] < 200 || point[1] > 500) return false;
+  if (kind === "crew") return true;
+  const direction = new THREE.Vector3(...pos).sub(camera.position), distance = direction.length();
+  feedbackRay.set(camera.position, direction.normalize()); feedbackRay.near = .05; feedbackRay.far = Math.max(.05, distance - .1);
+  return !feedbackRay.intersectObjects([...weaponViews.values()].filter(w => w.root.visible).map(w => w.root), true).length;
+}
+function workFeedback() {
+  const eye = view.rulers[ME].pos, from = { ...eye, y: eye.y + T.ruler.eye };
+  return readableWork(localWorkProgress(view, ME).filter(job => {
+    if (Math.hypot(job.pos[0] - eye.x, job.pos[1] - eye.y, job.pos[2] - eye.z) > 24) return false;
+    const hit = raycast(view.castles[ME].plot, from, { x: job.pos[0], y: job.pos[1], z: job.pos[2] });
+    return !hit || [hit.cell.x, hit.cell.y, hit.cell.z].every((v, i) => v === job.cell[i]);
+  }).filter(job => visibleFeedback(job.pos)).map(job => ({ ...job, screen: projectFeedback(job.pos) })).filter(job => job.screen));
+}
 function hudView(mode) {
   const meC = view.castles[ME], enemy = view.castles[1 - ME], w = mannedWeapon();
   if (minimapCache.tick !== view.tick) {
@@ -562,12 +640,44 @@ function hudView(mode) {
   const def = w ? getWeapon(w.defId) : null;
   const c = constructionContext();
   const selection = !w && c.build.mode !== BUILD.NONE && c.def ? { name: c.def.name[LANG], cost: c.def.cost, valid: c.ghost?.valid ?? false } : null;
-  return {
+  const threat = battleFeedback.danger(view.tick);
+  const reloadGun = w ?? WP(lastShotWeapon);
+  const reloading = reloadGun?.hp > 0 && reloadGun.reload < getWeapon(reloadGun.defId).reloadS;
+  const teachDamage = wallHit && !triageUsed && progression.profile.promptUses.build < 2;
+  const needsChoices = !ME_IS_AI && !selection && (reloading || teachDamage || threat);
+  const key = `${Math.floor(view.tick / 10)}:${mode}:${progression.features.match}:${camera.rotation.y.toFixed(2)}:${camera.rotation.x.toFixed(2)}:${needsChoices}:${!!threat}`;
+  if (interventionCache.key !== key) {
+    interventionCache.key = key;
+    interventionCache.choices = needsChoices ? localInterventions(view, ME, { features: progression.features,
+      blueprint: initialWalls, threatened: !!threat, visible: visibleFeedback }) : [];
+  }
+  const choices = interventionCache.choices;
+  const focusGun = w ?? (c.target?.own && c.target.kind === "weapon" ? WP(c.target.weaponId) : null);
+  const focusReason = focusGun?.idleReason ?? idleEvents.get(focusGun?.id)?.idleReason;
+  const diagnosis = w && focusReason === "reloading" ? null : idleDiagnosis(focusGun ? { ...idleEvents.get(focusGun.id), ...focusGun } : null,
+    { lang: LANG, features: progression.features, distance: w ? 0 : c.target?.dist, manned: !!w });
+  const impact = battleFeedback.impact(w?.id ?? lastShotWeapon, view.tick);
+  const reference = battleFeedback.reference(w?.id ?? lastShotWeapon);
+  const learning = contextualPrompt(progression.profile, { mode, target: c.target, wallHit: false, building: c.build.mode !== BUILD.NONE,
+    loaded: !!w && w.reload + 1e-9 >= def.reloadS, affordable: !!w && meC.gold >= def.fireCost, hasAmmo: !!w && w.ammo >= def.ammoLoads }, LANG);
+  const preferDiagnosis = diagnosis && focusReason !== "reloading" && !threat;
+  const guidance = choices.length && !preferDiagnosis ? { lines: choices.map(a => interventionText(a, LANG, !!w)),
+    leave: !!w && choices.some(a => a.kind !== "cover" && (a.kind !== "crew" || a.weaponId !== w.id)),
+    markers: choices.filter(a => a.pos).map(a => ({ ...a, screen: projectFeedback(a.pos) })).filter(a => a.screen) } : null;
+  const result = {
     lang: LANG, mode, tick: view.tick, features: progression.features,
     incomeRate: T.economy.palaceIncomeS + T.economy.civilianIncomeS * (meC.civiliansWorking ?? 0),
-    prompt: contextualPrompt(progression.profile, { mode, target: c.target, wallHit, building: c.build.mode !== BUILD.NONE,
-      loaded: !!w && w.reload + 1e-9 >= def.reloadS, affordable: !!w && meC.gold >= def.fireCost, hasAmmo: !!w && w.ammo >= def.ammoLoads }, LANG),
-    toast: toast && view.tick < toast.until ? t(toast.key, LANG) : null,
+    prompt: guidance ? null : diagnosis ? { id: "idle", text: diagnosis } : learning,
+    toast: !threat && battleNotice && view.tick < battleNotice.until ? t(battleNotice.key, LANG) : toast && view.tick < toast.until ? t(toast.key, LANG) : null,
+    guidance, work: workFeedback(),
+    danger: threat ? { ...threat, text: t("incoming", LANG, { dir: cardinal(threat.bearing ?? bearing, LANG), s: (threat.etaTicks / K.TICK_HZ).toFixed(1) }) } : null,
+    palace: palaceStatus(meC, view.tick),
+    pressure: progression.features.hud.morale ? pressureText(meC, LANG) : null,
+    impactFeedback: impact ? impactText(impact, LANG) : null,
+    aimReference: reference && [CAMERA_MODE.WEAPON, CAMERA_MODE.IMPACT].includes(mode) ? {
+      text: t("aimReference", LANG, { az: (reference.aim.az / 10).toFixed(1), charge: (reference.aim.range / 10).toFixed(1) }),
+      aim: projectFeedback(reference.aimPoint), last: reference.impact || reference.previousImpact ? projectFeedback(reference.impact ?? reference.previousImpact) : null,
+    } : null,
     paletteLabel: c.build.mode === BUILD.WEAPON ? t("arsenalHint", LANG, { name: c.def?.name?.[LANG] ?? "" }) : null,
     gold: Math.floor(meC.gold), pop: { now: meC.population, start: meC.initialPopulation },
     weapons: { now: view.weapons.filter((x) => x.slot === ME && x.hp > 0).length, cap: mapDef.weaponCap },
@@ -589,6 +699,8 @@ function hudView(mode) {
     castleColor: SLOT_COLORS[ME],
     menu,
   };
+  // Visual fixtures override only the HUD view, never the simulation or the player's career.
+  return GOLDEN && feedbackPose ? { ...result, ...feedbackPose } : result;
 }
 
 /* ------------------------------------------------------------------ loop and debug hook */
@@ -610,6 +722,16 @@ const api = installDebugApi({
   stepTo: (target) => stepTo(target),
   extras: {
     sim, kit, kitError, chunks, ghosts, hud, input,
+    feedback: battleFeedback,
+    feedbackEvents(events) {
+      if (!GOLDEN) throw new Error("feedbackEvents requires golden mode");
+      handleEvents(events); frame(0);
+    },
+    replayCommands(commands, until) {
+      if (!GOLDEN) throw new Error("replayCommands requires golden mode");
+      for (const command of commands) { stepTo(command.tick); queued.push({ ...command }); }
+      stepTo(until); chunks.flush(); frame(0); return view.tick;
+    },
     setProfile(value) {
       progression = createProgression({ profile: typeof value === "number" ? profileForMatch(value) : value ?? freshProfile() });
       toast = null; previousHits = view.castles[ME].stats?.directHits ?? 0; previousShots = view.castles[ME].stats?.shots ?? 0;
@@ -651,6 +773,7 @@ Object.defineProperties(api, {
   profile: { get: () => progression.profile, enumerable: true },
   features: { get: () => progression.features, enumerable: true },
   onboarding: { get: () => ({ wallHit, prompt: hudView(cameraMode()).prompt, toast: hudView(cameraMode()).toast }), enumerable: true },
+  battleHud: { get: () => hudView(cameraMode()), enumerable: true },
 });
 const lanePose = api.setPose;
 /**
@@ -659,6 +782,7 @@ const lanePose = api.setPose;
  * camera: "rig" (the player camera rig decides; position/yaw/pitch then only serve tools/blender, which needs them).
  */
 api.setPose = (p) => {
+  if (GOLDEN && p.feedback !== undefined) feedbackPose = p.feedback;
   if (p.profile !== undefined) api.setProfile(p.profile);
   if (p.showJobs !== undefined) showJobs = p.showJobs && progression.features.hud.jobs;
   if (p.followCam) follow.setEnabled(true);
@@ -670,7 +794,9 @@ api.setPose = (p) => {
   chunks.flush(); // goldens must not depend on how many frames the remesh budget gets
   if (p.position && p.camera !== "rig") { freeCamera = { pos: p.position, yaw: -(p.yaw ?? 0), pitch: p.pitch ?? 0, roll: 0, fov: p.fov ?? T.ruler.fovDeg, showRuler: p.showRuler }; lanePose(p); }
   if (p.matchOver) { // golden end screen: a stubbed outcome over the real stats of the scripted slice
-    openMenu(SCREEN.OVER, { result: matchResult({ ...view, outcome: { tick: view.tick, ...p.matchOver } }, ME, settings) });
+    const result = resultFor({ ...view, outcome: { tick: view.tick, ...p.matchOver } });
+    if (GOLDEN && p.account) result.account = p.account;
+    openMenu(SCREEN.OVER, { result });
   }
   frame(0);
   return { tick: view.tick, mode: cameraMode() };

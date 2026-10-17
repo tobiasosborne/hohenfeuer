@@ -368,5 +368,433 @@
     "page": "index.html?golden=1&screen=main&profile=0",
     "width": 1024,
     "height": 768
+  },
+  "danger-match1": {
+    "page": "index.html?golden=1&lang=en&profile=0",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "danger": {
+        "bearing": 180,
+        "text": "Incoming from S / impact in 2.4 s"
+      },
+      "guidance": {
+        "lines": [
+          "E + WASD: seek cover / pause aiming"
+        ],
+        "markers": []
+      },
+      "prompt": null,
+      "toast": null
+    }
+  },
+  "reload-choices": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": {
+        "lines": [
+          "R: repair / 2.4 gold / restore cover",
+          "Q: call crew / 0 gold / enable reloading"
+        ],
+        "leave": true,
+        "markers": [
+          {
+            "screen": [
+              620,
+              360
+            ]
+          }
+        ]
+      },
+      "prompt": null,
+      "toast": null
+    }
+  },
+  "repair-progress": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "work": [
+        {
+          "screen": [
+            615,
+            360
+          ],
+          "progress": 0.6,
+          "kind": "repair",
+          "active": true
+        }
+      ],
+      "guidance": null,
+      "prompt": null
+    }
+  },
+  "idle-no-crew": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": null,
+      "prompt": {
+        "text": "Missing crew 0/2 / Q: call crew"
+      },
+      "toast": null
+    }
+  },
+  "idle-no-ammo": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": null,
+      "prompt": {
+        "text": "No ammunition / Hauler en route"
+      },
+      "toast": null
+    }
+  },
+  "idle-no-gold": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": null,
+      "prompt": {
+        "text": "Not enough gold / Wait for income"
+      },
+      "toast": null,
+      "gold": 0
+    }
+  },
+  "idle-obstructed": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": null,
+      "prompt": {
+        "text": "Firing lane blocked / Arrows: aim for a clear lane"
+      },
+      "toast": null
+    }
+  },
+  "idle-damaged": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": null,
+      "prompt": {
+        "text": "Gun damaged / Go to an intact gun"
+      },
+      "toast": null,
+      "weapon": {
+        "name": "Cannon",
+        "hpPct": 0,
+        "rangeM": 174,
+        "az": 893,
+        "range": 1016,
+        "reload": 0,
+        "loaded": false,
+        "fireCost": 8,
+        "affordable": true
+      }
+    }
+  },
+  "palace-0959": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "palace": {
+        "integrity": 0.62,
+        "threshold": 0.3,
+        "margin": 0.32
+      },
+      "toast": null,
+      "guidance": null,
+      "prompt": null,
+      "pressure": null
+    }
+  },
+  "palace-1001": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "palace": {
+        "integrity": 0.62,
+        "threshold": 0.3008333,
+        "margin": 0.3192
+      },
+      "toast": "From minute 10 the defeat line rises to 55%.",
+      "guidance": null,
+      "prompt": null,
+      "pressure": null
+    }
+  },
+  "palace-1230": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "palace": {
+        "integrity": 0.62,
+        "threshold": 0.425,
+        "margin": 0.195
+      },
+      "toast": null,
+      "guidance": null,
+      "prompt": null,
+      "pressure": null
+    }
+  },
+  "palace-1501": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "palace": {
+        "integrity": 0.62,
+        "threshold": 0.55,
+        "margin": 0.07
+      },
+      "toast": "Defeat line now 55%. Keep the palace above it.",
+      "guidance": null,
+      "prompt": null,
+      "pressure": null
+    }
+  },
+  "surrender-pressure": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "pressure": "losses / surrender 20/45 s",
+      "guidance": null,
+      "prompt": null,
+      "toast": null,
+      "morale": {
+        "value": 30
+      }
+    }
+  },
+  "impact-wall-offset": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 355,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "followCam": true,
+    "feedback": {
+      "impactFeedback": "Wall hit / 10 m short / 3 m right",
+      "aimReference": {
+        "aim": [
+          520,
+          340
+        ],
+        "last": [
+          495,
+          390
+        ],
+        "text": "Last shot: 90.0 deg / charge 100"
+      },
+      "guidance": null,
+      "prompt": null,
+      "toast": null
+    }
+  },
+  "impact-palace-offset": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 355,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "followCam": true,
+    "feedback": {
+      "impactFeedback": "Palace damaged / 10 m short / 3 m right",
+      "aimReference": {
+        "aim": [
+          520,
+          340
+        ],
+        "last": [
+          495,
+          390
+        ],
+        "text": "Last shot: 90.0 deg / charge 100"
+      },
+      "guidance": null,
+      "prompt": null,
+      "toast": null,
+      "messages": [
+        {
+          "text": "Palace damaged",
+          "tone": "good"
+        }
+      ]
+    }
+  },
+  "defeat-ruler": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "matchOver": {
+      "winners": [
+        1
+      ],
+      "draw": false,
+      "tick": 1380
+    },
+    "account": {
+      "cause": "0:46: Kunibert killed your ruler with Cannon from E.",
+      "events": [
+        "0:43 / Incoming shot near ruler",
+        "0:45 / Own gun destroyed",
+        "0:46 / Ruler killed"
+      ]
+    }
+  },
+  "defeat-palace": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "matchOver": {
+      "winners": [
+        1
+      ],
+      "draw": false,
+      "tick": 22500
+    },
+    "account": {
+      "cause": "12:30: Palace at 41%, below the 42.5% defeat line.",
+      "events": [
+        "12:30 / Palace breached"
+      ]
+    }
+  },
+  "defeat-surrender": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "matchOver": {
+      "winners": [
+        1
+      ],
+      "draw": false,
+      "tick": 25800
+    },
+    "account": {
+      "cause": "14:20: Your castle surrendered; strongest pressure: losses.",
+      "events": [
+        "14:18 / Own gun destroyed",
+        "14:20 / Castle surrendered"
+      ]
+    }
+  },
+  "reload-replacement": {
+    "page": "index.html?golden=1&lang=en&profile=10",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": {
+        "lines": [
+          "G + click: cannon / 750 gold / restore firepower"
+        ],
+        "leave": true,
+        "markers": [
+          {
+            "screen": [
+              620,
+              360
+            ]
+          }
+        ]
+      },
+      "prompt": null,
+      "toast": null
+    }
+  },
+  "first-damage-match1": {
+    "page": "index.html?golden=1&lang=en&profile=0",
+    "script": "tb1",
+    "until": 255,
+    "camera": "rig",
+    "width": 1024,
+    "height": 768,
+    "feedback": {
+      "guidance": {
+        "lines": [
+          "B + click: stone / 4 gold / close gap"
+        ],
+        "leave": true,
+        "markers": [
+          {
+            "screen": [
+              620,
+              360
+            ]
+          }
+        ]
+      },
+      "prompt": null,
+      "toast": null
+    }
   }
 }

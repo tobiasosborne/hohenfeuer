@@ -1,0 +1,13 @@
+[
+  "src/tuning.js",
+  "src/ai/controller.js",
+  "src/ai/view.js",
+  "src/ai/build.js",
+  "src/sim/weapons.js",
+  "src/sim/rules.js",
+  "src/sim/sim.js",
+  "src/npc/kinematics.js",
+  "src/npc/jobs.js",
+  "src/npc/path.js",
+  "src/npc/brain.js"
+]

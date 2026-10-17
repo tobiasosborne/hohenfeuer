@@ -1,0 +1,17 @@
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (26.26367ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (4.212313ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.488685ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.872097ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (5.50856ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (2.266764ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (7.997611ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.454735ms)
+✔ defeat offers Enter retry as its first action and preserves setup (5.495236ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 542.323094

@@ -107,7 +107,9 @@ test("end screen shows the result and returns to setup or title", () => {
     { slot: 0, name: "Spieler", shots: 3, hits: 1, damage: 40, losses: 2 }, { slot: 1, name: "KI", shots: 5, hits: 4, damage: 120, losses: 0 }] };
   const m = fresh({ screen: SCREEN.OVER, result });
   assert.equal(m.result, result);
-  assert.deepEqual(m.items.map((i) => i.id), ["setup", "title"]);
+  assert.deepEqual(m.items.map((i) => i.id), ["restart", "setup", "title"]);
+  assert.equal(m.key("Enter").type, MENU_EVENT.RESTART);
+  m.key("ArrowDown");
   const ev = m.key("Enter");
   assert.equal(ev.type, MENU_EVENT.SETUP); assert.deepEqual(ev.settings, m.settings);
   assert.equal(m.key("Escape"), null, "Esc does not dismiss the end screen");

@@ -1,0 +1,50 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-spawn: ok (0 px differ)
+tb1-first-shot: FAIL 8272 px differ (1.052%)
+rampart-north: ok (0 px differ)
+weapon-view-cannon: ok (0 px differ)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (0 px differ)
+example-wall: ok (0 px differ)
+courtyard-palace: ok (0 px differ)
+crew-at-cannon: FAIL 8923 px differ (1.135%)
+cannon-sight: ok (0 px differ)
+muzzle-flash: FAIL 8269 px differ (1.051%)
+smoke-trail: FAIL 8269 px differ (1.051%)
+impact-dust: FAIL 16573 px differ (2.107%)
+tb3-designate: ok (0 px differ)
+tb3-built: FAIL 2906 px differ (0.370%)
+menu-title: ok (0 px differ)
+menu-skirmish: ok (0 px differ)
+match-over: FAIL 63174 px differ (8.033%)
+modern-rampart-north: ok (0 px differ)
+modern-weapon-view-cannon: ok (0 px differ)
+modern-courtyard-palace: ok (0 px differ)
+modern-impact-dust: FAIL 16349 px differ (2.079%)
+feel-recoil: FAIL 8258 px differ (1.050%)
+impact-view: FAIL 18026 px differ (2.292%)
+npc-markers: FAIL 2633 px differ (0.335%)
+hud-match1: ok (0 px differ)
+hud-match3: ok (0 px differ)
+quick-start-title: ok (0 px differ)
+danger-match1: FAIL 1153 px differ (0.147%)
+reload-choices: FAIL 8038 px differ (1.022%)
+repair-progress: FAIL 8038 px differ (1.022%)
+idle-no-crew: FAIL 8038 px differ (1.022%)
+idle-no-ammo: golden written
+idle-no-gold: golden written
+idle-obstructed: golden written
+idle-damaged: golden written
+palace-0959: golden written
+palace-1001: golden written
+palace-1230: FAIL 1931 px differ (0.246%)
+palace-1501: golden written
+surrender-pressure: FAIL 2081 px differ (0.265%)
+impact-wall-offset: FAIL 6555 px differ (0.834%)
+impact-palace-offset: golden written
+defeat-ruler: ok (30 px differ)
+defeat-palace: golden written
+defeat-surrender: golden written

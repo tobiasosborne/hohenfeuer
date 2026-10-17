@@ -1,0 +1,30 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-first-shot: golden written
+crew-at-cannon: golden written
+muzzle-flash: golden written
+smoke-trail: golden written
+impact-dust: golden written
+tb3-built: golden written
+match-over: golden written
+modern-impact-dust: golden written
+feel-recoil: golden written
+impact-view: golden written
+npc-markers: golden written
+danger-match1: golden written
+reload-choices: golden written
+repair-progress: golden written
+idle-no-crew: golden written
+idle-no-ammo: golden written
+idle-no-gold: golden written
+idle-obstructed: golden written
+idle-damaged: golden written
+palace-0959: golden written
+palace-1001: golden written
+palace-1230: golden written
+palace-1501: golden written
+surrender-pressure: golden written
+impact-wall-offset: golden written
+impact-palace-offset: golden written

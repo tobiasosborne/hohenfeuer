@@ -1,3 +1,25 @@
+<!-- owns: repair-wave-2 UI handoff and links to reproducible evidence. -->
+# HANDOFF — Repair wave 2, UI lane (2026-10-18)
+
+## What was done
+Implemented directional ruler danger with ETA and a bounded short sound; cause-specific defeat sentences, up to three decisive events and Enter retry preserving setup; at most two legal contextual reload alternatives; visible paid repair progress; idle-gun reason/action diagnostics; the published palace defeat line and bounded notices; pressure/surrender progress on morale; two-second signed impact offsets with retained aim/impact references. Match-1 gates and retiring prompts remain intact. Gameplay now uses authored weapon Sight positions; broader sight calibration remains separate. All new strings have German and English entries in `src/ui/i18n.js`.
+
+Evidence and the requested provisional rubric subset are in [research/21-repair-wave-2-ui.md](research/21-repair-wave-2-ui.md). Actual AI5 seed6 has a warning at about 0:43 before its attributed 0:46 ruler loss; browser/headless replay, one-key retry and early local defeat in a multi-castle battle pass. Actual R repair goes 24→25→40 HP with 1.28 gold of materials. Actual clock captures at 9:59/10:01/12:30/15:01 display the current published line. UI/player/render: 157 tests pass; build, browser smoke, flow and all six onboarding checks pass. All 48 final snapshot poses compare at zero pixels after inspected refinements (20 new poses, 11 prior baselines replaced); `goldens-final.json` and the source hashes record the scope. Shared-tree integration remains `.17`.
+
+## Remaining
+`.10` and `.13` still require their specified unbriefed human sessions; the unchanged novice proxy does not observe the HUD. `.15` retains the precise 190 m convergence acceptance: ten calm seeds hit the castle within four shots, but that is not proof of precise chosen-point convergence. `.11` is still sim-lane owned. `.17` owns settled shared-tree integration and reconciling the palace base: the final captured sim used a 20% base and quadratic ramp, while the UI brief said 30%. The UI reads the field correctly rather than hiding this difference. The full shared-tree/snapshot test runs contain simulation-wide failures documented in research/21; no global-green or human-comprehension claim is made.
+
+## Key techniques
+The new pure modules are `src/ui/battle-feedback.js` and `src/player/interventions.js`; drawing is `src/ui/battle-draw.js`. Threat IDs deduplicate visual/audio cues; per-projectile launch snapshots protect overlapping-shot feedback. Optional sim fields hide cleanly. Actual picker/ghost/designation rules, live costs and job priority filter reload suggestions; weapon meshes and fixed HUD regions prevent misleading or overlapping world labels. The end account groups casualties from one blast. No sim, NPC, AI, tuning, map or contracts file was edited. Visual fixtures use `setPose` HUD overrides, never sim-state stubs. A recorded temporary source snapshot separates reproducible UI validation from concurrently changing simulation inputs; `shared-tree-differences.json` records that boundary.
+
+## Issues touched
+Closed `castle-game-uo7.9` and `castle-game-uo7.14` with evidence. Implemented the UI portions of `.10`, `.13`, `.15` and `.11`, leaving their unfulfilled acceptance explicit. Updated `castle-game-hoq` with the Sight hookup and kept its calibration open. Created `castle-game-uo7.17` for final shared-tree checks. No git commands or `bd dolt push` were run.
+
+## Next step
+Orchestrator integrates both lanes and runs `.17` on the settled source tree, then conducts the unbriefed-user sessions and a precise aiming trial. Preserve the distinction between actual replay/repair/clock captures, arbitrary-field goldens and human evidence. Previous sessions follow unchanged.
+
+---
+
 <!-- owns: the current critique handoff and preserved earlier session records. -->
 # HANDOFF — Gameplay critique v2
 

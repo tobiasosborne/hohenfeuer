@@ -1,0 +1,12 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+danger-match1: golden written
+reload-choices: golden written
+repair-progress: golden written
+idle-no-crew: golden written
+palace-1230: golden written
+surrender-pressure: golden written
+impact-wall-offset: golden written
+defeat-ruler: golden written

@@ -1,0 +1,6 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+idle-damaged: golden written
+impact-palace-offset: golden written

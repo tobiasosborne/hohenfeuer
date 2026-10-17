@@ -1,0 +1,15 @@
+- Implemented directional danger warnings, ETA, and bounded sound.
+- Added causal defeat accounts and Enter retry preserving setup.
+- Reload alternatives show legal actions, costs, and consequences.
+- Repairs show progress; idle guns explain their firing problem.
+- Palace defeat line and surrender pressure/progress are visible contextually.
+- Impacts show two-second corrections and retained reference marks.
+- Preserved match-1 gates and retiring prompts.
+- Verified the seed-6 loss and paid repair in-browser.
+- 157 lane tests, build, browser, flow, and onboarding checks passed.
+- 48 snapshot goldens verified at zero pixels: 20 new, 11 replaced.
+- Closed `uo7.9` and `uo7.14`.
+- Human tests (`.10/.13`) and precise 190 m convergence (`.15`) remain open.
+- Filed `.17` for integration failures and the sim’s 20% versus brief’s 30% palace base.
+- Updated [research/21](/home/tobias/Projects/castle-game/research/21-repair-wave-2-ui.md) and [HANDOFF](/home/tobias/Projects/castle-game/HANDOFF.md).
+- Ran no git commands or `bd dolt push`.

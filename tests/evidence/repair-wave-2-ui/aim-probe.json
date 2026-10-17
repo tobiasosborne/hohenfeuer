@@ -1,0 +1,687 @@
+{
+  "definition": "190m-class forest duel, rough charge 96, initial bearing error +2 degrees, rounded bearing, observed lateral correction and two-charge bracketing; never calls solveAim/geometryAim in the shot policy",
+  "results": [
+    {
+      "seed": 1,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -3,
+            "lateral": 8
+          },
+          "enemy": true,
+          "point": [
+            285.19303330542647,
+            1,
+            132.89999113436946
+          ]
+        },
+        {
+          "az": 884,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.3758687640982226,
+            122.99924054998873
+          ]
+        },
+        {
+          "az": 891,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.257351305915367,
+            123.25165103841488
+          ]
+        },
+        {
+          "az": 898,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.007697866791284,
+            126.64329179095252
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 2,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 4
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.831698654867572,
+            128.9065559354445
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.951655574654729,
+            125.0378306103071
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.15961571439208,
+            125.03783061030714
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.4913114551004583,
+            126.60725592922822
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 3,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -4,
+            "lateral": 7
+          },
+          "enemy": true,
+          "point": [
+            284.40141528179123,
+            1,
+            132.34738417166315
+          ]
+        },
+        {
+          "az": 887,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.5628025888741517,
+            123.3691260043575
+          ]
+        },
+        {
+          "az": 894,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.6518949125346616,
+            125.45288609089232
+          ]
+        },
+        {
+          "az": 894,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.1470652891211546,
+            127.28379040532462
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 4,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.144480189643727,
+            128.38344448604667
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.1412046051667537,
+            126.19225573448381
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.8072322854168585,
+            124.51460925513894
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.2699941710739533,
+            127.76154392948065
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 5,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -3,
+            "lateral": 6
+          },
+          "enemy": true,
+          "point": [
+            284.97717747407523,
+            1,
+            131.03994491468225
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.0765226157246195,
+            125.3087241620302
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.1040901741929203,
+            124.00063494317062
+          ]
+        },
+        {
+          "az": 893,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.8096575969544815,
+            124.63204792411727
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 6,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 5
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.2491724108171387,
+            129.95286812531637
+          ]
+        },
+        {
+          "az": 894,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.428107299980923,
+            125.19129964021721
+          ]
+        },
+        {
+          "az": 894,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.4132837984267046,
+            124.40647015720998
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.137485647102815,
+            123.99133168307443
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 7,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -4,
+            "lateral": 6
+          },
+          "enemy": true,
+          "point": [
+            284.2943077988034,
+            1,
+            131.02592960512203
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.176444719398079,
+            126.35500248367046
+          ]
+        },
+        {
+          "az": 887,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.157857456369913,
+            124.93900376046544
+          ]
+        },
+        {
+          "az": 887,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.047744268799314,
+            123.89248324382879
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 8,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.318112200210884,
+            128.3834444860466
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.1810886046762015,
+            127.5
+          ]
+        },
+        {
+          "az": 893,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.13865587558994,
+            125.93999345653829
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 0
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.3344184636301195,
+            125.30872416203032
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 9,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.093316451785601,
+            127.59880541803123
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.146265948067664,
+            128.0230890898427
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -3
+          },
+          "enemy": true,
+          "point": [
+            283,
+            3.9096193864079236,
+            122.16858349299139
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.178907822752099,
+            126.7153632880097
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    },
+    {
+      "seed": 10,
+      "distance": 175.51780536458404,
+      "shots": [
+        {
+          "az": 910,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -4,
+            "lateral": 6
+          },
+          "enemy": true,
+          "point": [
+            284.43874845557895,
+            1,
+            130.7650403855921
+          ]
+        },
+        {
+          "az": 890,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            4.286468670038933,
+            123.21559356233377
+          ]
+        },
+        {
+          "az": 897,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": -1
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.9416639754906897,
+            124.51460925513895
+          ]
+        },
+        {
+          "az": 900,
+          "charge": 96,
+          "hit": "block",
+          "offset": {
+            "range": -5,
+            "lateral": 2
+          },
+          "enemy": true,
+          "point": [
+            283,
+            2.7977790294196616,
+            127.23845607051929
+          ]
+        }
+      ],
+      "firstEnemyHit": 1,
+      "within3m": false
+    }
+  ],
+  "enemyHitWithinFour": 10,
+  "within3m": 0
+}

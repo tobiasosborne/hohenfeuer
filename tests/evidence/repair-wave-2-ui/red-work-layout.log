@@ -1,0 +1,25 @@
+file:///home/tobias/Projects/castle-game/tests/unit/ui-feedback.test.js:5
+import { createBattleFeedback, impactOffset, impactText, palaceStatus, pressureText, idleDiagnosis, threatEdge, lossAccount, readableWork } from '../../src/ui/battle-feedback.js';
+                                                                                                                             ^^^^^^^^^^^^
+SyntaxError: The requested module '../../src/ui/battle-feedback.js' does not provide an export named 'readableWork'
+    at #_instantiate (node:internal/modules/esm/module_job:254:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:369:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.11.1
+✖ tests/unit/ui-feedback.test.js (88.451918ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.482908
+
+✖ failing tests:
+
+test at tests/unit/ui-feedback.test.js:1:1
+✖ tests/unit/ui-feedback.test.js (88.451918ms)
+  'test failed'

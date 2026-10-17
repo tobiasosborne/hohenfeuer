@@ -1,0 +1,37 @@
+{
+  "replaced": [
+    "tb1-first-shot",
+    "crew-at-cannon",
+    "muzzle-flash",
+    "smoke-trail",
+    "impact-dust",
+    "tb3-built",
+    "match-over",
+    "modern-impact-dust",
+    "feel-recoil",
+    "impact-view",
+    "npc-markers"
+  ],
+  "added": [
+    "danger-match1",
+    "reload-choices",
+    "repair-progress",
+    "idle-no-crew",
+    "idle-no-ammo",
+    "idle-no-gold",
+    "idle-obstructed",
+    "idle-damaged",
+    "palace-0959",
+    "palace-1001",
+    "palace-1230",
+    "palace-1501",
+    "surrender-pressure",
+    "impact-wall-offset",
+    "impact-palace-offset",
+    "defeat-ruler",
+    "defeat-palace",
+    "defeat-surrender",
+    "reload-replacement",
+    "first-damage-match1"
+  ]
+}

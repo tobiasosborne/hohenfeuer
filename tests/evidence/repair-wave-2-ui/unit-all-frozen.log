@@ -1,0 +1,608 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ level 10 hits a 3m static target at 192m within six shots, median 20 seeds / 200 shots (714.618147ms)
+ℹ level 10: 179/200 hits; median first hit 2; first-hit shots 1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,4
+✔ level 1 misses the target through 20 shots for the median of the same 20 seeds (572.853968ms)
+ℹ level 1: 6/400 hits; 14/20 seeds never hit within 20 shots
+✔ geometry obeys north/east dial semantics and clamps through the production table (19.279126ms)
+✔ published crosswind is compensated using the production integrator (16.726627ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (24.204715ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (1.461988ms)
+✔ range learning never grows exploration by treating a degree floor as a range fraction (9.089958ms)
+✔ correction starts from actual fired settings including the previous exploration error (0.928475ms)
+✔ TB2: fixed-elevation charge solver accounts for target height with wind (39.853405ms)
+✔ TB2: a ground impact past an elevated target does not create a false short-charge correction (2.652114ms)
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (6.750753ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (2.486945ms)
+✔ lost blueprint weapons are replaced on free mount spots using emergency funds before the normal masonry reserve (research/16 P4) (1.845712ms)
+✔ replacement understands public world positions and counts pending same-type replacements (1.517019ms)
+✔ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (1.467ms)
+✔ recovery rebuilds a lost mount from replacement savings before ordinary walls (1.011789ms)
+✔ a castle buys one affordable ballista while saving for its lost cannon (457.943475ms)
+✔ essential supply work can use the last gold when no battery can spend a shot reserve (0.553533ms)
+✔ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (213.530173ms)
+✔ AI skips pending designations using NPC metadata and the open-designation cap (25.740258ms)
+✔ entry signature returns integer next-tick commands only on shared AI cadence (16.462099ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (49.417106ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (40.303925ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (12.915722ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (24.091103ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (20.744792ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (53.208245ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (21.448507ms)
+✔ TB3: block rebuilds and cannon replacements share the last open designation slot in one think (36.249504ms)
+✔ critical resupply cancels unclaimed roof reservations when the designation queue is full (12.530951ms)
+✔ level 3 changing the aim point retains learned confidence (11.070715ms)
+✔ level 5 changing the aim point retains learned confidence (6.601826ms)
+✔ a replacement cannon inherits its castle ranged confidence (8.92066ms)
+✔ a muzzle obstruction in our castle cannot poison enemy ranging memory (12.941932ms)
+✔ AI waits for its own worker to clear the upcoming muzzle lane (35.535954ms)
+✖ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (67696.68351ms)
+✔ TB2: registered forest-duel seed 1 general AIs produce a winner in 15 minutes (137010.555851ms)
+ℹ forest-duel seed 1: {"tick":18160,"hash":3479574018,"winner":1,"shots":[25,28]}, 605.3333333333334s
+✔ one scripted palace shot cannot flatten a protected keep (5267.993912ms)
+ℹ first shot: palace integrity 1, 0/48 palace cells destroyed
+✔ level 5 forest-duel seed 1 ends with a winner in 12-20 sim minutes (DESIGN 3.8; research/17) (201346.946759ms)
+ℹ {"seed":1,"ticks":24954,"seconds":831.8,"winner":[0],"reason":["palace"],"shots":[34,33],"hash":2421619154}
+✔ opposite attackers choose mirrored palace aim points and stick to the breach (667.845151ms)
+✔ initial guns preserve facing: operator cells never alias another slot instance (513.439965ms)
+✔ AI prepares paid flank batteries and replaces a lost front gun away from the breach (355.290335ms)
+✔ a threatened AI ruler walks to cover through normal next-tick movement commands (1047.989233ms)
+✔ a ruler responds again when later impacts expose its previous shelter (850.899314ms)
+✔ ruler shelter search includes covered buildings away from the palace firing lane (644.047353ms)
+✔ a protected palace is breached at the wall base instead of repeatedly aiming behind it (611.934477ms)
+✔ map slots become a validated deterministic slot table with per-slot settings (36.99742ms)
+✔ AI to local to AI swaps only controller metadata and keeps external state untouched (7.03678ms)
+✔ Phase 4 timer and lockstep interfaces are explicit NotImplemented stubs (0.802792ms)
+✔ sweep defaults to twenty paired matches, supports sixty and unequal AI levels (28.78148ms)
+✔ sweep reports first-gun comebacks and excludes timeouts from wins (1.965913ms)
+✔ sweep can reproduce a later seed without replaying earlier matches (10.914728ms)
+✔ unequal-level sweep exercises both physical assignments independently of slot order (1.334785ms)
+✔ target values and tactic weights follow tuning and score ties use id order (27.525904ms)
+✔ straight guns target the wall shielding palace; lobbed guns can retain palace (223.906081ms)
+✔ allies and eliminated castles are excluded; visible rulers are immediate-win targets (40.002151ms)
+✔ magazines, weapons and public crew clusters can be selected without private enemy state (59.865373ms)
+✔ visibility starts at the cannon muzzle above a low own parapet, rather than at its feet (0.943158ms)
+✔ weapons on mounts and people on foundations are aimed at their visible body centres (78.573585ms)
+✔ TB2: ballistic targeting prefers an exposed enemy gun over a gun behind its keep (1528.36734ms)
+✔ TB3: AI duel with real paid rebuilds ends in 12-20 minutes (DESIGN 3.8; research/17) and all replay checkpoint hashes agree (445181.339752ms)
+ℹ {"tick":24954,"hash":2421619154,"winner":[0],"designated":112,"built":25,"hashes":"84 identical checkpoints","seconds":831.8}
+✔ trained low-level crews retain misses without a six-metre permanent range floor (3.536725ms)
+✔ breach policy intentionally chooses a ruler only after the exposure window, and resets on lost sight (846.525184ms)
+✔ a losing ruler can lead its front crew using ordinary reachable movement (501.907842ms)
+✖ the leadership route physically climbs the front stairs and mans the cannon (5267.401668ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs' imported from /tmp/castle-wave2-ui-gibhxsnq/tests/unit/ai-weapon-aim.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ai-weapon-aim.test.js (210.543241ms)
+✔ contracts.js is pure: no three.js or DOM imports (7.923825ms)
+✔ enums are frozen and their values unique (0.740074ms)
+✔ every core block in TUNING has a BLOCK id below 64, and vice versa (2.004413ms)
+✔ K is derived from TUNING (0.332405ms)
+✔ registration round-trips and stored defs are frozen (10.403265ms)
+✔ registerPlugin dispatches by kind and rejects unknown kinds and spells (1.30771ms)
+✔ duplicates are rejected (1.783644ms)
+✔ freezeRegistries returns a stable hash and blocks later registration (10.817417ms)
+✔ freeze cross-checks references (4.377577ms)
+✔ validators reject malformed weapons with precise messages (2.519008ms)
+✔ validators reject malformed blocks, npc types, castles and maps (2.409955ms)
+✔ validateCommand accepts integer commands and rejects the rest (1.344928ms)
+✔ validateSlot checks controller, level and tactic (1.679981ms)
+✔ META documents the plot meta byte; the designated bit matches lane E's interact.js (26.593056ms)
+NPC advisory: 160 NPCs average 2.535 ms/tick; target <= 4 ms
+✔ tick zero creates P NPCs with seeded thresholds and research role shares at usable spots (45.587588ms)
+✔ ORDER_CREW claims crew, counts only arrived living workers, release drops assignments (184.21323ms)
+✔ N=3 reload table for 0..3 crew, ruler counts, and minimum crew fire gate (15.601055ms)
+✔ runner takes two loads and deposits at operator cell; destroyed magazine starves buffer (59.43626ms)
+✔ shelter preempts civilians and empty runners, reserves one cell each, carrying runners continue (33.960927ms)
+✔ flee/return hysteresis holds at thresholds and drops claims (3.640394ms)
+✔ low morale deserts highest-id civilian after 20s, then one each 10s, without death penalties (148.044019ms)
+✔ draft retags one civilian every 10s for minimum runners, then masons, then needed crew (1.372441ms)
+✔ path following uses carry, stair and ladder speeds and stops exactly at arrival (8.433378ms)
+✔ impact adapter credits a multi-cell projectile once and persists through plain snapshots (13.007082ms)
+✔ 160 NPC steady-state average tick advisory (4 ms target, no failure under load) (666.59449ms)
+✔ tests/unit/npc-fixture.test.js (119.31016ms)
+✔ emitters create repair, designated build, ammo, crew and civilian work exactly once (16.220093ms)
+✔ claim selection uses priority, distance, id, respects roles and reports unreachable jobs (7.107246ms)
+✔ claims expire on death (9.370346ms)
+✔ claims expire on flee (1.275903ms)
+✔ claims expire on shelter (9.339279ms)
+✔ claims expire on path (1.223511ms)
+✔ claims expire on timeout (7.692063ms)
+✔ fear rejects recent nearby enemy impacts but lifts highest-priority repair at 30 seconds (0.989357ms)
+✔ repairs progress at maxHp/12 per second (research/16 P2), debit repair gold and finish once (20.673252ms)
+✔ magazines are connected stores, preserve stock, and disappear when destroyed (8.374077ms)
+✔ morale row: own crew killed, counted once (9.37102ms)
+✔ morale row: own runner killed, counted once (0.645968ms)
+✔ morale row: own mason killed, counted once (0.677005ms)
+✔ morale row: own civilian killed, counted once (1.286171ms)
+✔ morale row: deaths capped at -15 in a rolling 10 second window (1.094525ms)
+✔ morale row: palace damaged -4 per projectile regardless of number of cells (0.941852ms)
+✔ morale row: our damaging hit gives +2 once per projectile (0.455902ms)
+✔ morale row: enemy blocks destroyed +0.5 each capped +3 per projectile (0.35186ms)
+✔ morale row: enemy weapon destroyed +5 each (0.567153ms)
+✔ morale row: enemy NPC kills +0.5 each capped +3 per projectile (0.5775ms)
+✔ morale row: under fire -0.1 per second, expires after 10 seconds (1.084436ms)
+✔ morale row: palace integrity below half drains -0.2 per second (0.669346ms)
+✔ morale row: shelter bonus needs order and at least 80% of civilians sheltered (0.757548ms)
+✔ morale row: rally on first damaging hit after <30, only once per 60 seconds (0.351194ms)
+✔ layers floor at 8, baseline moves no faster than 0.05/s, bands emit once per crossing (0.411173ms)
+✔ work bands, ruler leadership radius and cap follow tuning (0.563916ms)
+✔ surrender requires 45 continuous seconds at <=10, resets above threshold (30.713456ms)
+✔ repeated impossible paths avoid repeated grid scans and invalidate on topology change (29.919459ms)
+✔ standability requires two clear cells, excludes roofs, and passes paired doors (27.022584ms)
+✔ stairs remain preferred; ordinary rubble can be climbed within reach (37.677693ms)
+✔ ladder column permits vertical travel and platform exit with 2 m clearance (18.25632ms)
+✔ safe worker descents stay cardinal; ruler paths retain single-cell steps and deterministic ties (4.399729ms)
+✔ versioned cache invalidates successful and unsuccessful paths on block changes (8.462522ms)
+✔ low-population levy fills a minimum gun crew before support quotas at five seconds (21.860681ms)
+✔ haulers can deposit from a reachable side when the original operator cell is destroyed (2.30169ms)
+✔ automatic repair protects replacement funds when a gun is critically damaged; priority work can spend them (6.583514ms)
+✔ an idle survivor clears a vacant mount so replacement is possible (6.666072ms)
+✔ workers fall onto surviving support after their floor is destroyed and can take jobs again (10.669504ms)
+✔ a temporary ballista does not spend the savings for the missing blueprint cannon (6.421648ms)
+✔ another castle population cannot shift this castle bravery draws (28.260715ms)
+✔ urgent weapon construction preempts routine repairs without waiting for claim timeout (8.227614ms)
+✔ four surviving crew fill two minimum batteries instead of leaving one gun at one crew (19.376455ms)
+✔ opposing default populations have mirrored role positions, not the same left-first spawn order (1617.673687ms)
+✔ levy restores full ordered crews when support roles and population allow it (7.707776ms)
+✔ a failed route for one mason does not block a mason on the reachable side (12.778118ms)
+✔ NPCs climb a two-metre rubble ledge by lifting before crossing the solid face (11.22991ms)
+✔ a worker moves out of missing original wall cells instead of blocking their rebuild (154.635907ms)
+✔ automatic wall repairs wait for a quiet interval; explicit priority and palace work remain available (10.992671ms)
+✔ crew destinations leave the muzzle lane clear (0.901161ms)
+✔ a changed cell beyond the initial revalidation window breaks the claim before entry (94.915681ms)
+✔ anti-deadlock allows its selected job to finish despite continuing impacts (29.564012ms)
+✔ magazine destruction queues the stock-scaled explosion once for a connected store (6.386488ms)
+✔ designations reserve gold, cancel only that cell, build supported cells, never into a person (18.426405ms)
+✔ path searches are limited to eight per castle per tick and queued workers advance next tick (72.178021ms)
+✔ plugin pickJob may decline work, and haul legs respect the one-second replan limit (23.436948ms)
+✔ designation predicate matches NPC acceptance without mutating rejected orders (747.875105ms)
+✔ actual SimApi hooks spawn both populations and resume deterministic NPC state from saves (10166.521646ms)
+✔ TB3: reserve once, preserve facing, cancel and refund exactly once (16.612342ms)
+✔ TB3: reject floating, map-only, air, occupied and unaffordable cells without reserving (1.883013ms)
+✔ TB3: person overlap includes heads, capsule edges, enemies and the ruler (1.460421ms)
+✔ TB3: shared cap covers builds, demolition and cannon reservations (4.855706ms)
+✔ TB3: cannon needs a free mount, reserves its cost, builds after wall-weapon work time (37.557059ms)
+✔ TB3: demolition refunds the tuning fraction on completion and accepts destructible map blocks (10.350034ms)
+✔ TB3: supported first, and worker never builds into a person who arrives after designation (11.008716ms)
+✔ TB3: continuous enemy fire pauses build work, then the 30 s guard finishes one job (11.993414ms)
+✔ TB3: calm morale lets a mason build during repeated enemy impacts (3.816672ms)
+✔ TB3: a mason avoids ending work inside another pending site (five simultaneous jobs cannot deadlock) (5.804526ms)
+✔ TB3: live plus pending cannons obey weapon cap, and cancellation releases a cannon reservation (0.779423ms)
+✔ TB3: enemy destruction of a demolition target releases its designation slot (0.832014ms)
+✔ TB3: marking an oriented block for demolition preserves its facing and shape (5.149832ms)
+✔ sustained palace damage and casualties can break morale within a match; quiet recovery resets the hold (203.18294ms)
+✔ workers can step clear and safely descend a three-metre repair ledge (19.453636ms)
+✔ ruler paths enter the lower stair face rather than walking into its one-metre side (1.162716ms)
+✔ urgent access work preempts a decorative build as well as a routine repair (9.86231ms)
+✔ a worker below a broken ladder clears its missing rung so it can be designated (1236.924037ms)
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (384.127915ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (117.360097ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (164.081718ms)
+✔ all fourteen core blocks validate and use the shared ids and tuning (32.329563ms)
+✔ blocks distinguish walking, climbing, shots and structural support (21.829251ms)
+✔ kit v0 block views validate with flat colours and named damage states (9.896322ms)
+✔ core block and block view registrations reject duplicates (13.857212ms)
+✔ starter castle validates, fits the plot, and has exact east/west geometry symmetry (53.981097ms)
+✔ starter castle has a palace core, four towers, magazine prefab and two cannon mounts (30.39714ms)
+✔ courtyard markers and both six-step north-facing rampart stairs have clearance (8.277764ms)
+✔ every castle block connects to the foundation through six-neighbour support (110.213913ms)
+✔ both timber houses have level entrances and two-cell interior clearance (7.187362ms)
+✔ starter castle loads through Lane A castle-load with exact block hp and placements (84.658939ms)
+✔ all 145 converted castles load, are supported, have one palace core and reachable population/mount markers (16430.927046ms)
+✔ 32 campaign maps preserve every decoded primary scenario castle and slot count, with all biome views valid (171.921462ms)
+✔ ten distinct converted castles run 600 ticks with two real AIs on their biome maps (76196.04115ms)
+✔ complete registry hash repeats with views and registration order changes (682.267724ms)
+✖ isolated Python generator reproduces all shipped content within the 2 MB budget (1.452707ms)
+ℹ Reference inputs absent in clean checkout; checking shipped manifest and geometry only.
+✔ forest duel validates with two centred non-overlapping plots exactly one duel distance apart (6.177609ms)
+✔ forest map uses tuning for terrain, wind, gold and the weapon cap; seed is a separate sim input (0.759631ms)
+✔ forest biome and view validate with green grass, grey stone, Lambert light and tuned fog (1.836852ms)
+✔ forest map, biome and view register through contracts and reject duplicates (7.201508ms)
+✔ entry points register every sim def and view while leaving freeze to the orchestrator (1145.74605ms)
+✔ a second complete sim or view registration throws before freeze (387.837794ms)
+✔ registryHash is stable across fresh registrations and independent of view registration (1466.587074ms)
+✔ every weapon folder has exactly one import line and one registration call in each index (21.994866ms)
+✔ real core plugins boot deterministic duel sims and their cannon fires, lands and damages blocks (9586.168733ms)
+✔ all converted castles have a default battery; shipped duels have fair armed starts and supply (690.095342ms)
+✔ cannon validates and preserves every cannon tuning input (26.690873ms)
+✔ cannon view describes the kit node hierarchy, muzzle and Lambert materials (9.862477ms)
+✔ cannon and its view register through contracts and reject a second registration (12.071843ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs' imported from /tmp/castle-wave2-ui-gibhxsnq/tests/unit/plugin-weapon-set.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs'
+}
+
+Node.js v24.11.1
+✖ tests/unit/plugin-weapon-set.test.js (456.683668ms)
+✔ a 48x24x48 plot is 3x2x3 = 18 chunks, all dirty on add (10.150099ms)
+✔ update remeshes at most maxPerFrame (2) chunks per call (160.133834ms)
+✔ flush meshes everything; empty chunks get no mesh (102.514078ms)
+✔ markCell dirties the chunk and every chunk within one cell (AO and culling reach) (146.018122ms)
+✔ update picks the dirty chunk nearest the focus first (115.379424ms)
+✔ chunk meshes sit at the plot origin and vanish when emptied (47.299585ms)
+✔ test scene: two castles 192 m apart, deterministic, with palace core and cannon mounts (103.51205ms)
+✔ FACE_DIRS lists the six axis directions (12.236053ms)
+✔ a lone stone emits 6 quads in plot-local coordinates (16.227078ms)
+✔ faces between opaque neighbours are culled, also across chunk borders (14.478537ms)
+✔ non-opaque neighbours (floor slab, stairs, ladder, roof) do not cull (10.277177ms)
+✔ opacity is derived from model coverage (0.58023ms)
+✔ foundation layer: bottom faces below y=0 are culled by default (18.247886ms)
+✔ vertex AO darkens corners next to occluders and leaves open faces bright (15.506425ms)
+✔ sun term: an overhang shadows the top face only when the sun is above (6.07714ms)
+✔ damage states tint per TUNING (hp 20/40 is state 2 = 0.8) (7.931875ms)
+✔ modelFromTriangles classifies faces and detects full cubes (13.642979ms)
+✔ rotateModel turns a north-facing model clockwise by facing (1.740889ms)
+✔ meshing is deterministic and fast enough for a full wall chunk (194.35239ms)
+✔ damage variants replace the model per hp state, without the tint (17.367349ms)
+✔ a non-opaque damage variant does not hide its neighbour's face (23.889275ms)
+✔ classic default; period reserved; storage ignored by goldens; URL wins (33.80515ms)
+✔ atlas damage lookup matches top-origin glTF UVs; stone has no specular (16.110529ms)
+✔ modern materials are node-constructible; dry terrain adds no water (15.792138ms)
+✔ switch replaces materials, preserves geometry and restores exact classic objects (73.572138ms)
+✔ switch disposes modern materials without disposing shared classic atlas or geometry (9.194055ms)
+✔ fire instances obey the fixed cap, cell positions and explicit tick including rewind (34.639023ms)
+✔ all authored stone damage GLBs address the matching LUT quartile (105.879507ms)
+✔ no file under src/, assets/, dist/ references assets-ripped or downloads/ (307.783904ms)
+﹣ no asset under assets/ is byte-identical to a file in assets-ripped/ (0.668705ms) # assets-ripped/ missing or empty
+✔ pure modules contain no forbidden imports or globals (306.203433ms)
+✔ keep cracking ramps continuously from minute ten through fifteen (2.193017ms)
+✔ TB1 boot: slot 0 local, slot 1 AI at the default level (2.856473ms)
+✔ TB1 script: the ruler walks the stairs to the east cannon and mans it (3958.369602ms)
+✔ TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot (7476.822601ms)
+ℹ TB1 fire 254, golden 307, impact state 349, golden hash 2438317540
+✔ TB2 script orders a real crew and its wall shot preserves the duel (3688.589548ms)
+ℹ TB2 fire 254, impact state 346, aim {"az":873,"range":887,"flat":159.20113064925135}, hash 3756059766
+✔ TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless) (6336.745137ms)
+✔ TB1: the same shot sequence is deterministic (hash equal across two sims) (6330.273332ms)
+✔ TB3: ruler designates five rampart blocks; masons finish within the tick bound with exact cost, twice (18640.877111ms)
+ℹ {"hash":2561043405,"tick":761,"gold":1560.239999999927,"built":[[41,7,29],[41,7,27],[41,7,31],[41,7,25],[41,7,33]]}
+✔ TB2: native length/time conversion preserves gravity, K and quadratic C/M (9.759927ms)
+✔ zero-drag production flight agrees with the analytic parabola within 0.5% (21.432404ms)
+✔ TB2: range is charge at a fixed elevation, with monotonic invertible tables (51.677406ms)
+✔ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (1.1219ms)
+✔ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (134.655906ms)
+✔ wind changes retain previous direction per slot until its next shot or timeout (1.554985ms)
+✔ launch convention remains north=-z, east=+x with elevations in degrees (4.518761ms)
+✔ TB4: rocket charge controls burn duration with a monotonic inverse, rather than muzzle speed (1139.708932ms)
+✔ fmath agrees with reference values over the simulation domain (28.98547ms)
+✔ seeded streams replay, fork independently, and restore state (19.836994ms)
+✔ canonical FNV hashes typed bytes, object keys and entities in id order (1.723917ms)
+✔ fixed-step loop clamps elapsed time, caps work and pauses visibility (3.130686ms)
+✔ TB2: direct target excludes splash, collateral rounds upward, foundation survives (29.350497ms)
+✔ segment capsule and AABB return earliest fractions including endpoint caps (1.3107ms)
+✔ palace below 30%, ruler death, surrender and simultaneous draw resolve in order (9.063971ms)
+✔ economy applies palace and civilian income and caps gold (0.690957ms)
+✔ replacing an original palace cell with stone does not restore palace integrity (4.182919ms)
+✔ income stats count credited gold and exclude overflow at the cap (1.987402ms)
+✔ damage invalidates job scan after an unchanged tick; zero gold stops paid repair (23.262276ms)
+✔ map-only palace repairs consume materials rather than creating free keep health (3.556192ms)
+✔ a destroyed cannon returns capped wreck materials once, while replacement still costs gold (988.143748ms)
+✔ rejected NPC commands are deterministic no-ops and later commands still run (1373.044523ms)
+✔ cannon reloads, fires atomically and pays exactly once per shot (41.365638ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (32128.893836ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (471.881611ms)
+✔ a cannonball through the opposing ruler eliminates its castle (422.408064ms)
+✔ firing publishes the calm prediction and restores the last fired aim (287.931069ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (12065.271036ms)
+✔ AI rulers use their throne behind the keep; local rulers use the terrace spawn (463.688194ms)
+✔ solid cover stops blast injury; exposed people still take the same blast (5.627142ms)
+✔ ruler cannot fit a one-high gap or tunnel a wall (37.058982ms)
+✔ ruler climbs two-box stairs and ladder with forward input (6.711986ms)
+✔ shooting away a floor makes the ruler fall and take height-based damage (8.967045ms)
+✔ TB3: paid cannon builds through the real sim factory, emits placement, and survives save/restore (6664.381502ms)
+✔ TB3: debug-directed enemy projectile damages a built block and masons repair it through an R order (4301.633714ms)
+✔ every idle reason is causal, updated each tick, and emitted only on change (500.929246ms)
+✔ ruler death carries the actual projectile and weapon, including splash (1.273171ms)
+✔ deterministic launch prediction warns before impact and preserves killing-shot attribution (1645.060294ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs' imported from /tmp/castle-wave2-ui-gibhxsnq/tests/unit/sim-weapon-effects.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs'
+}
+
+Node.js v24.11.1
+✖ tests/unit/sim-weapon-effects.test.js (492.014889ms)
+✔ opponent firing order never changes a side's scatter draws (294.410939ms)
+✔ renumbering map slots preserves each physical castle random streams and bravery (820.911239ms)
+✔ a restored swapped map keeps its physical random-stream ownership (6361.114059ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs' imported from /tmp/castle-wave2-ui-gibhxsnq/tests/unit/sim-weapon-placement.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///tmp/castle-wave2-ui-gibhxsnq/tests/evidence/tb4-weapon-fixture.mjs'
+}
+
+Node.js v24.11.1
+✖ tests/unit/sim-weapon-placement.test.js (900.975795ms)
+✔ plot storage has DESIGN indexing, indestructible foundation and coordinate transforms (6.691933ms)
+✔ DDA never tunnels a 1 m wall in 10,000 seeded 150 m/s segments (241.592478ms)
+✔ DDA handles outside starts, reverse rays, starts inside, zero rays and corner ties (0.644935ms)
+✔ ASCII castle loader resolves legend data and retains plot placements (8.129642ms)
+✔ terrain is seeded, bilinear, flat under plots and skirt is continuous (143.032087ms)
+✔ cut tower collapses with a resumable budget; a remote foundation path stays supported (10.979085ms)
+✔ odd-origin plot skirts meet the flat interior continuously (22.740583ms)
+✔ contracts exports VERSION 1 (5.803428ms)
+✔ contracts exports a non-empty frozen EVENTS object (alias of EV) (0.959511ms)
+✔ registerPlugin is a function that rejects unknown kinds (1.629233ms)
+✔ TUNING is deep-frozen (12.123265ms)
+✔ every number in TUNING is finite (1.243397ms)
+✔ has the documented groups (8.004018ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (6.343468ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (1.727536ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.451838ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.269752ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.358706ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.289407ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.758033ms)
+✔ every weapon can reach the duel distance under production quadratic drag (53.37237ms)
+✔ npc role shares leave civilians and respect minimums (4.02742ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.361843ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.299866ms)
+✔ render and golden frame are 1024x768 (0.140295ms)
+✖ Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17) (30.609431ms)
+✔ TB2: blast footprints use the flight world scale so one blast cannot level a keep (0.325049ms)
+✔ every recipe is keyed by an EV value and the combat events all have one (11.537781ms)
+✔ noise is deterministic and in [-1, 1] (9.0885ms)
+✔ distance attenuation: 1 at the listener, falls off, silent beyond the cutoff (0.559744ms)
+✔ play starts nodes for known events, ignores unknown ones, unlock resumes (43.323187ms)
+✔ createSfx without WebAudio is a silent no-op (8.458772ms)
+✔ panning: sources right of the listener's view pan right, left pan left, ahead centre (0.666953ms)
+✔ ambience: wind bed follows wind speed against the strongest setting, crowd follows population (1.545693ms)
+✔ positional play uses a stereo panner; ambience loops start once; the morale bell rings (9.03674ms)
+✔ head bob: seeded, stepped, amplitude and frequency per DESIGN 5, off when disabled (8.956638ms)
+✔ walk pose: eye height above the feet, FOV 60 (6.643391ms)
+✔ weapon pose: tuned offset follows yaw, with an explicit sight taking precedence (0.692984ms)
+✔ cannon sight reproduces the measured shoulder proposal with the final 20 cm clearance (0.318786ms)
+✔ impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it (4.594064ms)
+✔ death pose: drops to 0.3 m and rolls 70 deg over 3 s (4.979547ms)
+✔ ghost pose passes through position and look (3.789091ms)
+✔ applyPose maps clockwise yaw to three's YXZ euler and updates FOV once (0.601197ms)
+✔ rig switches modes via CAMERA_MODE and runs the death clock in ticks (9.405168ms)
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (56.223392ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (8.758835ms)
+✔ move axes quantise to int8 and clamp (0.556443ms)
+✔ walk mode emits one MOVE per tick with integer fields (12.384339ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (2.529053ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (4.367094ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.557216ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (1.431305ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (1.98122ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (162.144707ms)
+✔ E orders crew automatically; locked orders and foreign build ids never produce commands (7.259931ms)
+✔ playable aim commands clamp charge to the labelled 1-255 range (0.564891ms)
+✔ newcomer RMB cancels a plan but does not introduce demolition (0.415061ms)
+✔ a locked weapon in a custom map cannot bypass the input palette through E or firing (0.351446ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (9.182566ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (10.373428ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.070468ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.622713ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (10.005969ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.58718ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (8.163546ms)
+✔ defeat offers Enter retry as its first action and preserves setup (1.551869ms)
+✔ recoil: cannon kicks hard and settles fast, catapult throws slowly; both return to rest (5.067043ms)
+✔ feel: own shot adds recoil and an FOV punch; sampling interpolates between ticks (13.217293ms)
+✔ shake scales with blast radius and falls off with distance; seeded and deterministic (5.94556ms)
+✔ head bob is tick-stepped by walking speed and off when disabled; landing dips after a fall (1.33952ms)
+✔ follow cam: rides the projectile, holds 1.5 s on the impact, then returns (0.965983ms)
+✔ followPose sits behind and above the ball, looking along its flight (0.483348ms)
+✔ rig composes feel offsets onto the base pose (weapon view recoil pitches up and pulls back) (6.048958ms)
+✔ bare URL opens the title menu; golden/demo/play URLs keep booting a match directly (16.269117ms)
+✔ session hand-off: start a match, restart it, or come back to setup/title (1.004847ms)
+✔ default settings come from the map and tuning (0.366574ms)
+✔ settingsToMatch builds a map copy with wind/gold and contract-valid slots (11.748381ms)
+✔ matchResult turns sim stats and the outcome into end-screen rows (1.172342ms)
+✔ i18n: every key exists in every language and t() formats params (15.878926ms)
+✔ font has a glyph for every character the UI needs (9.557417ms)
+✔ every glyph has consistent rows and draws pixels (except space) (7.640127ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (32.091446ms)
+✔ rasterize is deterministic and distinguishes glyphs (1.097651ms)
+✔ compass: letters rotate with heading, hub shows rounded wind, red/blue arrows per 3.4 (8.447993ms)
+✔ minimap topDown: top block per column, damage redder, weapons blue, designations marked (15.98458ms)
+✔ message log keeps the newest N within their lifetime; events map through EV names (5.934164ms)
+✔ textures are deterministic RGBA buffers (19.266366ms)
+✔ readouts format as direction and effective charge clamped to 1-255 (0.637788ms)
+✔ hud draws a weapon view and a walking view without throwing (77.021812ms)
+✔ overview squares: 2 x 2 plot cells per square, worst damage wins, weapons on top (7.361098ms)
+✔ demo views: castle view has no targeted enemy map; overviews are sparse like the original's (7.743012ms)
+✔ walking console: status bar shows the reticle target's condition, shelter takes priority, no fourth button (33.684371ms)
+✔ hud draws NPC overlays under the console and a morale band pennant (21.434135ms)
+✔ match-1 HUD has one map, labelled income and only unlocked controls; weapon mode restores enemy map (59.179929ms)
+✔ console wraps lesson messages inside its panel without exceeding four lines (6.772662ms)
+✔ KEYMAP covers DESIGN 4.8 / 5 keys (10.550274ms)
+✔ walk: WASD + Shift -> move axes, Space jump; edge actions fire once (13.55279ms)
+✔ mouse look only while pointer-locked; pitch clamps (9.548436ms)
+✔ weapon view: arrows/WASD tap aim, Ctrl, Space fires, Esc leaves, F/Home actions (10.000072ms)
+✔ weapon view: HUD clicks (fire, pad, buttons) and readout drags keep sub-unit remainders (7.248163ms)
+✔ build mode toggles (B, G), digits pick a block, LMB/RMB become PRIMARY/SECONDARY (0.973179ms)
+✔ Tab holds the job overlay; blur clears held keys (8.624305ms)
+✔ newcomer key, mouse and palette gates share the same feature set, unlocks are live (9.641298ms)
+✔ lookDir: yaw clockwise from north, pitch up (2.133632ms)
+✔ facingFromYaw maps to FACING N/E/S/W (0.345194ms)
+✔ pick hits the first block face under the reticle with distance and normal (6.688284ms)
+✔ pick respects the 24 m order range and returns kind none on a miss (0.947227ms)
+✔ pick prefers a nearer weapon AABB and reports its id and crew state (6.678801ms)
+✔ pick sees designated air cells (0.829743ms)
+✔ ghost: block designation adjacent to the hit face, with every invalid reason (12.55181ms)
+✔ ghost: wall weapons need a mount below, ground weapons a clear 3x3x2 on solid floor (3.176386ms)
+✔ every rect is integer, non-empty and inside 1024 x 768 (14.32599ms)
+✔ DESIGN 7.5 anchor values (+-4 px) (0.443738ms)
+✔ top-level HUD elements do not overlap each other (0.68133ms)
+✔ console children lie inside the console and do not overlap (3.778828ms)
+✔ letterbox scale and inverse mapping (4.872742ms)
+✔ hitTest finds weapon-view controls (0.733968ms)
+✔ main menu lists the original's entries in order and navigates by keyboard (20.686203ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (21.688463ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (25.613148ms)
+✔ options: sensitivity, language, volume emit an options event and clamp (5.04498ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (0.804695ms)
+✔ end screen shows the result and returns to setup or title (0.824282ms)
+✔ every screen draws without throwing and labels its items in the menu language (167.681988ms)
+✔ quick start is the first action and boots forest duel at AI 2 with newcomer controls (1.470635ms)
+✔ defaults when nothing is stored, storage is missing, broken or throws (2.977808ms)
+✔ save then load round-trips every allowed value (1.989954ms)
+✔ sanitize snaps to the nearest allowed value and drops unknown keys (0.549526ms)
+✔ job markers: hammer for working masons, shell for ammo runners, flame for fleeing, bed for sheltering (17.423565ms)
+✔ bubbles: event -> the right own NPC says a short line for 2 s; cooldown per line; enemies stay silent (16.201816ms)
+✔ morale band follows TUNING.morale.workBands (0.874499ms)
+✔ drawOverlays draws icons and bubbles and notes the bubble text (20.565507ms)
+✔ walk phase advances with distance walked (one stride per cycle), not with time (2.503754ms)
+✔ swing grows with speed and is capped; vertical motion (ladders) does not swing the legs (3.952184ms)
+✔ first match exposes one cannon and stone, no advanced keys or morale (3.700082ms)
+✔ ramp: triage at 2, placement at 3, auto-fire at 4, orders at 5, ten weapons by 10 (1.040414ms)
+✔ catapult requires ten cannon shots, not hits or other weapon shots (0.490233ms)
+✔ storage is versioned, defensive, bounded and safe when unavailable (1.085397ms)
+✔ prompt priority is contextual, exactly three prompts, retired after two successful uses (0.631015ms)
+✔ live counters persist, completion is idempotent and changes the next match only (1.237474ms)
+✔ one scheduled lesson plus the optional cannon milestone each announce once (0.316903ms)
+✔ URL/debug fixtures are reproducible and malformed overrides do not expand access (0.344511ms)
+✔ quick start pins newcomer controls while retaining the real persistent career counters (0.858086ms)
+✔ the construction palette grows gradually instead of dumping seven block types in match 10 (1.069811ms)
+✔ match-10 catch-up records the catapult without falsely announcing ten cannon shots (0.519537ms)
+✔ TB3: ghost rejects an unsupported adjacent designation and a live cannon cell (3.178343ms)
+✔ TB3: HUD exposes selected price, available gold and reserved amount, with local designation messages (17.761898ms)
+✔ TB3: preview color and designation wire batch follow placement/build/cancel lifecycle (266.37616ms)
+ℹ tests 429
+ℹ suites 0
+ℹ pass 420
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 446484.408754
+
+✖ failing tests:
+
+test at tests/unit/ai-match.test.js:52:1
+✖ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (67696.68351ms)
+  AssertionError [ERR_ASSERTION]: headless match must end before the 15-minute limit
+      at run (file:///tmp/castle-wave2-ui-gibhxsnq/tests/unit/ai-match.test.js:68:12)
+      at TestContext.<anonymous> (file:///tmp/castle-wave2-ui-gibhxsnq/tests/unit/ai-match.test.js:73:13)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-wave2-opportunity.test.js:46:1
+✖ the leadership route physically climbs the front stairs and mans the cannon (5267.401668ms)
+  AssertionError [ERR_ASSERTION]: normal movement must reach the battery rather than stick beside a stair
+      at TestContext.<anonymous> (file:///tmp/castle-wave2-ui-gibhxsnq/tests/unit/ai-wave2-opportunity.test.js:55:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-weapon-aim.test.js:1:1
+✖ tests/unit/ai-weapon-aim.test.js (210.543241ms)
+  'test failed'
+
+test at tests/unit/plugin-castles-generated.test.js:123:1
+✖ isolated Python generator reproduces all shipped content within the 2 MB budget (1.452707ms)
+  Error: ENOENT: no such file or directory, open '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/repair-wave-2-sim/castles-generated-manifest.json'
+      at Object.openSync (node:fs:560:18)
+      at readFileSync (node:fs:444:35)
+      at TestContext.<anonymous> (file:///tmp/castle-wave2-ui-gibhxsnq/tests/unit/plugin-castles-generated.test.js:128:31)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/tmp/castle-wave2-ui-gibhxsnq/tests/evidence/repair-wave-2-sim/castles-generated-manifest.json'
+  }
+
+test at tests/unit/plugin-weapon-set.test.js:1:1
+✖ tests/unit/plugin-weapon-set.test.js (456.683668ms)
+  'test failed'
+
+test at tests/unit/sim-weapon-effects.test.js:1:1
+✖ tests/unit/sim-weapon-effects.test.js (492.014889ms)
+  'test failed'
+
+test at tests/unit/sim-weapon-placement.test.js:1:1
+✖ tests/unit/sim-weapon-placement.test.js (900.975795ms)
+  'test failed'
+
+test at tests/unit/tuning.test.js:165:1
+✖ Wave 1: economy scarcity and gradual keep damage supersede TB2 prefab guesses (research/17) (30.609431ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3225.6 !== 2688
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave2-ui-gibhxsnq/tests/unit/tuning.test.js:170:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3225.6,
+    expected: 2688,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

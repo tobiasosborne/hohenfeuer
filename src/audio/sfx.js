@@ -16,6 +16,9 @@ export const VOICES_PER_TYPE = 4;
  * Frequencies in Hz, durations in s.
  */
 export const RECIPES = Object.freeze({
+  [EV.RULER_THREAT]: { gain: 0.7, layers: [
+    { wave: "triangle", freq: 740, to: 1100, dur: 0.18, gain: 0.7 },
+    { wave: "triangle", freq: 1100, to: 740, dur: 0.2, gain: 0.6, delay: 0.2 }] },
   [EV.SHOT_FIRED]: { gain: 0.9, layers: [
     { noise: true, dur: 0.6, filter: "lowpass", freq: 1800, to: 300, gain: 1 },
     { wave: "sine", freq: 90, to: 38, dur: 0.45, gain: 0.9 }] },

@@ -1,0 +1,46 @@
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (14.747829ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (6.401094ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.488526ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (4.143178ms)
+✖ overlapping flights attribute the old impact without replacing the new shot reference (13.02024ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (6.640848ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (4.121475ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (5.445115ms)
+✔ defeat offers Enter retry as its first action and preserves setup (6.274177ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 446.508406
+
+✖ failing tests:
+
+test at tests/unit/ui-feedback.test.js:46:1
+✖ overlapping flights attribute the old impact without replacing the new shot reference (13.02024ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   190,
+  -   210,
+      0,
+      0
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-feedback.test.js:52:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 190, 0, 0 ],
+    expected: [ 210, 0, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

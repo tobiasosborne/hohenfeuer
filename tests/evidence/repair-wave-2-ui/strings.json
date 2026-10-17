@@ -1,0 +1,338 @@
+{
+  "incoming": {
+    "de": "Beschuss aus {dir} / Einschlag in {s} s",
+    "en": "Incoming from {dir} / impact in {s} s"
+  },
+  "palaceBar": {
+    "de": "Palast {pct}% / Niederlage unter {line}%",
+    "en": "Palace {pct}% / defeat below {line}%"
+  },
+  "palaceRising": {
+    "de": "Ab Minute 10 steigt die Niederlagelinie bis 55%.",
+    "en": "From minute 10 the defeat line rises to 55%."
+  },
+  "palaceReached": {
+    "de": "Niederlagelinie jetzt 55%. Palast darüber halten.",
+    "en": "Defeat line now 55%. Keep the palace above it."
+  },
+  "pressureLosses": {
+    "de": "Verluste",
+    "en": "losses"
+  },
+  "pressureDamage": {
+    "de": "Beschuss",
+    "en": "bombardment"
+  },
+  "pressurePalace": {
+    "de": "Palastschäden",
+    "en": "palace damage"
+  },
+  "pressureFire": {
+    "de": "Feuer",
+    "en": "fire"
+  },
+  "pressureStrain": {
+    "de": "Kampfbelastung",
+    "en": "battle strain"
+  },
+  "pressureGuns": {
+    "de": "Geschützverlust",
+    "en": "lost guns"
+  },
+  "pressurePopulation": {
+    "de": "Bevölkerungsverlust",
+    "en": "population loss"
+  },
+  "pressureRally": {
+    "de": "Eigene Treffer",
+    "en": "successful hits"
+  },
+  "pressureRecovery": {
+    "de": "Erholung",
+    "en": "recovery"
+  },
+  "surrenderHold": {
+    "de": "{cause} / Aufgabe {s}/{total} s",
+    "en": "{cause} / surrender {s}/{total} s"
+  },
+  "surrenderPopulation": {
+    "de": "{cause} / Bevölkerung {pop} < {line}: Aufgabe",
+    "en": "{cause} / population {pop} < {line}: surrender"
+  },
+  "pressureSafe": {
+    "de": "{cause} / Aufgabe ab {line}% Moral",
+    "en": "{cause} / surrender at {line}% morale"
+  },
+  "idleCrew": {
+    "de": "Mannschaft fehlt",
+    "en": "Missing crew"
+  },
+  "idleAmmo": {
+    "de": "Munition fehlt",
+    "en": "No ammunition"
+  },
+  "idleGold": {
+    "de": "Gold fehlt",
+    "en": "Not enough gold"
+  },
+  "idleBlocked": {
+    "de": "Schussbahn blockiert",
+    "en": "Firing lane blocked"
+  },
+  "idleDamaged": {
+    "de": "Geschütz beschädigt",
+    "en": "Gun damaged"
+  },
+  "idleWait": {
+    "de": "Nachladen abwarten",
+    "en": "Wait for reload"
+  },
+  "idleMan": {
+    "de": "E: bemannen, Crew rufen",
+    "en": "E: man gun, call crew"
+  },
+  "idleCrewComing": {
+    "de": "Mannschaft unterwegs",
+    "en": "Crew ordered; waiting"
+  },
+  "idleOrder": {
+    "de": "Q: Mannschaft rufen",
+    "en": "Q: call crew"
+  },
+  "idleApproach": {
+    "de": "Zum Geschütz gehen",
+    "en": "Walk to the gun"
+  },
+  "idleHauler": {
+    "de": "Träger unterwegs",
+    "en": "Hauler en route"
+  },
+  "idleAmmoOrder": {
+    "de": "R: Munition zuerst",
+    "en": "R: prioritize ammunition"
+  },
+  "idleSupply": {
+    "de": "Magazin prüfen",
+    "en": "Check the magazine"
+  },
+  "idleIncome": {
+    "de": "Einkommen abwarten",
+    "en": "Wait for income"
+  },
+  "idleTurn": {
+    "de": "Pfeile: freie Bahn suchen",
+    "en": "Arrows: aim for a clear lane"
+  },
+  "idleInspect": {
+    "de": "Hindernis vor dem Rohr prüfen",
+    "en": "Inspect the block in front of the muzzle"
+  },
+  "idleOtherGun": {
+    "de": "Intaktes Geschütz aufsuchen",
+    "en": "Go to an intact gun"
+  },
+  "impactShort": {
+    "de": "{m} m kurz",
+    "en": "{m} m short"
+  },
+  "impactLong": {
+    "de": "{m} m weit",
+    "en": "{m} m long"
+  },
+  "impactLeft": {
+    "de": "{m} m links",
+    "en": "{m} m left"
+  },
+  "impactRight": {
+    "de": "{m} m rechts",
+    "en": "{m} m right"
+  },
+  "impactRangeOn": {
+    "de": "Reichweite passt",
+    "en": "Range on mark"
+  },
+  "impactLineOn": {
+    "de": "Richtung passt",
+    "en": "Line on mark"
+  },
+  "impactPalace": {
+    "de": "Palast beschädigt",
+    "en": "Palace damaged"
+  },
+  "impactWall": {
+    "de": "Mauer getroffen",
+    "en": "Wall hit"
+  },
+  "impactGun": {
+    "de": "Geschütz getroffen",
+    "en": "Gun hit"
+  },
+  "impactPerson": {
+    "de": "Person getroffen",
+    "en": "Person hit"
+  },
+  "impactGround": {
+    "de": "Boden / Fehlschuss",
+    "en": "Ground / miss"
+  },
+  "aimReference": {
+    "de": "Letzter Schuss: {az} Grad / Ladung {charge}",
+    "en": "Last shot: {az} deg / charge {charge}"
+  },
+  "aimLegend": {
+    "de": "Kreuz: Ziel / Ring: letzter Einschlag",
+    "en": "Cross: aim / ring: last impact"
+  },
+  "castleNumber": {
+    "de": "Burg {n}",
+    "en": "Castle {n}"
+  },
+  "enemyWeapon": {
+    "de": "Geschütz",
+    "en": "weapon"
+  },
+  "unknownBearing": {
+    "de": "unbekannt",
+    "en": "unknown direction"
+  },
+  "lossRulerShot": {
+    "de": "{time}: {name} tötete euren Herrscher mit {weapon} aus {dir}.",
+    "en": "{time}: {name} killed your ruler with {weapon} from {dir}."
+  },
+  "lossRuler": {
+    "de": "{time}: Euer Herrscher starb durch {cause}.",
+    "en": "{time}: Your ruler died from {cause}."
+  },
+  "deathFall": {
+    "de": "einen Sturz",
+    "en": "a fall"
+  },
+  "deathFire": {
+    "de": "Feuer",
+    "en": "fire"
+  },
+  "deathBlast": {
+    "de": "eine Explosion",
+    "en": "an explosion"
+  },
+  "deathDamage": {
+    "de": "Verletzungen",
+    "en": "injuries"
+  },
+  "lossPalace": {
+    "de": "{time}: Palast bei {pct}%, unter der Niederlagelinie von {line}%.",
+    "en": "{time}: Palace at {pct}%, below the {line}% defeat line."
+  },
+  "lossPalaceFallback": {
+    "de": "{time}: Euer Palast wurde zerstört.",
+    "en": "{time}: Your palace was destroyed."
+  },
+  "lossSurrender": {
+    "de": "{time}: Eure Burg gab auf; stärkster Druck: {cause}.",
+    "en": "{time}: Your castle surrendered; strongest pressure: {cause}."
+  },
+  "lossFallback": {
+    "de": "{time}: Eure Burg ist ausgeschieden.",
+    "en": "{time}: Your castle was eliminated."
+  },
+  "accountEvent": {
+    "de": "{time} / {event}",
+    "en": "{time} / {event}"
+  },
+  "accountIncoming": {
+    "de": "Beschuss auf den Herrscher",
+    "en": "Incoming shot near ruler"
+  },
+  "accountGun": {
+    "de": "Eigenes Geschütz zerstört",
+    "en": "Own gun destroyed"
+  },
+  "accountMagazine": {
+    "de": "Magazin explodiert",
+    "en": "Magazine exploded"
+  },
+  "accountPalace": {
+    "de": "Palast durchbrochen",
+    "en": "Palace breached"
+  },
+  "accountRuler": {
+    "de": "Herrscher gefallen",
+    "en": "Ruler killed"
+  },
+  "accountSurrender": {
+    "de": "Burg gibt auf",
+    "en": "Castle surrendered"
+  },
+  "accountDamage": {
+    "de": "Burg beschädigt",
+    "en": "Castle damaged"
+  },
+  "retry": {
+    "de": "Enter: Erneut",
+    "en": "Enter: Retry"
+  },
+  "decisiveEvents": {
+    "de": "Entscheidende Ereignisse",
+    "en": "Decisive events"
+  },
+  "optionRepair": {
+    "de": "R: Reparatur / {cost} Gold / Mauer stärken",
+    "en": "R: repair / {cost} gold / restore cover"
+  },
+  "optionBuild": {
+    "de": "B + Klick: Stein / {cost} Gold / Lücke schließen",
+    "en": "B + click: stone / {cost} gold / close gap"
+  },
+  "optionReplacement": {
+    "de": "G + Klick: Kanone / {cost} Gold / Feuerkraft zurück",
+    "en": "G + click: cannon / {cost} gold / restore firepower"
+  },
+  "optionCrew": {
+    "de": "Q: Crew rufen / 0 Gold / Nachladen ermöglichen",
+    "en": "Q: call crew / 0 gold / enable reloading"
+  },
+  "optionMan": {
+    "de": "E: bemannen / 0 Gold / Crew kommt",
+    "en": "E: man gun / 0 gold / crew comes"
+  },
+  "optionCover": {
+    "de": "E + WASD: Deckung suchen / Zielpause",
+    "en": "E + WASD: seek cover / pause aiming"
+  },
+  "optionCoverWalk": {
+    "de": "WASD: Deckung suchen / Wegzeit",
+    "en": "WASD: seek cover / travel time"
+  },
+  "leaveForOrder": {
+    "de": "E: verlassen, markierte Stelle ansehen",
+    "en": "E: leave gun, look at the marked spot"
+  },
+  "repairProgress": {
+    "de": "Reparatur {pct}%",
+    "en": "Repair {pct}%"
+  },
+  "repairQueued": {
+    "de": "Reparatur geplant {pct}%",
+    "en": "Repair queued {pct}%"
+  },
+  "buildProgress": {
+    "de": "Bau {pct}%",
+    "en": "Building {pct}%"
+  },
+  "lossSurrenderFallback": {
+    "de": "{time}: Eure Burg hat aufgegeben.",
+    "en": "{time}: Your castle surrendered."
+  },
+  "accountLosses": {
+    "de": "{n} Menschen verloren",
+    "en": "{n} people lost"
+  },
+  "deathCollapse": {
+    "de": "einstürzendes Mauerwerk",
+    "en": "collapsing masonry"
+  },
+  "deathProjectile": {
+    "de": "ein Geschoss",
+    "en": "a projectile"
+  }
+}

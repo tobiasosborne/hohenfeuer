@@ -110,8 +110,9 @@ export function createMenu(o) {
       case SCREEN.CREDITS: case SCREEN.TUTORIAL: return [bottom("back")];
       case SCREEN.PAUSE: return stack(["resume", "restart", "options", "title"], 270, 58, 280, 44);
       case SCREEN.OVER: return [
-        { id: "setup", kind: "button", label: "continue", rect: rect(292, 668, 502, 710) },
-        { id: "title", kind: "button", label: "title", rect: rect(522, 668, 732, 710) },
+        { id: "restart", kind: "button", label: "retry", rect: rect(142, 668, 382, 710) },
+        { id: "setup", kind: "button", label: "continue", rect: rect(392, 668, 632, 710) },
+        { id: "title", kind: "button", label: "title", rect: rect(642, 668, 882, 710) },
       ];
       default: return [];
     }

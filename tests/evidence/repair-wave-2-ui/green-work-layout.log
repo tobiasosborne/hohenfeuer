@@ -1,0 +1,19 @@
+✔ world progress labels avoid fixed HUD areas and each other (3.212046ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (1.901908ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.763291ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.191481ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.769446ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (0.498786ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (1.911423ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.575033ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.759676ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (4.319762ms)
+✔ defeat offers Enter retry as its first action and preserves setup (1.467757ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 159.391548

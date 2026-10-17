@@ -1,0 +1,10 @@
+✔ isolated Python generator reproduces all shipped content within the 2 MB budget (11.150605ms)
+ℹ Reference inputs absent in clean checkout; checking shipped manifest and geometry only.
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 739.136098

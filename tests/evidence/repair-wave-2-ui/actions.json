@@ -1,0 +1,1037 @@
+{
+  "checks": [
+    "real-reticle-R-priority",
+    "visible-paid-repair-completes",
+    "actual-shot-offset-expires-reference-retained"
+  ],
+  "errors": [],
+  "captures": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "before": {
+    "tick": 280,
+    "hp": 24,
+    "gold": 1528.933333333307,
+    "target": {
+      "kind": "block",
+      "dist": 1.6114234107617489,
+      "own": true,
+      "cell": [
+        41,
+        7,
+        20
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "plot": 0,
+      "block": 1,
+      "designated": false
+    },
+    "guidance": {
+      "lines": [
+        "R: repair / 1.3 gold / restore cover"
+      ],
+      "leave": false,
+      "markers": [
+        {
+          "kind": "repair",
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "cost": 1.2800000000000002,
+          "hp": 0.6,
+          "screen": [
+            475,
+            376
+          ]
+        }
+      ]
+    },
+    "texts": [
+      "1528",
+      "40 (40)",
+      "Morale: Bold 70%",
+      "2",
+      "N",
+      "E",
+      "S",
+      "W",
+      "The enemy fires!",
+      "Income +3.2 gold/s",
+      "R: Priority",
+      "B: Build",
+      "WASD: Walk",
+      "bombardment / surrender at 20% morale",
+      "R: repair / 1.3 gold / restore cover"
+    ]
+  },
+  "repairSamples": [
+    {
+      "tick": 312,
+      "hp": 24,
+      "gold": 1532.3466666666372,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1532",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 342,
+      "hp": 24,
+      "gold": 1535.5466666666343,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1535",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 372,
+      "hp": 24,
+      "gold": 1538.7466666666314,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1538",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 402,
+      "hp": 24,
+      "gold": 1541.9466666666285,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1541",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 432,
+      "hp": 24,
+      "gold": 1545.1466666666256,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1545",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        " falling: castle under fi",
+        "re.",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 462,
+      "hp": 24,
+      "gold": 1548.3466666666227,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1548",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        " falling: castle under fi",
+        "re.",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 492,
+      "hp": 24,
+      "gold": 1551.5466666666198,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1551",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        " falling: castle under fi",
+        "re.",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 522,
+      "hp": 24,
+      "gold": 1554.7466666666169,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1554",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        " falling: castle under fi",
+        "re.",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 552,
+      "hp": 24,
+      "gold": 1557.946666666614,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1557",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 582,
+      "hp": 24,
+      "gold": 1561.146666666611,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1561",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 612,
+      "hp": 24,
+      "gold": 1564.3466666666081,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            513,
+            382
+          ]
+        }
+      ],
+      "texts": [
+        "1564",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 642,
+      "hp": 24,
+      "gold": 1567.5466666666052,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1567",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 672,
+      "hp": 24,
+      "gold": 1570.7466666666023,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1570",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 702,
+      "hp": 24,
+      "gold": 1573.9466666665994,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1573",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "re.",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 732,
+      "hp": 24,
+      "gold": 1577.1466666665965,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1577",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 762,
+      "hp": 24,
+      "gold": 1580.3466666665936,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1580",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 792,
+      "hp": 24,
+      "gold": 1583.5466666665907,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.6,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1583",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 60%"
+      ]
+    },
+    {
+      "tick": 822,
+      "hp": 25,
+      "gold": 1586.6666666665878,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.625,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1586",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 63%"
+      ]
+    }
+  ],
+  "repair": {
+    "before": {
+      "tick": 280,
+      "hp": 24,
+      "gold": 1528.933333333307,
+      "target": {
+        "kind": "block",
+        "dist": 1.6114234107617489,
+        "own": true,
+        "cell": [
+          41,
+          7,
+          20
+        ],
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "plot": 0,
+        "block": 1,
+        "designated": false
+      },
+      "guidance": {
+        "lines": [
+          "R: repair / 1.3 gold / restore cover"
+        ],
+        "leave": false,
+        "markers": [
+          {
+            "kind": "repair",
+            "cell": [
+              41,
+              7,
+              20
+            ],
+            "pos": [
+              113.5,
+              7.5,
+              124.5
+            ],
+            "cost": 1.2800000000000002,
+            "hp": 0.6,
+            "screen": [
+              475,
+              376
+            ]
+          }
+        ]
+      },
+      "texts": [
+        "1528",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "bombardment / surrender at 20% morale",
+        "R: repair / 1.3 gold / restore cover"
+      ]
+    },
+    "mid": {
+      "tick": 822,
+      "hp": 25,
+      "gold": 1586.6666666665878,
+      "work": [
+        {
+          "cell": [
+            41,
+            7,
+            20
+          ],
+          "pos": [
+            113.5,
+            7.5,
+            124.5
+          ],
+          "kind": "repair",
+          "active": true,
+          "progress": 0.625,
+          "screen": [
+            512,
+            384
+          ]
+        }
+      ],
+      "texts": [
+        "1586",
+        "40 (40)",
+        "Morale: Steady 70%",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.2 gold/s",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Repair 63%"
+      ]
+    },
+    "after": {
+      "tick": 1122,
+      "hp": 40,
+      "gold": 1617.4666666665598
+    },
+    "materialCost": 1.2800000000000002
+  },
+  "impact": {
+    "tick": 355,
+    "feedback": "Wall hit / 3 m short / 2 m right",
+    "ref": {
+      "weaponId": 1,
+      "projectileId": 84,
+      "origin": [
+        113.29999899063894,
+        7.5,
+        127.50127081732714
+      ],
+      "aimPoint": [
+        286.3024657538135,
+        7,
+        125.3764966529418
+      ],
+      "aim": {
+        "az": 893,
+        "range": 1016
+      },
+      "tick": 255,
+      "previousImpact": null,
+      "impact": [
+        283,
+        8.36489705541872,
+        127.3630542276136
+      ],
+      "offset": {
+        "range": -3,
+        "lateral": 2
+      },
+      "kind": "wall",
+      "until": 409
+    },
+    "texts": [
+      "1446",
+      "40 (40)",
+      "2",
+      "N",
+      "E",
+      "S",
+      "W",
+      "Shot!",
+      "Wall hit",
+      "Opponent",
+      "KI",
+      "Hohenfeuer",
+      "0",
+      "8",
+      "9",
+      "1",
+      "0",
+      "1",
+      "Charge 1-255",
+      "approx. 174 m (no wind)",
+      "Arrows: Aim",
+      "E: Leave",
+      "Reloading",
+      "Cannon (100%)",
+      "End: Impact view",
+      "Wall hit / 3 m short / 2 m right",
+      "Last shot: 89.3 deg / charge 101.6",
+      "Cross: aim / ring: last impact"
+    ]
+  },
+  "status": "passed"
+}

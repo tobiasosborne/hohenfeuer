@@ -1,0 +1,35 @@
+✖ danger is local, deduplicated, expires at impact and rotates with the camera (7.671749ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (2.84794ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.166289ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (0.741803ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (0.731334ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (1.762909ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.626954ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.589215ms)
+✔ defeat offers Enter retry as its first action and preserves setup (1.656567ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 288.78439
+
+✖ failing tests:
+
+test at tests/unit/ui-feedback.test.js:10:1
+✖ danger is local, deduplicated, expires at impact and rotates with the camera (7.671749ms)
+  AssertionError [ERR_ASSERTION]: rear warning stays above the shot-reference text
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-feedback.test.js:20:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,44 @@
+✔ a salvo keeps every threat but sounds at most once per second (14.85263ms)
+✔ world progress labels avoid fixed HUD areas and each other (4.851365ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (4.617115ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.706551ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (7.461098ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (3.683005ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (0.817496ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (8.185495ms)
+✖ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (5.84253ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.881699ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.683595ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.772156ms)
+✔ defeat offers Enter retry as its first action and preserves setup (1.543535ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 549.941211
+
+✖ failing tests:
+
+test at tests/unit/ui-feedback.test.js:81:1
+✖ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (5.84253ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /collapsing masonry/. Input:
+  
+  '0:46: Your ruler died from injuries.'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-feedback.test.js:84:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0:46: Your ruler died from injuries.',
+    expected: /collapsing masonry/,
+    operator: 'match',
+    diff: 'simple'
+  }

@@ -1,0 +1,7 @@
+ui-flow: passed
+  title-menu
+  options-persist
+  setup-starts-match
+  pause-resume
+  restart-and-title
+  end-screen
