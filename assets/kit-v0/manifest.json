@@ -1,0 +1,138 @@
+{
+  "blender": "4.5.14",
+  "units": "metres",
+  "up": "+Y",
+  "north": "-Z",
+  "seed": 1,
+  "bounds_min_m": [
+    -0.5,
+    0,
+    -0.5
+  ],
+  "bounds_max_m": [
+    0.5,
+    1,
+    0.5
+  ],
+  "atlas": {
+    "file": "atlas.png",
+    "size_px": 512,
+    "tile_px": 128,
+    "gutter_px": 8
+  },
+  "provenance": "Independent procedural placeholder geometry and texels.",
+  "blocks": [
+    {
+      "id": 0,
+      "key": "air",
+      "mesh": "air.glb",
+      "thumbnail": "thumbs/air.png",
+      "triangles": 12,
+      "note": "Transparent preview proxy; runtime empty cells emit no mesh."
+    },
+    {
+      "id": 1,
+      "key": "stone",
+      "mesh": "stone.glb",
+      "thumbnail": "thumbs/stone.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    },
+    {
+      "id": 2,
+      "key": "tower",
+      "mesh": "tower.glb",
+      "thumbnail": "thumbs/tower.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    },
+    {
+      "id": 3,
+      "key": "gate",
+      "mesh": "gate.glb",
+      "thumbnail": "thumbs/gate.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    },
+    {
+      "id": 4,
+      "key": "wood",
+      "mesh": "wood.glb",
+      "thumbnail": "thumbs/wood.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    },
+    {
+      "id": 5,
+      "key": "floor",
+      "mesh": "floor.glb",
+      "thumbnail": "thumbs/floor.png",
+      "triangles": 12,
+      "note": "Walkway slab: cell top at Y=1, thickness 0.18 m."
+    },
+    {
+      "id": 6,
+      "key": "stairs",
+      "mesh": "stairs.glb",
+      "thumbnail": "thumbs/stairs.png",
+      "triangles": 20,
+      "note": "Two 0.5 m steps; rises toward north (-Z)."
+    },
+    {
+      "id": 7,
+      "key": "ladder",
+      "mesh": "ladder.glb",
+      "thumbnail": "thumbs/ladder.png",
+      "triangles": 84,
+      "note": "Non-solid ladder on the north (-Z) cell face."
+    },
+    {
+      "id": 8,
+      "key": "door",
+      "mesh": "door.glb",
+      "thumbnail": "thumbs/door.png",
+      "triangles": 12,
+      "note": "One 1 m half of the required two-cell door pair; walkers pass."
+    },
+    {
+      "id": 9,
+      "key": "roof",
+      "mesh": "roof.glb",
+      "thumbnail": "thumbs/roof.png",
+      "triangles": 8,
+      "note": "Default north-rising slope; ridge/corner variants are later skins."
+    },
+    {
+      "id": 10,
+      "key": "magazine",
+      "mesh": "magazine.glb",
+      "thumbnail": "thumbs/magazine.png",
+      "triangles": 12,
+      "note": "Single cell; eight cells compose the 2x2x2 prefab."
+    },
+    {
+      "id": 11,
+      "key": "palace",
+      "mesh": "palace.glb",
+      "thumbnail": "thumbs/palace.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    },
+    {
+      "id": 12,
+      "key": "mount",
+      "mesh": "mount.glb",
+      "thumbnail": "thumbs/mount.png",
+      "triangles": 12,
+      "note": "Weapon support cell; weapons are separate node hierarchies."
+    },
+    {
+      "id": 13,
+      "key": "foundation",
+      "mesh": "foundation.glb",
+      "thumbnail": "thumbs/foundation.png",
+      "triangles": 12,
+      "note": "One 1 m cell."
+    }
+  ]
+}

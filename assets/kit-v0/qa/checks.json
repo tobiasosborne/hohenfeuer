@@ -1,0 +1,16 @@
+{
+  "owns": "Blender pose and repeat-render verification",
+  "blender": "4.5.14",
+  "checks": 8,
+  "poses_loaded": [
+    "example-wall"
+  ],
+  "pose_file_sha256": "1ac41cb8d2e03507cebbce6db8e2e121039d29f95517e0fb073fe681eb1e758f",
+  "render_size_px": [
+    1024,
+    768
+  ],
+  "repeat_sha256": "24baa4820cf93ffd0a8d6b146546a805d38a27d03c44fe1ae5f37964d656b277",
+  "repeat_identical": true,
+  "seconds": 22.135
+}
