@@ -17,6 +17,8 @@ export const TB1 = Object.freeze({
   /** Courtyard -> along z 27.5 -> south of the east stairs -> up the stairs (rising north) -> wall walkway -> cannon. */
   route: Object.freeze([[36, 27.5], [36, 35.4], [37.5, 35.4], [37.5, 28], [39.5, 28], [39.5, 24.8]]),
   arriveM: 0.25,
+  /** castle-local point on the west curtain wall (x 6..8), between the NW tower and the gun (TB2 demo target). */
+  wallTargetLocal: Object.freeze([7.5, 4, 15.5]),
   waypointTimeoutTicks: 20 * K.TICK_HZ,
 });
 
@@ -41,6 +43,12 @@ export function solveAim(from, to, wind = { x: 0, z: 0 }) {
     range: Math.round(aim.dial * T.aim.rangeUnitsPerDial), flat };
 }
 
+/** A point on the enemy's near (west) curtain wall, north of its gun: TB2 demo target that does not end the duel. */
+export function wallPoint(castle) {
+  const o = castle.plot.origin;
+  return { x: o.x + TB1.wallTargetLocal[0], y: o.y + TB1.wallTargetLocal[1], z: o.z + TB1.wallTargetLocal[2] };
+}
+
 /** World centre of a castle's palace cells (feet of the centroid cell row). */
 export function palaceCentre(castle) {
   const p = castle.plot, layer = p.width * p.depth;
@@ -55,8 +63,8 @@ export function palaceCentre(castle) {
  * Commands for that tick (tick and seq filled). Phases: walk -> man -> aim -> fire -> watch.
  * @param {{slot?: number}} [o]
  */
-export function createTb1Script({ slot = TB1.playerSlot } = {}) {
-  let phase = "walk", wp = 0, wpTicks = 0, firedTick = null, aim = null, weaponId = null;
+export function createTb1Script({ slot = TB1.playerSlot, orderCrew = false, target = "palace" } = {}) {
+  let phase = "walk", wp = 0, wpTicks = 0, firedTick = null, aim = null, weaponId = null, crewSent = !orderCrew;
   const script = {
     get phase() { return phase; },
     get firedTick() { return firedTick; },
@@ -64,6 +72,17 @@ export function createTb1Script({ slot = TB1.playerSlot } = {}) {
     get weaponId() { return weaponId; },
     /** @param {object} state sim.state snapshot @returns {object[]} */
     next(state) {
+      const out = step(state);
+      if (!crewSent) {
+        crewSent = true;
+        out.push({ type: CMD.ORDER_CREW, slot, tick: state.tick, seq: out.length, weaponId: state.weapons.filter((w) => w.slot === slot)[TB1.cannonIndex].id, on: 1 });
+      }
+      return out;
+    },
+  };
+  /** One tick of the walk -> man -> aim -> fire -> watch phases (without the optional crew order). */
+  function step(state) {
+    {
       const tick = state.tick;
       const castle = state.castles[slot], ruler = state.rulers.find((r) => r.slot === slot);
       const own = state.weapons.filter((w) => w.slot === slot);
@@ -76,18 +95,19 @@ export function createTb1Script({ slot = TB1.playerSlot } = {}) {
         if (dx * dx + dz * dz <= TB1.arriveM * TB1.arriveM) {
           wp++; wpTicks = 0;
           if (wp >= TB1.route.length) { phase = "man"; return [cmd(CMD.MOVE, { fwd: 0, strafe: 0, yaw: yawUnits(PI / 2), pitch: 0, jump: 0, sprint: 0 })]; }
-          return script.next(state);
+          return step(state);
         }
         if (++wpTicks > TB1.waypointTimeoutTicks) throw new Error(`TB1 script stuck before waypoint ${wp} at tick ${tick} (ruler ${ruler.pos.x.toFixed(2)}, ${ruler.pos.y.toFixed(2)}, ${ruler.pos.z.toFixed(2)})`);
         return [cmd(CMD.MOVE, { fwd: K.MOVE_AXIS_MAX, strafe: 0, yaw: yawUnits(atan2(dx, -dz)), pitch: 0, jump: 0, sprint: 0 })];
       }
       if (phase === "man") {
-        if (ruler.manning === weaponId) { phase = "aim"; return script.next(state); }
+        if (ruler.manning === weaponId) { phase = "aim"; return step(state); }
         return [cmd(CMD.MAN_WEAPON, { weaponId })];
       }
       if (phase === "aim") {
         const w = state.weapons.find((x) => x.id === weaponId);
-        aim = solveAim(w.pos, palaceCentre(state.castles[1 - slot]), windVector(state.wind));
+        const enemy = state.castles[1 - slot];
+        aim = solveAim(w.pos, target === "wall" ? wallPoint(enemy) : palaceCentre(enemy), windVector(state.wind));
         phase = "fire";
         return [cmd(CMD.AIM, { weaponId, az: aim.az, range: aim.range })];
       }
@@ -99,8 +119,8 @@ export function createTb1Script({ slot = TB1.playerSlot } = {}) {
         return [cmd(CMD.FIRE, { weaponId })];
       }
       return [];
-    },
-  };
+    }
+  }
   return script;
 }
 

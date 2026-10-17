@@ -1,6 +1,8 @@
 // src/main.js - owns the TB1 boot: plugins, sim, renderer, input, cameras, HUD, audio, fixed-step loop and the debug hook.
 // URL params: golden=1 (no wall-clock sim time; the sim advances only through stepTo/setPose), demo=1 (the TB1 script
-// plays the slice in real time), seed=<n>, lang=de|en, kit=0 (fallback block palette).
+// plays the slice in real time), demo=tb2 (the TB2 director: crews, enemy reply, repairs), speed=<0.25..4> (demo
+// time-lapse on the loop clock), seed=<n>, lang=de|en,
+// kit=v1 (default) | 0 or v0 (kit v0) | none (fallback block palette).
 import * as THREE from "three";
 import { CMD, EV, CAMERA_MODE, K, freezeRegistries, getWeapon, getCastle, getView, getMap } from "./contracts.js";
 import { TUNING as T } from "./tuning.js";
@@ -8,8 +10,7 @@ import { registerCoreSim } from "./plugins/index.sim.js";
 import { registerCoreView } from "./plugins/index.view.js";
 import { createSim } from "./sim/sim.js";
 import { createLoop } from "./core/loop.js";
-import { weaponRangeTable } from "./sim/weapons.js";
-import { dialToElevation, traceFlight } from "./sim/ballistics.js";
+import { fixedElevation, launchSpeed, traceFlight } from "./sim/ballistics.js";
 import { windHud } from "./sim/wind.js";
 import { palaceIntegrity } from "./sim/rules.js";
 import { createRenderer } from "./render/renderer.js";
@@ -18,6 +19,7 @@ import { createTerrainView } from "./render/terrain-view.js";
 import { createChunkManager } from "./render/chunks.js";
 import { createModelSet, fallbackModels } from "./render/mesher.js";
 import { createWeaponView } from "./render/weapon-view.js";
+import { createPeopleView } from "./render/people-view.js";
 import { createFx } from "./render/fx.js";
 import { createAssets } from "./render/assets.js";
 import { installDebugApi } from "./render/debug-api.js";
@@ -31,14 +33,20 @@ import { topDown } from "./ui/minimap.js";
 import { t } from "./ui/i18n.js";
 import { createMenu } from "./ui/menus.js";
 import { createSfx } from "./audio/sfx.js";
-import { TB1, tb1Slots, createTb1Script, ballNearEnemy } from "./tb1-script.js";
+import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-script.js";
+import { windVector } from "./sim/wind.js";
+
+/** Scripted slices: tb1 = walk, man, fire at the palace; tb2 = the same with the crew ordered at tick 0, aiming at a wall. */
+const SCRIPTS = { tb1: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }) };
 
 const DEG = Math.PI / 180;
 const q = new URLSearchParams(globalThis.location.search);
 const GOLDEN = q.get("golden") === "1";
-const DEMO = q.get("demo") === "1";
+const DEMO = q.get("demo") === "1" || q.get("demo") === "tb2";
+const DEMO_TB2 = q.get("demo") === "tb2";
 const SEED = Number(q.get("seed") ?? TB1.seed) >>> 0;
 const LANG = q.get("lang") === "en" ? "en" : "de";
+const SPEED = Math.max(0.25, Math.min(4, Number(q.get("speed") ?? 1) || 1)); // demo time-lapse factor on the loop clock
 const ME = TB1.playerSlot;
 
 /* ------------------------------------------------------------------ registries and sim */
@@ -55,6 +63,7 @@ function capture(s) {
   return {
     rulers: new Map(s.rulers.map((r) => [r.slot, { ...r.pos }])),
     projectiles: new Map(s.projectiles.map((p) => [p.id, { ...p.pos }])),
+    npcs: new Map(s.npcs.map((n) => [n.id, { ...n.pos }])),
   };
 }
 const lerp3 = (a, b, k) => (a ? [a.x + (b.x - a.x) * k, a.y + (b.y - a.y) * k, a.z + (b.z - a.z) * k] : [b.x, b.y, b.z]);
@@ -76,40 +85,35 @@ r.scene.add(terrain.group);
 const mirrors = view.castles.map((c) => c.plot);
 
 const assets = createAssets();
-let models = null, material = null, kit = "fallback", kitError = null;
-if (q.get("kit") !== "0") {
+const KIT_PARAM = q.get("kit") ?? "v1";
+let models = null, variants = [], material = null, kit = "fallback", kitError = null, kitData = null;
+if (KIT_PARAM !== "none") {
+  const dir = KIT_PARAM === "0" || KIT_PARAM === "v0" ? "kit-v0" : "kit-v1";
   try {
-    const k = await assets.loadBlockKit("/assets/kit-v0/");
-    models = k.models;
-    material = new THREE.MeshLambertMaterial({ map: k.atlas, vertexColors: true });
-    kit = "kit-v0";
+    kitData = await assets.loadBlockKit(`/assets/${dir}/`);
+    models = kitData.models; variants = kitData.variants;
+    material = new THREE.MeshLambertMaterial({ map: kitData.atlas, vertexColors: true });
+    kit = dir;
   } catch (e) { kitError = String(e); }
 }
 if (!models) { models = fallbackModels(); material = new THREE.MeshLambertMaterial({ vertexColors: true }); }
-const chunks = createChunkManager({ models: createModelSet(models), material, meshOpts: { sunDir } });
+const chunks = createChunkManager({ models: createModelSet(models, variants), material, meshOpts: { sunDir } });
 for (const p of mirrors) chunks.addPlot(p);
 chunks.flush();
 r.scene.add(chunks.group);
 
 const weaponViews = new Map(view.weapons.map((w) => {
-  const wv = createWeaponView();
+  const kitCannon = kitData?.weapons?.[w.defId];
+  const wv = createWeaponView(kitCannon ? { model: kitCannon.clone(true) } : {});
   wv.root.position.set(w.pos.x, w.pos.y, w.pos.z);
   r.scene.add(wv.root);
   return [w.id, wv];
 }));
-function elevationOf(w) { return dialToElevation(weaponRangeTable(getWeapon(w.defId)), w.aim.range / T.aim.rangeUnitsPerDial); }
+function elevationOf(w) { return fixedElevation(getWeapon(w.defId)); }
 
 const SLOT_COLORS = ["#c02828", "#2860c0", "#28a040", "#c0a020"];
-const rulerViews = new Map(view.rulers.map((ru) => {
-  const g = new THREE.Group();
-  const cloth = new THREE.MeshLambertMaterial({ color: SLOT_COLORS[ru.slot] });
-  const body = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.1, 0.32), cloth); body.position.y = 0.75;
-  const head = new THREE.Mesh(new THREE.SphereGeometry(0.17, 10, 8), new THREE.MeshLambertMaterial({ color: 0xe0c0a0 })); head.position.y = 1.5;
-  const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 0.12, 8), new THREE.MeshLambertMaterial({ color: 0xe0b030 })); crown.position.y = 1.7;
-  g.add(body, head, crown);
-  r.scene.add(g);
-  return [ru.slot, g];
-}));
+const people = createPeopleView({ scene: r.scene, model: kitData?.people?.person ?? null });
+const RULER_TINT = [0xe03030, 0x3070e0, 0x30b050, 0xe0c030];
 
 const ballGeo = new THREE.SphereGeometry(0.3, 10, 8), ballMat = new THREE.MeshLambertMaterial({ color: 0x2a2a2c });
 const balls = new Map();
@@ -138,7 +142,34 @@ globalThis.addEventListener("keydown", unlockAudio);
 globalThis.addEventListener("keydown", (e) => { if (menu && (e.code === "Enter" || e.code === "NumpadEnter")) globalThis.location.reload(); });
 
 const rig = createCameraRig(camera, { seed: SEED, golden: GOLDEN || DEMO });
-let script = DEMO ? createTb1Script() : null;
+let script = DEMO ? (DEMO_TB2 ? SCRIPTS.tb2() : SCRIPTS.tb1()) : null;
+
+/**
+ * TB2 demo director (demo=tb2): once the enemy gun has its crew and is loaded, slot 1 aims at our east wall by the
+ * stairs and fires (the AI's own FIRE is dropped while its crew is still walking, see the TB2 report); after the
+ * impact the camera leaves the weapon view for a free camera over the damage so the masons can be seen arriving.
+ */
+const TB2_DIRECTOR = Object.freeze({ enemyWeaponIndex: 0, ourWallLocal: [40.5, 5, 31.5], camLocal: [40, 12, 20], camAzDeg: 209, camPitchDeg: -41, linger: 30 });
+const director = { stage: 0, impactTick: null };
+function directorCommands() {
+  if (!DEMO_TB2 || view.outcome) return [];
+  const enemyGun = view.weapons.filter((w) => w.slot === 1)[TB2_DIRECTOR.enemyWeaponIndex];
+  const out = [];
+  if (director.stage === 0 && view.tick >= 380 && (enemyGun.crewPresent ?? 0) >= 2 && enemyGun.reload + 1e-9 >= getWeapon(enemyGun.defId).reloadS) {
+    const o = view.castles[ME].plot.origin, w = TB2_DIRECTOR.ourWallLocal;
+    const a = solveAim(enemyGun.pos, { x: o.x + w[0], y: o.y + w[1], z: o.z + w[2] }, windVector(view.wind));
+    out.push({ type: CMD.AIM, slot: 1, weaponId: enemyGun.id, az: a.az, range: a.range });
+    director.stage = 1;
+  } else if (director.stage === 1) {
+    out.push({ type: CMD.FIRE, slot: 1, weaponId: enemyGun.id });
+    director.stage = 2;
+  } else if (director.stage === 2 && director.impactTick !== null && view.tick >= director.impactTick + TB2_DIRECTOR.linger) {
+    const o = view.castles[ME].plot.origin, c = TB2_DIRECTOR.camLocal;
+    freeCamera = { pos: [o.x + c[0], o.y + c[1], o.z + c[2]], yaw: TB2_DIRECTOR.camAzDeg * DEG, pitch: TB2_DIRECTOR.camPitchDeg * DEG, roll: 0, fov: T.ruler.fovDeg };
+    director.stage = 3;
+  }
+  return out;
+}
 let freeCamera = null; // explicit debug pose overrides the rig
 const queued = [];
 let impactHeld = false, freeLook = { yaw: 0, pitch: 0 };
@@ -176,6 +207,7 @@ function tick() {
   if (view.outcome) return;
   prev = capture(view);
   let cmds = script ? script.next(view) : GOLDEN ? [] : playerCommands();
+  for (const c of directorCommands()) queued.push(c);
   for (const c of queued.splice(0)) {
     const slot = c.slot ?? ME;
     cmds.push({ ...c, slot, tick: view.tick, seq: cmds.filter((x) => x.slot === slot).length });
@@ -200,6 +232,7 @@ function handleEvents(events) {
       log.push(t(p.slot === ME ? "shotFired" : "enemyFires", LANG), { tick: view.tick, tone: p.slot === ME ? TONE.INFO : TONE.BAD });
     } else if (e.type === EV.IMPACT) {
       fx.impactPuff(new THREE.Vector3(...p.pos));
+      if (p.slot !== ME && director.impactTick === null && director.stage >= 2) director.impactTick = view.tick;
       if (p.slot === ME) {
         const enemy = view.castles[1 - ME], o = enemy.plot.origin;
         const inside = p.pos[0] >= o.x && p.pos[0] < o.x + enemy.plot.width && p.pos[2] >= o.z && p.pos[2] < o.z + enemy.plot.depth;
@@ -226,13 +259,16 @@ function frame(alpha) {
   lastFrameMs = now;
   const me = view.rulers[ME];
   const mode = cameraMode();
-  for (const [slot, g] of rulerViews) {
-    const ru = view.rulers[slot];
-    g.visible = ru.hp > 0 && (slot !== ME || mode === CAMERA_MODE.DEATH || mode === CAMERA_MODE.GHOST || freeCamera !== null);
-    const pos = lerp3(prev.rulers.get(slot), ru.pos, alpha);
-    g.position.set(...pos);
-    g.rotation.y = -(ru.yaw / K.YAW_UNITS) * Math.PI * 2;
+  const figures = [];
+  for (const ru of view.rulers) {
+    const visible = ru.hp > 0 && (ru.slot !== ME || mode === CAMERA_MODE.DEATH || mode === CAMERA_MODE.GHOST || freeCamera !== null);
+    if (visible) figures.push({ id: -1 - ru.slot, pos: lerp3(prev.rulers.get(ru.slot), ru.pos, alpha), prev: prev.rulers.get(ru.slot), now: ru.pos, role: "ruler", tint: RULER_TINT[ru.slot] });
   }
+  for (const n of view.npcs) {
+    if (n.hp <= 0 || n.deserted) continue;
+    figures.push({ id: n.id, pos: lerp3(prev.npcs.get(n.id), n.pos, alpha), prev: prev.npcs.get(n.id), now: n.pos, role: n.role });
+  }
+  people.update(figures);
   for (const w of view.weapons) {
     const wv = weaponViews.get(w.id);
     wv.root.visible = w.hp > 0;
@@ -271,7 +307,7 @@ function predicted(w) {
   const key = `${w.id}:${w.aim.az}:${w.aim.range}`;
   if (predictedCache.key !== key) {
     const def = getWeapon(w.defId), az = w.aim.az / T.aim.azUnitsPerDeg;
-    const res = traceFlight({ v0: def.v0, k: def.k, elevation: elevationOf(w), azimuth: az, pos: { x: w.pos.x, y: w.pos.y + 0.5, z: w.pos.z }, landingY: w.pos.y });
+    const res = traceFlight({ v0: launchSpeed(def, w.aim.range / T.aim.rangeUnitsPerDial), k: def.k, elevation: elevationOf(w), azimuth: az, pos: { x: w.pos.x, y: w.pos.y + 0.5, z: w.pos.z }, landingY: w.pos.y });
     predictedCache.key = key; predictedCache.point = res.pos;
   }
   const v = new THREE.Vector3(predictedCache.point.x, predictedCache.point.y, predictedCache.point.z).project(camera);
@@ -318,7 +354,8 @@ function hudView(mode) {
 /* ------------------------------------------------------------------ loop and debug hook */
 const loop = createLoop({
   tick, render: frame,
-  requestFrame: (f) => globalThis.requestAnimationFrame(f), cancelFrame: (h) => globalThis.cancelAnimationFrame(h),
+  maxTicks: Math.ceil(T.sim.maxTicksPerFrame * SPEED), maxFrameDt: T.sim.dtClampS * SPEED, // time-lapse only when speed > 1
+  requestFrame: (f) => globalThis.requestAnimationFrame((ms) => f(ms * SPEED)), cancelFrame: (h) => globalThis.cancelAnimationFrame(h),
   visibility: document,
 });
 
@@ -336,7 +373,7 @@ const api = installDebugApi({
     /** Queue a command for the next tick (tick and seq are filled in; slot defaults to 0). */
     issue(cmd) { queued.push({ ...cmd }); return queued.length; },
     /** Start the TB1 script (walk, man, aim, fire) from the current tick. */
-    runScript() { script = createTb1Script(); return true; },
+    runScript(name = "tb1") { script = SCRIPTS[name](); return true; },
     /** Advance the scripted slice until the slot-0 ball is in flight near the enemy castle. */
     toFirstShotMidFlight(maxTicks = 60 * K.TICK_HZ) {
       script ??= createTb1Script();
@@ -358,8 +395,8 @@ const lanePose = api.setPose;
  * camera: "rig" (the player camera rig decides; position/yaw/pitch then only serve tools/blender, which needs them).
  */
 api.setPose = (p) => {
-  if (p.script === "tb1") {
-    script ??= createTb1Script();
+  if (SCRIPTS[p.script]) {
+    script ??= SCRIPTS[p.script]();
     if (p.until === "ball-near-enemy") api.toFirstShotMidFlight();
     else if (Number.isInteger(p.until)) stepTo(p.until);
   } else if (Number.isInteger(p.tick)) stepTo(p.tick);

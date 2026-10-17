@@ -1,0 +1,503 @@
+✔ FACE_DIRS lists the six axis directions (1.470779ms)
+✔ a lone stone emits 6 quads in plot-local coordinates (1.457626ms)
+✔ faces between opaque neighbours are culled, also across chunk borders (0.629172ms)
+✔ non-opaque neighbours (floor slab, stairs, ladder, roof) do not cull (1.879966ms)
+✔ opacity is derived from model coverage (0.196219ms)
+✔ foundation layer: bottom faces below y=0 are culled by default (2.34238ms)
+✔ vertex AO darkens corners next to occluders and leaves open faces bright (0.918274ms)
+✔ sun term: an overhang shadows the top face only when the sun is above (0.607103ms)
+✔ damage states tint per TUNING (hp 20/40 is state 2 = 0.8) (0.598495ms)
+✔ modelFromTriangles classifies faces and detects full cubes (2.227208ms)
+✔ rotateModel turns a north-facing model clockwise by facing (1.161456ms)
+✔ meshing is deterministic and fast enough for a full wall chunk (30.034626ms)
+✖ damage variants replace the model per hp state, without the tint (15.454769ms)
+✖ a non-opaque damage variant does not hide its neighbour's face (5.419515ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 12
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173.813136
+
+✖ failing tests:
+
+test at tests/unit/render-mesher.test.js:152:1
+✖ damage variants replace the model per hp state, without the tint (15.454769ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be reference-equal to "expected":
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      faces: [
+        {
+  +       area: 1,
+  -       area: 0.6,
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+          cull: 'px',
+          indices: Uint16Array(6) [
+            0,
+            1,
+  ...
+            1,
+  +         1,
+  -         0.6000000238418579,
+            0,
+            1,
+  -         0.6000000238418579,
+            1,
+  +         1
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+            1,
+  ...
+        {
+  +       area: 1,
+  -       area: 0.6,
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+          cull: 'nx',
+          indices: Uint16Array(6) [
+            0,
+            1,
+  ...
+            0,
+  -         0.6000000238418579,
+            1,
+  +         1,
+            0,
+  +         1,
+  -         0.6000000238418579,
+            0
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+  ...
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+  +       cull: 'py',
+  -       cull: 'ny',
+          indices: Uint16Array(6) [
+            0,
+            1,
+            2,
+            0,
+  ...
+          normal: [
+  +         -0,
+  +         1,
+            0,
+  -         -1,
+  -         0
+          ],
+          normals: Float32Array(12) [
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1,
+  -         -1,
+            0
+          ],
+          positions: Float32Array(12) [
+            0,
+  -         0,
+  -         0,
+            1,
+  -         0,
+  -         0,
+            1,
+  -         0,
+            1,
+  +         1,
+  +         1,
+  +         1,
+  +         1,
+            0,
+            0,
+            1,
+  +         0
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+            1,
+  ...
+        {
+  +       area: 1,
+  -       area: 0.6,
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+  +       cull: 'ny',
+  -       cull: 'pz',
+          indices: Uint16Array(6) [
+            0,
+            1,
+            2,
+            0,
+  ...
+            0,
+  +         -1,
+            0,
+  -         1
+          ],
+          normals: Float32Array(12) [
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1
+          ],
+          positions: Float32Array(12) [
+            0,
+            0,
+  +         0,
+            1,
+  +         0,
+  +         0,
+            1,
+            0,
+            1,
+  -         1,
+  -         0.6000000238418579,
+  -         1,
+            0,
+  +         0,
+  -         0.6000000238418579,
+            1
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+  ...
+        {
+  +       area: 1,
+  -       area: 0.6,
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+  +       cull: 'pz',
+  -       cull: 'nz',
+          indices: Uint16Array(6) [
+            0,
+            1,
+            2,
+            0,
+  ...
+            0,
+  +         1
+  -         -1
+          ],
+          normals: Float32Array(12) [
+            0,
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1,
+  -         -1,
+            0,
+            0,
+  +         1
+  -         -1
+          ],
+          positions: Float32Array(12) [
+  -         1,
+            0,
+            0,
+  +         1,
+  +         1,
+            0,
+  +         1,
+  +         1,
+  +         1,
+  +         1,
+            0,
+  -         0,
+  -         0,
+  -         0.6000000238418579,
+  -         0,
+            1,
+  +         1
+  -         0.6000000238418579,
+  -         0
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+            1,
+  ...
+          colors: Float32Array(12) [
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756,
+  +         0.32314321398735046,
+  +         0.3049873113632202,
+  +         0.2622506618499756
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5,
+  -         0.5
+          ],
+  +       cull: 'nz',
+  -       cull: null,
+          indices: Uint16Array(6) [
+            0,
+            1,
+            2,
+            0,
+  ...
+          normal: [
+  -         -0,
+  -         1,
+            0,
+  +         0,
+  +         -1
+          ],
+          normals: Float32Array(12) [
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1,
+            0,
+  -         1,
+            0,
+  +         -1
+          ],
+          positions: Float32Array(12) [
+  +         1,
+            0,
+  +         0,
+  +         0,
+  +         0,
+  +         0,
+  +         0,
+  -         0.6000000238418579,
+            1,
+  +         0,
+            1,
+  -         0.6000000238418579,
+            1,
+  -         1,
+  -         0.6000000238418579,
+            0,
+  -         0,
+  -         0.6000000238418579,
+  -         0
+          ],
+          uvs: Float32Array(8) [
+            0,
+            0,
+            1,
+  ...
+      ],
+  +   opaque: true
+  -   opaque: false
+    }
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/render-mesher.test.js:158:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { opaque: true, faces: [ [Object], [Object], [Object], [Object], [Object], [Object] ] },
+    expected: { opaque: false, faces: [ [Object], [Object], [Object], [Object], [Object], [Object] ] },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/render-mesher.test.js:169:1
+✖ a non-opaque damage variant does not hide its neighbour's face (5.419515ms)
+  AssertionError [ERR_ASSERTION]: the +x face stays because the rubble neighbour is not opaque
+  
+  5 !== 6
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/render-mesher.test.js:178:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 5,
+    expected: 6,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

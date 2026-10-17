@@ -15,6 +15,17 @@ Golden-mode and debug-hook rules in 7.6; weapon-view and PgUp/PgDn rules in 5. O
 flattened to the plot origin (the foundation bottom), so castles stand on a 1 m foundation plinth;
 lane A owns the change to origin.y + 1 (its terrain test pins the current value).
 
+**Amendments 2026-10-17 (TB2 integration).** NPCs are wired into the sim (lane B entry points: hooks default to
+npcTick/moraleTick/npcKinematics, recordNpcEvent in emit, begin/endNpcImpact around each blast, npcCommand for the
+remaining commands; weapons gate firing on `canFire` and scale reload by `reloadMultiplier`, DESIGN 3.5). Render:
+kit v1 by default (`?kit=0|v0` kit v0, `?kit=none` fallback palette), damage states 1-3 use the kit's `_z1.._z3`
+meshes (the tint applies only where a variant is missing; opacity is per state, so rubble does not hide its
+neighbours), the cannon is the kit GLB with its Base/Yaw/Pitch/Muzzle/Sight pivots, and people are one InstancedMesh
+of the kit person with the red tunic texels recoloured per role plus instanced blob shadows (no billboards yet).
+Scripted slices: `tb1` (walk, man, palace shot) and `tb2` (crew ordered at tick 0, wall shot). Open, outside the
+render lane: the AI sends FIRE before its crew arrives and never retries (AI-vs-AI fires 0 shots); lane A/F tests
+still fire unmanned cannons; one TB2 palace hit destroys 44 of 48 palace cells and ends the duel.
+
 Conventions: Y-up, **1 world unit = 1 m**, north = -Z, east = +X. Azimuth is measured clockwise
 from north in degrees; direction vector `(sin az, 0, -cos az)`. Sim time is ticks at 30 Hz.
 
@@ -585,7 +596,8 @@ change, map, biome).
   them), optional `fov`, and for scripted game poses `script: "tb1"`, `until: "ball-near-enemy" |
   <tick>`, `camera: "rig"` (the player camera rig decides; position/yaw/pitch then serve Blender
   only). Current goldens: `tb1-spawn`, `tb1-first-shot`, `rampart-north`, `weapon-view-cannon`,
-  `hud-weapon-view`, `hud-walking`, `example-wall`.
+  `hud-weapon-view`, `hud-walking`, `example-wall`, `courtyard-palace` (tb2, tick 150) and
+  `crew-at-cannon` (tb2, tick 600).
 - Two gates: (a) **regression** of our own frames: pixelmatch threshold 0.1, max diff 0.1% of
   pixels (`scripts/goldens.mjs`; in practice 0 px on the SwiftShader path); a golden is updated by
   deleting its PNG and rerunning `npm run goldens`, in a commit that contains the new PNGs and

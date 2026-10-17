@@ -6,7 +6,7 @@ import { TUNING as T } from '../../src/tuning.js';
 import { registerCoreSim } from '../../src/plugins/index.sim.js';
 import { createSim } from '../../src/sim/sim.js';
 import { indexToCell, cellToWorld } from '../../src/world/grid.js';
-import { solveAim } from '../../src/tb1-script.js';
+import { solveAim, createTb1Script } from '../../src/tb1-script.js';
 import { windVector } from '../../src/sim/wind.js';
 import { palaceIntegrity } from '../../src/sim/rules.js';
 
@@ -28,6 +28,11 @@ test('TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless)',
   const target = cellToWorld(enemy.plot, centroid.x, centroid.y, centroid.z);
   const before = palaceIntegrity(enemy);
   assert.equal(before, 1);
+  // TB2 crew rule (DESIGN 3.5): someone must be at the gun, so the ruler walks up and mans it first.
+  const walk = createTb1Script();
+  for (let i = 0; i < 30 * T.sim.tickHz && sim.state.rulers[0].manning !== weapon.id; i++) sim.tick(walk.next(sim.state));
+  assert.equal(sim.state.rulers[0].manning, weapon.id, 'ruler mans the east cannon');
+  sim.drainEvents();
   const aim = solveAim(weapon.pos, target, windVector(sim.state.wind));
   assert.ok(aim.flat > 100 && aim.flat < 400, `castles are a duel distance apart (${aim.flat.toFixed(1)} m)`);
   sim.tick([cmd(C.CMD.AIM, 0, sim.state.tick, 0, { weaponId: weapon.id, az: aim.az, range: aim.range })]);

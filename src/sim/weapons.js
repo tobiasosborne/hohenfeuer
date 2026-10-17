@@ -6,6 +6,7 @@ import { buildRangeTable, rangeToCharge, launchSpeed, fixedElevation, scatterAng
 import { spend } from './economy.js';
 import { markWindShot } from './wind.js';
 import { sampleHeight } from '../world/terrain.js';
+import { canFire, reloadMultiplier } from '../npc/index.js';
 const tables = new WeakMap();
 /** Derived immutable data is kept outside serialized weapon state. */
 export function weaponRangeTable(def) { if (!tables.has(def)) tables.set(def, buildRangeTable(def)); return tables.get(def); }
@@ -18,7 +19,8 @@ export function createWeapon(def, { id, slot, pos, facing = 0 }) {
 /** Fire one cannon shot if loaded and affordable; Phase 1 intentionally has no crew gate. */
 export function fireWeapon(ctx, weapon) {
   const def = ctx.getWeapon(weapon.defId), castle = ctx.castleOf(weapon.slot);
-  if (!def || !castle || castle.eliminated || weapon.hp <= 0 || weapon.reload + 1e-9 < def.reloadS || !spend(castle, def.fireCost)) return false;
+  if (!def || !castle || castle.eliminated || weapon.hp <= 0 || weapon.reload + 1e-9 < def.reloadS || !canFire(weapon, castle) || !spend(castle, def.fireCost)) return false;
+  weapon.ammo -= def.ammoLoads;
   const rng = ctx.rng(RNG_STREAM.SCATTER), charge = weapon.aim.range / T.aim.rangeUnitsPerDial;
   const scatter = scatterAngles(def, weapon.aim.az / T.aim.azUnitsPerDeg, rng);
   const az = scatter.azimuth, elevation = scatter.elevation, v0 = launchSpeed(def, charge);
@@ -44,7 +46,7 @@ export function tickWeapons(ctx, dt = K.DT) {
   for (const weapon of ctx.state.weapons) {
     if (weapon.hp <= 0) continue;
     const def = ctx.getWeapon(weapon.defId), before = weapon.reload;
-    weapon.reload = Math.min(def.reloadS, weapon.reload + dt);
+    weapon.reload = Math.min(def.reloadS, weapon.reload + dt / reloadMultiplier(weapon, ctx.castleOf(weapon.slot)));
     if (before < def.reloadS && weapon.reload + 1e-9 >= def.reloadS) { weapon.reload = def.reloadS; ctx.emit(EV.WEAPON_LOADED, { weaponId: weapon.id }); }
     if (weapon.fireRequested || weapon.autoFire) fireWeapon(ctx, weapon);
     weapon.fireRequested = false;

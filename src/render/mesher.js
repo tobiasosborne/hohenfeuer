@@ -161,20 +161,30 @@ export function rotateModel(model, facing) {
 }
 
 /**
- * Model lookup by block id with cached rotations and an opacity table.
- * @param {Array<object|null>} models indexed by block id (0..255)
+ * Model lookup by block id, damage state and facing, with cached rotations and opacity tables.
+ * @param {Array<object|null>} models indexed by block id (0..255): the intact (state 0) model
+ * @param {Array<Array<object|null>|undefined>} [variants] variants[id] = [state1, state2, state3] models (kit _z1.._z3);
+ *   a missing variant falls back to the intact model, which then gets the damage tint instead
  */
-export function createModelSet(models) {
+export function createModelSet(models, variants = []) {
   const opaque = new Uint8Array(256);
+  const opaqueState = new Uint8Array(256 * 4);
   const base = new Array(256).fill(null);
+  const vars = new Array(256).fill(null);
   models.forEach((m, id) => { if (m) { base[id] = m; opaque[id] = m.opaque ? 1 : 0; } });
+  variants.forEach((v, id) => { if (v) vars[id] = v; });
+  const pickModel = (id, state) => (state && vars[id] && vars[id][state - 1]) || base[id];
+  for (let id = 0; id < 256; id++) for (let st = 0; st < 4; st++) { const m = pickModel(id, st); opaqueState[id * 4 + st] = m && m.opaque ? 1 : 0; }
   const cache = new Map();
   return {
     opaque,
-    get(id, facing = 0) {
-      const m = base[id];
+    opaqueState,
+    /** True when `state` (1..3) has its own variant model (no tint needed). */
+    hasVariant(id, state) { return !!(state && vars[id] && vars[id][state - 1]); },
+    get(id, facing = 0, state = 0) {
+      const m = pickModel(id, state);
       if (!m || (facing & 3) === 0) return m;
-      const key = id * 4 + (facing & 3);
+      const key = (id * 4 + state) * 4 + (facing & 3);
       if (!cache.has(key)) cache.set(key, rotateModel(m, facing));
       return cache.get(key);
     },
@@ -247,8 +257,21 @@ export function meshChunk(plot, cx, cy, cz, o) {
   const W = plot.width, H = plot.height, D = plot.depth, layer = W * D;
   const T = plot.type, HP = plot.hp, M = plot.meta;
   const outside = o.neighbor ?? ((x, y) => (y < 0 && belowOpaque ? BLOCK.FOUNDATION : BLOCK.AIR));
-  const typeAt = (x, y, z) => (x >= 0 && y >= 0 && z >= 0 && x < W && y < H && z < D ? T[x + W * z + layer * y] : outside(x, y, z));
-  const solidAt = (x, y, z) => opaque[typeAt(x, y, z)];
+  const opaqueState = set.opaqueState;
+  /** Damage state 0..3 from hp (TUNING.damageStateAbove); indestructible and hp-less blocks stay 0. */
+  const stateOf = (type, hp) => {
+    const mh = maxHp[type];
+    if (!(mh > 0 && mh < 255)) return 0;
+    const frac = hp / mh;
+    return frac > above[0] ? 0 : frac > above[1] ? 1 : frac > above[2] ? 2 : 3;
+  };
+  const solidAt = (x, y, z) => {
+    if (x >= 0 && y >= 0 && z >= 0 && x < W && y < H && z < D) {
+      const i = x + W * z + layer * y, t = T[i];
+      return opaqueState ? opaqueState[t * 4 + stateOf(t, HP[i])] : opaque[t];
+    }
+    return opaque[outside(x, y, z)];
+  };
 
   // Amanatides-Woo march toward the sun from point p; true if an opaque cell (other than skip) blocks it.
   const sunBlocked = (px, py, pz, skipX, skipY, skipZ) => {
@@ -277,20 +300,15 @@ export function meshChunk(plot, cx, cy, cz, o) {
     if (type === BLOCK.AIR) continue;
     if (o.only !== undefined && type !== o.only) continue;
     if (at && (at[0] !== x || at[1] !== y || at[2] !== z)) continue;
-    const model = set.get(type, M ? M[i] & 3 : 0);
+    const state = stateOf(type, HP[i]);
+    const model = set.get(type, M ? M[i] & 3 : 0, state);
     if (!model) continue;
-    const mh = maxHp[type];
-    let tint = 1;
-    if (mh > 0 && mh < 255) {
-      const frac = HP[i] / mh;
-      const state = frac > above[0] ? 0 : frac > above[1] ? 1 : frac > above[2] ? 2 : 3;
-      if (state) tint = tints[state - 1];
-    }
+    const tint = state && !(set.hasVariant && set.hasVariant(type, state)) ? tints[state - 1] : 1;
     for (const face of model.faces) {
       let d = null;
       if (face.cull) {
         d = FACE_DIRS[face.cull];
-        if (opaque[typeAt(x + d[0], y + d[1], z + d[2])]) continue;
+        if (solidAt(x + d[0], y + d[1], z + d[2])) continue;
       }
       const fn = face.normal;
       let vis = 1;

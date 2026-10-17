@@ -71,7 +71,7 @@ try {
     const page = await browser.newPage({ viewport: { width: 1024, height: 768 } });
     page.on("pageerror", (e) => report.errors.push(`kit=0: ${e.message}`));
     page.on("console", (m) => m.type() === "error" && report.errors.push(`kit=0: ${m.text()}`));
-    await page.goto(new URL("dev/render.html?kit=0", report.url).href);
+    await page.goto(new URL("dev/render.html?kit=none", report.url).href);
     await page.waitForFunction(() => globalThis.__hohenfeuer?.ready === true);
     const fb = await page.evaluate(() => ({ kit: globalThis.__hohenfeuer.kit, chunks: globalThis.__hohenfeuer.chunks.meshCount() }));
     report.fallback = fb;

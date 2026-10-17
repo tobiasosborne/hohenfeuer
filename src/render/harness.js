@@ -11,11 +11,11 @@ import { createAssets } from "./assets.js";
 import { installDebugApi } from "./debug-api.js";
 import { buildTestScene, TEST_SCENE } from "./test-scene.js";
 
-export const KIT_DIR = "/assets/kit-v0/";
+export const KIT_DIRS = Object.freeze({ v1: "/assets/kit-v1/", v0: "/assets/kit-v0/" });
 export const DEFAULT_POSE = Object.freeze({ position: [109.5, 12.6, 118.5], yaw: -1.62, pitch: -0.06, fov: 60 });
 
 /**
- * Boot the harness into document.body. URL params: kit=0 forces the fallback palette.
+ * Boot the harness into document.body. URL params: kit=v1 (default) | 0 or v0 (kit v0) | none (fallback palette).
  * @returns {Promise<object>} the debug hook
  */
 export async function bootRenderHarness({ params = new URLSearchParams(globalThis.location?.search ?? "") } = {}) {
@@ -31,13 +31,15 @@ export async function bootRenderHarness({ params = new URLSearchParams(globalThi
   view.scene.add(terrain.group);
 
   const assets = createAssets();
-  let models = null, material = null, kit = "fallback", kitError = null;
-  if (params.get("kit") !== "0") {
+  let models = null, variants = [], material = null, kit = "fallback", kitError = null, kitData = null;
+  const kitParam = params.get("kit") ?? "v1";
+  if (kitParam !== "none") {
+    const which = kitParam === "0" || kitParam === "v0" ? "v0" : "v1";
     try {
-      const k = await assets.loadBlockKit(KIT_DIR);
-      models = k.models;
-      material = new THREE.MeshLambertMaterial({ map: k.atlas, vertexColors: true });
-      kit = "kit-v0";
+      kitData = await assets.loadBlockKit(KIT_DIRS[which]);
+      models = kitData.models; variants = kitData.variants;
+      material = new THREE.MeshLambertMaterial({ map: kitData.atlas, vertexColors: true });
+      kit = `kit-${which}`;
     } catch (e) {
       kitError = String(e);
     }
@@ -46,14 +48,14 @@ export async function bootRenderHarness({ params = new URLSearchParams(globalThi
     models = fallbackModels();
     material = new THREE.MeshLambertMaterial({ vertexColors: true });
   }
-  const chunks = createChunkManager({ models: createModelSet(models), material, meshOpts: { sunDir: test.sunDir } });
+  const chunks = createChunkManager({ models: createModelSet(models, variants), material, meshOpts: { sunDir: test.sunDir } });
   for (const p of test.plots) chunks.addPlot(p);
   chunks.flush();
   view.scene.add(chunks.group);
 
   const cannons = test.cannons.map((c) => {
     const p = test.plots[c.plot];
-    const w = createWeaponView();
+    const w = createWeaponView(kitData?.weapons?.cannon ? { model: kitData.weapons.cannon.clone(true) } : {});
     w.root.position.set(p.origin.x + c.cell[0] + 0.5, p.origin.y + c.cell[1], p.origin.z + c.cell[2] + 0.5);
     w.setAim(c.azDeg, 2);
     view.scene.add(w.root);

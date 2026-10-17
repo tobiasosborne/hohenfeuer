@@ -62,7 +62,7 @@ test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy
     state = sim.state;
   }
   assert.ok(landed, "slot 0 ball impacted");
-  assert.equal(state.tick, 348, 'first shot reproducibly hits the keep');
+  assert.equal(state.tick, 349, 'first shot reproducibly hits the keep (348 before NPC wiring; the impact tick moved by one)');
   assert.ok(state.castles[1].plot.hp.some((hp, i) => hp < enemyHp[i]), 'first scripted shot damages the enemy');
   const enemy = state.castles[1].plot;
   assert.ok(landed.pos[0] >= enemy.origin.x - 10 && landed.pos[0] <= enemy.origin.x + enemy.width + 10, `impact x ${landed.pos[0]} near the enemy plot`);

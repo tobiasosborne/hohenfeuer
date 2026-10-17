@@ -15,6 +15,7 @@ import { createRuler, tickRuler } from './ruler.js';
 import { tickEconomy } from './economy.js';
 import { createStats, checkRules } from './rules.js';
 import { createAiController } from '../ai/controller.js';
+import { npcTick, moraleTick, npcKinematics, recordNpcEvent, beginNpcImpact, endNpcImpact, npcCommand } from '../npc/index.js';
 
 /** Copy state into plain records and fresh typed arrays, excluding callable plugin internals. */
 function snapshot(value) {
@@ -38,7 +39,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
   if (!mapDef) throw new TypeError(`Unknown map: ${map}`);
   const slotDefs = (slots ?? mapDef.slots.map((s, id) => ({ id, castleId: s.castle, team: id, color: 0, controller: CONTROLLER.LOCAL, aiLevel: T.ai.levelMin, aiTactic: TACTIC.GENERAL }))).map(s => ({ ...s })).sort((a, b) => a.id - b.id);
   let aiController = hooks.aiThink ? null : createAiController();
-  const commandKinds = Object.freeze([CMD.MOVE, CMD.MAN_WEAPON, CMD.LEAVE_WEAPON, CMD.AIM, CMD.FIRE, CMD.RESTORE_AIM, CMD.AUTO_FIRE, CMD.ORDER_CREW, CMD.SHELTER, CMD.SURRENDER]);
+  const commandKinds = Object.freeze(Object.values(CMD).filter(type => type !== CMD.DESIGNATE_WEAPON));
   const streams = createStreams(seed), events = [], blasts = [], destroyed = new Map(), support = new Map(), inputs = {};
   let state = { tick: 0, seed, mapId: mapDef.id, commandKinds, slots: slotDefs, castles: [], rulers: [], npcs: [], weapons: [], projectiles: [], wind: createWind({ rng: streams.get(RNG_STREAM.WIND), ...mapDef.wind }), terrain: generateTerrain(mapDef, seed), outcome: null, pendingCommands: [], nextEntityId: K.MAX_SLOTS };
   for (const slot of slotDefs) {
@@ -55,7 +56,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     }
     support.set(slot.id, createSupport(castle.plot, type => type !== BLOCK.AIR && (type === BLOCK.LADDER || type === BLOCK.DOOR || getBlock(type)?.solid)));
   }
-  const emit = (type, payload) => events.push({ type, payload: snapshot(payload) });
+  const emit = (type, payload) => { events.push({ type, payload: snapshot(payload) }); recordNpcEvent(api, type, payload); };
   const castleOf = slot => state.castles.find(c => c.slot === slot);
   const ctx = {
     get state() { return state; }, emit, getBlock, getWeapon, castleOf, rng: name => streams.get(name),
@@ -79,6 +80,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     damagePeople(blast) { damagePeople(ctx, blast); }, spawnProjectile: ctx.spawnProjectile,
   };
   ctx.api = api;
+  hooks = { npcTick, moraleTick, npcKinematics, ...hooks };
   function stage(name) { hooks.onStage?.(name, state.tick); }
   function command(cmd) {
     const castle = castleOf(cmd.slot), ruler = state.rulers.find(r => r.slot === cmd.slot);
@@ -97,7 +99,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       case CMD.LEAVE_WEAPON: ruler.manning = null; break;
       case CMD.SHELTER: castle.shelter = Boolean(cmd.on); emit(EV.SHELTER_TOGGLED, { slot: cmd.slot, on: castle.shelter }); break;
       case CMD.SURRENDER: castle.surrendered = true; break;
-      default: throw new Error(`Command requires a later phase: ${cmd.type}`);
+      default: if (!npcCommand(api, cmd)) throw new Error('Unsupported command'); break;
     }
   }
   function terrainHit(a, b) {
@@ -145,6 +147,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
   function blastsTick() {
     for (let i = 0; i < blasts.length; i++) {
       const blast = blasts[i], projectile = blast.projectile, hit = blast.hit;
+      const npcImpact = beginNpcImpact(api, blast);
       if (projectile) {
         if (hit.person) damagePerson(ctx, hit.person, hit.person.hp, projectile.sourceSlot, 'projectile');
         const weapon = state.weapons.find(w => w.id === projectile.weaponId);
@@ -157,6 +160,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
         const result = applyBlast(ctx, blast), source = castleOf(blast.sourceSlot);
         if (source) { source.stats.damageDp += result.cells.reduce((n, cell) => n + cell.damage, 0); if (projectile && hit.kind !== 'terrain' && hit.kind !== 'water') source.stats.directHits++; }
       }
+      endNpcImpact(api, npcImpact);
     }
     blasts.length = 0;
     for (const castle of state.castles) {

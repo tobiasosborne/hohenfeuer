@@ -94,5 +94,35 @@
     "pitch": 0,
     "width": 640,
     "height": 360
+  },
+  "courtyard-palace": {
+    "page": "index.html?golden=1",
+    "script": "tb2",
+    "until": 150,
+    "position": [
+      95.5,
+      9.6,
+      144
+    ],
+    "yaw": 0,
+    "pitch": -0.3,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "crew-at-cannon": {
+    "page": "index.html?golden=1",
+    "script": "tb2",
+    "until": 600,
+    "position": [
+      107.0,
+      10.5,
+      131.0
+    ],
+    "yaw": -1.004,
+    "pitch": -0.393,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
   }
 }

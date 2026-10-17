@@ -147,3 +147,33 @@ function topFaceVertices(m) {
   return out.slice(0, 4);
 }
 function topFaceColors(m) { return topFaceVertices(m).map((v) => v.c); }
+
+/* ---- kit v1: per-state damage variant models (DESIGN 2.2 states, kit _z1.._z3) ---- */
+test("damage variants replace the model per hp state, without the tint", () => {
+  const base = fallbackModels();
+  const z2 = modelFromTriangles(boxTriangles([0, 0, 0], [1, 0.6, 1], [0.5, 0.5, 0.5])); // broken: lower 60 %, not opaque
+  const variants = [];
+  variants[BLOCK.STONE] = [null, z2, null];
+  const set = createModelSet(base, variants);
+  assert.equal(set.get(BLOCK.STONE, 0, 2), z2);
+  assert.equal(set.get(BLOCK.STONE, 0, 1), set.get(BLOCK.STONE, 0, 0), "missing variant falls back to state 0");
+  const p = emptyPlot();
+  setCell(p, 5, 1, 5, BLOCK.STONE, 20, 0); // 50 % -> state 2
+  const m = meshChunk(p, 0, 0, 0, { models: set, sunDir: [0, -1, 0] });
+  let maxY = 0;
+  for (let i = 1; i < m.positions.length; i += 3) maxY = Math.max(maxY, m.positions[i]);
+  assert.ok(Math.abs(maxY - 1.6) < 1e-6, `variant geometry used (top ${maxY})`);
+  assert.ok(Math.abs(Math.max(...m.colors) - 0.5) < 1e-6, "variant colour, no extra damage tint");
+});
+
+test("a non-opaque damage variant does not hide its neighbour's face", () => {
+  const z3 = modelFromTriangles(boxTriangles([0, 0, 0], [1, 0.3, 1], [1, 1, 1]));
+  const variants = [];
+  variants[BLOCK.STONE] = [null, null, z3];
+  const set = createModelSet(fallbackModels(), variants);
+  const p = emptyPlot();
+  setCell(p, 4, 1, 4, BLOCK.STONE, 40, 0);
+  setCell(p, 5, 1, 4, BLOCK.STONE, 5, 0); // state 3, rubble
+  const intact = meshChunk(p, 0, 0, 0, { models: set, sunDir: UP, at: [4, 1, 4] });
+  assert.equal(intact.faceCount, 6, "the +x face stays because the rubble neighbour is not opaque");
+});
