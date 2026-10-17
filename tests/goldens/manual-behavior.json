@@ -1,0 +1,674 @@
+[
+  {
+    "id": "G-W01",
+    "statement": "Catapult build cost in gold",
+    "source": "manual-en p.42",
+    "value": 600,
+    "inScope": true
+  },
+  {
+    "id": "G-W02",
+    "statement": "Catapult defence points",
+    "source": "manual-en p.42",
+    "value": 30,
+    "inScope": true
+  },
+  {
+    "id": "G-W03",
+    "statement": "Catapult reload seconds",
+    "source": "manual-en p.42",
+    "value": 18,
+    "inScope": true
+  },
+  {
+    "id": "G-W04",
+    "statement": "Catapult firing cost in gold per shot (EN; DE manual says 53)",
+    "source": "manual-en p.42",
+    "value": 52,
+    "inScope": true
+  },
+  {
+    "id": "G-W05",
+    "statement": "Long John firing cost in gold per shot (EN; DE manual says 113)",
+    "source": "manual-en p.42",
+    "value": 135,
+    "inScope": true
+  },
+  {
+    "id": "G-W06",
+    "statement": "Long John fires 3 rocks per shot",
+    "source": "manual-en p.42",
+    "value": 3,
+    "inScope": true
+  },
+  {
+    "id": "G-W07",
+    "statement": "Cannon build cost in gold",
+    "source": "manual-en p.43",
+    "value": 750,
+    "inScope": true
+  },
+  {
+    "id": "G-W08",
+    "statement": "Cannon reload seconds",
+    "source": "manual-en p.43",
+    "value": 22,
+    "inScope": true
+  },
+  {
+    "id": "G-W09",
+    "statement": "Cannon firing cost in gold per shot",
+    "source": "manual-en p.43",
+    "value": 90,
+    "inScope": true
+  },
+  {
+    "id": "G-W10",
+    "statement": "Cannon defence points are half those of its host wall or tower",
+    "source": "manual-en p.43",
+    "value": "half host",
+    "inScope": true
+  },
+  {
+    "id": "G-W11",
+    "statement": "Cannon trajectory is straight (cannot lob over high mountains)",
+    "source": "manual-en p.41",
+    "value": "straight",
+    "inScope": true
+  },
+  {
+    "id": "G-W12",
+    "statement": "Double Cannon firing cost in gold per shot, 2 iron balls",
+    "source": "manual-en p.43",
+    "value": 150,
+    "inScope": true
+  },
+  {
+    "id": "G-W13",
+    "statement": "Fire Catapult build cost 750, defence points 30, reload 24 s",
+    "source": "manual-en p.44",
+    "value": 24,
+    "inScope": true
+  },
+  {
+    "id": "G-W14",
+    "statement": "Fire Catapult firing cost in gold per shot",
+    "source": "manual-en p.44",
+    "value": 150,
+    "inScope": true
+  },
+  {
+    "id": "G-W15",
+    "statement": "Hot Helga firing cost in gold per shot",
+    "source": "manual-en p.44",
+    "value": 225,
+    "inScope": true
+  },
+  {
+    "id": "G-W16",
+    "statement": "Fire jumps from near misses to houses and weapons; walls, towers and palaces cannot burn",
+    "source": "manual-en p.44",
+    "value": "no burn: wall,tower,palace",
+    "inScope": true
+  },
+  {
+    "id": "G-W17",
+    "statement": "Ballista build cost in gold; only weapon able to hit a zeppelin",
+    "source": "manual-en p.45",
+    "value": 400,
+    "inScope": true
+  },
+  {
+    "id": "G-W18",
+    "statement": "Ballista reload seconds",
+    "source": "manual-en p.45",
+    "value": 15,
+    "inScope": true
+  },
+  {
+    "id": "G-W19",
+    "statement": "Ballista firing cost in gold per shot (EN; DE manual says 23)",
+    "source": "manual-en p.45",
+    "value": 22,
+    "inScope": true
+  },
+  {
+    "id": "G-W20",
+    "statement": "Ballista needs 3 hits to kill a zeppelin",
+    "source": "manual-en p.45",
+    "value": 3,
+    "inScope": true
+  },
+  {
+    "id": "G-W21",
+    "statement": "Fire Ballista firing cost in gold per shot; kills a zeppelin in 1 hit",
+    "source": "manual-en p.45",
+    "value": 150,
+    "inScope": true
+  },
+  {
+    "id": "G-W22",
+    "statement": "Rocket Launcher build cost in gold",
+    "source": "manual-en p.46",
+    "value": 800,
+    "inScope": true
+  },
+  {
+    "id": "G-W23",
+    "statement": "Rocket Launcher reload seconds",
+    "source": "manual-en p.46",
+    "value": 30,
+    "inScope": true
+  },
+  {
+    "id": "G-W24",
+    "statement": "Rocket Launcher firing cost in gold per shot",
+    "source": "manual-en p.46",
+    "value": 150,
+    "inScope": true
+  },
+  {
+    "id": "G-W25",
+    "statement": "Quad Launcher firing cost in gold per shot, 4 warheads",
+    "source": "manual-en p.46",
+    "value": 450,
+    "inScope": true
+  },
+  {
+    "id": "G-W26",
+    "statement": "Trebuchet (Forest royal) cost 850, defence points 48, reload 18 s, 5 rocks per shot",
+    "source": "manual-en p.47",
+    "value": 225,
+    "inScope": true
+  },
+  {
+    "id": "G-W27",
+    "statement": "Arcaballista (Desert royal) firing cost in gold per shot, 4 stakes, straight trajectory",
+    "source": "manual-en p.47",
+    "value": 300,
+    "inScope": true
+  },
+  {
+    "id": "G-W28",
+    "statement": "Fat Freda (Ice royal) firing cost in gold per shot, reload 22 s",
+    "source": "manual-en p.48",
+    "value": 225,
+    "inScope": true
+  },
+  {
+    "id": "G-W29",
+    "statement": "Hellfire (Volcano royal) firing cost in gold per shot, 5 iron balls in sequence",
+    "source": "manual-en p.48",
+    "value": 330,
+    "inScope": true
+  },
+  {
+    "id": "G-W30",
+    "statement": "Royal weapon (one per queen) defence points",
+    "source": "manual-en p.47",
+    "value": 48,
+    "inScope": true
+  },
+  {
+    "id": "G-W31",
+    "statement": "Zeppelin build cost in gold",
+    "source": "manual-en p.49",
+    "value": 700,
+    "inScope": true
+  },
+  {
+    "id": "G-W32",
+    "statement": "Zeppelin bomb cost in gold; only one zeppelin at a time",
+    "source": "manual-en p.49",
+    "value": 225,
+    "inScope": true
+  },
+  {
+    "id": "G-W33",
+    "statement": "Super Weapon build cost in gold",
+    "source": "manual-en p.49",
+    "value": 5000,
+    "inScope": true
+  },
+  {
+    "id": "G-W34",
+    "statement": "Super Weapon construction seconds; if not destroyed the builder wins",
+    "source": "manual-en p.49",
+    "value": 90,
+    "inScope": true
+  },
+  {
+    "id": "G-W35",
+    "statement": "Base weapon cap per castle is 2; Add Weapon research raises it to 3/4/6/8",
+    "source": "manual-en p.52",
+    "value": 2,
+    "inScope": true
+  },
+  {
+    "id": "G-W36",
+    "statement": "Weapon fires only when its loading bar is full",
+    "source": "manual-en p.5",
+    "value": "bar full",
+    "inScope": true
+  },
+  {
+    "id": "G-W37",
+    "statement": "Spell Rain: cannons cannot fire while active (spell out of scope)",
+    "source": "manual-en p.54",
+    "value": "rain blocks cannon",
+    "inScope": false
+  },
+  {
+    "id": "G-W38",
+    "statement": "Hurricane spell makes aiming near impossible for 40 s (spell out of scope)",
+    "source": "manual-en p.55",
+    "value": 40,
+    "inScope": false
+  },
+  {
+    "id": "G-W39",
+    "statement": "Accuracy research 500 gold, 15 s (research out of scope)",
+    "source": "manual-en p.51",
+    "value": 500,
+    "inScope": false
+  },
+  {
+    "id": "G-W40",
+    "statement": "Fragment Shield research 600 gold reduces collateral damage (research out of scope)",
+    "source": "manual-en p.52",
+    "value": 600,
+    "inScope": false
+  },
+  {
+    "id": "G-W41",
+    "statement": "Wall weapon (cannon, ballista, rocket) must be on a wall or tower and covers 1x1; ground weapons cover 3x3",
+    "source": "manual-en p.30",
+    "value": "wall 1x1 / ground 3x3",
+    "inScope": true
+  },
+  {
+    "id": "G-B01",
+    "statement": "Palace defence points; destroyed palace means owner loses",
+    "source": "manual-en p.36",
+    "value": 200,
+    "inScope": true
+  },
+  {
+    "id": "G-B02",
+    "statement": "Small wall defence points",
+    "source": "manual-en p.36",
+    "value": 40,
+    "inScope": true
+  },
+  {
+    "id": "G-B03",
+    "statement": "Large wall defence points",
+    "source": "manual-en p.36",
+    "value": 60,
+    "inScope": true
+  },
+  {
+    "id": "G-B04",
+    "statement": "Wall cost in gold",
+    "source": "manual-en p.36",
+    "value": 100,
+    "inScope": true
+  },
+  {
+    "id": "G-B05",
+    "statement": "Small tower defence points",
+    "source": "manual-en p.37",
+    "value": 72,
+    "inScope": true
+  },
+  {
+    "id": "G-B06",
+    "statement": "Large tower defence points",
+    "source": "manual-en p.37",
+    "value": 96,
+    "inScope": true
+  },
+  {
+    "id": "G-B07",
+    "statement": "Tower cost in gold",
+    "source": "manual-en p.37",
+    "value": 500,
+    "inScope": true
+  },
+  {
+    "id": "G-B08",
+    "statement": "Gatehouse defence points (cannot be built)",
+    "source": "manual-en p.37",
+    "value": 96,
+    "inScope": true
+  },
+  {
+    "id": "G-B09",
+    "statement": "Mason yard cost in gold, 15 s, 24 defence points",
+    "source": "manual-en p.37",
+    "value": 700,
+    "inScope": true
+  },
+  {
+    "id": "G-B10",
+    "statement": "Farmhouse cost in gold, 9 s, 12 defence points",
+    "source": "manual-en p.38",
+    "value": 500,
+    "inScope": true
+  },
+  {
+    "id": "G-B11",
+    "statement": "Farmhouse houses up to 10 farmers",
+    "source": "manual-en p.38",
+    "value": 10,
+    "inScope": true
+  },
+  {
+    "id": "G-B12",
+    "statement": "Mage tower defence points (cost 900, 32 s)",
+    "source": "manual-en p.38",
+    "value": 64,
+    "inScope": false
+  },
+  {
+    "id": "G-B13",
+    "statement": "Ammo workshop cost in gold, 18 s, 24 defence points; explodes when destroyed",
+    "source": "manual-en p.39",
+    "value": 600,
+    "inScope": true
+  },
+  {
+    "id": "G-B14",
+    "statement": "Ammo workshop reduces firing cost by one third",
+    "source": "manual-en p.39",
+    "value": "1/3",
+    "inScope": true
+  },
+  {
+    "id": "G-B15",
+    "statement": "Smithy cost in gold, 24 s, 24 defence points; needed for all weapons except Catapult",
+    "source": "manual-en p.39",
+    "value": 700,
+    "inScope": true
+  },
+  {
+    "id": "G-B16",
+    "statement": "Treasury cost in gold, 15 s, 48 defence points",
+    "source": "manual-en p.39",
+    "value": 300,
+    "inScope": true
+  },
+  {
+    "id": "G-B17",
+    "statement": "Inn cost in gold, 15 s, 20 defence points",
+    "source": "manual-en p.40",
+    "value": 500,
+    "inScope": true
+  },
+  {
+    "id": "G-B18",
+    "statement": "Windmill cost in gold, 30 s, 4 defence points",
+    "source": "manual-en p.40",
+    "value": 300,
+    "inScope": false
+  },
+  {
+    "id": "G-B19",
+    "statement": "Idol cost in gold, 15 s; lightning on attacker when destroyed (out of scope)",
+    "source": "manual-en p.40",
+    "value": 700,
+    "inScope": false
+  },
+  {
+    "id": "G-B20",
+    "statement": "Walls, towers, palace, gatehouse have no fire susceptibility",
+    "source": "manual-en p.36",
+    "value": "none",
+    "inScope": true
+  },
+  {
+    "id": "G-B21",
+    "statement": "Superbrain research building cost 900 (research out of scope)",
+    "source": "manual-en p.38",
+    "value": 900,
+    "inScope": false
+  },
+  {
+    "id": "G-E01",
+    "statement": "Tactics mode starting gold",
+    "source": "manual-en p.13",
+    "value": 1500,
+    "inScope": true
+  },
+  {
+    "id": "G-E02",
+    "statement": "Gold factor vs two enemies",
+    "source": "manual-en p.13",
+    "value": 1.5,
+    "inScope": true
+  },
+  {
+    "id": "G-E03",
+    "statement": "Gold factor vs three enemies",
+    "source": "manual-en p.14",
+    "value": 2,
+    "inScope": true
+  },
+  {
+    "id": "G-E04",
+    "statement": "Gold income stops past about 2000 without a treasury",
+    "source": "manual-en p.39",
+    "value": 2000,
+    "inScope": true
+  },
+  {
+    "id": "G-E05",
+    "statement": "Ammo is paid in gold at each shot, no separate ammo stock",
+    "source": "manual-en p.27",
+    "value": "pay per shot",
+    "inScope": true
+  },
+  {
+    "id": "G-E06",
+    "statement": "Tax below 40 percent: farmers arrive; at 40 constant; above 40 leave; max 80 (tax dial out of scope: income is fixed per castle)",
+    "source": "manual-en p.27",
+    "value": 40,
+    "inScope": false
+  },
+  {
+    "id": "G-E07",
+    "statement": "Auto-repair starts one repair every 2 seconds",
+    "source": "manual-en p.31",
+    "value": 2,
+    "inScope": true
+  },
+  {
+    "id": "G-E08",
+    "statement": "Support gift by transport balloon (out of scope)",
+    "source": "manual-en p.33",
+    "value": 1000,
+    "inScope": false
+  },
+  {
+    "id": "G-E09",
+    "statement": "Weapon cap research stage costs 600/900/1200/1500 gold (out of scope)",
+    "source": "manual-en p.52",
+    "value": 600,
+    "inScope": false
+  },
+  {
+    "id": "G-E10",
+    "statement": "Super Weapon research cost 4000 gold (out of scope)",
+    "source": "manual-en p.51",
+    "value": 4000,
+    "inScope": false
+  },
+  {
+    "id": "G-R01",
+    "statement": "Destroying the palace is defeat",
+    "source": "manual-en p.36",
+    "value": "palace destroyed = lose",
+    "inScope": true
+  },
+  {
+    "id": "G-R02",
+    "statement": "Completing the Super Weapon (90 s) wins the game for its builder",
+    "source": "manual-en p.49",
+    "value": 90,
+    "inScope": true
+  },
+  {
+    "id": "G-R03",
+    "statement": "Action mode: win by destroying all enemy weapons; palaces must not be destroyed",
+    "source": "manual-en p.13",
+    "value": "all weapons destroyed",
+    "inScope": true
+  },
+  {
+    "id": "G-R04",
+    "statement": "Action mode weapons per castle with two enemies",
+    "source": "manual-en p.13",
+    "value": 4,
+    "inScope": true
+  },
+  {
+    "id": "G-R05",
+    "statement": "Action mode weapons per castle with three enemies",
+    "source": "manual-en p.13",
+    "value": 3,
+    "inScope": true
+  },
+  {
+    "id": "G-R06",
+    "statement": "Quick, Tactics, Strategy modes: win by destroying enemy palaces",
+    "source": "manual-en p.14",
+    "value": "palaces",
+    "inScope": true
+  },
+  {
+    "id": "G-R07",
+    "statement": "Hotseat turn length seconds",
+    "source": "manual-en p.17",
+    "value": 30,
+    "inScope": false
+  },
+  {
+    "id": "G-R08",
+    "statement": "AI skill levels 1 to 10",
+    "source": "manual-en p.12",
+    "value": 10,
+    "inScope": true
+  },
+  {
+    "id": "G-R09",
+    "statement": "Beaten multiplayer player enters ghost spectator mode",
+    "source": "manual-en p.26",
+    "value": "ghost",
+    "inScope": true
+  },
+  {
+    "id": "G-R10",
+    "statement": "Damage falls off with distance from the epicentre",
+    "source": "manual-en p.29",
+    "value": "falloff",
+    "inScope": true
+  },
+  {
+    "id": "G-R11",
+    "statement": "Wall and tower weapons have half the defence points of their host",
+    "source": "manual-en p.43",
+    "value": "half host",
+    "inScope": true
+  },
+  {
+    "id": "G-H01",
+    "statement": "Aim left number is direction, 000 = due north, same scale as compass",
+    "source": "manual-en p.24",
+    "value": "000 = north",
+    "inScope": true
+  },
+  {
+    "id": "G-H02",
+    "statement": "Aim right number is range; higher number means further",
+    "source": "manual-en p.28",
+    "value": "higher = further",
+    "inScope": true
+  },
+  {
+    "id": "G-H03",
+    "statement": "Wind speed shown as number in the centre of the compass",
+    "source": "manual-en p.24",
+    "value": "compass centre",
+    "inScope": true
+  },
+  {
+    "id": "G-H04",
+    "statement": "Red arrow = current wind direction; blue arrow = previous direction after change",
+    "source": "manual-en p.24",
+    "value": "red/blue",
+    "inScope": true
+  },
+  {
+    "id": "G-H05",
+    "statement": "Header shows gold with tax in brackets, farmers current (max), weapons built (max up to 8)",
+    "source": "manual-en p.23",
+    "value": 8,
+    "inScope": true
+  },
+  {
+    "id": "G-H06",
+    "statement": "Weapons menu shows one loading bar per weapon slot, green light when ready",
+    "source": "manual-en p.24",
+    "value": "green = ready",
+    "inScope": true
+  },
+  {
+    "id": "G-H07",
+    "statement": "Firing cost shown in red when gold is insufficient",
+    "source": "manual-en p.27",
+    "value": "red = unaffordable",
+    "inScope": true
+  },
+  {
+    "id": "G-H08",
+    "statement": "Restore key reverts weapon to previous shot settings (Home / numpad 7)",
+    "source": "manual-en p.28",
+    "value": "Home",
+    "inScope": true
+  },
+  {
+    "id": "G-H09",
+    "statement": "Impact view shows last impact; crosshair stays at last impact",
+    "source": "manual-en p.28",
+    "value": "End",
+    "inScope": true
+  },
+  {
+    "id": "G-H10",
+    "statement": "Fire key: Space or numpad 0",
+    "source": "manual-en p.58",
+    "value": "Space",
+    "inScope": true
+  },
+  {
+    "id": "G-H11",
+    "statement": "Building colour: green buildings, blue weapons, redder = closer to destruction",
+    "source": "manual-en p.25",
+    "value": "green/blue/red",
+    "inScope": true
+  },
+  {
+    "id": "G-H12",
+    "statement": "Enemy overview shows last shot as grey crater, or edge arrow on a miss",
+    "source": "manual-en p.29",
+    "value": "crater/arrow",
+    "inScope": true
+  },
+  {
+    "id": "G-H13",
+    "statement": "No separate minimap; the two bottom overview maps serve that role",
+    "source": "manual-en p.25",
+    "value": "overview maps",
+    "inScope": true
+  }
+]

@@ -1,0 +1,11 @@
+✔ no file under src/, assets/, dist/ references assets-ripped or downloads/ (1.468233ms)
+✔ no asset under assets/ is byte-identical to a file in assets-ripped/ (606.9313ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 657.910666
+exit 0

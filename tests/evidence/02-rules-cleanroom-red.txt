@@ -1,0 +1,33 @@
+✖ no file under src/, assets/, dist/ references assets-ripped or downloads/ (1.880399ms)
+✔ no asset under assets/ is byte-identical to a file in assets-ripped/ (595.271782ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 642.401308
+
+✖ failing tests:
+
+test at tests/unit/rules-cleanroom.test.js:24:1
+✖ no file under src/, assets/, dist/ references assets-ripped or downloads/ (1.880399ms)
+  AssertionError [ERR_ASSERTION]: 
+  src/zz-tmp-offender2.js: references "assets-ripped"
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/rules-cleanroom.test.js:36:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+cleanroom exit 1
