@@ -2,6 +2,10 @@
 import * as THREE from "three";
 import { TUNING } from "../tuning.js";
 
+import { resolveStyle, gpuExtrasEnabled } from './styles.js';
+import { createStyleController } from './style-scene.js';
+import { createGpuExtras } from './gpu-extras.js';
+
 const R = TUNING.render;
 const P = TUNING.ruler;
 
@@ -20,7 +24,8 @@ export const BIOME_LOOK = Object.freeze({
  * @param {number[]} [o.sunDir] direction toward the sun
  * @param {boolean} [o.letterbox] scale the 1024x768 canvas to fit the window (default true)
  */
-export function createRenderer({ canvas, biome = "forest", sunDir = [-0.5, 1, -0.75], letterbox = true } = {}) {
+export function createRenderer({ canvas, biome = "forest", sunDir = [-0.5, 1, -0.75], letterbox = true, style = "classic", golden = new URLSearchParams(globalThis.location?.search ?? "").get("golden") === "1", gpuExtras = R.gpuExtras } = {}) {
+  golden = golden || new URLSearchParams(globalThis.location?.search ?? "").get("golden") === "1";
   const look = BIOME_LOOK[biome] ?? BIOME_LOOK.forest;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: "default", preserveDrawingBuffer: true });
   renderer.setPixelRatio(1);
@@ -58,19 +63,57 @@ export function createRenderer({ canvas, biome = "forest", sunDir = [-0.5, 1, -0
   if (letterbox && globalThis.addEventListener) globalThis.addEventListener("resize", fit);
 
   const beforeRender = [];
+  const styles = createStyleController({ scene, sunDir });
+  const classicFog = scene.fog, classicBackground = scene.background;
+  let stateSource = () => null, post = null;
+  function setStyle(name) {
+    // Validate before changing any renderer state.
+    styles.setStyle(name);
+    post?.dispose(); post = null;
+    const modern = name === "modern";
+    renderer.toneMapping = modern ? THREE.ACESFilmicToneMapping : THREE.NoToneMapping;
+    renderer.toneMappingExposure = modern ? R.modern.exposure : 1;
+    scene.background = modern ? new THREE.Color(R.modern.fog) : classicBackground;
+    scene.fog = modern ? new THREE.FogExp2(R.modern.fog, R.modern.fogDensity) : classicFog;
+    hemi.intensity = modern ? 2.8 : look.hemiIntensity;
+    sun.intensity = modern ? 2.6 : look.sunIntensity;
+    const enabled = gpuExtrasEnabled({ style: name, golden, requested: gpuExtras });
+    renderer.shadowMap.enabled = sun.castShadow = enabled;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+    if (enabled) {
+      sun.shadow.mapSize.set(R.modern.shadowSize, R.modern.shadowSize);
+      const extent = R.modern.shadowExtentM;
+      Object.assign(sun.shadow.camera, { left: -extent, right: extent, top: extent, bottom: -extent, near: 1, far: 650 });
+      sun.shadow.camera.updateProjectionMatrix(); sun.shadow.normalBias = .06; sun.shadow.bias = -.00015;
+      post = createGpuExtras(renderer, scene, camera);
+    } else {
+      sun.position.copy(s).multiplyScalar(100); sun.target.position.set(0, 0, 0);
+      if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; }
+    }
+    return name;
+  }
+  setStyle(resolveStyle(style).name);
   function render() {
     for (const f of beforeRender) f(camera);
-    renderer.render(scene, camera);
+    styles.update(stateSource());
+    if (post) {
+      sun.target.position.set(camera.position.x, 0, camera.position.z);
+      sun.position.copy(s).multiplyScalar(300).add(sun.target.position);
+      renderer.info.autoReset = false; renderer.info.reset(); post.render(); renderer.info.autoReset = true;
+    } else renderer.render(scene, camera);
   }
 
   return {
-    renderer, scene, camera, sun, hemi, look, domElement: el, render,
+    renderer, scene, camera, sun, hemi, look, domElement: el, render, setStyle,
+    get style() { return styles.style; },
+    get gpuExtras() { return !!post; },
+    setStateSource(source) { stateSource = source; },
     /** Register a per-frame hook (camera) => void, e.g. sky following the camera. */
     onBeforeRender(f) { beforeRender.push(f); },
     info() {
       const r = renderer.info.render, m = renderer.info.memory;
-      return { calls: r.calls, triangles: r.triangles, geometries: m.geometries, textures: m.textures };
+      return { calls: r.calls, triangles: r.triangles, geometries: m.geometries, textures: m.textures, style: styles.style, gpuExtras: !!post };
     },
-    dispose() { if (globalThis.removeEventListener) globalThis.removeEventListener("resize", fit); renderer.dispose(); },
+    dispose() { if (globalThis.removeEventListener) globalThis.removeEventListener("resize", fit); post?.dispose(); styles.dispose(); sun.shadow.map?.dispose(); renderer.dispose(); },
   };
 }

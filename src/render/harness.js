@@ -1,5 +1,6 @@
 // src/render/harness.js - owns booting the render-only harness (dev/render.html): test grid, kit or fallback blocks, terrain, sky, cannons, debug hook.
 import * as THREE from "three";
+import { readStyle } from "./styles.js";
 import { createRenderer } from "./renderer.js";
 import { createSky } from "./sky.js";
 import { createTerrainView } from "./terrain-view.js";
@@ -20,7 +21,7 @@ export const DEFAULT_POSE = Object.freeze({ position: [109.5, 12.6, 118.5], yaw:
  */
 export async function bootRenderHarness({ params = new URLSearchParams(globalThis.location?.search ?? "") } = {}) {
   const test = buildTestScene();
-  const view = createRenderer({ biome: "forest", sunDir: test.sunDir });
+  const view = createRenderer({ biome: "forest", sunDir: test.sunDir, style: readStyle(params), golden: params.get("golden") === "1" });
   globalThis.document.body.appendChild(view.domElement);
 
   const sky = createSky({ seed: TEST_SCENE.seed });

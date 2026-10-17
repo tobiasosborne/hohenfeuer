@@ -30,6 +30,7 @@ export function installDebugApi({ view, stepTo, extras = {} }) {
       view.render();
       return api.tick;
     },
+    setStyle(name) { const style = view.setStyle(name); view.render(); return style; },
     render() { view.render(); return view.info(); },
     info() { return view.info(); },
     /** Average wall time of n synchronous frames (render + 1 px readback to force completion). */
@@ -48,6 +49,12 @@ export function installDebugApi({ view, stepTo, extras = {} }) {
     },
     ...extras,
   };
+  const harnessState = { tick: 0 };
+  view.setStateSource?.(() => { harnessState.tick = api.tick; return api.state ?? harnessState; });
+  Object.defineProperties(api, {
+    style: { get: () => view.style, enumerable: true },
+    gpuExtras: { get: () => view.gpuExtras, enumerable: true },
+  });
   globalThis.__hohenfeuer = api;
   return api;
 }

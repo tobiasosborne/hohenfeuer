@@ -52,6 +52,7 @@ export function createTerrainView({ map, field, seed = 1, biome = "forest", flat
   const group = new THREE.Group();
   const texture = groundTexture(seed);
   group.name = "terrain";
+  group.userData.terrainField = f;
   let minY = flatY;
   if (f) {
     const { width, depth, spacing, heights } = f;

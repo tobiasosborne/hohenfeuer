@@ -62,6 +62,7 @@ function mergeGeometries(geos) {
  */
 export function createWeaponView({ model } = {}) {
   const root = model ?? placeholderCannon();
+  root.traverse(o => { if (o.isMesh) o.userData.modernWeapon = true; });
   // The authored barrel has flat per-face normals. Blend the lathe facets while keeping
   // the muzzle lip and trunnion edges; clone geometry so sibling kit instances stay independent.
   const barrel = model?.getObjectByName("barrel");

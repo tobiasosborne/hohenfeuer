@@ -102,6 +102,7 @@ export function createAssets() {
       for (const h of manifest.people ?? []) jobs.push(api.loadGLB(`${dir}${h.mesh}`).then((g) => { people[h.key] = lambertize(g.scene); }));
       const [atlas] = await Promise.all([api.loadTexture(`${dir}${manifest.atlas.file}`), ...jobs]);
       gradeBlockAtlas(atlas, manifest);
+      atlas.userData.blockManifest = manifest;
       return { models, variants, atlas, manifest, weapons, people };
     },
   };
