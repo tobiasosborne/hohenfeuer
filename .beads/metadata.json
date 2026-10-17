@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "castle_game",
+  "project_id": "42f99c3b-8207-4362-8b1c-39d03b83fcdc"
+}

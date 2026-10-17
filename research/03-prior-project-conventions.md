@@ -1,0 +1,56 @@
+# 03 - Conventions from prior projects (read-only survey, 2026-10-17)
+
+Sources: /home/tobias/Projects/3d-construction-kit (3dck), /home/tobias/Projects/alleycat, /home/tobias/Projects/claude-usage-audit, /home/tobias/Projects/rk/CLAUDE.md (house-style exemplar), ~/.claude/settings.json.
+Not present: ~/.claude/CLAUDE.md, ~/.codex/AGENTS.md, ~/AGENTS.md. Neither 3dck nor alleycat has CLAUDE.md/AGENTS.md/HANDOFF.md/.beads. (alleycat/.claude contains only unrelated lean4 docs/tools.) 3dck has no git repo; alleycat has 5 commits.
+
+## 1. Stack
+| | 3d-construction-kit ("Freescape Studio") | alleycat |
+|---|---|---|
+| three.js | npm `three` 0.169.0 (exact pin) | vendored `vendor/three.module.js` r166, import map `"three": "./vendor/three.module.js"` in index.html |
+| Bundler | vite 5.4.21 (dev) + esbuild 0.21.5 IIFE single-file build (`scripts/build.mjs`) | none; static files, `python3 -m http.server` |
+| Language | plain JS ES modules ("type":"module"), no TS | plain JS, no TS ("No TypeScript syntax") |
+| Deps | playwright 1.62.1, jsdom 28.1.0 (dev) | none |
+- 3dck layout: flat `src/` (model.js, runtime.js, movement.js, navigation.js, geometry.js, viewport.js, play.js, player.js, persistence.js, export.js, audio.js, app.js, style.css, notices.js); `index.html`; `public/` (empty); `docs/`, `research/`, `scripts/`, `tests/`.
+- alleycat layout: `src/{contracts.js,palette.js,main.js}` + `engine/` (input, loop, renderer) `audio/` (chip, score) `game/` (physics, cat, alley, camera, ghosts, `rooms/*`) `ui/` (font, hud, screens, title).
+- Assets: neither uses external assets. alleycat: "No external assets" - procedural geometry, canvas-painted textures, WebAudio-synthesized audio, 428x240 low-res render target + posterize/Bayer + CRT pass. 3dck: procedural geometry from data model, WebAudio tones.
+- Single-file distribution is a recurring goal: 3dck `npm run build` -> `dist/index.html` (inlined CSS+JS, no CDN, ~1.2 MB, includes THREE MIT notice via `src/notices.js` and THIRD_PARTY_NOTICES.txt); alleycat last commit "dist: single-file playable bundle".
+
+## 2. Testing and goldens
+- Runner: Node built-in `node --test` (no vitest/jest). `npm test` = `node --test --test-isolation=none tests/*.test.js`. Files: tests/<module>.test.js, `import test from "node:test"; import assert from "node:assert/strict"`.
+- DOM tests use jsdom and replace ONLY the WebGLRenderer with a test adapter; real THREE scene/camera/model/runtime run.
+- Browser acceptance: `npm run test:browser` = `node tests/browser.mjs` (Playwright chromium, args `--no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader`; env `PLAYWRIGHT_CHROMIUM_EXECUTABLE`, `BASE_URL` to use a running dev server else loads `dist/index.html` via file://). Structure: `inspect(name, task)` groups, `watch(page)` collects pageerror/console errors and asserts `[]` at end, `canvasCheck` (webgl2 context live, `gl.getError()==0`, >4 sampled colours via 32x32 downsample), `frames()` double-rAF settle, `screenshot()` fullPage into `test-results/`, narrow 390x844 overflow check (`scrollWidth <= innerWidth+1`), offline context test asserting zero http requests. Writes `test-results/browser-report.json` {status, phase, checks, screenshots, errors}. Status `blocked` if launch fails (sandbox forbade Chromium IPC there) - honest reporting.
+- Goldens: NOT pixel diffs. `tests/goldens/manual-behavior.json` = semantic goldens (IDs G01..G09) authored independently from the source manual BEFORE implementation, with `provenance` field; tests cite golden ID + manual section heading (e.g. test title "G09: FLY1 is horizontal ..."). No pixel-diff tool, no thresholds, no screenshot baselines anywhere; docs state screenshots are "separately labelled regression captures" needing human visual review and that none are claimed as goldens until inspected.
+- Evidence logs: `tests/evidence/NN-name-{red,green}.txt` = retained red then green `node --test` output for each behavioural change (numbered sequentially; 44+).
+- scripts/render-scene.mjs: jsdom + three `SVGRenderer` software preview to `test-results/scene-software-preview.{svg,png}` for headless geometry inspection when WebGL is unavailable (explicitly "not a WebGL oracle").
+- alleycat: no tests; verification = `node --check` on every file + debug hook `window.__alleycat = {ctx, cat, cam, enterRoom, backToAlley, newGame,...}` in src/main.js (line ~215) for driving it from Playwright/console.
+- Dev server: `vite --host 0.0.0.0` (`npm run dev`); preview `vite preview`; vite.config.js has a plugin resolving `?bundle` imports to an esbuild-built string (for exporting a standalone player).
+
+## 3. Research / design docs
+- 3dck `research/`: `sources.json` (id S1.., title, url, kind, access notes, retrieved date), `errata.md` (dated "Source decisions and unresolved fidelity"; bullet per decision: what the source says + line locators, what we follow, why, "Regression test added before correcting"), `original/`. `docs/`: SPEC.md (requirement table: ID | capability | source locator | acceptance test/golden), STATUS.md (honest verification status: implemented-vs-evidence table, "Remaining delivery gate", explicit limits and what is NOT claimed), FCL.md.
+- Pattern: spec table with IDs -> goldens authored first -> tests reference IDs -> STATUS maps requirement to passing evidence. Never overclaim; state what was not verified.
+- alleycat DESIGN.md (152 lines) numbered sections: 1 Art direction (non-negotiable), 2 Hub world (concrete units/counts), 3 Signature mechanics, 4 Minigame rooms (per-room rules), 5 Structure & flow (state machine `title -> alley <-> room -> finale -> victory|gameover`), 6 Controls, 7 Audio, 8 Engineering rules. Concrete numbers (1 unit = 0.5 m, timings, scores), no hedging.
+- README.md pattern: run instructions, controls table, feature list, tech, honest limitations/credit line.
+- Decisions: settled decisions are recorded as dated notes in errata/CLAUDE.md; in rk CLAUDE.md "D1-D8 settled, do not relitigate", amendments dated with "TJO directive".
+
+## 4. Agent-orchestration conventions
+- alleycat built as: scaffold commit by Claude orchestrator ("design bible, contracts, palette, shell, main orchestration"), then "codex wave 1" (6 parallel Codex agents implement modules), then Claude "integration" and "polish wave" commits. README: "Claude (design/orchestration) conducting six parallel Codex agents". Commit style: lowercase `area: summary` / `<wave name>: ...`.
+- Orchestrator-owned files: `src/contracts.js` (JSDoc interfaces, EV event names, MODE, TRIG tags, SFX/TUNES lists, POINTS, K constants) and `src/palette.js`; headers say "OWNED BY THE ORCHESTRATOR". Every module imports names from contracts instead of inventing strings; each file starts with a one-line "// x.js - owns ..." comment; event bus + ctx are the only cross-module channels; `node --check` must pass; no per-frame allocations; max ~150 draw calls; 60 fps on integrated GPU. Per-agent file ownership prevents merge conflicts.
+- rk/CLAUDE.md (his current house style): sections 0 Read order (gate), 1 Laws (L1 red-green TDD incl. perturb-to-red; red corpus first; pure core/thin edges; zero deps; validity outranks all with top-tier review via `codex exec`), 2 Rules. AGENTS.md is a byte-identical copy / thin pointer of CLAUDE.md (CLAUDE.md canonical). Header comment block: ROLE / UPDATE POLICY (amend only on felt failure or directive, dated) / TRIGGER.
+- claude-usage-audit (README/CLAUDE.md): a self-analysis of Tobias's own Claude Code usage from ~/.claude logs (staged skills/hooks, verification verdicts, Laws). Its stated house conventions: small steps, report back; canonical CLAUDE.md/AGENTS.md + thin pointer; beads (`bd`) for cross-session tracking if initialised; update HANDOFF.md at session end with sections `## What was done` / `## Remaining` / `## Key techniques` / `## Issues touched` / `## Next step` / `## Previous Sessions`. Also: /orient and familiarize-project skill = orient on MAIN thread, do NOT spawn exploration subagent swarms (read HANDOFF, CLAUDE.md, `bd ready`, git log/status, propose ONE next small step). Audit found reviewers/verifiers of proofs must stay on top model; do not reroute for savings.
+- Beads: `bd` used in ~100 other projects (rk, vibefeld, initech-os etc.) but NOT in 3dck/alleycat. Plugin beads@beads-marketplace enabled; `/beads:*` commands. For castle-game: `bd init` is consistent with house style (run it once the user agrees).
+- Global settings: ~/.claude/settings.json defaultMode auto, model fable, effort high; no global CLAUDE.md.
+
+## 5. Reusable verbatim (file paths)
+- Loop with dt clamp + visibility guard: /home/tobias/Projects/alleycat/src/engine/loop.js (35 lines).
+- Input action map (KeyboardEvent.code, blur reset, pressed latch, pointer-drag capture): /home/tobias/Projects/alleycat/src/engine/input.js (140 lines). Add pointer-lock mouse-look for first-person.
+- Physics kit: AABB sweep `resolveMove(pos, vel, radius, height, colliders, dt)` with grounded/hitCeil/wallNormal/climbing, verlet ropes: /home/tobias/Projects/alleycat/src/game/physics.js (267 lines). Follow cam: src/game/camera.js; low-res posterize/CRT renderer: src/engine/renderer.js (only if pixel look wanted); WebAudio chip synth: src/audio/chip.js + score.js; bitmap HUD font: src/ui/font.js, hud.js, screens.js, title.js.
+- Contracts/ctx/event-bus pattern: /home/tobias/Projects/alleycat/src/contracts.js (copy structure, replace names).
+- Collision via THREE.Raycaster/Box3 against meshes (floorBelow 5-point probe, bodyContact, walk step-climb, lineOfSight): /home/tobias/Projects/3d-construction-kit/src/movement.js; first-person pitch/yaw nav + WASD/fly: src/navigation.js, src/play.js, src/player.js; Viewport wrapper: src/viewport.js; persistence/localStorage saves: src/persistence.js; audio: src/audio.js.
+- Playwright harness skeleton (Chromium discovery in ~/.cache/ms-playwright, swiftshader args, canvasCheck, frames, screenshot, report JSON): /home/tobias/Projects/3d-construction-kit/tests/browser.mjs (410 lines) - copy top ~100 lines, rewrite the groups.
+- Single-file build: /home/tobias/Projects/3d-construction-kit/scripts/build.mjs + scripts/bundle.mjs + vite.config.js (`?bundle` plugin); package.json scripts block; .gitignore (`node_modules/ dist/ test-results/ *.local`).
+- SVG software scene preview: /home/tobias/Projects/3d-construction-kit/scripts/render-scene.mjs (needs `three/addons/renderers/SVGRenderer.js` + jsdom).
+- Docs templates: research/sources.json + errata.md, docs/SPEC.md requirement table, docs/STATUS.md, tests/goldens/*.json with provenance, tests/evidence red/green logs.
+- Gaps (nothing to reuse): no pixel-diff script, no NPC/pathfinding implementation (alleycat dog Butch in src/game/alley.js is a simple patrol/charge state machine; ghosts.js ring-buffer replay), no TypeScript, no CLAUDE.md in the two game repos.
+
+## Suggested castle-game adoption
+Vanilla JS ESM + vite + pinned npm three (3dck style) or vendored three (alleycat style); node:test + jsdom for logic; Playwright swiftshader harness with a debug hook (`window.__castle`) for deterministic screenshots; add a real pixel-diff (e.g. pixelmatch/pngjs) since none exists to copy; orchestrator-owned contracts.js; CLAUDE.md canonical + AGENTS.md pointer; HANDOFF.md with the section list above; `bd init`.
