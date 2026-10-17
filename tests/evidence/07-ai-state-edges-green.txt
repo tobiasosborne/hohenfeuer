@@ -1,0 +1,20 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (5.604612ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (0.88171ms)
+✔ lost blueprint weapons are replaced on free mount spots only when cost plus reserve fits (1.027678ms)
+✔ replacement understands public world positions and counts pending same-type replacements (0.556603ms)
+✔ entry signature returns integer next-tick commands only on staggered AI cadence (12.108593ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (2.392191ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (3.548338ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (1.780497ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (3.1643ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (2.024686ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (1.715405ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (1.100155ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.098587

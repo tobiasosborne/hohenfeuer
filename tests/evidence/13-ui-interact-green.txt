@@ -1,0 +1,16 @@
+✔ lookDir: yaw clockwise from north, pitch up (0.992639ms)
+✔ facingFromYaw maps to FACING N/E/S/W (0.199784ms)
+✔ pick hits the first block face under the reticle with distance and normal (1.807001ms)
+✔ pick respects the 24 m order range and returns kind none on a miss (0.53581ms)
+✔ pick prefers a nearer weapon AABB and reports its id and crew state (1.722523ms)
+✔ pick sees designated air cells (0.335656ms)
+✔ ghost: block designation adjacent to the hit face, with every invalid reason (0.988069ms)
+✔ ghost: wall weapons need a mount below, ground weapons a clear 3x3x2 on solid floor (0.521944ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83.577575
