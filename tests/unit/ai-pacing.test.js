@@ -27,7 +27,8 @@ test('one scripted palace shot cannot flatten a protected keep', t => {
   assert.equal(sim.state.outcome, null);
 });
 
-for (const seed of [1, 2, 3]) test(`level 5 forest-duel seed ${seed} ends with a winner in 8-20 sim minutes`, t => {
+// Seeds 2-3 are opt-in (HOHENFEUER_SLOW=1): each match is ~15 sim-minutes and slows npm test.
+for (const seed of (process.env.HOHENFEUER_SLOW ? [1, 2, 3] : [1])) test(`level 5 forest-duel seed ${seed} ends with a winner in 8-20 sim minutes`, t => {
   content();
   const slots = createSlotTable(C.getMap('forest-duel'), { aiLevel: 5, aiTactic: C.TACTIC.GENERAL });
   const sim = createSim({ map: 'forest-duel', seed, slots });
