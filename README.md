@@ -7,18 +7,20 @@ ordering crews. NPCs gate everything: gun crews, ammo runners, masons, and civil
 and hit points, with one morale number per castle. Opponents are AI castles in slots that humans can
 take over. Weapons, NPC types, maps and blocks are plugins.
 
-**Status (2026-10-18, early morning):** tracer bullets 1-4 work end to end in the browser: walk the
+**Status (2026-10-18, morning):** tracer bullets 1-4 work end to end in the browser: walk the
 ramparts among civilians and gun crews, man a cannon with its crew, aim with the original's
 direction/charge readouts and its ballistics (fixed elevation, powder charge, gravity, drag, scatter,
 splash, wind), fire, hit the enemy castle, watch walls take damage states, and the AI orders its
 crews and fires back. Designation building by masons, all ten original weapons as plugins, the
 original's 145 castle layouts as block castles with forest/desert/ice/volcano biomes, a title menu
-with skirmish setup and an end screen, classic and modern render presets, first-person feel (recoil,
-shake, head bob) and an onboarding ramp (match 1 shows only the cannon, prompts retire as you use
-them) are in. Gameplay is run as a critic-repair loop against a 22-criterion rubric
-(`research/15`): critique v1 scored 52/110, repair wave 1 (`research/17`) fixed economy scarcity,
-match shape and slot fairness (40 paired AI duels: 12-17 min, slot wins 20/20, gold never at cap);
-critique v2 is in progress. See `HANDOFF.md` and `docs/worklog/`.
+with skirmish setup and an end screen, classic and modern render presets, first-person feel and an
+onboarding ramp (match 1 shows only the cannon, prompts retire as you use them) are in. Gameplay
+runs as a critic-repair loop against a 22-criterion rubric (`research/15`): critique v1 52/110,
+repair wave 1 (`research/17`), critique v2 60/110 (`research/19`), repair wave 2 (`research/20`,
+`research/21`): every map fires within 21 s, 150 AI matches 82% in 12-20 min with no timeouts,
+endings 65% palace / 25% ruler / 10% surrender, a directional incoming warning, a one-sentence
+loss account with retry, contextual reload choices and idle-gun reasons. Critique v3 is next.
+See `HANDOFF.md` and `docs/worklog/`.
 
 | Rampart, looking north | Weapon view | First shot (scripted golden) |
 |---|---|---|

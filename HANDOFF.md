@@ -1,3 +1,25 @@
+# HANDOFF — Repair wave 2 landed, critique v3 next (2026-10-18 08:15 AEDT, orchestrator)
+
+## What was done
+Critique v2 (research/19, 60/110) committed as 4f5a0e7. Repair wave 2 ran as two codex lanes with disjoint file ownership after the orchestrator added EV.RULER_THREAT, EV.WEAPON_IDLE and IDLE_REASON to src/contracts.js (9347fbf). UI lane (research/21) landed as 8d981ec; sim lane (research/20) landed as f0a29d9 after a green 498-test run on the settled tree (89 s), browser smoke and ui-flow. DESIGN.md sections 5-6 now state the measured numbers (defeat line 20% -> 55% quadratic in minutes 10-15, surrender morale 20 / population 35%, start 1500 / cap 2000, repair materials 80%). Worklog docs/worklog/2026-10-18.md covers the day.
+
+## Remaining
+Goldens on the settled tree (48 poses) are being verified by the orchestrator; any sim-induced change is inspected and recaptured before uo7.17 closes. Critique v3 brief is codex-logs/23-critique-v3-prompt.md (launch on codex astra with danger-full-access). Open lanes work: uo7.18 (novice pacing tail), uo7.19 (strict palace plateaus 34/40), human-study halves of uo7.10/uo7.13/uo7.15, er7. LICENSE undecided.
+
+## Key techniques
+Two codex lanes can run concurrently if ownership is disjoint and shared contracts are added by the orchestrator first; each lane codes against the interface with fallbacks. Commit each lane on its own paths as it lands (`git add <lane paths>`), then run the full gates once on the settled tree. GOLDENS_ONLY=a,b verifies single poses under load. Raw sweep trajectories over 2 MB stay out of git (.gitignore patterns under tests/evidence/critique-*).
+
+## Issues touched
+Closed by lanes: uo7.9, uo7.11, uo7.12, uo7.14, uo7.16. In progress: uo7.17 (orchestrator). Open: uo7.10, uo7.13, uo7.15 (human halves), uo7.18, uo7.19, er7, uo7.1, ko3.1, ko3.2, ot9.5, hoq, hyr, sdx, m7d, ryk, v7s, yfq, iq8, bxe, utr, kqn.
+
+## Next step
+Finish the golden verification, close uo7.17, launch critique v3 (`codex exec ... -m gpt-6-astra -s danger-full-access -o codex-logs/23-critique-v3-final.md - < codex-logs/23-critique-v3-prompt.md`), then brief repair wave 3 from its ranked list. Check `~/.claude/scripts/claude-usage` before any Claude agent (weekly 41% / Fable 40% at 07:49).
+
+## Previous Sessions
+The earlier handoffs follow unchanged.
+
+---
+
 <!-- owns: current repair-wave-2 simulation handoff and preserved UI/earlier session records. -->
 # HANDOFF — Repair wave 2, simulation lane (2026-10-18)
 
