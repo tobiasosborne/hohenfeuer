@@ -39,7 +39,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
   if (!mapDef) throw new TypeError(`Unknown map: ${map}`);
   const slotDefs = (slots ?? mapDef.slots.map((s, id) => ({ id, castleId: s.castle, team: id, color: 0, controller: CONTROLLER.LOCAL, aiLevel: T.ai.levelMin, aiTactic: TACTIC.GENERAL }))).map(s => ({ ...s })).sort((a, b) => a.id - b.id);
   let aiController = hooks.aiThink ? null : createAiController();
-  const commandKinds = Object.freeze(Object.values(CMD).filter(type => type !== CMD.DESIGNATE_WEAPON));
+  const commandKinds = Object.freeze(Object.values(CMD));
   const streams = createStreams(seed), events = [], blasts = [], destroyed = new Map(), support = new Map(), inputs = {};
   let state = { tick: 0, seed, mapId: mapDef.id, commandKinds, slots: slotDefs, castles: [], rulers: [], npcs: [], weapons: [], projectiles: [], wind: createWind({ rng: streams.get(RNG_STREAM.WIND), ...mapDef.wind }), terrain: generateTerrain(mapDef, seed), outcome: null, pendingCommands: [], nextEntityId: K.MAX_SLOTS };
   for (const slot of slotDefs) {
@@ -76,6 +76,13 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     getBlock(pos) { const found = locate(pos); return found ? { id: found.plot.type[found.index], hp: found.plot.hp[found.index], meta: found.plot.meta[found.index], plot: found.plot.id } : null; },
     damageBlock(pos, dp, sourceSlot) { const found = locate(pos); if (found) damageBlock(ctx, found.plot, found.index, dp, sourceSlot); },
     setBlock(pos, id, meta = 0) { const found = locate(pos), def = getBlock(id); if (found && def) { const before = found.plot.type[found.index]; if (setCell(found.plot, found.cell.x, found.cell.y, found.cell.z, id, def.hp, meta) && before && !id) ctx.onDestroyed(found.plot, found.index); } },
+    placeWeapon(slot, defId, cell, facing) {
+      const p = castleOf(slot).plot;
+      const id = state.weapons.reduce((next, w) => Math.max(next, w.id + 1), 0);
+      const w = createWeapon(getWeapon(defId), { id, slot, facing, pos: { x: p.origin.x + cell[0] + 0.5, y: p.origin.y + cell[1], z: p.origin.z + cell[2] + 0.5 } });
+      w.facing = facing; state.weapons.push(w);
+      emit(EV.WEAPON_PLACED, { weaponId: id, slot, defId }); return id;
+    },
     applyBlast(blast) { blasts.push({ ...blast, pos: xyz(blast.pos) }); },
     damagePeople(blast) { damagePeople(ctx, blast); }, spawnProjectile: ctx.spawnProjectile,
   };
@@ -219,6 +226,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       for (const savedWork of saved.support) { const work = createSupport(castleOf(savedWork.id).plot, type => type !== BLOCK.AIR && (type === BLOCK.LADDER || type === BLOCK.DOOR || getBlock(type)?.solid)); Object.assign(work, savedWork); support.set(savedWork.id, work); }
     },
   };
+  hooks.onReady?.(api);
   return sim;
 }
 /** Restore under the same registry set, including queued AI commands and unfinished support. */

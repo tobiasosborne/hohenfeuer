@@ -1,0 +1,19 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-spawn: ok (0 px differ)
+tb1-first-shot: ok (0 px differ)
+rampart-north: ok (0 px differ)
+weapon-view-cannon: ok (0 px differ)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (0 px differ)
+example-wall: golden written
+courtyard-palace: golden written
+crew-at-cannon: golden written
+cannon-sight: golden written
+muzzle-flash: golden written
+smoke-trail: golden written
+impact-dust: golden written
+tb3-designate: golden written
+tb3-built: golden written

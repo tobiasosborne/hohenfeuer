@@ -11,6 +11,8 @@ function fixture() {
   const cells = [[3, 1, 3], [2, 1, 3], [1, 1, 3], [3, 1, 2], [3, 1, 4], [6, 1, 6]];
   for (const cell of cells) type[index(cell)] = BLOCK.STONE;
   type[index(cells[0])] = BLOCK.PALACE;
+  type[index([2, 1, 2])] = BLOCK.MOUNT;
+  type[index([4, 1, 2])] = BLOCK.MOUNT;
   const castle = { slot: 0, gold: 2000, plot: { width: w, height: h, depth: d, origin: [0, 0, 0], type, meta },
     mountSpots: [[2, 2, 2, FACING.E]], weapons: [{ defId: 'cannon', at: [2, 2, 2], facing: FACING.E }] };
   return { castle, index, cells };
@@ -64,4 +66,18 @@ test('replacement understands public world positions and counts pending same-typ
   assert.deepEqual(plan[0].cell, [4, 2, 2]);
   assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, live,
     { pending: [{ weapon: 'cannon', cell: [4, 2, 2] }] }), []);
+});
+
+test('TB3: replacement skips destroyed mounts, people and existing paid cannon designations', () => {
+  const { castle, index } = fixture();
+  const blueprint = captureBlueprint(castle);
+  const site = [2, 2, 2];
+  castle.plot.type[index([2, 1, 2])] = BLOCK.AIR;
+  assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, []), [], 'missing mount');
+  castle.plot.type[index([2, 1, 2])] = BLOCK.MOUNT;
+  assert.equal(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, []).length, 1);
+  const view = { npcs: [{ hp: 100, pos: [2.5, 2, 2.5] }] };
+  assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, [], { view }), []);
+  castle.npcDesignations = [{ weapon: 'cannon', cell: site, reserved: T.weapons.cannon.cost }];
+  assert.deepEqual(planWeaponReplacement(castle, blueprint, TACTIC.GENERAL, []), []);
 });

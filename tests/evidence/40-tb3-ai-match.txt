@@ -1,0 +1,10 @@
+✔ TB3: AI duel with real paid rebuilds ends in 8-20 minutes and all replay checkpoint hashes agree (720546.227074ms)
+ℹ {"tick":30117,"hash":2755937710,"winner":[0],"designated":136,"built":14,"hashes":"101 identical checkpoints","seconds":1003.9}
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 720567.901427

@@ -24,6 +24,12 @@ const de = {
   build: "Bauen",
   placeWeapon: "Waffe setzen",
   cost: "{name}: {cost} Gold",
+  buildLedger: "Gold {gold} / Reserviert {reserved}",
+  designationAdded: "Bauauftrag erteilt",
+  designationCancelled: "Bauauftrag storniert",
+  demolitionOrdered: "Abriss beauftragt",
+  blockBuilt: "Bau fertig",
+
   // weapons (plugin names override these)
   cannon: "Kanone",
   catapult: "Katapult",
@@ -85,6 +91,12 @@ const en = {
   build: "Build", // Bauen
   placeWeapon: "Place weapon", // Waffe setzen
   cost: "{name}: {cost} Gold",
+  buildLedger: "Gold {gold} / Reserved {reserved}",
+  designationAdded: "Construction designated",
+  designationCancelled: "Designation cancelled",
+  demolitionOrdered: "Demolition ordered",
+  blockBuilt: "Construction complete",
+
   cannon: "Cannon", // Kanone
   catapult: "Catapult", // Katapult
   dirN: "N", dirE: "E", dirS: "S", dirW: "W", // N O S W

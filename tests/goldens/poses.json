@@ -124,5 +124,100 @@
     "fov": 60,
     "width": 1024,
     "height": 768
+  },
+  "cannon-sight": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 254,
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
+    "position": [
+      110.5,
+      8.25,
+      127.5
+    ],
+    "yaw": -1.557,
+    "pitch": -0.07,
+    "fov": 50
+  },
+  "muzzle-flash": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 255,
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
+    "position": [
+      110.5,
+      8.25,
+      127.5
+    ],
+    "yaw": -1.557,
+    "pitch": -0.07,
+    "fov": 50
+  },
+  "smoke-trail": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": 265,
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
+    "position": [
+      110.5,
+      8.25,
+      127.5
+    ],
+    "yaw": -1.557,
+    "pitch": -0.07,
+    "fov": 50
+  },
+  "impact-dust": {
+    "page": "index.html?golden=1",
+    "script": "tb2",
+    "until": 352,
+    "width": 1024,
+    "height": 768,
+    "position": [
+      246,
+      22,
+      120
+    ],
+    "yaw": -1.5708,
+    "pitch": -0.48,
+    "fov": 50
+  },
+  "tb3-designate": {
+    "page": "index.html?golden=1",
+    "script": "tb3",
+    "until": 279,
+    "width": 1024,
+    "height": 768,
+    "camera": "rig",
+    "position": [
+      111.49,
+      8.6,
+      128.95
+    ],
+    "yaw": -1.838,
+    "pitch": -0.652,
+    "fov": 60
+  },
+  "tb3-built": {
+    "page": "index.html?golden=1",
+    "script": "tb3",
+    "until": 760,
+    "width": 1024,
+    "height": 768,
+    "position": [
+      111.5,
+      8.6,
+      125.5
+    ],
+    "yaw": -2.9,
+    "pitch": -0.18,
+    "fov": 60,
+    "showRuler": false
   }
 }

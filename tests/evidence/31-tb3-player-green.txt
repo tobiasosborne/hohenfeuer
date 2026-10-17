@@ -1,0 +1,11 @@
+✔ TB3: ghost rejects an unsupported adjacent designation and a live cannon cell (3.51628ms)
+✔ TB3: HUD exposes selected price, available gold and reserved amount, with local designation messages (16.337324ms)
+✔ TB3: preview color and designation wire batch follow placement/build/cancel lifecycle (100.08995ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.840492

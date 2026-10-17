@@ -1,0 +1,113 @@
+{
+  "hash": 2603648293,
+  "timeline": [
+    {
+      "tick": 280,
+      "hp": 0,
+      "built": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 282,
+      "hp": 0,
+      "built": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 755,
+      "hp": 40,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 761,
+      "hp": 40,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 801,
+      "hp": 40,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 819,
+      "hp": 24,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 821,
+      "hp": 24,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 1001,
+      "hp": 40,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    },
+    {
+      "tick": 1460,
+      "hp": 40,
+      "built": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "outcome": null
+    }
+  ]
+}

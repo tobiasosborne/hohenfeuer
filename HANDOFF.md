@@ -1,3 +1,27 @@
+# HANDOFF — TB3 designation slice
+
+Updated 2026-10-17 by Codex. The user explicitly prohibited every git command; none was run.
+
+## What was done
+Paid block and cannon designations, cancellation/refunds, supported/free/occupied/cap rules, demolition salvage, mason build safety and fear handling, first-person B/G placement, number/wheel selection, cost/reserved HUD messages, AI rebuild eligibility, and dynamic block/cannon rendering are implemented. The only render file changed is the new src/render/ghost-view.js. src/tb3-script.js walks the real stairs and designates five rampart blocks.
+
+## Remaining
+Visual acceptance is pending under castle-game-ec7: this sandbox denies Vite localhost listen and Chromium socket setup with EPERM. A parallel render session wrote both TB3 PNGs at 21:21 AEDT. I inspected them; the ghost and cost line are visible. The built pose had the local ruler obscuring the wall, so its camera was adjusted north on the rampart with showRuler:false and requires recapture. No WebM was produced here. The new poses are in tests/goldens/poses.json. The headless build finishes at tick 754 with exactly five block costs spent. The AI replay ends at tick 30117 (1003.9 s), winner 0, hash 2755937710, 136 designations, 14 builds, and 101 equal checkpoints over two runs. npm test passed all 48 files (0 failures/skips) in 761.0 s; the final shared-cap controller regression passes separately in evidence50. The parallel look runner also passed browser smoke (12-look-browser.txt). Unit/build evidence and the final match result are recorded in tests/evidence/30..50-tb3-*.
+
+## Key techniques
+Site occupancy uses the full body bounds of all living people, including enemy NPCs and heads/edges. Build work rechecks support and occupancy every tick. Mason destinations exclude every pending build cell, preventing workers from parking inside another job. Cannon reservations round-trip through save/restore and finish with WEAPON_PLACED and BLOCK_BUILT. Demolition preserves facing/shape and uses economy.demolishRefundFrac when supplied, otherwise the existing economy.repairCostFrac (0.5); tuning.js was outside ownership and was not edited.
+
+## Issues touched
+castle-game-bz6 tracks implementation and remains in progress until visual acceptance; it depends on castle-game-ec7 for captures and browser gates.
+
+## Next step
+On a socket-enabled runner, run node tests/evidence/36-tb3-browser.mjs, npm run test:browser, node tests/evidence/49-tb3-goldens.mjs, npm run goldens twice, and node tests/evidence/43-tb3-video.mjs. The strict golden helper requires exact equality over two runs and lists changed baselines; existing updates require an explicit name list after inspection. The video script produces test-results/tb3.webm: exactly 20 s at 30 fps, advancing two sim ticks per frame. Its live-AI sim timeline already passes headlessly (five blocks, incoming direct-hit projectile, R repair).
+
+## Previous Sessions
+The prior orchestrator handoff follows unchanged.
+
+---
+
 # HANDOFF — Hohenfeuer
 
 Updated 2026-10-17 ~20:05 AEDT by the orchestrator (Fable). Read order: docs/DESIGN.md -> research/00-scoping-decisions.md -> this file.

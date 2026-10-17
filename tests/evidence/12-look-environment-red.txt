@@ -1,0 +1,83 @@
+✖ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (26.876361ms)
+✖ terrain grain tiles continuously between the heightfield and horizon skirt (3.788598ms)
+✖ weapon sight uses the design pitch by default (8.727605ms)
+✔ effect pools remain deterministic, bounded, and retire all particles (10.91615ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.19019
+
+✖ failing tests:
+
+test at tests/render-environment.mjs:11:1
+✖ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (26.876361ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   55,
+  +   71,
+  +   90
+  -   128,
+  -   144,
+  -   160
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-environment.mjs:14:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 55, 71, 90 ],
+    expected: [ 128, 144, 160 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/render-environment.mjs:19:1
+✖ terrain grain tiles continuously between the heightfield and horizon skirt (3.788598ms)
+  AssertionError [ERR_ASSERTION]: terrain needs painted grain at walking distance
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-environment.mjs:24:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/render-environment.mjs:33:1
+✖ weapon sight uses the design pitch by default (8.727605ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + -0.03490658503988659
+  - -0.06981317007977318
+        ^
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-environment.mjs:37:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: -0.03490658503988659,
+    expected: -0.06981317007977318,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

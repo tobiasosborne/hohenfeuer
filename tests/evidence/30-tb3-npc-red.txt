@@ -1,0 +1,142 @@
+✖ TB3: reserve once, preserve facing, cancel and refund exactly once (6.770296ms)
+✖ TB3: reject floating, map-only, air, occupied and unaffordable cells without reserving (0.355596ms)
+✖ TB3: person overlap includes heads, capsule edges, enemies and the ruler (0.49823ms)
+✔ TB3: shared cap covers builds, demolition and cannon reservations (0.529357ms)
+✖ TB3: cannon needs a free mount, reserves its cost, builds after wall-weapon work time (3.900532ms)
+✖ TB3: demolition refunds the tuning fraction on completion and protects map-only blocks (2.377344ms)
+✖ TB3: supported first, and worker never builds into a person who arrives after designation (1.650659ms)
+✔ TB3: continuous enemy fire pauses build work, then the 30 s guard finishes one job (3.059492ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 2
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25.790551
+
+✖ failing tests:
+
+test at tests/unit/npc-tb3.test.js:15:1
+✖ TB3: reserve once, preserve facing, cancel and refund exactly once (6.770296ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:24:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-tb3.test.js:30:1
+✖ TB3: reject floating, map-only, air, occupied and unaffordable cells without reserving (0.355596ms)
+  AssertionError [ERR_ASSERTION]: floating cell
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:32:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-tb3.test.js:42:1
+✖ TB3: person overlap includes heads, capsule edges, enemies and the ruler (0.49823ms)
+  AssertionError [ERR_ASSERTION]: head
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:49:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-tb3.test.js:60:1
+✖ TB3: cannon needs a free mount, reserves its cost, builds after wall-weapon work time (3.900532ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(npcCommand(f.api, cmd))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:65:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-tb3.test.js:79:1
+✖ TB3: demolition refunds the tuning fraction on completion and protects map-only blocks (2.377344ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1500 !== NaN
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:88:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1500,
+    expected: NaN,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/npc-tb3.test.js:93:1
+✖ TB3: supported first, and worker never builds into a person who arrives after designation (1.650659ms)
+  AssertionError [ERR_ASSERTION]: head intersects target
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:102:35)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

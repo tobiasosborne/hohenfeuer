@@ -141,7 +141,8 @@ export function createInput(o) {
     look.pitch = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, look.pitch - my * sensitivity));
   }
   function onWheel(e) {
-    if (build.mode !== BUILD.BLOCK) return;
+    if (mode !== CAMERA_MODE.WALK || build.mode !== BUILD.BLOCK) return;
+    e.preventDefault?.();
     const i = blockIds.indexOf(build.block);
     const n = blockIds.length;
     build.block = blockIds[(i + (e.deltaY > 0 ? 1 : -1) + n) % n];
@@ -167,6 +168,7 @@ export function createInput(o) {
     get mode() { return mode; },
     get locked() { return locked(); },
     get build() { return build; },
+    get look() { return { ...look }; },
     /** Switch camera mode; weapon view releases pointer lock so the HUD can be clicked. */
     setMode(m) {
       if (m === mode) return;

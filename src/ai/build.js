@@ -58,10 +58,10 @@ function palaceDistance(cell, blueprint) {
 }
 
 /** Up to four affordable missing cells, nearest palace first then plot index. No world writes. */
-export function planRebuild(castle, blueprint, tactic, account) {
+export function planRebuild(castle, blueprint, tactic, account, view = {}) {
   let available = budget(castle, tactic, account);
   const missing = blueprint.cells.filter(c => castle.plot.type[c.index] === BLOCK.AIR
-    && canDesignate(castle, { type: CMD.DESIGNATE, cell: c.cell, block: c.block })
+    && canDesignate(castle, { type: CMD.DESIGNATE, cell: c.cell, block: c.block }, view)
     && !((castle.plot.meta?.[c.index] ?? 0) & 16) && blockCost(c.block) !== null
     && !(castle.designations ?? []).some(d => sameCell(d.cell, c.cell)));
   missing.sort((a, b) => palaceDistance(a.cell, blueprint) - palaceDistance(b.cell, blueprint) || a.index - b.index);
@@ -79,7 +79,7 @@ export function planRebuild(castle, blueprint, tactic, account) {
 }
 
 /** Replace only initial weapon losses, deterministically at available CastleDef mountSpots. */
-export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weaponCap = T.world.weaponCapDefault, pending = [] } = {}) {
+export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weaponCap = T.world.weaponCapDefault, pending = (castle.npcDesignations ?? []).filter(d => d.weapon), view = {} } = {}) {
   const live = weapons.filter(w => w.hp === undefined || w.hp > 0), plan = [];
   let available = budget(castle, tactic), count = live.length + pending.length;
   const missing = [...blueprint.weapons];
@@ -90,8 +90,9 @@ export function planWeaponReplacement(castle, blueprint, tactic, weapons, { weap
   for (const weapon of missing) {
     const cost = weaponCost(weapon.defId);
     if (cost === null || cost > available || count >= weaponCap) continue;
-    const spot = blueprint.mountSpots.find(p => ![...live, ...pending, ...plan].some(w => sameCell(placementCell(w, castle), p.slice(0, 3))));
-    if (!spot) continue;
+    const spot = blueprint.mountSpots.find(p => ![...live, ...pending, ...plan].some(w => sameCell(placementCell(w, castle), p.slice(0, 3)))
+      && canDesignate(castle, { type: CMD.DESIGNATE_WEAPON, weapon: weapon.defId, cell: p.slice(0, 3) }, { ...view, weapons: live, weaponCap }));
+    if (!spot || plan.length >= T.world.maxOpenDesignations - (castle.npcDesignations?.length ?? 0)) continue;
     plan.push({ type: CMD.DESIGNATE_WEAPON, weapon: weapon.defId, cell: spot.slice(0, 3), facing: spot[3] });
     available -= cost; count++;
   }

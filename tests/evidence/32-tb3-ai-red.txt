@@ -1,0 +1,49 @@
+✔ blueprint is a copy; rebuilds nearest palace first, caps four and skips designated/map-only cells (2.978258ms)
+✔ reserve is preserved after the entire plan; repair spending is bounded by income share (4.020772ms)
+✔ lost blueprint weapons are replaced on free mount spots only when cost plus reserve fits (0.628184ms)
+✔ replacement understands public world positions and counts pending same-type replacements (0.323612ms)
+✖ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (1.578241ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.768972
+
+✖ failing tests:
+
+test at tests/unit/ai-build.test.js:69:1
+✖ TB3: replacement skips destroyed mounts, people and existing paid cannon designations (1.578241ms)
+  AssertionError [ERR_ASSERTION]: missing mount
+  + actual - expected
+  
+  + [
+  +   {
+  +     cell: [
+  +       2,
+  +       2,
+  +       2
+  +     ],
+  +     facing: 1,
+  +     type: 'designate-weapon',
+  +     weapon: 'cannon'
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-build.test.js:73:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

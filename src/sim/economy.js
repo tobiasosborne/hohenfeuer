@@ -5,6 +5,10 @@ import { TUNING as T } from '../tuning.js';
 export function spend(castle, amount) { if (!Number.isFinite(amount) || amount < 0 || castle.gold < amount) return false; castle.gold -= amount; return true; }
 /** Refund reserved gold up to the normal castle cap. */
 export function refund(castle, amount) { castle.gold = Math.min(T.economy.goldCap, castle.gold + Math.max(0, amount)); }
+/** Gold already debited for work that has not completed. */
+export function reservedGold(castle) { return (castle.npcDesignations ?? []).reduce((sum, d) => sum + (d.reserved ?? 0), 0); }
+/** Demolition uses the economy salvage fraction (the same fraction as repair materials). */
+export function demolitionRefund(cost) { return (cost ?? 0) * (T.economy.demolishRefundFrac ?? T.economy.repairCostFrac); }
 /** Phase 1 income; magazine bookkeeping is ready for later hauled-load consumption. */
 export function tickEconomy(ctx, dt = K.DT) {
   for (const castle of ctx.state.castles) {

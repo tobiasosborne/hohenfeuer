@@ -2,18 +2,19 @@
 // Pure. Block picking uses the sim's DDA (src/world/grid.js raycast, DESIGN 3.3 Amanatides-Woo) so
 // the reticle and the sim agree on cells; weapons are AABBs. Rules: DESIGN 2.1, 2.2, 4.8, 5.
 
-import { BLOCK, K, MOUNT } from "../contracts.js";
+import { BLOCK, K, MOUNT, META } from "../contracts.js";
 import { TUNING } from "../tuning.js";
 import { sin, cos, PI } from "../core/fmath.js";
+import { supportedCell, cellHasWeapon } from "../npc/index.js";
 import { raycast } from "../world/grid.js";
 
 /** meta bit 5 marks an open designation (DESIGN 2.1). */
-export const DESIGNATED_BIT = 1 << 5;
+export const DESIGNATED_BIT = META.DESIGNATED_BIT;
 
 /** Why a ghost is invalid (OK when valid). */
 export const GHOST_REASON = Object.freeze({
   OK: "ok", NOT_OWN: "not-own", HEIGHT: "height", OUTSIDE: "outside", OCCUPIED: "occupied",
-  MOUNT: "mount", PERSON: "person", CAP: "cap", GOLD: "gold",
+  SUPPORT: "support", WEAPON_CAP: "weapon-cap", MOUNT: "mount", PERSON: "person", CAP: "cap", GOLD: "gold",
 });
 
 /**
@@ -103,7 +104,8 @@ function personInCell(plot, people, x, y, z) {
   const bx0 = o.x + x, by0 = o.y + y, bz0 = o.z + z;
   for (const p of people || []) {
     const r = p.radius ?? TUNING.ruler.radius, h = p.height ?? TUNING.ruler.height;
-    const [px, py, pz] = p.pos;
+    if (p.hp <= 0 || p.deserted) continue;
+    const [px, py, pz] = Array.isArray(p.pos) ? p.pos : [p.pos.x, p.pos.y, p.pos.z];
     if (px + r > bx0 && px - r < bx0 + 1 && pz + r > bz0 && pz - r < bz0 + 1 && py + h > by0 && py < by0 + 1) return true;
   }
   return false;
@@ -142,7 +144,10 @@ export function ghost(q) {
     const i = idx(p, x, y, z);
     if (p.type[i] !== BLOCK.AIR || (p.meta[i] & DESIGNATED_BIT)) return out(GHOST_REASON.OCCUPIED);
   }
+  if (cellHasWeapon(p, cell, q.weapons)) return out(GHOST_REASON.OCCUPIED);
+  if (!isWeapon && !supportedCell(p, cell)) return out(GHOST_REASON.SUPPORT);
   if (isWeapon) {
+    if ((q.weaponCount ?? 0) >= (q.weaponCap ?? W.weaponCapDefault)) return out(GHOST_REASON.WEAPON_CAP);
     for (const [x, y, z] of cells) {
       if (y !== cell[1]) continue;
       const below = y - 1 >= 0 ? p.type[idx(p, x, y - 1, z)] : BLOCK.AIR;

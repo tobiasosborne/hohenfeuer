@@ -1,0 +1,1 @@
+iteration 5: {"sky": 33.78, "ground": 30.487, "scene": 31.884, "whole": 28.062}

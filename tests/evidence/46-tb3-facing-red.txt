@@ -1,0 +1,44 @@
+✔ TB3: reserve once, preserve facing, cancel and refund exactly once (20.483024ms)
+✔ TB3: reject floating, map-only, air, occupied and unaffordable cells without reserving (7.245936ms)
+✔ TB3: person overlap includes heads, capsule edges, enemies and the ruler (4.810673ms)
+✔ TB3: shared cap covers builds, demolition and cannon reservations (5.72374ms)
+✔ TB3: cannon needs a free mount, reserves its cost, builds after wall-weapon work time (26.146413ms)
+✔ TB3: demolition refunds the tuning fraction on completion and protects map-only blocks (8.674335ms)
+✔ TB3: supported first, and worker never builds into a person who arrives after designation (11.259236ms)
+✔ TB3: continuous enemy fire pauses build work, then the 30 s guard finishes one job (10.564294ms)
+✔ TB3: calm morale lets a mason build during repeated enemy impacts (15.806989ms)
+✔ TB3: a mason avoids ending work inside another pending site (five simultaneous jobs cannot deadlock) (1.516379ms)
+✔ TB3: live plus pending cannons obey weapon cap, and cancellation releases a cannon reservation (5.986986ms)
+✔ TB3: enemy destruction of a demolition target releases its designation slot (0.923232ms)
+✖ TB3: marking an oriented block for demolition preserves its facing and shape (13.806245ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.512778
+
+✖ failing tests:
+
+test at tests/unit/npc-tb3.test.js:163:1
+✖ TB3: marking an oriented block for demolition preserves its facing and shape (13.806245ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  36 !== 39
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/npc-tb3.test.js:166:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 36,
+    expected: 39,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

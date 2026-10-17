@@ -1,0 +1,14 @@
+✔ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (51.675612ms)
+✔ terrain grain tiles continuously between the heightfield and horizon skirt (62.656017ms)
+✔ weapon sight uses the design pitch by default (9.658945ms)
+✔ effect pools remain deterministic, bounded, and retire all particles (26.622681ms)
+✔ muzzle emission resolves the nearby rendered attachment instead of the sim collision origin (7.528096ms)
+✔ forest props are repeatable and leave castle plot skirts clear (107.950019ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 505.746656

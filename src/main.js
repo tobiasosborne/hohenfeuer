@@ -1,13 +1,13 @@
-// src/main.js - owns the TB1 boot: plugins, sim, renderer, input, cameras, HUD, audio, fixed-step loop and the debug hook.
-// URL params: golden=1 (no wall-clock sim time; the sim advances only through stepTo/setPose), demo=1 (the TB1 script
-// plays the slice in real time), demo=tb2 (the TB2 director: crews, enemy reply, repairs), speed=<0.25..4> (demo
-// time-lapse on the loop clock), seed=<n>, lang=de|en,
+// src/main.js - owns playable boot: plugins, sim, renderer, input, cameras, HUD, audio, fixed-step loop and debug wiring.
+// URL params: golden=1 (advance only through the debug API), demo=1 (TB1 palace shot), demo=tb2 (crewed wall shot),
+// demo=tb3 (rampart designation and mason construction), speed=<0.25..4> (demo time-lapse), seed=<n>, lang=de|en,
 // kit=v1 (default) | 0 or v0 (kit v0) | none (fallback block palette).
 import * as THREE from "three";
-import { CMD, EV, CAMERA_MODE, K, freezeRegistries, getWeapon, getCastle, getView, getMap } from "./contracts.js";
+import { CMD, EV, CAMERA_MODE, K, PLUGIN_KIND, listPlugins, getBlock, freezeRegistries, getWeapon, getCastle, getView, getMap } from "./contracts.js";
 import { TUNING as T } from "./tuning.js";
 import { registerCoreSim } from "./plugins/index.sim.js";
 import { registerCoreView } from "./plugins/index.view.js";
+import { reservedGold } from "./sim/economy.js";
 import { createSim } from "./sim/sim.js";
 import { createLoop } from "./core/loop.js";
 import { fixedElevation, launchSpeed, traceFlight } from "./sim/ballistics.js";
@@ -16,6 +16,7 @@ import { palaceIntegrity } from "./sim/rules.js";
 import { createRenderer } from "./render/renderer.js";
 import { createSky } from "./render/sky.js";
 import { createTerrainView } from "./render/terrain-view.js";
+import { createGhostView } from "./render/ghost-view.js";
 import { createChunkManager } from "./render/chunks.js";
 import { createModelSet, fallbackModels } from "./render/mesher.js";
 import { createWeaponView } from "./render/weapon-view.js";
@@ -24,25 +25,26 @@ import { createFx } from "./render/fx.js";
 import { createAssets } from "./render/assets.js";
 import { installDebugApi } from "./render/debug-api.js";
 import { createInput } from "./player/input.js";
-import { buildCommands } from "./player/commands.js";
+import { buildCommands, BUILD } from "./player/commands.js";
 import { createCameraRig, applyPose } from "./player/camera.js";
-import { pick } from "./player/interact.js";
-import { createHud } from "./ui/hud.js";
+import { pick, ghost } from "./player/interact.js";
+import { createHud, designationMessages } from "./ui/hud.js";
 import { createMessageLog, eventsToMessages, TONE } from "./ui/console.js";
 import { topDown } from "./ui/minimap.js";
 import { t } from "./ui/i18n.js";
 import { createMenu } from "./ui/menus.js";
 import { createSfx } from "./audio/sfx.js";
 import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-script.js";
+import { createTb3Script, TB3 } from "./tb3-script.js";
 import { windVector } from "./sim/wind.js";
 
-/** Scripted slices: tb1 = walk, man, fire at the palace; tb2 = the same with the crew ordered at tick 0, aiming at a wall. */
-const SCRIPTS = { tb1: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }) };
+/** Scripted slices: tb1 = palace shot; tb2 = crewed wall shot; tb3 = rampart designation and mason construction. */
+const SCRIPTS = { tb1: () => createTb1Script(), tb2: () => createTb1Script({ orderCrew: true, target: "wall" }), tb3: () => createTb3Script() };
 
 const DEG = Math.PI / 180;
 const q = new URLSearchParams(globalThis.location.search);
 const GOLDEN = q.get("golden") === "1";
-const DEMO = q.get("demo") === "1" || q.get("demo") === "tb2";
+const DEMO = q.get("demo") === "1" || ["tb2", "tb3"].includes(q.get("demo"));
 const DEMO_TB2 = q.get("demo") === "tb2";
 const SEED = Number(q.get("seed") ?? TB1.seed) >>> 0;
 const LANG = q.get("lang") === "en" ? "en" : "de";
@@ -53,7 +55,8 @@ const ME = TB1.playerSlot;
 registerCoreSim();
 registerCoreView();
 freezeRegistries();
-const sim = createSim({ map: TB1.map, seed: SEED, slots: tb1Slots() });
+let debugSimApi;
+const sim = createSim({ map: TB1.map, seed: SEED, slots: tb1Slots(), hooks: { onReady(api) { debugSimApi = api; } } });
 const mapDef = getMap(TB1.map);
 let view = sim.state;
 let prev = capture(view);
@@ -102,13 +105,17 @@ for (const p of mirrors) chunks.addPlot(p);
 chunks.flush();
 r.scene.add(chunks.group);
 
-const weaponViews = new Map(view.weapons.map((w) => {
+const ghosts = createGhostView({ scene: r.scene });
+const weaponViews = new Map();
+function ensureWeaponView(w) {
+  if (weaponViews.has(w.id)) return weaponViews.get(w.id);
   const kitCannon = kitData?.weapons?.[w.defId];
   const wv = createWeaponView(kitCannon ? { model: kitCannon.clone(true) } : {});
   wv.root.position.set(w.pos.x, w.pos.y, w.pos.z);
   r.scene.add(wv.root);
-  return [w.id, wv];
-}));
+  weaponViews.set(w.id, wv); return wv;
+}
+for (const w of view.weapons) ensureWeaponView(w);
 function elevationOf(w) { return fixedElevation(getWeapon(w.defId)); }
 
 const SLOT_COLORS = ["#c02828", "#2860c0", "#28a040", "#c0a020"];
@@ -134,7 +141,7 @@ let menu = null;
 
 const el = r.domElement;
 const toLogical = (x, y) => { const b = el.getBoundingClientRect(); return { x: (x - b.left) / b.width * T.render.logicalW, y: (y - b.top) / b.height * T.render.logicalH }; };
-const input = createInput({ element: el, toLogical, slot: ME, weaponDefs: ["cannon"], sensitivity: T.ruler.mouseSensitivity });
+const input = createInput({ element: el, toLogical, slot: ME, blockIds: listPlugins(PLUGIN_KIND.BLOCK).filter(b => b.id !== 0 && !b.mapOnly && b.cost !== null).map(b => b.id), weaponDefs: ["cannon"], sensitivity: T.ruler.mouseSensitivity });
 input.setLook(Math.PI / 2, 0); // face the enemy (east)
 const unlockAudio = () => { sfx.unlock(); };
 globalThis.addEventListener("pointerdown", unlockAudio);
@@ -142,7 +149,7 @@ globalThis.addEventListener("keydown", unlockAudio);
 globalThis.addEventListener("keydown", (e) => { if (menu && (e.code === "Enter" || e.code === "NumpadEnter")) globalThis.location.reload(); });
 
 const rig = createCameraRig(camera, { seed: SEED, golden: GOLDEN || DEMO });
-let script = DEMO ? (DEMO_TB2 ? SCRIPTS.tb2() : SCRIPTS.tb1()) : null;
+let script = DEMO ? (SCRIPTS[q.get("demo")] ?? SCRIPTS.tb1)() : null;
 
 /**
  * TB2 demo director (demo=tb2): once the enemy gun has its crew and is loaded, slot 1 aims at our east wall by the
@@ -188,25 +195,38 @@ function cameraMode() {
 }
 const mannedWeapon = () => { const m = view.rulers[ME].manning; return m === null || m === undefined ? null : view.weapons.find((w) => w.id === m) ?? null; };
 
+/** The same reticle/site query feeds input, preview, HUD and the debug evidence hook. */
+function constructionContext(sample = null) {
+  const me = view.rulers[ME], castle = view.castles[ME];
+  const build = sample?.build ?? script?.build ?? input.build;
+  const aim = sample?.look ?? script?.look?.(view) ?? input.look;
+  const target = mannedWeapon() ? null : pick({ eye: [me.pos.x, me.pos.y + T.ruler.eye, me.pos.z], ...aim, slot: ME,
+    plots: view.castles.map(c => ({ plot: c.plot, slot: c.slot })), weapons: ownWeaponsAabbs() });
+  const def = build.mode === BUILD.WEAPON ? getWeapon(build.weapon) : getBlock(build.block);
+  const g = cameraMode() === CAMERA_MODE.WALK && build.mode !== BUILD.NONE && def ? ghost({
+    target, plot: castle.plot, slot: ME, yaw: aim.yaw, gold: castle.gold,
+    openDesignations: castle.npcDesignations?.length ?? 0,
+    people: [...view.rulers, ...view.npcs], weapons: view.weapons,
+    weaponCount: view.weapons.filter(w => w.slot === ME && w.hp > 0).length + (castle.npcDesignations ?? []).filter(d => d.weapon).length,
+    weaponCap: mapDef.weaponCap, build: { ...build, cost: def.cost, footprint: def.footprint, mount: def.mount },
+  }) : null;
+  return { target, ghost: g, build, def, plot: castle.plot };
+}
 function playerCommands() {
   input.setMode(cameraMode());
-  const me = view.rulers[ME], w = mannedWeapon();
-  const eye = [me.pos.x, me.pos.y + T.ruler.eye, me.pos.z];
-  const target = w ? null : pick({ eye, yaw: input.sample ? lookYaw() : 0, pitch: lookPitch(), slot: ME,
-    plots: mirrors.map((p, i) => ({ plot: p, slot: i })), weapons: ownWeaponsAabbs() });
-  const s = input.sample({ weapon: w ? { id: w.id, az: w.aim.az, range: w.aim.range, autoFire: w.autoFire, crewOrdered: w.crewOrdered } : null, target, shelterOn: view.castles[ME].shelter });
+  const w = mannedWeapon();
+  const s = input.sample({ weapon: w ? { id: w.id, az: w.aim.az, range: w.aim.range, autoFire: w.autoFire, crewOrdered: w.crewOrdered } : null,
+    shelterOn: view.castles[ME].shelter });
+  const c = constructionContext(s); s.target = c.target; s.ghost = c.ghost;
   impactHeld = !!s.impactHeld;
   freeLook = s.freeLook || freeLook;
-  look = s.look;
   return buildCommands(s, view.tick);
 }
-let look = { yaw: Math.PI / 2, pitch: 0 };
-const lookYaw = () => look.yaw, lookPitch = () => look.pitch;
 
-function tick() {
+function tick(forcePlayer = false) {
   if (view.outcome) return;
   prev = capture(view);
-  let cmds = script ? script.next(view) : GOLDEN ? [] : playerCommands();
+  let cmds = forcePlayer === true ? playerCommands() : script ? script.next(view) : GOLDEN ? [] : playerCommands();
   for (const c of directorCommands()) queued.push(c);
   for (const c of queued.splice(0)) {
     const slot = c.slot ?? ME;
@@ -225,7 +245,8 @@ function handleEvents(events) {
   const touched = new Set();
   for (const e of events) {
     const p = e.payload;
-    if (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED) touched.add(p.plot), chunks.markCell(mirrors[p.plot], ...p.cell);
+    if (e.type === EV.BLOCK_DAMAGED || e.type === EV.BLOCK_DESTROYED || e.type === EV.BLOCK_BUILT) touched.add(p.plot), chunks.markCell(mirrors[p.plot], ...p.cell);
+    else if (e.type === EV.DESIGNATION_ADDED || e.type === EV.DESIGNATION_CANCELLED) touched.add(p.slot);
     else if (e.type === EV.COLLAPSE) { touched.add(p.plot); for (const c of p.cells) chunks.markCell(mirrors[p.plot], ...c); }
     else if (e.type === EV.SHOT_FIRED) {
       fx.muzzleFlash(new THREE.Vector3(...p.pos));
@@ -247,7 +268,7 @@ function handleEvents(events) {
     const src = view.castles[id].plot, m = mirrors[id];
     m.type.set(src.type); m.hp.set(src.hp); m.meta.set(src.meta);
   }
-  for (const m of eventsToMessages(events, { lang: LANG, slot: ME })) log.push(m.text, { tick: view.tick, tone: m.tone });
+  for (const m of [...eventsToMessages(events, { lang: LANG, slot: ME }), ...designationMessages(events, { lang: LANG, slot: ME })]) log.push(m.text, { tick: view.tick, tone: m.tone });
   if (!GOLDEN) sfx.handle(events, [camera.position.x, camera.position.y, camera.position.z]);
 }
 
@@ -261,7 +282,7 @@ function frame(alpha) {
   const mode = cameraMode();
   const figures = [];
   for (const ru of view.rulers) {
-    const visible = ru.hp > 0 && (ru.slot !== ME || mode === CAMERA_MODE.DEATH || mode === CAMERA_MODE.GHOST || freeCamera !== null);
+    const visible = ru.hp > 0 && (ru.slot !== ME || mode === CAMERA_MODE.DEATH || mode === CAMERA_MODE.GHOST || freeCamera !== null && freeCamera.showRuler !== false);
     if (visible) figures.push({ id: -1 - ru.slot, pos: lerp3(prev.rulers.get(ru.slot), ru.pos, alpha), prev: prev.rulers.get(ru.slot), now: ru.pos, role: "ruler", tint: RULER_TINT[ru.slot] });
   }
   for (const n of view.npcs) {
@@ -270,7 +291,7 @@ function frame(alpha) {
   }
   people.update(figures);
   for (const w of view.weapons) {
-    const wv = weaponViews.get(w.id);
+    const wv = ensureWeaponView(w);
     wv.root.visible = w.hp > 0;
     if (w.hp > 0) wv.setAim(w.aim.az / T.aim.azUnitsPerDeg, elevationOf(w));
   }
@@ -284,9 +305,10 @@ function frame(alpha) {
 
   if (freeCamera) applyPose(camera, freeCamera);
   else {
-    const scripted = script !== null || GOLDEN;
-    const yaw = scripted ? (me.yaw / K.YAW_UNITS) * Math.PI * 2 : look.yaw;
-    const pitch = scripted ? 0 : look.pitch;
+    const scripted = script !== null;
+    const scriptedLook = script?.look?.(view);
+    const yaw = scriptedLook?.yaw ?? (scripted ? (me.yaw / K.YAW_UNITS) * Math.PI * 2 : input.look.yaw);
+    const pitch = scriptedLook?.pitch ?? (scripted ? 0 : input.look.pitch);
     const w = mannedWeapon();
     rig.update({
       mode, dt,
@@ -297,6 +319,7 @@ function frame(alpha) {
       groundY: me.pos.y,
     });
   }
+  ghosts.update(view, constructionContext());
   chunks.update(camera.position);
   r.render();
   hud.draw(hudView(mode));
@@ -328,6 +351,8 @@ function hudView(mode) {
   const ec = { x: enemy.plot.origin.x + enemy.plot.width / 2, z: enemy.plot.origin.z + enemy.plot.depth / 2 };
   const bearing = ((Math.atan2(ec.x - camera.position.x, -(ec.z - camera.position.z)) / DEG) + 360) % 360;
   const def = w ? getWeapon(w.defId) : null;
+  const c = constructionContext();
+  const selection = !w && c.build.mode !== BUILD.NONE && c.def ? { name: c.def.name[LANG], cost: c.def.cost, valid: c.ghost?.valid ?? false } : null;
   return {
     lang: LANG, mode, tick: view.tick,
     gold: Math.floor(meC.gold), pop: { now: meC.population, start: meC.initialPopulation },
@@ -341,7 +366,7 @@ function hudView(mode) {
       fireCost: def.fireCost, affordable: meC.gold >= def.fireCost, autoFire: w.autoFire, crewOrdered: w.crewOrdered,
       restoreLit: w.aim.az !== w.lastAim.az || w.aim.range !== w.lastAim.range,
     } : null,
-    morale: { value: meC.morale }, selection: null, shelterOn: meC.shelter,
+    morale: { value: meC.morale }, selection, reserved: reservedGold(meC), shelterOn: meC.shelter,
     messages: log.visible(view.tick),
     enemyLabel: { title: t("enemy", LANG), name: "KI", castle: getCastle(enemy.defId ?? "default")?.name?.[LANG] ?? "" },
     minimapOwn: minimapCache.own, minimapEnemy: minimapCache.enemy,
@@ -369,7 +394,22 @@ const api = installDebugApi({
   view: r,
   stepTo: (target) => stepTo(target),
   extras: {
-    sim, kit, kitError, chunks, hud, script: () => script,
+    sim, kit, kitError, chunks, ghosts, hud, input, construction: () => constructionContext(), script: () => script,
+    /** Drive the exact keyboard/reticle command path while golden time is paused. */
+    playerStep() { tick(true); chunks.flush(); frame(0); return view.tick; },
+    setBuild(build, aim) { script = null; Object.assign(input.build, build); if (aim) input.setLook(aim.yaw, aim.pitch); frame(0); return constructionContext(); },
+    /** Golden fixture: one incoming direct-hit cannonball, through normal flight/collision/damage. */
+    enemyShot(cell = TB3.cells[2]) {
+      if (!GOLDEN) throw new Error("enemyShot requires golden mode");
+      const o = view.castles[ME].plot.origin, def = getWeapon("cannon");
+      const weapon = view.weapons.find(w => w.slot !== ME && w.hp > 0);
+      const pos = { x: o.x + cell[0] + 6, y: o.y + cell[1] + 0.75, z: o.z + cell[2] + 0.5 };
+      const vel = { x: -30, y: 0, z: 0 };
+      debugSimApi.spawnProjectile({ pos, vel, radius: def.shot.radius, k: def.k,
+        payload: { ...def.shot, splash: 0, splashRadius: 0 }, sourceSlot: weapon.slot, weaponId: weapon.id });
+      debugSimApi.emit(EV.SHOT_FIRED, { slot: weapon.slot, weaponId: weapon.id, pos: [pos.x,pos.y,pos.z], vel: [vel.x,vel.y,vel.z] });
+      view = sim.state; handleEvents(sim.drainEvents()); frame(0); return true;
+    },
     /** Queue a command for the next tick (tick and seq are filled in; slot defaults to 0). */
     issue(cmd) { queued.push({ ...cmd }); return queued.length; },
     /** Start the TB1 script (walk, man, aim, fire) from the current tick. */
@@ -401,7 +441,7 @@ api.setPose = (p) => {
     else if (Number.isInteger(p.until)) stepTo(p.until);
   } else if (Number.isInteger(p.tick)) stepTo(p.tick);
   chunks.flush(); // goldens must not depend on how many frames the remesh budget gets
-  if (p.position && p.camera !== "rig") { freeCamera = { pos: p.position, yaw: -(p.yaw ?? 0), pitch: p.pitch ?? 0, roll: 0, fov: p.fov ?? T.ruler.fovDeg }; lanePose(p); }
+  if (p.position && p.camera !== "rig") { freeCamera = { pos: p.position, yaw: -(p.yaw ?? 0), pitch: p.pitch ?? 0, roll: 0, fov: p.fov ?? T.ruler.fovDeg, showRuler: p.showRuler }; lanePose(p); }
   frame(0);
   return { tick: view.tick, mode: cameraMode() };
 };

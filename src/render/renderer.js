@@ -7,7 +7,7 @@ const P = TUNING.ruler;
 
 /** Biome look presets (render-only). Colours are sRGB hex. */
 export const BIOME_LOOK = Object.freeze({
-  forest: { fog: 0xb4c8dc, sun: 0xfff0d8, sunIntensity: 2.2, sky: 0xc8dcf0, ground: 0x5a6a40, hemiIntensity: 1.25 },
+  forest: { fog: 0x6984a4, fogNearM: 160, fogFarM: 850, sun: 0xfff1db, sunIntensity: 2.2, sky: 0xe4e9ef, ground: 0xc2b8a6, hemiIntensity: 4.8 },
   desert: { fog: 0xe0cfa8, sun: 0xfff2d0, sunIntensity: 2.4, sky: 0xe8dcc0, ground: 0xa08050, hemiIntensity: 1.3 },
   ice: { fog: 0xd0dcea, sun: 0xf0f4ff, sunIntensity: 2.0, sky: 0xdce8f4, ground: 0x8090a0, hemiIntensity: 1.4 },
   volcano: { fog: 0x6a5a58, sun: 0xffc8a0, sunIntensity: 1.8, sky: 0x8a7a78, ground: 0x302824, hemiIntensity: 1.0 },
@@ -20,7 +20,7 @@ export const BIOME_LOOK = Object.freeze({
  * @param {number[]} [o.sunDir] direction toward the sun
  * @param {boolean} [o.letterbox] scale the 1024x768 canvas to fit the window (default true)
  */
-export function createRenderer({ canvas, biome = "forest", sunDir = [-0.55, 0.7, 0.45], letterbox = true } = {}) {
+export function createRenderer({ canvas, biome = "forest", sunDir = [-0.5, 1, -0.75], letterbox = true } = {}) {
   const look = BIOME_LOOK[biome] ?? BIOME_LOOK.forest;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: "default", preserveDrawingBuffer: true });
   renderer.setPixelRatio(1);
@@ -32,7 +32,7 @@ export function createRenderer({ canvas, biome = "forest", sunDir = [-0.55, 0.7,
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(look.fog);
-  scene.fog = new THREE.Fog(look.fog, P.fogNearM, P.fogFarM);
+  scene.fog = new THREE.Fog(look.fog, look.fogNearM ?? P.fogNearM, look.fogFarM ?? P.fogFarM);
 
   const camera = new THREE.PerspectiveCamera(P.fovDeg, R.logicalW / R.logicalH, P.nearM, P.farM);
   camera.rotation.order = "YXZ";

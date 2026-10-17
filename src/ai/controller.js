@@ -1,5 +1,5 @@
 // src/ai/controller.js - owns scheduled AI command generation and serializable command-source memory.
-import { CMD, CMD_FIELDS, EV, CONTROLLER, validateCommand, validateSlot } from '../contracts.js';
+import { CMD, CMD_FIELDS, EV, CONTROLLER, getMap, validateCommand, validateSlot } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector, windChanged } from './aim.js';
 import { blockCost, captureBlueprint, planRebuild, planWeaponReplacement, weaponCost } from './build.js';
@@ -133,13 +133,16 @@ function think(view, slot, rng, memory) {
   }
   if (world.tick - state.lastBuildTick >= T.ai.buildEveryS * T.sim.tickHz) {
     state.lastBuildTick = world.tick;
-    if (supports(CMD.DESIGNATE)) for (const plan of planRebuild({ ...castle, gold }, state.blueprint, slot.aiTactic, state)) {
+    const planned = [];
+    if (supports(CMD.DESIGNATE)) for (const plan of planRebuild({ ...castle, gold }, state.blueprint, slot.aiTactic, state, view)) {
       emit(plan.type, Object.fromEntries(Object.entries(plan).filter(([key]) => key !== 'type')));
       const price = blockCost(plan.block);
       gold -= price; state.spentGold += price;
+      planned.push(plan);
     }
-    if (supports(CMD.DESIGNATE_WEAPON)) for (const plan of planWeaponReplacement({ ...castle, gold }, state.blueprint, slot.aiTactic, ownWeapons,
-      { weaponCap: view.weaponCap ?? T.world.weaponCapDefault, pending: castle.weaponDesignations ?? [] })) {
+    const pending = castle.npcDesignations ?? castle.weaponDesignations ?? [];
+    if (supports(CMD.DESIGNATE_WEAPON)) for (const plan of planWeaponReplacement({ ...castle, gold, npcDesignations: [...pending, ...planned] }, state.blueprint, slot.aiTactic, ownWeapons,
+      { weaponCap: view.weaponCap ?? getMap(view.mapId)?.weaponCap ?? T.world.weaponCapDefault, view, pending: pending.filter(d => d.weapon) })) {
       emit(plan.type, { weapon: plan.weapon, cell: plan.cell, facing: plan.facing }); gold -= weaponCost(plan.weapon);
     }
   }

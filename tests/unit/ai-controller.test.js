@@ -153,3 +153,14 @@ test('shelter requires both low own morale and three recent enemy impacts, then 
   const off = at(controller, view, slot, quiet + T.ai.shelterOffS * T.sim.tickHz);
   assert.ok(off.some(c => c.type === CMD.SHELTER && c.on === 0));
 });
+
+test('TB3: block rebuilds and cannon replacements share the last open designation slot in one think', () => {
+  const { view, slot, weapon } = fixture(), controller = createAiController(), castle=view.castles[0];
+  castle.mountSpots=[[4,2,4,1]];
+  castle.plot.type[4+8*4+64]=BLOCK.MOUNT;
+  at(controller,view,slot,0);
+  castle.plot.type[91]=BLOCK.AIR; castle.stats={income:100}; weapon.hp=0;
+  castle.npcDesignations=Array.from({length:T.world.maxOpenDesignations-1},()=>({cell:[0,1,0]}));
+  const commands=at(controller,view,slot,T.ai.buildEveryS*T.sim.tickHz);
+  assert.equal(commands.filter(c=>c.type===CMD.DESIGNATE||c.type===CMD.DESIGNATE_WEAPON).length,1);
+});

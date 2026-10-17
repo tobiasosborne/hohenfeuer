@@ -1,0 +1,20 @@
+✔ TB3: reserve once, preserve facing, cancel and refund exactly once (3.421886ms)
+✔ TB3: reject floating, map-only, air, occupied and unaffordable cells without reserving (0.585091ms)
+✔ TB3: person overlap includes heads, capsule edges, enemies and the ruler (0.645505ms)
+✔ TB3: shared cap covers builds, demolition and cannon reservations (0.651401ms)
+✔ TB3: cannon needs a free mount, reserves its cost, builds after wall-weapon work time (5.014147ms)
+✔ TB3: demolition refunds the tuning fraction on completion and protects map-only blocks (1.232342ms)
+✔ TB3: supported first, and worker never builds into a person who arrives after designation (2.339404ms)
+✔ TB3: continuous enemy fire pauses build work, then the 30 s guard finishes one job (2.893735ms)
+✔ TB3: calm morale lets a mason build during repeated enemy impacts (1.877602ms)
+✔ TB3: a mason avoids ending work inside another pending site (five simultaneous jobs cannot deadlock) (1.559033ms)
+✔ TB3: live plus pending cannons obey weapon cap, and cancellation releases a cannon reservation (0.845633ms)
+✔ TB3: enemy destruction of a demolition target releases its designation slot (0.760948ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36.727262

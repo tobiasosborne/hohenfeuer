@@ -1,0 +1,37 @@
+✔ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (83.721276ms)
+✔ terrain grain tiles continuously between the heightfield and horizon skirt (133.964474ms)
+✔ weapon sight uses the design pitch by default (21.666691ms)
+✔ effect pools remain deterministic, bounded, and retire all particles (48.248401ms)
+✔ muzzle emission resolves the nearby rendered attachment instead of the sim collision origin (13.532485ms)
+✖ forest props are repeatable and leave castle plot skirts clear (144.99365ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 776.811076
+
+✖ failing tests:
+
+test at tests/render-environment.mjs:67:1
+✖ forest props are repeatable and leave castle plot skirts clear (144.99365ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(trees?.isInstancedMesh && trees.count > 0)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-environment.mjs:72:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

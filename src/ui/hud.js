@@ -5,7 +5,7 @@
 // bars, readouts, compass, overview maps and the reticle. No Math.random, no clock: same view in,
 // same pixels out.
 
-import { CAMERA_MODE } from "../contracts.js";
+import { CAMERA_MODE, EV, JOB } from "../contracts.js";
 import { TUNING } from "../tuning.js";
 import { LAYOUT, letterbox } from "./layout.js";
 import { t } from "./i18n.js";
@@ -36,6 +36,18 @@ const L = LAYOUT;
  * @property {null|object} [minimapOwn] @property {null|object} [minimapEnemy] src/ui/minimap.js maps
  * @property {null|{predicted?: number[]}} [reticle] @property {object} [menu] src/ui/menus.js menu to draw on top
  */
+
+/** Local construction lifecycle messages kept with the HUD's building labels. */
+export function designationMessages(events, { slot, lang }) {
+  const out = [];
+  for (const e of events) {
+    const p = e.payload;
+    if (e.type === EV.DESIGNATION_ADDED && p.slot === slot) out.push({ text: t(p.kind === JOB.DEMOLISH ? "demolitionOrdered" : "designationAdded", lang), tone: "info" });
+    if (e.type === EV.DESIGNATION_CANCELLED && p.slot === slot) out.push({ text: t("designationCancelled", lang), tone: "info" });
+    if (e.type === EV.BLOCK_BUILT && p.plot === slot) out.push({ text: t("blockBuilt", lang), tone: "good" });
+  }
+  return out;
+}
 
 /** Readout strings: direction floor(az/10) and range floor(range/10), three digits each (DESIGN 3.3). */
 export function formatReadouts(az, range) {
@@ -234,7 +246,8 @@ export function createHud(canvas2d, o = {}) {
         const sel = v.selection;
         if (sel) textBar(ctx, L.selectionBar, 1, sel.valid === false ? [200, 70, 50] : [70, 190, 80], "#5a5a5a", t("cost", lang, { name: sel.name, cost: sel.cost }), note);
         else textBar(ctx, L.selectionBar, 0, [0, 0, 0], "#6a6a6a", "", note);
-        if (v.shelterOn) textBar(ctx, L.statusBar, 1, [214, 156, 34], "#6a6a6a", t("shelter", lang), note);
+        if (sel && v.reserved !== undefined) textBar(ctx, L.statusBar, 1, [168, 148, 88], "#6a6a6a", t("buildLedger", lang, { gold: Math.floor(v.gold ?? 0), reserved: Math.floor(v.reserved) }), note);
+        else if (v.shelterOn) textBar(ctx, L.statusBar, 1, [214, 156, 34], "#6a6a6a", t("shelter", lang), note);
         else if (v.target) textBar(ctx, L.statusBar, v.target.hpPct / 100, [86, 168, 212], "#5a5a5a", t("weaponCondition", lang, { name: v.target.name, pct: Math.round(v.target.hpPct) }), note);
         else textBar(ctx, L.statusBar, 0, [0, 0, 0], "#6a6a6a", "", note);
         buttonLabel(ctx, L.btnL1, t("demolish", lang), false, note);

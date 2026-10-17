@@ -1,24 +1,15 @@
 // src/npc/index.js - owns lane entry exports and the ruler-order adapter.
-import { CMD, JOB, META, EV, BLOCK } from '../contracts.js';
+import { CMD, JOB, META, EV, BLOCK, getWeapon } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { indexOf, blockDef } from './model.js';
 import { addJob, finishJob } from './jobs.js';
+import { canDesignate } from './designations.js';
+import { spend, refund } from '../sim/economy.js';
+export { canDesignate, designationReason, supportedCell, cellHasPerson, cellHasWeapon } from './designations.js';
 export { npcTick } from './brain.js';
 export { moraleTick, recordNpcEvent, recordProjectileResult, beginNpcImpact, endNpcImpact, queueMoraleInput } from './morale.js';
 export { npcKinematics } from './kinematics.js';
 export { crewPresent, reloadMultiplier, canFire } from './crew.js';
-
-/** Read-only designation eligibility shared by command producers and the dispatcher. */
-export function canDesignate(castle, command) {
-  if (!castle || castle.eliminated || !command.cell) return false;
-  const i = indexOf(castle.plot, command.cell), build = command.type === CMD.DESIGNATE;
-  if (i < 0 || command.cell[1] < T.world.buildMinY || command.cell[1] > T.world.buildMaxY
-    || !build && command.type !== CMD.DEMOLISH) return false;
-  if ((castle.npcDesignations?.length ?? 0) >= T.world.maxOpenDesignations || castle.plot.meta[i] & META.DESIGNATED_BIT) return false;
-  const def = blockDef(command.block);
-  return build ? Boolean(def && def.cost !== null && castle.plot.type[i] === BLOCK.AIR && castle.gold >= def.cost)
-    : castle.plot.type[i] !== BLOCK.AIR;
-}
 
 /** Commands already handled by sim.js need no adapter; later designation/priority commands do. */
 export function npcCommand(api, command) {
@@ -34,20 +25,22 @@ export function npcCommand(api, command) {
   if (command.type === CMD.CANCEL) {
     const d = castle.npcDesignations?.find(d => indexOf(castle.plot, d.cell) === i);
     if (!d) return false;
-    castle.gold = Math.min(T.economy.goldCap, castle.gold + (d.reserved ?? 0));
+    refund(castle, d.reserved ?? 0);
     castle.npcDesignations = castle.npcDesignations.filter(entry => indexOf(castle.plot, entry.cell) !== i);
-    castle.plot.meta[i] &= ~META.DESIGNATED_BIT;
+    castle.plot.meta[i] = d.previousMeta ?? (castle.plot.meta[i] & ~META.DESIGNATED_BIT);
     for (const job of [...(castle.jobs ?? [])]) if (job.target.cell && indexOf(castle.plot, job.target.cell) === i && (job.kind === JOB.BUILD || job.kind === JOB.DEMOLISH)) finishJob(api, castle, job);
     api.emit(EV.DESIGNATION_CANCELLED, { slot: castle.slot, cell: command.cell }); return true;
   }
-  if (command.type !== CMD.DESIGNATE && command.type !== CMD.DEMOLISH) return false;
-  if (!canDesignate(castle, command)) return false;
-  const def = blockDef(command.block), build = command.type === CMD.DESIGNATE;
+  if (![CMD.DESIGNATE, CMD.DESIGNATE_WEAPON, CMD.DEMOLISH].includes(command.type)) return false;
+  if (!canDesignate(castle, command, api.state)) return false;
+  const placingWeapon = command.type === CMD.DESIGNATE_WEAPON, build = command.type !== CMD.DEMOLISH;
+  const def = placingWeapon ? getWeapon(command.weapon) ?? T.weapons[command.weapon] : blockDef(command.block);
   const reserved = build ? def.cost : 0;
-  castle.gold -= reserved;
+  if (!spend(castle, reserved)) return false;
+  const facing = build ? command.facing ?? 0 : castle.plot.meta[i] & META.FACING_MASK;
   castle.npcDesignations ??= [];
-  castle.npcDesignations.push({ cell: [...command.cell], block: build ? command.block : castle.plot.type[i], facing: command.facing ?? 0,
-    kind: build ? JOB.BUILD : JOB.DEMOLISH, reserved });
-  castle.plot.meta[i] = (castle.plot.meta[i] & ~META.FACING_MASK) | (command.facing ?? 0) | META.DESIGNATED_BIT;
-  api.emit(EV.DESIGNATION_ADDED, { slot: castle.slot, cell: command.cell, block: command.block }); return true;
+  castle.npcDesignations.push({ cell: [...command.cell], block: placingWeapon ? BLOCK.AIR : build ? command.block : castle.plot.type[i], facing,
+    kind: build ? JOB.BUILD : JOB.DEMOLISH, reserved, previousMeta: castle.plot.meta[i], ...(placingWeapon ? { weapon: command.weapon } : {}) });
+  castle.plot.meta[i] = (castle.plot.meta[i] & ~META.FACING_MASK) | facing | META.DESIGNATED_BIT;
+  api.emit(EV.DESIGNATION_ADDED, { slot: castle.slot, cell: command.cell, block: command.block, weapon: command.weapon, kind: build ? JOB.BUILD : JOB.DEMOLISH, reserved }); return true;
 }

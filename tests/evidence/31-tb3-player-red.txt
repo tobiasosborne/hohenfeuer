@@ -1,0 +1,10 @@
+file:///home/tobias/Projects/castle-game/tests/unit/ui-tb3.test.js:7
+import { createHud, designationMessages } from '../../src/ui/hud.js';
+                    ^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '../../src/ui/hud.js' does not provide an export named 'designationMessages'
+    at #_instantiate (node:internal/modules/esm/module_job:254:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:369:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.11.1

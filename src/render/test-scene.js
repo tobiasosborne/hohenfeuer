@@ -12,7 +12,7 @@ export const TEST_SCENE = Object.freeze({
   seed: 1,
   // Plot min corners; centres are TUNING.world.duelDistanceM (192 m) apart on the x axis.
   origins: Object.freeze([[72, 4, 104], [72 + TUNING.world.duelDistanceM, 4, 104]]),
-  sunDir: Object.freeze([-0.55, 0.7, 0.45]), // toward the sun: west-south-west, high afternoon sun
+  sunDir: Object.freeze([-0.5, 1, -0.75]), // same north-west sun as the forest gameplay biome
   map: Object.freeze({
     id: "render-test", biome: "forest", size: [384, 256],
     slots: [{ origin: [72, 4, 104], facingDeg: 90, castle: "test" }, { origin: [264, 4, 104], facingDeg: 270, castle: "test" }],

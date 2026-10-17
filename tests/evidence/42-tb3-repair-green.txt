@@ -1,0 +1,10 @@
+✔ TB3: paid cannon builds through the real sim factory, emits placement, and survives save/restore (6007.562692ms)
+✔ TB3: debug-directed enemy projectile damages a built block and masons repair it through an R order (6753.038839ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12790.098816

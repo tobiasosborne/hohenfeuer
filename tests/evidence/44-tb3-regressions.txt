@@ -1,0 +1,13 @@
+✔ tests/unit/rules-cleanroom.test.js (6701.545466ms)
+✔ tests/unit/rules-purity.test.js (307.841674ms)
+✔ tests/unit/rules-tb1-boot.test.js (16699.196745ms)
+✔ tests/unit/rules-tb1.test.js (8293.679041ms)
+✔ tests/unit/sim-engine.test.js (28965.266364ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29092.166568

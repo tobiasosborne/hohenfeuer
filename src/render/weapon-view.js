@@ -1,5 +1,6 @@
 // src/render/weapon-view.js - owns weapon models: Base/Yaw/Pitch/Muzzle/Sight node tree, aim posing and the weapon-view camera (DESIGN 7.4, 5).
 import * as THREE from "three";
+import { toCreasedNormals } from "three/addons/utils/BufferGeometryUtils.js";
 import { TUNING } from "../tuning.js";
 
 const DEG = Math.PI / 180;
@@ -61,6 +62,10 @@ function mergeGeometries(geos) {
  */
 export function createWeaponView({ model } = {}) {
   const root = model ?? placeholderCannon();
+  // The authored barrel has flat per-face normals. Blend the lathe facets while keeping
+  // the muzzle lip and trunnion edges; clone geometry so sibling kit instances stay independent.
+  const barrel = model?.getObjectByName("barrel");
+  if (barrel?.isMesh) barrel.geometry = toCreasedNormals(barrel.geometry, Math.PI / 3);
   const nodes = {};
   for (const name of NODE_NAMES) nodes[name.toLowerCase()] = root.name === name ? root : root.getObjectByName(name);
   for (const k of ["yaw", "pitch", "muzzle", "sight"]) if (!nodes[k]) throw new Error(`weapon-view: model lacks node "${k}"`);
@@ -76,7 +81,7 @@ export function createWeaponView({ model } = {}) {
       root.updateMatrixWorld(true);
     },
     /** Put a camera at the Sight node looking along the weapon azimuth (weapon view, DESIGN 5). */
-    applySight(camera, { fovDeg = TUNING.ruler.weaponFovDeg, pitchDeg = -2 } = {}) {
+    applySight(camera, { fovDeg = TUNING.ruler.weaponFovDeg, pitchDeg = TUNING.ruler.weaponViewPitchDeg } = {}) {
       root.updateMatrixWorld(true);
       nodes.sight.getWorldPosition(tmp);
       camera.position.copy(tmp);

@@ -1,0 +1,10 @@
+✔ TB3: ruler designates five rampart blocks; masons finish within the tick bound with exact cost, twice (6743.024489ms)
+ℹ {"hash":1770984100,"tick":754,"gold":1656.033333333356,"built":[[41,7,29],[41,7,27],[41,7,25],[41,7,31],[41,7,33]]}
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6763.08468
