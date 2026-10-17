@@ -1,6 +1,7 @@
 // src/ai/build.js - owns blueprint snapshots, rebuild budgets and lost-weapon replacement plans.
 import { BLOCK, CMD, getBlock, getWeapon, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
+import { canDesignate } from '../npc/index.js';
 
 /** Local adapter: public plot uses width/depth, typed type/meta arrays and x+width*z+layer*y. */
 export function plotSize(plot) { return { w: plot.width ?? K.PLOT_W, d: plot.depth ?? K.PLOT_D, h: plot.height ?? K.PLOT_H }; }
@@ -60,11 +61,12 @@ function palaceDistance(cell, blueprint) {
 export function planRebuild(castle, blueprint, tactic, account) {
   let available = budget(castle, tactic, account);
   const missing = blueprint.cells.filter(c => castle.plot.type[c.index] === BLOCK.AIR
+    && canDesignate(castle, { type: CMD.DESIGNATE, cell: c.cell, block: c.block })
     && !((castle.plot.meta?.[c.index] ?? 0) & 16) && blockCost(c.block) !== null
     && !(castle.designations ?? []).some(d => sameCell(d.cell, c.cell)));
   missing.sort((a, b) => palaceDistance(a.cell, blueprint) - palaceDistance(b.cell, blueprint) || a.index - b.index);
   const plan = [];
-  const limit = Math.min(T.ai.buildPerThink, Math.max(0, T.world.maxOpenDesignations - (castle.designations?.length ?? 0)));
+  const limit = Math.min(T.ai.buildPerThink, Math.max(0, T.world.maxOpenDesignations - (castle.npcDesignations?.length ?? castle.designations?.length ?? 0)));
   if (limit === 0) return plan;
   for (const cell of missing) {
     const cost = blockCost(cell.block);

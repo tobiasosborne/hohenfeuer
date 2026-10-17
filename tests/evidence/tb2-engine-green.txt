@@ -1,0 +1,15 @@
+✔ rejected NPC commands are deterministic no-ops and later commands still run (217.087673ms)
+✔ cannon reloads, fires atomically and pays exactly once per shot (26.092212ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (12987.166685ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (59.146842ms)
+✔ a cannonball through the opposing ruler eliminates its castle (105.564116ms)
+✔ firing publishes the calm prediction and restores the last fired aim (64.721908ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (4471.3168ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17960.576094

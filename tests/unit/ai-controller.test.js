@@ -11,11 +11,36 @@ function fixture() {
   const plot = origin => ({ width: 8, depth: 8, height: 4, origin, type: new Uint8Array(256), meta: new Uint8Array(256), hp: new Uint8Array(256) });
   const castles = slots.map(s => ({ slot: s.id, gold: 2000, plot: plot([s.id * 192, 0, 0]), mountSpots: [] }));
   for (const c of castles) { c.plot.type[90] = BLOCK.PALACE; c.plot.hp[90] = 40; c.plot.type[91] = BLOCK.STONE; }
-  const weapon = { id: 0, slot: 0, defId: 'cannon', pos: [4, 1.5, 4], hp: 36, loaded: true, aim: { az: 0, range: 0 } };
+  const weapon = { id: 0, slot: 0, defId: 'cannon', pos: [4, 1.5, 4], hp: 36, loaded: true,
+    crewPresent: T.weapons.cannon.crewSlots, ammo: T.weaponRules.bufferLoads, aim: { az: 0, range: 0 } };
   return { view: { tick: 0, slots, castles, weapons: [weapon], rulers: [], wind: { x: 0, z: 0 }, events: [] }, slot: slots[0], weapon };
 }
 const rng = () => 0.5;
 const at = (controller, view, slot, tick) => { view.tick = tick; return controller.think(view, slot, rng); };
+
+test('AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot', () => {
+  const { view, slot, weapon } = fixture(), controller = createAiController();
+  weapon.crewPresent = 0;
+  assert.ok(at(controller, view, slot, 0).some(c => c.type === CMD.ORDER_CREW && c.on === 1));
+  const waiting = at(controller, view, slot, 30);
+  assert.ok(waiting.some(c => c.type === CMD.ORDER_CREW && c.on === 1));
+  assert.ok(!waiting.some(c => c.type === CMD.FIRE || c.type === CMD.AUTO_FIRE && c.on === 1));
+  weapon.crewPresent = Math.ceil(T.weapons.cannon.crewSlots * T.weaponRules.minCrewFrac);
+  assert.ok(at(controller, view, slot, 45).some(c => c.type === CMD.FIRE));
+  assert.ok(at(controller, view, slot, 60).some(c => c.type === CMD.FIRE), 'retry while the gun remains loaded');
+  weapon.crewPresent = 0;
+  assert.ok(!at(controller, view, slot, 75).some(c => c.type === CMD.FIRE));
+});
+
+test('AI skips pending designations using NPC metadata and the open-designation cap', () => {
+  const { view, slot } = fixture(), controller = createAiController();
+  at(controller, view, slot, 0);
+  const castle = view.castles[0];
+  castle.plot.type[91] = BLOCK.AIR;
+  castle.stats = { income: 100 };
+  castle.npcDesignations = Array.from({ length: T.world.maxOpenDesignations }, () => ({ cell: [0, 1, 0] }));
+  assert.ok(!at(controller, view, slot, 60).some(c => c.type === CMD.DESIGNATE));
+});
 
 test('entry signature returns integer next-tick commands only on staggered AI cadence', () => {
   const { view, slot } = fixture(), before = structuredClone(view);

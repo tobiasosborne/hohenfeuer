@@ -184,9 +184,9 @@ test("TB2: research/10 economy, prefab prices and corrected defence points", asy
   assert.equal(TUNING.weapons.cannon.splashRadius, 640 * TUNING.sim.splashNativePositionM);
 });
 
-test("TB2: building blast radii retain original renderer footprints on voxel castles (research/11 2.4)", () => {
-  assert.equal(TUNING.weapons.cannon.splashRadius, 12.5);
-  assert.equal(TUNING.weapons.catapult.splashRadius, 20);
-  assert.equal(TUNING.weapons['fat-freda'].splashRadius, 30);
-  assert.equal(TUNING.weapons.rocket.splashRadius, 22.5);
+test('TB2: blast footprints use the flight world scale so one blast cannot level a keep', () => {
+  for (const w of Object.values(TUNING.weapons)) {
+    assert.equal(w.splashRadius, w.nativeSplashRadius * TUNING.sim.splashNativePositionM);
+  }
+  assert.ok(TUNING.weapons.cannon.splashRadius < 640 * 5 / 256, 'smaller than the building-sized renderer footprint');
 });

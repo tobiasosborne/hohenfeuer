@@ -53,8 +53,7 @@ export function createAimMemory(targetId, castleSlot) {
 }
 
 /**
- * DESIGN 6.2's shared numeric floor is applied in each error coordinate: degrees
- * and fractional dial range. The contract has no independent range-floor knob.
+ * Exploration floors have separate units: degrees of bearing and fractional range.
  * The initial shot uses sigma0; subsequent shots use max(sigma0*shrink^k, floor).
  * @returns {{azDeg:number,rangeFrac:number}}
  */
@@ -62,10 +61,11 @@ export function aimNoise(level, observations) {
   if (!Number.isInteger(level) || level < T.ai.levelMin || level > T.ai.levelMax) throw new RangeError('Invalid AI level');
   const factor = T.ai.levelMax + 1 - level;
   const floor = T.ai.sMinCoefDeg * factor * factor;
+  const rangeFloor = T.ai.sMinRangeCoef * factor ** T.ai.sMinRangeExponent;
   const decay = pow(T.ai.shrink, Math.max(0, observations));
   const azDeg = T.ai.sAz0PerLevelDeg * factor * decay;
   const rangeFrac = T.ai.sR0PerLevel * factor * decay;
-  return observations === 0 ? { azDeg, rangeFrac } : { azDeg: Math.max(azDeg, floor), rangeFrac: Math.max(rangeFrac, floor) };
+  return observations === 0 ? { azDeg, rangeFrac } : { azDeg: Math.max(azDeg, floor), rangeFrac: Math.max(rangeFrac, rangeFloor) };
 }
 
 /** Bounded normal approximation mandated by DESIGN 3.1; six draws per aim. */

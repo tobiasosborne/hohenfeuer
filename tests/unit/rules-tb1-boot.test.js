@@ -43,7 +43,7 @@ test("TB1 script: the ruler walks the stairs to the east cannon and mans it", ()
   assert.ok(state.tick < 30 * T.sim.tickHz, `reached the gun in ${state.tick} ticks`);
 });
 
-test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot", () => {
+test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot", t => {
   const near = run((s) => ballNearEnemy(s));
   assert.ok(near.script.firedTick !== null, "fired");
   assert.ok(ballNearEnemy(near.state), `ball near enemy by tick ${near.state.tick}`);
@@ -70,4 +70,20 @@ test("TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy
   const again = run((s) => ballNearEnemy(s));
   assert.equal(again.state.tick, midTick);
   assert.equal(again.sim.hash(), midHash);
+  t.diagnostic(`TB1 fire ${script.firedTick}, golden ${midTick}, impact state ${state.tick}, golden hash ${midHash}`);
+});
+
+test('TB2 script orders a real crew and its wall shot preserves the duel', t => {
+  const sim = boot(), script = createTb1Script({ orderCrew: true, target: 'wall' });
+  let impact = null, state = sim.state;
+  for (let tick = 0; tick < 30 * T.sim.tickHz && !impact; tick++) {
+    sim.tick(script.next(state));
+    impact = sim.drainEvents().find(e => e.type === C.EV.IMPACT && e.payload.slot === 0);
+    state = sim.state;
+  }
+  assert.ok(impact);
+  assert.ok(state.weapons.find(w => w.id === script.weaponId).crewOrdered);
+  assert.equal(state.outcome, null);
+  assert.equal(state.castles[1].palaceIntegrity, 1);
+  t.diagnostic(`TB2 fire ${script.firedTick}, impact state ${state.tick}, aim ${JSON.stringify(script.aim)}, hash ${sim.hash()}`);
 });

@@ -13,7 +13,8 @@ function shots(level, seed, count) {
   const slots = createSlotTable({ slots: [{ castle: 'keep' }, { castle: 'keep' }] }, { aiLevel: level });
   const plot = origin => ({ width: 1, depth: 1, height: 3, origin, type: new Uint8Array([0, BLOCK.PALACE, 0]), hp: new Uint8Array([0, 40, 0]), meta: new Uint8Array(3) });
   const distance = T.ai.hitTest.distanceM;
-  const weapon = { id: 0, slot: 0, defId: 'cannon', hp: T.weapons.cannon.hp, pos: [0.5, 1.5, 0.5], loaded: false };
+  const weapon = { id: 0, slot: 0, defId: 'cannon', hp: T.weapons.cannon.hp, pos: [0.5, 1.5, 0.5], loaded: false,
+    crewPresent: T.weapons.cannon.crewSlots, ammo: T.weaponRules.bufferLoads };
   weapon.muzzle = weapon.pos;
   const target = [0.5, 1.5, 0.5 - distance];
   const view = { tick: 0, slots, castles: [{ slot: 0, gold: T.economy.goldCap, plot: plot([0, 0, 0]) },

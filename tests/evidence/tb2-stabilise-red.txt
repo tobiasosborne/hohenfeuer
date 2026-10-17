@@ -1,0 +1,20 @@
+✖ tests/unit/ai-controller.test.js (418.508338ms)
+✖ tests/unit/sim-engine.test.js (16364.587964ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16386.943758
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:1:1
+✖ tests/unit/ai-controller.test.js (418.508338ms)
+  'test failed'
+
+test at tests/unit/sim-engine.test.js:1:1
+✖ tests/unit/sim-engine.test.js (16364.587964ms)
+  'test failed'

@@ -99,7 +99,9 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       case CMD.LEAVE_WEAPON: ruler.manning = null; break;
       case CMD.SHELTER: castle.shelter = Boolean(cmd.on); emit(EV.SHELTER_TOGGLED, { slot: cmd.slot, on: castle.shelter }); break;
       case CMD.SURRENDER: castle.surrendered = true; break;
-      default: if (!npcCommand(api, cmd)) throw new Error('Unsupported command'); break;
+      // Contracts has no rejection event. A stale/unsupported gameplay order is a no-op,
+      // like a failed MAN_WEAPON or FIRE; input-shape and tick validation stay strict.
+      default: npcCommand(api, cmd); break;
     }
   }
   function terrainHit(a, b) {

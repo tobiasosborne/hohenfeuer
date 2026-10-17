@@ -7,6 +7,7 @@ import { TUNING } from '../../src/tuning.js';
 import { registerCoreSim } from '../../src/plugins/index.sim.js';
 import { registerCoreView } from '../../src/plugins/index.view.js';
 import { FOREST_DUEL_SEED } from '../../src/plugins/maps/forest-duel.sim.js';
+import { createTb1Script } from '../../src/tb1-script.js';
 
 afterEach(C.resetRegistriesForTests);
 
@@ -95,9 +96,15 @@ test('real core plugins boot deterministic duel sims and their cannon fires, lan
   assert.equal(a.state.weapons.length, 4);
   const inward = a.state.weapons.find(w => w.slot === 0 && w.aim.az === C.FACING.E * 90 * TUNING.aim.azUnitsPerDeg);
   assert.ok(inward);
+  const walkA = createTb1Script(), walkB = createTb1Script();
+  for (let tick = 0; tick < 30 * C.K.TICK_HZ && a.state.rulers[0].manning !== inward.id; tick++) {
+    a.tick(walkA.next(a.state)); b.tick(walkB.next(b.state));
+  }
+  assert.equal(a.state.rulers[0].manning, inward.id);
+  a.drainEvents(); b.drainEvents();
   const events = [];
   for (let tick = 0; tick < 6 * C.K.TICK_HZ; tick++) {
-    const commands = tick === 0 ? [{ type: C.CMD.FIRE, slot: 0, tick, seq: 0, weaponId: inward.id }] : [];
+    const commands = tick === 0 ? [{ type: C.CMD.FIRE, slot: 0, tick: a.state.tick, seq: 0, weaponId: inward.id }] : [];
     a.tick(commands); b.tick(commands);
     events.push(...a.drainEvents()); b.drainEvents();
   }

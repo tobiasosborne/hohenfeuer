@@ -16,7 +16,7 @@ export function createWeapon(def, { id, slot, pos, facing = 0 }) {
   const aim = { az: Math.round(facing * 90 * T.aim.azUnitsPerDeg), range: Math.round(dial * T.aim.rangeUnitsPerDial) };
   return { id, slot, defId: def.id, pos: { ...pos }, hp: def.hp, aim, lastAim: { ...aim }, reload: def.reloadS, autoFire: false, fireRequested: false, crewOrdered: false, ammo: T.weaponRules.bufferLoads, lastImpact: null, predictedImpact: null };
 }
-/** Fire one cannon shot if loaded and affordable; Phase 1 intentionally has no crew gate. */
+/** Fire one cannon shot atomically when loaded, crewed, supplied and affordable. */
 export function fireWeapon(ctx, weapon) {
   const def = ctx.getWeapon(weapon.defId), castle = ctx.castleOf(weapon.slot);
   if (!def || !castle || castle.eliminated || weapon.hp <= 0 || weapon.reload + 1e-9 < def.reloadS || !canFire(weapon, castle) || !spend(castle, def.fireCost)) return false;

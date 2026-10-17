@@ -1,0 +1,60 @@
+✖ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (32.400783ms)
+✖ AI skips pending designations using NPC metadata and the open-designation cap (8.946472ms)
+✔ entry signature returns integer next-tick commands only on staggered AI cadence (9.990774ms)
+✔ loaded fire delay is observed, own impacts correct once, no feedback causes no repeat aim (29.172654ms)
+✔ two command sources replay identically; snapshot resumes feedback and swaps retain memory (44.616024ms)
+✔ rebuild designates supported contract kinds every two seconds under the income budget (8.077818ms)
+✔ unsupported FIRE does not consume the loaded latch and level 1 waits five seconds (16.441117ms)
+✔ wind change rolls back learning even when an impact arrives on the same think (18.750133ms)
+✔ target loss triggers immediate retarget and visible moving targets update their aim (20.727398ms)
+✔ shelter requires both low own morale and three recent enemy impacts, then quiet hysteresis (9.251563ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 205.466411
+
+✖ failing tests:
+
+test at tests/unit/ai-controller.test.js:21:1
+✖ AI keeps ordering missing crew, waits for arrival and retries a rejected loaded shot (32.400783ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(waiting.some(c => c.type === CMD.ORDER_CREW && c.on === 1))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:26:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ai-controller.test.js:35:1
+✖ AI skips pending designations using NPC metadata and the open-designation cap (8.946472ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!at(controller, view, slot, 60).some(c => c.type === CMD.DESIGNATE))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-controller.test.js:42:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

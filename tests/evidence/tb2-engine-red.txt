@@ -1,0 +1,107 @@
+✖ rejected NPC commands are deterministic no-ops and later commands still run (47.208912ms)
+✖ cannon reloads, fires atomically and pays exactly once per shot (18.539833ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (10920.641979ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (53.904844ms)
+✖ a cannonball through the opposing ruler eliminates its castle (151.918737ms)
+✖ firing publishes the calm prediction and restores the last fired aim (38.609792ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (3076.552743ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 3
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14325.184611
+
+✖ failing tests:
+
+test at tests/unit/sim-engine.test.js:29:1
+✖ rejected NPC commands are deterministic no-ops and later commands still run (47.208912ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "Unsupported command"
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:37:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: Unsupported command
+        at command (file:///home/tobias/Projects/castle-game/src/sim/sim.js:102:49)
+        at Object.tick (file:///home/tobias/Projects/castle-game/src/sim/sim.js:192:54)
+        at file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:37:31
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:37:10)
+        at Test.runInAsyncScope (node:async_hooks:214:14)
+        at Test.run (node:internal/test_runner/test:1106:25)
+        at Test.start (node:internal/test_runner/test:1003:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-engine.test.js:44:1
+✖ cannon reloads, fires atomically and pays exactly once per shot (18.539833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:49:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-engine.test.js:88:1
+✖ a cannonball through the opposing ruler eliminates its castle (151.918737ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  100 !== 0
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:96:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 100,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-engine.test.js:101:1
+✖ firing publishes the calm prediction and restores the last fired aim (38.609792ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(fired.predictedImpact && Number.isFinite(fired.predictedImpact.x))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:105:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -50,10 +50,11 @@ test('TB1: slot 0 cannon shot reaches and damages the slot 1 castle (headless)',
 
 test('TB1: the same shot sequence is deterministic (hash equal across two sims)', () => {
   const a = boot(7), b = boot(7);
-  const w = a.state.weapons.find(x => x.slot === 0);
+  const script = createTb1Script();
   for (let i = 0; i < 300; i++) {
-    const cmds = i === 0 ? [cmd(C.CMD.AIM, 0, 0, 0, { weaponId: w.id, az: 900, range: 1400 })] : i === 1 ? [cmd(C.CMD.FIRE, 0, 1, 0, { weaponId: w.id })] : [];
+    const cmds = script.next(a.state);
     a.tick(cmds); b.tick(cmds);
   }
+  assert.equal(a.state.castles[0].stats.shots, 1);
   assert.equal(a.hash(), b.hash());
 });

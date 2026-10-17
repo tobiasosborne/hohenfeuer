@@ -1,0 +1,13 @@
+✔ entry points register every sim def and view while leaving freeze to the orchestrator (20.969925ms)
+✔ a second complete sim or view registration throws before freeze (3.35585ms)
+✔ registryHash is stable across fresh registrations and independent of view registration (8.37876ms)
+✔ every weapon folder has exactly one import line and one registration call in each index (3.282843ms)
+✔ real core plugins boot deterministic duel sims and their cannon fires, lands and damages blocks (2396.397897ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2446.768186

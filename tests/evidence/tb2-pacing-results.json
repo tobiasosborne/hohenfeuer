@@ -1,0 +1,124 @@
+{
+  "map": "forest-duel",
+  "tactic": "general",
+  "tickHz": 30,
+  "cannon": {
+    "direct": 16,
+    "splash": 20,
+    "splashRadiusM": 4.6875,
+    "reloadS": 22
+  },
+  "palace": {
+    "cells": 48,
+    "hpPerCell": 6,
+    "defeatBelow": 0.3,
+    "damageToDefeatDp": 201.6
+  },
+  "aiRangeFloor": {
+    "coefficient": 8e-06,
+    "levelExponent": 4,
+    "level5Fraction": 0.010368
+  },
+  "scriptedFirstShot": {
+    "palaceCellsDestroyed": 0,
+    "palaceIntegrity": 1
+  },
+  "tb1": {
+    "fireTick": 254,
+    "goldenStateTick": 307,
+    "impactStateTick": 349,
+    "goldenHash": 426229045
+  },
+  "tb2": {
+    "fireTick": 254,
+    "impactStateTick": 346,
+    "az": 873,
+    "range": 887,
+    "impactHash": 1591759739
+  },
+  "level10Replay": {
+    "seed": 1,
+    "stateTick": 7790,
+    "winner": 1,
+    "shots": [
+      3,
+      12
+    ],
+    "hash": 1677899319,
+    "identicalRuns": 2
+  },
+  "runs": [
+    {
+      "seed": 1,
+      "level": 5,
+      "tick": 27263,
+      "seconds": 908.7666666666667,
+      "shots": [
+        38,
+        9
+      ],
+      "outcome": {
+        "winners": [
+          0
+        ],
+        "draw": false,
+        "tick": 27262
+      },
+      "eliminated": [
+        [
+          1,
+          "surrender"
+        ]
+      ],
+      "hash": 2157473258
+    },
+    {
+      "seed": 2,
+      "level": 5,
+      "tick": 22694,
+      "seconds": 756.4666666666667,
+      "shots": [
+        31,
+        13
+      ],
+      "outcome": {
+        "winners": [
+          0
+        ],
+        "draw": false,
+        "tick": 22693
+      },
+      "eliminated": [
+        [
+          1,
+          "palace"
+        ]
+      ],
+      "hash": 2114241074
+    },
+    {
+      "seed": 3,
+      "level": 5,
+      "tick": 28332,
+      "seconds": 944.4,
+      "shots": [
+        39,
+        10
+      ],
+      "outcome": {
+        "winners": [
+          0
+        ],
+        "draw": false,
+        "tick": 28331
+      },
+      "eliminated": [
+        [
+          1,
+          "surrender"
+        ]
+      ],
+      "hash": 1286187812
+    }
+  ]
+}

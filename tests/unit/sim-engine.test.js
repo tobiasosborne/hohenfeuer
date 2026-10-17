@@ -6,6 +6,7 @@ import { createWeapon, fireWeapon, tickWeapons } from '../../src/sim/weapons.js'
 import * as C from '../../src/contracts.js';
 import { geometryAim } from '../../src/ai/aim.js';
 import { TUNING as T } from '../../src/tuning.js';
+import { reloadMultiplier, npcKinematics } from '../../src/npc/index.js';
 
 function content({ close = false, noSplash = false } = {}) {
   C.resetRegistriesForTests();
@@ -26,15 +27,31 @@ function content({ close = false, noSplash = false } = {}) {
 }
 const command = (type, tick, extra = {}, seq = 0) => ({ type, slot: 0, tick, seq, ...extra });
 
+test('rejected NPC commands are deterministic no-ops and later commands still run', () => {
+  const opts = content(), a = createSim(opts), b = createSim(opts);
+  const rejected = [
+    command(C.CMD.DESIGNATE, 0, { cell: [1, 1, 1], block: C.BLOCK.STONE, facing: 0 }),
+    command(C.CMD.CANCEL, 0, { cell: [0, 2, 0] }, 1),
+    command(C.CMD.DESIGNATE_WEAPON, 0, { cell: [0, 2, 0], weapon: 'cannon', facing: 0 }, 2),
+  ];
+  const aim = command(C.CMD.AIM, 0, { weaponId: 0, az: 800, range: 400 }, 3);
+  assert.doesNotThrow(() => a.tick([...rejected, aim]));
+  b.tick([aim]);
+  assert.equal(a.state.weapons[0].aim.az, 800);
+  assert.equal(a.hash(), b.hash());
+  assert.deepEqual(a.drainEvents(), b.drainEvents());
+});
+
 test('cannon reloads, fires atomically and pays exactly once per shot', () => {
   const opts = content(), def = C.getWeapon('cannon'), castle = { id: 0, slot: 0, gold: T.economy.startGold, stats: { shots: 0, ammoCosts: 0 }, eliminated: false };
   const weapon = createWeapon(def, { id: 2, slot: 0, pos: { x: 4, y: 2, z: 4 }, facing: 1 });
+  weapon.rulerManning = true; // Isolated weapons fixture: ruler operates the gun alone.
   let fired = 0;
   const context = { state: { castles: [castle], weapons: [weapon], rulers: [], wind: null }, emit() {}, rng: () => () => 0.5, spawnProjectile() { fired++; }, getWeapon: C.getWeapon, castleOf: () => castle };
   assert.equal(fireWeapon(context, weapon), true);
   assert.equal(castle.gold, T.economy.startGold - def.fireCost);
   assert.equal(fireWeapon(context, weapon), false);
-  for (let i = 0; i < Math.ceil(def.reloadS / C.K.DT); i++) tickWeapons(context);
+  for (let i = 0; i < Math.ceil(def.reloadS * reloadMultiplier(weapon, castle) / C.K.DT); i++) tickWeapons(context);
   assert.equal(fireWeapon(context, weapon), true);
   assert.equal(fired, 2);
   castle.gold = 0; weapon.reload = def.reloadS;
@@ -45,11 +62,12 @@ test('cannon reloads, fires atomically and pays exactly once per shot', () => {
 test('same command log and seed produces identical hashes; saves resume exactly', () => {
   const opts = content(), a = createSim(opts), b = createSim(opts);
   for (let tick = 0; tick < 120; tick++) {
-    const commands = tick === 0 ? [command(C.CMD.FIRE, tick, { weaponId: 0 }, 1), command(C.CMD.AIM, tick, { weaponId: 0, az: 900, range: 384 }, 0)] : [];
+    const commands = tick === 0 ? [command(C.CMD.MAN_WEAPON, tick, { weaponId: 0 }), command(C.CMD.FIRE, tick, { weaponId: 0 }, 2), command(C.CMD.AIM, tick, { weaponId: 0, az: 900, range: 384 }, 1)] : [];
     a.tick(commands); b.tick(commands);
     assert.equal(a.hash(), b.hash());
   }
   const restored = restoreSim(a.serialize());
+  assert.equal(a.state.castles[0].stats.shots, 1);
   assert.equal(restored.hash(), a.hash());
   for (let i = 0; i < 100; i++) { a.tick([]); restored.tick([]); assert.equal(a.hash(), restored.hash()); }
   const snapshot = a.state;
@@ -71,12 +89,18 @@ test('fixed tick order applies AI only on schedule and defers its commands to ne
 });
 
 test('a cannonball through the opposing ruler eliminates its castle', () => {
-  const opts = content({ close: true, noSplash: true }), sim = createSim(opts);
+  // Isolate the ruler capsule from NPCs that otherwise spawn directly in this firing lane.
+  const opts = content({ close: true, noSplash: true }), sim = createSim({ ...opts, hooks: {
+    npcTick: null, npcKinematics(api) {
+      for (const castle of api.state.castles) castle.npcSpawned = true;
+      npcKinematics(api);
+    },
+  } });
   const w = sim.state.weapons[0], r = sim.state.rulers[1];
   const from = { x: w.pos.x + 0.5 + 2 * T.weapons.cannon.projRadius, y: w.pos.y + 0.5, z: w.pos.z };
   const target = { ...r.pos, y: r.pos.y + T.people.height / 2 };
   const solution = geometryAim(from, target, C.getWeapon('cannon'));
-  sim.tick([command(C.CMD.AIM, 0, { weaponId: 0, az: 900, range: Math.round(solution.dial * T.aim.rangeUnitsPerDial) }), command(C.CMD.FIRE, 0, { weaponId: 0 }, 1)]);
+  sim.tick([command(C.CMD.MAN_WEAPON, 0, { weaponId: 0 }), command(C.CMD.AIM, 0, { weaponId: 0, az: 900, range: Math.round(solution.dial * T.aim.rangeUnitsPerDial) }, 1), command(C.CMD.FIRE, 0, { weaponId: 0 }, 2)]);
   for (let i = 0; i < 80 && !sim.state.outcome; i++) sim.tick([]);
   assert.equal(sim.state.rulers[1].hp, 0);
   assert.equal(sim.state.castles[1].reason, C.ELIM.RULER);
@@ -85,7 +109,7 @@ test('a cannonball through the opposing ruler eliminates its castle', () => {
 
 test('firing publishes the calm prediction and restores the last fired aim', () => {
   const sim = createSim(content());
-  sim.tick([command(C.CMD.FIRE, 0, { weaponId: 0 })]);
+  sim.tick([command(C.CMD.MAN_WEAPON, 0, { weaponId: 0 }), command(C.CMD.FIRE, 0, { weaponId: 0 }, 1)]);
   const fired = sim.state.weapons[0];
   assert.ok(fired.predictedImpact && Number.isFinite(fired.predictedImpact.x));
   sim.tick([command(C.CMD.AIM, 1, { weaponId: 0, az: 300, range: 500 })]);

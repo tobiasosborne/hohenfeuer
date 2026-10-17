@@ -1,0 +1,36 @@
+✔ geometry obeys north/east dial semantics and clamps through the production table (3.950702ms)
+✔ published crosswind is compensated using the production integrator (10.114875ms)
+✔ observed angular and radial miss, rather than guessed error, drives correction (18.096854ms)
+✔ noise shrinks with observations, respects level bounds and wind rolls back two steps (0.729102ms)
+✖ range learning never grows exploration by treating a degree floor as a range fraction (0.720329ms)
+✔ correction starts from actual fired settings including the previous exploration error (0.630553ms)
+✔ TB2: fixed-elevation charge solver accounts for target height with wind (14.05613ms)
+✔ TB2: a ground impact past an elevated target does not create a false short-charge correction (8.382476ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.445921
+
+✖ failing tests:
+
+test at tests/unit/ai-aim.test.js:66:1
+✖ range learning never grows exploration by treating a degree floor as a range fraction (0.720329ms)
+  AssertionError [ERR_ASSERTION]: level 1: 0.15 -> 0.8
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-aim.test.js:71:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

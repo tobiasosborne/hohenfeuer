@@ -63,6 +63,17 @@ test('noise shrinks with observations, respects level bounds and wind rolls back
   assert.equal(windChanged(createAimMemory('a', 1)).observations, 0);
 });
 
+test('range learning never grows exploration by treating a degree floor as a range fraction', () => {
+  for (let level = T.ai.levelMin; level <= T.ai.levelMax; level++) {
+    let previous = aimNoise(level, 0).rangeFrac;
+    for (let observations = 1; observations <= 20; observations++) {
+      const current = aimNoise(level, observations).rangeFrac;
+      assert.ok(current <= previous, `level ${level}: ${previous} -> ${current}`);
+      previous = current;
+    }
+  }
+});
+
 test('correction starts from actual fired settings including the previous exploration error', () => {
   const solution = geometryAim(shooter, target, weapon, undefined, table);
   const memory = createAimMemory('palace', 1), command = aimShot(solution, 10, () => 0.75, memory);

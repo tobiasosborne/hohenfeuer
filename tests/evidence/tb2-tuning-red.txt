@@ -1,0 +1,48 @@
+✔ TUNING is deep-frozen (1.605548ms)
+✔ every number in TUNING is finite (1.518465ms)
+✔ has the documented groups (0.224865ms)
+✔ world grid: 1 m blocks, 48x48x24 plots, 16-cell chunks (0.772997ms)
+✔ sim: 30 Hz, 4 substeps, converted native gravity (research/11 section 3) (0.150396ms)
+✔ ruler fits a 2-cell walkway and jumps one block (0.129401ms)
+✔ TB2: native charge limits and nine wind settings (research/11 sections 4/6) (0.121474ms)
+✔ block table: hp in 0..255, cost integer or null (map-only) (0.165559ms)
+✔ block hp matches the manual's defence points (research/06 section 10) (0.166754ms)
+✔ weapon numbers match the manual (research/06 sections 1 and 10) (0.363449ms)
+✔ every weapon can reach the duel distance under production quadratic drag (3.854892ms)
+✔ npc role shares leave civilians and respect minimums (0.209911ms)
+✔ morale: surrender is reachable above the floor; bands descend (0.121872ms)
+✔ ai: levels 1..10 and level 10 aims tighter than level 1 (0.110188ms)
+✔ render and golden frame are 1024x768 (0.061733ms)
+✔ TB2: research/10 economy, prefab prices and corrected defence points (3.700957ms)
+✖ TB2: blast footprints use the flight world scale so one blast cannot level a keep (4.402245ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24.992262
+
+✖ failing tests:
+
+test at tests/unit/tuning.test.js:187:1
+✖ TB2: blast footprints use the flight world scale so one blast cannot level a keep (4.402245ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(TUNING.weapons.cannon.splashRadius <= 2)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/tuning.test.js:191:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

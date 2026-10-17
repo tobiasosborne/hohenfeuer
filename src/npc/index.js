@@ -8,6 +8,18 @@ export { moraleTick, recordNpcEvent, recordProjectileResult, beginNpcImpact, end
 export { npcKinematics } from './kinematics.js';
 export { crewPresent, reloadMultiplier, canFire } from './crew.js';
 
+/** Read-only designation eligibility shared by command producers and the dispatcher. */
+export function canDesignate(castle, command) {
+  if (!castle || castle.eliminated || !command.cell) return false;
+  const i = indexOf(castle.plot, command.cell), build = command.type === CMD.DESIGNATE;
+  if (i < 0 || command.cell[1] < T.world.buildMinY || command.cell[1] > T.world.buildMaxY
+    || !build && command.type !== CMD.DEMOLISH) return false;
+  if ((castle.npcDesignations?.length ?? 0) >= T.world.maxOpenDesignations || castle.plot.meta[i] & META.DESIGNATED_BIT) return false;
+  const def = blockDef(command.block);
+  return build ? Boolean(def && def.cost !== null && castle.plot.type[i] === BLOCK.AIR && castle.gold >= def.cost)
+    : castle.plot.type[i] !== BLOCK.AIR;
+}
+
 /** Commands already handled by sim.js need no adapter; later designation/priority commands do. */
 export function npcCommand(api, command) {
   const castle = api.castleOf(command.slot);
@@ -19,9 +31,8 @@ export function npcCommand(api, command) {
   const i = command.cell ? indexOf(castle.plot, command.cell) : -1;
   if (i < 0 || command.cell[1] < T.world.buildMinY || command.cell[1] > T.world.buildMaxY) return false;
   if (command.type === CMD.REPAIR_PRIORITY) { addJob(api, castle, JOB.REPAIR, { cell: [...command.cell] }, { priority: 3 }); return true; }
-  castle.npcDesignations ??= [];
   if (command.type === CMD.CANCEL) {
-    const d = castle.npcDesignations.find(d => indexOf(castle.plot, d.cell) === i);
+    const d = castle.npcDesignations?.find(d => indexOf(castle.plot, d.cell) === i);
     if (!d) return false;
     castle.gold = Math.min(T.economy.goldCap, castle.gold + (d.reserved ?? 0));
     castle.npcDesignations = castle.npcDesignations.filter(entry => indexOf(castle.plot, entry.cell) !== i);
@@ -30,11 +41,11 @@ export function npcCommand(api, command) {
     api.emit(EV.DESIGNATION_CANCELLED, { slot: castle.slot, cell: command.cell }); return true;
   }
   if (command.type !== CMD.DESIGNATE && command.type !== CMD.DEMOLISH) return false;
-  if (castle.npcDesignations.length >= T.world.maxOpenDesignations || castle.plot.meta[i] & META.DESIGNATED_BIT) return false;
+  if (!canDesignate(castle, command)) return false;
   const def = blockDef(command.block), build = command.type === CMD.DESIGNATE;
-  if (build && (!def || def.cost === null || castle.plot.type[i] !== BLOCK.AIR || castle.gold < def.cost) || !build && castle.plot.type[i] === BLOCK.AIR) return false;
   const reserved = build ? def.cost : 0;
   castle.gold -= reserved;
+  castle.npcDesignations ??= [];
   castle.npcDesignations.push({ cell: [...command.cell], block: build ? command.block : castle.plot.type[i], facing: command.facing ?? 0,
     kind: build ? JOB.BUILD : JOB.DEMOLISH, reserved });
   castle.plot.meta[i] = (castle.plot.meta[i] & ~META.FACING_MASK) | (command.facing ?? 0) | META.DESIGNATED_BIT;

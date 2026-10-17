@@ -1,0 +1,14 @@
+✔ TB1 boot: slot 0 local, slot 1 AI at the default level (1.664152ms)
+✔ TB1 script: the ruler walks the stairs to the east cannon and mans it (1830.761153ms)
+✔ TB1 script: aim, fire, ball mid-flight near the enemy, then hits the enemy plot (3941.369929ms)
+ℹ TB1 fire 254, golden 307, impact state 349, golden hash 426229045
+✔ TB2 script orders a real crew and its wall shot preserves the duel (1943.479714ms)
+ℹ TB2 fire 254, impact state 346, aim {"az":873,"range":887,"flat":159.20113064925135}, hash 1591759739
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7728.967659

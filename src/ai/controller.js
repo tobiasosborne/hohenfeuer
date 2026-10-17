@@ -5,6 +5,7 @@ import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector
 import { blockCost, captureBlueprint, planRebuild, planWeaponReplacement, weaponCost } from './build.js';
 import { refreshTarget, selectTarget, targetAlive } from './targets.js';
 import { publicView, shooterPosition, weaponDefinition } from './view.js';
+import { crewPresent } from '../npc/index.js';
 
 /** Clone only serializable command-source records; never retain or mutate SimView references. */
 function copy(v) { return Array.isArray(v) ? v.map(copy) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, value]) => [k, copy(value)])) : v; }
@@ -78,8 +79,9 @@ function think(view, slot, rng, memory) {
       wm = { id: weapon.id, target: null, targetTick: world.tick, aim: null, needsAim: true,
         loadedAt: null, firedWhileLoaded: false, lastShotTick: null, feedbackKey: null, shotTarget: null };
       state.weapons.push(wm);
-      emit(CMD.ORDER_CREW, { weaponId: weapon.id, on: 1 });
     }
+    const minimumCrew = Math.ceil(def.crewSlots * T.weaponRules.minCrewFrac);
+    if (!weapon.crewOrdered || crewPresent(weapon, castle) < minimumCrew) emit(CMD.ORDER_CREW, { weaponId: weapon.id, on: 1 });
     const impact = feedback(view, weapon);
     if (wm.shotTarget && impact && impact.key !== wm.feedbackKey) {
       wm.feedbackKey = impact.key;
@@ -119,9 +121,11 @@ function think(view, slot, rng, memory) {
       emit(CMD.AIM, { weaponId: weapon.id, ...wm.commandAim }); wm.needsAim = false;
     }
     const delay = (T.ai.levelMax + 1 - slot.aiLevel) * T.ai.fireDelayPerLevelS * T.sim.tickHz;
-    if (supports(CMD.FIRE) && supports(CMD.AIM) && loaded && !wm.firedWhileLoaded && world.tick - wm.loadedAt >= delay && gold >= def.fireCost && wm.solution.reachable) {
+    const crewed = weapon.rulerManning || crewPresent(weapon, castle) >= minimumCrew;
+    if (supports(CMD.FIRE) && supports(CMD.AIM) && loaded && crewed && world.tick - wm.loadedAt >= delay && gold >= def.fireCost && wm.solution.reachable) {
       emit(CMD.FIRE, { weaponId: weapon.id });
-      emit(CMD.AUTO_FIRE, { weaponId: weapon.id, on: 1 });
+      // Retry each think until reload confirms a shot. Continuous auto-fire would
+      // bypass the level's loaded delay and aim feedback on subsequent reloads.
       wm.firedWhileLoaded = true; wm.lastShotTick = world.tick + 1; wm.feedbackKey = impact?.key ?? null;
       wm.shotTarget = { aim: recordAim(wm.aim, wm.solution, wm.commandAim), shooter: copy(wm.shooter), pos: copy(wm.target.pos), occluded: wm.target.occluded ?? false, wind: copy(world.wind) };
       gold -= def.fireCost;

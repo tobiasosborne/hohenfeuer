@@ -26,7 +26,7 @@ function weapon(mount, cost, hp, reloadS, crewSlots, fireCostWorkshop, traj,
     traj, v0: speedPerCharge * 255, speedPerCharge, nativeK: K, nativeC: C, nativeM: M,
     k: C / (M * 65536 * NATIVE_M), elevationDeg: pitch * 11 * 360 / 4096, scatterTurnUnits,
     sAzDeg: scatterTurnUnits * 360 / 4096, sV: 0, count, direct, splash,
-    splashRadius: nativeRadius * ORIGINAL_NATIVE_UNIT, nativeSplashRadius: nativeRadius,
+    splashRadius: nativeRadius * NATIVE_M * 3, nativeSplashRadius: nativeRadius,
     intervalS: 0, spreadDeg: 0, ignite: 0, pierce: 0, projRadius: 0.15,
     ...extra,
   };
@@ -65,10 +65,10 @@ export const TUNING = deepFreeze({
     // Calibration: renderer distances x1/8; full-charge cannon ~278 m vs 192 m duel.
     // research/08/10 give local 32x24-cell plateaus (256 native units/cell),
     // but no established castle-centre spacing. This metric scale is a design choice.
-    // Blast geometry keeps research/11 renderer-unit radii on the 1m voxel castle:
-    // scaling those by the flight factor too made 72dp shell cells stall >15 minutes.
-    // This is an explicit footprint calibration, not a single-scale original-world replica.
-    splashNativePositionM: ORIGINAL_NATIVE_UNIT,
+    // TB2 stabilisation 2026-10-17: individual voxel centres take splash, so use
+    // three times the flight scale. Renderer-sized blasts applied a building's damage to dozens
+    // of palace cells at once and bypassed the protective keep/curtain walls.
+    splashNativePositionM: NATIVE_M * 3,
     originalWorldUnitM: ORIGINAL_WORLD_M,
     nativePositionM: NATIVE_M,
     nativeTickS: NATIVE_TICK_S,
@@ -339,6 +339,8 @@ export const TUNING = deepFreeze({
     alphaPerLevel: 0.06, // D 6.2
     shrink: 0.6, // D 6.2
     sMinCoefDeg: 0.008, // D 6.2: sigmaMin = 0.008 * (11 - L)^2
+    sMinRangeCoef: 0.000008, // TB2 calibration: fractional range floor; L1 8%, L5 1.0368%
+    sMinRangeExponent: 4, // TB2 guess: preserve low-level misses while mid-level crews learn a breach
     windResetSteps: 2, // D 6.2
     windMemoryMinLevel: 4, // D 6.2
     fireDelayPerLevelS: 0.5, // D 6.2
