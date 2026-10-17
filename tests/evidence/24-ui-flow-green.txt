@@ -1,0 +1,12 @@
+✔ bare URL opens the title menu; golden/demo/play URLs keep booting a match directly (2.577617ms)
+✔ session hand-off: start a match, restart it, or come back to setup/title (0.796024ms)
+✔ default settings come from the map and tuning (0.334407ms)
+✔ settingsToMatch builds a map copy with wind/gold and contract-valid slots (1.172163ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.427329

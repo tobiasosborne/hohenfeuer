@@ -1,0 +1,38 @@
+✔ rejected NPC commands are deterministic no-ops and later commands still run (212.031291ms)
+✖ cannon reloads, fires atomically and pays exactly once per shot (19.275551ms)
+✔ same command log and seed produces identical hashes; saves resume exactly (9850.059257ms)
+✔ fixed tick order applies AI only on schedule and defers its commands to next tick (57.758949ms)
+✔ a cannonball through the opposing ruler eliminates its castle (79.093374ms)
+✔ firing publishes the calm prediction and restores the last fired aim (52.455219ms)
+✔ default AI entry point runs without hook wiring and its memory survives restore (2594.768875ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12884.539885
+
+✖ failing tests:
+
+test at tests/unit/sim-engine.test.js:45:1
+✖ cannon reloads, fires atomically and pays exactly once per shot (19.275551ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-engine.test.js:55:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

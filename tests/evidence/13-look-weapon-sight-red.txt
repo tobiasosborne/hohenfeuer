@@ -1,0 +1,43 @@
+✔ stone face contrast increases without brightening mortar, timber or empty tiles (2.318669ms)
+✔ renderer sight and gameplay pivot agree through all cardinal yaws (21.376502ms)
+✖ incoming weapon models keep their authored sight even when a mesh is named barrel (8.377733ms)
+✔ impact debris is pooled, ballistic and gone after the dust clears (21.927291ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 228.56308
+
+✖ failing tests:
+
+test at tests/render-look-materials.mjs:32:1
+✖ incoming weapon models keep their authored sight even when a mesh is named barrel (8.377733ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   0.35,
+  +   1.79,
+  +   2.35
+  -   8,
+  -   9,
+  -   10
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-look-materials.mjs:38:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 0.35, 1.79, 2.35 ],
+    expected: [ 8, 9, 10 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

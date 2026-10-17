@@ -1,0 +1,31 @@
+✔ stone face contrast increases without brightening mortar, timber or empty tiles (1.904484ms)
+✔ renderer sight and gameplay pivot agree through all cardinal yaws (10.037044ms)
+✖ impact debris is pooled, ballistic and gone after the dust clears (8.725823ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.896717
+
+✖ failing tests:
+
+test at tests/render-look-materials.mjs:32:1
+✖ impact debris is pooled, ballistic and gone after the dust clears (8.725823ms)
+  AssertionError [ERR_ASSERTION]: one instanced debris draw
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/render-look-materials.mjs:36:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

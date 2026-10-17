@@ -1,0 +1,40 @@
+✔ TB2: native length/time conversion preserves gravity, K and quadratic C/M (2.010867ms)
+✔ zero-drag production flight agrees with the analytic parabola within 0.5% (7.691786ms)
+✖ TB2: range is charge at a fixed elevation, with monotonic invertible tables (116.188701ms)
+✔ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (0.614084ms)
+✔ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (34.656507ms)
+✔ wind changes retain previous direction per slot until its next shot or timeout (0.967897ms)
+✔ launch convention remains north=-z, east=+x with elevations in degrees (0.352805ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 175.115427
+
+✖ failing tests:
+
+test at tests/unit/sim-ballistics.test.js:33:1
+✖ TB2: range is charge at a fixed elevation, with monotonic invertible tables (116.188701ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 39.37752016129032
+  - 2.3626512096774195
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-ballistics.test.js:40:14)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 39.37752016129032,
+    expected: 2.3626512096774195,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

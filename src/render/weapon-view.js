@@ -6,7 +6,7 @@ import { TUNING } from "../tuning.js";
 const DEG = Math.PI / 180;
 const NODE_NAMES = ["Base", "Yaw", "Pitch", "Muzzle", "Sight"];
 /** Sight offset of the placeholder cannon from its yaw pivot [x, up, back] in metres. */
-export const PLACEHOLDER_SIGHT = Object.freeze([0, TUNING.ruler.sightUpM, TUNING.ruler.sightBackM]);
+export const PLACEHOLDER_SIGHT = Object.freeze([TUNING.ruler.sightRightM, TUNING.ruler.sightUpM, TUNING.ruler.sightBackM]);
 
 /** Placeholder cannon (frame / turntable / barrel), built in code until a kit GLB with the node tree exists. */
 function placeholderCannon() {
@@ -32,9 +32,9 @@ function placeholderCannon() {
   pitch.add(new THREE.Mesh(mergeGeometries([barrelGeo, breech, trunnion]), iron));
   const muzzle = new THREE.Object3D(); muzzle.name = "Muzzle"; muzzle.position.set(0, 0, -1.25);
   pitch.add(muzzle);
-  // Sight per TUNING.ruler.sightUpM / sightBackM (1.25 / 2.0 since 2026-10-17) so the barrel sits low in frame (shot 04).
+  // createWeaponView calibrates this attachment to the same pivot as the gameplay rig.
   const sight = new THREE.Object3D(); sight.name = "Sight";
-  sight.position.set(0, PLACEHOLDER_SIGHT[1], PLACEHOLDER_SIGHT[2]);
+  sight.position.fromArray(PLACEHOLDER_SIGHT);
   yaw.add(sight);
   return base;
 }
@@ -69,6 +69,12 @@ export function createWeaponView({ model } = {}) {
   const nodes = {};
   for (const name of NODE_NAMES) nodes[name.toLowerCase()] = root.name === name ? root : root.getObjectByName(name);
   for (const k of ["yaw", "pitch", "muzzle", "sight"]) if (!nodes[k]) throw new Error(`weapon-view: model lacks node "${k}"`);
+  // 2026-10-17 pass 2: cannon Sight and the pivot-only gameplay rig must agree.
+  // Do not alter incoming weapon-specific authored sights (the other kit lane owns those).
+  if (!model || root.userData.weaponId === 'cannon') {
+    nodes.yaw.add(nodes.sight);
+    nodes.sight.position.set(PLACEHOLDER_SIGHT[0], PLACEHOLDER_SIGHT[1] - nodes.yaw.position.y, PLACEHOLDER_SIGHT[2]);
+  }
   const state = { azDeg: 0, elevDeg: 0 };
   const tmp = new THREE.Vector3();
   return {

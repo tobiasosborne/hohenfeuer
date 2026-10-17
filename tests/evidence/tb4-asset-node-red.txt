@@ -1,0 +1,47 @@
+✔ catapult: validates, fires its whole salvo once, lands, damages and replays identically (561.230575ms)
+✔ cannon: validates, fires its whole salvo once, lands, damages and replays identically (290.978076ms)
+✔ double-cannon: validates, fires its whole salvo once, lands, damages and replays identically (525.855255ms)
+✔ fire-catapult: validates, fires its whole salvo once, lands, damages and replays identically (531.39487ms)
+✔ ballista: validates, fires its whole salvo once, lands, damages and replays identically (257.540365ms)
+✔ rocket: validates, fires its whole salvo once, lands, damages and replays identically (479.104263ms)
+✔ trebuchet: validates, fires its whole salvo once, lands, damages and replays identically (296.863117ms)
+✔ arcaballista: validates, fires its whole salvo once, lands, damages and replays identically (243.002081ms)
+✔ fat-freda: validates, fires its whole salvo once, lands, damages and replays identically (215.230202ms)
+✔ hellfire: validates, fires its whole salvo once, lands, damages and replays identically (258.469876ms)
+✔ all twelve views use kit-v1 paths, canonical nodes and an absent-model fallback (87.931924ms)
+✔ zeppelin and bomb are registered map-only unavailable stubs with no firing bill (569.173742ms)
+✔ catapult: production terrain landing stays inside the declared range bound (138.110172ms)
+✔ cannon: production terrain landing stays inside the declared range bound (84.5971ms)
+✔ double-cannon: production terrain landing stays inside the declared range bound (85.234189ms)
+✔ fire-catapult: production terrain landing stays inside the declared range bound (105.059813ms)
+✔ ballista: production terrain landing stays inside the declared range bound (124.528247ms)
+✔ rocket: production terrain landing stays inside the declared range bound (161.694908ms)
+✔ trebuchet: production terrain landing stays inside the declared range bound (107.555434ms)
+✔ arcaballista: production terrain landing stays inside the declared range bound (121.804096ms)
+✔ fat-freda: production terrain landing stays inside the declared range bound (94.278279ms)
+✔ hellfire: production terrain landing stays inside the declared range bound (69.761954ms)
+✖ available kit GLBs contain every named view part; absent assets retain the fallback contract (6.290387ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 22
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5452.705969
+
+✖ failing tests:
+
+test at tests/unit/plugin-weapon-set.test.js:75:1
+✖ available kit GLBs contain every named view part; absent assets retain the fallback contract (6.290387ms)
+  AssertionError [ERR_ASSERTION]: catapult: Arm
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/plugin-weapon-set.test.js:81:56)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

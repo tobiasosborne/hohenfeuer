@@ -1,0 +1,46 @@
+✔ catapult: solves charge at its fixed pitch for both target heights in wind (51.324327ms)
+✔ cannon: solves charge at its fixed pitch for both target heights in wind (22.808377ms)
+✔ double-cannon: solves charge at its fixed pitch for both target heights in wind (19.988732ms)
+✔ fire-catapult: solves charge at its fixed pitch for both target heights in wind (28.048333ms)
+✔ ballista: solves charge at its fixed pitch for both target heights in wind (37.469171ms)
+✔ rocket: solves charge at its fixed pitch for both target heights in wind (97.010458ms)
+✔ trebuchet: solves charge at its fixed pitch for both target heights in wind (24.512678ms)
+✔ arcaballista: solves charge at its fixed pitch for both target heights in wind (23.151719ms)
+✔ fat-freda: solves charge at its fixed pitch for both target heights in wind (21.174547ms)
+✔ hellfire: solves charge at its fixed pitch for both target heights in wind (15.867914ms)
+✔ per-weapon target choice filters unreachable enemies and lobbed guns retain covered targets (42.584013ms)
+✔ weapon choice uses each gun's range and loaded state; placeholders have no aim solution (45.47782ms)
+✖ lobbed ballistic selection can reach an enemy gun behind a low sight-line wall (4.614462ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 444.152314
+
+✖ failing tests:
+
+test at tests/unit/ai-weapon-aim.test.js:51:1
+✖ lobbed ballistic selection can reach an enemy gun behind a low sight-line wall (4.614462ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'weapon:1'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-weapon-aim.test.js:59:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'weapon:1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

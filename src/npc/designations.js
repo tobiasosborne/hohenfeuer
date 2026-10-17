@@ -1,5 +1,6 @@
 // src/npc/designations.js - owns read-only build-site support, occupancy and designation eligibility.
-import { BLOCK, CMD, META, getWeapon, getMap } from '../contracts.js';
+import { BLOCK, CMD, META, MOUNT, getWeapon, getMap } from '../contracts.js';
+import { weaponAvailable } from '../sim/ballistics.js';
 import { TUNING as T } from '../tuning.js';
 import { indexOf, typeAt, blockDef, vector } from './model.js';
 
@@ -24,16 +25,44 @@ export function cellHasWeapon(plot, cell, weapons = []) {
   const o = vector(plot.origin ?? [0, 0, 0]);
   return weapons.some(w => {
     if (w.hp <= 0) return false;
-    const p = w.pos ? vector(w.pos) : null, at = w.at ?? w.cell;
-    return at ? at.every((n, i) => n === cell[i]) : p && Math.floor(p.x - o.x) === cell[0]
-      && Math.floor(p.y - o.y) === cell[1] && Math.floor(p.z - o.z) === cell[2];
+    const p = w.pos ? vector(w.pos) : null, at = w.at ?? w.cell ?? (p ? [Math.floor(p.x - o.x), Math.floor(p.y - o.y), Math.floor(p.z - o.z)] : null);
+    const def = getWeapon(w.defId ?? w.weapon ?? w.id) ?? T.weapons[w.defId ?? w.weapon ?? w.id];
+    const [width, depth, height] = def?.footprint ?? (def?.mount === MOUNT.GROUND ? T.weaponRules.groundFootprint : T.weaponRules.wallFootprint);
+    return at && Math.abs(at[0] - cell[0]) <= Math.floor(width / 2)
+      && Math.abs(at[2] - cell[2]) <= Math.floor(depth / 2) && cell[1] >= at[1] && cell[1] < at[1] + height;
   });
 }
-/** Used again during work: destruction and arriving people can invalidate a previously legal site. */
+/** Masons must stand outside a pending weapon's whole footprint, including body edges. */
+export function personOverlapsWeaponSite(plot, cell, weapon, person) {
+  const def = getWeapon(weapon) ?? T.weapons[weapon];
+  const [w,d,h] = def?.footprint ?? (def?.mount === MOUNT.GROUND ? T.weaponRules.groundFootprint : T.weaponRules.wallFootprint);
+  for (let y=0;y<h;y++) for (let z=-Math.floor(d/2);z<=Math.floor(d/2);z++) for (let x=-Math.floor(w/2);x<=Math.floor(w/2);x++)
+    if (personOverlapsCell(plot,[cell[0]+x,cell[1]+y,cell[2]+z],person)) return true;
+  return false;
+}
+function weaponSiteReason(castle, cell, state, def) {
+  const p = castle.plot;
+  if (!weaponAvailable(def)) return 'invalid';
+  const [width, depth, height] = def.footprint ?? (def.mount === MOUNT.GROUND ? T.weaponRules.groundFootprint : T.weaponRules.wallFootprint);
+  if (def.mount === MOUNT.GROUND && cell[1] !== T.world.buildMinY) return 'mount';
+  const pending = (castle.npcDesignations ?? []).filter(d => d.weapon && !d.cell.every((n,i) => n === cell[i]));
+  for (let dz = -Math.floor(depth / 2); dz <= Math.floor(depth / 2); dz++) for (let dx = -Math.floor(width / 2); dx <= Math.floor(width / 2); dx++) {
+    const below = typeAt(p, [cell[0] + dx, cell[1] - 1, cell[2] + dz]);
+    if (def.mount === MOUNT.WALL ? below !== BLOCK.MOUNT : !blockDef(below)?.solid) return 'mount';
+    for (let dy = 0; dy < height; dy++) {
+      const c = [cell[0] + dx, cell[1] + dy, cell[2] + dz];
+      if (indexOf(p,c) < 0 || c[1] > T.world.buildMaxY) return 'outside';
+      if (typeAt(p,c) !== BLOCK.AIR || cellHasWeapon(p,c,state.weapons) || cellHasWeapon(p,c,pending)) return 'occupied';
+      if (cellHasPerson(p,c,state)) return 'person';
+    }
+  }
+  return 'ok';
+}
+/** Recheck the entire footprint during work; newly arriving people/support loss stop construction. */
 export function buildSiteReady(castle, cell, state = {}, weapon = null) {
   const p = castle.plot;
-  return typeAt(p, cell) === BLOCK.AIR && !cellHasPerson(p, cell, state) && !cellHasWeapon(p, cell, state.weapons)
-    && (weapon ? typeAt(p, [cell[0], cell[1] - 1, cell[2]]) === BLOCK.MOUNT : supportedCell(p, cell));
+  if (weapon) return weaponSiteReason(castle,cell,state,getWeapon(weapon) ?? T.weapons[weapon]) === 'ok';
+  return typeAt(p, cell) === BLOCK.AIR && !cellHasPerson(p, cell, state) && !cellHasWeapon(p, cell, state.weapons) && supportedCell(p, cell);
 }
 
 /** Reasons are shared with the first-person ghost and AI planner; no state is allocated on rejection. */
@@ -51,9 +80,10 @@ export function designationReason(castle, command, state = {}) {
   const weapon = command.type === CMD.DESIGNATE_WEAPON;
   const def = weapon ? getWeapon(command.weapon) ?? T.weapons[command.weapon] : blockDef(command.block);
   if (command.type !== CMD.DESIGNATE && !weapon || !def || def.cost === null || !weapon && command.block === BLOCK.AIR
-    || weapon && command.weapon !== 'cannon') return 'invalid';
-  if (p.type[i] !== BLOCK.AIR || cellHasWeapon(p, cell, state.weapons)) return 'occupied';
-  if (weapon && typeAt(p, [cell[0], cell[1] - 1, cell[2]]) !== BLOCK.MOUNT) return 'mount';
+    || weapon && !weaponAvailable(def)) return 'invalid';
+  if (p.type[i] !== BLOCK.AIR || cellHasWeapon(p, cell, state.weapons)
+    || cellHasWeapon(p,cell,(castle.npcDesignations ?? []).filter(d => d.weapon))) return 'occupied';
+  if (weapon) { const reason = weaponSiteReason(castle,cell,state,def); if (reason !== 'ok') return reason; }
   if (!weapon && !supportedCell(p, cell)) return 'support';
   if (cellHasPerson(p, cell, state)) return 'person';
   if (weapon) {

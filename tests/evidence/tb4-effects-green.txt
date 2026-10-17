@@ -1,0 +1,17 @@
+✔ double-cannon: delayed rounds retain paid aim and survive restore; destruction cancels the burst (837.28129ms)
+✔ hellfire: delayed rounds retain paid aim and survive restore; destruction cancels the burst (870.980928ms)
+✔ rocket uses fixed native speed 1000, charge burn ticks, thrust 45 and the 24/28 payload (6.029684ms)
+✔ fire ignites only burnable cells, burns 2 dp/s for 10s and spreads on the independent seeded stream (10.942791ms)
+✔ ballista kills at most three people along its actual collision line and stops at a wall (121.473491ms)
+✔ piercing resolves multiple capsules in the same swept tick without restarting the flight lifetime (85.682172ms)
+✔ double-cannon: burst due ticks use cumulative interval and one reload/payment (22.554661ms)
+✔ hellfire: burst due ticks use cumulative interval and one reload/payment (21.594101ms)
+✔ custom onFire can handle spawning and onTick runs once per live weapon tick (10.505152ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2005.699254

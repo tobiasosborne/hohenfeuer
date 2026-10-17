@@ -7,15 +7,15 @@ import { addForestBackdrop } from "./forest-backdrop.js";
 
 /** Biome ground colours (sRGB hex): base grass, alternate, plot/sand. */
 export const GROUND = Object.freeze({
-  forest: [0x535f2e, 0x626b39, 0x9f9378],
+  forest: [0x3f4e24, 0x4b592c, 0x9f9378],
   desert: [0xc9a66b, 0xbf9a5e, 0xd4b47c],
   ice: [0xe4ecf2, 0xc8d4e0, 0xb0b8c0],
   volcano: [0x3a3230, 0x4a3e38, 0x5a4a40],
 });
 
-// A 6 m repeat: broad turf mottling, small bare patches and fine grain. Authored from seeded
+// A 2.5 m repeat: fine turf mottling and sand grain at wall-walk distance. Authored from seeded
 // periodic noise, with the same world UVs on the skirt (no reference-image input).
-const REPEAT_M = 6;
+const REPEAT_M = 2.5;
 function groundTexture(seed) {
   const size = 256, rng = createRng(seed), data = new Uint8Array(size * size * 4);
   const fields = [8, 32, 128].map(n => ({ n, values: Float32Array.from({ length: n * n }, () => rng()) }));
@@ -26,7 +26,7 @@ function groundTexture(seed) {
     return (at(i,j) * (1-tx) + at(i+1,j) * tx) * (1-ty) + (at(i,j+1) * (1-tx) + at(i+1,j+1) * tx) * ty;
   };
   for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
-    const value = Math.round(183 + noise(fields[0],x,y) * 30 + noise(fields[1],x,y) * 22 + noise(fields[2],x,y) * 20);
+    const value = Math.round(171 + noise(fields[0],x,y) * 35 + noise(fields[1],x,y) * 35 + noise(fields[2],x,y) * 25);
     const i = (x + size * y) * 4;
     data[i] = data[i+1] = data[i+2] = value; data[i+3] = 255;
   }
@@ -69,7 +69,11 @@ export function createTerrainView({ map, field, seed = 1, biome = "forest", flat
       for (const p of plots) {
         const [px, , pz] = p.origin;
         const dx = Math.max(px - wx, 0, wx - px - p.width), dz = Math.max(pz - wz, 0, wz - pz - p.depth);
-        sand = Math.max(sand, 1 - Math.min(1, Math.sqrt(dx * dx + dz * dz) / 10));
+        // Narrow worn verge with a world-anchored irregular edge; never changes collision heights.
+        const distance = Math.sqrt(dx * dx + dz * dz);
+        const edge = .55 * Math.sin(wx * .71) + .4 * Math.sin(wz * .93 + wx * .17);
+        const u = Math.max(0, Math.min(1, (distance - .6 + edge) / 4.4));
+        sand = Math.max(sand, 1 - u * u * (3 - 2 * u));
       }
       c.lerp(c2, sand);
       col.set([c.r, c.g, c.b], i * 3);

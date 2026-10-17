@@ -1,0 +1,20 @@
+captured tb1-spawn
+captured tb1-first-shot
+captured rampart-north
+captured weapon-view-cannon
+captured courtyard-palace
+captured crew-at-cannon
+captured cannon-sight
+captured muzzle-flash
+captured smoke-trail
+captured impact-dust
+captured impact-settle
+captured impact-clear
+file:///home/tobias/Projects/castle-game/tests/render-look-pass2.mjs:64
+    if(capture.errors.length || capture.sourceChanged || capture.assetsChanged) throw Error('Capture changed or has page errors; see capture.json');
+                                                                                      ^
+
+Error: Capture changed or has page errors; see capture.json
+    at file:///home/tobias/Projects/castle-game/tests/render-look-pass2.mjs:64:87
+
+Node.js v24.11.1

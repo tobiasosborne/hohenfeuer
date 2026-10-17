@@ -1,0 +1,25 @@
+✖ tests/unit/ai-weapon-aim.test.js (377.695447ms)
+✖ tests/unit/plugin-weapon-set.test.js (843.476628ms)
+✖ tests/unit/sim-weapon-effects.test.js (1064.877455ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1079.125163
+
+✖ failing tests:
+
+test at tests/unit/ai-weapon-aim.test.js:1:1
+✖ tests/unit/ai-weapon-aim.test.js (377.695447ms)
+  'test failed'
+
+test at tests/unit/plugin-weapon-set.test.js:1:1
+✖ tests/unit/plugin-weapon-set.test.js (843.476628ms)
+  'test failed'
+
+test at tests/unit/sim-weapon-effects.test.js:1:1
+✖ tests/unit/sim-weapon-effects.test.js (1064.877455ms)
+  'test failed'

@@ -9,8 +9,8 @@ import { splitmix32 } from "../core/rng.js";
 
 const R = TUNING.ruler;
 const DEG = Math.PI / 180;
-/** Fixed downward tilt of the weapon-view camera so the barrel sits low in frame (shot 04). Proposed TUNING.ruler.weaponViewPitchDeg. */
-export const WEAPON_VIEW_PITCH_DEG = -4;
+/** The tuning value is shared with the renderer's Sight helper. */
+export const WEAPON_VIEW_PITCH_DEG = R.weaponViewPitchDeg;
 
 /**
  * @typedef {{pos: number[], yaw: number, pitch: number, roll: number, fov: number}} Pose
@@ -41,14 +41,15 @@ export function walkPose(ruler, bob = 0) {
 
 /**
  * Weapon view behind the gun (DESIGN 5): at the GLB `Sight` node when the renderer supplies one,
- * else sightBackM behind and sightUpM above the yaw pivot along the azimuth.
+ * else the tuned shoulder offset behind/above/right of the weapon pivot along its azimuth.
  * @param {{pivot: number[], azDeg: number, sight?: number[]}} w @param {{yaw: number, pitch: number}} [freeLook] RMB offsets
  */
 export function weaponPose(w, freeLook) {
   const az = w.azDeg * DEG;
   const dx = Math.sin(az), dz = -Math.cos(az);
   const pos = w.sight ? [w.sight[0], w.sight[1], w.sight[2]]
-    : [w.pivot[0] - dx * R.sightBackM, w.pivot[1] + R.sightUpM, w.pivot[2] - dz * R.sightBackM];
+    : [w.pivot[0] - dx * R.sightBackM - dz * R.sightRightM,
+      w.pivot[1] + R.sightUpM, w.pivot[2] - dz * R.sightBackM + dx * R.sightRightM];
   const fy = freeLook ? freeLook.yaw : 0, fp = freeLook ? freeLook.pitch : 0;
   return { pos, yaw: az + fy, pitch: WEAPON_VIEW_PITCH_DEG * DEG + fp, roll: 0, fov: R.weaponFovDeg };
 }

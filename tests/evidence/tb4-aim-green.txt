@@ -1,0 +1,21 @@
+✔ catapult: solves charge at its fixed pitch for both target heights in wind (70.438168ms)
+✔ cannon: solves charge at its fixed pitch for both target heights in wind (22.809558ms)
+✔ double-cannon: solves charge at its fixed pitch for both target heights in wind (22.193704ms)
+✔ fire-catapult: solves charge at its fixed pitch for both target heights in wind (30.926866ms)
+✔ ballista: solves charge at its fixed pitch for both target heights in wind (37.998997ms)
+✔ rocket: solves charge at its fixed pitch for both target heights in wind (75.430962ms)
+✔ trebuchet: solves charge at its fixed pitch for both target heights in wind (34.455967ms)
+✔ arcaballista: solves charge at its fixed pitch for both target heights in wind (25.882792ms)
+✔ fat-freda: solves charge at its fixed pitch for both target heights in wind (29.335481ms)
+✔ hellfire: solves charge at its fixed pitch for both target heights in wind (16.65877ms)
+✔ per-weapon target choice filters unreachable enemies and lobbed guns retain covered targets (37.299644ms)
+✔ weapon choice uses each gun's range and loaded state; placeholders have no aim solution (38.707989ms)
+✔ lobbed ballistic selection can reach an enemy gun behind a low sight-line wall (14.445626ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 469.77689

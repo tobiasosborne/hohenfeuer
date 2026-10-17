@@ -1,0 +1,14 @@
+✔ main menu lists the original's entries in order and navigates by keyboard (1.869453ms)
+✔ mouse: hover focuses, click activates; item rects lie inside 1024 x 768 and do not overlap (2.891765ms)
+✔ skirmish setup: per-slot controller (Human only for slot 0), AI level 1-10, tactic, wind, gold, seed; Start emits settings (1.789056ms)
+✔ options: sensitivity, language, volume emit an options event and clamp (0.280301ms)
+✔ in-match pause menu: resume, restart, options (returns to pause), back to title; Esc resumes (0.226808ms)
+✔ end screen shows the result and returns to setup or title (0.258344ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.119698

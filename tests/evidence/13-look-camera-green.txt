@@ -1,0 +1,23 @@
+✔ sky stores requested sRGB endpoints without a second linear-to-sRGB interpretation (34.121447ms)
+✔ terrain grain tiles continuously between the heightfield and horizon skirt (42.352061ms)
+✔ weapon sight uses the design pitch by default (6.915455ms)
+✔ effect pools remain deterministic, bounded, and retire all particles (19.747754ms)
+✔ muzzle emission resolves the nearby rendered attachment instead of the sim collision origin (5.591376ms)
+✔ forest props are repeatable and leave castle plot skirts clear (76.059902ms)
+✔ head bob: seeded, stepped, amplitude and frequency per DESIGN 5, off when disabled (1.909195ms)
+✔ walk pose: eye height above the feet, FOV 60 (0.257483ms)
+✔ weapon pose: tuned offset follows yaw, with an explicit sight taking precedence (0.239962ms)
+✔ cannon sight reproduces the measured low-breech proposal at TB1 azimuth (0.136026ms)
+✔ impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it (0.239395ms)
+✔ death pose: drops to 0.3 m and rolls 70 deg over 3 s (0.227149ms)
+✔ ghost pose passes through position and look (0.270903ms)
+✔ applyPose maps clockwise yaw to three's YXZ euler and updates FOV once (0.298231ms)
+✔ rig switches modes via CAMERA_MODE and runs the death clock in ticks (1.00639ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 322.127544

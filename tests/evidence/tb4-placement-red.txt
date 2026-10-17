@@ -1,0 +1,148 @@
+✖ catapult: castle loader and paid designation accept its id and mount (14.381236ms)
+✔ cannon: castle loader and paid designation accept its id and mount (18.848889ms)
+✖ double-cannon: castle loader and paid designation accept its id and mount (6.458212ms)
+✖ fire-catapult: castle loader and paid designation accept its id and mount (3.260804ms)
+✖ ballista: castle loader and paid designation accept its id and mount (3.107942ms)
+✖ rocket: castle loader and paid designation accept its id and mount (3.441967ms)
+✖ trebuchet: castle loader and paid designation accept its id and mount (2.837309ms)
+✖ arcaballista: castle loader and paid designation accept its id and mount (2.67604ms)
+✖ fat-freda: castle loader and paid designation accept its id and mount (3.52598ms)
+✖ hellfire: castle loader and paid designation accept its id and mount (2.814012ms)
+✖ ground designation checks all nine supports, full 3x3x2 space and unavailable ids (17.769958ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 1
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.339831
+
+✖ failing tests:
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ catapult: castle loader and paid designation accept its id and mount (14.381236ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ double-cannon: castle loader and paid designation accept its id and mount (6.458212ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ fire-catapult: castle loader and paid designation accept its id and mount (3.260804ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ ballista: castle loader and paid designation accept its id and mount (3.107942ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ rocket: castle loader and paid designation accept its id and mount (3.441967ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ trebuchet: castle loader and paid designation accept its id and mount (2.837309ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ arcaballista: castle loader and paid designation accept its id and mount (2.67604ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ fat-freda: castle loader and paid designation accept its id and mount (3.52598ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:11:22
+✖ hellfire: castle loader and paid designation accept its id and mount (2.814012ms)
+  TypeError: Phase 1 supports the cannon weapon only
+      at createSim (file:///home/tobias/Projects/castle-game/src/sim/sim.js:54:58)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:17:16)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/sim-weapon-placement.test.js:33:1
+✖ ground designation checks all nine supports, full 3x3x2 space and unavailable ids (17.769958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:36:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,17 @@
+✔ head bob: seeded, stepped, amplitude and frequency per DESIGN 5, off when disabled (2.336626ms)
+✔ walk pose: eye height above the feet, FOV 60 (0.33862ms)
+✔ weapon pose: tuned offset follows yaw, with an explicit sight taking precedence (0.360849ms)
+✔ cannon sight reproduces the measured shoulder proposal with the final 20 cm clearance (0.206467ms)
+✔ impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it (0.27587ms)
+✔ death pose: drops to 0.3 m and rolls 70 deg over 3 s (0.31554ms)
+✔ ghost pose passes through position and look (0.247092ms)
+✔ applyPose maps clockwise yaw to three's YXZ euler and updates FOV once (1.348442ms)
+✔ rig switches modes via CAMERA_MODE and runs the death clock in ticks (1.319898ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.213843

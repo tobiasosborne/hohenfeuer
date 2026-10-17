@@ -1,0 +1,550 @@
+[
+  {
+    "id": "arcaballista",
+    "name": {
+      "de": "Arkballiste",
+      "en": "Arcaballista"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 850,
+    "hp": 96,
+    "reloadS": 18,
+    "crewSlots": 4,
+    "fireCost": 300,
+    "ammoLoads": 1,
+    "traj": "straight",
+    "elevDeg": [
+      -5,
+      25
+    ],
+    "v0": 451.85704385080646,
+    "k": 0.0020161290322580645,
+    "scatter": {
+      "azDeg": 1.23046875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 4,
+      "intervalS": 0,
+      "spreadDeg": 0.8,
+      "radius": 0.1,
+      "direct": 24,
+      "splash": 12,
+      "splashRadius": 2.34375,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 19.3359375,
+    "nativeK": 45,
+    "scatterTurnUnits": 14,
+    "available": true,
+    "nominalMaxRangeM": 958.2408849192794
+  },
+  {
+    "id": "ballista",
+    "name": {
+      "de": "Balliste",
+      "en": "Ballista"
+    },
+    "mount": "wall",
+    "footprint": [
+      1,
+      1,
+      1
+    ],
+    "cost": 400,
+    "hp": 36,
+    "reloadS": 15,
+    "crewSlots": 2,
+    "fireCost": 22,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 451.85704385080646,
+    "k": 0.0020161290322580645,
+    "scatter": {
+      "azDeg": 0.703125,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.08,
+      "direct": 4,
+      "splash": 0,
+      "splashRadius": 0,
+      "ignite": 0,
+      "pierce": 3
+    },
+    "fixedElevationDeg": 36.73828125,
+    "nativeK": 45,
+    "scatterTurnUnits": 8,
+    "available": true,
+    "nominalMaxRangeM": 992.3692509665999
+  },
+  {
+    "id": "bomb",
+    "name": {
+      "de": "Bombe",
+      "en": "Bomb"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 0,
+    "hp": 12,
+    "reloadS": 1,
+    "crewSlots": 1,
+    "fireCost": 0,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 1,
+    "k": 0,
+    "scatter": {
+      "azDeg": 0,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 0,
+      "splash": 0,
+      "splashRadius": 0,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 62.5,
+    "available": false,
+    "nominalMaxRangeM": 0.03518387015236814
+  },
+  {
+    "id": "cannon",
+    "name": {
+      "de": "Kanone",
+      "en": "Cannon"
+    },
+    "mount": "wall",
+    "footprint": [
+      1,
+      1,
+      1
+    ],
+    "cost": 750,
+    "hp": 36,
+    "reloadS": 22,
+    "crewSlots": 3,
+    "fireCost": 90,
+    "ammoLoads": 1,
+    "traj": "straight",
+    "elevDeg": [
+      -5,
+      25
+    ],
+    "v0": 401.65070564516134,
+    "k": 0.009615384615384616,
+    "scatter": {
+      "azDeg": 0.966796875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 16,
+      "splash": 20,
+      "splashRadius": 4.6875,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 21.26953125,
+    "nativeK": 40,
+    "scatterTurnUnits": 11,
+    "available": true,
+    "nominalMaxRangeM": 277.6496184132153
+  },
+  {
+    "id": "catapult",
+    "name": {
+      "de": "Katapult",
+      "en": "Catapult"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 600,
+    "hp": 60,
+    "reloadS": 18,
+    "crewSlots": 4,
+    "fireCost": 52,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 602.476058467742,
+    "k": 0.012239583333333333,
+    "scatter": {
+      "azDeg": 1.40625,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.25,
+      "direct": 12,
+      "splash": 10,
+      "splashRadius": 7.5,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 36.73828125,
+    "nativeK": 60,
+    "scatterTurnUnits": 16,
+    "available": true,
+    "nominalMaxRangeM": 248.2439823656739
+  },
+  {
+    "id": "double-cannon",
+    "name": {
+      "de": "Doppelkanone",
+      "en": "Double cannon"
+    },
+    "mount": "wall",
+    "footprint": [
+      1,
+      1,
+      1
+    ],
+    "cost": 750,
+    "hp": 36,
+    "reloadS": 22,
+    "crewSlots": 4,
+    "fireCost": 150,
+    "ammoLoads": 1,
+    "traj": "straight",
+    "elevDeg": [
+      -5,
+      25
+    ],
+    "v0": 401.65070564516134,
+    "k": 0.009615384615384616,
+    "scatter": {
+      "azDeg": 0.966796875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 2,
+      "intervalS": 0.3,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 16,
+      "splash": 20,
+      "splashRadius": 4.6875,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 21.26953125,
+    "nativeK": 40,
+    "scatterTurnUnits": 11,
+    "available": true,
+    "nominalMaxRangeM": 277.6496184132153
+  },
+  {
+    "id": "fat-freda",
+    "name": {
+      "de": "Dicke Luise",
+      "en": "Fat Freda"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 850,
+    "hp": 96,
+    "reloadS": 22,
+    "crewSlots": 6,
+    "fireCost": 225,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 381.56817036290323,
+    "k": 0.007401315789473684,
+    "scatter": {
+      "azDeg": 0.966796875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.3,
+      "direct": 40,
+      "splash": 48,
+      "splashRadius": 11.25,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 36.73828125,
+    "nativeK": 38,
+    "scatterTurnUnits": 11,
+    "available": true,
+    "nominalMaxRangeM": 329.89040552847774
+  },
+  {
+    "id": "fire-catapult",
+    "name": {
+      "de": "Feuerkatapult",
+      "en": "Fire catapult"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 750,
+    "hp": 60,
+    "reloadS": 24,
+    "crewSlots": 4,
+    "fireCost": 150,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 702.8887348790322,
+    "k": 0.0140625,
+    "scatter": {
+      "azDeg": 0.966796875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.25,
+      "direct": 8,
+      "splash": 4,
+      "splashRadius": 1.12060546875,
+      "ignite": 2,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 36.73828125,
+    "nativeK": 70,
+    "scatterTurnUnits": 11,
+    "available": true,
+    "nominalMaxRangeM": 228.1751969860847
+  },
+  {
+    "id": "hellfire",
+    "name": {
+      "de": "Hoellenorgel",
+      "en": "Hellfire"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 850,
+    "hp": 96,
+    "reloadS": 22,
+    "crewSlots": 5,
+    "fireCost": 330,
+    "ammoLoads": 1,
+    "traj": "straight",
+    "elevDeg": [
+      -5,
+      25
+    ],
+    "v0": 401.65070564516134,
+    "k": 0.009615384615384616,
+    "scatter": {
+      "azDeg": 1.23046875,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 5,
+      "intervalS": 0.558,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 16,
+      "splash": 20,
+      "splashRadius": 4.6875,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 21.26953125,
+    "nativeK": 40,
+    "scatterTurnUnits": 14,
+    "available": true,
+    "nominalMaxRangeM": 277.6496184132153
+  },
+  {
+    "id": "rocket",
+    "name": {
+      "de": "Raketenwerfer",
+      "en": "Rocket launcher"
+    },
+    "mount": "wall",
+    "footprint": [
+      1,
+      1,
+      1
+    ],
+    "cost": 800,
+    "hp": 36,
+    "reloadS": 30,
+    "crewSlots": 3,
+    "fireCost": 150,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 39.37752016129032,
+    "k": 0.006136363636363636,
+    "scatter": {
+      "azDeg": 1.7578125,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 24,
+      "splash": 28,
+      "splashRadius": 8.4375,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 65.7421875,
+    "nativeK": 1000,
+    "scatterTurnUnits": 20,
+    "available": true,
+    "nominalMaxRangeM": 696.1322626186478
+  },
+  {
+    "id": "trebuchet",
+    "name": {
+      "de": "Trebuchet",
+      "en": "Trebuchet"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 850,
+    "hp": 96,
+    "reloadS": 18,
+    "crewSlots": 6,
+    "fireCost": 225,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 602.476058467742,
+    "k": 0.012239583333333333,
+    "scatter": {
+      "azDeg": 1.40625,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 5,
+      "intervalS": 0,
+      "spreadDeg": 1.5,
+      "radius": 0.25,
+      "direct": 12,
+      "splash": 10,
+      "splashRadius": 7.5,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 36.73828125,
+    "nativeK": 60,
+    "scatterTurnUnits": 16,
+    "available": true,
+    "nominalMaxRangeM": 248.2439823656739
+  },
+  {
+    "id": "zeppelin",
+    "name": {
+      "de": "Zeppelin",
+      "en": "Zeppelin"
+    },
+    "mount": "ground",
+    "footprint": [
+      3,
+      3,
+      2
+    ],
+    "cost": 700,
+    "hp": 12,
+    "reloadS": 1,
+    "crewSlots": 1,
+    "fireCost": 0,
+    "ammoLoads": 1,
+    "traj": "lobbed",
+    "elevDeg": [
+      45,
+      80
+    ],
+    "v0": 1,
+    "k": 0,
+    "scatter": {
+      "azDeg": 0,
+      "vFrac": 0
+    },
+    "shot": {
+      "count": 1,
+      "intervalS": 0,
+      "spreadDeg": 0,
+      "radius": 0.15,
+      "direct": 0,
+      "splash": 0,
+      "splashRadius": 0,
+      "ignite": 0,
+      "pierce": 0
+    },
+    "fixedElevationDeg": 62.5,
+    "available": false,
+    "nominalMaxRangeM": 0.03518387015236814
+  }
+]

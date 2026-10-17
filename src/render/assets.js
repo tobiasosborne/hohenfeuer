@@ -2,6 +2,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { modelFromTriangles } from "./mesher.js";
+import { gradeBlockAtlas } from "./block-palette.js";
 
 /** Convert the first mesh of a kit block GLB (centred on x/z, y 0..1) into a block model. */
 export function blockModelFromGltf(gltf) {
@@ -94,9 +95,13 @@ export function createAssets() {
           variants[b.id] = await Promise.all(b.damage_variants.map(async (m) => blockModelFromGltf(await api.loadGLB(`${dir}${m}`))));
         }
       });
-      for (const w of manifest.weapons ?? []) jobs.push(api.loadGLB(`${dir}${w.mesh}`).then((g) => { weapons[w.key] = lambertize(g.scene); }));
+      for (const w of manifest.weapons ?? []) jobs.push(api.loadGLB(`${dir}${w.mesh}`).then((g) => {
+        g.scene.userData.weaponId = w.key;
+        weapons[w.key] = lambertize(g.scene);
+      }));
       for (const h of manifest.people ?? []) jobs.push(api.loadGLB(`${dir}${h.mesh}`).then((g) => { people[h.key] = lambertize(g.scene); }));
       const [atlas] = await Promise.all([api.loadTexture(`${dir}${manifest.atlas.file}`), ...jobs]);
+      gradeBlockAtlas(atlas, manifest);
       return { models, variants, atlas, manifest, weapons, people };
     },
   };

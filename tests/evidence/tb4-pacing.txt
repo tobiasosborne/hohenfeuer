@@ -1,0 +1,12 @@
+✔ one scripted palace shot cannot flatten a protected keep (1127.359693ms)
+ℹ first shot: palace integrity 1, 0/48 palace cells destroyed
+✔ level 5 forest-duel seed 1 ends with a winner in 8-20 sim minutes (173740.419454ms)
+ℹ {"seed":1,"ticks":30117,"seconds":1003.9,"winner":[0],"reason":["palace"],"shots":[41,20],"hash":2991818321}
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 174881.39022

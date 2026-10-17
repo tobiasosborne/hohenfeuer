@@ -2,7 +2,7 @@
 import { K, CMD, CMD_FIELDS } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { atan2, DEG, pow } from '../core/fmath.js';
-import { buildRangeTable, dialToCharge, rangeToCharge, traceFlight, fixedElevation } from '../sim/ballistics.js';
+import { buildRangeTable, dialToCharge, rangeToCharge, traceFlight, fixedElevation, weaponAvailable } from '../sim/ballistics.js';
 
 const tables = new WeakMap();
 const wrap = deg => (deg % 360 + 360) % 360;
@@ -44,7 +44,9 @@ export function geometryAim(shooter, target, weapon, wind = { x: 0, z: 0 }, tabl
   }
   const low = dialToCharge(dial - 0.5), high = dialToCharge(dial + 0.5);
   const metresPerCharge = Math.max(1e-6, (flight(high).range - flight(low).range) / (high - low));
-  return { azDeg, dial, charge: dial, elevation, reachable, distance, metresPerCharge };
+  // Range feasibility belongs to the actual plugin control law (charge-speed or
+  // charge-duration), never a shared cannon range or a trajectory-band guess.
+  return { azDeg, dial, charge: dial, elevation, reachable: reachable && weaponAvailable(weapon), distance, metresPerCharge };
 }
 
 /** Serializable controller-owned memory; helpers never mutate their inputs. */

@@ -23,6 +23,12 @@ export function createFx({ scene, seed = 1, max = 160 }) {
   const rng = createRng(seed), tex = softDisk(true), glow = softDisk();
   const pool = [], emitter = new THREE.Vector3(), candidate = new THREE.Vector3();
   const group = new THREE.Group(); group.name = "fx"; scene.add(group);
+  // Small independently authored chips, one bounded instanced draw for every live impact.
+  const debris = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0), new THREE.MeshLambertMaterial({color:0x958a76}), 96);
+  debris.name = 'impact-debris'; debris.count = 0; debris.frustumCulled = false; debris.visible = false; group.add(debris);
+  const chips = Array.from({length:96},()=>({age:0,life:0,x:0,y:0,z:0,vx:0,vy:0,vz:0,size:0,spin:0}));
+  const chipPose = new THREE.Object3D();
+  let nextChip = 0;
   for (let i = 0; i < max; i++) {
     const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, fog: true }));
     s.visible = false; group.add(s);
@@ -50,27 +56,38 @@ export function createFx({ scene, seed = 1, max = 160 }) {
         const distance = candidate.distanceToSquared(pos);
         if (distance < nearest) { nearest = distance; emitter.copy(candidate); }
       });
-      spawn({ pos: emitter, color: 0xffdd9d, additive: true, life: 0.10, size: 2.1, grow: 0.5 });
-      spawn({ pos: emitter, color: 0xfff4d8, additive: true, life: 0.065, size: 1.15, grow: 0.3 });
-      for (let i = 0; i < 7; i++) {
+      spawn({ pos: emitter, color: 0xffdd9d, additive: true, life: 0.075, size: .75, grow: 0.5 });
+      spawn({ pos: emitter, color: 0xfff4d8, additive: true, life: 0.045, size: .38, grow: 0.3 });
+      for (let i = 0; i < 5; i++) {
         const j = new THREE.Vector3((rng()-.5)*.6, rng()*.4, (rng()-.5)*.6);
-        spawn({ pos: emitter.clone().add(j), color: 0xd9dad4, life: 1.8 + rng()*.6,
-          size: .8 + rng()*.45, grow: 2.8, vx: (rng()-.5)*.5, vy: .5 + rng()*.45, vz: (rng()-.5)*.5, alpha: .65 });
+        spawn({ pos: emitter.clone().add(j), color: 0xd9dad4, life: .8 + rng()*.5,
+          size: .4 + rng()*.3, grow: 2.0, vx: (rng()-.5)*.5, vy: .5 + rng()*.45, vz: (rng()-.5)*.5, alpha: .45 });
       }
     },
-    impactPuff(pos, color = 0xb0a18b) {
-      for (let i = 0; i < 12; i++) {
-        const angle = rng() * Math.PI * 2, speed = .8 + rng()*2;
+    impactPuff(pos, color = 0xa69b86) {
+      for (let i = 0; i < 10; i++) {
+        const angle = rng() * Math.PI * 2, speed = .6 + rng()*1.6;
         const j = new THREE.Vector3(Math.cos(angle)*.6, rng()*.8, Math.sin(angle)*.6);
-        spawn({ pos: pos.clone().add(j), color, life: 2.2 + rng(), size: 1.4 + rng(), grow: 2.4,
-          vx: Math.cos(angle)*speed, vy: .5 + rng(), vz: Math.sin(angle)*speed, alpha: .8 });
+        spawn({ pos: pos.clone().add(j), color, life: 1.2 + rng()*.8, size: .6 + rng()*.7, grow: 2.8,
+          vx: Math.cos(angle)*speed, vy: .15 + rng()*.6, vz: Math.sin(angle)*speed, alpha: .65 });
       }
-      spawn({ pos, color: 0xffcf8b, additive: true, life: .10, size: 2.0, grow: 2 });
+      for(let i=0;i<4;i++) {
+        const angle=rng()*Math.PI*2;
+        spawn({pos,color,life:1.7,size:.9,grow:3,vx:Math.cos(angle)*2,vy:.05,vz:Math.sin(angle)*2,alpha:.35});
+      }
+      for(let i=0;i<18;i++) {
+        const p=chips[nextChip++%chips.length], angle=rng()*Math.PI*2, speed=1+rng()*3;
+        Object.assign(p,{age:0,life:.65+rng()*.7,x:pos.x,y:pos.y,z:pos.z,
+          vx:Math.cos(angle)*speed,vy:1.5+rng()*3,vz:Math.sin(angle)*speed,size:.04+rng()*.05,spin:(rng()-.5)*12});
+      }
+      updateDebris(0);
+      spawn({ pos, color: 0xffcf8b, additive: true, life: .065, size: .65, grow: 1 });
     },
     trail(pos) {
-      spawn({ pos, color: 0xd3d6d2, life: 2.0, size: .9, grow: 1.5, vy: .25, alpha: .55 });
+      spawn({ pos, color: 0xd3d6d2, life: .85, size: .28, grow: 1.8, vy: .2, alpha: .3 });
     },
     update(dt) {
+      updateDebris(dt);
       for (const p of pool) {
         if (!p.sprite.visible) continue;
         p.age += dt;
@@ -82,6 +99,18 @@ export function createFx({ scene, seed = 1, max = 160 }) {
       }
     },
     active: () => pool.filter(p => p.sprite.visible).length,
-    dispose() { scene.remove(group); tex.dispose(); glow.dispose(); for (const p of pool) p.sprite.material.dispose(); },
+    dispose() { scene.remove(group); tex.dispose(); glow.dispose(); debris.geometry.dispose(); debris.material.dispose(); for (const p of pool) p.sprite.material.dispose(); },
   };
+  function updateDebris(dt) {
+    let count=0;
+    for(const p of chips) {
+      p.age+=dt;if(p.age>=p.life)continue;
+      p.x+=p.vx*dt;p.y+=p.vy*dt-4.9*dt*dt;p.z+=p.vz*dt;p.vy-=9.8*dt;
+      chipPose.position.set(p.x,p.y,p.z);chipPose.rotation.set(p.spin*p.age,p.spin*p.age*.7,0);
+      // Shrink briefly at expiry instead of abruptly dropping a full-size fragment.
+      chipPose.scale.setScalar(p.size*Math.min(1,(p.life-p.age)/.2));chipPose.updateMatrix();
+      debris.setMatrixAt(count++,chipPose.matrix);
+    }
+    debris.count=count;debris.visible=count>0;debris.instanceMatrix.needsUpdate=true;
+  }
 }

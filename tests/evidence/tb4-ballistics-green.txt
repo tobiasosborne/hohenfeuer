@@ -1,0 +1,16 @@
+✔ TB2: native length/time conversion preserves gravity, K and quadratic C/M (1.821694ms)
+✔ zero-drag production flight agrees with the analytic parabola within 0.5% (7.339766ms)
+✔ TB2: range is charge at a fixed elevation, with monotonic invertible tables (39.651556ms)
+✔ TB2: scatter uses four angular draws, asymmetric elevation, and no speed noise (0.575436ms)
+✔ TB2: nine wind strengths have constant magnitude and a precomputed 256x32 tick cycle (28.886104ms)
+✔ wind changes retain previous direction per slot until its next shot or timeout (0.519104ms)
+✔ launch convention remains north=-z, east=+x with elevations in degrees (0.375788ms)
+✔ TB4: rocket charge controls burn duration with a monotonic inverse, rather than muzzle speed (285.146974ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 375.862922

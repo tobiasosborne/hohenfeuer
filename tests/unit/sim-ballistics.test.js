@@ -31,7 +31,7 @@ test('zero-drag production flight agrees with the analytic parabola within 0.5%'
 });
 
 test('TB2: range is charge at a fixed elevation, with monotonic invertible tables', () => {
-  for (const id of ['cannon', 'catapult', 'rocket']) {
+  for (const id of ['cannon', 'catapult']) {
     const weapon = T.weapons[id], table = B.buildRangeTable(weapon);
     for (let i = 1; i < table.length; i++) assert.ok(table[i].range > table[i - 1].range, id);
     for (const charge of [1, 48, 127, 200, 255]) {
@@ -98,4 +98,15 @@ test('launch convention remains north=-z, east=+x with elevations in degrees', (
   const north = B.launchVelocity(10, 0, 0), east = B.launchVelocity(10, 0, 90);
   assert.ok(Math.abs(north.x) < 1e-12 && Math.abs(north.z + 10) < 1e-12);
   assert.ok(Math.abs(east.x - 10) < 1e-12 && Math.abs(east.z) < 1e-12);
+});
+
+test('TB4: rocket charge controls burn duration with a monotonic inverse, rather than muzzle speed', () => {
+  const weapon = T.weapons.rocket, table = B.buildRangeTable(weapon);
+  for(let i=1;i<table.length;i++) assert.ok(table[i].range>table[i-1].range);
+  for(const charge of [1,48,127,200,255]) {
+    const flight = B.traceFlight({...weapon,charge,elevation:weapon.elevationDeg});
+    assert.equal(flight.landed,true);
+    assert.ok(Math.abs(B.rangeToCharge(table,flight.range)-charge)<0.1);
+    assert.equal(B.launchSpeed(weapon,charge),1000*T.sim.nativePositionM/T.sim.nativeTickS);
+  }
 });

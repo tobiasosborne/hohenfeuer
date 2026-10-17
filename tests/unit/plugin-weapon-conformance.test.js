@@ -1,4 +1,4 @@
-// tests/unit/plugin-weapon-conformance.test.js - owns Phase 1 cannon data and view conformance.
+// tests/unit/plugin-weapon-conformance.test.js - owns reference cannon data and view conformance.
 import test, { afterEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { MOUNT, TRAJ, PLUGIN_KIND, getWeapon, getView, resetRegistriesForTests, validateWeaponPlugin, validateWeaponView } from '../../src/contracts.js';
@@ -27,7 +27,7 @@ test('cannon validates and preserves every cannon tuning input', () => {
 
 test('cannon view describes the kit node hierarchy, muzzle and Lambert materials', () => {
   assert.equal(validateWeaponView(CANNON.id, CANNON_VIEW), true);
-  assert.equal(CANNON_VIEW.model, 'assets/kit-v0/cannon.glb');
+  assert.equal(CANNON_VIEW.model, 'assets/kit-v1/cannon.glb');
   assert.deepEqual(CANNON_PARTS, { frame: 'Base', turntable: 'Yaw', barrel: 'Pitch', muzzle: 'Muzzle', sight: 'Sight' });
   assert.deepEqual(CANNON_VIEW.nodes, { yaw: CANNON_PARTS.turntable, pitch: CANNON_PARTS.barrel, muzzle: CANNON_PARTS.muzzle, sight: CANNON_PARTS.sight });
   assert.deepEqual(CANNON_MUZZLE_OFFSET, [0, TUNING.weaponRules.wallFootprint[2] * 0.75, -(TUNING.weaponRules.wallFootprint[0] / 2 + 2 * CANNON.shot.radius)]);

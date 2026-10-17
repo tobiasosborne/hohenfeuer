@@ -1,5 +1,8 @@
 // src/main.js - owns playable boot: plugins, sim, renderer, input, cameras, HUD, audio, fixed-step loop and debug wiring.
+// Flow: a bare URL opens the title menu (src/ui/frontend.js); Start boots the match on the same page with the skirmish
+// settings; restart / back to title / back to setup hand over through sessionStorage (src/ui/flow.js) and reload.
 // URL params: golden=1 (advance only through the debug API), demo=1 (TB1 palace shot), demo=tb2 (crewed wall shot),
+// play=1 (skip the menu, TB1 defaults), screen=main|skirmish|options|credits|tutorial|splash (menu screen; golden=1 for goldens),
 // demo=tb3 (rampart designation and mason construction), speed=<0.25..4> (demo time-lapse), seed=<n>, lang=de|en,
 // kit=v1 (default) | 0 or v0 (kit v0) | none (fallback block palette).
 import * as THREE from "three";
@@ -32,7 +35,10 @@ import { createHud, designationMessages } from "./ui/hud.js";
 import { createMessageLog, eventsToMessages, TONE } from "./ui/console.js";
 import { topDown } from "./ui/minimap.js";
 import { t } from "./ui/i18n.js";
-import { createMenu } from "./ui/menus.js";
+import { createMenu, SCREEN, MENU_EVENT } from "./ui/menus.js";
+import { resolveBoot, settingsToMatch, matchResult, flowRecord, defaultSettings, FLOW_KEY } from "./ui/flow.js";
+import { loadOptions, saveOptions, DEFAULT_OPTIONS } from "./ui/options.js";
+import { runFrontEnd } from "./ui/frontend.js";
 import { createSfx } from "./audio/sfx.js";
 import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-script.js";
 import { createTb3Script, TB3 } from "./tb3-script.js";
@@ -47,7 +53,7 @@ const GOLDEN = q.get("golden") === "1";
 const DEMO = q.get("demo") === "1" || ["tb2", "tb3"].includes(q.get("demo"));
 const DEMO_TB2 = q.get("demo") === "tb2";
 const SEED = Number(q.get("seed") ?? TB1.seed) >>> 0;
-const LANG = q.get("lang") === "en" ? "en" : "de";
+const LANG_PARAM = q.get("lang") === "en" || q.get("lang") === "de" ? q.get("lang") : null;
 const SPEED = Math.max(0.25, Math.min(4, Number(q.get("speed") ?? 1) || 1)); // demo time-lapse factor on the loop clock
 const ME = TB1.playerSlot;
 
@@ -56,8 +62,23 @@ registerCoreSim();
 registerCoreView();
 freezeRegistries();
 let debugSimApi;
-const sim = createSim({ map: TB1.map, seed: SEED, slots: tb1Slots(), hooks: { onReady(api) { debugSimApi = api; } } });
-const mapDef = getMap(TB1.map);
+/* ------------------------------------------------------------------ flow: title menu or match */
+const safe = (f) => { try { return f(); } catch { return null; } };
+const storage = safe(() => globalThis.localStorage), session = safe(() => globalThis.sessionStorage);
+const boot = resolveBoot(q, safe(() => session.getItem(FLOW_KEY)));
+safe(() => session.removeItem(FLOW_KEY));
+const MAPS = listPlugins(PLUGIN_KIND.MAP);
+let options = GOLDEN || boot.golden ? { ...DEFAULT_OPTIONS } : loadOptions(storage);
+let LANG = LANG_PARAM ?? options.lang;
+let settings = boot.settings;
+if (boot.kind === "frontend") {
+  settings = await runFrontEnd({ maps: MAPS, options, storage, screen: boot.screen, settings: boot.settings, golden: boot.golden,
+    onOptions(o) { options = o; LANG = LANG_PARAM ?? o.lang; } });
+}
+const MATCH = settings ? settingsToMatch(settings, getMap(settings.map) ?? MAPS[0]) : { map: getMap(TB1.map), seed: SEED, slots: tb1Slots() };
+const sim = createSim({ map: MATCH.map, seed: MATCH.seed, slots: MATCH.slots, hooks: { onReady(api) { debugSimApi = api; } } });
+const mapDef = MATCH.map;
+const ME_IS_AI = MATCH.slots[ME]?.controller === "ai";
 let view = sim.state;
 let prev = capture(view);
 let lastEvents = [];
@@ -78,7 +99,7 @@ const r = createRenderer({ biome: "forest", sunDir });
 document.body.appendChild(r.domElement);
 const camera = r.camera;
 
-const sky = createSky({ seed: SEED });
+const sky = createSky({ seed: MATCH.seed });
 r.scene.add(sky.mesh);
 r.onBeforeRender((cam) => sky.follow(cam));
 const terrain = createTerrainView({ field: view.terrain, biome: "forest" });
@@ -124,7 +145,7 @@ const RULER_TINT = [0xe03030, 0x3070e0, 0x30b050, 0xe0c030];
 
 const ballGeo = new THREE.SphereGeometry(0.3, 10, 8), ballMat = new THREE.MeshLambertMaterial({ color: 0x2a2a2c });
 const balls = new Map();
-const fx = createFx({ scene: r.scene, seed: SEED });
+const fx = createFx({ scene: r.scene, seed: MATCH.seed });
 
 /* ------------------------------------------------------------------ HUD, audio, input */
 const hudCanvas = document.createElement("canvas");
@@ -141,14 +162,57 @@ let menu = null;
 
 const el = r.domElement;
 const toLogical = (x, y) => { const b = el.getBoundingClientRect(); return { x: (x - b.left) / b.width * T.render.logicalW, y: (y - b.top) / b.height * T.render.logicalH }; };
-const input = createInput({ element: el, toLogical, slot: ME, blockIds: listPlugins(PLUGIN_KIND.BLOCK).filter(b => b.id !== 0 && !b.mapOnly && b.cost !== null).map(b => b.id), weaponDefs: ["cannon"], sensitivity: T.ruler.mouseSensitivity });
+const input = createInput({ element: el, toLogical, slot: ME, blockIds: listPlugins(PLUGIN_KIND.BLOCK).filter(b => b.id !== 0 && !b.mapOnly && b.cost !== null).map(b => b.id), weaponDefs: ["cannon"], sensitivity: options.sensitivity });
 input.setLook(Math.PI / 2, 0); // face the enemy (east)
 const unlockAudio = () => { sfx.unlock(); };
 globalThis.addEventListener("pointerdown", unlockAudio);
 globalThis.addEventListener("keydown", unlockAudio);
-globalThis.addEventListener("keydown", (e) => { if (menu && (e.code === "Enter" || e.code === "NumpadEnter")) globalThis.location.reload(); });
+sfx.setVolume(options.volume / 10);
 
-const rig = createCameraRig(camera, { seed: SEED, golden: GOLDEN || DEMO });
+/* ------------------------------------------------------------------ in-match menus (pause, end screen) */
+function openMenu(screen, extra = {}) {
+  if (menu && menu.screen === SCREEN.OVER) return;
+  menu = createMenu({ maps: MAPS, screen, settings: settings ?? defaultSettings(MAPS), options: { ...options, lang: LANG }, ...extra });
+  input.unlock(); input.blur();
+}
+/** Leave the page for the title menu or the setup screen (URL params would otherwise re-boot a match). */
+function navigate(next) {
+  safe(() => session.setItem(FLOW_KEY, flowRecord(next, settings ?? defaultSettings(MAPS))));
+  globalThis.location.href = globalThis.location.pathname;
+}
+function handleMenuEvent(ev) {
+  if (!ev) return;
+  if (ev.type === MENU_EVENT.RESUME) { menu = null; input.blur(); input.sample({}); }
+  else if (ev.type === MENU_EVENT.RESTART) { if (settings) navigate("match"); else globalThis.location.reload(); }
+  else if (ev.type === MENU_EVENT.TITLE) navigate("main");
+  else if (ev.type === MENU_EVENT.SETUP) navigate("skirmish");
+  else if (ev.type === MENU_EVENT.OPTIONS) {
+    options = ev.options; if (!GOLDEN) saveOptions(storage, options);
+    LANG = LANG_PARAM ?? options.lang; input.setSensitivity(options.sensitivity); sfx.setVolume(options.volume / 10);
+  }
+}
+globalThis.addEventListener("keydown", (e) => {
+  if (!menu || GOLDEN) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  handleMenuEvent(menu.key(e.code));
+}, true);
+for (const type of ["mousedown", "mousemove"]) {
+  globalThis.addEventListener(type, (e) => {
+    if (!menu || GOLDEN) return;
+    e.stopPropagation();
+    const p = toLogical(e.clientX, e.clientY);
+    const ev = menu.pointer(p.x, p.y, type === "mousedown" && e.button === 0);
+    handleMenuEvent(ev);
+  }, true);
+}
+let wasLocked = false;
+document.addEventListener("pointerlockchange", () => {
+  const locked = document.pointerLockElement === el;
+  if (!locked && wasLocked && !menu && !GOLDEN && !view.outcome && cameraMode() === CAMERA_MODE.WALK) openMenu(SCREEN.PAUSE);
+  wasLocked = locked;
+});
+
+const rig = createCameraRig(camera, { seed: MATCH.seed, golden: GOLDEN || DEMO });
 let script = DEMO ? (SCRIPTS[q.get("demo")] ?? SCRIPTS.tb1)() : null;
 
 /**
@@ -220,11 +284,13 @@ function playerCommands() {
   const c = constructionContext(s); s.target = c.target; s.ghost = c.ghost;
   impactHeld = !!s.impactHeld;
   freeLook = s.freeLook || freeLook;
+  if (s.menu && !GOLDEN) { openMenu(SCREEN.PAUSE); return []; }
+  if (ME_IS_AI) return []; // slot 0 set to a computer level in the setup: watch only
   return buildCommands(s, view.tick);
 }
 
 function tick(forcePlayer = false) {
-  if (view.outcome) return;
+  if (view.outcome || (menu && !GOLDEN)) return;
   prev = capture(view);
   let cmds = forcePlayer === true ? playerCommands() : script ? script.next(view) : GOLDEN ? [] : playerCommands();
   for (const c of directorCommands()) queued.push(c);
@@ -262,7 +328,7 @@ function handleEvents(events) {
           log.push(t("hit", LANG, { pct: Math.round(palaceIntegrity(enemy) * 100) }), { tick: view.tick, tone: TONE.GOOD });
         } else log.push(t("miss", LANG), { tick: view.tick, tone: TONE.INFO });
       }
-    } else if (e.type === EV.GAME_OVER) menu = createMenu();
+    } else if (e.type === EV.GAME_OVER) openMenu(SCREEN.OVER, { result: matchResult(view, ME, settings) });
   }
   for (const id of touched) {
     const src = view.castles[id].plot, m = mirrors[id];
@@ -368,7 +434,7 @@ function hudView(mode) {
     } : null,
     morale: { value: meC.morale }, selection, reserved: reservedGold(meC), shelterOn: meC.shelter,
     messages: log.visible(view.tick),
-    enemyLabel: { title: t("enemy", LANG), name: "KI", castle: getCastle(enemy.defId ?? "default")?.name?.[LANG] ?? "" },
+    enemyLabel: { title: t("enemy", LANG), name: settings?.slots?.[1 - ME]?.name ?? "KI", castle: getCastle(enemy.defId ?? "default")?.name?.[LANG] ?? "" },
     minimapOwn: minimapCache.own, minimapEnemy: minimapCache.enemy,
     reticle: w && mode === CAMERA_MODE.WEAPON ? { predicted: predicted(w) } : {},
     castleColor: SLOT_COLORS[ME],
@@ -442,9 +508,15 @@ api.setPose = (p) => {
   } else if (Number.isInteger(p.tick)) stepTo(p.tick);
   chunks.flush(); // goldens must not depend on how many frames the remesh budget gets
   if (p.position && p.camera !== "rig") { freeCamera = { pos: p.position, yaw: -(p.yaw ?? 0), pitch: p.pitch ?? 0, roll: 0, fov: p.fov ?? T.ruler.fovDeg, showRuler: p.showRuler }; lanePose(p); }
+  if (p.matchOver) { // golden end screen: a stubbed outcome over the real stats of the scripted slice
+    openMenu(SCREEN.OVER, { result: matchResult({ ...view, outcome: { tick: view.tick, ...p.matchOver } }, ME, settings) });
+  }
   frame(0);
   return { tick: view.tick, mode: cameraMode() };
 };
+api.openMenu = (screen) => { openMenu(screen); frame(0); return menu?.screen ?? null; };
+api.menuKey = (code) => { if (menu) handleMenuEvent(menu.key(code)); frame(0); return menu?.screen ?? null; };
+Object.defineProperty(api, "menu", { get: () => menu, enumerable: true });
 api.stepTo = (target) => { stepTo(target); frame(0); return view.tick; };
 api.frame = () => frame(0);
 

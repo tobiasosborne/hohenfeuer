@@ -1,0 +1,31 @@
+✔ catapult: validates, fires its whole salvo once, lands, damages and replays identically (358.208633ms)
+✔ cannon: validates, fires its whole salvo once, lands, damages and replays identically (181.937574ms)
+✔ double-cannon: validates, fires its whole salvo once, lands, damages and replays identically (242.713006ms)
+✔ fire-catapult: validates, fires its whole salvo once, lands, damages and replays identically (161.044052ms)
+✔ ballista: validates, fires its whole salvo once, lands, damages and replays identically (128.308732ms)
+✔ rocket: validates, fires its whole salvo once, lands, damages and replays identically (120.268149ms)
+✔ trebuchet: validates, fires its whole salvo once, lands, damages and replays identically (94.752058ms)
+✔ arcaballista: validates, fires its whole salvo once, lands, damages and replays identically (131.861442ms)
+✔ fat-freda: validates, fires its whole salvo once, lands, damages and replays identically (85.36098ms)
+✔ hellfire: validates, fires its whole salvo once, lands, damages and replays identically (105.898654ms)
+✔ all twelve views use kit-v1 paths, canonical nodes and an absent-model fallback (20.55406ms)
+✔ zeppelin and bomb are registered map-only unavailable stubs with no firing bill (245.644512ms)
+✔ catapult: production terrain landing stays inside the declared range bound (52.118094ms)
+✔ cannon: production terrain landing stays inside the declared range bound (28.433633ms)
+✔ double-cannon: production terrain landing stays inside the declared range bound (38.710621ms)
+✔ fire-catapult: production terrain landing stays inside the declared range bound (44.369217ms)
+✔ ballista: production terrain landing stays inside the declared range bound (52.688058ms)
+✔ rocket: production terrain landing stays inside the declared range bound (59.170946ms)
+✔ trebuchet: production terrain landing stays inside the declared range bound (46.531028ms)
+✔ arcaballista: production terrain landing stays inside the declared range bound (45.386813ms)
+✔ fat-freda: production terrain landing stays inside the declared range bound (46.64179ms)
+✔ hellfire: production terrain landing stays inside the declared range bound (43.930258ms)
+✔ available kit GLBs contain every named view part; absent assets retain the fallback contract (7.662152ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2358.435109

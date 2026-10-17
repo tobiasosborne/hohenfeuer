@@ -1,0 +1,13 @@
+captured tb1-spawn
+captured tb1-first-shot
+captured rampart-north
+captured weapon-view-cannon
+captured courtyard-palace
+captured crew-at-cannon
+captured cannon-sight
+captured muzzle-flash
+captured smoke-trail
+captured impact-dust
+captured impact-settle
+captured impact-clear
+{"whole": 29.661, "sky": 30.419, "ground": 36.841, "stone-mask": 41.565}

@@ -1,5 +1,5 @@
 // src/sim/damage.js - owns swept entity intersections and index-ordered blast damage.
-import { BLOCK, EV } from '../contracts.js';
+import { BLOCK, EV, META, RNG_STREAM } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { sqrt } from '../core/fmath.js';
 import { xyz, indexToCell, cellToWorld, setCell } from '../world/grid.js';
@@ -117,6 +117,67 @@ export function applyBlast(ctx, blast) {
       if (weapon.hp === 0) ctx.emit?.(EV.WEAPON_DESTROYED, { weaponId: weapon.id, slot: weapon.slot });
     }
   }
-  damagePeople(ctx, { pos, radius: radius + T.people.splashExtraM, peak: T.people.splashPeak, sourceSlot: blast.sourceSlot });
+  // A bolt with no explosive payload never produces a one-metre people blast.
+  if (splash > 0 && radius > 0) damagePeople(ctx, { pos, radius: radius + T.people.splashExtraM, peak: T.people.splashPeak, sourceSlot: blast.sourceSlot });
+  igniteBlocks(ctx, { ...blast, ignite: blast.ignite ?? blast.projectile?.payload.ignite });
   return { cells, destroyed };
+}
+
+/** Count capsule hits along one swept flight, never restarting its age or force state.
+ * The sim excludes these ids on the remaining segment; blocks/terrain still stop it. */
+export function piercePerson(projectile, hit) {
+  if (hit.kind !== 'person' || !(projectile.payload.pierce > 0)) return false;
+  projectile.piercedPeople ??= [];
+  projectile.piercedPeople.push(hit.person.id);
+  return projectile.piercedPeople.length < projectile.payload.pierce;
+}
+function igniteCell(ctx, castle, index, sourceSlot) {
+  const plot = castle.plot;
+  if (!ctx.getBlock?.(plot.type[index])?.burnable || plot.hp[index] <= 0 || plot.meta[index] & META.BURNING_BIT) return;
+  castle.fires ??= [];
+  castle.fires.push({ index, remainingS: T.fire.burnS, secondS: 0, sourceSlot });
+  castle.fires.sort((a, b) => a.index - b.index);
+  plot.meta[index] |= META.BURNING_BIT;
+}
+/** Ignition radius is independent of explosive splash, and stone never starts a fire. */
+export function igniteBlocks(ctx, { pos, ignite = 0, sourceSlot }) {
+  if (!(ignite > 0)) return;
+  pos = xyz(pos);
+  for (const castle of [...ctx.state.castles].sort((a, b) => a.id - b.id)) {
+    const p = castle.plot;
+    const lo = { x: Math.max(0, Math.floor(pos.x - ignite - p.origin.x)), y: Math.max(0, Math.floor(pos.y - ignite - p.origin.y)), z: Math.max(0, Math.floor(pos.z - ignite - p.origin.z)) };
+    const hi = { x: Math.min(p.width - 1, Math.floor(pos.x + ignite - p.origin.x)), y: Math.min(p.height - 1, Math.floor(pos.y + ignite - p.origin.y)), z: Math.min(p.depth - 1, Math.floor(pos.z + ignite - p.origin.z)) };
+    for (let y = lo.y; y <= hi.y; y++) for (let z = lo.z; z <= hi.z; z++) for (let x = lo.x; x <= hi.x; x++)
+      if (distance(pos, cellToWorld(p, x, y, z)) <= ignite) igniteCell(ctx, castle, x + p.width * z + p.width * p.depth * y, sourceSlot);
+  }
+}
+/** Damage/spread once per fire-second in castle/cell order. New fires wait until the
+ * next tick, preventing same-tick flood fill. Only the fire RNG stream is consumed. */
+export function tickFire(ctx, dt) {
+  const neighbours = [[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
+  for (const castle of ctx.state.castles) {
+    if (!castle.fires?.length) continue;
+    const p = castle.plot, active = [], pending = [];
+    for (const fire of castle.fires) {
+      if (!ctx.getBlock?.(p.type[fire.index])?.burnable || p.hp[fire.index] <= 0) { p.meta[fire.index] &= ~META.BURNING_BIT; continue; }
+      const step = Math.min(dt, fire.remainingS);
+      fire.remainingS -= step; fire.secondS += step;
+      while (fire.secondS + 1e-9 >= 1) {
+        fire.secondS = Math.max(0, fire.secondS - 1);
+        damageBlock(ctx, p, fire.index, T.fire.dps, fire.sourceSlot);
+        const c = indexToCell(p, fire.index);
+        for (const [dx,dy,dz] of neighbours) {
+          const x = c.x + dx, y = c.y + dy, z = c.z + dz;
+          if (x < 0 || x >= p.width || y < 0 || y >= p.height || z < 0 || z >= p.depth) continue;
+          const index = x + p.width * z + p.width * p.depth * y;
+          if (ctx.getBlock?.(p.type[index])?.burnable && p.hp[index] > 0 && !(p.meta[index] & META.BURNING_BIT)
+            && ctx.rng(RNG_STREAM.FIRE)() < T.fire.spreadP) pending.push({ index, sourceSlot: fire.sourceSlot });
+        }
+      }
+      if (fire.remainingS > 1e-9 && p.hp[fire.index] > 0) active.push(fire);
+      else p.meta[fire.index] &= ~META.BURNING_BIT;
+    }
+    castle.fires = active;
+    for (const fire of pending) igniteCell(ctx, castle, fire.index, fire.sourceSlot);
+  }
 }

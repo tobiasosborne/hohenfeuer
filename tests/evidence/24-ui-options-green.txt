@@ -1,0 +1,11 @@
+✔ defaults when nothing is stored, storage is missing, broken or throws (2.803243ms)
+✔ save then load round-trips every allowed value (1.120542ms)
+✔ sanitize snaps to the nearest allowed value and drops unknown keys (0.50278ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.929548

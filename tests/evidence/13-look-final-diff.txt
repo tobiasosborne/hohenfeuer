@@ -1,0 +1,14 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-spawn: FAIL 291231 px differ (37.032%)
+tb1-first-shot: FAIL 184681 px differ (23.483%)
+rampart-north: FAIL 196733 px differ (25.016%)
+weapon-view-cannon: FAIL 92263 px differ (11.732%)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (0 px differ)
+example-wall: FAIL 6585 px differ (2.858%)
+courtyard-palace: FAIL 255359 px differ (32.471%)
+crew-at-cannon: FAIL 246683 px differ (31.367%)
+cannon-sight: FAIL 182038 px differ (23.147%)

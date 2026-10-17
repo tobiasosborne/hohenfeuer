@@ -7,7 +7,6 @@ import { createPlot, setCell } from "../../src/world/grid.js";
 import { compassGeometry, LETTER_RADIUS } from "../../src/ui/compass.js";
 import { topDown, MAP_CODE, binCodes } from "../../src/ui/minimap.js";
 import { createMessageLog, eventsToMessages } from "../../src/ui/console.js";
-import { createMenu, SCREEN } from "../../src/ui/menus.js";
 import { createHud, formatReadouts } from "../../src/ui/hud.js";
 import { demoView, demoMinimap } from "../../src/ui/demo.js";
 import { stoneTexture, steelTexture, hashNoise } from "../../src/ui/paint.js";
@@ -62,32 +61,6 @@ test("message log keeps the newest N within their lifetime; events map through E
     { type: EV.BLOCK_DAMAGED, payload: {} },
   ], { lang: "de", slot: 0 });
   assert.deepEqual(msgs.map((m) => m.text), ["Der Wind hat gedreht!", "Der Herrscher ist gefallen!", "Sieg!"]);
-});
-
-test("menus: keyboard navigation through title and skirmish setup", () => {
-  const m = createMenu();
-  assert.equal(m.screen, SCREEN.TITLE);
-  assert.equal(m.focusId, "skirmish");
-  assert.equal(m.key("Enter"), null);
-  assert.equal(m.screen, SCREEN.SKIRMISH);
-  const before = m.settings.windStrength;
-  assert.equal(before, TUNING.wind.defaultStrength);
-  while (m.focusId !== "windStrength") m.key("ArrowDown");
-  m.key("ArrowRight");
-  assert.equal(m.settings.windStrength, before + 1);
-  m.key("ArrowUp"); m.key("ArrowDown");
-  assert.equal(m.focusId, "windStrength");
-  for (let i = 0; i < 20; i++) m.key("ArrowRight");
-  assert.equal(m.settings.windStrength, TUNING.wind.maxSpeedByStrength.length - 1);
-  while (m.focusId !== "start") m.key("ArrowDown");
-  const ev = m.key("Enter");
-  assert.equal(ev.type, "start");
-  assert.equal(ev.settings.windStrength, TUNING.wind.maxSpeedByStrength.length - 1);
-  m.key("Escape");
-  assert.equal(m.screen, SCREEN.TITLE);
-  // focus wraps
-  m.key("ArrowUp");
-  assert.equal(m.focusId, m.items[m.items.length - 1].id);
 });
 
 test("textures are deterministic RGBA buffers", () => {

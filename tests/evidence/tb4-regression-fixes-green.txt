@@ -1,0 +1,11 @@
+✔ tests/unit/sim-ballistics.test.js (1089.460546ms)
+✔ tests/unit/sim-engine.test.js (21645.655035ms)
+✔ tests/unit/ui-camera.test.js (261.562488ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21707.150017

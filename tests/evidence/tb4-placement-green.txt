@@ -1,0 +1,20 @@
+✔ catapult: castle loader and paid designation accept its id and mount (115.678729ms)
+✔ cannon: castle loader and paid designation accept its id and mount (46.812145ms)
+✔ double-cannon: castle loader and paid designation accept its id and mount (51.631618ms)
+✔ fire-catapult: castle loader and paid designation accept its id and mount (52.008076ms)
+✔ ballista: castle loader and paid designation accept its id and mount (53.911018ms)
+✔ rocket: castle loader and paid designation accept its id and mount (65.910301ms)
+✔ trebuchet: castle loader and paid designation accept its id and mount (55.466463ms)
+✔ arcaballista: castle loader and paid designation accept its id and mount (59.152939ms)
+✔ fat-freda: castle loader and paid designation accept its id and mount (46.342803ms)
+✔ hellfire: castle loader and paid designation accept its id and mount (35.94083ms)
+✔ ground designation checks all nine supports, full 3x3x2 space and unavailable ids (33.167279ms)
+✔ ground weapon mason stays outside its footprint and builds for the ground duration (22.572757ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 654.452743

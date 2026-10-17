@@ -23,12 +23,12 @@
     "height": 768,
     "camera": "rig",
     "position": [
-      110.5,
-      8.25,
-      127.5
+      110.15445133159028,
+      8.85,
+      127.87868383134399
     ],
-    "yaw": -1.557,
-    "pitch": -0.07,
+    "yaw": -1.5585790220309363,
+    "pitch": -0.06981317007977318,
     "fov": 50
   },
   "rampart-north": {
@@ -115,9 +115,9 @@
     "script": "tb2",
     "until": 600,
     "position": [
-      107.0,
+      107,
       10.5,
-      131.0
+      131
     ],
     "yaw": -1.004,
     "pitch": -0.393,
@@ -133,12 +133,12 @@
     "height": 768,
     "camera": "rig",
     "position": [
-      110.5,
-      8.25,
-      127.5
+      110.15445133159028,
+      8.85,
+      127.87868383134399
     ],
-    "yaw": -1.557,
-    "pitch": -0.07,
+    "yaw": -1.5585790220309363,
+    "pitch": -0.06981317007977318,
     "fov": 50
   },
   "muzzle-flash": {
@@ -149,12 +149,12 @@
     "height": 768,
     "camera": "rig",
     "position": [
-      110.5,
-      8.25,
-      127.5
+      110.15445133159028,
+      8.85,
+      127.87868383134399
     ],
-    "yaw": -1.557,
-    "pitch": -0.07,
+    "yaw": -1.5585790220309363,
+    "pitch": -0.06981317007977318,
     "fov": 50
   },
   "smoke-trail": {
@@ -165,12 +165,12 @@
     "height": 768,
     "camera": "rig",
     "position": [
-      110.5,
-      8.25,
-      127.5
+      110.15445133159028,
+      8.85,
+      127.87868383134399
     ],
-    "yaw": -1.557,
-    "pitch": -0.07,
+    "yaw": -1.5585790220309363,
+    "pitch": -0.06981317007977318,
     "fov": 50
   },
   "impact-dust": {
@@ -219,5 +219,29 @@
     "pitch": -0.18,
     "fov": 60,
     "showRuler": false
+  },
+  "menu-title": {
+    "page": "index.html?golden=1&screen=main",
+    "width": 1024,
+    "height": 768
+  },
+  "menu-skirmish": {
+    "page": "index.html?golden=1&screen=skirmish",
+    "width": 1024,
+    "height": 768
+  },
+  "match-over": {
+    "page": "index.html?golden=1",
+    "script": "tb1",
+    "until": "ball-near-enemy",
+    "camera": "rig",
+    "matchOver": {
+      "winners": [
+        0
+      ],
+      "draw": false
+    },
+    "width": 1024,
+    "height": 768
   }
 }

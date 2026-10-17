@@ -1,0 +1,78 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (1751.651878ms)
+✔ tests/unit/ai-aim.test.js (191.149821ms)
+✔ tests/unit/ai-build.test.js (96.932704ms)
+✔ tests/unit/ai-controller.test.js (638.261719ms)
+✔ tests/unit/ai-match.test.js (124908.976266ms)
+✔ tests/unit/ai-pacing.test.js (189238.434694ms)
+✔ tests/unit/ai-slots.test.js (76.408372ms)
+✔ tests/unit/ai-targets.test.js (623.455271ms)
+✔ tests/unit/ai-tb3-match.test.js (388171.653632ms)
+✔ tests/unit/ai-weapon-aim.test.js (1133.695661ms)
+✔ tests/unit/contracts.test.js (155.064746ms)
+✔ tests/unit/npc-brain.test.js (1141.610363ms)
+✔ tests/unit/npc-fixture.test.js (61.347248ms)
+✔ tests/unit/npc-jobs.test.js (179.856388ms)
+✔ tests/unit/npc-morale.test.js (127.314757ms)
+✔ tests/unit/npc-path.test.js (141.165531ms)
+✔ tests/unit/npc-resilience.test.js (243.888436ms)
+✔ tests/unit/npc-sim.test.js (3947.507612ms)
+✔ tests/unit/npc-tb3.test.js (196.645025ms)
+✔ tests/unit/plugin-blocks.test.js (112.659174ms)
+✔ tests/unit/plugin-castle.test.js (281.250773ms)
+✔ tests/unit/plugin-forest.test.js (82.276402ms)
+✔ tests/unit/plugin-registration.test.js (4530.848382ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (301.966337ms)
+✔ tests/unit/plugin-weapon-set.test.js (3484.743322ms)
+✔ tests/unit/render-chunks.test.js (520.008386ms)
+✔ tests/unit/render-mesher.test.js (313.491654ms)
+✔ tests/unit/rules-cleanroom.test.js (5369.94072ms)
+✔ tests/unit/rules-purity.test.js (282.675606ms)
+✔ tests/unit/rules-tb1-boot.test.js (10264.297587ms)
+✔ tests/unit/rules-tb1.test.js (4565.086391ms)
+✔ tests/unit/rules-tb3.test.js (10370.75841ms)
+✖ tests/unit/sim-ballistics.test.js (425.920242ms)
+✔ tests/unit/sim-core.test.js (153.84437ms)
+✔ tests/unit/sim-damage.test.js (154.739718ms)
+✖ tests/unit/sim-engine.test.js (20297.161766ms)
+✔ tests/unit/sim-ruler.test.js (120.846754ms)
+✔ tests/unit/sim-tb3.test.js (8663.854556ms)
+✔ tests/unit/sim-weapon-effects.test.js (3396.797085ms)
+✔ tests/unit/sim-weapon-placement.test.js (1510.336293ms)
+✔ tests/unit/sim-world.test.js (348.433088ms)
+✔ tests/unit/smoke.test.js (144.131346ms)
+✔ tests/unit/tuning.test.js (171.513267ms)
+✔ tests/unit/ui-audio.test.js (164.978991ms)
+✖ tests/unit/ui-camera.test.js (128.255245ms)
+✔ tests/unit/ui-commands.test.js (275.647079ms)
+✔ tests/unit/ui-font.test.js (118.547496ms)
+✔ tests/unit/ui-hud.test.js (252.552539ms)
+✔ tests/unit/ui-input.test.js (125.962494ms)
+✔ tests/unit/ui-interact.test.js (189.731006ms)
+✔ tests/unit/ui-layout.test.js (126.510898ms)
+✔ tests/unit/ui-tb3.test.js (276.880933ms)
+ℹ tests 52
+ℹ suites 0
+ℹ pass 49
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 388212.925461
+
+✖ failing tests:
+
+test at tests/unit/sim-ballistics.test.js:1:1
+✖ tests/unit/sim-ballistics.test.js (425.920242ms)
+  'test failed'
+
+test at tests/unit/sim-engine.test.js:1:1
+✖ tests/unit/sim-engine.test.js (20297.161766ms)
+  'test failed'
+
+test at tests/unit/ui-camera.test.js:1:1
+✖ tests/unit/ui-camera.test.js (128.255245ms)
+  'test failed'

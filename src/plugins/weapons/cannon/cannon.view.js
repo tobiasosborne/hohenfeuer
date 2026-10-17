@@ -1,5 +1,6 @@
-// src/plugins/weapons/cannon/cannon.view.js - owns the cannon kit v0 render description.
+// src/plugins/weapons/cannon/cannon.view.js - owns the cannon kit-v1 render description.
 import { registerWeaponView } from '../../../contracts.js';
+import { weaponView } from '../weapon-view.js';
 import { TUNING } from '../../../tuning.js';
 
 /** Frame, turntable and barrel correspond to the kit's Base -> Yaw -> Pitch tree. */
@@ -25,7 +26,8 @@ export const CANNON_MATERIALS = Object.freeze({
  * @type {import('../../../contracts.js').WeaponView}
  */
 export const CANNON_VIEW = Object.freeze({
-  model: 'assets/kit-v0/cannon.glb',
+  ...weaponView('cannon'),
+  model: 'assets/kit-v1/cannon.glb',
   nodes: Object.freeze({ yaw: CANNON_PARTS.turntable, pitch: CANNON_PARTS.barrel, muzzle: CANNON_PARTS.muzzle, sight: CANNON_PARTS.sight }),
   fx: Object.freeze({ muzzle: 'cannon-flash', trail: 'cannon-smoke', impact: 'stone-impact' }),
   sfx: Object.freeze({ fire: 'cannon-fire', impact: 'cannon-impact' }),

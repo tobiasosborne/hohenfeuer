@@ -1,0 +1,39 @@
+✔ catapult: solves charge at its fixed pitch for both target heights in wind (49.955831ms)
+✔ cannon: solves charge at its fixed pitch for both target heights in wind (23.395683ms)
+✔ double-cannon: solves charge at its fixed pitch for both target heights in wind (22.204679ms)
+✔ fire-catapult: solves charge at its fixed pitch for both target heights in wind (31.587424ms)
+✔ ballista: solves charge at its fixed pitch for both target heights in wind (40.194253ms)
+✔ rocket: solves charge at its fixed pitch for both target heights in wind (87.861903ms)
+✔ trebuchet: solves charge at its fixed pitch for both target heights in wind (34.689805ms)
+✔ arcaballista: solves charge at its fixed pitch for both target heights in wind (29.790304ms)
+✔ fat-freda: solves charge at its fixed pitch for both target heights in wind (34.083375ms)
+✔ hellfire: solves charge at its fixed pitch for both target heights in wind (24.332083ms)
+✔ per-weapon target choice filters unreachable enemies and lobbed guns retain covered targets (67.742054ms)
+✖ weapon choice uses each gun's range and loaded state; placeholders have no aim solution (46.949509ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 503.441343
+
+✖ failing tests:
+
+test at tests/unit/ai-weapon-aim.test.js:37:1
+✖ weapon choice uses each gun's range and loaded state; placeholders have no aim solution (46.949509ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-weapon-aim.test.js:47:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

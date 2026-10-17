@@ -10,7 +10,7 @@ import { createSupport, queueSupport, stepSupport } from '../world/support.js';
 import { createWind, tickWind, windVector } from './wind.js';
 import { integrateProjectile } from './ballistics.js';
 import { createWeapon, tickWeapons } from './weapons.js';
-import { applyBlast, damageBlock, damagePeople, damagePerson, segmentAabb, segmentCapsule } from './damage.js';
+import { applyBlast, damageBlock, damagePeople, damagePerson, segmentAabb, segmentCapsule, piercePerson } from './damage.js';
 import { createRuler, tickRuler } from './ruler.js';
 import { tickEconomy } from './economy.js';
 import { createStats, checkRules } from './rules.js';
@@ -51,7 +51,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     state.rulers.push(createRuler(slot.id, loaded.rulerSpawn, slot.id));
     for (const placement of loaded.weapons) {
       const weaponDef = getWeapon(placement.id);
-      if (!weaponDef || weaponDef.id !== 'cannon') throw new TypeError('Phase 1 supports the cannon weapon only');
+      if (!weaponDef) throw new TypeError(`Unknown weapon: ${placement.id}`);
       state.weapons.push(createWeapon(weaponDef, { id: state.weapons.length, slot: slot.id, pos: placement.pos, facing: placement.facing }));
     }
     support.set(slot.id, createSupport(castle.plot, type => type !== BLOCK.AIR && (type === BLOCK.LADDER || type === BLOCK.DOOR || getBlock(type)?.solid)));
@@ -127,7 +127,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       const hit = raycast(plot, a, b, type => getBlock(type)?.projectileSolid ?? false);
       if (hit) consider(hit.t, { kind: 'block', plot, index: hit.index, cell: hit.cell });
     }
-    for (const person of [...state.rulers, ...state.npcs]) if (person.hp > 0) consider(segmentCapsule(a, b, person), { kind: 'person', person });
+    for (const person of [...state.rulers, ...state.npcs]) if (person.hp > 0 && !projectile.piercedPeople?.includes(person.id)) consider(segmentCapsule(a, b, person), { kind: 'person', person });
     for (const weapon of state.weapons) if (weapon.hp > 0) consider(segmentAabb(a, b, { min: { x: weapon.pos.x - 0.5, y: weapon.pos.y, z: weapon.pos.z - 0.5 }, max: { x: weapon.pos.x + 0.5, y: weapon.pos.y + 1, z: weapon.pos.z + 0.5 } }), { kind: 'weapon', weaponId: weapon.id });
     consider(terrainHit(a, b), { kind: 'terrain' });
     if (mapDef.water && a.y > mapDef.water.y && b.y <= mapDef.water.y) consider((a.y - mapDef.water.y) / (a.y - b.y), { kind: 'water' });
@@ -140,11 +140,21 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
       for (let substep = 0; substep < K.SUBSTEPS; substep++) {
         const before = { ...projectile.pos };
         integrateProjectile(projectile, windVector(state.wind)); projectile.age += K.SUBSTEP_DT;
-        hit = collision(projectile, before, projectile.pos);
-        if (hit) {
-          projectile.pos = { x: before.x + (projectile.pos.x - before.x) * hit.t, y: before.y + (projectile.pos.y - before.y) * hit.t, z: before.z + (projectile.pos.z - before.z) * hit.t };
-          impacts.push({ projectile, hit, time: substep + hit.t }); break;
+        let start = before, startT = 0;
+        // Re-test the unconsumed swept segment after a piercing capsule hit. Impacts
+        // retain their own position/payload and the original substep fraction.
+        while ((hit = collision(projectile, start, projectile.pos))) {
+          const t = startT + (1 - startT) * hit.t;
+          const pos = { x: before.x + (projectile.pos.x - before.x) * t, y: before.y + (projectile.pos.y - before.y) * t, z: before.z + (projectile.pos.z - before.z) * t };
+          if (piercePerson(projectile, hit)) {
+            impacts.push({ projectile: { ...projectile, pos, payload: { ...projectile.payload } }, hit, time: substep + t });
+            start = pos; startT = t;
+          } else {
+            projectile.pos = pos;
+            impacts.push({ projectile, hit, time: substep + t }); break;
+          }
         }
+        if (hit) break;
         if (projectile.age >= T.sim.projectileMaxLifeS || projectile.pos.y < T.sim.projectileMinY || projectile.pos.x < 0 || projectile.pos.x > mapDef.size[0] || projectile.pos.z < 0 || projectile.pos.z > mapDef.size[1]) { hit = { kind: 'void' }; break; }
       }
       if (!hit) alive.push(projectile);

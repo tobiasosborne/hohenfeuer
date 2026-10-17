@@ -20,7 +20,8 @@ try {
   const live = await browser.newPage({ viewport: { width: 1024, height: 768 } });
   live.setDefaultTimeout(60000);
   watch(live, "live");
-  await live.goto(report.url);
+  // The title screen owns the bare URL; the live renderer smoke explicitly starts a match.
+  await live.goto(new URL('index.html?play=1', report.url).href);
   await live.waitForFunction(() => window.__hohenfeuer?.ready === true);
   report.checks.push("ready");
   report.renderer = await webglRenderer(live);

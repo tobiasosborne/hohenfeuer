@@ -3,7 +3,7 @@ import { BLOCK, META, JOB, ROLE, NPC_STATE, EV, K } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { blockDef, cellOf, indexOf, typeAt, localCell, feet, distanceSq, manhattan, ticks,
   ownNpcs, ownWeapons, operatorCell, weaponDef, workSpeed } from './model.js';
-import { buildSiteReady, personOverlapsCell } from './designations.js';
+import { buildSiteReady, personOverlapsCell, personOverlapsWeaponSite } from './designations.js';
 import { refund, demolitionRefund } from '../sim/economy.js';
 import { isStandable, pathValid, findPathToAny } from './path.js';
 
@@ -135,7 +135,9 @@ function goalsFor(api, castle, npc, job) {
   if (job.target.cell) {
     const cells = job.kind === JOB.WORK ? [job.target.cell] : workCells(castle.plot, job.target.cell);
     const sites = (castle.npcDesignations ?? []).filter(d => d.kind === JOB.BUILD);
-    return job.kind === JOB.BUILD ? cells.filter(c => ![job.target, ...sites].some(d => personOverlapsCell(castle.plot, d.cell, { ...npc, pos: feet(castle.plot, c) }))) : cells;
+    return job.kind === JOB.BUILD ? cells.filter(c => ![{ ...job.target, weapon: job.weapon }, ...sites].some(d => d.weapon
+      ? personOverlapsWeaponSite(castle.plot, d.cell, d.weapon, { ...npc, pos: feet(castle.plot,c) })
+      : personOverlapsCell(castle.plot, d.cell, { ...npc, pos: feet(castle.plot,c) }))) : cells;
   }
   const w = ownWeapons(api, castle).find(w => w.id === job.target.weaponId);
   if (job.kind === JOB.CREW) return workCells(castle.plot, localCell(castle.plot, w.pos));
@@ -238,7 +240,7 @@ export function tickWork(api, castle, npc) {
   if (!buildReady(api, castle, job)) return;
   const def = blockDef(job.block ?? p.type[i]);
   if (!job.weapon && (!def || job.kind === JOB.DEMOLISH && p.type[i] === BLOCK.AIR)) { finishJob(api, castle, job); return; }
-  const buildS = job.weapon ? T.weaponRules.buildWallS : def.buildS;
+  const buildS = job.weapon ? (weaponDef({ defId: job.weapon }).mount === 'ground' ? T.weaponRules.buildGroundS : T.weaponRules.buildWallS) : def.buildS;
   job.progress = Math.min(1, job.progress + speed * K.DT / Math.max(K.DT, buildS)); npc.lastProgressTick = api.tick;
   if (job.kind === JOB.BUILD) castle.lastRepairProgressTick = api.tick;
   if (job.progress >= 1 - 1e-9) {

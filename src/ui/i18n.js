@@ -73,6 +73,50 @@ const de = {
   off: "Aus",
   language: "Sprache",
   langName: "Deutsch",
+  // title, setup, options, pause, end screen (main menu, scenario and hot-seat captures)
+  mainMenu: "Hauptmenü",
+  tutorial: "Tutorial",
+  credits: "Mitwirkende",
+  exit: "Beenden",
+  pressKey: "Taste drücken",
+  seed: "Startwert",
+  slotTeam: "Team",
+  slotController: "Spieler/KI-Stufe",
+  slotName: "Name",
+  human: "Mensch",
+  aiLevelN: "KI {n}",
+  settings: "Einstellungen",
+  sensitivity: "Mausempfindlichkeit",
+  volume: "Lautstärke",
+  restart: "Neustart",
+  title: "Zum Titel",
+  continue: "Weiter",
+  draw: "Unentschieden!",
+  winner: "Sieger: {name}",
+  duration: "Spieldauer {m}:{ss}",
+  shots: "Schüsse",
+  hits: "Treffer",
+  damage: "Schaden",
+  losses: "Verluste",
+  version: "Hohenfeuer, Version 0.4",
+  tutorialStub: "Das Tutorial folgt in einer späteren Version.",
+  tutorialHint: "Bis dahin: Gefecht wählen, mit E die Kanone bemannen,",
+  tutorialHint2: "mit den Pfeiltasten zielen und mit der Leertaste feuern.",
+  creditsLine1: "Hohenfeuer - eine Neuinterpretation von Ballerburg",
+  creditsLine2: "Burg, Geschütze und Gelände: prozedural und in Blender",
+  creditsLine3: "Oberfläche: von Hand nachgezeichnet",
+  creditsLine4: "three.js, vite, Playwright",
+  helpMap: "Die Landschaft für das Gefecht.",
+  helpSeed: "Startwert für Wind, Gelände und Streuung.",
+  helpSlot: "Mensch oder Computergegner (KI 1 bis 10).",
+  helpTactic: "Zauderer bauen, Draufgänger schießen.",
+  helpWind: "Je stärker der Wind, desto mehr treiben die Kugeln ab.",
+  helpGold: "Gold zu Beginn des Gefechts.",
+  helpStart: "Das Gefecht beginnen.",
+  helpBack: "Zurück zum Hauptmenü.",
+  helpSensitivity: "Wie schnell die Maus den Blick dreht.",
+  helpLanguage: "Sprache der Oberfläche.",
+  helpVolume: "Lautstärke der Geräusche.",
 };
 
 const en = {
@@ -136,6 +180,49 @@ const en = {
   off: "Off", // Aus
   language: "Language", // Sprache
   langName: "English",
+  mainMenu: "Main Menu", // Hauptmenü
+  tutorial: "Tutorial", // Tutorial
+  credits: "Credits", // Mitwirkende
+  exit: "Exit", // Beenden
+  pressKey: "Press any key", // Taste drücken
+  seed: "Seed", // Startwert
+  slotTeam: "Team", // Team
+  slotController: "Player/AI level", // Spieler/KI-Stufe
+  slotName: "Name", // Name
+  human: "Human", // Mensch
+  aiLevelN: "AI {n}", // KI {n}
+  settings: "Settings", // Einstellungen
+  sensitivity: "Mouse sensitivity", // Mausempfindlichkeit
+  volume: "Volume", // Lautstärke
+  restart: "Restart", // Neustart
+  title: "Back to title", // Zum Titel
+  continue: "Continue", // Weiter
+  draw: "Draw!", // Unentschieden!
+  winner: "Winner: {name}", // Sieger: {name}
+  duration: "Duration {m}:{ss}", // Spieldauer
+  shots: "Shots", // Schüsse
+  hits: "Hits", // Treffer
+  damage: "Damage", // Schaden
+  losses: "Losses", // Verluste
+  version: "Hohenfeuer, version 0.4",
+  tutorialStub: "The tutorial will follow in a later version.",
+  tutorialHint: "Until then: pick Skirmish, press E to man the cannon,",
+  tutorialHint2: "aim with the arrow keys and fire with Space.",
+  creditsLine1: "Hohenfeuer - a re-imagining of Ballerburg",
+  creditsLine2: "Castle, guns and terrain: procedural and Blender",
+  creditsLine3: "Interface: redrawn by hand",
+  creditsLine4: "three.js, vite, Playwright",
+  helpMap: "The landscape for the battle.",
+  helpSeed: "Seed for wind, terrain and scatter.",
+  helpSlot: "Human or computer opponent (AI 1 to 10).",
+  helpTactic: "Worriers build, daredevils shoot.",
+  helpWind: "The stronger the wind, the more the balls drift.",
+  helpGold: "Gold at the start of the battle.",
+  helpStart: "Begin the battle.",
+  helpBack: "Back to the main menu.",
+  helpSensitivity: "How fast the mouse turns the view.",
+  helpLanguage: "Interface language.",
+  helpVolume: "Sound volume.",
 };
 
 export const STRINGS = Object.freeze({ de: Object.freeze(de), en: Object.freeze(en) });

@@ -2,7 +2,7 @@
 import { BLOCK, TRAJ } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { vector, geometryAim } from './aim.js';
-import { launchVelocity, launchSpeed, integrateProjectile } from '../sim/ballistics.js';
+import { createFlightProjectile, integrateProjectile, weaponAvailable } from '../sim/ballistics.js';
 import { blockTarget, firstBlockOnLine, publicView, shooterPosition, visibleTarget, weaponDefinition } from './view.js';
 
 /** Visible rulers share palace's immediate-elimination value until tuning defines ruler. */
@@ -65,8 +65,12 @@ export function collectTargets(view, slot, weapon) {
 /** Straight weapons require a clear DDA segment; lobbed weapons can attack covered blocks. */
 export function selectTarget(view, slot, weapon, { ballistic = false } = {}) {
   if (ballistic) return selectBallisticTarget(view, slot, weapon);
-  const lobbed = weaponDefinition(weapon)?.traj === TRAJ.LOBBED;
-  return rankTargets(collectTargets(view, slot, weapon).filter(t => lobbed || visibleTarget(view, shooterPosition(weapon, t.pos), t)), slot.aiTactic)[0] ?? null;
+  const def = weaponDefinition(weapon);
+  if (!weaponAvailable(def)) return null;
+  const lobbed = def.traj === TRAJ.LOBBED, wind = publicView(view,slot).wind;
+  return rankTargets(collectTargets(view, slot, weapon).filter(t =>
+    (lobbed || visibleTarget(view, shooterPosition(weapon, t.pos), t))
+    && geometryAim(firingPosition(weapon,t.pos),t.pos,def,wind).reachable), slot.aiTactic)[0] ?? null;
 }
 
 /** Existing selections survive until destroyed/eliminated or the retarget timer expires. */
@@ -93,6 +97,7 @@ export function refreshTarget(view, target) {
  */
 function selectBallisticTarget(view, slot, weapon) {
   const def = weaponDefinition(weapon), seenPalaces = new Set();
+  if (!weaponAvailable(def)) return null;
   const origin = vector(weapon.pos), distance = target => (target.pos.x - origin.x) ** 2 + (target.pos.z - origin.z) ** 2;
   const candidates = rankTargets(collectTargets(view, slot, weapon), slot.aiTactic).sort((a, b) =>
     scoreTarget(b, slot.aiTactic) - scoreTarget(a, slot.aiTactic)
@@ -101,16 +106,15 @@ function selectBallisticTarget(view, slot, weapon) {
   const air = publicView(view, slot).wind;
   for (const target of candidates) {
     if (target.kind === 'shieldWall') continue;
-    if (target.kind === 'weapon' && !visibleTarget(view, shooterPosition(weapon, target.pos), target)) continue;
+    if (target.kind === 'weapon' && def.traj === TRAJ.STRAIGHT && !visibleTarget(view, shooterPosition(weapon, target.pos), target)) continue;
     if (target.kind === 'palace') {
       if (seenPalaces.has(target.slot)) continue;
       seenPalaces.add(target.slot);
     }
-    const from = shooterPosition(weapon, target.pos);
-    if (!weapon.muzzle) from.y = vector(weapon.pos).y + T.weaponRules.wallFootprint[2] / 2;
+    const from = firingPosition(weapon,target.pos);
     const solution = geometryAim(from, target.pos, def, air);
     if (!solution.reachable) continue;
-    const p = { pos: { ...from }, vel: launchVelocity(launchSpeed(def, solution.dial), solution.elevation, solution.azDeg), k: def.k };
+    const p = createFlightProjectile(def, { pos: from, charge: solution.dial, elevation: solution.elevation, azimuth: solution.azDeg });
     let hit = null;
     const h = 1 / T.sim.tickHz / T.sim.substeps;
     for (let time = 0; time < T.sim.projectileMaxLifeS; time += h) {
@@ -127,4 +131,21 @@ function selectBallisticTarget(view, slot, weapon) {
     return target;
   }
   return null;
+}
+
+function firingPosition(weapon,target) {
+  const from = shooterPosition(weapon,target);
+  if (!weapon.muzzle) from.y = vector(weapon.pos).y + T.weaponRules.wallFootprint[2] / 2;
+  return from;
+}
+/** Choose a feasible owned gun for a public target; loaded guns and lower fire costs
+ * win ties deterministically. The controller also calls selectTarget per weapon. */
+export function selectWeaponForTarget(view, slot, target, weapons = view.weapons ?? []) {
+  const wind = publicView(view,slot).wind;
+  return weapons.filter(w => w.slot === slot.id && w.hp > 0 && weaponAvailable(weaponDefinition(w))
+    && geometryAim(firingPosition(w,target.pos),target.pos,weaponDefinition(w),wind).reachable)
+    .sort((a,b) => {
+      const ad = weaponDefinition(a), bd = weaponDefinition(b);
+      return Number(b.reload >= bd.reloadS) - Number(a.reload >= ad.reloadS) || ad.fireCost - bd.fireCost || a.id - b.id;
+    })[0] ?? null;
 }

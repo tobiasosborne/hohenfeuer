@@ -1,0 +1,39 @@
+✔ catapult: castle loader and paid designation accept its id and mount (106.03836ms)
+✔ cannon: castle loader and paid designation accept its id and mount (55.057536ms)
+✔ double-cannon: castle loader and paid designation accept its id and mount (42.514133ms)
+✔ fire-catapult: castle loader and paid designation accept its id and mount (62.863158ms)
+✔ ballista: castle loader and paid designation accept its id and mount (86.235702ms)
+✔ rocket: castle loader and paid designation accept its id and mount (97.715451ms)
+✔ trebuchet: castle loader and paid designation accept its id and mount (67.175623ms)
+✔ arcaballista: castle loader and paid designation accept its id and mount (68.008158ms)
+✔ fat-freda: castle loader and paid designation accept its id and mount (58.771167ms)
+✔ hellfire: castle loader and paid designation accept its id and mount (46.45858ms)
+✔ ground designation checks all nine supports, full 3x3x2 space and unavailable ids (38.224285ms)
+✖ ground weapon mason stays outside its footprint and builds for the ground duration (6.52432ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 749.275038
+
+✖ failing tests:
+
+test at tests/unit/sim-weapon-placement.test.js:44:1
+✖ ground weapon mason stays outside its footprint and builds for the ground duration (6.52432ms)
+  AssertionError [ERR_ASSERTION]: pending footprint is reserved
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-placement.test.js:52:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

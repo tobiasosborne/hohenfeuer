@@ -40,15 +40,22 @@ test("walk pose: eye height above the feet, FOV 60", () => {
   assert.equal(p.yaw, 1); assert.equal(p.pitch, 0.2); assert.equal(p.roll, 0); assert.equal(p.fov, R.fovDeg);
 });
 
-test("weapon pose: 1.2 m behind and 0.6 m above the yaw pivot along the azimuth, FOV 50", () => {
+test("weapon pose: tuned offset follows yaw, with an explicit sight taking precedence", () => {
   const e = weaponPose({ pivot: [0, 0, 0], azDeg: 90 });
-  assert.ok(nearV(e.pos, [-R.sightBackM, R.sightUpM, 0], 1e-9));
+  assert.ok(nearV(e.pos, [-R.sightBackM, R.sightUpM, R.sightRightM], 1e-9));
   assert.ok(near(e.yaw, 90 * DEG)); assert.equal(e.fov, R.weaponFovDeg);
   const n = weaponPose({ pivot: [10, 5, 10], azDeg: 0 }, { yaw: 0.1, pitch: -0.2 });
-  assert.ok(nearV(n.pos, [10, 5 + R.sightUpM, 10 + R.sightBackM]));
+  assert.ok(nearV(n.pos, [10 + R.sightRightM, 5 + R.sightUpM, 10 + R.sightBackM]));
   assert.ok(near(n.yaw, 0.1)); assert.ok(near(n.pitch, -0.2 + weaponPose({ pivot: [0, 0, 0], azDeg: 0 }).pitch));
   const s = weaponPose({ pivot: [0, 0, 0], azDeg: 0, sight: [1, 2, 3] });
   assert.ok(nearV(s.pos, [1, 2, 3]));
+});
+
+test("cannon sight reproduces the measured shoulder proposal with the final 20 cm clearance", () => {
+  const p = weaponPose({pivot:[112.5,7,127.5],azDeg:89.3});
+  assert.ok(nearV(p.pos,[110.15445133159028,8.85,127.87868383134399],1e-8));
+  assert.equal(p.pitch,R.weaponViewPitchDeg*DEG);
+  assert.equal(p.fov,50);
 });
 
 test("impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it", () => {

@@ -1,0 +1,61 @@
+✔ head bob: seeded, stepped, amplitude and frequency per DESIGN 5, off when disabled (8.278209ms)
+✔ walk pose: eye height above the feet, FOV 60 (2.384681ms)
+✖ weapon pose: tuned offset follows yaw, with an explicit sight taking precedence (24.425696ms)
+✖ cannon sight reproduces the measured low-breech proposal at TB1 azimuth (1.061181ms)
+✔ impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it (0.595068ms)
+✔ death pose: drops to 0.3 m and rolls 70 deg over 3 s (0.62256ms)
+✔ ghost pose passes through position and look (0.402519ms)
+✔ applyPose maps clockwise yaw to three's YXZ euler and updates FOV once (1.233679ms)
+✔ rig switches modes via CAMERA_MODE and runs the death clock in ticks (3.963349ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 232.589973
+
+✖ failing tests:
+
+test at tests/unit/ui-camera.test.js:43:1
+✖ weapon pose: tuned offset follows yaw, with an explicit sight taking precedence (24.425696ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(nearV(e.pos, [-R.sightBackM, R.sightUpM, R.sightRightM], 1e-9))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-camera.test.js:45:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-camera.test.js:54:1
+✖ cannon sight reproduces the measured low-breech proposal at TB1 azimuth (1.061181ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(nearV(p.pos,[110.15445133159028,8.65,127.87868383134399],1e-8))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-camera.test.js:56:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

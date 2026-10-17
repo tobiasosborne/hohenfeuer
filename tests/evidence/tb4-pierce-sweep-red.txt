@@ -1,0 +1,37 @@
+✔ double-cannon: delayed rounds retain paid aim and survive restore; destruction cancels the burst (1580.998479ms)
+✔ hellfire: delayed rounds retain paid aim and survive restore; destruction cancels the burst (1196.947406ms)
+✔ rocket uses fixed native speed 1000, charge burn ticks, thrust 45 and the 24/28 payload (6.050528ms)
+✔ fire ignites only burnable cells, burns 2 dp/s for 10s and spreads on the independent seeded stream (7.321334ms)
+✔ ballista kills at most three people along its actual collision line and stops at a wall (121.351918ms)
+✖ piercing resolves multiple capsules in the same swept tick without restarting the flight lifetime (77.235076ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3001.049661
+
+✖ failing tests:
+
+test at tests/unit/sim-weapon-effects.test.js:94:1
+✖ piercing resolves multiple capsules in the same swept tick without restarting the flight lifetime (77.235076ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 3
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-weapon-effects.test.js:100:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

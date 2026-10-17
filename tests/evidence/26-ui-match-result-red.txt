@@ -1,0 +1,25 @@
+file:///home/tobias/Projects/castle-game/tests/unit/ui-flow.test.js:67
+import { matchResult } from "../../src/ui/flow.js";
+         ^^^^^^^^^^^
+SyntaxError: The requested module '../../src/ui/flow.js' does not provide an export named 'matchResult'
+    at #_instantiate (node:internal/modules/esm/module_job:254:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:369:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.11.1
+✖ tests/unit/ui-flow.test.js (65.481916ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.114516
+
+✖ failing tests:
+
+test at tests/unit/ui-flow.test.js:1:1
+✖ tests/unit/ui-flow.test.js (65.481916ms)
+  'test failed'

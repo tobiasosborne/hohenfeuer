@@ -1,0 +1,13 @@
+✔ bare URL opens the title menu; golden/demo/play URLs keep booting a match directly (3.045549ms)
+✔ session hand-off: start a match, restart it, or come back to setup/title (0.854269ms)
+✔ default settings come from the map and tuning (0.316626ms)
+✔ settingsToMatch builds a map copy with wind/gold and contract-valid slots (1.269808ms)
+✔ matchResult turns sim stats and the outcome into end-screen rows (0.7862ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.309788

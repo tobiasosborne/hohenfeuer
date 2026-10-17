@@ -13,7 +13,7 @@ import { drawText, drawTextIn } from "./font.js";
 import { compassGeometry, drawCompass } from "./compass.js";
 import { drawMinimap } from "./minimap.js";
 import { drawMessages } from "./console.js";
-import { drawMenu } from "./menus.js";
+import { drawMenu } from "./menu-draw.js";
 import { roundRectPath, circlePath, rgb } from "./paint.js";
 import { makeTextures, paintStatic } from "./frame.js";
 
@@ -256,7 +256,7 @@ export function createHud(canvas2d, o = {}) {
       }
     }
     reticle(ctx, v);
-    if (v.menu) drawMenu(ctx, v.menu);
+    if (v.menu) drawMenu(ctx, v.menu, { note });
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     frame.texts = texts;
   }

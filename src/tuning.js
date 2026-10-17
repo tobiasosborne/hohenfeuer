@@ -172,16 +172,20 @@ export const TUNING = deepFreeze({
   // research/11 tables 2.3/2.4. Ground HP follows requested support values 60/96;
   // original removes weapons below half support HP (5.3), unlike our independent entities.
   weapons: {
-    catapult: weapon("ground", 600, 60, 18, 4, 35, "lobbed", 94, 48, 60, 38, 16, 1, 12, 10, 1024, { projRadius: 0.25 }),
-    cannon: weapon("wall", 750, 36, 22, 3, 60, "straight", 80, 52, 40, 22, 11, 1, 16, 20, 640),
-    "double-cannon": weapon("wall", 750, 36, 22, 4, 100, "straight", 80, 52, 40, 22, 11, 2, 16, 20, 640),
-    "fire-catapult": weapon("ground", 750, 60, 24, 4, 100, "lobbed", 90, 40, 70, 38, 11, 1, 8, 4, 153, { ignite: 2, projRadius: 0.25 }),
-    ballista: weapon("wall", 400, 36, 15, 2, 15, "lobbed", 10, 31, 45, 38, 8, 1, 4, 0, 0, { pierce: 3, projRadius: 0.08, controlGuess: true }),
-    rocket: weapon("wall", 800, 36, 30, 3, 100, "lobbed", 54, 55, 60, 68, 20, 1, 24, 28, 1152, { controlGuess: true, nativeK: 1000, nativeThrust: 45 }), // guessed K=60 surrogate; effective child payload
-    trebuchet: weapon("ground", 850, 96, 18, 6, 150, "lobbed", 94, 48, 60, 38, 16, 5, 12, 10, 1024, { projRadius: 0.25 }),
-    arcaballista: weapon("ground", 850, 96, 18, 4, 200, "straight", 10, 31, 45, 20, 14, 4, 24, 12, 320, { projRadius: 0.1 }),
-    "fat-freda": weapon("ground", 850, 96, 22, 6, 150, "lobbed", 90, 76, 38, 38, 11, 1, 40, 48, 1536, { projRadius: 0.3 }),
-    hellfire: weapon("ground", 850, 96, 22, 5, 220, "straight", 80, 52, 40, 22, 14, 5, 16, 20, 640, { intervalS: 9 * NATIVE_TICK_S }),
+    // TB4: maxRangeM is a conservative calm/equal-height bound, not a hard map cap.
+    // Double cannon follows requested D 3.5 stagger; research/11 has simultaneous rounds.
+    // Rocket replaces the old guessed speed-per-charge surrogate: fixed 1000 native
+    // units/tick, 45 thrust, charge native burn ticks, then 53/60 drag on the payload.
+    catapult: weapon("ground", 600, 60, 18, 4, 35, "lobbed", 94, 48, 60, 38, 16, 1, 12, 10, 1024, { maxRangeM: 400, projRadius: 0.25 }),
+    cannon: weapon("wall", 750, 36, 22, 3, 60, "straight", 80, 52, 40, 22, 11, 1, 16, 20, 640, { maxRangeM: 300 }),
+    "double-cannon": weapon("wall", 750, 36, 22, 4, 100, "straight", 80, 52, 40, 22, 11, 2, 16, 20, 640, { maxRangeM: 300, intervalS: 0.3 }),
+    "fire-catapult": weapon("ground", 750, 60, 24, 4, 100, "lobbed", 90, 40, 70, 38, 11, 1, 8, 4, 153, { maxRangeM: 400, ignite: 2, projRadius: 0.25 }),
+    ballista: weapon("wall", 400, 36, 15, 2, 15, "lobbed", 10, 31, 45, 38, 8, 1, 4, 0, 0, { maxRangeM: 1800, pierce: 3, projRadius: 0.08, controlGuess: true }),
+    rocket: weapon("wall", 800, 36, 30, 3, 100, "lobbed", 54, 55, 60, 68, 20, 1, 24, 28, 1152, { maxRangeM: 1000, speedPerCharge: 0, v0: 1000 * NATIVE_M / NATIVE_TICK_S, nativeK: 1000, nativeThrust: 45, propulsion: { initialSpeed: 1000, thrust: 45, massBase: 55, massPerCharge: 2, carrierC: 54, payloadC: 53, payloadM: 60 } }), // fixed-speed powered carrier; effective child payload
+    trebuchet: weapon("ground", 850, 96, 18, 6, 150, "lobbed", 94, 48, 60, 38, 16, 5, 12, 10, 1024, { maxRangeM: 400, projRadius: 0.25, spreadDeg: 1.5 }),
+    arcaballista: weapon("ground", 850, 96, 18, 4, 200, "straight", 10, 31, 45, 20, 14, 4, 24, 12, 320, { maxRangeM: 1600, projRadius: 0.1, spreadDeg: 0.8 }),
+    "fat-freda": weapon("ground", 850, 96, 22, 6, 150, "lobbed", 90, 76, 38, 38, 11, 1, 40, 48, 1536, { maxRangeM: 400, projRadius: 0.3 }),
+    hellfire: weapon("ground", 850, 96, 22, 5, 220, "straight", 80, 52, 40, 22, 14, 5, 16, 20, 640, { maxRangeM: 300, intervalS: 9 * NATIVE_TICK_S }),
   },
 
   weaponRules: {
@@ -231,8 +235,9 @@ export const TUNING = deepFreeze({
     pitchClampDeg: 89, // D 5
     headBobM: 0.03, // D 5
     headBobHz: 2, // D 5
-    sightBackM: 2.0, // D 5 (amended 2026-10-17, lane D: 1.2 put the eye at barrel height)
-    sightUpM: 1.25, // D 5 (amended 2026-10-17, lane D)
+    sightBackM: 2.35, // D 5, 2026-10-17 pass 2: +0.35 m back from the measured pass-1 eye.
+    sightUpM: 1.85, // D 5, 2026-10-17 pass 2: proposal +0.20 m clears the muzzle below the skyline.
+    sightRightM: 0.35, // D 5, 2026-10-17 pass 2: shoulder offset puts the barrel left of centre (original 049).
     weaponViewPitchDeg: -4, // D 5: fixed downward tilt of the weapon view (lane E, shot 04)
     mouseSensitivity: 0.0022, // D 5: radians per pointer-locked pixel (lane E)
     impactBackM: 30, // D 5
