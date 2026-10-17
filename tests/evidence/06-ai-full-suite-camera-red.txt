@@ -1,0 +1,65 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js
+
+✔ tests/unit/ai-accuracy.test.js (620.240125ms)
+✔ tests/unit/ai-aim.test.js (168.007941ms)
+✔ tests/unit/ai-build.test.js (153.694176ms)
+✔ tests/unit/ai-controller.test.js (269.186719ms)
+✔ tests/unit/ai-match.test.js (2246.598995ms)
+✔ tests/unit/ai-slots.test.js (124.229066ms)
+✔ tests/unit/ai-targets.test.js (203.479416ms)
+✔ tests/unit/contracts.test.js (208.213037ms)
+✔ tests/unit/plugin-blocks.test.js (269.648694ms)
+✔ tests/unit/plugin-castle.test.js (273.211909ms)
+✔ tests/unit/plugin-forest.test.js (112.16754ms)
+✔ tests/unit/plugin-registration.test.js (818.829332ms)
+✔ tests/unit/plugin-weapon-conformance.test.js (225.510703ms)
+✔ tests/unit/render-chunks.test.js (711.319691ms)
+✔ tests/unit/render-mesher.test.js (550.421511ms)
+✔ tests/unit/rules-cleanroom.test.js (2528.814848ms)
+✔ tests/unit/rules-purity.test.js (216.589867ms)
+✔ tests/unit/sim-ballistics.test.js (924.78006ms)
+✔ tests/unit/sim-core.test.js (159.553083ms)
+✔ tests/unit/sim-damage.test.js (171.403764ms)
+✔ tests/unit/sim-engine.test.js (16026.480514ms)
+✔ tests/unit/sim-ruler.test.js (192.29785ms)
+✔ tests/unit/sim-world.test.js (562.247602ms)
+✔ tests/unit/smoke.test.js (267.206743ms)
+✔ tests/unit/tuning.test.js (260.684743ms)
+node:internal/modules/esm/resolve:274
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/tobias/Projects/castle-game/src/player/camera.js' imported from /home/tobias/Projects/castle-game/tests/unit/ui-camera.test.js
+    at finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    at moduleResolve (node:internal/modules/esm/resolve:864:10)
+    at defaultResolve (node:internal/modules/esm/resolve:990:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:737:20)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:714:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:293:38)
+    at #link (node:internal/modules/esm/module_job:208:49) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///home/tobias/Projects/castle-game/src/player/camera.js'
+}
+
+Node.js v24.11.1
+✖ tests/unit/ui-camera.test.js (178.021119ms)
+✔ tests/unit/ui-commands.test.js (403.299137ms)
+✔ tests/unit/ui-font.test.js (364.245147ms)
+✔ tests/unit/ui-interact.test.js (160.155849ms)
+✔ tests/unit/ui-layout.test.js (206.108596ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 29
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16416.021182
+
+✖ failing tests:
+
+test at tests/unit/ui-camera.test.js:1:1
+✖ tests/unit/ui-camera.test.js (178.021119ms)
+  'test failed'

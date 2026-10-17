@@ -1,0 +1,3 @@
+rampart-north: ok (0 px differ; 17 calls, 72100 tris, 32.8 ms/frame)
+weapon-view-cannon: ok (0 px differ; 22 calls, 79584 tris, 32.4 ms/frame)
+render goldens: passed (renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver); kit: kit-v0)

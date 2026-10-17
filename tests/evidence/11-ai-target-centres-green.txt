@@ -1,0 +1,14 @@
+✔ target values and tactic weights follow tuning and score ties use id order (3.021457ms)
+✔ straight guns target the wall shielding palace; lobbed guns can retain palace (3.353204ms)
+✔ allies and eliminated castles are excluded; visible rulers are immediate-win targets (0.837195ms)
+✔ magazines, weapons and public crew clusters can be selected without private enemy state (0.882223ms)
+✔ visibility starts at the cannon muzzle above a low own parapet, rather than at its feet (0.5287ms)
+✔ weapons on mounts and people on foundations are aimed at their visible body centres (0.716123ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41.302044

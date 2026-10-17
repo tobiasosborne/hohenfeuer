@@ -1,0 +1,15 @@
+✔ KEYMAP covers DESIGN 4.8 / 5 keys (1.030057ms)
+✔ walk: WASD + Shift -> move axes, Space jump; edge actions fire once (2.283558ms)
+✔ mouse look only while pointer-locked; pitch clamps (0.750634ms)
+✔ weapon view: arrows/WASD tap aim, Ctrl, Space fires, Esc leaves, F/Home actions (1.467024ms)
+✔ weapon view: HUD clicks (fire, pad, buttons) and readout drags keep sub-unit remainders (0.85223ms)
+✔ build mode toggles (B, G), digits pick a block, LMB/RMB become PRIMARY/SECONDARY (0.392527ms)
+✔ Tab holds the job overlay; blur clears held keys (0.34568ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.863996

@@ -1,0 +1,18 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (8.356708ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (1.200734ms)
+✔ move axes quantise to int8 and clamp (0.218203ms)
+✔ walk mode emits one MOVE per tick with integer fields (1.550256ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.76492ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.399897ms)
+✔ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.275817ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (1.563321ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (0.935626ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (40.020692ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141.1382

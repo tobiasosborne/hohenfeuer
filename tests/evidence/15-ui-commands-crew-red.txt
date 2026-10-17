@@ -1,0 +1,45 @@
+✔ yaw quantisation round-trips every uint16 and errs <= half a unit on angles (8.004005ms)
+✔ pitch quantisation round-trips and clamps to the pitch clamp (1.23395ms)
+✔ move axes quantise to int8 and clamp (0.223763ms)
+✔ walk mode emits one MOVE per tick with integer fields (1.464501ms)
+✔ aim taps: 0.5 deg / 0.2 dial per tap, Ctrl x10, az wraps, range clamps (0.373704ms)
+✔ dragUnits truncates toward zero and returns the pixel remainder (0.182163ms)
+✖ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.558484ms)
+✔ ruler orders (DESIGN 4.8): E man, Q crew, R repair/ammo, X shelter, with range gates (0.767503ms)
+✔ build mode: LMB designates a valid ghost, RMB cancels or demolishes; weapon placement (0.466416ms)
+✔ fuzz: every emitted command validates, all fields are integers, seq is dense (32.912036ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.313832
+
+✖ failing tests:
+
+test at tests/unit/ui-commands.test.js:96:1
+✖ weapon view: AIM only on change, FIRE / RESTORE / AUTO_FIRE / LEAVE (1.558484ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'order-crew'
+  - ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-commands.test.js:115:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'order-crew' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

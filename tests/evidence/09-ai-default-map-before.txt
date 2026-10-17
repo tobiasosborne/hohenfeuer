@@ -1,0 +1,1 @@
+{"tick":27000,"outcome":null,"shots":[7,7],"palace":[1,1],"hash":1782110683,"targets":[[null,null],["weapon",null]]}

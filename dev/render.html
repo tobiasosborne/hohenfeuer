@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Hohenfeuer render harness</title>
+<!-- owns: render-only dev harness page (lane D); boots src/render/harness.js with the hard-coded 2-castle test grid. -->
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#000}canvas{display:block}</style>
+</head>
+<body>
+<script type="module">
+import { bootRenderHarness } from "/src/render/harness.js";
+bootRenderHarness();
+</script>
+</body>
+</html>

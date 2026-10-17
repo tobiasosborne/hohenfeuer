@@ -1,0 +1,16 @@
+✔ head bob: seeded, stepped, amplitude and frequency per DESIGN 5, off when disabled (1.689402ms)
+✔ walk pose: eye height above the feet, FOV 60 (0.243793ms)
+✔ weapon pose: 1.2 m behind and 0.6 m above the yaw pivot along the azimuth, FOV 50 (0.316634ms)
+✔ impact pose: 30 m behind, 20 m above the impact on the azimuth, looking at it (0.163449ms)
+✔ death pose: drops to 0.3 m and rolls 70 deg over 3 s (0.22119ms)
+✔ ghost pose passes through position and look (0.145984ms)
+✔ applyPose maps clockwise yaw to three's YXZ euler and updates FOV once (0.245904ms)
+✔ rig switches modes via CAMERA_MODE and runs the death clock in ticks (1.932333ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.879358

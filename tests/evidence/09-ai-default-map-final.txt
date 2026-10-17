@@ -1,0 +1,1 @@
+{"tick":27000,"outcome":null,"shots":[40,7],"palace":[1,1],"weapons":[{"id":0,"hp":36},{"id":1,"hp":11},{"id":2,"hp":0},{"id":3,"hp":36}],"hash":610920164,"targets":[[{},{"kind":"shieldWall","cell":[6,2,19],"reachable":true}],[{"kind":"weapon","reachable":true},{}]]}

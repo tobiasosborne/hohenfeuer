@@ -1,0 +1,61 @@
+// src/render/assets.js - owns cached loading of GLB, textures and JSON, and conversion of block-kit GLBs into mesher block models.
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { modelFromTriangles } from "./mesher.js";
+
+/** Convert the first mesh of a kit block GLB (centred on x/z, y 0..1) into a block model. */
+export function blockModelFromGltf(gltf) {
+  let mesh = null;
+  gltf.scene.updateMatrixWorld(true);
+  gltf.scene.traverse((o) => { if (!mesh && o.isMesh) mesh = o; });
+  if (!mesh) return null;
+  const g = mesh.geometry.clone().applyMatrix4(mesh.matrixWorld);
+  const P = g.getAttribute("position"), N = g.getAttribute("normal"), U = g.getAttribute("uv"), Cc = g.getAttribute("color");
+  const flat = (a, n) => { const out = new Float32Array(a.count * n); for (let i = 0; i < a.count; i++) for (let k = 0; k < n; k++) out[i * n + k] = a.getComponent(i, k); return out; };
+  return modelFromTriangles({
+    positions: flat(P, 3), normals: N ? flat(N, 3) : undefined, uvs: U ? flat(U, 2) : undefined,
+    colors: Cc ? flat(Cc, Cc.itemSize) : undefined, colorSize: Cc ? Cc.itemSize : 3,
+    indices: g.index ? Array.from(g.index.array) : undefined,
+  }, { offset: [0.5, 0, 0.5] });
+}
+
+export function createAssets() {
+  const cache = new Map();
+  const gltf = new GLTFLoader();
+  const tex = new THREE.TextureLoader();
+  const once = (key, make) => { if (!cache.has(key)) cache.set(key, make()); return cache.get(key); };
+  const api = {
+    loadGLB: (url) => once(`glb:${url}`, () => gltf.loadAsync(url)),
+    loadJSON: (url) => once(`json:${url}`, async () => {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`assets: ${url} -> HTTP ${r.status}`);
+      return r.json();
+    }),
+    /** Texture for glTF-style UVs (flipY false), sRGB, bilinear with mipmaps, anisotropy 1 (DESIGN 7.2). */
+    loadTexture: (url, { flipY = false } = {}) => once(`tex:${url}:${flipY}`, async () => {
+      const t = await tex.loadAsync(url);
+      t.flipY = flipY;
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.magFilter = THREE.LinearFilter;
+      t.minFilter = THREE.LinearMipmapLinearFilter;
+      t.anisotropy = 1;
+      t.generateMipmaps = true;
+      t.needsUpdate = true;
+      return t;
+    }),
+    /**
+     * Load a block kit directory with manifest.json {atlas: {file}, blocks: [{id, key, mesh}]}.
+     * @returns {Promise<{models: Array<object|null>, atlas: THREE.Texture, manifest: object}>}
+     */
+    async loadBlockKit(dir) {
+      const manifest = await api.loadJSON(`${dir}manifest.json`);
+      const models = new Array(256).fill(null);
+      const jobs = manifest.blocks.filter((b) => b.id !== 0 && b.mesh).map(async (b) => {
+        models[b.id] = blockModelFromGltf(await api.loadGLB(`${dir}${b.mesh}`));
+      });
+      const [atlas] = await Promise.all([api.loadTexture(`${dir}${manifest.atlas.file}`), ...jobs]);
+      return { models, atlas, manifest };
+    },
+  };
+  return api;
+}

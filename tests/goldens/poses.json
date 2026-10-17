@@ -1,3 +1,39 @@
 {
-  "example-wall": { "position": [0, 1.7, 6], "yaw": 0, "pitch": 0, "width": 640, "height": 360 }
+  "example-wall": {
+    "position": [
+      0,
+      1.7,
+      6
+    ],
+    "yaw": 0,
+    "pitch": 0,
+    "width": 640,
+    "height": 360
+  },
+  "rampart-north": {
+    "page": "dev/render.html",
+    "position": [
+      109.5,
+      12.6,
+      118.5
+    ],
+    "yaw": -1.62,
+    "pitch": -0.06,
+    "fov": 60,
+    "width": 1024,
+    "height": 768
+  },
+  "weapon-view-cannon": {
+    "page": "dev/render.html",
+    "position": [
+      108.5,
+      12.31,
+      127.5
+    ],
+    "yaw": -1.5708,
+    "pitch": -0.06,
+    "fov": 50,
+    "width": 1024,
+    "height": 768
+  }
 }

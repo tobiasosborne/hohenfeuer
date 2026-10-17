@@ -1,0 +1,3 @@
+rampart-north: FAIL 378569 px differ (tolerance 0)
+weapon-view-cannon: FAIL 218283 px differ (tolerance 0)
+render goldens: failed (renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver); kit: kit-v0)

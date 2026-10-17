@@ -1,0 +1,10 @@
+✔ AI-vs-AI seed 1 finishes within 15 simulated minutes with one winner and identical hashes (1586.240427ms)
+ℹ seed 1 winner 0, 2164 ticks (72.13333333333334s), shots 4/4, hash 1506514378
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1652.81694

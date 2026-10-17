@@ -19,10 +19,12 @@ let failed = 0;
 try {
   for (const [name, p] of Object.entries(poses)) {
     const page = await browser.newPage({ viewport: { width: p.width, height: p.height } });
-    await page.goto(url);
+    await page.goto(p.page ? new URL(p.page, url).href : url);
     await page.waitForFunction(() => window.__hohenfeuer?.ready === true);
     await page.evaluate((p) => {
-      const { camera } = window.__hohenfeuer;
+      const h = window.__hohenfeuer;
+      if (h.setPose) return h.setPose(p);
+      const { camera } = h;
       camera.position.set(...p.position);
       camera.rotation.set(p.pitch, p.yaw, 0, "YXZ");
     }, p);
