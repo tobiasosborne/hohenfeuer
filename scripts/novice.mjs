@@ -12,6 +12,9 @@ import { captureBlueprint, withRecoveryMounts, decodeCell } from '../src/ai/buil
 import { geometryAim } from '../src/ai/aim.js';
 import { shooterPosition, visibleTarget } from '../src/ai/view.js';
 import { palaceIntegrity } from '../src/sim/rules.js';
+import { findPathToAny, pathValid } from '../src/npc/path.js';
+import { operatorCell } from '../src/npc/model.js';
+import { rulerPathMove } from '../src/ai/ruler-route.js';
 import { pathObserver } from './critique-metrics.mjs';
 
 export const POLICIES = ['novice','match1','turtle','fire-only','ballista-spam','rebuild-lane','recovery-mounts','ruler-hiding'];
@@ -30,7 +33,7 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100, 
   const original = captureBlueprint(initial.castles[0]);
   const recovery = withRecoveryMounts(initial.castles[0],original,1,initial);
   const aims = new Map(), selected = new Set([firstId]);
-  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null, evasion = null;
+  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null, evasion = null, returnGun = null;
   const returnRoute = [[39.5,28],[37.5,28],[37.5,35.4],[36,35.4],[36,27.5],[23.5,27.5],[23.5,23.5],[20.5,23.5]];
   function options(state) {
     const c = state.castles[0], p = c.plot, live = state.weapons.filter(w=>w.slot===0&&w.hp>0);
@@ -86,7 +89,7 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100, 
         const p=e.payload.impactPos,impactZ=Array.isArray(p)?p[2]:p?.z??r.pos.z;
         const away=r.pos.z-impactZ,sign=Math.abs(away)>.25?(away>0?1:-1):(r.pos.z-state.castles[0].plot.origin.z>26?-1:1);
         const safe={...r.pos,z:r.pos.z+sign*6};
-        if(!evasion)evasion={origin:{...r.pos},safe,weaponId:r.manning};
+        if(!evasion)evasion={origin:{...r.pos},safe,weaponId:r.manning ?? pendingOrder?.weaponId};
         else evasion.safe=safe;
         evasion.until=state.tick+e.payload.etaTicks+60;
       }
@@ -133,6 +136,34 @@ export function createPolicy(initial, policy = 'novice', { initialCharge = 100, 
         }
         if(elapsed>=45){if(live.some(w=>w.id===a.weaponId))emit(C.CMD.MAN_WEAPON,{weaponId:a.weaponId});pendingOrder=null;}
         return out;
+      }
+      // Losing the selected battery is a route change, not a reason to issue
+      // repairs forever beside a ready surviving gun. Use the same physical
+      // stairs/ladders as a ruler; no remote manning or free replacement.
+      if(policy==='novice'&&r.manning===null&&live.length){
+        const plot=c.plot,o=plot.origin,start=[Math.floor(r.pos.x-o.x),Math.floor(r.pos.y-o.y),Math.floor(r.pos.z-o.z)];
+        const distance=w=>Math.hypot(w.pos.x-r.pos.x,w.pos.y-r.pos.y,w.pos.z-r.pos.z);
+        const eye={...r.pos,y:r.pos.y+T.ruler.eye};
+        const canMan=w=>distance(w)<=T.ruler.interactWeaponM&&visibleTarget(state,eye,
+          {slot:0,pos:{...w.pos,y:w.pos.y+C.getWeapon(w.defId).footprint[2]/2}});
+        // E is legal from any visible point in reach, including a damaged ledge;
+        // requiring a path to the exact authored operator cell can strand us.
+        const nearby=[...live].sort((a,b)=>distance(a)-distance(b)||a.id-b.id).find(canMan);
+        if(nearby){selected.add(nearby.id);emit(C.CMD.MOVE,{fwd:0,strafe:0,yaw:r.yaw,pitch:0,jump:0,sprint:0});emit(C.CMD.MAN_WEAPON,{weaponId:nearby.id});emit(C.CMD.ORDER_CREW,{weaponId:nearby.id,on:1});returnGun=null;return out;}
+        if(returnGun&&(!live.some(w=>w.id===returnGun.id)||returnGun.version!==plot.navVersion&&!pathValid(plot,returnGun.path,0,returnGun.path.length)))returnGun=null;
+        if(!returnGun){
+          for(const w of [...live].sort((a,b)=>distance(a)-distance(b)||a.id-b.id)){
+            const path=findPathToAny(plot,start,[operatorCell(w,c)],{clamber:false});
+            if(path){returnGun={id:w.id,path:path.slice(1),version:plot.navVersion};break;}
+          }
+        }
+        if(returnGun){
+          const w=live.find(w=>w.id===returnGun.id);
+          if(canMan(w)){
+            selected.add(w.id);emit(C.CMD.MOVE,{fwd:0,strafe:0,yaw:r.yaw,pitch:0,jump:0,sprint:0});emit(C.CMD.MAN_WEAPON,{weaponId:w.id});emit(C.CMD.ORDER_CREW,{weaponId:w.id,on:1});returnGun=null;
+          }else emit(C.CMD.MOVE,rulerPathMove(plot,r,returnGun.path,1));
+          return out;
+        }
       }
       const hiding=policy==='ruler-hiding'&&c.stats.shots>=4;
       if (hiding && !hidden) {
@@ -228,11 +259,11 @@ export function runNovice({seed=1,level=5,policy='novice',maxMinutes=20,trace=fa
 
 async function main(){
   const args=process.argv.slice(2),get=(k,d)=>args.includes(k)?args[args.indexOf(k)+1]:d;
-  const seeds=Number(get('--seeds','10')),workers=Number(get('--workers','6')),policyNames=get('--policies',POLICIES.join(',')).split(','),levelNames=get('--levels','2,5,8').split(',').map(Number),label=get('--label','novice');
+  const seeds=Number(get('--seeds','10')),seedStart=Number(get('--seed-start','1')),workers=Number(get('--workers','6')),policyNames=get('--policies',POLICIES.join(',')).split(','),levelNames=get('--levels','2,5,8').split(',').map(Number),label=get('--label','novice');
   if(policyNames.some(p=>!POLICIES.includes(p)))throw Error('Unknown policy');
   const dir=get('--output-dir','tests/evidence/critique-v2');mkdirSync(dir,{recursive:true});
   const results=args.includes('--resume')?JSON.parse(readFileSync(`${dir}/${label}-partial.json`,'utf8')):[];
-  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+1,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20')),compact:args.includes('--compact'),reactToThreats:!args.includes('--ignore-threats')})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
+  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+seedStart,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20')),compact:args.includes('--compact'),reactToThreats:!args.includes('--ignore-threats')})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
   await Promise.all(Array.from({length:Math.min(workers,jobs.length)},()=>new Promise((resolve,reject)=>{
     const w=new Worker(new URL(import.meta.url),{workerData:true});w.on('error',reject);w.on('message',r=>{
       if(r!=='ready'){results.push(r);writeFileSync(`${dir}/${label}-partial.json`,JSON.stringify(results));console.log(`${r.policy} L${r.level} seed${r.seed}: ${r.seconds.toFixed(1)}s ${r.reason} winner${r.winner}, first hit ${r.firstHitS}, palace ${r.firstPalaceS}`);}

@@ -1,0 +1,45 @@
+✔ a removed out-of-map shot emits exactly one terminal loss at its last sim position (1990.790481ms)
+✔ a removed below-ground shot emits exactly one terminal loss at its last sim position (2856.562432ms)
+✔ a removed expired shot emits exactly one terminal loss at its last sim position (1948.437611ms)
+✔ real own-obstruction impacts retain their hit enum and report the interception kind (191.389861ms)
+✔ real enemy-wall impacts retain their hit enum and report the interception kind (225.007262ms)
+✔ real palace impacts retain their hit enum and report the interception kind (361.383689ms)
+✔ real ground impacts retain their hit enum and report the interception kind (576.58484ms)
+✔ a piercing hit precedes the same-tick terminal bounds event (467.361726ms)
+✖ same-tick hits keep the collision block kind after an earlier blast destroys it (690.80618ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9425.779389
+
+✖ failing tests:
+
+test at tests/unit/sim-wave3-endings.test.js:48:1
+✖ same-tick hits keep the collision block kind after an earlier blast destroys it (690.80618ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'palace',
+  +   'enemy-wall'
+  -   'palace'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave3-endings.test.js:53:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

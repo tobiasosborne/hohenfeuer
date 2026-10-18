@@ -2,7 +2,7 @@
 import { EV, IDLE_REASON, K, BLOCK } from '../contracts.js';
 import { t } from './i18n.js';
 
-const xyz = p => Array.isArray(p) ? p : [p?.x ?? 0,p?.y ?? 0,p?.z ?? 0];
+const xyz = p => Array.isArray(p) ? [...p] : [p?.x ?? 0,p?.y ?? 0,p?.z ?? 0];
 const clamp = n => Math.max(0,Math.min(1,n));
 export const battleTime = tick => `${Math.floor(tick / K.TICK_HZ / 60)}:${String(Math.floor(tick / K.TICK_HZ) % 60).padStart(2,'0')}`;
 export const battlePercent = value => String(Math.round(value*1000)/10);
@@ -26,11 +26,25 @@ export function threatEdge(bearing,heading) {
   return {x:Math.round(512+dx*k),y:Math.round(328+dy*k),angle:a};
 }
 
-export function palaceStatus(c,tick) {
+export function palaceStatus(c,tick,npcs) {
   if (!Number.isFinite(c?.palaceIntegrity)||!Number.isFinite(c?.palaceDefeatThreshold)) return null;
   if (c.palaceIntegrity>=1&&!c.keepCracking&&tick<599*K.TICK_HZ) return null;
   const integrity=clamp(c.palaceIntegrity),threshold=clamp(c.palaceDefeatThreshold);
-  return {integrity,threshold,margin:Math.round((integrity-threshold)*10000)/10000};
+  const p=c.plot;
+  const job=(c.jobs??[]).filter(j=>p&&j.kind==='repair'&&j.claimedBy?.length&&j.reachable!==false&&j.target?.cell&&
+    (!npcs||npcs.some(n=>j.claimedBy.includes(n.id)&&n.jobId===j.id&&n.state==='work'))).find(j=>{
+    const [x,y,z]=j.target.cell,i=x+p.width*z+p.width*p.depth*y;
+    return c.palaceCells?.includes(i)&&p.type[i]===BLOCK.PALACE&&j.progress>0&&j.progress<1;
+  });
+  return {integrity,threshold,margin:Math.round((integrity-threshold)*10000)/10000,
+    ...(job?{repair:{progress:clamp(job.progress??0)}}:{})};
+}
+
+/** Universal defeat condition: never gated by the optional morale lesson. */
+export function populationText(c,lang) {
+  const s=c?.surrender;
+  return Number.isFinite(s?.population)&&Number.isFinite(s?.popThreshold)&&s.popThreshold>0&&s.population<=s.popThreshold*1.25
+    ?t('populationNear',lang,{pop:s.population,line:s.popThreshold}):null;
 }
 
 const PRESSURE = {deaths:'pressureLosses','under-fire':'pressureDamage','no-gun':'pressureGuns',shelter:'pressureRecovery',casualties:'pressureLosses',losses:'pressureLosses',damage:'pressureDamage',bombardment:'pressureDamage',incoming:'pressureDamage',
@@ -42,9 +56,10 @@ export function dominantPressure(c,lang) {
   const p=(negative.length?negative:causes).sort((a,b)=>Math.abs(b.weight)-Math.abs(a.weight))[0];
   return t(PRESSURE[p?.cause]??'pressureStrain',lang);
 }
-export function pressureText(c,lang) {
+export function pressureText(c,lang,{moraleVisible=true}={}) {
   if (!c?.surrender||!Array.isArray(c.pressure)) return null;
   const s=c.surrender;
+  if(!moraleVisible&&!(s.holdTicks>0||s.morale<=s.moraleThreshold))return null;
   if (s.population<s.popThreshold) return t('surrenderPopulation',lang,{cause:dominantPressure(c,lang),pop:s.population,line:s.popThreshold});
   if (s.holdTicks>0 || s.morale<=s.moraleThreshold) return t('surrenderHold',lang,{cause:dominantPressure(c,lang),s:Math.floor(s.holdTicks/K.TICK_HZ),total:Math.ceil(s.holdRequiredTicks/K.TICK_HZ)});
   const relevant=c.pressure.some(p=>p.cause!=='quiet'&&p.cause!=='recovery')||s.morale<60;
@@ -75,15 +90,40 @@ export function impactOffset(origin,aimPoint,impact) {
   return {range:Math.round(((p[0]-a[0])*dx+(p[2]-a[2])*dz)/len),lateral:Math.round(((p[0]-a[0])*-dz+(p[2]-a[2])*dx)/len)};
 }
 export function impactText(impact,lang) {
+  if(impact.kind==='lost')return t({far:'shotLostFar',short:'shotLostShort'}[impact.lossDirection]??'shotLost',lang);
   const {range,lateral}=impact.offset;
   const along=t(Math.abs(range)<1?'impactRangeOn':range<0?'impactShort':'impactLong',lang,{m:Math.abs(range)});
   const across=t(Math.abs(lateral)<1?'impactLineOn':lateral<0?'impactLeft':'impactRight',lang,{m:Math.abs(lateral)});
-  return `${t({palace:'impactPalace',wall:'impactWall',weapon:'impactGun',person:'impactPerson',ground:'impactGround'}[impact.kind]??'impactGround',lang)} / ${along} / ${across}`;
+  return `${t({palace:'impactPalace',ownWall:'impactOwnWall',enemyWall:'impactEnemyWall',wall:'impactWall',weapon:'impactGun',person:'impactPerson',ground:'impactGround'}[impact.kind]??'impactGround',lang)} / ${along} / ${across}`;
+}
+
+function hitCastle(hit,pos,state) {
+  if(Number.isInteger(hit?.plot))return state.castles?.find(c=>c.slot===hit.plot||c.id===hit.plot);
+  const [x,,z]=xyz(pos);
+  return state.castles?.find(c=>{const p=c.plot,o=p?.origin;return o&&x>=o.x&&x<o.x+p.width&&z>=o.z&&z<o.z+p.depth;});
+}
+function lossDirection(ref,pos,reason,state,slot) {
+  if(!pos)return null;
+  const o=ref.origin,a=ref.aimPoint,dx=a[0]-o[0],dz=a[2]-o[2],len=Math.hypot(dx,dz);
+  if(!len)return null;
+  const along=p=>((p[0]-o[0])*dx+(p[2]-o[2])*dz)/len;
+  const target=hitCastle(null,a,state)??state.castles?.filter(c=>c.slot!==slot).find(c=>{
+    const p=c.plot;if(!p?.origin||!p.width||!p.depth)return false;
+    const corners=[[p.origin.x,p.origin.z],[p.origin.x+p.width,p.origin.z],[p.origin.x,p.origin.z+p.depth],[p.origin.x+p.width,p.origin.z+p.depth]];
+    const lateral=corners.map(([x,z])=>((x-o[0])*-dz+(z-o[2])*dx)/len);
+    return along([p.origin.x+p.width/2,0,p.origin.z+p.depth/2])>0&&Math.min(...lateral)<=0&&Math.max(...lateral)>=0;
+  });
+  if(!target||target.slot===slot)return null;
+  const p=target.plot,corners=[[p.origin.x,0,p.origin.z],[p.origin.x+p.width,0,p.origin.z],[p.origin.x,0,p.origin.z+p.depth],[p.origin.x+p.width,0,p.origin.z+p.depth]].map(along);
+  if(reason==='out-of-map'&&along(xyz(pos))>Math.max(...corners))return 'far';
+  if(['below-ground','out-of-map'].includes(reason)&&along(xyz(pos))<Math.min(...corners))return 'short';
+  return null;
 }
 
 /** Stores IDs and launch snapshots, never sim references. */
 export function createBattleFeedback(slot) {
-  const threats=new Map(), seen=new Set(), shots=new Map(), marks=new Map(), impacts=new Map(), account=[];
+  const threats=new Map(), seen=new Set(), shots=new Map(), marks=new Map(), impacts=new Map(), deaths=new Map(), eliminations=new Map(), palaceHp=new Map(), account=[];
+  const cellKey=(plot,cell)=>`${plot}:${cell?.join()}`;
   let death=null, eliminated=null, rose=false, reached=false, lastSoundTick=-Infinity;
   function remember(item) {
     // One blast can damage dozens of voxels. A compact account keeps causes, not voxel noise.
@@ -97,6 +137,15 @@ export function createBattleFeedback(slot) {
     const pos=gun?.pos??castle?.plot?.origin;
     return {fromCastle:p.fromCastle,fromWeapon:p.fromWeapon,defId:gun?.defId,bearing:pos?bearingOf(state.rulers?.[slot]?.pos,pos):null};
   }
+  function lost(ref,pos,reason,state) {
+    const {impact,offset,...flight}=ref;
+    const result={...flight,previousImpact:impact??ref.previousImpact,kind:'lost',reason,lossDirection:lossDirection(ref,pos,reason,state,slot),until:state.tick+2*K.TICK_HZ};
+    // pos is a last observed flight position. It must never become an impact or offset.
+    impacts.set(ref.weaponId,result);
+    const latest=marks.get(ref.weaponId);
+    if(!latest||ref.tick>=latest.tick)marks.set(ref.weaponId,result);
+    shots.delete(ref.projectileId??`w:${ref.weaponId}`);
+  }
   const api={
     shot(ref,tick) {
       const key=ref.projectileId??`w:${ref.weaponId}`;
@@ -106,13 +155,16 @@ export function createBattleFeedback(slot) {
       if(shots.size>64)shots.delete(shots.keys().next().value);
     },
     ingest(events,state) {
-      const tick=state.tick,warnings=[],notices=[];
+      const tick=state.tick,warnings=[],notices=[],losses=events.filter(e=>e.type===EV.PROJECTILE_LOST);
       for(const e of events) {
         const p=e.payload??{};
         if(e.type===EV.RULER_THREAT&&p.castle===slot&&p.etaTicks>0&&!seen.has(p.projectileId)) {
           seen.add(p.projectileId);if(seen.size>256)seen.delete(seen.values().next().value);
           const item={...p,...source(p,state),tick,until:tick+p.etaTicks};
           threats.set(p.projectileId,item);warnings.push(item);remember({...item,kind:'incoming'});
+        }
+        if(e.type===EV.PROJECTILE_LOST) {
+          threats.delete(p.projectileId);
         }
         if(e.type===EV.IMPACT) {
           if(p.projectileId!==undefined)threats.delete(p.projectileId);
@@ -123,12 +175,19 @@ export function createBattleFeedback(slot) {
               // Attribute palace damage only to this impact's adjacent damage batch, before the next impact.
               const start=events.indexOf(e),end=events.findIndex((other,i)=>i>start&&other.type===EV.IMPACT);
               const damage=events.slice(start+1,end<0?events.length:end);
-              const palace=damage.some(d=>[EV.BLOCK_DAMAGED,EV.BLOCK_DESTROYED].includes(d.type)&&d.payload.plot!==slot&&d.payload.id===BLOCK.PALACE);
-              const result={...ref,impact:xyz(p.pos),offset:impactOffset(ref.origin,ref.aimPoint,p.pos),kind:palace?'palace':p.hit==='block'?'wall':['weapon','person'].includes(p.hit)?p.hit:'ground',until:tick+2*K.TICK_HZ};
+              const hit=typeof p.hit==='object'?p.hit.kind??p.hit.type:p.hit,castle=hitCastle(p.hit,p.pos,state);
+              const palace=castle?.slot!==slot&&p.hit?.id===BLOCK.PALACE||damage.some(d=>d.payload.plot!==slot&&d.payload.id===BLOCK.PALACE&&
+                (d.type===EV.BLOCK_DESTROYED||d.type===EV.BLOCK_DAMAGED&&d.payload.hp<palaceHp.get(cellKey(d.payload.plot,d.payload.cell))));
+              const semantic={'own-obstruction':'ownWall','enemy-wall':'enemyWall',palace:'palace'}[p.hitKind];
+              const kind=palace?'palace':semantic??(hit==='block'?(castle?castle.slot===slot?'ownWall':'enemyWall':'wall'):['weapon','person'].includes(hit)?hit:'ground');
+              const result={...ref,impact:xyz(p.pos),offset:impactOffset(ref.origin,ref.aimPoint,p.pos),kind,until:tick+2*K.TICK_HZ};
               const latest=marks.get(p.weaponId);
               if(!latest||ref.tick>=latest.tick)marks.set(p.weaponId,result);
               else marks.set(p.weaponId,{...latest,previousImpact:result.impact});
               impacts.set(p.weaponId,result);
+              const continuing=state.projectiles?.some(p=>p.id===ref.projectileId)||losses.some(e=>e.payload.projectileId===ref.projectileId&&e.payload.weaponId===ref.weaponId);
+              if(continuing)ref.previousImpact=result.impact;
+              else shots.delete(ref.projectileId??`w:${ref.weaponId}`);
             }
           }
         }
@@ -136,13 +195,31 @@ export function createBattleFeedback(slot) {
         if([EV.NPC_DIED,EV.NPC_DESERTED].includes(e.type)&&p.castle===slot)remember({kind:'losses',tick,count:1});
         if(e.type===EV.MAGAZINE_EXPLODED&&p.plot===slot)remember({kind:'magazine',tick});
         if(e.type===EV.BLOCK_DESTROYED&&p.plot===slot&&p.id===BLOCK.PALACE)remember({kind:'palace',tick});
-        if(e.type===EV.RULER_DIED&&p.slot===slot) {
-          death={...p,...source(p,state),tick};remember({...death,kind:'ruler'});
+        if(e.type===EV.RULER_DIED) {
+          deaths.set(p.slot,{...p,...source(p,state),tick});
+          if(p.slot===slot){death=deaths.get(slot);remember({...death,kind:'ruler'});}
         }
-        if(e.type===EV.CASTLE_ELIMINATED&&p.slot===slot) {
-          eliminated={...state.castles[slot],tick,reason:p.reason};
-          if(p.reason!=='ruler')remember({kind:p.reason,tick});
+        if(e.type===EV.CASTLE_ELIMINATED) {
+          eliminations.set(p.slot,{...state.castles[p.slot],tick,reason:p.reason});
+          if(p.slot===slot){eliminated=eliminations.get(slot);if(p.reason!=='ruler')remember({kind:p.reason,tick});}
         }
+        if(p.id===BLOCK.PALACE&&[EV.BLOCK_DAMAGED,EV.BLOCK_DESTROYED].includes(e.type))palaceHp.set(cellKey(p.plot,p.cell),p.hp??0);
+      }
+      for(const c of state.castles??[])for(const i of c.palaceCells??[]) {
+        const p=c.plot,cell=[i%p.width,Math.floor(i/(p.width*p.depth)),Math.floor(i/p.width)%p.depth];
+        palaceHp.set(cellKey(p.id??c.slot,cell),p.type[i]===BLOCK.PALACE?p.hp[i]:0);
+      }
+      // A piercing hit and a terminal exit may share a tick. Terminal feedback wins in either event order.
+      for(const {payload:p} of losses)if(p.slot===slot) {
+        const mark=marks.get(p.weaponId),contact=impacts.get(p.weaponId);
+        const ref=shots.get(p.projectileId)??shots.get(`w:${p.weaponId}`)??
+          (mark?.projectileId===p.projectileId?mark:null)??(contact?.projectileId===p.projectileId?contact:null);
+        if(ref)lost(ref,p.pos,p.reason,state);
+      }
+      if(Array.isArray(state.projectiles))for(const ref of shots.values()) {
+        const live=state.projectiles.find(p=>p.id===ref.projectileId);
+        if(live){ref.lastPosition=xyz(live.pos);delete ref.missingSince;}
+        else {ref.missingSince??=tick;if(tick-ref.missingSince>=2*K.TICK_HZ)lost(ref,null,'missing',state);}
       }
       for(const [id,tr]of threats)if(tr.until<=tick)threats.delete(id);
       const c=state.castles?.[slot];
@@ -157,8 +234,29 @@ export function createBattleFeedback(slot) {
     danger(tick){const tr=[...threats.values()].filter(tr=>tr.until>tick).sort((a,b)=>a.until-b.until)[0];return tr?{...tr,etaTicks:tr.until-tick}:null;},
     impact(id,tick){const r=impacts.get(id);return r&&tick<r.until?r:null;},
     reference(id){return marks.get(id)??null;},
+    deathOf(id){return deaths.get(id)??null;}, eliminationOf(id){return eliminations.get(id)??null;},
     get death(){return death;},get elimination(){return eliminated;},get events(){return account.slice(-3);},
   };return api;
+}
+
+/** Explain the opponent's recorded elimination, including its actual trigger. */
+export function winAccount(state,slot,feedback,{lang='de',nameOf}={}) {
+  const team=state.slots?.find(s=>s.id===slot)?.team;
+  const opponent=state.castles?.filter(c=>c.slot!==slot&&c.eliminated&&
+    (team===undefined||state.slots?.find(s=>s.id===c.slot)?.team!==team))
+    .sort((a,b)=>(b.stats?.eliminatedTick??0)-(a.stats?.eliminatedTick??0))[0];
+  if(!opponent)return null;
+  const c=feedback?.eliminationOf?.(opponent.slot)??opponent,s=c.surrender,d=feedback?.deathOf?.(c.slot);
+  const name=nameOf?.(c.slot)??t('castleNumber',lang,{n:c.slot+1});
+  let key='winEliminated',args={name};
+  if(c.reason==='ruler') {key=d?'winRulerCause':'winRuler';args.cause=t({fall:'deathFall',fire:'deathFire',blast:'deathBlast',collapse:'deathCollapse',projectile:'deathProjectile'}[d?.cause]??'deathDamage',lang);}
+  else if(c.reason==='palace'){key=Number.isFinite(c.palaceIntegrity)&&Number.isFinite(c.palaceDefeatThreshold)?'winPalace':'winPalaceFallback';args.pct=battlePercent(c.palaceIntegrity);args.line=battlePercent(c.palaceDefeatThreshold);}
+  else if(c.reason==='surrender') {
+    if(s&&s.population<s.popThreshold){key='winPopulation';args.pop=s.population;args.line=s.popThreshold;}
+    else if(s&&s.holdRequiredTicks>0&&s.holdTicks>=s.holdRequiredTicks){key='winMorale';args.line=s.moraleThreshold;args.s=Math.ceil(s.holdRequiredTicks/K.TICK_HZ);}
+    else key='winSurrender';
+  }
+  return {cause:t(key,lang,args),events:[]};
 }
 
 /** No guessed killer: legacy events still produce an honest cause-specific sentence. */

@@ -1,0 +1,4 @@
+failed page.evaluate: Error: Serialization hash mismatch
+    at eval (eval at evaluate (:370:30), <anonymous>:3:64)
+    at async <anonymous>:396:30
+    at /tmp/castle-wave3-ui-events-vfd7qznv/scripts/wave3-endings-browser.mjs:15:26

@@ -1,0 +1,129 @@
+✖ loss captions never project a last position as a landing, and preserve the previous impact (1.63115ms)
+✖ legacy disappearance produces an honest fallback within two seconds and cannot repeat (0.222485ms)
+✖ launch vectors are copied and signed axes survive external aim mutations (1.05707ms)
+✖ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (0.485588ms)
+✖ population warning is strict, contextual and independent of pressure/morale unlock (0.914034ms)
+✖ win account follows recorded ruler reason even when population also crosses the line (0.273061ms)
+✖ palace repair marker follows an active palace job and hides completed or unrelated work (0.232878ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.934664
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:9:1
+✖ loss captions never project a last position as a landing, and preserve the previous impact (1.63115ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'wall' !== 'lost'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:13:36)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'wall',
+    expected: 'lost',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-wave3-feedback.test.js:17:1
+✖ legacy disappearance produces an honest fallback within two seconds and cannot repeat (0.222485ms)
+  TypeError: Cannot read properties of null (reading 'offset')
+      at Module.impactText (file:///home/tobias/Projects/castle-game/src/ui/battle-feedback.js:78:32)
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:20:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/unit/ui-wave3-feedback.test.js:23:1
+✖ launch vectors are copied and signed axes survive external aim mutations (1.05707ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   lateral: -58,
+  +   range: -66
+  -   lateral: 3,
+  -   range: -10
+    }
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:27:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { range: -66, lateral: -58 },
+    expected: { range: -10, lateral: 3 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-wave3-feedback.test.js:29:1
+✖ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (0.485588ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /own wall.*clear/i. Input:
+  
+  'Wall hit / 208 m short / Line on mark'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:32:101)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Wall hit / 208 m short / Line on mark',
+    expected: /own wall.*clear/i,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests/unit/ui-wave3-feedback.test.js:38:1
+✖ population warning is strict, contextual and independent of pressure/morale unlock (0.914034ms)
+  TypeError: feedback.populationText is not a function
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:40:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/ui-wave3-feedback.test.js:45:1
+✖ win account follows recorded ruler reason even when population also crosses the line (0.273061ms)
+  TypeError: feedback.winAccount is not a function
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:48:24)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/unit/ui-wave3-feedback.test.js:53:1
+✖ palace repair marker follows an active palace job and hides completed or unrelated work (0.232878ms)
+  TypeError: Cannot read properties of undefined (reading 'progress')
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:55:50)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

@@ -21,7 +21,7 @@ test('forest duel validates with two centred non-overlapping plots exactly one d
   assert.equal(left.origin[2] * 2 + K.PLOT_D, FOREST_DUEL.size[1]);
   assert.deepEqual([left.facingDeg, right.facingDeg], [90, 270]);
   for (const slot of FOREST_DUEL.slots) {
-    assert.equal(slot.castle, 'default');
+    assert.equal(slot.castle, slot === left ? 'default' : 'default-east');
     assert.ok(slot.origin[0] >= 0 && slot.origin[0] + K.PLOT_W <= FOREST_DUEL.size[0]);
     assert.ok(slot.origin[2] >= 0 && slot.origin[2] + K.PLOT_D <= FOREST_DUEL.size[1]);
   }

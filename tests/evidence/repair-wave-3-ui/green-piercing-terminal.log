@@ -1,0 +1,33 @@
+✔ a salvo keeps every threat but sounds at most once per second (14.17014ms)
+✔ world progress labels avoid fixed HUD areas and each other (6.059882ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (5.53933ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (2.29533ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (9.707568ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (11.971241ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (1.291057ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (7.258643ms)
+✔ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (5.793088ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (5.466292ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (1.198868ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.64613ms)
+✔ defeat offers Enter retry as its first action and preserves setup (4.296353ms)
+✔ loss captions never project a last position as a landing, and preserve the previous impact (7.4519ms)
+✔ a piercing contact followed by loss keeps the real contact but ends with the loss caption (5.410488ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (0.887072ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (1.05421ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (1.773985ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (1.582938ms)
+✔ match one hides ordinary morale pressure but never an active surrender clock (1.006461ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (5.153493ms)
+✔ a winning account names the eliminated opponent, never a fallen ally (1.044052ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (2.224112ms)
+✔ the new semantic collision field survives deletion of the struck block (0.615435ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (0.718564ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 643.51014

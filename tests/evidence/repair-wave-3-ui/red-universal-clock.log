@@ -1,0 +1,43 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (15.90609ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (9.180749ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (0.580897ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (7.068907ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (0.568042ms)
+✖ match one hides ordinary morale pressure but never an active surrender clock (6.433919ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (1.60696ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (0.677654ms)
+✔ the new semantic collision field survives deletion of the struck block (3.227137ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (1.626635ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 587.399351
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:45:1
+✖ match one hides ordinary morale pressure but never an active surrender clock (6.433919ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'losses / surrender at 20% morale'
+  - null
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:47:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'losses / surrender at 20% morale',
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

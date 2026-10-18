@@ -1,0 +1,11 @@
+✔ a warned novice leaves the gun and moves along its rampart before impact (2905.374942ms)
+✔ a warning interrupting an unmanned repair remembers and re-mans the pending gun (2896.857379ms)
+✔ a novice whose front gun is lost walks to a surviving battery and resumes paid fire (1065.557891ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6945.306171
