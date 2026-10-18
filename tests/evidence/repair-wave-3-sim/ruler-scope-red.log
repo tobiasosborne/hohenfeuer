@@ -1,0 +1,36 @@
+✔ an abandoning leader reaches its ground-floor shelter within thirty seconds using normal stairs (3912.791482ms)
+✖ the return repair preserves an ordinary ground-floor retreat before leadership (1014.361839ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4980.675808
+
+✖ failing tests:
+
+test at tests/unit/ai-wave3-return.test.js:29:1
+✖ the return repair preserves an ordinary ground-floor retreat before leadership (1014.361839ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   27,
+  -   39,
+      1,
+  +   17
+  -   11
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave3-return.test.js:35:50)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

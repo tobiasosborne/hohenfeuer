@@ -1,0 +1,124 @@
+[
+  {
+    "seed": 6,
+    "hash": 2187448937,
+    "tick": 27256,
+    "reason": "surrender",
+    "winners": [
+      1
+    ],
+    "settings": {
+      "map": "forest-duel",
+      "seed": 6,
+      "windStrength": 2,
+      "windChange": 2,
+      "startGold": 1500,
+      "slots": [
+        {
+          "name": "West",
+          "controller": "ai",
+          "aiLevel": 5,
+          "tactic": "general"
+        },
+        {
+          "name": "East",
+          "controller": "ai",
+          "aiLevel": 5,
+          "tactic": "general"
+        }
+      ]
+    },
+    "slots": [
+      {
+        "id": 0,
+        "castleId": "default",
+        "team": 0,
+        "color": 12593192,
+        "controller": "ai",
+        "aiLevel": 5,
+        "aiTactic": "general"
+      },
+      {
+        "id": 1,
+        "castleId": "default",
+        "team": 1,
+        "color": 2646208,
+        "controller": "ai",
+        "aiLevel": 5,
+        "aiTactic": "general"
+      }
+    ],
+    "checkpoints": [
+      {
+        "tick": 27166,
+        "hash": 2856409612
+      },
+      {
+        "tick": 27255,
+        "hash": 698777315
+      }
+    ],
+    "restoredHash": 3697054772
+  },
+  {
+    "seed": 9,
+    "hash": 3757147446,
+    "tick": 23745,
+    "reason": "surrender",
+    "winners": [
+      1
+    ],
+    "settings": {
+      "map": "forest-duel",
+      "seed": 9,
+      "windStrength": 2,
+      "windChange": 2,
+      "startGold": 1500,
+      "slots": [
+        {
+          "name": "West",
+          "controller": "ai",
+          "aiLevel": 5,
+          "tactic": "general"
+        },
+        {
+          "name": "East",
+          "controller": "ai",
+          "aiLevel": 5,
+          "tactic": "general"
+        }
+      ]
+    },
+    "slots": [
+      {
+        "id": 0,
+        "castleId": "default",
+        "team": 0,
+        "color": 12593192,
+        "controller": "ai",
+        "aiLevel": 5,
+        "aiTactic": "general"
+      },
+      {
+        "id": 1,
+        "castleId": "default",
+        "team": 1,
+        "color": 2646208,
+        "controller": "ai",
+        "aiLevel": 5,
+        "aiTactic": "general"
+      }
+    ],
+    "checkpoints": [
+      {
+        "tick": 23656,
+        "hash": 3337628295
+      },
+      {
+        "tick": 23744,
+        "hash": 3431587814
+      }
+    ],
+    "restoredHash": 4059834763
+  }
+]

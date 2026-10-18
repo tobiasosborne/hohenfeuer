@@ -1,0 +1,14 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js --test-concurrency=3
+
+✔ tests/unit/ai-accuracy.test.js (3093.107378ms)
+✔ tests/unit/ai-aim.test.js (494.592109ms)
+✔ tests/unit/ai-build.test.js (3115.947597ms)
+✔ tests/unit/ai-controller.test.js (2229.671387ms)
+✔ tests/unit/ai-match.test.js (196041.721951ms)
+✔ tests/unit/ai-pacing.test.js (591209.434518ms)
+✔ tests/unit/ai-repair-wave.test.js (14179.718635ms)
+✔ tests/unit/ai-slots.test.js (623.325848ms)
+✔ tests/unit/ai-sweep.test.js (2574.113429ms)
+✔ tests/unit/ai-targets.test.js (4280.810298ms)

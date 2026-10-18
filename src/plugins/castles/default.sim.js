@@ -108,5 +108,10 @@ export const DEFAULT_CASTLE = Object.freeze({
   population: TUNING.npc.population,
 });
 
-/** Register a blueprint usable unchanged by both duel slots. */
-export function registerDefaultCastle() { registerCastle(DEFAULT_CASTLE); }
+// Only the throne anchor differs: the voxel blueprint is already x-symmetric.
+// Human spawn, exits, shelter boxes, guns and work markers stay authored as before.
+export const EAST_CASTLE = Object.freeze({ ...DEFAULT_CASTLE, id: 'default-east',
+  throne: Object.freeze([WIDTH - 1 - DEFAULT_CASTLE.throne[0], ...DEFAULT_CASTLE.throne.slice(1)]) });
+
+/** Register the starter and its one-anchor physical-east variant. */
+export function registerDefaultCastle() { registerCastle(DEFAULT_CASTLE); registerCastle(EAST_CASTLE); }

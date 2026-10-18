@@ -1,0 +1,67 @@
+✔ a removed out-of-map shot emits exactly one terminal loss at its last sim position (1345.640017ms)
+✔ a removed below-ground shot emits exactly one terminal loss at its last sim position (1148.595533ms)
+✔ a removed expired shot emits exactly one terminal loss at its last sim position (1159.020124ms)
+✔ real own-obstruction impacts retain their hit enum and report the interception kind (138.585217ms)
+✔ real enemy-wall impacts retain their hit enum and report the interception kind (149.914963ms)
+✔ real palace impacts retain their hit enum and report the interception kind (213.988373ms)
+✔ real ground impacts retain their hit enum and report the interception kind (216.822705ms)
+✔ a piercing hit precedes the same-tick terminal bounds event (289.217653ms)
+✔ same-tick hits keep the collision block kind after an earlier blast destroys it (1007.811622ms)
+✖ the plot foundation in castle 0 is ground, retaining its real block collision (126.092852ms)
+✖ the plot foundation in castle 1 is ground, retaining its real block collision (161.063796ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 9
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5991.789241
+
+✖ failing tests:
+
+test at tests/unit/sim-wave3-endings.test.js:61:25
+✖ the plot foundation in castle 0 is ground, retaining its real block collision (126.092852ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'own-obstruction'
+  - 'ground'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave3-endings.test.js:65:62)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'own-obstruction',
+    expected: 'ground',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/sim-wave3-endings.test.js:61:25
+✖ the plot foundation in castle 1 is ground, retaining its real block collision (161.063796ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'enemy-wall'
+  - 'ground'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/sim-wave3-endings.test.js:65:62)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'enemy-wall',
+    expected: 'ground',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

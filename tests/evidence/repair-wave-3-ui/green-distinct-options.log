@@ -1,0 +1,20 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (337.023034ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (110.291117ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (94.470307ms)
+✔ camera visibility cannot hide a reachable repair; direction and distance follow the camera (79.683072ms)
+✔ two independently damaged sites can be offered; an already working mason makes priority redundant (71.767343ms)
+✔ palace consequences outrank cheaper masonry and imminent safety outranks both (66.144084ms)
+✔ adjacent repairs with the same purpose share one option; a distinct site fills the second (40.501554ms)
+✔ i18n: every key exists in every language and t() formats params (3.430534ms)
+✔ font has a glyph for every character the UI needs (4.665204ms)
+✔ every glyph has consistent rows and draws pixels (except space) (1.721585ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (10.031947ms)
+✔ rasterize is deterministic and distinguishes glyphs (0.566339ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1777.242201

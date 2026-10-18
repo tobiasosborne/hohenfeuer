@@ -1,0 +1,42 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (8.327223ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (1.469399ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (5.019211ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (2.750552ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (1.13598ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (2.516302ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (1.910702ms)
+✔ the new semantic collision field survives deletion of the struck block (0.843117ms)
+✖ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (10.425198ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 329.802127
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:65:1
+✖ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (10.425198ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'palace'
+  - 'ownWall'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:70:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'palace',
+    expected: 'ownWall',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

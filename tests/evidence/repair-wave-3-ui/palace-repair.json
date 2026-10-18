@@ -1,0 +1,66 @@
+{
+  "errors": [],
+  "samples": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "setup": {
+    "incomingShots": 8,
+    "cell": [
+      25,
+      1,
+      22
+    ],
+    "index": 3385,
+    "tick": 96,
+    "hp": 80,
+    "gold": 1509.5999999999913,
+    "palace": 0.9965277777777778,
+    "bar": {
+      "integrity": 0.9965277777777778,
+      "threshold": 0.2,
+      "margin": 0.7965
+    }
+  },
+  "mid": {
+    "tick": 110,
+    "hp": 81,
+    "bar": {
+      "integrity": 0.9967447916666666,
+      "threshold": 0.2,
+      "margin": 0.7967,
+      "repair": {
+        "progress": 0.84375
+      }
+    },
+    "texts": [
+      "1510",
+      "38 (40)",
+      "Morale: Steady 64%",
+      "2 (4)",
+      "2",
+      "N",
+      "E",
+      "S",
+      "W",
+      "The enemy fires!",
+      "The enemy fires!",
+      "The enemy fires!",
+      "The enemy fires!",
+      "Income +3.0 gold/s",
+      "G: Place weapon",
+      "R: Priority",
+      "B: Build",
+      "WASD: Walk",
+      "Palace 99.7% / defeat below 20%",
+      "Repair 84%",
+      "losses / surrender at 20% morale"
+    ],
+    "gold": 1510.9333333333234
+  },
+  "after": {
+    "tick": 161,
+    "hp": 96,
+    "bar": null,
+    "gold": 1515.1733333333195
+  },
+  "status": "passed"
+}

@@ -1,0 +1,43 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (4.873181ms)
+✖ a piercing contact followed by loss keeps the real contact but ends with the loss caption (4.12307ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (1.059694ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (0.459495ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (2.689154ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (3.758021ms)
+✔ match one hides ordinary morale pressure but never an active surrender clock (0.842854ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (1.37121ms)
+✔ a winning account names the eliminated opponent, never a fallen ally (0.618952ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (0.927245ms)
+✔ the new semantic collision field survives deletion of the struck block (0.418369ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (1.220214ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 248.88438
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:17:1
+✖ a piercing contact followed by loss keeps the real contact but ends with the loss caption (4.12307ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'person' !== 'lost'
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:22:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'person',
+    expected: 'lost',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -48,3 +48,9 @@ test('low-motion measurement includes an opening plateau after the two-minute ex
   for(let i=201;i<series.length;i++)series[i].sides[0].palace=.97;
   assert.equal(lowMotionStall(series,0),799);
 });
+
+test('strict plateau aggregation scopes both the count and maximum to eventual losers',()=>{
+  const base={seconds:900,winnerSlot:0,firstGunLoss:null,sides:[0,1].map(()=>({goldAtCapShare:0,goldNearCapShare:0,goldNearZeroShare:0,shots:20,hits:10,longestNoFireS:40,longestReadyNoFireS:0,blocksBuilt:1,blocksRepaired:1,npcDeaths:0})),loserDamageMinutes:3,longestPalaceStallS:200};
+  const s=summarize([{...base,lowMotion:[508,332]},{...base,winnerSlot:1,lowMotion:[231,800]},{...base,winnerSlot:null,lowMotion:[1000,1000]}]);
+  assert.deepEqual(s.losingPalaceLowMotion,{samples:2,over180S:2,maxS:332});
+});

@@ -1,0 +1,39 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (687.735215ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (249.955693ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (295.815454ms)
+✔ camera visibility cannot hide a reachable repair; direction and distance follow the camera (198.39422ms)
+✔ two independently damaged sites can be offered; an already working mason makes priority redundant (229.462839ms)
+✔ palace consequences outrank cheaper masonry and imminent safety outranks both (162.262218ms)
+✖ adjacent repairs with the same purpose share one option; a distinct site fills the second (88.54957ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1988.561852
+
+✖ failing tests:
+
+test at tests/unit/player-interventions.test.js:64:1
+✖ adjacent repairs with the same purpose share one option; a distinct site fills the second (88.54957ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.hypot(...actions[0].pos.map((n,i)=>n-actions[1].pos[i]))>=3)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/player-interventions.test.js:69:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

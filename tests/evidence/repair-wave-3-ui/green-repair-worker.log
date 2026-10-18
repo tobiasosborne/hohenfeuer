@@ -1,0 +1,19 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (17.343608ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (7.952173ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (0.8751ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (5.13534ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (2.818762ms)
+✔ match one hides ordinary morale pressure but never an active surrender clock (4.570261ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (1.982022ms)
+✔ a winning account names the eliminated opponent, never a fallen ally (5.002934ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (1.418602ms)
+✔ the new semantic collision field survives deletion of the struck block (2.091967ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (4.473944ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 505.169995

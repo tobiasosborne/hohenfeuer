@@ -1,0 +1,150 @@
+[
+  {
+    "seed": 6,
+    "hash": 3938556959,
+    "tick": 27256,
+    "reason": "surrender",
+    "terminal": {
+      "slot": 0,
+      "reason": "surrender",
+      "tick": 27256,
+      "lastShot": 27167,
+      "preShot": {
+        "tick": 27166,
+        "castles": [
+          {
+            "population": 16,
+            "surrender": {
+              "morale": 42.01364769843072,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 16,
+              "popThreshold": 14
+            },
+            "palace": 0.6879340277777778,
+            "reason": null
+          },
+          {
+            "population": 25,
+            "surrender": {
+              "morale": 75.46368581954039,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 25,
+              "popThreshold": 14
+            },
+            "palace": 0.87109375,
+            "reason": null
+          }
+        ]
+      },
+      "last": {
+        "tick": 27255,
+        "castles": [
+          {
+            "population": 16,
+            "surrender": {
+              "morale": 41.06516723663384,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 16,
+              "popThreshold": 14
+            },
+            "palace": 0.6879340277777778,
+            "reason": null
+          },
+          {
+            "population": 25,
+            "surrender": {
+              "morale": 75.53394951175221,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 25,
+              "popThreshold": 14
+            },
+            "palace": 0.87109375,
+            "reason": null
+          }
+        ]
+      }
+    }
+  },
+  {
+    "seed": 9,
+    "hash": 1877816796,
+    "tick": 23745,
+    "reason": "surrender",
+    "terminal": {
+      "slot": 0,
+      "reason": "surrender",
+      "tick": 23745,
+      "lastShot": 23657,
+      "preShot": {
+        "tick": 23656,
+        "castles": [
+          {
+            "population": 14,
+            "surrender": {
+              "morale": 33.329935373270416,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 14,
+              "popThreshold": 14
+            },
+            "palace": 0.6883680555555556,
+            "reason": null
+          },
+          {
+            "population": 33,
+            "surrender": {
+              "morale": 71.641926587907,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 33,
+              "popThreshold": 14
+            },
+            "palace": 0.6731770833333334,
+            "reason": null
+          }
+        ]
+      },
+      "last": {
+        "tick": 23744,
+        "castles": [
+          {
+            "population": 14,
+            "surrender": {
+              "morale": 34.06324268937072,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 14,
+              "popThreshold": 14
+            },
+            "palace": 0.6883680555555556,
+            "reason": null
+          },
+          {
+            "population": 33,
+            "surrender": {
+              "morale": 68.64525939105843,
+              "moraleThreshold": 20,
+              "holdTicks": 0,
+              "holdRequiredTicks": 1350,
+              "population": 33,
+              "popThreshold": 14
+            },
+            "palace": 0.568359375,
+            "reason": null
+          }
+        ]
+      }
+    }
+  }
+]
