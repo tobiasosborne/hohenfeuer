@@ -1,0 +1,41 @@
+{
+  "2": {
+    "reloads": 258,
+    "zero": 216,
+    "one": 42,
+    "two": 0,
+    "meanOptions": 0.16279069767441862,
+    "positiveBest": 61,
+    "beneficialBestDisplayed": 10,
+    "zeroRegret": 207,
+    "harmfulOffers": 3,
+    "extraRollouts": 10,
+    "meanRegret": 0.04124685326182101
+  },
+  "5": {
+    "reloads": 169,
+    "zero": 142,
+    "one": 27,
+    "two": 0,
+    "meanOptions": 0.15976331360946747,
+    "positiveBest": 69,
+    "beneficialBestDisplayed": 5,
+    "zeroRegret": 105,
+    "harmfulOffers": 5,
+    "extraRollouts": 5,
+    "meanRegret": 1.1483854199023456
+  },
+  "8": {
+    "reloads": 178,
+    "zero": 156,
+    "one": 22,
+    "two": 0,
+    "meanOptions": 0.12359550561797752,
+    "positiveBest": 79,
+    "beneficialBestDisplayed": 6,
+    "zeroRegret": 105,
+    "harmfulOffers": 5,
+    "extraRollouts": 3,
+    "meanRegret": 2.72007324245588
+  }
+}

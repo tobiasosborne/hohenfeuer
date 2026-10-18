@@ -1,0 +1,18 @@
+ai-seed1-m00 0 null
+ai-seed1-m02 3600 losses / surrender at 20% morale
+ai-seed1-m05 9000 null
+ai-seed1-m10 18000 null
+ai-seed1-end 27246 palace damage / surrender at 20% morale
+ai-seed4-before 20354 palace damage / surrender at 20% morale
+ai-seed4-last 20443 palace damage / surrender at 20% morale
+ai-seed4-end 20444 losses / population 12 < 14: surrender
+ai-seed6-before 27166 losses / surrender at 20% morale
+ai-seed6-last 27255 losses / surrender at 20% morale
+ai-seed6-end 27256 losses / population 12 < 14: surrender
+ai-seed9-before 23655 losses / surrender at 20% morale
+ai-seed9-last 23744 losses / surrender at 20% morale
+ai-seed9-end 23745 losses / population 11 < 14: surrender
+ai-seed16-before 14983 null
+ai-seed16-last 15072 null
+ai-seed16-end 15073 bombardment / surrender at 20% morale
+passed 

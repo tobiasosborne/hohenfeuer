@@ -1,0 +1,6877 @@
+{
+  "shots": [
+    {
+      "kind": "cannon",
+      "n": 0,
+      "fired": 484,
+      "tick": 585,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29999152886555,
+        7.5,
+        127.49631845910365
+      ],
+      "aimPoint": [
+        279.77581246791897,
+        7,
+        127.5
+      ],
+      "impact": [
+        282.34208287059056,
+        1,
+        126.17705569977593
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 980
+      },
+      "expected": {
+        "range": 3,
+        "lateral": -1
+      },
+      "actual": {
+        "range": 3,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Palace damaged / 3 m long / 1 m left",
+      "hud": "Palace damaged / 3 m long / 1 m left"
+    },
+    {
+      "kind": "cannon",
+      "n": 1,
+      "fired": 1157,
+      "tick": 1258,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29662645214289,
+        7.5,
+        127.42660861258813
+      ],
+      "aimPoint": [
+        283.8290574775072,
+        7,
+        112.51064973813666
+      ],
+      "impact": [
+        281.6892384601055,
+        7,
+        111.2277355478434
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1020
+      },
+      "expected": {
+        "range": -2,
+        "lateral": -1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m short / 1 m left",
+      "hud": "Wall hit / 2 m short / 1 m left"
+    },
+    {
+      "kind": "cannon",
+      "n": 2,
+      "fired": 1800,
+      "tick": 1901,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29684786467045,
+        7.5,
+        127.57094702650662
+      ],
+      "aimPoint": [
+        288.33895586123197,
+        7,
+        142.88391524409386
+      ],
+      "impact": [
+        286.6956174549932,
+        7,
+        144.11412248943768
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1060
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m short / 1 m right",
+      "hud": "Wall hit / 2 m short / 1 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 3,
+      "fired": 2443,
+      "tick": 2534,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29966892244423,
+        7.5,
+        127.47698664568374
+      ],
+      "aimPoint": [
+        293.2581340707723,
+        7,
+        121.1877868663561
+      ],
+      "impact": [
+        285,
+        13.85411100716039,
+        123.35451433612042
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1100
+      },
+      "expected": {
+        "range": -8,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -8,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 8 m short / 2 m right",
+      "hud": "Wall hit / 8 m short / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 4,
+      "fired": 3076,
+      "tick": 3177,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29951266161528,
+        7.5,
+        127.527919597362
+      ],
+      "aimPoint": [
+        279.6739125626049,
+        7,
+        133.33784166563228
+      ],
+      "impact": [
+        277.9918458091616,
+        5,
+        134.27686389033153
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 980
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m short / 1 m right",
+      "hud": "Wall hit / 2 m short / 1 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 5,
+      "fired": 3719,
+      "tick": 3820,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29998494022608,
+        7.5,
+        127.50490870771932
+      ],
+      "aimPoint": [
+        284.48350664352677,
+        7,
+        127.5
+      ],
+      "impact": [
+        283,
+        6.427190683489398,
+        129.54944547021674
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1020
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m short / 2 m right",
+      "hud": "Wall hit / 1 m short / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 6,
+      "fired": 4362,
+      "tick": 4463,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2976584926438,
+        7.5,
+        127.4388368647532
+      ],
+      "aimPoint": [
+        288.33895586123197,
+        7,
+        112.11608475590693
+      ],
+      "impact": [
+        289.926217846918,
+        1,
+        114.82502540208999
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1060
+      },
+      "expected": {
+        "range": 1,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 1,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m long / 3 m right",
+      "hud": "Wall hit / 1 m long / 3 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 7,
+      "fired": 5005,
+      "tick": 5106,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29684786467045,
+        7.5,
+        127.57094702650662
+      ],
+      "aimPoint": [
+        292.6800556198421,
+        7,
+        143.2637122602068
+      ],
+      "impact": [
+        290.8711397593021,
+        7,
+        144.7210639341033
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1100
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m short / 2 m right",
+      "hud": "Wall hit / 2 m short / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 8,
+      "fired": 5648,
+      "tick": 5749,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2994232428389,
+        7.5,
+        127.46962766375566
+      ],
+      "aimPoint": [
+        279.6739125626049,
+        7,
+        121.6621583343676
+      ],
+      "impact": [
+        283,
+        1.2777586438083037,
+        122.12825688185424
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 980
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 1
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Palace damaged / 3 m long / 1 m right",
+      "hud": "Palace damaged / 3 m long / 1 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 9,
+      "fired": 6291,
+      "tick": 6392,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29916677833076,
+        7.5,
+        127.5365028822485
+      ],
+      "aimPoint": [
+        284.37873893811775,
+        7,
+        133.50213782299005
+      ],
+      "impact": [
+        286.99142006961694,
+        1,
+        136.76022886582192
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1020
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m long / 3 m right",
+      "hud": "Wall hit / 3 m long / 3 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 10,
+      "fired": 6934,
+      "tick": 7025,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29999905876136,
+        7.5,
+        127.49877281585097
+      ],
+      "aimPoint": [
+        289.010632106414,
+        7,
+        127.5
+      ],
+      "impact": [
+        283,
+        10.501203104746192,
+        128.71893896411436
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1060
+      },
+      "expected": {
+        "range": -6,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -6,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 6 m short / 1 m right",
+      "hud": "Wall hit / 6 m short / 1 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 11,
+      "fired": 7567,
+      "tick": 7678,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29736857807367,
+        7.5,
+        127.43516674695212
+      ],
+      "aimPoint": [
+        292.6800556198421,
+        7,
+        111.73628773979338
+      ],
+      "impact": [
+        296.33155720049444,
+        1,
+        114.36011084957138
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1100
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m long / 3 m right",
+      "hud": "Wall hit / 3 m long / 3 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 12,
+      "fired": 8220,
+      "tick": 8311,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29756373112247,
+        7.5,
+        127.56238665560856
+      ],
+      "aimPoint": [
+        279.13927749952956,
+        7,
+        142.07904767935955
+      ],
+      "impact": [
+        274,
+        11.471939859073826,
+        141.83076503498725
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 980
+      },
+      "expected": {
+        "range": -5,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -5,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 5 m short / Line on mark",
+      "hud": "Wall hit / 5 m short / Line on mark"
+    },
+    {
+      "kind": "cannon",
+      "n": 13,
+      "fired": 8853,
+      "tick": 8954,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29955454905918,
+        7.5,
+        127.47330687206835
+      ],
+      "aimPoint": [
+        284.37873893811775,
+        7,
+        121.49786217700974
+      ],
+      "impact": [
+        283,
+        9.438271046986934,
+        123.71936345111855
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1020
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m short / 2 m right",
+      "hud": "Wall hit / 1 m short / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 14,
+      "fired": 9496,
+      "tick": 9597,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29905102803525,
+        7.5,
+        127.53895451958131
+      ],
+      "aimPoint": [
+        288.9031065984922,
+        7,
+        133.66013222315425
+      ],
+      "impact": [
+        292.9205224520079,
+        1,
+        138.4351921377199
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1060
+      },
+      "expected": {
+        "range": 4,
+        "lateral": 5
+      },
+      "actual": {
+        "range": 4,
+        "lateral": 5
+      },
+      "pass": true,
+      "text": "Wall hit / 4 m long / 5 m right",
+      "hud": "Wall hit / 4 m long / 5 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 15,
+      "fired": 10139,
+      "tick": 10230,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.3,
+        7.5,
+        127.5
+      ],
+      "aimPoint": [
+        293.36831416086136,
+        7,
+        127.5
+      ],
+      "impact": [
+        289.66935860799356,
+        12,
+        129.19889883657726
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1100
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 4 m short / 2 m right",
+      "hud": "Wall hit / 4 m short / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 16,
+      "fired": 10772,
+      "tick": 10863,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29628027498791,
+        7.5,
+        127.42294337364515
+      ],
+      "aimPoint": [
+        279.13927749952956,
+        7,
+        112.92095232064055
+      ],
+      "impact": [
+        274.9294538674259,
+        12,
+        113.37815698353687
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 980
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 4 m short / Line on mark",
+      "hud": "Wall hit / 4 m short / Line on mark"
+    },
+    {
+      "kind": "cannon",
+      "n": 17,
+      "fired": 11405,
+      "tick": 11506,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2969557584734,
+        7.5,
+        127.56972459419812
+      ],
+      "aimPoint": [
+        283.82905747750726,
+        7,
+        142.48935026186345
+      ],
+      "impact": [
+        283.32178221088043,
+        7,
+        144.3289959350655
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1020
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 2
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / 2 m right",
+      "hud": "Wall hit / Range on mark / 2 m right"
+    },
+    {
+      "kind": "cannon",
+      "n": 18,
+      "fired": 12048,
+      "tick": 12149,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29922183277056,
+        7.5,
+        127.46472306670239
+      ],
+      "aimPoint": [
+        288.9031065984922,
+        7,
+        121.33986777684578
+      ],
+      "impact": [
+        286,
+        11.292174719728406,
+        121.76679005044964
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1060
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m short / Line on mark",
+      "hud": "Wall hit / 3 m short / Line on mark"
+    },
+    {
+      "kind": "cannon",
+      "n": 19,
+      "fired": 12691,
+      "tick": 12792,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2994232428389,
+        7.5,
+        127.53037233624434
+      ],
+      "aimPoint": [
+        293.2581340707723,
+        7,
+        133.81221313364398
+      ],
+      "impact": [
+        295,
+        3.4263930305691215,
+        136.56453631868524
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1100
+      },
+      "expected": {
+        "range": 2,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 2,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m long / 3 m right",
+      "hud": "Wall hit / 2 m long / 3 m right"
+    },
+    {
+      "kind": "catapult",
+      "n": 0,
+      "fired": 1086,
+      "tick": 1097,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.49995764455197,
+        1.5,
+        128.50920375478205
+      ],
+      "aimPoint": [
+        256.84709745474936,
+        1,
+        128.5
+      ],
+      "impact": [
+        111,
+        6.778474707916923,
+        128.57728968980618
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 700
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 720
+      },
+      "expected": {
+        "range": -146,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -146,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 146 m short / Line on mark",
+      "hud": "Wall hit / 146 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 1,
+      "fired": 1579,
+      "tick": 1590,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.49619469809174,
+        1.5,
+        128.41284425725235
+      ],
+      "aimPoint": [
+        264.70902422091615,
+        1,
+        114.30854925906777
+      ],
+      "impact": [
+        111,
+        6.191956844767887,
+        127.75523303124402
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 780
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 800
+      },
+      "expected": {
+        "range": -154,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -154,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 154 m short / Line on mark",
+      "hud": "Wall hit / 154 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 2,
+      "fired": 2072,
+      "tick": 2083,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.4957830651786,
+        1.5,
+        128.59173923426485
+      ],
+      "aimPoint": [
+        272.24520012399404,
+        1,
+        143.35078069878853
+      ],
+      "impact": [
+        111,
+        6.7640058843309205,
+        129.28481141293116
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 860
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 880
+      },
+      "expected": {
+        "range": -162,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -162,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 162 m short / Line on mark",
+      "hud": "Wall hit / 162 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 3,
+      "fired": 2565,
+      "tick": 2576,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.49970795071484,
+        1.5,
+        128.47583363334022
+      ],
+      "aimPoint": [
+        279.6008413991017,
+        1,
+        122.31550234070755
+      ],
+      "impact": [
+        111,
+        6.262333748469091,
+        128.29574483039747
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 940
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 960
+      },
+      "expected": {
+        "range": -169,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -169,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 169 m short / Line on mark",
+      "hud": "Wall hit / 169 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 4,
+      "fired": 3058,
+      "tick": 3189,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.49823335266291,
+        1.5,
+        128.55941526429615
+      ],
+      "aimPoint": [
+        256.7530733732989,
+        1,
+        133.88663601866259
+      ],
+      "impact": [
+        252.32830460987145,
+        6.581340490614392,
+        139.09611264718416
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 700
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 720
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 5
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 5
+      },
+      "pass": true,
+      "text": "Ground / miss / 4 m short / 5 m right",
+      "hud": "Ground / miss / 4 m short / 5 m right"
+    },
+    {
+      "kind": "catapult",
+      "n": 5,
+      "fired": 3551,
+      "tick": 3562,
+      "wind": 0.9844380040322581,
+      "origin": [
+        103.49985764100582,
+        1.5,
+        128.5168729879473
+      ],
+      "aimPoint": [
+        265.32863634150505,
+        1,
+        128.5
+      ],
+      "impact": [
+        111,
+        6.649271214571637,
+        128.64519716804662
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 780
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 800
+      },
+      "expected": {
+        "range": -154,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -154,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 154 m short / Line on mark",
+      "hud": "Wall hit / 154 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 6,
+      "fired": 1056,
+      "tick": 1067,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49695466390307,
+        1.5,
+        131.4220166804893
+      ],
+      "aimPoint": [
+        271.2452001239941,
+        1,
+        116.64921930121115
+      ],
+      "impact": [
+        103.29307364042042,
+        2.065285820195791,
+        131.3597092957066
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 860
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 880
+      },
+      "expected": {
+        "range": -169,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -169,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 169 m short / Line on mark",
+      "hud": "Person hit / 169 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 7,
+      "fired": 1579,
+      "tick": 1590,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49619469809174,
+        1.5,
+        131.58715574274765
+      ],
+      "aimPoint": [
+        278.03445925214737,
+        1,
+        146.94476390624212
+      ],
+      "impact": [
+        109.67829760197903,
+        6,
+        132.21506061504238
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 940
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 960
+      },
+      "expected": {
+        "range": -169,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -169,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 169 m short / Line on mark",
+      "hud": "Wall hit / 169 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 8,
+      "fired": 2102,
+      "tick": 2113,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49954084945698,
+        1.5,
+        131.4696999955968
+      ],
+      "aimPoint": [
+        255.7530733732989,
+        1,
+        126.11336398133733
+      ],
+      "impact": [
+        103.25572209932021,
+        2.030139399317542,
+        131.44681816814477
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 700
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 720
+      },
+      "expected": {
+        "range": -153,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -153,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 153 m short / Line on mark",
+      "hud": "Person hit / 153 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 9,
+      "fired": 2745,
+      "tick": 2756,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49895847291344,
+        1.5,
+        131.54562860281064
+      ],
+      "aimPoint": [
+        264.2294455357284,
+        1,
+        137.18263745707281
+      ],
+      "impact": [
+        111,
+        6.887582233553661,
+        131.93614986765405
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 780
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 800
+      },
+      "expected": {
+        "range": -153,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -153,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 153 m short / Line on mark",
+      "hud": "Wall hit / 153 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 10,
+      "fired": 3268,
+      "tick": 3279,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.4996988186962,
+        1.5,
+        131.5245412285229
+      ],
+      "aimPoint": [
+        271.89359921223013,
+        1,
+        131.5
+      ],
+      "impact": [
+        103.25374373398634,
+        2.065847881101103,
+        131.54310280094157
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 860
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 880
+      },
+      "expected": {
+        "range": -169,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -169,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 169 m short / Line on mark",
+      "hud": "Person hit / 169 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 11,
+      "fired": 3791,
+      "tick": 3802,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49752345861344,
+        1.5,
+        131.42966544579028
+      ],
+      "aimPoint": [
+        278.03445925214737,
+        1,
+        116.05523609375805
+      ],
+      "impact": [
+        103.28392216783213,
+        2.043722269231888,
+        131.37426070444909
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 940
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 960
+      },
+      "expected": {
+        "range": -175,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -175,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 175 m short / Line on mark",
+      "hud": "Person hit / 175 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 12,
+      "fired": 4404,
+      "tick": 4535,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49619469809174,
+        1.5,
+        131.58715574274765
+      ],
+      "aimPoint": [
+        255.25976015027123,
+        1,
+        144.9522359196137
+      ],
+      "impact": [
+        251.5688681798435,
+        5.57463252107455,
+        146.42476281228758
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 700
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 720
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Ground / miss / 4 m short / 2 m right",
+      "hud": "Ground / miss / 4 m short / 2 m right"
+    },
+    {
+      "kind": "catapult",
+      "n": 13,
+      "fired": 4927,
+      "tick": 4938,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49958615305529,
+        1.5,
+        131.47123330710468
+      ],
+      "aimPoint": [
+        264.2294455357284,
+        1,
+        125.81736254292701
+      ],
+      "impact": [
+        103.25514505932344,
+        2.059742797994124,
+        131.44954152176018
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 780
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 800
+      },
+      "expected": {
+        "range": -161,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -161,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 161 m short / Line on mark",
+      "hud": "Person hit / 161 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 14,
+      "fired": 5450,
+      "tick": 5461,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49970795071484,
+        1.5,
+        131.52416636665978
+      ],
+      "aimPoint": [
+        271.78980003547053,
+        1,
+        137.44665085383457
+      ],
+      "impact": [
+        111,
+        6.871035487914128,
+        131.73185548313728
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 860
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 880
+      },
+      "expected": {
+        "range": -161,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -161,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 161 m short / Line on mark",
+      "hud": "Wall hit / 161 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 15,
+      "fired": 5973,
+      "tick": 5984,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49980116988789,
+        1.5,
+        131.5199404285515
+      ],
+      "aimPoint": [
+        278.70879220729273,
+        1,
+        131.5
+      ],
+      "impact": [
+        103.25246303905793,
+        2.0192081638123263,
+        131.5350064703671
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 940
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 960
+      },
+      "expected": {
+        "range": -175,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -175,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 175 m short / Line on mark",
+      "hud": "Person hit / 175 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 16,
+      "fired": 6706,
+      "tick": 6717,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.4957830651786,
+        1.5,
+        131.40826076573515
+      ],
+      "aimPoint": [
+        255.25976015027123,
+        1,
+        118.04776408038616
+      ],
+      "impact": [
+        103.31400067422928,
+        2.017554650271249,
+        131.33295434512434
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 700
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 720
+      },
+      "expected": {
+        "range": -153,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -153,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Person hit / 153 m short / Line on mark",
+      "hud": "Person hit / 153 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 17,
+      "fired": 7259,
+      "tick": 7270,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49409339150898,
+        1.5,
+        131.60852801001658
+      ],
+      "aimPoint": [
+        263.70902422091615,
+        1,
+        145.691450740932
+      ],
+      "impact": [
+        111,
+        6.734032378719218,
+        132.54066123676188
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 780
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 800
+      },
+      "expected": {
+        "range": -153,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -153,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 153 m short / Line on mark",
+      "hud": "Wall hit / 153 m short / Line on mark"
+    },
+    {
+      "kind": "catapult",
+      "n": 18,
+      "fired": 7782,
+      "tick": 7923,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49909375820522,
+        1.5,
+        131.45743637332916
+      ],
+      "aimPoint": [
+        271.78980003547053,
+        1,
+        125.55334914616527
+      ],
+      "impact": [
+        271.1992203745156,
+        8,
+        127.61965359700804
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 860
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 880
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Gun hit / 1 m short / 2 m right",
+      "hud": "Gun hit / 1 m short / 2 m right"
+    },
+    {
+      "kind": "catapult",
+      "n": 19,
+      "fired": 8315,
+      "tick": 8456,
+      "wind": 0.9844380040322581,
+      "origin": [
+        102.49909375820522,
+        1.5,
+        131.54256362667084
+      ],
+      "aimPoint": [
+        278.6008413991017,
+        1,
+        137.68449765929276
+      ],
+      "impact": [
+        275.92258086482445,
+        13,
+        142.40046521702328
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 940
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 960
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 5
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 5
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m short / 5 m right",
+      "hud": "Wall hit / 3 m short / 5 m right"
+    }
+  ],
+  "idle": [
+    {
+      "tick": 2,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / E: man gun, call crew"
+    },
+    {
+      "tick": 3,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 33,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 63,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 93,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 123,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 153,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 183,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 213,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 243,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 273,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 303,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 333,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 363,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 393,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 423,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 453,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 483,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 585,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 585,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 586,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 616,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 646,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 676,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 706,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 736,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 766,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 796,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 826,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 856,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 886,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 916,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 946,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 976,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1006,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1036,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1066,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1096,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1126,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1156,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 1258,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1258,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1259,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1289,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1319,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1349,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1379,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1409,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1439,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1469,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1499,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1529,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1559,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1589,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1619,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1649,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1679,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1709,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1739,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1769,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1799,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 1901,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1901,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1902,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1932,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1962,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1992,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2022,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2052,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2082,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2112,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2142,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2172,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2202,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2232,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2262,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2292,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2322,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2352,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2382,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2412,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2442,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 2534,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2534,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2535,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2565,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2595,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2625,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2655,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2685,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2715,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2745,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2775,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2805,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2835,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2865,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2895,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2925,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2955,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2985,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3015,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3045,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3075,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3177,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3177,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3178,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3208,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3238,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3268,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3298,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3328,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3358,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3388,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3418,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3448,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3478,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3508,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3538,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3568,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3598,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3628,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3658,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3688,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3718,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 3820,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3820,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3821,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3851,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3881,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3911,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3941,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3971,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4001,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4031,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4061,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4091,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4121,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4151,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4181,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4211,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4241,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4271,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4301,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4331,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4361,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 4463,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4463,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4464,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4494,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4524,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4554,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4584,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4614,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4644,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4674,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4704,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4734,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4764,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4794,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4824,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4854,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4884,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4914,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4944,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4974,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5004,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5106,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5106,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5107,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5137,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5167,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5197,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5227,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5257,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5287,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5317,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5347,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5377,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5407,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5437,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5467,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5497,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5527,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5557,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5587,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5617,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5647,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 5749,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5749,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5750,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5780,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5810,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5840,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5870,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5900,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5930,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5960,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5990,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6020,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6050,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6080,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6110,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6140,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6170,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6200,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6230,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6260,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6290,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 6392,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6392,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6393,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6423,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6453,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6483,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6513,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6543,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6573,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6603,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6633,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6663,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6693,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6723,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6753,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6783,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6813,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6843,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6873,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6903,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6933,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 7025,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7025,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7026,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7056,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7086,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7116,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7146,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7176,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7206,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7236,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7266,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7296,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7326,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7356,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7386,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7416,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7446,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7476,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7506,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7536,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7566,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 7678,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7678,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7679,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7709,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7739,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7769,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7799,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7829,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7859,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7889,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7919,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7949,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7979,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8009,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8039,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8069,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8099,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8129,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8159,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8189,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8219,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 8311,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8311,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8312,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8342,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8372,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8402,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8432,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8462,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8492,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8522,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8552,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8582,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8612,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8642,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8672,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8702,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8732,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8762,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8792,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8822,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8852,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 8954,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8954,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8955,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8985,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9015,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9045,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9075,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9105,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9135,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9165,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9195,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9225,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9255,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9285,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9315,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9345,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9375,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9405,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9435,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9465,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9495,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 9597,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9597,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9598,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9628,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9658,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9688,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9718,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9748,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9778,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9808,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9838,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9868,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9898,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9928,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9958,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9988,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10018,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10048,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10078,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10108,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10138,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 10230,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10230,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10231,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10261,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10291,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10321,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10351,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10381,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10411,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10441,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10471,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10501,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10531,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10561,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10591,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10621,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10651,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10681,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10711,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10741,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10771,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 10863,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10863,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10864,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10894,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10924,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10954,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10984,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11014,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11044,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11074,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11104,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11134,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11164,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11194,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11224,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11254,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11284,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11314,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11344,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11374,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11404,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 11506,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11506,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11507,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11537,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11567,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11597,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11627,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11657,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11687,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11717,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11747,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11777,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11807,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11837,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11867,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11897,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11927,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11957,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11987,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12017,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12047,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 12149,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12149,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12150,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12180,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12210,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12240,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12270,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12300,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12330,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12360,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12390,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12420,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12450,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12480,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12510,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12540,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12570,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12600,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12630,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12660,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12690,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 12792,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 874,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 0/3 / E: man gun, call crew"
+    },
+    {
+      "tick": 875,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 0/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 905,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 0/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 935,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 0/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 965,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 0/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 995,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1025,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1055,
+      "kind": "catapult",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          31,
+          1,
+          27
+        ],
+        "entityId": 32
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 1067,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1067,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1068,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1098,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1128,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1158,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1188,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1218,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1248,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1278,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1308,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1338,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1368,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1398,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1428,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1458,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1488,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1518,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1548,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1578,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 1590,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1590,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1591,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1621,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1651,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1681,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1711,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1741,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1771,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1801,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1831,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1861,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1891,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1921,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1951,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1981,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2011,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2041,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2071,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2101,
+      "kind": "catapult",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          32,
+          1,
+          29
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 2113,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2113,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2114,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2144,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2174,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2204,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2234,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 2264,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2294,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2324,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2354,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2384,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2414,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2444,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2474,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2504,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2534,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2564,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2594,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2624,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2654,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2684,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2714,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2744,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 2756,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2756,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2757,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2787,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2817,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2847,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2877,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2907,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2937,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2967,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2997,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3027,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3057,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3087,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3117,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3147,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3177,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3207,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3237,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3267,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3279,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3279,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3280,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3310,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3340,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3370,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3400,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3430,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3460,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3490,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3520,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3550,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3580,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3610,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3640,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3670,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3700,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3730,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3760,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3790,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3802,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3802,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3803,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3833,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3863,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3893,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 3923,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3953,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3983,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4013,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4043,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4073,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4103,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4133,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4163,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4193,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4223,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4253,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4283,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4313,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4343,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4373,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4403,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 4535,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4535,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4536,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4566,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4596,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4626,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4656,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4686,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4716,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4746,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4776,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4806,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4836,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4866,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4896,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4926,
+      "kind": "catapult",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          32,
+          1,
+          29
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 4938,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4938,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4939,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4969,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4999,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5029,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5059,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5089,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5119,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5149,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5179,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5209,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5239,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5269,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5299,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5329,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5359,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5389,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5419,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5449,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5461,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5461,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5462,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5492,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5522,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5552,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5582,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5612,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5642,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5672,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5702,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5732,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5762,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5792,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5822,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5852,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5882,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5912,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5942,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5972,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5984,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 5984,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 5985,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6015,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6045,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6075,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 1/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6105,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 2,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 2/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6135,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 2,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 2/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6165,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 2,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 2/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6195,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 2,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 2/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6225,
+      "kind": "catapult",
+      "reason": "no-crew",
+      "detail": {
+        "present": 2,
+        "required": 3
+      },
+      "diagnosis": "Missing crew 2/3 / Crew ordered; waiting"
+    },
+    {
+      "tick": 6255,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6285,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6315,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6345,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6375,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6405,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6435,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6465,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6495,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6525,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6555,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6585,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6615,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6645,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6675,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6705,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 6717,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6717,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6718,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6748,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6778,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6808,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6838,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6868,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6898,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6928,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6958,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6988,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7018,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7048,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7078,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7108,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7138,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7168,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7198,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7228,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7258,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 7270,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7270,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7271,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7301,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7331,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7361,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7391,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7421,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7451,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7481,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7511,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7541,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7571,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7601,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7631,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7661,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7691,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7721,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7751,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7781,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 7923,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7923,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7924,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7954,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7984,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8014,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8044,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8074,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8104,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8134,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8164,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8194,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8224,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8254,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8284,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8314,
+      "kind": "catapult",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 8456,
+      "kind": "catapult",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "cannon": {
+    "setup": {
+      "id": 1,
+      "built": false
+    }
+  },
+  "catapult": {
+    "setup": {
+      "id": 4,
+      "built": true,
+      "cell": [
+        29,
+        1,
+        27
+      ],
+      "goldBefore": 1500.1999999999998,
+      "goldAfter": 992.2933333333485
+    },
+    "setups": [
+      {
+        "id": 4,
+        "built": true,
+        "cell": [
+          30,
+          1,
+          24
+        ],
+        "goldBefore": 1500.1999999999998,
+        "goldAfter": 995.493333333349
+      },
+      {
+        "id": 4,
+        "built": true,
+        "cell": [
+          29,
+          1,
+          27
+        ],
+        "goldBefore": 1500.1999999999998,
+        "goldAfter": 992.2933333333485
+      }
+    ]
+  },
+  "status": "failed",
+  "error": "page.evaluate: Error: No paid placement ballista\n    at eval (eval at evaluate (:370:30), <anonymous>:16:19)\n    at async <anonymous>:396:30\n    at /home/tobias/Projects/castle-game/scripts/critique-v3-browser.mjs:14:26"
+}

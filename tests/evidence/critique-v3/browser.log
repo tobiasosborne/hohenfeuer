@@ -1,0 +1,2 @@
+WebGL renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+browser smoke: passed (ready, webgl, loop-advances, tb1-first-shot@307, game-over-overlay, no-console-errors)

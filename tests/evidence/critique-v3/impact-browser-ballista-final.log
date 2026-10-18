@@ -1,0 +1,26 @@
+ballista 1 Wall hit / 455 m short / Line on mark
+ballista 2 Wall hit / 487 m short / Line on mark
+ballista 3 Wall hit / 517 m short / Line on mark
+ballista 4 Wall hit / 546 m short / Line on mark
+ballista 5 Wall hit / 455 m short / Line on mark
+ballista 6 Wall hit / 487 m short / Line on mark
+ballista 7 Wall hit / 517 m short / Line on mark
+ballista 8 Wall hit / 546 m short / Line on mark
+ballista 9 Wall hit / 455 m short / Line on mark
+ballista 10 Wall hit / 487 m short / Line on mark
+ballista 11 Wall hit / 517 m short / Line on mark
+ballista 12 Wall hit / 546 m short / Line on mark
+ballista 13 Wall hit / 455 m short / Line on mark
+ballista 14 null
+ballista 15 null
+ballista 16 null
+ballista 17 null
+ballista 18 null
+ballista 19 null
+failed page.screenshot: Timeout 180000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at /home/tobias/Projects/castle-game/scripts/critique-v3-browser.mjs:57:119

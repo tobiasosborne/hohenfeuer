@@ -1,0 +1,33 @@
+completed  {
+  fired: 1535,
+  tick: 2535,
+  wind: 0.9844380040322581,
+  reference: {
+    weaponId: 4,
+    projectileId: 86,
+    origin: [ 113.1599720454043, 7.5, 130.50607447815617 ],
+    aimPoint: [ 1105.0276050634052, 7, 130.5 ],
+    aim: { az: 900, range: 2550 },
+    tick: 1535,
+    previousImpact: null,
+    impact: [ 113.1599720454043, 7.5, 130.50607447815617 ],
+    offset: { range: -992, lateral: 0 },
+    kind: 'wall',
+    until: 1595
+  },
+  stillFlying: false,
+  impact: null,
+  hud: null,
+  texts: [
+    '1343',               '40 (40)',
+    'Morale: Bold 71%',   '3 (4)',
+    '2',                  'N',
+    'E',                  'S',
+    'W',                  'Opponent',
+    'KI',                 'Hohenfeuer',
+    'Income +3.2 gold/s', 'G: Place weapon',
+    'R: Priority',        'B: Build',
+    'WASD: Walk',         'Q: Crew',
+    'X: Shelter',         'Tab: Jobs'
+  ]
+}

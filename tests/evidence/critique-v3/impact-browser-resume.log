@@ -1,0 +1,18 @@
+catapult 7 Person hit / 169 m short / Line on mark
+catapult 8 Wall hit / 169 m short / Line on mark
+catapult 9 Person hit / 153 m short / Line on mark
+catapult 10 Wall hit / 153 m short / Line on mark
+catapult 11 Person hit / 169 m short / Line on mark
+catapult 12 Person hit / 175 m short / Line on mark
+catapult 13 Ground / miss / 4 m short / 2 m right
+catapult 14 Person hit / 161 m short / Line on mark
+catapult 15 Wall hit / 161 m short / Line on mark
+catapult 16 Person hit / 175 m short / Line on mark
+catapult 17 Person hit / 153 m short / Line on mark
+catapult 18 Wall hit / 153 m short / Line on mark
+catapult 19 Gun hit / 1 m short / 2 m right
+catapult 20 Wall hit / 3 m short / 5 m right
+failed page.evaluate: Error: No paid placement ballista
+    at eval (eval at evaluate (:370:30), <anonymous>:16:19)
+    at async <anonymous>:396:30
+    at /home/tobias/Projects/castle-game/scripts/critique-v3-browser.mjs:14:26

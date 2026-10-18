@@ -1,0 +1,2224 @@
+{
+  "captures": [
+    {
+      "seed": 1,
+      "name": "m00",
+      "file": "ai-seed1-m00",
+      "tick": 0,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 70,
+          "pop": 0,
+          "pressure": [],
+          "surrender": {
+            "morale": 70,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 40,
+            "popThreshold": 14
+          },
+          "reason": null
+        },
+        {
+          "morale": 70,
+          "pop": 0,
+          "pressure": [],
+          "surrender": {
+            "morale": 70,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 40,
+            "popThreshold": 14
+          },
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": null,
+        "palace": null,
+        "danger": null,
+        "texts": [
+          "1500",
+          "0 (0)",
+          "Morale: Bold 70%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.0 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 1,
+      "name": "m02",
+      "file": "ai-seed1-m02",
+      "tick": 3600,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 68.67044804146941,
+          "pop": 35,
+          "pressure": [
+            {
+              "cause": "deaths",
+              "weight": -1
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 68.67044804146941,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 35,
+            "popThreshold": 14
+          },
+          "palace": 0.9652777777777778,
+          "reason": null
+        },
+        {
+          "morale": 76.17359588237898,
+          "pop": 39,
+          "pressure": [
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 76.17359588237898,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 39,
+            "popThreshold": 14
+          },
+          "palace": 1,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.9652777777777778,
+          "threshold": 0.2,
+          "margin": 0.7653
+        },
+        "danger": null,
+        "texts": [
+          "1339",
+          "35 (40)",
+          "Morale: Steady 69%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Wall hit",
+          "Morale: Steady: Morale",
+          " falling: losses in the c",
+          "astle.",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Palace 96.5% / defeat below 20%",
+          "losses / surrender at 20% morale"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 1,
+      "name": "m05",
+      "file": "ai-seed1-m05",
+      "tick": 9000,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.50776274893171,
+          "y": 1,
+          "z": 115.50005832150009
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 16466,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 67.24220983776459,
+          "pop": 35,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 67.24220983776459,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 35,
+            "popThreshold": 14
+          },
+          "palace": 0.9385850694444444,
+          "reason": null
+        },
+        {
+          "morale": 70.759289725812,
+          "pop": 39,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 70.759289725812,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 39,
+            "popThreshold": 14
+          },
+          "palace": 0.9774305555555556,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": null,
+        "palace": {
+          "integrity": 0.9385850694444444,
+          "threshold": 0.2,
+          "margin": 0.7386
+        },
+        "danger": null,
+        "texts": [
+          "1263",
+          "35 (40)",
+          "Morale: Steady 67%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Palace 93.9% / defeat below 20%"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 1,
+      "name": "m10",
+      "file": "ai-seed1-m10",
+      "tick": 18000,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.50776274893171,
+          "y": 1,
+          "z": 115.50005832150009
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 16466,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 72.62949525798945,
+          "pop": 33,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 72.62949525798945,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 33,
+            "popThreshold": 14
+          },
+          "palace": 0.8799913194444444,
+          "reason": null
+        },
+        {
+          "morale": 66.9826773816526,
+          "pop": 31,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.030299479166666695
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 66.9826773816526,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 31,
+            "popThreshold": 14
+          },
+          "palace": 0.8033854166666666,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": null,
+        "palace": {
+          "integrity": 0.8799913194444444,
+          "threshold": 0.2,
+          "margin": 0.68
+        },
+        "danger": null,
+        "texts": [
+          "884",
+          "33 (40)",
+          "Morale: Bold 73%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "The wind has changed!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "From minute 10 the defeat line rises to 55%.",
+          "Palace 88% / defeat below 20%"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 1,
+      "name": "end",
+      "file": "ai-seed1-end",
+      "tick": 27246,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.50776274893171,
+          "y": 1,
+          "z": 115.50005832150009
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 16466,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 57.028875467008916,
+          "pop": 22,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11690972222222226
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.09999999999999998
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 57.028875467008916,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 22,
+            "popThreshold": 14
+          },
+          "palace": 0.6701388888888888,
+          "reason": null
+        },
+        {
+          "morale": 41.72796120360464,
+          "pop": 27,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.19632595486111112
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2375
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 41.72796120360464,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 27,
+            "popThreshold": 14
+          },
+          "palace": 0.5479600694444444,
+          "reason": "palace"
+        }
+      ],
+      "hud": {
+        "pressure": "palace damage / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.6701388888888888,
+          "threshold": 0.55,
+          "margin": 0.1201
+        },
+        "danger": null,
+        "texts": [
+          "358",
+          "22 (40)",
+          "Morale: Steady 57%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "Palace damaged",
+          "Victory!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Victory!",
+          "Winner: West",
+          "Duration 15:08",
+          "Name",
+          "Shots",
+          "Hits",
+          "Damage",
+          "Losses",
+          "West",
+          "37",
+          "37",
+          "15320",
+          "18",
+          "East",
+          "36",
+          "35",
+          "12904",
+          "13",
+          "Enter: Retry",
+          "Continue",
+          "Back to title"
+        ]
+      },
+      "outcome": {
+        "winners": [
+          0
+        ],
+        "draw": false,
+        "tick": 27245
+      }
+    },
+    {
+      "seed": 4,
+      "name": "before",
+      "file": "ai-seed4-before",
+      "tick": 20354,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": -300,
+        "manning": 1
+      },
+      "castles": [
+        {
+          "morale": 33.215990237197104,
+          "pop": 15,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.21381727430555555
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.1875
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 33.215990237197104,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 15,
+            "popThreshold": 14
+          },
+          "palace": 0.5210503472222222,
+          "reason": null
+        },
+        {
+          "morale": 83.47545285613894,
+          "pop": 31,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.013372395833333313
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 83.47545285613894,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 31,
+            "popThreshold": 14
+          },
+          "palace": 0.8294270833333334,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "palace damage / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.5210503472222222,
+          "threshold": 0.22392361913580244,
+          "margin": 0.2971
+        },
+        "danger": null,
+        "texts": [
+          "789",
+          "15 (40)",
+          "Morale: Uneasy 33%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "0",
+          "8",
+          "9",
+          "0",
+          "9",
+          "8",
+          "Charge 1-255",
+          "approx. 170 m (no wind)",
+          "Arrows: Aim",
+          "E: Leave",
+          "Reloading",
+          "Cannon (72%)",
+          "F: Fire at will",
+          "Q: Crew",
+          "Home: Reset",
+          "End: Impact view",
+          "Palace 52.1% / defeat below 22.4%",
+          "palace damage / surrender at 20% morale",
+          "Last shot: 89.0 deg / charge 98.4"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 4,
+      "name": "last",
+      "file": "ai-seed4-last",
+      "tick": 20443,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": -300,
+        "manning": 1
+      },
+      "castles": [
+        {
+          "morale": 32.65210448754897,
+          "pop": 15,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.20845703124999998
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.1875
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 32.65210448754897,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 15,
+            "popThreshold": 14
+          },
+          "palace": 0.529296875,
+          "reason": null
+        },
+        {
+          "morale": 83.53623537061496,
+          "pop": 31,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.013372395833333313
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 83.53623537061496,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 31,
+            "popThreshold": 14
+          },
+          "palace": 0.8294270833333334,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "palace damage / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.529296875,
+          "threshold": 0.22576762222222221,
+          "margin": 0.3035
+        },
+        "danger": {
+          "castle": 0,
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 138,
+          "impactPos": [
+            111.71348966817693,
+            8.603513892422853,
+            127.35566153755433
+          ],
+          "etaTicks": 2,
+          "defId": "cannon",
+          "bearing": 89.99999108844838,
+          "tick": 20357,
+          "until": 20445,
+          "text": "Incoming from E / impact in 0.1 s"
+        },
+        "texts": [
+          "795",
+          "15 (40)",
+          "Morale: Uneasy 33%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "The enemy fires!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "0",
+          "8",
+          "9",
+          "0",
+          "9",
+          "8",
+          "Charge 1-255",
+          "approx. 170 m (no wind)",
+          "Arrows: Aim",
+          "E: Leave",
+          "Reloading",
+          "Cannon (72%)",
+          "F: Fire at will",
+          "Q: Crew",
+          "Home: Reset",
+          "End: Impact view",
+          "Palace 52.9% / defeat below 22.6%",
+          "palace damage / surrender at 20% morale",
+          "Incoming from E / impact in 0.1 s",
+          "Last shot: 89.0 deg / charge 98.4"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 4,
+      "name": "end",
+      "file": "ai-seed4-end",
+      "tick": 20444,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 0,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": 20443,
+        "manning": 1,
+        "lastDamageBy": 1,
+        "dead": true
+      },
+      "castles": [
+        {
+          "morale": 28.44561526495604,
+          "pop": 12,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.20831597222222226
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.825
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 28.44561526495604,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 12,
+            "popThreshold": 14
+          },
+          "palace": 0.5295138888888888,
+          "reason": "ruler"
+        },
+        {
+          "morale": 85.98514933241914,
+          "pop": 31,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.013372395833333313
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 85.98514933241914,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 31,
+            "popThreshold": 14
+          },
+          "palace": 0.8294270833333334,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / population 12 < 14: surrender",
+        "palace": {
+          "integrity": 0.5295138888888888,
+          "threshold": 0.22578873024691357,
+          "margin": 0.3037
+        },
+        "danger": null,
+        "texts": [
+          "Defeat!",
+          "Winner: East",
+          "Duration 11:21",
+          "Name",
+          "Shots",
+          "Hits",
+          "Damage",
+          "Losses",
+          "West",
+          "27",
+          "27",
+          "9111",
+          "28",
+          "East",
+          "28",
+          "27",
+          "12495",
+          "9",
+          "11:21: East killed your ruler with Cannon from E.",
+          "Decisive events",
+          "11:18 / Incoming shot near ruler",
+          "11:21 / Ruler killed",
+          "11:21 / 3 people lost",
+          "Enter: Retry",
+          "Continue",
+          "Back to title"
+        ]
+      },
+      "outcome": {
+        "winners": [
+          1
+        ],
+        "draw": false,
+        "tick": 20443
+      },
+      "account": {
+        "cause": "11:21: East killed your ruler with Cannon from E.",
+        "events": [
+          "11:18 / Incoming shot near ruler",
+          "11:21 / Ruler killed",
+          "11:21 / 3 people lost"
+        ]
+      }
+    },
+    {
+      "seed": 6,
+      "name": "before",
+      "file": "ai-seed6-before",
+      "tick": 27166,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": 25816,
+        "manning": null,
+        "lastDamageBy": 1
+      },
+      "castles": [
+        {
+          "morale": 42.01364769843072,
+          "pop": 16,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10534288194444444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.175
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 42.01364769843072,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "palace": 0.6879340277777778,
+          "reason": null
+        },
+        {
+          "morale": 75.46368581954039,
+          "pop": 25,
+          "pressure": [
+            {
+              "cause": "deaths",
+              "weight": -0.0625
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 75.46368581954039,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "palace": 0.87109375,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.6879340277777778,
+          "threshold": 0.55,
+          "margin": 0.1379
+        },
+        "danger": null,
+        "texts": [
+          "461",
+          "16 (40)",
+          "Morale: Steady 42%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.0 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Defeat line now 55%. Keep the palace above it.",
+          "Palace 68.8% / defeat below 55%",
+          "losses / surrender at 20% morale"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "last",
+      "file": "ai-seed6-last",
+      "tick": 27255,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": 25816,
+        "manning": null,
+        "lastDamageBy": 1
+      },
+      "castles": [
+        {
+          "morale": 41.06516723663384,
+          "pop": 16,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10534288194444444
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.175
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 41.06516723663384,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "palace": 0.6879340277777778,
+          "reason": null
+        },
+        {
+          "morale": 75.53394951175221,
+          "pop": 25,
+          "pressure": [
+            {
+              "cause": "deaths",
+              "weight": -0.0625
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 75.53394951175221,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "palace": 0.87109375,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.6879340277777778,
+          "threshold": 0.55,
+          "margin": 0.1379
+        },
+        "danger": {
+          "castle": 0,
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 157,
+          "impactPos": [
+            111.13981265679841,
+            7,
+            129.38172190876975
+          ],
+          "etaTicks": 2,
+          "defId": "cannon",
+          "bearing": 89.99999108844838,
+          "tick": 27167,
+          "until": 27257,
+          "text": "Incoming from E / impact in 0.1 s"
+        },
+        "texts": [
+          "470",
+          "16 (40)",
+          "Morale: Steady 41%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "The enemy fires!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.0 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Palace 68.8% / defeat below 55%",
+          "losses / surrender at 20% morale",
+          "Incoming from E / impact in 0.1 s"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "end",
+      "file": "ai-seed6-end",
+      "tick": 27256,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996517653658,
+          "y": 7,
+          "z": 127.50002488575223
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 6,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": 27255,
+        "manning": null,
+        "lastDamageBy": 1
+      },
+      "castles": [
+        {
+          "morale": 35.45322877165253,
+          "pop": 12,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10534288194444444
+            },
+            {
+              "cause": "deaths",
+              "weight": -1.025
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 35.45322877165253,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 12,
+            "popThreshold": 14
+          },
+          "palace": 0.6879340277777778,
+          "reason": "surrender"
+        },
+        {
+          "morale": 80.0809806558818,
+          "pop": 25,
+          "pressure": [
+            {
+              "cause": "deaths",
+              "weight": -0.0625
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 80.0809806558818,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "palace": 0.87109375,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / population 12 < 14: surrender",
+        "palace": {
+          "integrity": 0.6879340277777778,
+          "threshold": 0.55,
+          "margin": 0.1379
+        },
+        "danger": null,
+        "texts": [
+          "470",
+          "12 (40)",
+          "Morale: Uneasy 35%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          " falling: losses in the c",
+          "astle.",
+          "Defeat!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.0 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Defeat!",
+          "Winner: East",
+          "Duration 15:08",
+          "Name",
+          "Shots",
+          "Hits",
+          "Damage",
+          "Losses",
+          "West",
+          "36",
+          "36",
+          "10347",
+          "28",
+          "East",
+          "38",
+          "38",
+          "15382",
+          "15",
+          "15:08: Your castle surrendered; strongest pressure: population loss.",
+          "Decisive events",
+          "15:05 / Incoming shot near ruler",
+          "15:08 / 4 people lost",
+          "15:08 / Castle surrendered",
+          "Enter: Retry",
+          "Continue",
+          "Back to title"
+        ]
+      },
+      "outcome": {
+        "winners": [
+          1
+        ],
+        "draw": false,
+        "tick": 27255
+      },
+      "account": {
+        "cause": "15:08: Your castle surrendered; strongest pressure: population loss.",
+        "events": [
+          "15:05 / Incoming shot near ruler",
+          "15:08 / 4 people lost",
+          "15:08 / Castle surrendered"
+        ]
+      }
+    },
+    {
+      "seed": 9,
+      "name": "before",
+      "file": "ai-seed9-before",
+      "tick": 23655,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996873369605,
+          "y": 7,
+          "z": 127.5001245545028
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": -300,
+        "manning": 1
+      },
+      "castles": [
+        {
+          "morale": 33.338233892753934,
+          "pop": 14,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10506076388888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 33.338233892753934,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 14,
+            "popThreshold": 14
+          },
+          "palace": 0.6883680555555556,
+          "reason": null
+        },
+        {
+          "morale": 71.64306403075074,
+          "pop": 33,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.11493489583333331
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 71.64306403075074,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 33,
+            "popThreshold": 14
+          },
+          "palace": 0.6731770833333334,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.6883680555555556,
+          "threshold": 0.3381321061728396,
+          "margin": 0.3502
+        },
+        "danger": null,
+        "texts": [
+          "581",
+          "14 (40)",
+          "Morale: Uneasy 33%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "0",
+          "8",
+          "9",
+          "0",
+          "9",
+          "8",
+          "Charge 1-255",
+          "approx. 171 m (no wind)",
+          "Arrows: Aim",
+          "E: Leave",
+          "Reloading",
+          "Cannon (89%)",
+          "F: Fire at will",
+          "Q: Crew",
+          "Home: Reset",
+          "End: Impact view",
+          "Palace 68.8% / defeat below 33.8%",
+          "losses / surrender at 20% morale",
+          "Last shot: 89.6 deg / charge 98.9"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 9,
+      "name": "last",
+      "file": "ai-seed9-last",
+      "tick": 23744,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996873369605,
+          "y": 7,
+          "z": 127.5001245545028
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": -300,
+        "manning": 1
+      },
+      "castles": [
+        {
+          "morale": 34.06324268937072,
+          "pop": 14,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10506076388888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.2
+            },
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 34.06324268937072,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 14,
+            "popThreshold": 14
+          },
+          "palace": 0.6883680555555556,
+          "reason": null
+        },
+        {
+          "morale": 68.64525939105843,
+          "pop": 33,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.18306640624999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 68.64525939105843,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 33,
+            "popThreshold": 14
+          },
+          "palace": 0.568359375,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.6883680555555556,
+          "threshold": 0.34251502654320987,
+          "margin": 0.3459
+        },
+        "danger": {
+          "castle": 0,
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 148,
+          "impactPos": [
+            112.68858133577825,
+            7,
+            131.09041397174488
+          ],
+          "etaTicks": 2,
+          "defId": "cannon",
+          "bearing": 89.99995539721294,
+          "tick": 23657,
+          "until": 23746,
+          "text": "Incoming from E / impact in 0.1 s"
+        },
+        "texts": [
+          "590",
+          "14 (40)",
+          "Morale: Uneasy 34%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "The enemy fires!",
+          "Palace damaged",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "0",
+          "8",
+          "9",
+          "0",
+          "9",
+          "6",
+          "Charge 1-255",
+          "approx. 167 m (no wind)",
+          "Arrows: Aim",
+          "E: Leave",
+          "Reloading",
+          "Cannon (89%)",
+          "F: Fire at will",
+          "Q: Crew",
+          "Home: Reset",
+          "End: Impact view",
+          "Palace 68.8% / defeat below 34.3%",
+          "losses / surrender at 20% morale",
+          "Incoming from E / impact in 0.1 s",
+          "Palace damaged / 5 m long / 1 m left",
+          "Last shot: 89.6 deg / charge 98.9"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 9,
+      "name": "end",
+      "file": "ai-seed9-end",
+      "tick": 23745,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 111.49996873369605,
+          "y": 7,
+          "z": 127.5001245545028
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 53,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 7,
+        "lastDamageTick": 23744,
+        "manning": 1,
+        "lastDamageBy": 1
+      },
+      "castles": [
+        {
+          "morale": 29.853662665771623,
+          "pop": 11,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.10506076388888888
+            },
+            {
+              "cause": "deaths",
+              "weight": -0.8374999999999999
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 29.853662665771623,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 11,
+            "popThreshold": 14
+          },
+          "palace": 0.6883680555555556,
+          "reason": "surrender"
+        },
+        {
+          "morale": 71.08877422073905,
+          "pop": 33,
+          "pressure": [
+            {
+              "cause": "palace-damage",
+              "weight": -0.18306640624999998
+            },
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 71.08877422073905,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 33,
+            "popThreshold": 14
+          },
+          "palace": 0.568359375,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "losses / population 11 < 14: surrender",
+        "palace": {
+          "integrity": 0.6883680555555556,
+          "threshold": 0.34256466172839517,
+          "margin": 0.3458
+        },
+        "danger": null,
+        "texts": [
+          "590",
+          "11 (40)",
+          "Morale: Uneasy 30%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "The enemy fires!",
+          "Palace damaged",
+          "Defeat!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "0",
+          "8",
+          "9",
+          "0",
+          "9",
+          "6",
+          "Charge 1-255",
+          "approx. 167 m (no wind)",
+          "Arrows: Aim",
+          "E: Leave",
+          "Reloading",
+          "Cannon (75%)",
+          "F: Fire at will",
+          "Q: Crew",
+          "Home: Reset",
+          "End: Impact view",
+          "Defeat!",
+          "Winner: East",
+          "Duration 13:11",
+          "Name",
+          "Shots",
+          "Hits",
+          "Damage",
+          "Losses",
+          "West",
+          "32",
+          "32",
+          "13058",
+          "29",
+          "East",
+          "33",
+          "33",
+          "12989",
+          "7",
+          "13:11: Your castle surrendered; strongest pressure: population loss.",
+          "Decisive events",
+          "13:08 / Incoming shot near ruler",
+          "13:11 / 3 people lost",
+          "13:11 / Castle surrendered",
+          "Enter: Retry",
+          "Continue",
+          "Back to title"
+        ]
+      },
+      "outcome": {
+        "winners": [
+          1
+        ],
+        "draw": false,
+        "tick": 23744
+      },
+      "account": {
+        "cause": "13:11: Your castle surrendered; strongest pressure: population loss.",
+        "events": [
+          "13:08 / Incoming shot near ruler",
+          "13:11 / 3 people lost",
+          "13:11 / Castle surrendered"
+        ]
+      }
+    },
+    {
+      "seed": 16,
+      "name": "before",
+      "file": "ai-seed16-before",
+      "tick": 14983,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 85.32378394429875,
+          "pop": 35,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 85.32378394429875,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 35,
+            "popThreshold": 14
+          },
+          "palace": 0.9537760416666666,
+          "reason": null
+        },
+        {
+          "morale": 80.3600205672507,
+          "pop": 38,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 80.3600205672507,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 38,
+            "popThreshold": 14
+          },
+          "palace": 0.9633246527777778,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": null,
+        "palace": {
+          "integrity": 0.9537760416666666,
+          "threshold": 0.2,
+          "margin": 0.7538
+        },
+        "danger": {
+          "castle": 0,
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 125,
+          "impactPos": [
+            95.57177654038098,
+            1,
+            127.19872939445683
+          ],
+          "etaTicks": 91,
+          "defId": "cannon",
+          "bearing": 90,
+          "tick": 14972,
+          "until": 15074,
+          "text": "Incoming from E / impact in 3.0 s"
+        },
+        "texts": [
+          "Ammo!",
+          "803",
+          "35 (40)",
+          "Morale: Bold 85%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "The enemy fires!",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Palace 95.4% / defeat below 20%",
+          "Incoming from E / impact in 3.0 s"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 16,
+      "name": "last",
+      "file": "ai-seed16-last",
+      "tick": 15072,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 100,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": -300,
+        "manning": null
+      },
+      "castles": [
+        {
+          "morale": 88.65805462470614,
+          "pop": 35,
+          "pressure": [
+            {
+              "cause": "quiet",
+              "weight": 0.05
+            }
+          ],
+          "surrender": {
+            "morale": 88.65805462470614,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 35,
+            "popThreshold": 14
+          },
+          "palace": 0.9537760416666666,
+          "reason": null
+        },
+        {
+          "morale": 77.63312107055883,
+          "pop": 38,
+          "pressure": [
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 77.63312107055883,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 38,
+            "popThreshold": 14
+          },
+          "palace": 0.9594184027777778,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": null,
+        "palace": {
+          "integrity": 0.9537760416666666,
+          "threshold": 0.2,
+          "margin": 0.7538
+        },
+        "danger": {
+          "castle": 0,
+          "fromCastle": 1,
+          "fromWeapon": 2,
+          "projectileId": 125,
+          "impactPos": [
+            95.57177654038098,
+            1,
+            127.19872939445683
+          ],
+          "etaTicks": 2,
+          "defId": "cannon",
+          "bearing": 90,
+          "tick": 14972,
+          "until": 15074,
+          "text": "Incoming from E / impact in 0.1 s"
+        },
+        "texts": [
+          "809",
+          "35 (40)",
+          "Morale: Bold 89%",
+          "2 (4)",
+          "2",
+          "N",
+          "E",
+          "S",
+          "W",
+          "Shot!",
+          "The enemy fires!",
+          "Palace damaged",
+          "Opponent",
+          "East",
+          "Hohenfeuer",
+          "Income +3.2 gold/s",
+          "G: Place weapon",
+          "R: Priority",
+          "B: Build",
+          "WASD: Walk",
+          "Q: Crew",
+          "X: Shelter",
+          "Tab: Jobs",
+          "Palace 95.4% / defeat below 20%",
+          "Incoming from E / impact in 0.1 s",
+          "Palace damaged / 5 m long / Line on mark"
+        ]
+      },
+      "outcome": null
+    },
+    {
+      "seed": 16,
+      "name": "end",
+      "file": "ai-seed16-end",
+      "tick": 15073,
+      "ruler": {
+        "id": 0,
+        "slot": 0,
+        "isRuler": true,
+        "pos": {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        "vel": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.3,
+        "height": 1.75,
+        "hp": 0,
+        "yaw": 0,
+        "pitch": 0,
+        "grounded": true,
+        "fallPeak": 1,
+        "lastDamageTick": 15072,
+        "manning": null,
+        "lastDamageBy": 1,
+        "dead": true
+      },
+      "castles": [
+        {
+          "morale": 85.85441092405136,
+          "pop": 35,
+          "pressure": [
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 85.85441092405136,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 35,
+            "popThreshold": 14
+          },
+          "palace": 0.876953125,
+          "reason": "ruler"
+        },
+        {
+          "morale": 79.03210905247835,
+          "pop": 38,
+          "pressure": [
+            {
+              "cause": "under-fire",
+              "weight": -0.1
+            }
+          ],
+          "surrender": {
+            "morale": 79.03210905247835,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 38,
+            "popThreshold": 14
+          },
+          "palace": 0.9594184027777778,
+          "reason": null
+        }
+      ],
+      "hud": {
+        "pressure": "bombardment / surrender at 20% morale",
+        "palace": {
+          "integrity": 0.876953125,
+          "threshold": 0.2,
+          "margin": 0.677
+        },
+        "danger": null,
+        "texts": [
+          "Defeat!",
+          "Winner: East",
+          "Duration 8:22",
+          "Name",
+          "Shots",
+          "Hits",
+          "Damage",
+          "Losses",
+          "West",
+          "21",
+          "21",
+          "7091",
+          "5",
+          "East",
+          "21",
+          "21",
+          "7311",
+          "2",
+          "8:22: East killed your ruler with Cannon from E.",
+          "Decisive events",
+          "7:10 / 4 people lost",
+          "8:19 / Incoming shot near ruler",
+          "8:22 / Ruler killed",
+          "Enter: Retry",
+          "Continue",
+          "Back to title"
+        ]
+      },
+      "outcome": {
+        "winners": [
+          1
+        ],
+        "draw": false,
+        "tick": 15072
+      },
+      "account": {
+        "cause": "8:22: East killed your ruler with Cannon from E.",
+        "events": [
+          "7:10 / 4 people lost",
+          "8:19 / Incoming shot near ruler",
+          "8:22 / Ruler killed"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "status": "passed"
+}

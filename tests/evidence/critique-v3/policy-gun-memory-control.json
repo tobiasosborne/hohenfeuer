@@ -1,0 +1,1850 @@
+{
+  "change": "evasion.weaponId = ruler.manning ?? pendingOrder?.weaponId; source transformed in memory only; no source or scored-cohort replacement",
+  "result": {
+    "seed": 6,
+    "level": 5,
+    "policy": "novice",
+    "initialCharge": 100,
+    "reactToThreats": true,
+    "threats": [
+      {
+        "second": 43.06666666666667,
+        "castle": 0,
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 87,
+        "impactPos": [
+          112.81385484643309,
+          7,
+          129.65904716530932
+        ],
+        "etaTicks": 90
+      },
+      {
+        "second": 169.06666666666666,
+        "castle": 0,
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 98,
+        "impactPos": [
+          113.32822501777237,
+          7,
+          129.14016666939213
+        ],
+        "etaTicks": 89
+      },
+      {
+        "second": 194.03333333333333,
+        "castle": 1,
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 100,
+        "impactPos": [
+          286.3736893824224,
+          4,
+          123.7753345324383
+        ],
+        "etaTicks": 96
+      },
+      {
+        "second": 214.03333333333333,
+        "castle": 1,
+        "fromCastle": 0,
+        "fromWeapon": 1,
+        "projectileId": 101,
+        "impactPos": [
+          286,
+          3.296204763468894,
+          125.08550510448765
+        ],
+        "etaTicks": 97
+      },
+      {
+        "second": 316.06666666666666,
+        "castle": 0,
+        "fromCastle": 1,
+        "fromWeapon": 2,
+        "projectileId": 110,
+        "impactPos": [
+          114,
+          6.6653483145315935,
+          133.3497643904538
+        ],
+        "etaTicks": 88
+      }
+    ],
+    "deaths": [],
+    "moraleCrossings": [
+      {
+        "second": 591,
+        "slot": 1,
+        "below": true,
+        "morale": 19.999637201971588,
+        "pressure": [
+          {
+            "cause": "palace-damage",
+            "weight": -0.6111588541666667
+          },
+          {
+            "cause": "quiet",
+            "weight": 0.05
+          }
+        ]
+      }
+    ],
+    "finalSurrender": [
+      {
+        "morale": 88.56562196371375,
+        "moraleThreshold": 20,
+        "holdTicks": 0,
+        "holdRequiredTicks": 1350,
+        "population": 29,
+        "popThreshold": 14
+      },
+      {
+        "morale": 14.909549518786664,
+        "moraleThreshold": 20,
+        "holdTicks": 190,
+        "holdRequiredTicks": 1350,
+        "population": 35,
+        "popThreshold": 14
+      }
+    ],
+    "seconds": 597.3,
+    "outcome": {
+      "winners": [
+        0
+      ],
+      "draw": false,
+      "tick": 17918
+    },
+    "winner": 0,
+    "reason": "palace",
+    "hash": 850529348,
+    "firstHitS": 12.166666666666666,
+    "firstPalaceS": 12.166666666666666,
+    "shots": [
+      28,
+      23
+    ],
+    "palaces": [
+      0.96875,
+      0.15364583333333334
+    ],
+    "gold": [
+      412.04555555466663,
+      834.1477777770863
+    ],
+    "paths": {
+      "sides": [
+        {
+          "minMorale": 70.0016648148148,
+          "minPopulation": 29,
+          "rulerMinHp": 100,
+          "rulerExposedS": 6,
+          "longestExposureS": 5,
+          "movingS": 20,
+          "below40S": 0,
+          "fleeEvents": 0,
+          "desertEvents": 0
+        },
+        {
+          "minMorale": 14.909549518786664,
+          "minPopulation": 35,
+          "rulerMinHp": 100,
+          "rulerExposedS": 0,
+          "longestExposureS": 0,
+          "movingS": 15,
+          "below40S": 89.8333333333308,
+          "fleeEvents": 10,
+          "desertEvents": 0
+        }
+      ]
+    },
+    "commandCounts": {
+      "move": 962,
+      "man-weapon": 137,
+      "order-crew": 1,
+      "aim": 437,
+      "fire": 28,
+      "leave-weapon": 137,
+      "repair-priority": 134
+    },
+    "purchases": [],
+    "remoteManualShots": 0,
+    "hidingReached": false,
+    "newGuns": [],
+    "shotEvents": [
+      {
+        "second": 9.033333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 38.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 58.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 78.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 99.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 120.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 890,
+          "range": 1000
+        }
+      },
+      {
+        "second": 141.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 884,
+          "range": 1000
+        }
+      },
+      {
+        "second": 162.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 884,
+          "range": 1000
+        }
+      },
+      {
+        "second": 194.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 884,
+          "range": 1000
+        }
+      },
+      {
+        "second": 214.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 884,
+          "range": 1000
+        }
+      },
+      {
+        "second": 234.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 884,
+          "range": 1000
+        }
+      },
+      {
+        "second": 255.03333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 889,
+          "range": 1000
+        }
+      },
+      {
+        "second": 276.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 889,
+          "range": 1000
+        }
+      },
+      {
+        "second": 297.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 883,
+          "range": 1000
+        }
+      },
+      {
+        "second": 323.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 883,
+          "range": 1000
+        }
+      },
+      {
+        "second": 343.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 883,
+          "range": 1000
+        }
+      },
+      {
+        "second": 363.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 883,
+          "range": 1000
+        }
+      },
+      {
+        "second": 384.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 883,
+          "range": 1000
+        }
+      },
+      {
+        "second": 405.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 887,
+          "range": 1000
+        }
+      },
+      {
+        "second": 426.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 887,
+          "range": 1000
+        }
+      },
+      {
+        "second": 447.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 887,
+          "range": 1000
+        }
+      },
+      {
+        "second": 468.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 887,
+          "range": 1000
+        }
+      },
+      {
+        "second": 489.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 882,
+          "range": 1000
+        }
+      },
+      {
+        "second": 510.03333333333336,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 885,
+          "range": 1000
+        }
+      },
+      {
+        "second": 531.0333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 885,
+          "range": 1000
+        }
+      },
+      {
+        "second": 552.0333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 885,
+          "range": 1000
+        }
+      },
+      {
+        "second": 573.0333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 885,
+          "range": 1000
+        }
+      },
+      {
+        "second": 594.0333333333333,
+        "weaponId": 1,
+        "defId": "cannon",
+        "aim": {
+          "az": 885,
+          "range": 1000
+        }
+      }
+    ],
+    "decisionSummary": {
+      "reloads": 27,
+      "meanTypes": 6.111111111111111,
+      "meanNonAim": 5.111111111111111,
+      "meanMatch1Types": 2.925925925925926,
+      "meanExecutedNonAim": 1.0740740740740742,
+      "withTwoNonAim": 27
+    }
+  },
+  "actions": [
+    {
+      "second": 162,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 166.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 175.43333333333334,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 178.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 181.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 184.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 187.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 190.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 194,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 196.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 199.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 202.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 205.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 208.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 211.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 214,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 217.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 220.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 223.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 226.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 229.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 232.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 234,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 238.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 241.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 244.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 247.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 250.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 255,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 259.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 262.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 265.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 268.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 271.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 276,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 280.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 283.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 286.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 289.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 292.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 297,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 301.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 304.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 307.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 310.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 313.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 322.4,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 323,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 325.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 328.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 331.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 334.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 337.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 340.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 343,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 346.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 349.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 352.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 355.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 358.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 361.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 363,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 367.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 370.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 373.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 376.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 379.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 384,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 388.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 391.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 394.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 397.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 400.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 405,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 409.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 412.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 415.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 418.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 421.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 426,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 430.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 433.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 436.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 439.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 442.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 447,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 451.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 454.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 457.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 460.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 463.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 468,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 472.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 475.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 478.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 481.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 484.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 489,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 493.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 496.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 499.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 502.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 505.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 510,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 514.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 517.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 520.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 523.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 526.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 531,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 535.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 538.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 541.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 544.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 547.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 552,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 556.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 559.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 562.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 565.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 568.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 573,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 577.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 580.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 583.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 586.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 589.5,
+      "type": "man-weapon",
+      "weaponId": 1,
+      "previousManning": null,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    },
+    {
+      "second": 594,
+      "type": "fire",
+      "weaponId": 1,
+      "previousManning": 1,
+      "pos": {
+        "x": 111.49323338724233,
+        "y": 7,
+        "z": 128.34965878331303
+      }
+    }
+  ]
+}

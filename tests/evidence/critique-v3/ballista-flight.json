@@ -1,0 +1,3063 @@
+{
+  "shots": [
+    {
+      "kind": "ballista",
+      "n": 0,
+      "fired": 1569,
+      "tick": 1680,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15996043825061,
+        7.5,
+        130.50722633683574
+      ],
+      "aimPoint": [
+        273.3042514735141,
+        7,
+        130.78065664891827
+      ],
+      "impact": [
+        270,
+        7.267485293029682,
+        132.08758309036227
+      ],
+      "capturedAim": {
+        "az": 901,
+        "range": 380
+      },
+      "currentAim": {
+        "az": 1101,
+        "range": 400
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m short / 1 m right",
+      "hud": "Wall hit / 3 m short / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 1,
+      "fired": 2012,
+      "tick": 2123,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15992969044196,
+        7.5,
+        130.49036653368833
+      ],
+      "aimPoint": [
+        282.5909971204582,
+        7,
+        127.23408601171441
+      ],
+      "impact": [
+        283,
+        6.305389092963371,
+        128.3045817441034
+      ],
+      "capturedAim": {
+        "az": 889,
+        "range": 394
+      },
+      "currentAim": {
+        "az": 1089,
+        "range": 414
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 1
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / 1 m right",
+      "hud": "Wall hit / Range on mark / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 2,
+      "fired": 2455,
+      "tick": 2576,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15984254498764,
+        7.5,
+        130.51441581854215
+      ],
+      "aimPoint": [
+        292.6401905083249,
+        7,
+        133.3298682467489
+      ],
+      "impact": [
+        295,
+        4.129008794689383,
+        134.8377963756252
+      ],
+      "capturedAim": {
+        "az": 909,
+        "range": 409
+      },
+      "currentAim": {
+        "az": 1109,
+        "range": 429
+      },
+      "expected": {
+        "range": 2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": 2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m long / 1 m right",
+      "hud": "Wall hit / 2 m long / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 3,
+      "fired": 2908,
+      "tick": 3029,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.1598913908082,
+        7.5,
+        130.48802701636092
+      ],
+      "aimPoint": [
+        302.73410440415574,
+        7,
+        128.50780029355866
+      ],
+      "impact": [
+        303,
+        4.040223588148874,
+        127.40795561269721
+      ],
+      "capturedAim": {
+        "az": 894,
+        "range": 424
+      },
+      "currentAim": {
+        "az": 1094,
+        "range": 444
+      },
+      "expected": {
+        "range": 0,
+        "lateral": -1
+      },
+      "actual": {
+        "range": 0,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / 1 m left",
+      "hud": "Wall hit / Range on mark / 1 m left"
+    },
+    {
+      "kind": "ballista",
+      "n": 4,
+      "fired": 3361,
+      "tick": 3462,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15999813173106,
+        7.5,
+        130.50157038578348
+      ],
+      "aimPoint": [
+        272.63738408447983,
+        7,
+        131.6179880063075
+      ],
+      "impact": [
+        270,
+        6.249449899998913,
+        131.15111558054497
+      ],
+      "capturedAim": {
+        "az": 904,
+        "range": 379
+      },
+      "currentAim": {
+        "az": 1104,
+        "range": 399
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m short / Line on mark",
+      "hud": "Wall hit / 3 m short / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 5,
+      "fired": 3794,
+      "tick": 3905,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15999235465112,
+        7.5,
+        130.4968232403201
+      ],
+      "aimPoint": [
+        282.62208949605446,
+        7,
+        130.20308063930273
+      ],
+      "impact": [
+        283,
+        4.201915650770375,
+        129.99467058728965
+      ],
+      "capturedAim": {
+        "az": 899,
+        "range": 394
+      },
+      "currentAim": {
+        "az": 1099,
+        "range": 414
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 0
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / Line on mark",
+      "hud": "Wall hit / Range on mark / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 6,
+      "fired": 4237,
+      "tick": 4348,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15983639251768,
+        7.5,
+        130.48530526933712
+      ],
+      "aimPoint": [
+        292.6292149490382,
+        7,
+        127.04134238284021
+      ],
+      "impact": [
+        284,
+        12.552460259533328,
+        126.98081694687718
+      ],
+      "capturedAim": {
+        "az": 889,
+        "range": 409
+      },
+      "currentAim": {
+        "az": 1089,
+        "range": 429
+      },
+      "expected": {
+        "range": -9,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -9,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 9 m short / Line on mark",
+      "hud": "Wall hit / 9 m short / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 7,
+      "fired": 4680,
+      "tick": 4801,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15994727671985,
+        7.5,
+        130.50834217897486
+      ],
+      "aimPoint": [
+        302.72106563651346,
+        7,
+        133.48823128802354
+      ],
+      "impact": [
+        301,
+        5.783911797685302,
+        133.30058737072548
+      ],
+      "capturedAim": {
+        "az": 909,
+        "range": 424
+      },
+      "currentAim": {
+        "az": 1109,
+        "range": 444
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 2 m short / Line on mark",
+      "hud": "Wall hit / 2 m short / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 8,
+      "fired": 5133,
+      "tick": 5244,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15993950205848,
+        7.5,
+        130.49106391456988
+      ],
+      "aimPoint": [
+        272.632505966319,
+        7,
+        128.82303501847346
+      ],
+      "impact": [
+        270,
+        7.76315739406,
+        128.67657193300437
+      ],
+      "capturedAim": {
+        "az": 894,
+        "range": 379
+      },
+      "currentAim": {
+        "az": 1094,
+        "range": 399
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m short / Line on mark",
+      "hud": "Wall hit / 3 m short / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 9,
+      "fired": 5576,
+      "tick": 5697,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.1599949462707,
+        7.5,
+        130.5025828079929
+      ],
+      "aimPoint": [
+        282.61820284551146,
+        7,
+        131.68766839812704
+      ],
+      "impact": [
+        287.67736924889556,
+        1,
+        131.57463082576925
+      ],
+      "capturedAim": {
+        "az": 904,
+        "range": 394
+      },
+      "currentAim": {
+        "az": 1104,
+        "range": 414
+      },
+      "expected": {
+        "range": 5,
+        "lateral": 0
+      },
+      "actual": {
+        "range": 5,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 5 m long / Line on mark",
+      "hud": "Wall hit / 5 m long / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 10,
+      "fired": 6029,
+      "tick": 6150,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15999645122464,
+        7.5,
+        130.49783565925287
+      ],
+      "aimPoint": [
+        292.6621422955883,
+        7,
+        130.18555742366743
+      ],
+      "impact": [
+        295.7497681693508,
+        1,
+        130.2956287805294
+      ],
+      "capturedAim": {
+        "az": 899,
+        "range": 409
+      },
+      "currentAim": {
+        "az": 1099,
+        "range": 429
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 0
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m long / Line on mark",
+      "hud": "Wall hit / 3 m long / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 11,
+      "fired": 6482,
+      "tick": 6603,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15992763968474,
+        7.5,
+        130.49022705877803
+      ],
+      "aimPoint": [
+        302.7028118622681,
+        7,
+        126.5158190542648
+      ],
+      "impact": [
+        303,
+        6.241286814585929,
+        128.28435821544133
+      ],
+      "capturedAim": {
+        "az": 888,
+        "range": 424
+      },
+      "currentAim": {
+        "az": 1088,
+        "range": 444
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 2
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / 2 m right",
+      "hud": "Wall hit / Range on mark / 2 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 12,
+      "fired": 6935,
+      "tick": 7046,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15993566584613,
+        7.5,
+        130.50921503902384
+      ],
+      "aimPoint": [
+        272.6256766841076,
+        7,
+        132.73592152345674
+      ],
+      "impact": [
+        272.7174629327431,
+        7,
+        133.2169418561795
+      ],
+      "capturedAim": {
+        "az": 908,
+        "range": 379
+      },
+      "currentAim": {
+        "az": 1108,
+        "range": 399
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 0
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / Line on mark",
+      "hud": "Wall hit / Range on mark / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 13,
+      "fired": 7378,
+      "tick": 7489,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15986948894842,
+        7.5,
+        130.48687530743402
+      ],
+      "aimPoint": [
+        282.6096523185027,
+        7,
+        128.42161512497253
+      ],
+      "impact": [
+        283,
+        3.683220486833838,
+        127.5990188576343
+      ],
+      "capturedAim": {
+        "az": 893,
+        "range": 394
+      },
+      "currentAim": {
+        "az": 1093,
+        "range": 414
+      },
+      "expected": {
+        "range": 0,
+        "lateral": -1
+      },
+      "actual": {
+        "range": 0,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Wall hit / Range on mark / 1 m left",
+      "hud": "Wall hit / Range on mark / 1 m left"
+    },
+    {
+      "kind": "ballista",
+      "n": 14,
+      "fired": 7821,
+      "tick": 7942,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15993119292287,
+        7.5,
+        130.5095299846482
+      ],
+      "aimPoint": [
+        291.9891590203049,
+        7,
+        131.43981162746744
+      ],
+      "impact": [
+        295,
+        4.499556814408295,
+        133.85075606590829
+      ],
+      "capturedAim": {
+        "az": 903,
+        "range": 408
+      },
+      "currentAim": {
+        "az": 1103,
+        "range": 428
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 2
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 3 m long / 2 m right",
+      "hud": "Wall hit / 3 m long / 2 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 15,
+      "fired": 8274,
+      "tick": 8395,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15997838835564,
+        7.5,
+        130.49465894172562
+      ],
+      "aimPoint": [
+        302.07021825656534,
+        7,
+        129.83827241788754
+      ],
+      "impact": [
+        303,
+        6.01836702980914,
+        129.70920574757974
+      ],
+      "capturedAim": {
+        "az": 898,
+        "range": 423
+      },
+      "currentAim": {
+        "az": 1098,
+        "range": 443
+      },
+      "expected": {
+        "range": 1,
+        "lateral": 0
+      },
+      "actual": {
+        "range": 1,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m long / Line on mark",
+      "hud": "Wall hit / 1 m long / Line on mark"
+    },
+    {
+      "kind": "ballista",
+      "n": 16,
+      "fired": 8727,
+      "tick": 8838,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.1599118717498,
+        7.5,
+        130.4892147543527
+      ],
+      "aimPoint": [
+        271.943442871295,
+        7,
+        127.16013598437115
+      ],
+      "impact": [
+        270.9404305270311,
+        8,
+        128.47644467374099
+      ],
+      "capturedAim": {
+        "az": 888,
+        "range": 378
+      },
+      "currentAim": {
+        "az": 1088,
+        "range": 398
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m short / 1 m right",
+      "hud": "Wall hit / 1 m short / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 17,
+      "fired": 9170,
+      "tick": 9291,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15993566584613,
+        7.5,
+        130.50921503902384
+      ],
+      "aimPoint": [
+        281.93839275251804,
+        7,
+        132.86596002028244
+      ],
+      "impact": [
+        287.50857077537205,
+        1,
+        133.60975267758081
+      ],
+      "capturedAim": {
+        "az": 908,
+        "range": 393
+      },
+      "currentAim": {
+        "az": 1108,
+        "range": 413
+      },
+      "expected": {
+        "range": 6,
+        "lateral": 1
+      },
+      "actual": {
+        "range": 6,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 6 m long / 1 m right",
+      "hud": "Wall hit / 6 m long / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 18,
+      "fired": 9623,
+      "tick": 9734,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.1599507439759,
+        7.5,
+        130.49193677944874
+      ],
+      "aimPoint": [
+        291.9782239265081,
+        7,
+        128.30715073529595
+      ],
+      "impact": [
+        287.4211677982149,
+        12,
+        129.0135076602925
+      ],
+      "capturedAim": {
+        "az": 893,
+        "range": 408
+      },
+      "currentAim": {
+        "az": 1093,
+        "range": 428
+      },
+      "expected": {
+        "range": -5,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -5,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Wall hit / 5 m short / 1 m right",
+      "hud": "Wall hit / 5 m short / 1 m right"
+    },
+    {
+      "kind": "ballista",
+      "n": 19,
+      "fired": 10066,
+      "tick": 10187,
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.15994503528958,
+        7.5,
+        130.50851765206147
+      ],
+      "aimPoint": [
+        301.3957485135011,
+        7,
+        131.48906486498186
+      ],
+      "impact": [
+        302.1501861962342,
+        7,
+        133.59924067746834
+      ],
+      "capturedAim": {
+        "az": 903,
+        "range": 422
+      },
+      "currentAim": {
+        "az": 1103,
+        "range": 442
+      },
+      "expected": {
+        "range": 1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": 1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Wall hit / 1 m long / 2 m right",
+      "hud": "Wall hit / 1 m long / 2 m right"
+    }
+  ],
+  "idle": [
+    {
+      "tick": 1117,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / E: man gun, call crew"
+    },
+    {
+      "tick": 1118,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1148,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1178,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1208,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1238,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1268,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1298,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1328,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1358,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1388,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1418,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1448,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1478,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1508,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1538,
+      "kind": "ballista",
+      "reason": "no-crew",
+      "detail": {
+        "present": 1,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 1/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 1568,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 1680,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1680,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1681,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1711,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1741,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1771,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1801,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1831,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1861,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1891,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1921,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1951,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1981,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2011,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 2123,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2123,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2124,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2154,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2184,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2214,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2244,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2274,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2304,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2334,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2364,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2394,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2424,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2454,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 2576,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2576,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2577,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2607,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2637,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2667,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2697,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2727,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2757,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2787,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2817,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2847,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2877,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2907,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3029,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3029,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3030,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3060,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3090,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3120,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3150,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3180,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3210,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3240,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3270,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3300,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3330,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3360,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3462,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3462,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3463,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3493,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3523,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3553,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3583,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3613,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3643,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3673,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3703,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3733,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3763,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3793,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3905,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3905,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3906,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3936,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3966,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3996,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4026,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4056,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4086,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4116,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4146,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4176,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4206,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4236,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 4348,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4348,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4349,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4379,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4409,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4439,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4469,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4499,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4529,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4559,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4589,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4619,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4649,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4679,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 4801,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4801,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4802,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4832,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4862,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4892,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4922,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4952,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4982,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5012,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5042,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5072,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5102,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5132,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5244,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5244,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5245,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5275,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5305,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5335,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5365,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5395,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5425,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5455,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5485,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5515,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5545,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5575,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5697,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5697,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5698,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5728,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5758,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5788,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5818,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5848,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5878,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5908,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5938,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5968,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5998,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6028,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 6150,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6150,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6151,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6181,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6211,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6241,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6271,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6301,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6331,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6361,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6391,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6421,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6451,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6481,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 6603,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6603,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6604,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6634,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6664,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6694,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6724,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6754,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6784,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6814,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6844,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6874,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6904,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6934,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 7046,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7046,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7047,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7077,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7107,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7137,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7167,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7197,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7227,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7257,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7287,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7317,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7347,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7377,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 7489,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7489,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7490,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7520,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7550,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7580,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7610,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7640,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7670,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7700,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7730,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7760,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7790,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7820,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 7942,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7942,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7943,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7973,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8003,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8033,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8063,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8093,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8123,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8153,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8183,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8213,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8243,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8273,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 8395,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8395,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8396,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8426,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8456,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8486,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8516,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8546,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8576,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8606,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8636,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8666,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8696,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8726,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 8838,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8838,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8839,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8869,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8899,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8929,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8959,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8989,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9019,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9049,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9079,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9109,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9139,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9169,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 9291,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9291,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9292,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9322,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9352,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9382,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9412,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9442,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9472,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9502,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9532,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9562,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9592,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9622,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 9734,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9734,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9735,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9765,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9795,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9825,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9855,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9885,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9915,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9945,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9975,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10005,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10035,
+      "kind": "ballista",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10065,
+      "kind": "ballista",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 10187,
+      "kind": "ballista",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "ballista": {
+    "setup": {
+      "id": 4,
+      "built": true,
+      "cell": [
+        40,
+        7,
+        26
+      ],
+      "cleared": [
+        41,
+        7,
+        26
+      ],
+      "goldBefore": 1549.8933333332843,
+      "goldAfter": 1216.2133333332258
+    },
+    "setups": [
+      {
+        "id": 4,
+        "built": true,
+        "cell": [
+          40,
+          7,
+          26
+        ],
+        "cleared": [
+          41,
+          7,
+          26
+        ],
+        "goldBefore": 1549.8933333332843,
+        "goldAfter": 1216.2133333332258
+      }
+    ]
+  },
+  "missing": 0,
+  "signMatches": 20,
+  "status": "passed"
+}

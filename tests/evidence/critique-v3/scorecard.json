@@ -1,0 +1,263 @@
+{
+  "totals": [
+    52,
+    60,
+    75
+  ],
+  "groups": [
+    {
+      "group": "A",
+      "max": 20,
+      "scores": [
+        9,
+        11,
+        12
+      ]
+    },
+    {
+      "group": "B",
+      "max": 20,
+      "scores": [
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "group": "C",
+      "max": 20,
+      "scores": [
+        10,
+        13,
+        13
+      ]
+    },
+    {
+      "group": "D",
+      "max": 20,
+      "scores": [
+        10,
+        11,
+        16
+      ]
+    },
+    {
+      "group": "E",
+      "max": 20,
+      "scores": [
+        8,
+        9,
+        14
+      ]
+    },
+    {
+      "group": "F",
+      "max": 10,
+      "scores": [
+        4,
+        4,
+        7
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "number": 1,
+      "criterion": "Shot-cycle clarity",
+      "v1": 3,
+      "v2": 3,
+      "v3": 4,
+      "humanUnvalidated": false,
+      "evidence": "H,S: 20 cannon, 20 catapult and 20 cleared-ballista captions have correct signed offsets; seven stress-shot exits lack feedback and precise convergence remains open."
+    },
+    {
+      "number": 2,
+      "criterion": "Decision density",
+      "v1": 2,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "H: 605 reloads use 1.00/1.01/1.13 non-aim types; only 91 show an alternative and 21/209 beneficial planner-best choices are displayed."
+    },
+    {
+      "number": 3,
+      "criterion": "Interesting trade-offs",
+      "v1": 2,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": false,
+      "evidence": "H: turtle and pressure win 7/10 versus fire-only 6/10; ballista spam wins 1/10; this finite screen establishes no dominant plan."
+    },
+    {
+      "number": 4,
+      "criterion": "Role load balance",
+      "v1": 2,
+      "v2": 2,
+      "v3": 2,
+      "humanUnvalidated": true,
+      "evidence": "H: the instructed proxy uses repair and movement inside reloads; fire-only still wins 6/10, while human foreman/commander workload is unmeasured."
+    },
+    {
+      "number": 5,
+      "criterion": "Match shape",
+      "v1": 2,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "H,S: focal losing-palace plateaus remain 34/40, max 332s; AI 3 has20/20, max 700s; the visible defeat line does not establish a felt arc."
+    },
+    {
+      "number": 6,
+      "criterion": "Length and variance",
+      "v1": 4,
+      "v2": 2,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "H: AI pacing is123/150 in range with no timeout, but the defined novice is14/30 with two censors; the repaired-memory control still ends at9: 57."
+    },
+    {
+      "number": 7,
+      "criterion": "Comeback vs snowball",
+      "v1": 2,
+      "v2": 4,
+      "v3": 4,
+      "humanUnvalidated": false,
+      "evidence": "H: first damaging attacker wins13/20; first-gun-loss recovery is1/4 worlds, with one terminal first-loss case and no broad low-morale-comeback proof."
+    },
+    {
+      "number": 8,
+      "criterion": "Quiet beats",
+      "v1": 3,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "H,S: 46.1 repairs/side and an actual paid repair beat exist, but gun-facing timelines conceal most masonry and felt recovery is untested."
+    },
+    {
+      "number": 9,
+      "criterion": "First-match onboarding",
+      "v1": 2,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "D,H,S: all offered duels are armed and80/80 AI starts fire by20.57s; six onboarding checks pass, but supplied routes do not prove unbriefed completion."
+    },
+    {
+      "number": 10,
+      "criterion": "Signalling over text",
+      "v1": 3,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "D,S: E/R cues, diagnostics and progress work; the real-view sample has0 two-option windows and no evidence that newcomers discover most verbs."
+    },
+    {
+      "number": 11,
+      "criterion": "Rule consistency",
+      "v1": 3,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "D,S: the palace line reads20/20/28.7/55 correctly; pre-population-loss screens still advertise only the20%-morale trigger."
+    },
+    {
+      "number": 12,
+      "criterion": "Complexity ramp",
+      "v1": 2,
+      "v2": 4,
+      "v3": 4,
+      "humanUnvalidated": false,
+      "evidence": "D,S: cannon/stone first, R2, G3, F4, Q/X5 and the full arsenal by10; profile0/3/10 browser checks preserve the small opening surface."
+    },
+    {
+      "number": 13,
+      "criterion": "Impact/distance readability",
+      "v1": 3,
+      "v2": 3,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "H,S: wall/palace/person classification, retained references and73 correct observed captions improve feedback; distant detail, audio and precise aiming remain unvalidated."
+    },
+    {
+      "number": 14,
+      "criterion": "Threat telegraphing",
+      "v1": 2,
+      "v2": 2,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "H,S: the seed 6 cue leads death by2.97s; all10 focal ruler deaths have matching warnings, with2.90–3.37s lead."
+    },
+    {
+      "number": 15,
+      "criterion": "NPC legibility",
+      "v1": 2,
+      "v2": 2,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "D,S: all seven live-simulator idle fixtures match their HUD diagnosis or intentional reload/ready suppression; unbriefed diagnosis remains U."
+    },
+    {
+      "number": 16,
+      "criterion": "HUD and alert hygiene",
+      "v1": 3,
+      "v2": 4,
+      "v3": 4,
+      "humanUnvalidated": false,
+      "evidence": "D,S: bounded messages, at most two choices and staged controls remain; AI-watch screenshots still advertise inactive WASD/Q/X footer actions."
+    },
+    {
+      "number": 17,
+      "criterion": "Economy scarcity",
+      "v1": 1,
+      "v2": 3,
+      "v3": 3,
+      "humanUnvalidated": false,
+      "evidence": "H: all requested AI cohorts spend zero time at cap; focal near-zero time is only0.139%, versus19.26% in desert, so scarcity remains scenario-dependent."
+    },
+    {
+      "number": 18,
+      "criterion": "Repair vs rebuild loop",
+      "v1": 3,
+      "v2": 3,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "D,S: real R repairs 24→25→40 HP for1.28g with priority 3 and visible progress; the initial 60%-HP wall is above the automatic repair threshold."
+    },
+    {
+      "number": 19,
+      "criterion": "Morale design",
+      "v1": 2,
+      "v2": 2,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "H,S: the novice has14 morale-clock surrenders and one population surrender; real 45s progress and pressure causes are legible, but recovery comprehension is U."
+    },
+    {
+      "number": 20,
+      "criterion": "Win-path variety",
+      "v1": 2,
+      "v2": 1,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "H: focal 26/10/4 includes eight leadership-exposed ruler records; pressure creates R/S wins, while other biomes remain 29/30 palace and sniping-first finds no target."
+    },
+    {
+      "number": 21,
+      "criterion": "AI as opponent",
+      "v1": 2,
+      "v2": 2,
+      "v3": 3,
+      "humanUnvalidated": true,
+      "evidence": "D,H: AI 3 ready silence falls to42.5s and all biomes fire; both skill orientations favor AI 8, but ruler returns and asymmetric starting breach plans remain flawed."
+    },
+    {
+      "number": 22,
+      "criterion": "Fair failure and replay",
+      "v1": 2,
+      "v2": 2,
+      "v3": 4,
+      "humanUnvalidated": true,
+      "evidence": "D,S: real losses name cause/source/time, retain decisive events and support same-setup Enter retry; fairness is U and the debrief supplies no difficulty-ladder suggestion."
+    }
+  ]
+}

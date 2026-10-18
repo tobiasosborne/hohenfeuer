@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": [
+    "one-action-quick-start-ai2-match1",
+    "locked-keys-and-stone-only",
+    "real-reticle-E-auto-crew-fire-and-man-retirement",
+    "own-wall-hit-B-prompt-and-retirement",
+    "debug-profile-isolation-and-tiers",
+    "URL-profile-0-3-10"
+  ],
+  "errors": []
+}

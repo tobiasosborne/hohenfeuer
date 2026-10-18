@@ -1,0 +1,51 @@
+{
+  paused: [
+    {
+      pid: 2023239,
+      command: 'node scripts/sweep.mjs --seeds 10 --ai-levels 3,5,8 --compact --workers 4 --label matrix --output-dir tests/evidence/critique-v3 '
+    },
+    {
+      pid: 2024609,
+      command: 'node scripts/critique-v3-run.mjs --mode novice --seeds 10 --workers 3 --label novice '
+    },
+    {
+      pid: 2024620,
+      command: 'node scripts/critique-v3-run.mjs --mode strategy --seeds 10 --workers 3 --label strategies '
+    },
+    {
+      pid: 2027276,
+      command: 'node scripts/critique-v3-run.mjs --mode environment --seeds 20 --conditions terrain,wind,calm --resume --workers 3 --label environment '
+    },
+    {
+      pid: 2052196,
+      command: 'node scripts/critique-v3-run.mjs --mode novice --levels 5,8 --seeds 10 --workers 6 --label novice-upper '
+    },
+    {
+      pid: 2059438,
+      command: 'node scripts/critique-v3-screen-run.mjs '
+    }
+  ],
+  gates: [
+    { label: 'goldens-retry', code: 0 },
+    { label: 'impact-finalize', code: 0 },
+    { label: 'long-miss', code: 0 }
+  ],
+  remaining: [
+    'idle-no-gold',
+    'idle-obstructed',
+    'idle-damaged',
+    'palace-0959',
+    'palace-1001',
+    'palace-1230',
+    'palace-1501',
+    'surrender-pressure',
+    'impact-wall-offset',
+    'impact-palace-offset',
+    'defeat-ruler',
+    'defeat-palace',
+    'defeat-surrender',
+    'reload-replacement',
+    'first-damage-match1'
+  ],
+  resumed: true
+}

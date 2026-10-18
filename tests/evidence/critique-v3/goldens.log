@@ -1,0 +1,53 @@
+tb1-spawn: ok (0 px differ)
+tb1-first-shot: ok (0 px differ)
+rampart-north: ok (0 px differ)
+weapon-view-cannon: ok (0 px differ)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (0 px differ)
+example-wall: ok (0 px differ)
+courtyard-palace: ok (0 px differ)
+crew-at-cannon: ok (0 px differ)
+cannon-sight: ok (0 px differ)
+muzzle-flash: ok (0 px differ)
+smoke-trail: ok (0 px differ)
+impact-dust: ok (0 px differ)
+tb3-designate: ok (0 px differ)
+tb3-built: ok (0 px differ)
+menu-title: ok (0 px differ)
+menu-skirmish: ok (0 px differ)
+match-over: ok (0 px differ)
+modern-rampart-north: ok (0 px differ)
+modern-weapon-view-cannon: ok (0 px differ)
+modern-courtyard-palace: ok (0 px differ)
+modern-impact-dust: ok (0 px differ)
+feel-recoil: ok (0 px differ)
+impact-view: ok (0 px differ)
+npc-markers: ok (0 px differ)
+hud-match1: ok (0 px differ)
+hud-match3: ok (0 px differ)
+quick-start-title: ok (0 px differ)
+danger-match1: ok (0 px differ)
+reload-choices: ok (0 px differ)
+repair-progress: ok (0 px differ)
+idle-no-crew: ok (0 px differ)
+idle-no-ammo: ok (0 px differ)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.screenshot: Timeout 30000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at /home/tobias/Projects/castle-game/scripts/goldens.mjs:35:29 {
+  log: [
+    '  - taking page screenshot',
+    '  - waiting for fonts to load...',
+    '  - fonts loaded'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.11.1

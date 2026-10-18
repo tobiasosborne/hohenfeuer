@@ -1,0 +1,209 @@
+{
+  "method": "One calm-air initial state, no random aim error; same voxels, guns and NPCs. Two diagnostic changes are separate: disable the ruler-avoidance test, or shift only east ruler/throne x by one metre.",
+  "rows": [
+    {
+      "condition": "baseline-without-ruler-avoidance",
+      "rulers": [
+        {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        {
+          "x": 287.5,
+          "y": 1,
+          "z": 127.5
+        }
+      ],
+      "targets": [
+        {
+          "id": 12595,
+          "key": "breach:1:22",
+          "slot": 1,
+          "index": 12595,
+          "kind": "shieldWall",
+          "cell": [
+            19,
+            5,
+            22
+          ],
+          "pos": {
+            "x": 283.5,
+            "y": 2.5,
+            "z": 126.5
+          },
+          "feedbackPos": {
+            "x": 283,
+            "y": 3.1213066293112077,
+            "z": 126.50292397660819
+          },
+          "occluded": true
+        },
+        {
+          "id": 12604,
+          "key": "breach:0:22",
+          "slot": 0,
+          "index": 12604,
+          "kind": "shieldWall",
+          "cell": [
+            28,
+            5,
+            22
+          ],
+          "pos": {
+            "x": 100.5,
+            "y": 2.5,
+            "z": 126.5
+          },
+          "feedbackPos": {
+            "x": 101,
+            "y": 3.121306629311071,
+            "z": 126.50292397660819
+          },
+          "occluded": true
+        }
+      ],
+      "reflectionDifference": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "condition": "baseline",
+      "rulers": [
+        {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        {
+          "x": 287.5,
+          "y": 1,
+          "z": 127.5
+        }
+      ],
+      "targets": [
+        {
+          "id": 12499,
+          "key": "breach:1:20",
+          "slot": 1,
+          "index": 12499,
+          "kind": "shieldWall",
+          "cell": [
+            19,
+            5,
+            20
+          ],
+          "pos": {
+            "x": 283.5,
+            "y": 2.5,
+            "z": 124.5
+          },
+          "feedbackPos": {
+            "x": 283,
+            "y": 3.12128339523217,
+            "z": 124.50877192982463
+          },
+          "occluded": true
+        },
+        {
+          "id": 17164,
+          "key": "breach:0:21",
+          "slot": 0,
+          "index": 17164,
+          "kind": "shieldWall",
+          "cell": [
+            28,
+            7,
+            21
+          ],
+          "pos": {
+            "x": 100.5,
+            "y": 4.5,
+            "z": 125.5
+          },
+          "feedbackPos": {
+            "x": 101,
+            "y": 5.096100717547403,
+            "z": 125.50584795321639
+          },
+          "occluded": true
+        }
+      ],
+      "reflectionDifference": {
+        "x": 0,
+        "y": 2,
+        "z": 1
+      }
+    },
+    {
+      "condition": "east-throne-x-plus-1",
+      "rulers": [
+        {
+          "x": 95.5,
+          "y": 1,
+          "z": 127.5
+        },
+        {
+          "x": 288.5,
+          "y": 1,
+          "z": 127.5
+        }
+      ],
+      "targets": [
+        {
+          "id": 17155,
+          "key": "breach:1:21",
+          "slot": 1,
+          "index": 17155,
+          "kind": "shieldWall",
+          "cell": [
+            19,
+            7,
+            21
+          ],
+          "pos": {
+            "x": 283.5,
+            "y": 4.5,
+            "z": 125.5
+          },
+          "feedbackPos": {
+            "x": 283,
+            "y": 5.0961007175474835,
+            "z": 125.50584795321639
+          },
+          "occluded": true
+        },
+        {
+          "id": 17164,
+          "key": "breach:0:21",
+          "slot": 0,
+          "index": 17164,
+          "kind": "shieldWall",
+          "cell": [
+            28,
+            7,
+            21
+          ],
+          "pos": {
+            "x": 100.5,
+            "y": 4.5,
+            "z": 125.5
+          },
+          "feedbackPos": {
+            "x": 101,
+            "y": 5.096100717547403,
+            "z": 125.50584795321639
+          },
+          "occluded": true
+        }
+      ],
+      "reflectionDifference": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ]
+}

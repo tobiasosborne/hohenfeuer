@@ -1,0 +1,10 @@
+✔ match-one probe replays deterministically, hits the enemy, and obeys the restricted command surface (13114.001527ms)
+✔ embodied novice leaves the gun and uses visible nearby damaged cells for priority repair (13034.701453ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26183.088273

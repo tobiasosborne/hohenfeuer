@@ -58,14 +58,17 @@ Version 0.4. Playable against the AI from the title screen; no multiplayer, no c
 | Novice policy win rate vs AI 2 / 5 / 8 | 7/10, 7/10, 5/10 |
 
 Gameplay is developed as a critic-repair loop against a 22-criterion rubric distilled from game
-design literature (research/15). Scores so far: 52/110 (research/16), 60/110 (research/19); a
+design literature (research/15). Scores so far: 52/110 (research/16), 60/110 (research/19), 75/110 (research/22); a
 third critique is in progress. Each critique files its ranked repairs as issues.
 
 **Known rough edges**
-- Physical west/east asymmetry: the east castle wins 28 of 40 paired forest duels (slot swaps are
-  fair, the terrain is not yet).
-- A losing palace can sit nearly unchanged for three minutes in 34 of 40 matches.
-- Morale-driven surrender exists in the rules but matches still end by population loss first.
+- Physical west/east asymmetry: the east castle wins 28 of 40 paired forest duels. Slot swaps are
+  fair and the terrain is symmetric; critique v3 traced most of it to a one-cell throne offset.
+- A losing palace can sit nearly unchanged for three minutes in 34 of 40 matches (max 332 s).
+- Morale-driven surrender exists in the rules but matches still end by population loss first,
+  and the population threshold is not shown before it triggers.
+- Reload-time alternatives (repair, re-man, move) are shown in only 91 of 605 reload windows.
+- Ballista shots that leave the map give no short/long readout (7 of 60).
 - 80 NPCs cost 88-118 ms per frame on software WebGL; GPU path untested on weak integrated chips.
 - No human playtest yet. Every number above comes from scripted policies, not people.
 - Period-accurate render preset (DX7-era dither and mip bias) is designed but not built.
@@ -140,7 +143,7 @@ Issues are tracked with [beads](https://github.com/steveyegge/beads); the snapsh
 ## Contributing
 
 1. Read `CLAUDE.md` (the laws, two minutes), then `docs/DESIGN.md`, then `HANDOFF.md`.
-2. Pick an issue (`bd ready`) or open one. Repairs that move a rubric criterion in research/19
+2. Pick an issue (`bd ready`) or open one. Repairs that move a rubric criterion in research/22
    are the current priority.
 3. Red-green: a failing test first, then the change. `npm test`, `npm run test:browser` and
    `npm run goldens` must pass; a golden that legitimately changes is replaced after you have
@@ -156,8 +159,11 @@ Issues are tracked with [beads](https://github.com/steveyegge/beads); the snapsh
 
 - Phase 0 scaffold, Phase 1 playable duel, Phase 2 NPCs and morale: done.
 - Phase 3 (current): full weapon set, designation building, look polish, and the critic-repair
-  loop toward 70/110 on the rubric. Next: terrain symmetry, palace plateaus, morale surrender,
-  the first human playtest, period render preset.
+  loop. The 70/110 rubric target was passed in critique v3 (75/110); the proxy score stays
+  provisional until unbriefed playtests. Next (repair wave 3): reload guidance on the real
+  screen, off-map shot readouts, the hidden population-surrender threshold, novice pacing
+  tails, the one-cell throne offset behind the west/east skew, palace plateaus, the first
+  human playtest, period render preset.
 - Phase 4: human slots and performance (billboarded NPCs beyond 40 m, GPU path profiling).
 - Out of scope by decision: the campaign and world map, multiplayer netcode, spells beyond the
   weapon set, anything but the artillery duel (research/00).

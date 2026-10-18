@@ -1,0 +1,222 @@
+{
+  "captures": [
+    {
+      "name": "hold-start",
+      "tick": 32316,
+      "hash": 1790144155,
+      "morale": 19.76744580987987,
+      "population": 16,
+      "pressure": [
+        {
+          "cause": "deaths",
+          "weight": -0.175
+        },
+        {
+          "cause": "under-fire",
+          "weight": -0.1
+        }
+      ],
+      "surrender": {
+        "morale": 19.76744580987987,
+        "moraleThreshold": 20,
+        "holdTicks": 30,
+        "holdRequiredTicks": 1350,
+        "population": 16,
+        "popThreshold": 14
+      },
+      "hud": "losses / surrender 1/45 s",
+      "texts": [
+        "1680",
+        "16 (40)",
+        "Morale: Despairing 20%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "ale falling: castle unde",
+        "r fire.",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Palace 96.3% / defeat below 55%",
+        "losses / surrender 1/45 s"
+      ]
+    },
+    {
+      "name": "hold-30",
+      "tick": 33186,
+      "hash": 3212927713,
+      "morale": 12.756661738960478,
+      "population": 16,
+      "pressure": [
+        {
+          "cause": "deaths",
+          "weight": -0.175
+        },
+        {
+          "cause": "quiet",
+          "weight": 0.05
+        }
+      ],
+      "surrender": {
+        "morale": 12.756661738960478,
+        "moraleThreshold": 20,
+        "holdTicks": 900,
+        "holdRequiredTicks": 1350,
+        "population": 16,
+        "popThreshold": 14
+      },
+      "hud": "losses / surrender 30/45 s",
+      "texts": [
+        "1759",
+        "16 (40)",
+        "Morale: Despairing 13%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Palace 96.2% / defeat below 55%",
+        "losses / surrender 30/45 s"
+      ]
+    },
+    {
+      "name": "last",
+      "tick": 33635,
+      "hash": 713751874,
+      "morale": 11.178863307428468,
+      "population": 15,
+      "pressure": [
+        {
+          "cause": "deaths",
+          "weight": -0.1875
+        },
+        {
+          "cause": "under-fire",
+          "weight": -0.1
+        }
+      ],
+      "surrender": {
+        "morale": 11.178863307428468,
+        "moraleThreshold": 20,
+        "holdTicks": 1349,
+        "holdRequiredTicks": 1350,
+        "population": 15,
+        "popThreshold": 14
+      },
+      "hud": "losses / surrender 44/45 s",
+      "texts": [
+        "1800",
+        "15 (40)",
+        "Morale: Despairing 11%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The wind has changed!",
+        "The enemy fires!",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Palace 96.2% / defeat below 55%",
+        "losses / surrender 44/45 s"
+      ]
+    },
+    {
+      "name": "end",
+      "tick": 33636,
+      "hash": 90712111,
+      "morale": 11.17127326631937,
+      "population": 15,
+      "pressure": [
+        {
+          "cause": "deaths",
+          "weight": -0.1875
+        },
+        {
+          "cause": "under-fire",
+          "weight": -0.1
+        }
+      ],
+      "surrender": {
+        "morale": 11.17127326631937,
+        "moraleThreshold": 20,
+        "holdTicks": 1350,
+        "holdRequiredTicks": 1350,
+        "population": 15,
+        "popThreshold": 14
+      },
+      "hud": "losses / surrender 45/45 s",
+      "texts": [
+        "1800",
+        "15 (40)",
+        "Morale: Despairing 11%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The wind has changed!",
+        "The enemy fires!",
+        "Defeat!",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Defeat!",
+        "Winner: East",
+        "Duration 18:41",
+        "Name",
+        "Shots",
+        "Hits",
+        "Damage",
+        "Losses",
+        "West",
+        "9",
+        "9",
+        "4160",
+        "24",
+        "East",
+        "44",
+        "41",
+        "18191",
+        "0",
+        "18:41: Your castle surrendered; strongest pressure: losses.",
+        "Decisive events",
+        "16:29 / Incoming shot near ruler",
+        "18:34 / 1 people lost",
+        "18:41 / Castle surrendered",
+        "Enter: Retry",
+        "Continue",
+        "Back to title"
+      ],
+      "account": {
+        "cause": "18:41: Your castle surrendered; strongest pressure: losses.",
+        "events": [
+          "16:29 / Incoming shot near ruler",
+          "18:34 / 1 people lost",
+          "18:41 / Castle surrendered"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "status": "passed"
+}

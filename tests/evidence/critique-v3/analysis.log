@@ -1,0 +1,1087 @@
+{
+  "cohorts": {
+    "focal": {
+      "n": 40,
+      "worlds": 20,
+      "seconds": {
+        "min": 502.43333333333334,
+        "p10": 774.1666666666667,
+        "median": 866.2666666666667,
+        "mean": 848.0516666666665,
+        "p90": 926.65,
+        "max": 1032.3333333333333,
+        "sd": 107.04927446689626
+      },
+      "endings": {
+        "palace": 26,
+        "ruler": 10,
+        "surrender": 4
+      },
+      "wins": [
+        20,
+        20
+      ],
+      "physicalWins": [
+        12,
+        28
+      ],
+      "inRange": 36,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 34,
+        "max": 332
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.0013864589663219492,
+        "shotsMean": 34.475,
+        "repairsMean": 46.1,
+        "buildsMean": 13.05
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 71,
+        "maxReady": 71
+      },
+      "comeback": {
+        "cases": 8,
+        "wins": 2
+      }
+    },
+    "matrix": {
+      "n": 60,
+      "worlds": 10,
+      "seconds": {
+        "min": 460.8333333333333,
+        "p10": 680.71,
+        "median": 898.3333333333334,
+        "mean": 875.8544444444448,
+        "p90": 1114.5533333333333,
+        "max": 1172.3333333333333,
+        "sd": 172.259800233668
+      },
+      "endings": {
+        "palace": 34,
+        "ruler": 14,
+        "surrender": 12
+      },
+      "wins": [
+        30,
+        30
+      ],
+      "physicalWins": [
+        24,
+        36
+      ],
+      "inRange": 48,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 44,
+        "max": 700
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.016138150886692935,
+        "shotsMean": 35.666666666666664,
+        "repairsMean": 50.833333333333336,
+        "buildsMean": 12.75
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 54,
+        "maxReady": 54
+      },
+      "comeback": {
+        "cases": 18,
+        "wins": 6
+      }
+    },
+    "unequal": {
+      "n": 40,
+      "worlds": 10,
+      "seconds": {
+        "min": 605.5333333333333,
+        "p10": 707.3566666666667,
+        "median": 853.3499999999999,
+        "mean": 829.8233333333332,
+        "p90": 943.65,
+        "max": 1078.3333333333333,
+        "sd": 112.59950567288374
+      },
+      "endings": {
+        "palace": 18,
+        "ruler": 16,
+        "surrender": 6
+      },
+      "wins": [
+        20,
+        20
+      ],
+      "physicalWins": [
+        14,
+        26
+      ],
+      "inRange": 32,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 18,
+        "max": 420
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.04007653063241686,
+        "shotsMean": 34.35,
+        "repairsMean": 46.5,
+        "buildsMean": 13.075
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 67,
+        "maxReady": 67
+      },
+      "comeback": {
+        "cases": 18,
+        "wins": 0
+      }
+    },
+    "desert": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 691.3,
+        "p10": 693.0699999999999,
+        "median": 799.6,
+        "mean": 790.97,
+        "p90": 864.4233333333334,
+        "max": 878.7333333333333,
+        "sd": 59.89037290472207
+      },
+      "endings": {
+        "ruler": 1,
+        "palace": 9
+      },
+      "wins": [
+        4,
+        6
+      ],
+      "physicalWins": [
+        4,
+        6
+      ],
+      "inRange": 8,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 4,
+        "max": 256
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.19264254874864972,
+        "shotsMean": 30.8,
+        "repairsMean": 56.1,
+        "buildsMean": 98.4
+      },
+      "firing": {
+        "latestFirst": 15.566666666666666,
+        "maxActual": 73.4,
+        "maxReady": 3.533333333333333
+      },
+      "comeback": {
+        "cases": 0,
+        "wins": 0
+      }
+    },
+    "ice": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 699.2666666666667,
+        "p10": 768.2666666666667,
+        "median": 806.65,
+        "mean": 807.5,
+        "p90": 865.7466666666667,
+        "max": 870.0666666666667,
+        "sd": 49.55131122830602
+      },
+      "endings": {
+        "palace": 10
+      },
+      "wins": [
+        1,
+        9
+      ],
+      "physicalWins": [
+        1,
+        9
+      ],
+      "inRange": 9,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 4,
+        "max": 313
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.07471416497234386,
+        "shotsMean": 32,
+        "repairsMean": 35.4,
+        "buildsMean": 93.9
+      },
+      "firing": {
+        "latestFirst": 16.566666666666666,
+        "maxActual": 118.5,
+        "maxReady": 3.533333333333333
+      },
+      "comeback": {
+        "cases": 6,
+        "wins": 0
+      }
+    },
+    "volcano": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 671.2333333333333,
+        "p10": 708.6433333333333,
+        "median": 773.2,
+        "mean": 780.0466666666667,
+        "p90": 858.0566666666666,
+        "max": 891.8666666666667,
+        "sd": 60.53963843815242
+      },
+      "endings": {
+        "palace": 10
+      },
+      "wins": [
+        3,
+        7
+      ],
+      "physicalWins": [
+        3,
+        7
+      ],
+      "inRange": 8,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 6,
+        "max": 288
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.07104095001877367,
+        "shotsMean": 31.1,
+        "repairsMean": 23.25,
+        "buildsMean": 149.55
+      },
+      "firing": {
+        "latestFirst": 20.566666666666666,
+        "maxActual": 95,
+        "maxReady": 3.533333333333333
+      },
+      "comeback": {
+        "cases": 0,
+        "wins": 0
+      }
+    },
+    "level3": {
+      "n": 20,
+      "worlds": 10,
+      "seconds": {
+        "min": 521.3333333333334,
+        "p10": 851.7533333333333,
+        "median": 1056.5666666666666,
+        "mean": 1002.4999999999998,
+        "p90": 1132.9133333333334,
+        "max": 1172.3333333333333,
+        "sd": 180.54864841489243
+      },
+      "endings": {
+        "palace": 14,
+        "ruler": 2,
+        "surrender": 4
+      },
+      "wins": [
+        10,
+        10
+      ],
+      "physicalWins": [
+        6,
+        14
+      ],
+      "inRange": 18,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 20,
+        "max": 700
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.043881198979097764,
+        "shotsMean": 39.8,
+        "repairsMean": 49.75,
+        "buildsMean": 12.35
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 42.5,
+        "maxReady": 42.5
+      },
+      "comeback": {
+        "cases": 2,
+        "wins": 2
+      }
+    },
+    "level5": {
+      "n": 20,
+      "worlds": 10,
+      "seconds": {
+        "min": 681.4666666666667,
+        "p10": 780.4966666666667,
+        "median": 908.7,
+        "mean": 887.1166666666664,
+        "p90": 960.3033333333334,
+        "max": 1032.3333333333333,
+        "sd": 90.45795862044297
+      },
+      "endings": {
+        "palace": 14,
+        "ruler": 2,
+        "surrender": 4
+      },
+      "wins": [
+        10,
+        10
+      ],
+      "physicalWins": [
+        8,
+        12
+      ],
+      "inRange": 18,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 18,
+        "max": 319
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.0002357656489449487,
+        "shotsMean": 36.1,
+        "repairsMean": 53.35,
+        "buildsMean": 12.85
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 37.5,
+        "maxReady": 37.5
+      },
+      "comeback": {
+        "cases": 2,
+        "wins": 2
+      }
+    },
+    "level8": {
+      "n": 20,
+      "worlds": 10,
+      "seconds": {
+        "min": 460.8333333333333,
+        "p10": 652.5933333333334,
+        "median": 742.7666666666667,
+        "mean": 737.9466666666666,
+        "p90": 843.5166666666668,
+        "max": 883.2666666666667,
+        "sd": 114.26009821650095
+      },
+      "endings": {
+        "ruler": 10,
+        "palace": 6,
+        "surrender": 4
+      },
+      "wins": [
+        10,
+        10
+      ],
+      "physicalWins": [
+        10,
+        10
+      ],
+      "inRange": 12,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 6,
+        "max": 248
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.004297488032036091,
+        "shotsMean": 31.1,
+        "repairsMean": 49.4,
+        "buildsMean": 13.05
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 54,
+        "maxReady": 54
+      },
+      "comeback": {
+        "cases": 14,
+        "wins": 2
+      }
+    },
+    "physical3,8": {
+      "n": 20,
+      "worlds": 10,
+      "seconds": {
+        "min": 692.2666666666667,
+        "p10": 707.3566666666667,
+        "median": 746.6333333333333,
+        "mean": 796.4566666666667,
+        "p90": 943.65,
+        "max": 949.5,
+        "sd": 99.8051569030601
+      },
+      "endings": {
+        "palace": 4,
+        "ruler": 12,
+        "surrender": 4
+      },
+      "wins": [
+        10,
+        10
+      ],
+      "physicalWins": [
+        0,
+        20
+      ],
+      "inRange": 14,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 10,
+        "max": 246
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.06796985786382152,
+        "shotsMean": 33.55,
+        "repairsMean": 39.5,
+        "buildsMean": 10.75
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 67,
+        "maxReady": 67
+      },
+      "comeback": {
+        "cases": 12,
+        "wins": 0
+      }
+    },
+    "physical8,3": {
+      "n": 20,
+      "worlds": 10,
+      "seconds": {
+        "min": 605.5333333333333,
+        "p10": 747.5833333333334,
+        "median": 880.75,
+        "mean": 863.1899999999999,
+        "p90": 954.5233333333335,
+        "max": 1078.3333333333333,
+        "sd": 114.75869954919418
+      },
+      "endings": {
+        "ruler": 4,
+        "palace": 14,
+        "surrender": 2
+      },
+      "wins": [
+        10,
+        10
+      ],
+      "physicalWins": [
+        14,
+        6
+      ],
+      "inRange": 18,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 8,
+        "max": 420
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.012183203401012196,
+        "shotsMean": 35.15,
+        "repairsMean": 53.5,
+        "buildsMean": 15.4
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 41.5,
+        "maxReady": 41.5
+      },
+      "comeback": {
+        "cases": 6,
+        "wins": 0
+      }
+    }
+  },
+  "novice": {
+    "2": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 375.3666666666667,
+        "p10": 432.00666666666666,
+        "median": 731.0833333333334,
+        "mean": 751.0666666666667,
+        "p90": 1129.08,
+        "max": 1200,
+        "sd": 244.1808551053911
+      },
+      "endings": {
+        "palace": 6,
+        "surrender": 3,
+        "timeout": 1
+      },
+      "wins": [
+        8,
+        1
+      ],
+      "physicalWins": [
+        8,
+        1
+      ],
+      "inRange": 5,
+      "timeouts": 1,
+      "remoteManualShots": 0,
+      "reloads": 258,
+      "localTypes": 3.4224806201550386,
+      "localNonAim": 2.4224806201550386,
+      "executedNonAim": 1,
+      "executedMedian": 1,
+      "executedMax": 2,
+      "executedTypes": {
+        "repair-priority": 233,
+        "move": 25
+      },
+      "planner": {
+        "n": 258,
+        "zeroPrompt": 46,
+        "twoPrompt": 15,
+        "illegal": 0,
+        "positiveBest": 61,
+        "positiveBestOffered": 44,
+        "zeroRegret": 241,
+        "meanRegret": 0.010160137105068957,
+        "harmfulOffers": 10
+      }
+    },
+    "5": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 372.3666666666667,
+        "p10": 566.6766666666666,
+        "median": 759.4666666666667,
+        "mean": 792.5266666666666,
+        "p90": 1071.03,
+        "max": 1200,
+        "sd": 219.61404013000225
+      },
+      "endings": {
+        "surrender": 5,
+        "palace": 4,
+        "timeout": 1
+      },
+      "wins": [
+        4,
+        5
+      ],
+      "physicalWins": [
+        4,
+        5
+      ],
+      "inRange": 6,
+      "timeouts": 1,
+      "remoteManualShots": 0,
+      "reloads": 169,
+      "localTypes": 3.5088757396449703,
+      "localNonAim": 2.5088757396449703,
+      "executedNonAim": 1.0059171597633136,
+      "executedMedian": 1,
+      "executedMax": 2,
+      "executedTypes": {
+        "repair-priority": 157,
+        "move": 13
+      },
+      "planner": {
+        "n": 169,
+        "zeroPrompt": 26,
+        "twoPrompt": 3,
+        "illegal": 0,
+        "positiveBest": 69,
+        "positiveBestOffered": 40,
+        "zeroRegret": 140,
+        "meanRegret": 1.0436917044671483,
+        "harmfulOffers": 11
+      }
+    },
+    "8": {
+      "n": 10,
+      "worlds": 10,
+      "seconds": {
+        "min": 493.93333333333334,
+        "p10": 552.9433333333334,
+        "median": 640.0166666666667,
+        "mean": 644.5766666666666,
+        "p90": 738.3933333333333,
+        "max": 814.2333333333333,
+        "sd": 97.25876944180065
+      },
+      "endings": {
+        "palace": 3,
+        "surrender": 7
+      },
+      "wins": [
+        5,
+        5
+      ],
+      "physicalWins": [
+        5,
+        5
+      ],
+      "inRange": 3,
+      "timeouts": 0,
+      "remoteManualShots": 0,
+      "reloads": 178,
+      "localTypes": 3.730337078651685,
+      "localNonAim": 2.730337078651685,
+      "executedNonAim": 1.1348314606741574,
+      "executedMedian": 1,
+      "executedMax": 2,
+      "executedTypes": {
+        "move": 29,
+        "repair-priority": 173
+      },
+      "planner": {
+        "n": 178,
+        "zeroPrompt": 17,
+        "twoPrompt": 5,
+        "illegal": 0,
+        "positiveBest": 79,
+        "positiveBestOffered": 41,
+        "zeroRegret": 140,
+        "meanRegret": 2.629921075070128,
+        "harmfulOffers": 17
+      }
+    }
+  },
+  "strategies": {
+    "ballista-spam": {
+      "wins": [
+        1,
+        8
+      ],
+      "endings": {
+        "ruler": 8,
+        "timeout": 1,
+        "surrender": 1
+      },
+      "median": 748.7833333333333,
+      "playerWinPaths": {
+        "surrender": 1
+      }
+    },
+    "fire-only": {
+      "wins": [
+        6,
+        4
+      ],
+      "endings": {
+        "palace": 5,
+        "surrender": 1,
+        "ruler": 4
+      },
+      "median": 468.33333333333337,
+      "playerWinPaths": {
+        "palace": 5,
+        "surrender": 1
+      }
+    },
+    "morale-pressure": {
+      "wins": [
+        7,
+        3
+      ],
+      "endings": {
+        "ruler": 7,
+        "surrender": 3
+      },
+      "median": 525.5666666666666,
+      "playerWinPaths": {
+        "ruler": 4,
+        "surrender": 3
+      }
+    },
+    "rebuild-lane": {
+      "wins": [
+        6,
+        4
+      ],
+      "endings": {
+        "palace": 3,
+        "surrender": 3,
+        "ruler": 4
+      },
+      "median": 468.33333333333337,
+      "playerWinPaths": {
+        "palace": 3,
+        "surrender": 3
+      }
+    },
+    "recovery-mounts": {
+      "wins": [
+        6,
+        4
+      ],
+      "endings": {
+        "palace": 3,
+        "surrender": 3,
+        "ruler": 4
+      },
+      "median": 549.25,
+      "playerWinPaths": {
+        "palace": 3,
+        "surrender": 3
+      }
+    },
+    "ruler-hiding": {
+      "wins": [
+        6,
+        4
+      ],
+      "endings": {
+        "palace": 3,
+        "surrender": 4,
+        "ruler": 3
+      },
+      "median": 572.3666666666667,
+      "playerWinPaths": {
+        "palace": 2,
+        "surrender": 4
+      }
+    },
+    "ruler-sniping": {
+      "wins": [
+        6,
+        4
+      ],
+      "endings": {
+        "palace": 5,
+        "surrender": 1,
+        "ruler": 4
+      },
+      "median": 468.33333333333337,
+      "playerWinPaths": {
+        "palace": 5,
+        "surrender": 1
+      }
+    },
+    "turtle": {
+      "wins": [
+        7,
+        3
+      ],
+      "endings": {
+        "palace": 4,
+        "surrender": 3,
+        "ruler": 3
+      },
+      "median": 543.3833333333333,
+      "playerWinPaths": {
+        "palace": 4,
+        "surrender": 3
+      }
+    }
+  },
+  "environment": {
+    "baseline": {
+      "n": 20,
+      "worlds": 20,
+      "seconds": {
+        "min": 502.43333333333334,
+        "p10": 774.1666666666667,
+        "median": 866.2666666666667,
+        "mean": 848.0516666666666,
+        "p90": 926.65,
+        "max": 1032.3333333333333,
+        "sd": 107.04927446689625
+      },
+      "endings": {
+        "palace": 13,
+        "ruler": 5,
+        "surrender": 2
+      },
+      "wins": [
+        6,
+        14
+      ],
+      "physicalWins": [
+        6,
+        14
+      ],
+      "inRange": 18,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 17,
+        "max": 332
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.0013864589663219492,
+        "shotsMean": 34.475,
+        "repairsMean": 46.1,
+        "buildsMean": 13.05
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 71,
+        "maxReady": 71
+      },
+      "comeback": {
+        "cases": 4,
+        "wins": 1
+      }
+    },
+    "calm": {
+      "n": 20,
+      "worlds": 20,
+      "seconds": {
+        "min": 681.4666666666667,
+        "p10": 827.93,
+        "median": 886.3666666666667,
+        "mean": 887.2550000000001,
+        "p90": 956.2533333333334,
+        "max": 1076.5666666666666,
+        "sd": 81.86892523689586
+      },
+      "endings": {
+        "palace": 11,
+        "ruler": 9
+      },
+      "wins": [
+        5,
+        15
+      ],
+      "physicalWins": [
+        5,
+        15
+      ],
+      "inRange": 19,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 18,
+        "max": 384
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.0016037458054473056,
+        "shotsMean": 35.925,
+        "repairsMean": 49.9,
+        "buildsMean": 13.425
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 72.5,
+        "maxReady": 43
+      },
+      "comeback": {
+        "cases": 5,
+        "wins": 1
+      },
+      "flipped": [
+        1,
+        2,
+        9
+      ]
+    },
+    "terrain": {
+      "n": 20,
+      "worlds": 20,
+      "seconds": {
+        "min": 502.43333333333334,
+        "p10": 774.1666666666667,
+        "median": 866.2666666666667,
+        "mean": 848.0516666666666,
+        "p90": 926.65,
+        "max": 1032.3333333333333,
+        "sd": 107.04927446689625
+      },
+      "endings": {
+        "palace": 13,
+        "ruler": 5,
+        "surrender": 2
+      },
+      "wins": [
+        6,
+        14
+      ],
+      "physicalWins": [
+        6,
+        14
+      ],
+      "inRange": 18,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 17,
+        "max": 332
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.0013864589663219492,
+        "shotsMean": 34.475,
+        "repairsMean": 46.075,
+        "buildsMean": 13.05
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 71,
+        "maxReady": 71
+      },
+      "comeback": {
+        "cases": 4,
+        "wins": 1
+      },
+      "flipped": []
+    },
+    "wind": {
+      "n": 20,
+      "worlds": 20,
+      "seconds": {
+        "min": 428.9,
+        "p10": 704.9633333333334,
+        "median": 868.3666666666666,
+        "mean": 855.8050000000001,
+        "p90": 983.4500000000003,
+        "max": 1165.8333333333333,
+        "sd": 155.26218194288867
+      },
+      "endings": {
+        "ruler": 9,
+        "palace": 9,
+        "surrender": 2
+      },
+      "wins": [
+        7,
+        13
+      ],
+      "physicalWins": [
+        7,
+        13
+      ],
+      "inRange": 17,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 17,
+        "max": 333
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.011656489384051293,
+        "shotsMean": 34.85,
+        "repairsMean": 48.7,
+        "buildsMean": 13.275
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 66,
+        "maxReady": 66
+      },
+      "comeback": {
+        "cases": 4,
+        "wins": 2
+      },
+      "flipped": [
+        1,
+        12,
+        3,
+        4,
+        8
+      ]
+    },
+    "mirror": {
+      "n": 20,
+      "worlds": 20,
+      "seconds": {
+        "min": 503.43333333333334,
+        "p10": 705.37,
+        "median": 862.7666666666667,
+        "mean": 852.825,
+        "p90": 987.0066666666668,
+        "max": 1038.0333333333333,
+        "sd": 120.5863742417765
+      },
+      "endings": {
+        "ruler": 9,
+        "palace": 10,
+        "surrender": 1
+      },
+      "wins": [
+        9,
+        11
+      ],
+      "physicalWins": [
+        9,
+        11
+      ],
+      "inRange": 17,
+      "timeouts": 0,
+      "lowMotion": {
+        "over180": 18,
+        "max": 455
+      },
+      "economy": {
+        "capMean": 0,
+        "capWorst": 0,
+        "nearZeroMean": 0.004092113458651704,
+        "shotsMean": 34.575,
+        "repairsMean": 46.225,
+        "buildsMean": 13.675
+      },
+      "firing": {
+        "latestFirst": 17.566666666666666,
+        "maxActual": 38.5,
+        "maxReady": 38.5
+      },
+      "comeback": {
+        "cases": 5,
+        "wins": 3
+      },
+      "flipped": [
+        1,
+        11,
+        12,
+        15,
+        17,
+        19,
+        2,
+        3,
+        5
+      ]
+    }
+  }
+}

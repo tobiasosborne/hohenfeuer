@@ -1,0 +1,514 @@
+[
+  {
+    "level": 2,
+    "seed": 2,
+    "winner": 0,
+    "second": 773.2333333333333,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.4495052083333334
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.012500000000000011
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 8.927185566116513,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 29,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.4495052083333334
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 2,
+    "seed": 3,
+    "winner": 1,
+    "second": 1121.2,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.1875
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 11.17127326631937,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 15,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.1875
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 2,
+    "seed": 5,
+    "winner": 0,
+    "second": 726.8333333333334,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.5558637152777778
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.04999999999999999
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 8,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 26,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.5558637152777778
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 5,
+    "seed": 1,
+    "winner": 0,
+    "second": 747.6666666666666,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.5598133680555556
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.03749999999999998
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 8.703701076182664,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 27,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.5598133680555556
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 5,
+    "seed": 2,
+    "winner": 0,
+    "second": 588.2666666666667,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.6104535590277778
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.15
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 8,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 26,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.6104535590277778
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 5,
+    "seed": 3,
+    "winner": 1,
+    "second": 1056.7,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.175
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 11.061247032061946,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 16,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.175
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 5,
+    "seed": 5,
+    "winner": 0,
+    "second": 738.3,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.5136870659722222
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.025000000000000022
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 8.952131065974058,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 28,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.5136870659722222
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 5,
+    "seed": 9,
+    "winner": 1,
+    "second": 702.5666666666667,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.16249999999999998
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 9.918891661881883,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 17,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.16249999999999998
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 8,
+    "seed": 2,
+    "winner": 0,
+    "second": 567.1666666666666,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.5565690104166666
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 10.295725302042234,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 30,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.5565690104166666
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 8,
+    "seed": 4,
+    "winner": 0,
+    "second": 559.5,
+    "slot": 1,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.5897178819444444
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.04999999999999999
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 8.678101926813332,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 26,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.5897178819444444
+    },
+    "trigger": "morale-clock",
+    "localHud": "enemy pressure not on local HUD; victory account absent"
+  },
+  {
+    "level": 8,
+    "seed": 5,
+    "winner": 1,
+    "second": 493.93333333333334,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.8125
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 29.46013498211601,
+      "moraleThreshold": 20,
+      "holdTicks": 0,
+      "holdRequiredTicks": 1350,
+      "population": 13,
+      "popThreshold": 14
+    },
+    "text": "losses / population 13 < 14: surrender",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.8125
+    },
+    "trigger": "population",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 8,
+    "seed": 7,
+    "winner": 1,
+    "second": 589.7333333333333,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.026914062500000006
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.1875
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 13.040007716864341,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 15,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.1875
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 8,
+    "seed": 8,
+    "winner": 1,
+    "second": 728.2,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.15000000000000002
+      },
+      {
+        "cause": "quiet",
+        "weight": 0.05
+      }
+    ],
+    "surrender": {
+      "morale": 11.721828099422538,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 18,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.15000000000000002
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 8,
+    "seed": 9,
+    "winner": 1,
+    "second": 729.9666666666667,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "deaths",
+        "weight": -0.16249999999999998
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 12.446966690399242,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 17,
+      "popThreshold": 14
+    },
+    "text": "losses / surrender 45/45 s",
+    "dominant": {
+      "cause": "deaths",
+      "weight": -0.16249999999999998
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  },
+  {
+    "level": 8,
+    "seed": 10,
+    "winner": 1,
+    "second": 814.2333333333333,
+    "slot": 0,
+    "pressure": [
+      {
+        "cause": "palace-damage",
+        "weight": -0.43116753472222225
+      },
+      {
+        "cause": "deaths",
+        "weight": -0.15000000000000002
+      },
+      {
+        "cause": "under-fire",
+        "weight": -0.1
+      }
+    ],
+    "surrender": {
+      "morale": 9.134711420720159,
+      "moraleThreshold": 20,
+      "holdTicks": 1350,
+      "holdRequiredTicks": 1350,
+      "population": 18,
+      "popThreshold": 14
+    },
+    "text": "palace damage / surrender 45/45 s",
+    "dominant": {
+      "cause": "palace-damage",
+      "weight": -0.43116753472222225
+    },
+    "trigger": "morale-clock",
+    "localHud": "own pressure line; loss account"
+  }
+]

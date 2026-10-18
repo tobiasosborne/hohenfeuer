@@ -1,0 +1,57 @@
+{
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "shot": {
+    "fired": 1566,
+    "tick": 1606,
+    "wind": 0.9844380040322581,
+    "reference": {
+      "weaponId": 4,
+      "projectileId": 86,
+      "origin": [
+        113.1599720454043,
+        7.5,
+        130.50607447815617
+      ],
+      "aimPoint": [
+        1105.0276050634052,
+        7,
+        130.5
+      ],
+      "aim": {
+        "az": 900,
+        "range": 2550
+      },
+      "tick": 1566,
+      "previousImpact": null
+    },
+    "stillFlying": false,
+    "impact": null,
+    "hud": null,
+    "texts": [
+      "1246",
+      "40 (40)",
+      "Morale: Bold 71%",
+      "3 (4)",
+      "2",
+      "N",
+      "E",
+      "S",
+      "W",
+      "Shot!",
+      "Opponent",
+      "KI",
+      "Hohenfeuer",
+      "Income +3.2 gold/s",
+      "G: Place weapon",
+      "R: Priority",
+      "B: Build",
+      "WASD: Walk",
+      "Q: Crew",
+      "X: Shelter",
+      "Tab: Jobs",
+      "R: repair / 0.8 gold / restore cover"
+    ]
+  },
+  "status": "completed"
+}

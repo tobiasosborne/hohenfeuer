@@ -1,0 +1,152 @@
+[
+  {
+    seed: 1,
+    hit: { second: 20.7, attacker: 0, victim: 1, kind: 'block' }
+  },
+  {
+    seed: 2,
+    hit: { second: 20.6, attacker: 1, victim: 0, kind: 'block' }
+  },
+  {
+    seed: 3,
+    hit: {
+      second: 20.533333333333335,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 4,
+    hit: {
+      second: 20.533333333333335,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 5,
+    hit: { second: 20.8, attacker: 1, victim: 0, kind: 'block' }
+  },
+  {
+    seed: 6,
+    hit: {
+      second: 20.766666666666666,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 7,
+    hit: { second: 20.5, attacker: 1, victim: 0, kind: 'block' }
+  },
+  {
+    seed: 8,
+    hit: {
+      second: 20.533333333333335,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 9,
+    hit: {
+      second: 20.533333333333335,
+      attacker: 1,
+      victim: 0,
+      kind: 'person'
+    }
+  },
+  {
+    seed: 10,
+    hit: {
+      second: 20.833333333333332,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 11,
+    hit: { second: 20.5, attacker: 1, victim: 0, kind: 'block' }
+  },
+  {
+    seed: 12,
+    hit: {
+      second: 20.633333333333333,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 13,
+    hit: {
+      second: 20.566666666666666,
+      attacker: 1,
+      victim: 0,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 14,
+    hit: {
+      second: 20.566666666666666,
+      attacker: 1,
+      victim: 0,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 15,
+    hit: {
+      second: 20.766666666666666,
+      attacker: 1,
+      victim: 0,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 16,
+    hit: {
+      second: 20.766666666666666,
+      attacker: 1,
+      victim: 0,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 17,
+    hit: {
+      second: 20.566666666666666,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 18,
+    hit: {
+      second: 20.533333333333335,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  },
+  {
+    seed: 19,
+    hit: { second: 20.7, attacker: 0, victim: 1, kind: 'block' }
+  },
+  {
+    seed: 20,
+    hit: {
+      second: 20.666666666666668,
+      attacker: 0,
+      victim: 1,
+      kind: 'block'
+    }
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "rank": 1,
+    "title": "Make reload guidance reflect useful actions on the actual player screen",
+    "priority": 1,
+    "criterion": "A2, A4, E18",
+    "points": "+2 (A2/A4); E18 conditional",
+    "lane": "UI/player; sim only if counterfactuals justify it",
+    "description": "Critique v3 distinguishes engine-local alternatives from the actual frustum and cannon-occlusion-filtered HUD. The novice acts from coordinates, so its issued repairs do not demonstrate discovery through the new prompt. Preserve automation and the small control surface; expose useful existing actions and suppress redundant ones. Related: castle-game-uo7.10 and .13. Evidence: tests/evidence/critique-v3/screen-results.json, proxy-browser.json and research/22-gameplay-critique-v3.md.",
+    "acceptance": "Compare displayed suggestions against the documented bounded solver at every eligible reload in 10 seeds each versus AI2/5/8; publish zero/one/two-option counts, legal failures and beneficial-best coverage. Validate renderer parity in SwiftShader. Three unbriefed five-reload sessions: at least two people discover and choose two distinct non-aim intervention types and explain cost/exposure. No new binding or compulsory repair chore.",
+    "id": "castle-game-uo7.21"
+  },
+  {
+    "rank": 2,
+    "title": "Resolve novice pacing tails without hiding them in aggregate AI results",
+    "priority": 1,
+    "criterion": "B6",
+    "points": "+1",
+    "lane": "Sim/AI/player policy audit",
+    "description": "Wave-2 focal pacing reproduces 36/40 in range, but the legal threat-aware novice and AI8 have separate tails. The proxy knows the route and forecast impact position, yet can stop returning to useful fire. Determine which tails are policy/navigation defects and which are game balance. Related: castle-game-uo7.18. Use the individual v3 cohort denominators and retained traces rather than pooled easy matches.",
+    "acceptance": "Explain every timeout and sub-8-minute proxy result using command, position, idle-reason and target traces. Test a concrete repair on seeds 1-10 and a held-out 11-20 set per affected cohort; at least 80% finish in 12-20 minutes, with no timeout. Preserve the focal ending mix, paid recovery and first-shot gates. No minimum-duration timer or invulnerability; validate the navigation correction with human play.",
+    "id": "castle-game-uo7.22"
+  },
+  {
+    "rank": 3,
+    "title": "Report shots that leave the map and make offsets usable for aiming",
+    "priority": 1,
+    "criterion": "A1, D13",
+    "points": "+2, conditional on aiming/perception acceptance",
+    "lane": "Sim/contracts and UI/player",
+    "description": "The v3 wind-on browser audit fires 20 cannon, 20 catapult and 20 ballista shots. All 53 observed offsets have correct signs, but seven ballista shots vanish beyond the map without an impact/readout. src/sim/sim.js discards void projectiles without a terminal event. A wall-relative interception must also not be mistaken for instructions to increase charge. Related: castle-game-uo7.15. Evidence: impact-browser.json and long-miss.json.",
+    "acceptance": "Every one of a repeated 20-shot-per-weapon cohort receives an honest impact or bounds/expiry explanation within two seconds of terminal removal; never invent a landing point. Preserve immutable launch references and signed axes when aim changes during flight. Distinguish own obstruction, enemy wall interception and palace damage. A no-solver four-shot calm-wind policy converges on a chosen 190m-class target in at least 8/10 seeds, and two of three people classify direction/impact within two seconds.",
+    "id": "castle-game-uo7.23"
+  },
+  {
+    "rank": 4,
+    "title": "Show the population surrender threshold before the fatal volley",
+    "priority": 1,
+    "criterion": "C11, E19",
+    "points": "+1 (C11)",
+    "lane": "UI",
+    "description": "Focal seeds 6 and 9 surrender from population, at morale 35.45 and 29.85 with zero hold ticks. Losses is correctly the strongest pressure, but the last playable HUD advertises surrender at 20% morale and does not reveal the population threshold 14. The end account then correctly names population loss. Keep one contextual line rather than adding a permanent panel.",
+    "acceptance": "In fresh SwiftShader replays of seeds 6 and 9, before the terminal shot, the existing morale/pressure surface shows the current population against the actual strict-below-14 threshold when near danger. Keep the 20%/45s morale clock correct and make simultaneous ruler/population elimination respect the recorded reason. Two of three playtesters predict the active loss trigger without external explanation.",
+    "id": "castle-game-uo7.24"
+  },
+  {
+    "rank": 5,
+    "title": "Give leadership rulers a usable route back from the rampart",
+    "priority": 2,
+    "criterion": "F21, E20",
+    "points": "+1 (F21, shared with physical-balance work)",
+    "lane": "AI/NPC",
+    "description": "In focal seeds 12 and 14, the ruler chose a leadership excursion, then abandoned its gun but remained at the same exposed operator position until killed. Seeds 4 and 11 die still manning; seed 16 is a separate covered collateral death. The same-floor shelter-goal filter in controller.js excludes authored ground-floor shelters from a y=7 ruler and is a concrete suspected cause. Evidence: ending-quality.json; verify the route inference before changing tuning.",
+    "acceptance": "Trace departure, gun abandonment and return in seeds 12/14. An abandoned leader with a reachable ground-floor shelter must traverse normal stairs/ladder movement to it; demonstrate the route within 30 seconds in an isolated physically valid case. Preserve mortal risk, paid crew rules, warnings and a genuine ruler-target opportunity. Rerun 20 paired focal seeds and report intentional versus collateral endings and pacing.",
+    "id": "castle-game-uo7.25"
+  },
+  {
+    "rank": 6,
+    "title": "Validate the smallest repair for physical west/east skew",
+    "priority": 2,
+    "criterion": "B7, F21",
+    "points": "+1 maximum, shared with ruler-return work",
+    "lane": "Sim/map/AI",
+    "description": "V3 exactly reproduces numeric-slot wins 20/20 but physical west/east wins 12/28. The starter's 36,864 authored cells are exactly x-reflection symmetric; ruler/throne/exit anchors have a one-metre reflection offset. Critique-v3 environment and mirror controls isolate terrain reflection, wind reflection, calm wind and full authored east-castle reflection. Use those paired results before touching geometry or aim error; 20 worlds alone do not establish a population-level side bias.",
+    "acceptance": "Report paired winner/duration changes for terrain-only, wind-only and full castle-reflection controls, retaining physical RNG identity. Implement only the smallest supported candidate, then test 20 held-out seeds in both slot orders: each physical side 40-60%, both 3/8 skill assignments still favor AI8, and pacing/endings/fire gates preserved. Do not mistake numeric-slot balance for physical balance or sum non-additive ablation effects.",
+    "id": "castle-game-uo7.26"
+  },
+  {
+    "rank": 7,
+    "title": "Resolve frequent losing-palace plateaus using the correctly scoped metric",
+    "priority": 2,
+    "criterion": "B5, B8",
+    "points": "+2 conditional on demonstrated shape and recovery",
+    "lane": "Sim pacing plus UI/human validation",
+    "description": "Fresh v3 matches and the wave-2 audit agree exactly: losing-side low-motion windows exceed 180 seconds in 34/40 records, maximum 332 seconds, median 231. The reported 508-second maximum belongs to the WINNER in seed 6; the old aggregator mixed a loser numerator with an all-side maximum. V2 was 32/40, max 460: frequency worsens, severity improves. Related: castle-game-uo7.19.",
+    "acceptance": "Keep the same post-120s max-minus-min<2pp definition and scope both count and maximum to eventual losers. Annotate long windows with actual firing, gun/population/ruler crises and visible repair; conduct the 30-minute playtest before equating flat palace HP with boredom. If dead middles are confirmed, reduce the count below v2's 32/40 while keeping the maximum at or below 332 seconds and preserving pacing/endings. Demonstrate a recoverable, visible repair beat.",
+    "id": "castle-game-uo7.27"
+  },
+  {
+    "rank": 8,
+    "title": "Run the unbriefed onboarding and comprehension study left open by the repair lanes",
+    "priority": 2,
+    "criterion": "C9, C10; human validation for A2/A4/B8/C11/D13/D14/E18/F22",
+    "points": "+2 (C9/C10), not automatic credit for other U rows",
+    "lane": "Human playtest / UI",
+    "description": "No unbriefed human has established first-match completion, discovery, workload, warning comprehension, perceived recovery or fair failure. Scripted routes and supplied charge-100 aiming are favorable proxies. Run the 30-minute protocol in research/22 with three newcomers, using current source and the smaller opening interface. Related: castle-game-uo7.10/.13/.15.",
+    "acceptance": "Record first action/first hit times, requests for help, match completion, non-aim choices over five reloads, warning reaction latency, idle-reason diagnosis, predicted palace/population/morale triggers, and one-action retry. At least two of three finish without coaching and hit the enemy within four minutes. Counterbalance one four-shot weapon trial; log qualitative overload and quiet-beat ratings. Publish failures as well as successes and keep unsupported judgments U.",
+    "id": "castle-game-uo7.28"
+  }
+]

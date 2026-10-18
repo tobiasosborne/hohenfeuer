@@ -1,0 +1,129 @@
+{
+  "unit": {
+    "passed": 498,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": true,
+  "goldens": {
+    "expected": 48,
+    "zeroPixelPasses": 48,
+    "missing": [],
+    "poseLogs": {
+      "tb1-spawn": "goldens.log",
+      "tb1-first-shot": "goldens.log",
+      "rampart-north": "goldens.log",
+      "weapon-view-cannon": "goldens.log",
+      "hud-weapon-view": "goldens.log",
+      "hud-walking": "goldens.log",
+      "example-wall": "goldens.log",
+      "courtyard-palace": "goldens.log",
+      "crew-at-cannon": "goldens.log",
+      "cannon-sight": "goldens.log",
+      "muzzle-flash": "goldens.log",
+      "smoke-trail": "goldens.log",
+      "impact-dust": "goldens.log",
+      "tb3-designate": "goldens.log",
+      "tb3-built": "goldens.log",
+      "menu-title": "goldens.log",
+      "menu-skirmish": "goldens.log",
+      "match-over": "goldens.log",
+      "modern-rampart-north": "goldens.log",
+      "modern-weapon-view-cannon": "goldens.log",
+      "modern-courtyard-palace": "goldens.log",
+      "modern-impact-dust": "goldens.log",
+      "feel-recoil": "goldens.log",
+      "impact-view": "goldens.log",
+      "npc-markers": "goldens.log",
+      "hud-match1": "goldens.log",
+      "hud-match3": "goldens.log",
+      "quick-start-title": "goldens.log",
+      "danger-match1": "goldens.log",
+      "reload-choices": "goldens.log",
+      "repair-progress": "goldens.log",
+      "idle-no-crew": "goldens.log",
+      "idle-no-ammo": "goldens.log",
+      "idle-no-gold": "goldens-retry.log",
+      "idle-obstructed": "goldens-retry.log",
+      "idle-damaged": "goldens-retry.log",
+      "palace-0959": "goldens-retry.log",
+      "palace-1001": "goldens-retry.log",
+      "palace-1230": "goldens-retry.log",
+      "palace-1501": "goldens-retry.log",
+      "surrender-pressure": "goldens-retry.log",
+      "impact-wall-offset": "goldens-retry.log",
+      "impact-palace-offset": "goldens-retry.log",
+      "defeat-ruler": "goldens-retry.log",
+      "defeat-palace": "goldens-retry.log",
+      "defeat-surrender": "goldens-retry.log",
+      "reload-replacement": "goldens-retry.log",
+      "first-damage-match1": "goldens-retry.log"
+    },
+    "allPassed": true
+  },
+  "baselineScriptsUnchanged": {
+    "scripts/sweep.mjs": true,
+    "scripts/novice.mjs": true
+  },
+  "initialGateRuns": [
+    {
+      "label": "browser",
+      "code": 0
+    },
+    {
+      "label": "flow",
+      "code": 0
+    },
+    {
+      "label": "onboarding",
+      "code": 0
+    },
+    {
+      "label": "actions",
+      "code": 0
+    },
+    {
+      "label": "palace",
+      "code": 0
+    },
+    {
+      "label": "goldens",
+      "code": 1
+    }
+  ],
+  "resolvedScreenshotRetries": [
+    {
+      "label": "goldens-retry",
+      "code": 0
+    },
+    {
+      "label": "impact-finalize",
+      "code": 0
+    },
+    {
+      "label": "long-miss",
+      "code": 0
+    }
+  ],
+  "source": {
+    "count": 306,
+    "changed": [],
+    "added": [],
+    "identical": true
+  },
+  "browserHintParity": {
+    "matches": 3,
+    "windows": 50,
+    "hintAndStateMatches": 50,
+    "finalHashes": 3
+  },
+  "readoutAudit": {
+    "stressShots": 60,
+    "correctObservedCaptions": 53,
+    "missingCaptions": 7,
+    "additionalNormalRangeBallistaShots": 20,
+    "additionalCorrectCaptions": 20
+  },
+  "moraleClockReplay": "passed",
+  "idleFixtureMatches": 7
+}

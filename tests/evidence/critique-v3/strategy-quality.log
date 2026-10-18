@@ -1,0 +1,7 @@
+1 ruler [ { leadership: true, cause: 'blast', manning: 2 } ]
+2 ruler [ { leadership: true, cause: 'blast', manning: null } ]
+3 surrender []
+5 ruler [ { leadership: true, cause: 'fall', manning: null } ]
+8 surrender []
+7 surrender []
+9 ruler [ { leadership: true, cause: 'projectile', manning: null } ]

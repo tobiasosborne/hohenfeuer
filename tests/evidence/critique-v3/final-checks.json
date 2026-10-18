@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "checks": [
+    "22 criteria; 52/60/75 score totals",
+    "170 reproduction hashes/durations/outcomes match",
+    "30 novice/camera replays; 605 eligible reloads; no remote novice shots",
+    "50 real browser hint/checkpoint matches and 3 final hashes",
+    "80 strategy records, 7 causal replays, 80 environment controls",
+    "73/73 observed signs correct; 7 missing stress readouts preserved",
+    "live idle states, warning and actual morale-clock replay verified",
+    "498 unit tests and 48 zero-pixel goldens recorded",
+    "306 production sources and both baseline drivers unchanged",
+    "report has all 22 rows, working evidence links and exactly 15 closing summary lines",
+    "all JSON parses and stays below 2 MB",
+    "23 new helper scripts parse",
+    "old HANDOFF bytes preserved as suffix"
+  ],
+  "largestJsonBytes": 1199041
+}

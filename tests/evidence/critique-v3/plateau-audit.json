@@ -1,0 +1,21 @@
+{
+  "definition": "Post-120-second one-second-sampled windows with entire palace HP range strictly below two percentage points; losing side only for both numerator and maximum.",
+  "v2": {
+    "count": 32,
+    "max": 460
+  },
+  "v3": {
+    "count": 34,
+    "max": 332,
+    "mean": 235.95,
+    "median": 231.0
+  },
+  "wave2AuditEqualAll20": true,
+  "erroneousReportedMax": 508,
+  "sourceOf508": {
+    "seed": 6,
+    "physicalSide": "east",
+    "winner": true
+  },
+  "cause": "repair-wave-2-sim/analyze.mjs line 36 takes maximum of both sides, while line 35 counts only losers"
+}

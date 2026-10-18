@@ -1,0 +1,150 @@
+{
+  "detailedReplayCount": 11,
+  "matchingFocalHashCount": 11,
+  "pairedPathSummariesEqual": true,
+  "deaths": [
+    {
+      "seed": 11,
+      "orders": 2,
+      "second": 788.6,
+      "cause": "projectile",
+      "targetKind": "ruler",
+      "classification": "leadership, still manning",
+      "pos": {
+        "x": 111.49996517653658,
+        "y": 7,
+        "z": 127.50002488575223
+      },
+      "launchExposed": true,
+      "warningLeadS": 3.033333333333303
+    },
+    {
+      "seed": 12,
+      "orders": 2,
+      "second": 862.0666666666667,
+      "cause": "blast",
+      "targetKind": "ruler",
+      "classification": "leadership, gun abandoned but ruler still at front",
+      "pos": {
+        "x": 111.49996517653658,
+        "y": 7,
+        "z": 127.50002488575223
+      },
+      "launchExposed": true,
+      "warningLeadS": 3.0
+    },
+    {
+      "seed": 14,
+      "orders": 2,
+      "second": 812.5,
+      "cause": "blast",
+      "targetKind": "ruler",
+      "classification": "leadership, gun abandoned but ruler still at front",
+      "pos": {
+        "x": 111.49996517653658,
+        "y": 7,
+        "z": 127.50002488575223
+      },
+      "launchExposed": true,
+      "warningLeadS": 2.9333333333332803
+    },
+    {
+      "seed": 16,
+      "orders": 2,
+      "second": 502.43333333333334,
+      "cause": "blast",
+      "targetKind": "palace",
+      "classification": "covered collateral",
+      "pos": {
+        "x": 95.5,
+        "y": 1,
+        "z": 127.5
+      },
+      "launchExposed": false,
+      "warningLeadS": 3.3666666666666742
+    },
+    {
+      "seed": 4,
+      "orders": 2,
+      "second": 681.4666666666667,
+      "cause": "projectile",
+      "targetKind": "ruler",
+      "classification": "leadership, still manning",
+      "pos": {
+        "x": 111.49996517653658,
+        "y": 7,
+        "z": 127.50002488575223
+      },
+      "launchExposed": true,
+      "warningLeadS": 2.8999999999999773
+    }
+  ],
+  "surrenders": [
+    {
+      "seed": 6,
+      "orders": 2,
+      "second": 908.5333333333333,
+      "slot": 0,
+      "pressure": [
+        {
+          "cause": "palace-damage",
+          "weight": -0.10534288194444444
+        },
+        {
+          "cause": "deaths",
+          "weight": -1.025
+        },
+        {
+          "cause": "under-fire",
+          "weight": -0.1
+        }
+      ],
+      "surrender": {
+        "morale": 35.45322877165253,
+        "moraleThreshold": 20,
+        "holdTicks": 0,
+        "holdRequiredTicks": 1350,
+        "population": 12,
+        "popThreshold": 14
+      },
+      "text": "losses / population 12 < 14: surrender",
+      "dominant": {
+        "cause": "deaths",
+        "weight": -1.025
+      }
+    },
+    {
+      "seed": 9,
+      "orders": 2,
+      "second": 791.5,
+      "slot": 0,
+      "pressure": [
+        {
+          "cause": "palace-damage",
+          "weight": -0.10506076388888888
+        },
+        {
+          "cause": "deaths",
+          "weight": -0.8374999999999999
+        },
+        {
+          "cause": "under-fire",
+          "weight": -0.1
+        }
+      ],
+      "surrender": {
+        "morale": 29.853662665771623,
+        "moraleThreshold": 20,
+        "holdTicks": 0,
+        "holdRequiredTicks": 1350,
+        "population": 11,
+        "popThreshold": 14
+      },
+      "text": "losses / population 11 < 14: surrender",
+      "dominant": {
+        "cause": "deaths",
+        "weight": -0.8374999999999999
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+no-crew no-crew Missing crew 0/2 / E: man gun, call crew true
+no-ammo no-ammo No ammunition / Check the magazine true
+no-gold no-gold Not enough gold / Wait for income true
+obstructed obstructed Firing lane blocked / Arrows: aim for a clear lane true
+damaged damaged Gun damaged / Go to an intact gun true
+reloading reloading undefined true
+ready ready undefined true
+completed 

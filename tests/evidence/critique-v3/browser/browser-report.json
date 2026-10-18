@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "errors": [],
+  "checks": [
+    "ready",
+    "webgl",
+    "loop-advances",
+    "tb1-first-shot@307",
+    "game-over-overlay",
+    "no-console-errors"
+  ],
+  "screenshots": [
+    "/home/tobias/Projects/castle-game/tests/evidence/critique-v3/browser/smoke.png",
+    "/home/tobias/Projects/castle-game/tests/evidence/critique-v3/browser/smoke-tb1.png",
+    "/home/tobias/Projects/castle-game/tests/evidence/critique-v3/browser/smoke-gameover.png"
+  ],
+  "url": "http://127.0.0.1:39953/"
+}

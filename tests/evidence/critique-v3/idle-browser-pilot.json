@@ -1,0 +1,394 @@
+{
+  "method": "Natural TB1 approach, then isolated save/restore fixtures; no HUD overrides. These are diagnostic fixtures, not outcome or strategy evidence.",
+  "cases": [
+    {
+      "requested": "no-crew",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": true,
+      "hudMatches": true
+    },
+    {
+      "requested": "no-ammo",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": false
+    },
+    {
+      "requested": "no-gold",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": false
+    },
+    {
+      "requested": "obstructed",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": false
+    },
+    {
+      "requested": "damaged",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": false
+    },
+    {
+      "requested": "reloading",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": true
+    },
+    {
+      "requested": "ready",
+      "actual": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "mode": "walk",
+      "manning": null,
+      "target": {
+        "kind": "weapon",
+        "dist": 0.8108764771264635,
+        "own": true,
+        "weaponId": 1,
+        "defId": "cannon",
+        "crewOrdered": false
+      },
+      "prompt": {
+        "id": "idle",
+        "text": "Missing crew 0/2 / E: man gun, call crew"
+      },
+      "guidance": null,
+      "texts": [
+        "1500",
+        "40 (40)",
+        "Morale: Bold 70%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "KI",
+        "Hohenfeuer",
+        "Income +3.2 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Missing crew 0/2 / E: man gun, call crew"
+      ],
+      "reasonMatches": false,
+      "hudMatches": true
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "natural": {
+    "tick": 251,
+    "weapon": {
+      "id": 1,
+      "slot": 0,
+      "facing": 1,
+      "idleReason": "no-crew",
+      "idleDetail": {
+        "present": 0,
+        "required": 2
+      },
+      "defId": "cannon",
+      "pos": {
+        "x": 112.5,
+        "y": 7,
+        "z": 127.5
+      },
+      "hp": 36,
+      "aim": {
+        "az": 900,
+        "range": 1193
+      },
+      "lastAim": {
+        "az": 900,
+        "range": 1193
+      },
+      "reload": 22,
+      "autoFire": false,
+      "fireRequested": false,
+      "crewOrdered": false,
+      "ammo": 2,
+      "lastImpact": null,
+      "predictedImpact": null,
+      "crewPresent": 0,
+      "rulerManning": false,
+      "crewWorkSpeed": 1.1
+    },
+    "target": {
+      "kind": "weapon",
+      "dist": 1.3063808332015094,
+      "own": true,
+      "weaponId": 1,
+      "defId": "cannon",
+      "crewOrdered": false
+    },
+    "prompt": {
+      "id": "idle",
+      "text": "Missing crew 0/2 / E: man gun, call crew"
+    }
+  },
+  "status": "completed"
+}

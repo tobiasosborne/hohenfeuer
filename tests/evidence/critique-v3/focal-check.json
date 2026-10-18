@@ -1,0 +1,14 @@
+{
+  "matches": 40,
+  "hashMatches": 40,
+  "physical": [
+    12,
+    28
+  ],
+  "lowMotion": {
+    "n": 34,
+    "max": 332
+  },
+  "firstHitWins": 13,
+  "source": "37696e670259dd2b29c1add820974042e99b95a55824f9c8a16482a0f813d380"
+}

@@ -19,3 +19,4 @@ tests/evidence/critique-v2/ruler-tuning.json
 tests/evidence/critique-v2/joint-tuning.json
 tests/evidence/critique-v2/hiding-covered.json
 tests/evidence/critique-v2/*-partial.json
+tests/evidence/critique-v3/shots/
