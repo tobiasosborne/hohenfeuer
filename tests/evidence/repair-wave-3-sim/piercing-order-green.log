@@ -1,0 +1,16 @@
+✔ a removed out-of-map shot emits exactly one terminal loss at its last sim position (2356.167302ms)
+✔ a removed below-ground shot emits exactly one terminal loss at its last sim position (1136.868177ms)
+✔ a removed expired shot emits exactly one terminal loss at its last sim position (1124.941953ms)
+✔ real own-obstruction impacts retain their hit enum and report the interception kind (372.939874ms)
+✔ real enemy-wall impacts retain their hit enum and report the interception kind (171.01013ms)
+✔ real palace impacts retain their hit enum and report the interception kind (161.594429ms)
+✔ real ground impacts retain their hit enum and report the interception kind (173.221807ms)
+✔ a piercing hit precedes the same-tick terminal bounds event (319.667261ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5920.985713

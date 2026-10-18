@@ -18,18 +18,30 @@ export function drawBattleFeedback(ctx,v,note=()=>{}) {
   if(v.menu)return;
   const lang=v.lang??'de';
   if(v.palace) {
-    const {integrity,threshold}=v.palace,x=302,y=105,w=420;
+    const {integrity,threshold,repair}=v.palace,x=302,y=v.populationWarning&&v.pressure?127:105,w=420;
     const text=t('palaceBar',lang,{pct:battlePercent(integrity),line:battlePercent(threshold)});
-    ctx.fillStyle='rgba(12,16,20,.9)';ctx.fillRect(x-8,y-23,w+16,39);
+    ctx.fillStyle='rgba(12,16,20,.9)';ctx.fillRect(x-8,y-23,w+16,repair?57:39);
     drawText(ctx,text,512,y-17,{align:'center',bold:true,color:'#fff0c0'});note(text);
     ctx.fillStyle='#343b42';ctx.fillRect(x,y,w,8);
     ctx.fillStyle=integrity-threshold<.1?'#f06a44':'#73b9a1';ctx.fillRect(x,y,Math.round(w*integrity),8);
     ctx.fillStyle='#e94c36';ctx.fillRect(x,y,Math.round(w*threshold),8);
     ctx.fillStyle='#fff3c5';ctx.fillRect(x+Math.round(w*threshold)-1,y-3,2,14);
+    if(repair) {
+      const rx=x+Math.round(w*integrity);
+      ctx.lineWidth=3;ctx.strokeStyle='#132923';ctx.beginPath();ctx.arc(rx,y+4,7,0,Math.PI*2);ctx.stroke();
+      ctx.strokeStyle='#bbf6cf';ctx.beginPath();ctx.arc(rx,y+4,7,-Math.PI/2,-Math.PI/2+2*Math.PI*repair.progress);ctx.stroke();
+      const label=t('palaceRepair',lang,{pct:Math.round(repair.progress*100)});
+      drawText(ctx,label,512,y+17,{align:'center',color:'#bbf6cf',bold:true});note(label);
+    }
   }
   if(v.pressure) {
     ctx.fillStyle='rgba(12,16,20,.86)';ctx.fillRect(470,57,334,21);
     drawTextIn(ctx,v.pressure,{x0:474,y0:57,x1:800,y1:78},{color:'#f2c273',bold:true});note(v.pressure);
+  }
+  if(v.populationWarning) {
+    const y=v.pressure?78:57;
+    ctx.fillStyle='rgba(12,16,20,.86)';ctx.fillRect(470,y,334,21);
+    drawTextIn(ctx,v.populationWarning,{x0:474,y0:y,x1:800,y1:y+21},{color:'#ffcf9b',bold:true});note(v.populationWarning);
   }
   if(v.danger) {
     const edge=threatEdge(v.danger.bearing??v.heading,v.heading??0);
@@ -53,7 +65,7 @@ export function drawBattleFeedback(ctx,v,note=()=>{}) {
   }
   if(v.guidance) {
     for(const [i,m]of (v.guidance.markers??[]).entries()) {
-      cross(ctx,m.screen,'#ffdb84');drawText(ctx,String(i+1),m.screen[0]+12,m.screen[1]-8,{bold:true,outline:true,color:'#ffdb84'});
+      cross(ctx,m.screen,'#ffdb84');drawText(ctx,String(m.number??i+1),m.screen[0]+12,m.screen[1]-8,{bold:true,outline:true,color:'#ffdb84'});
     }
     if(v.guidance.leave)line(ctx,t('leaveForOrder',lang),396,note);
     v.guidance.lines.slice(0,2).forEach((text,i)=>line(ctx,text,426+i*28,note));

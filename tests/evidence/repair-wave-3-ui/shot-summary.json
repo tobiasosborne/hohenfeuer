@@ -1,0 +1,12 @@
+{
+  "shots": 60,
+  "impacts": 53,
+  "lost": 7,
+  "allLaunchTicksMatchV3": true,
+  "allAimChangedInFlight": true,
+  "signedOffsetsCorrect": 53,
+  "lostLatencyTicks": 0,
+  "previousReferenceRetained": 7,
+  "allCaptions": true,
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+}

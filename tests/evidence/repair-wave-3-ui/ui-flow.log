@@ -1,0 +1,10 @@
+ui-flow: failed
+  title-menu
+  options-persist
+  setup-starts-match
+  pause-resume
+page.waitForEvent: Target page, context or browser has been closed
+=========================== logs ===========================
+waiting for event "load"
+============================================================
+    at /home/tobias/Projects/castle-game/tests/ui-flow.mjs:82:27

@@ -46,7 +46,7 @@ import { TB1, tb1Slots, createTb1Script, ballNearEnemy, solveAim } from "./tb1-s
 import { createTb3Script, TB3 } from "./tb3-script.js";
 import { windVector } from "./sim/wind.js";
 import { createProgression, loadProfile, freshProfile, profileForMatch, contextualPrompt, WEAPON_ORDER } from "./progression.js";
-import { createBattleFeedback, palaceStatus, pressureText, idleDiagnosis, impactText, cardinal, lossAccount, readableWork } from "./ui/battle-feedback.js";
+import { createBattleFeedback, palaceStatus, pressureText, populationText, idleDiagnosis, impactText, cardinal, lossAccount, winAccount, readableWork } from "./ui/battle-feedback.js";
 import { localInterventions, localWorkProgress, interventionText } from "./player/interventions.js";
 import { raycast } from "./world/grid.js";
 
@@ -401,7 +401,7 @@ function handleEvents(events) {
   // including a projectile that hit in its launch tick, so overlapping flights retain their own aim.
   const launched = new Map();
   const newIds = [...view.projectiles.filter(p => p.sourceSlot === ME && !prev.projectiles.has(p.id)).map(p => ({ id: p.id, weaponId: p.weaponId })),
-    ...events.filter(e => e.type === EV.IMPACT && e.payload.slot === ME && Number.isInteger(e.payload.projectileId) && !prev.projectiles.has(e.payload.projectileId))
+    ...events.filter(e => [EV.IMPACT, EV.PROJECTILE_LOST].includes(e.type) && e.payload.slot === ME && Number.isInteger(e.payload.projectileId) && !prev.projectiles.has(e.payload.projectileId))
       .map(e => ({ id: e.payload.projectileId, weaponId: e.payload.weaponId }))].sort((a,b) => a.id-b.id);
   for (const projectile of newIds) { if (!launched.has(projectile.weaponId)) launched.set(projectile.weaponId, []); launched.get(projectile.weaponId).push(projectile.id); }
   for (const e of events) if (e.type === EV.SHOT_FIRED && e.payload.slot === ME) {
@@ -485,6 +485,9 @@ function resultFor(state) {
   if (!result.won && !result.draw) result.account = lossAccount(state, ME, battleFeedback, {
     lang: LANG, nameOf: slot => result.rows.find(row => row.slot === slot)?.name,
     weaponName: (id, defId) => getWeapon(defId ?? WP(id)?.defId)?.name?.[LANG] ?? t("enemyWeapon", LANG),
+  });
+  else if (result.won) result.account = winAccount(state, ME, battleFeedback, {
+    lang: LANG, nameOf: slot => result.rows.find(row => row.slot === slot)?.name,
   });
   return result;
 }
@@ -649,7 +652,7 @@ function hudView(mode) {
   if (interventionCache.key !== key) {
     interventionCache.key = key;
     interventionCache.choices = needsChoices ? localInterventions(view, ME, { features: progression.features,
-      blueprint: initialWalls, threatened: !!threat, visible: visibleFeedback }) : [];
+      blueprint: initialWalls, threatened: !!threat }) : [];
   }
   const choices = interventionCache.choices;
   const focusGun = w ?? (c.target?.own && c.target.kind === "weapon" ? WP(c.target.weaponId) : null);
@@ -660,10 +663,9 @@ function hudView(mode) {
   const reference = battleFeedback.reference(w?.id ?? lastShotWeapon);
   const learning = contextualPrompt(progression.profile, { mode, target: c.target, wallHit: false, building: c.build.mode !== BUILD.NONE,
     loaded: !!w && w.reload + 1e-9 >= def.reloadS, affordable: !!w && meC.gold >= def.fireCost, hasAmmo: !!w && w.ammo >= def.ammoLoads }, LANG);
-  const preferDiagnosis = diagnosis && focusReason !== "reloading" && !threat;
-  const guidance = choices.length && !preferDiagnosis ? { lines: choices.map(a => interventionText(a, LANG, !!w)),
+  const guidance = choices.length ? { lines: choices.map(a => interventionText(a, LANG, !!w, { heading: camYaw, origin: view.rulers[ME].pos })),
     leave: !!w && choices.some(a => a.kind !== "cover" && (a.kind !== "crew" || a.weaponId !== w.id)),
-    markers: choices.filter(a => a.pos).map(a => ({ ...a, screen: projectFeedback(a.pos) })).filter(a => a.screen) } : null;
+    markers: choices.map((a,i) => ({ ...a, number:i+1, screen:a.pos&&visibleFeedback(a.pos,a.kind)?projectFeedback(a.pos):null })).filter(a => a.screen) } : null;
   const result = {
     lang: LANG, mode, tick: view.tick, features: progression.features,
     incomeRate: T.economy.palaceIncomeS + T.economy.civilianIncomeS * (meC.civiliansWorking ?? 0),
@@ -672,7 +674,8 @@ function hudView(mode) {
     guidance, work: workFeedback(),
     danger: threat ? { ...threat, text: t("incoming", LANG, { dir: cardinal(threat.bearing ?? bearing, LANG), s: (threat.etaTicks / K.TICK_HZ).toFixed(1) }) } : null,
     palace: palaceStatus(meC, view.tick),
-    pressure: progression.features.hud.morale ? pressureText(meC, LANG) : null,
+    pressure: pressureText(meC, LANG, { moraleVisible: progression.features.hud.morale }),
+    populationWarning: populationText(meC, LANG),
     impactFeedback: impact ? impactText(impact, LANG) : null,
     aimReference: reference && [CAMERA_MODE.WEAPON, CAMERA_MODE.IMPACT].includes(mode) ? {
       text: t("aimReference", LANG, { az: (reference.aim.az / 10).toFixed(1), charge: (reference.aim.range / 10).toFixed(1) }),
@@ -804,7 +807,8 @@ api.setPose = (p) => {
 api.openMenu = (screen) => { openMenu(screen); frame(0); return menu?.screen ?? null; };
 api.menuKey = (code) => { if (menu) handleMenuEvent(menu.key(code)); frame(0); return menu?.screen ?? null; };
 Object.defineProperty(api, "menu", { get: () => menu, enumerable: true });
-api.stepTo = (target) => { stepTo(target); frame(0); return view.tick; };
+// Golden audits may stop at an observed event without rendering every simulated tick.
+api.stepTo = (target, until) => { stepTo(target, GOLDEN ? until : undefined); frame(0); return view.tick; };
 api.frame = () => frame(0);
 
 frame(0);

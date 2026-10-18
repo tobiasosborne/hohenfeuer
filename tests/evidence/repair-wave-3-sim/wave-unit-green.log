@@ -1,0 +1,15 @@
+✔ tests/unit/ai-wave2-novice.test.js (21088.095505ms)
+✔ tests/unit/ai-wave2-opportunity.test.js (6707.438712ms)
+✔ tests/unit/ai-wave3-return.test.js (6439.929519ms)
+✔ tests/unit/plugin-wave2-loadouts.test.js (3080.213963ms)
+✔ tests/unit/plugin-wave3-throne.test.js (4924.197923ms)
+✔ tests/unit/sim-wave2-events.test.js (6007.191897ms)
+✔ tests/unit/sim-wave3-endings.test.js (12095.369105ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33448.622031

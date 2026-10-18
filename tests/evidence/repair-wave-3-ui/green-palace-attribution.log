@@ -1,0 +1,30 @@
+✔ a salvo keeps every threat but sounds at most once per second (10.314722ms)
+✔ world progress labels avoid fixed HUD areas and each other (1.996446ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (5.712838ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (4.017091ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (4.582869ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (1.201722ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (2.00319ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (5.963509ms)
+✔ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (0.926747ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (4.861442ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (1.181643ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.035197ms)
+✔ defeat offers Enter retry as its first action and preserves setup (5.413702ms)
+✔ loss captions never project a last position as a landing, and preserve the previous impact (16.184221ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (4.257962ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (7.966765ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (6.386105ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (0.93031ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (6.206085ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (1.94609ms)
+✔ the new semantic collision field survives deletion of the struck block (4.138526ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (1.890596ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 545.271359

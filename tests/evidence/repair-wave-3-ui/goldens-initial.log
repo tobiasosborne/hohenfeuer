@@ -1,0 +1,36 @@
+
+> hohenfeuer@0.0.0 goldens
+> node scripts/goldens.mjs
+
+tb1-spawn: ok (0 px differ)
+tb1-first-shot: FAIL 9220 px differ (1.172%)
+rampart-north: ok (0 px differ)
+weapon-view-cannon: ok (0 px differ)
+hud-weapon-view: ok (0 px differ)
+hud-walking: ok (0 px differ)
+example-wall: ok (0 px differ)
+courtyard-palace: ok (0 px differ)
+crew-at-cannon: ok (0 px differ)
+cannon-sight: ok (0 px differ)
+muzzle-flash: FAIL 9271 px differ (1.179%)
+smoke-trail: FAIL 9232 px differ (1.174%)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.screenshot: Timeout 30000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at /tmp/castle-wave3-ui-2t6kdf1_/scripts/goldens.mjs:35:29 {
+  log: [
+    '  - taking page screenshot',
+    '  - waiting for fonts to load...',
+    '  - fonts loaded'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.11.1

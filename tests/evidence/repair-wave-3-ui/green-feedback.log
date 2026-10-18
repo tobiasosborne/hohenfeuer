@@ -1,0 +1,28 @@
+✔ a salvo keeps every threat but sounds at most once per second (3.704994ms)
+✔ world progress labels avoid fixed HUD areas and each other (1.772845ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (1.00088ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.708957ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (1.218962ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (2.867283ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (1.044352ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (3.403702ms)
+✔ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (1.216606ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (0.911787ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.697461ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (0.914473ms)
+✔ defeat offers Enter retry as its first action and preserves setup (7.41802ms)
+✔ loss captions never project a last position as a landing, and preserve the previous impact (7.265434ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (1.006282ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (1.600396ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (5.113382ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (1.108513ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (2.268963ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (1.120316ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 338.714335

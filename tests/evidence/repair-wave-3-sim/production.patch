@@ -1,0 +1,286 @@
+--- before/scripts/novice.mjs
++++ after/scripts/novice.mjs
+@@ -12,6 +12,9 @@
+ import { geometryAim } from '../src/ai/aim.js';
+ import { shooterPosition, visibleTarget } from '../src/ai/view.js';
+ import { palaceIntegrity } from '../src/sim/rules.js';
++import { findPathToAny, pathValid } from '../src/npc/path.js';
++import { operatorCell } from '../src/npc/model.js';
++import { rulerPathMove } from '../src/ai/ruler-route.js';
+ import { pathObserver } from './critique-metrics.mjs';
+ 
+ export const POLICIES = ['novice','match1','turtle','fire-only','ballista-spam','rebuild-lane','recovery-mounts','ruler-hiding'];
+@@ -30,7 +33,7 @@
+   const original = captureBlueprint(initial.castles[0]);
+   const recovery = withRecoveryMounts(initial.castles[0],original,1,initial);
+   const aims = new Map(), selected = new Set([firstId]);
+-  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null, evasion = null;
++  let arrived = false, replacements = 0, hidden = false, returnWp = 0, returnTicks = 0, pendingOrder = null, evasion = null, returnGun = null;
+   const returnRoute = [[39.5,28],[37.5,28],[37.5,35.4],[36,35.4],[36,27.5],[23.5,27.5],[23.5,23.5],[20.5,23.5]];
+   function options(state) {
+     const c = state.castles[0], p = c.plot, live = state.weapons.filter(w=>w.slot===0&&w.hp>0);
+@@ -86,7 +89,7 @@
+         const p=e.payload.impactPos,impactZ=Array.isArray(p)?p[2]:p?.z??r.pos.z;
+         const away=r.pos.z-impactZ,sign=Math.abs(away)>.25?(away>0?1:-1):(r.pos.z-state.castles[0].plot.origin.z>26?-1:1);
+         const safe={...r.pos,z:r.pos.z+sign*6};
+-        if(!evasion)evasion={origin:{...r.pos},safe,weaponId:r.manning};
++        if(!evasion)evasion={origin:{...r.pos},safe,weaponId:r.manning ?? pendingOrder?.weaponId};
+         else evasion.safe=safe;
+         evasion.until=state.tick+e.payload.etaTicks+60;
+       }
+@@ -133,6 +136,27 @@
+         }
+         if(elapsed>=45){if(live.some(w=>w.id===a.weaponId))emit(C.CMD.MAN_WEAPON,{weaponId:a.weaponId});pendingOrder=null;}
+         return out;
++      }
++      // Losing the selected battery is a route change, not a reason to issue
++      // repairs forever beside a ready surviving gun. Use the same physical
++      // stairs/ladders as a ruler; no remote manning or free replacement.
++      if(policy==='novice'&&r.manning===null&&live.length){
++        const plot=c.plot,o=plot.origin,start=[Math.floor(r.pos.x-o.x),Math.floor(r.pos.y-o.y),Math.floor(r.pos.z-o.z)];
++        if(returnGun&&(!live.some(w=>w.id===returnGun.id)||returnGun.version!==plot.navVersion&&!pathValid(plot,returnGun.path,0,returnGun.path.length)))returnGun=null;
++        if(!returnGun){
++          const distance=w=>Math.hypot(w.pos.x-r.pos.x,w.pos.y-r.pos.y,w.pos.z-r.pos.z);
++          for(const w of [...live].sort((a,b)=>distance(a)-distance(b)||a.id-b.id)){
++            const path=findPathToAny(plot,start,[operatorCell(w,c)],{clamber:false});
++            if(path){returnGun={id:w.id,path:path.slice(1),version:plot.navVersion};break;}
++          }
++        }
++        if(returnGun){
++          const w=live.find(w=>w.id===returnGun.id);
++          if(Math.hypot(w.pos.x-r.pos.x,w.pos.y-r.pos.y,w.pos.z-r.pos.z)<=T.ruler.interactWeaponM){
++            selected.add(w.id);emit(C.CMD.MOVE,{fwd:0,strafe:0,yaw:r.yaw,pitch:0,jump:0,sprint:0});emit(C.CMD.MAN_WEAPON,{weaponId:w.id});emit(C.CMD.ORDER_CREW,{weaponId:w.id,on:1});returnGun=null;
++          }else emit(C.CMD.MOVE,rulerPathMove(plot,r,returnGun.path,1));
++          return out;
++        }
+       }
+       const hiding=policy==='ruler-hiding'&&c.stats.shots>=4;
+       if (hiding && !hidden) {
+@@ -228,11 +252,11 @@
+ 
+ async function main(){
+   const args=process.argv.slice(2),get=(k,d)=>args.includes(k)?args[args.indexOf(k)+1]:d;
+-  const seeds=Number(get('--seeds','10')),workers=Number(get('--workers','6')),policyNames=get('--policies',POLICIES.join(',')).split(','),levelNames=get('--levels','2,5,8').split(',').map(Number),label=get('--label','novice');
++  const seeds=Number(get('--seeds','10')),seedStart=Number(get('--seed-start','1')),workers=Number(get('--workers','6')),policyNames=get('--policies',POLICIES.join(',')).split(','),levelNames=get('--levels','2,5,8').split(',').map(Number),label=get('--label','novice');
+   if(policyNames.some(p=>!POLICIES.includes(p)))throw Error('Unknown policy');
+   const dir=get('--output-dir','tests/evidence/critique-v2');mkdirSync(dir,{recursive:true});
+   const results=args.includes('--resume')?JSON.parse(readFileSync(`${dir}/${label}-partial.json`,'utf8')):[];
+-  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+1,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20')),compact:args.includes('--compact'),reactToThreats:!args.includes('--ignore-threats')})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
++  const jobs=policyNames.flatMap(policy=>(policy==='novice'?levelNames:policy==='match1'?[2]:[5]).flatMap(level=>Array.from({length:seeds},(_,i)=>({seed:i+seedStart,level,policy,initialCharge:Number(get('--charge','100')),maxMinutes:Number(get('--max-minutes','20')),compact:args.includes('--compact'),reactToThreats:!args.includes('--ignore-threats')})))).filter(j=>!results.some(r=>r.seed===j.seed&&r.level===j.level&&r.policy===j.policy));
+   await Promise.all(Array.from({length:Math.min(workers,jobs.length)},()=>new Promise((resolve,reject)=>{
+     const w=new Worker(new URL(import.meta.url),{workerData:true});w.on('error',reject);w.on('message',r=>{
+       if(r!=='ready'){results.push(r);writeFileSync(`${dir}/${label}-partial.json`,JSON.stringify(results));console.log(`${r.policy} L${r.level} seed${r.seed}: ${r.seconds.toFixed(1)}s ${r.reason} winner${r.winner}, first hit ${r.firstHitS}, palace ${r.firstPalaceS}`);}
+--- before/scripts/sweep.mjs
++++ after/scripts/sweep.mjs
+@@ -63,7 +63,10 @@
+   const wins = [0, 1].map(s => matches.filter(m => m.winnerSlot === s).length), finished = matches.filter(m => m.winnerSlot !== null);
+   const first = finished.filter(m => m.firstGunLoss !== null && m.firstGunLoss !== undefined && !m.firstGunLoss.simultaneous);
+   const sides = matches.flatMap(m => m.sides), lengths = matches.map(m => m.seconds);
++  const losingLowMotion = finished.map(m => m.lowMotion?.[1 - m.winnerSlot]).filter(Number.isFinite);
+   return { matches: matches.length, slotWins: wins, slotWinShares: wins.map(n => n / matches.length), timeouts: matches.filter(m => m.winnerSlot === null).length,
++    losingPalaceLowMotion: { samples: losingLowMotion.length, over180S: losingLowMotion.filter(s => s > 180).length,
++      maxS: losingLowMotion.length ? Math.max(...losingLowMotion) : null },
+     lengthMinS: Math.min(...lengths), lengthMeanS: mean(lengths), lengthMaxS: Math.max(...lengths), lengthStdDevS: Math.sqrt(mean(lengths.map(s => (s - mean(lengths)) ** 2))),
+     pacingPass: matches.filter(m => m.winnerSlot !== null && m.seconds >= 720 && m.seconds <= 1200).length,
+     goldAtCapShares: [0, 1].map(s => mean(matches.map(m => m.sides[s].goldAtCapShare))),
+@@ -108,6 +111,7 @@
+     `| Gold <=10% cap | ${pct(s.goldNearZeroMeanShare)} |`,
+     `| First-gun-loss comebacks | ${s.firstGunComebacks}/${s.firstGunMatches} (${s.firstGunComebackShare === null ? 'n/a' : pct(s.firstGunComebackShare)}) |`,
+     `| Loser damaged in >=3 minutes | ${s.palaceStepsPass}/${s.matches} |`,
++    `| Losing-palace <2 pp window >3 min / maximum | ${s.losingPalaceLowMotion.over180S}/${s.losingPalaceLowMotion.samples}; ${s.losingPalaceLowMotion.maxS ?? 'n/a'} s |`,
+     `| No palace stall >5 min | ${s.palaceStallPass}/${s.matches} |`,
+     `| Both fire every 2 min | ${s.fireWindowPass}/${s.matches} |`,
+     `| Longest no-fire / ready no-fire (s) | ${s.maxNoFireS.toFixed(1)} / ${s.maxReadyNoFireS.toFixed(1)} |`,
+--- before/src/ai/controller.js
++++ after/src/ai/controller.js
+@@ -1,6 +1,6 @@
+ // src/ai/controller.js - owns scheduled AI command generation and serializable command-source memory.
+-import { CMD, CMD_FIELDS, EV, CONTROLLER, BLOCK, K, getMap, validateCommand, validateSlot } from '../contracts.js';
+-import { atan2, TAU } from '../core/fmath.js';
++import { CMD, CMD_FIELDS, EV, CONTROLLER, BLOCK, getMap, validateCommand, validateSlot } from '../contracts.js';
++import { rulerPathMove } from './ruler-route.js';
+ import { findPathToAny } from '../npc/path.js';
+ import { TUNING as T } from '../tuning.js';
+ import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector, windChanged } from './aim.js';
+@@ -233,7 +233,10 @@
+   const p=castle.plot, o=vector(p.origin), pos=vector(ruler.pos);
+   const threat=(castle.enemyImpacts ?? []).some(e=>view.tick-e.tick<=T.ai.rulerDangerWindowS*T.sim.tickHz
+     && (e.pos.x-pos.x)**2+(e.pos.y-pos.y)**2+(e.pos.z-pos.z)**2<T.ai.rulerDangerM**2);
+-  if (threat && (state.rulerDuty && view.tick-state.rulerDuty.startedTick>T.ai.rulerLeadershipCommitS*T.sim.tickHz || state.leadershipActive!==undefined)) {
++  const abandoned=state.leadershipActive!==undefined && (ruler.manning!==state.leadershipActive
++    || !(view.weapons ?? []).some(w=>w.id===state.leadershipActive&&w.hp>0));
++  if (abandoned || threat && (state.rulerDuty && view.tick-state.rulerDuty.startedTick>T.ai.rulerLeadershipCommitS*T.sim.tickHz || state.leadershipActive!==undefined)) {
++    state.rulerReturnPending=true;
+     state.rulerDuty=null;state.rulerPath=null;delete state.leadershipActive;
+     if(ruler.manning!==null)emit(CMD.LEAVE_WEAPON,{});
+   }
+@@ -252,27 +255,23 @@
+       if(path?.length>1){state.rulerPath=path.slice(1);state.rulerDuty={weaponId:gun.id,startedTick:view.tick};state.leadershipDone=true;break;}
+     }
+   }
+-  if (!state.rulerPath && threat && view.tick-(state.lastRulerRetreatTick ?? -T.ai.rulerRetreatCooldownS*T.sim.tickHz)>=T.ai.rulerRetreatCooldownS*T.sim.tickHz) {
+-    const goals=shelterCells(castle).filter(c=>c[1]===Math.floor(pos.y-o.y)).map(c=>[...c]);
+-    const impacts=castle.enemyImpacts;
++  if (!state.rulerPath && (threat || state.rulerReturnPending) && (state.rulerReturnPending || view.tick-(state.lastRulerRetreatTick ?? -T.ai.rulerRetreatCooldownS*T.sim.tickHz)>=T.ai.rulerRetreatCooldownS*T.sim.tickHz)) {
++    // An abandoned leader needs its ground-floor room, even from the rampart.
++    // Preserve ordinary retreats; normal stairs/ladders decide return reachability.
++    const goals=shelterCells(castle).filter(c=>state.rulerReturnPending
++      || c[1]===Math.floor(pos.y-o.y)).map(c=>[...c]);
++    const impacts=castle.enemyImpacts ?? [];
+     const safety=c=>Math.min(...impacts.map(e=>(o.x+c[0]+.5-e.pos.x)**2+(o.z+c[2]+.5-e.pos.z)**2));
+-    goals.sort((a,b)=>safety(b)-safety(a)||a[2]-b[2]||a[0]-b[0]);
++    const authored=c=>(castle.shelters ?? []).some(b=>c.every((v,i)=>v>=b[i]&&v<=b[i+3]));
++    goals.sort((a,b)=>(state.rulerReturnPending ? Number(authored(b))-Number(authored(a)) : 0)
++      ||safety(b)-safety(a)||a[2]-b[2]||a[0]-b[0]);
+     const start=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
+     for(const goal of goals){const path=findPathToAny(p,start,[goal],{clamber:false});if(path){state.rulerPath=path.slice(1);break;}}
+   }
+   if (!state.rulerPath) return;
+-  while(state.rulerPath.length){const c=state.rulerPath[0],dx=o.x+c[0]+.5-pos.x,dz=o.z+c[2]+.5-pos.z;
+-    const dy=o.y+c[1]-pos.y,at=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
+-    const ladder=p.type[at[0]+p.width*at[2]+p.width*p.depth*at[1]]===BLOCK.LADDER;
+-    const arrivedHeight=ladder?Math.abs(dy)<.7:dy<=.7&&dy>=-1.1; // stair nodes describe the voxel base, while the body stands on its upper half
+-    if(dx*dx+dz*dz<.04&&arrivedHeight){state.rulerPath.shift();continue;}
+-    if(dx*dx+dz*dz<.04&&ladder){emit(CMD.MOVE,{fwd:dy>0?K.MOVE_AXIS_MAX:-K.MOVE_AXIS_MAX,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});return;}
+-    const yaw=(Math.round(atan2(dx,-dz)/TAU*K.YAW_UNITS)+K.YAW_UNITS)%K.YAW_UNITS;
+-    const thinkS=T.sim.aiThinkEveryTicks/T.sim.tickHz;
+-    const fwd=Math.min(K.MOVE_AXIS_MAX,Math.max(1,Math.round(Math.sqrt(dx*dx+dz*dz)/(T.ruler.walk*thinkS)*K.MOVE_AXIS_MAX)));
+-    emit(CMD.MOVE,{fwd,strafe:0,yaw,pitch:0,jump:ladder&&dy<.7?1:0,sprint:0});return;
+-  }
+-  state.rulerPath=null;state.lastRulerRetreatTick=view.tick;
++  const move=rulerPathMove(p,ruler,state.rulerPath);
++  if(state.rulerPath.length){emit(CMD.MOVE,move);return;}
++  state.rulerPath=null;state.lastRulerRetreatTick=view.tick;delete state.rulerReturnPending;
+   emit(CMD.MOVE,{fwd:0,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});
+   if(state.rulerDuty){emit(CMD.MAN_WEAPON,{weaponId:state.rulerDuty.weaponId});state.leadershipActive=state.rulerDuty.weaponId;state.rulerDuty=null;}
+ }
+--- before/src/ai/ruler-route.js
++++ after/src/ai/ruler-route.js
+@@ -0,0 +1,24 @@
++// src/ai/ruler-route.js - owns ordinary MOVE commands along a ruler's stair/ladder path.
++import {BLOCK,K} from '../contracts.js';
++import {TUNING as T} from '../tuning.js';
++import {atan2,TAU} from '../core/fmath.js';
++
++/** Consume reached nodes in controller-owned memory; never mutate the public plot/body.
++ * Stair nodes name the voxel base; the physical feet stand on its upper surface.
++ * The command persists for thinkTicks, so cap speed to avoid overshooting a node.
++ */
++export function rulerPathMove(plot,ruler,path,thinkTicks=T.sim.aiThinkEveryTicks){
++ const o=plot.origin,pos=ruler.pos;
++ while(path.length){
++  const c=path[0],dx=o.x+c[0]+.5-pos.x,dz=o.z+c[2]+.5-pos.z,dy=o.y+c[1]-pos.y;
++  const at=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
++  const ladder=plot.type[at[0]+plot.width*at[2]+plot.width*plot.depth*at[1]]===BLOCK.LADDER;
++  const arrivedHeight=ladder?Math.abs(dy)<.7:dy<=.7&&dy>=-1.1;
++  if(dx*dx+dz*dz<.04&&arrivedHeight){path.shift();continue;}
++  if(dx*dx+dz*dz<.04&&ladder)return {fwd:dy>0?K.MOVE_AXIS_MAX:-K.MOVE_AXIS_MAX,strafe:0,yaw:ruler.yaw??0,pitch:0,jump:0,sprint:0};
++  const yaw=(Math.round(atan2(dx,-dz)/TAU*K.YAW_UNITS)+K.YAW_UNITS)%K.YAW_UNITS;
++  const fwd=Math.min(K.MOVE_AXIS_MAX,Math.max(1,Math.round(Math.sqrt(dx*dx+dz*dz)/(T.ruler.walk*thinkTicks/T.sim.tickHz)*K.MOVE_AXIS_MAX)));
++  return {fwd,strafe:0,yaw,pitch:0,jump:ladder&&dy<.7?1:0,sprint:0};
++ }
++ return {fwd:0,strafe:0,yaw:ruler.yaw??0,pitch:0,jump:0,sprint:0};
++}
+--- before/src/plugins/castles/default.sim.js
++++ after/src/plugins/castles/default.sim.js
+@@ -108,5 +108,10 @@
+   population: TUNING.npc.population,
+ });
+ 
+-/** Register a blueprint usable unchanged by both duel slots. */
+-export function registerDefaultCastle() { registerCastle(DEFAULT_CASTLE); }
++// Only the throne anchor differs: the voxel blueprint is already x-symmetric.
++// Human spawn, exits, shelter boxes, guns and work markers stay authored as before.
++export const EAST_CASTLE = Object.freeze({ ...DEFAULT_CASTLE, id: 'default-east',
++  throne: Object.freeze([WIDTH - 1 - DEFAULT_CASTLE.throne[0], ...DEFAULT_CASTLE.throne.slice(1)]) });
++
++/** Register the starter and its one-anchor physical-east variant. */
++export function registerDefaultCastle() { registerCastle(DEFAULT_CASTLE); registerCastle(EAST_CASTLE); }
+--- before/src/plugins/maps/forest-duel.sim.js
++++ after/src/plugins/maps/forest-duel.sim.js
+@@ -20,7 +20,7 @@
+   biome: 'forest', size: world.duelMapM,
+   slots: Object.freeze([
+     Object.freeze({ origin: Object.freeze([leftX, 0, plotZ]), facingDeg: 90, castle: 'default' }),
+-    Object.freeze({ origin: Object.freeze([leftX + world.duelDistanceM, 0, plotZ]), facingDeg: 270, castle: 'default' }),
++    Object.freeze({ origin: Object.freeze([leftX + world.duelDistanceM, 0, plotZ]), facingDeg: 270, castle: 'default-east' }),
+   ]),
+   terrain: Object.freeze({ amp: world.terrainAmpMaxM, octaves: world.terrainOctaves, ridge: null }),
+   water: null,
+--- before/src/sim/sim.js
++++ after/src/sim/sim.js
+@@ -1,5 +1,5 @@
+ // src/sim/sim.js - owns deterministic tick orchestration, commands and complete replay snapshots.
+-import { BLOCK, CMD, EV, CONTROLLER, TACTIC, RNG_STREAM, K, getBlock, getBlockByKey, getWeapon, getCastle, getMap, isFrozen, registryHash, validateCommand } from '../contracts.js';
++import { BLOCK, CMD, EV, LOST_REASON, CONTROLLER, TACTIC, RNG_STREAM, K, getBlock, getBlockByKey, getWeapon, getCastle, getMap, isFrozen, registryHash, validateCommand } from '../contracts.js';
+ import { TUNING as T } from '../tuning.js';
+ import { createStreams } from '../core/rng.js';
+ import { hash } from '../core/hash.js';
+@@ -176,7 +176,7 @@
+     return null;
+   }
+   function projectilesTick() {
+-    const impacts = [], alive = [];
++    const impacts = [], alive = [], losses = [];
+     for (const projectile of state.projectiles) {
+       let hit = null;
+       for (let substep = 0; substep < K.SUBSTEPS; substep++) {
+@@ -193,17 +193,28 @@
+             start = pos; startT = t;
+           } else {
+             projectile.pos = pos;
+-            impacts.push({ projectile, hit, time: substep + t }); break;
++            impacts.push({ projectile, hit, blockId: hit.plot?.type[hit.index], time: substep + t }); break;
+           }
+         }
+         if (hit) break;
+-        if (projectile.age >= T.sim.projectileMaxLifeS || projectile.pos.y < T.sim.projectileMinY || projectile.pos.x < 0 || projectile.pos.x > mapDef.size[0] || projectile.pos.z < 0 || projectile.pos.z > mapDef.size[1]) { hit = { kind: 'void' }; break; }
++        const reason = projectile.age >= T.sim.projectileMaxLifeS ? LOST_REASON.EXPIRED
++          : projectile.pos.y < T.sim.projectileMinY ? LOST_REASON.BELOW_GROUND
++          : projectile.pos.x < 0 || projectile.pos.x > mapDef.size[0] || projectile.pos.z < 0 || projectile.pos.z > mapDef.size[1] ? LOST_REASON.OUT_OF_MAP : null;
++        if (reason) {
++          hit = { kind: 'void' };
++          // Observation only: keep lastImpact as the previous real hit reference.
++          // The final integrated position is not a predicted or invented landing.
++          losses.push({ slot: projectile.sourceSlot, weaponId: projectile.weaponId,
++            projectileId: projectile.id, pos: [projectile.pos.x, projectile.pos.y, projectile.pos.z], reason });
++          break;
++        }
+       }
+       if (!hit) alive.push(projectile);
+     }
+     state.projectiles = alive;
+     impacts.sort((a, b) => a.time - b.time || a.projectile.id - b.projectile.id);
+-    for (const { projectile, hit } of impacts) blasts.push({ projectile, hit, pos: projectile.pos, direct: projectile.payload.direct, splash: projectile.payload.splash, radius: projectile.payload.splashRadius, sourceSlot: projectile.sourceSlot });
++    for (const { projectile, hit, blockId } of impacts) blasts.push({ projectile, hit, blockId, pos: projectile.pos, direct: projectile.payload.direct, splash: projectile.payload.splash, radius: projectile.payload.splashRadius, sourceSlot: projectile.sourceSlot });
++    return losses;
+   }
+   function blastsTick() {
+     for (let i = 0; i < blasts.length; i++) {
+@@ -214,7 +225,12 @@
+         if (hit.person) damagePerson(ctx, hit.person, hit.person.hp, projectile.sourceSlot, 'projectile');
+         const weapon = state.weapons.find(w => w.id === projectile.weaponId);
+         if (weapon) weapon.lastImpact = { ...blast.pos };
+-        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, projectileId: projectile.id, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind });
++        // Keep the collision enum for existing consumers; add the semantic kind
++        // before damage can remove the struck block from the public plot.
++        const hitKind = hit.plot?.id === projectile.sourceSlot ? 'own-obstruction'
++          : hit.kind === 'block' ? blast.blockId === BLOCK.PALACE ? 'palace' : 'enemy-wall'
++          : hit.kind === 'terrain' || hit.kind === 'water' ? 'ground' : hit.kind;
++        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, projectileId: projectile.id, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind, hitKind });
+       }
+       const def = projectile ? getWeapon(state.weapons.find(w => w.id === projectile.weaponId)?.defId) : null;
+       if (def?.onImpact) def.onImpact(api, projectile, hit);
+@@ -265,8 +281,11 @@
+         for (const cmd of output) { validateCommand(cmd); if (cmd.slot !== slot.id || cmd.tick !== state.tick + 1) throw new RangeError('AI commands must address their slot on the next tick'); state.pendingCommands.push({ ...cmd }); }
+       }
+       stage('weapons'); tickWeapons(ctx);
+-      stage('projectiles'); projectilesTick();
++      stage('projectiles'); const losses = projectilesTick();
+       stage('blasts'); blastsTick();
++      // A ballista can pierce a person and leave the map in one tick. Publish
++      // its real hit before its terminal loss, so the ending remains the last cue.
++      for (const payload of losses) emit(EV.PROJECTILE_LOST, payload);
+       stage('jobs'); for (const castle of state.castles) if (!castle.eliminated) hooks.npcTick?.(api, castle);
+       stage('economy'); for (const castle of state.castles) if (!castle.eliminated) hooks.moraleTick?.(api, castle); tickEconomy(ctx);
+       for (const change of tickWind(state.wind)) emit(EV.WIND_CHANGED, { speed: change.speed, dirDeg: change.direction, prevDirDeg: change.previousDirection });

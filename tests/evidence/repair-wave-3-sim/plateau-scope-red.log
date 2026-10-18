@@ -1,0 +1,44 @@
+✔ sweep defaults to twenty paired matches, supports sixty and unequal AI levels (29.375541ms)
+✔ sweep reports first-gun comebacks and excludes timeouts from wins (12.332501ms)
+✔ sweep can reproduce a later seed without replaying earlier matches (4.604513ms)
+✔ unequal-level sweep exercises both physical assignments independently of slot order (8.772404ms)
+✔ a return-leg-only cohort preserves physical skill and seed identity (5.105134ms)
+✔ low-motion measurement includes an opening plateau after the two-minute exclusion (24.862374ms)
+✖ strict plateau aggregation scopes both the count and maximum to eventual losers (35.318009ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 200.158315
+
+✖ failing tests:
+
+test at tests/unit/ai-sweep.test.js:52:1
+✖ strict plateau aggregation scopes both the count and maximum to eventual losers (35.318009ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + undefined
+  - {
+  -   maxS: 332,
+  -   over180S: 2,
+  -   samples: 2
+  - }
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-sweep.test.js:55:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: [Object],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

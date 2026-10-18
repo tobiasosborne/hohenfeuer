@@ -1,0 +1,212 @@
+✖ a removed out-of-map shot emits exactly one terminal loss at its last sim position (951.949917ms)
+✖ a removed below-ground shot emits exactly one terminal loss at its last sim position (1336.742955ms)
+✖ a removed expired shot emits exactly one terminal loss at its last sim position (1163.947069ms)
+✖ real own-obstruction impacts retain their hit enum and report the interception kind (1119.698457ms)
+✖ real enemy-wall impacts retain their hit enum and report the interception kind (781.404663ms)
+✖ real palace impacts retain their hit enum and report the interception kind (1021.144193ms)
+✖ real ground impacts retain their hit enum and report the interception kind (522.286566ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7038.367115
+
+✖ failing tests:
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:11:50
+✖ a removed out-of-map shot emits exactly one terminal loss at its last sim position (951.949917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     pos: [
+  -       384.24,
+  -       79.99854451370372,
+  -       80
+  -     ],
+  -     projectileId: 4,
+  -     reason: 'out-of-map',
+  -     slot: 0,
+  -     weaponId: 1
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:21:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:11:50
+✖ a removed below-ground shot emits exactly one terminal loss at its last sim position (1336.742955ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     pos: [
+  -       190,
+  -       -50.25045548629629,
+  -       20
+  -     ],
+  -     projectileId: 4,
+  -     reason: 'below-ground',
+  -     slot: 0,
+  -     weaponId: 1
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:21:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:11:50
+✖ a removed expired shot emits exactly one terminal loss at its last sim position (1163.947069ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     pos: [
+  -       100,
+  -       79.99854451370372,
+  -       80
+  -     ],
+  -     projectileId: 4,
+  -     reason: 'expired',
+  -     slot: 0,
+  -     weaponId: 1
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:21:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:29:147
+✖ real own-obstruction impacts retain their hit enum and report the interception kind (1119.698457ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'own-obstruction'
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:35:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'own-obstruction',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:29:147
+✖ real enemy-wall impacts retain their hit enum and report the interception kind (781.404663ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'enemy-wall'
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:35:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'enemy-wall',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:29:147
+✖ real palace impacts retain their hit enum and report the interception kind (1021.144193ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'palace'
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:35:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'palace',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:29:147
+✖ real ground impacts retain their hit enum and report the interception kind (522.286566ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'ground'
+  
+      at TestContext.<anonymous> (file:///tmp/castle-wave3-baseline/tests/unit/sim-wave3-endings.test.js:35:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'ground',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

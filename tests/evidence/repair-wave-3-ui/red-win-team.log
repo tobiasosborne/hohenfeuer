@@ -1,0 +1,42 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (16.422321ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (0.884029ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (4.234107ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (2.020915ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (0.982758ms)
+✔ match one hides ordinary morale pressure but never an active surrender clock (1.207136ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (2.028417ms)
+✖ a winning account names the eliminated opponent, never a fallen ally (2.052796ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (0.966933ms)
+✔ the new semantic collision field survives deletion of the struck block (0.81093ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (0.803813ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 441.550069
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:59:1
+✖ a winning account names the eliminated opponent, never a fallen ally (2.052796ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Enemy.*ruler/. Input:
+  
+  "Ally's palace was destroyed."
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:63:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "Ally's palace was destroyed.",
+    expected: /Enemy.*ruler/,
+    operator: 'match',
+    diff: 'simple'
+  }

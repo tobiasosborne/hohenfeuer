@@ -1,0 +1,85 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (653.35421ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (160.830732ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (242.919429ms)
+✖ camera visibility cannot hide a reachable repair; direction and distance follow the camera (196.575519ms)
+✖ two independently damaged sites can be offered; an already working mason makes priority redundant (199.489727ms)
+✖ palace consequences outrank cheaper masonry and imminent safety outranks both (86.89006ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3796.679025
+
+✖ failing tests:
+
+test at tests/unit/player-interventions.test.js:44:1
+✖ camera visibility cannot hide a reachable repair; direction and distance follow the camera (196.575519ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(a)
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/player-interventions.test.js:47:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/unit/player-interventions.test.js:51:1
+✖ two independently damaged sites can be offered; an already working mason makes priority redundant (199.489727ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/player-interventions.test.js:54:90)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unit/player-interventions.test.js:58:1
+✖ palace consequences outrank cheaper masonry and imminent safety outranks both (86.89006ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      40,
+      7,
+  +   28
+  -   31
+    ]
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/player-interventions.test.js:61:61)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 40, 7, 28 ],
+    expected: [ 40, 7, 31 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
