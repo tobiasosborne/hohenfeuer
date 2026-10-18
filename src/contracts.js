@@ -105,6 +105,9 @@ export const CMD = Object.freeze({
  *  GAME_OVER {winners: slot[], draw}               DESYNC {tick, localHash, remoteHash}
  *  RULER_THREAT {castle, fromCastle, fromWeapon, projectileId, impactPos, etaTicks}  (predicted at launch)
  *  WEAPON_IDLE {castle, weaponId, reason: IDLE_REASON, detail}  (emitted when the reason changes)
+ *  PROJECTILE_LOST {slot, weaponId, projectileId, pos, reason: LOST_REASON}  (terminal event for a shot
+ *    that ends without an impact: left the map, fell below ground or expired; pos is the last sim
+ *    position, never a landing point)
  */
 export const EV = Object.freeze({
   SHOT_FIRED: "shot-fired", IMPACT: "impact",
@@ -119,6 +122,11 @@ export const EV = Object.freeze({
   SHELTER_TOGGLED: "shelter-toggled", CASTLE_ELIMINATED: "castle-eliminated", GAME_OVER: "game-over",
   DESYNC: "desync",
   RULER_THREAT: "ruler-threat", WEAPON_IDLE: "weapon-idle",
+  PROJECTILE_LOST: "projectile-lost",
+});
+/** Why a projectile ended without an impact; carried in EV.PROJECTILE_LOST. */
+export const LOST_REASON = Object.freeze({
+  OUT_OF_MAP: "out-of-map", BELOW_GROUND: "below-ground", EXPIRED: "expired",
 });
 /** Why a weapon is not firing right now; carried as weapon.idleReason and in EV.WEAPON_IDLE. */
 export const IDLE_REASON = Object.freeze({

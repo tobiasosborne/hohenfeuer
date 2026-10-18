@@ -238,3 +238,9 @@ test("META documents the plot meta byte; the designated bit matches lane E's int
   assert.equal(C.META.FACING_MASK & C.META.VARIANT_MASK, 0);
   assert.equal(C.META.BURNING_BIT & (C.META.FACING_MASK | C.META.VARIANT_MASK | C.META.DESIGNATED_BIT), 0);
 });
+
+test("EV.PROJECTILE_LOST and LOST_REASON exist for shots that end without an impact", () => {
+  assert.equal(C.EV.PROJECTILE_LOST, "projectile-lost");
+  assert.deepEqual(C.LOST_REASON, { OUT_OF_MAP: "out-of-map", BELOW_GROUND: "below-ground", EXPIRED: "expired" });
+  assert.ok(Object.isFrozen(C.LOST_REASON));
+});
