@@ -1,0 +1,128 @@
+[
+  {
+    "key": "populationNear",
+    "added": true,
+    "de": "Bevölkerung {pop}, Aufgabe unter {line}",
+    "en": "Population {pop}, surrender below {line}"
+  },
+  {
+    "key": "palaceRepair",
+    "added": true,
+    "de": "Reparatur {pct}%",
+    "en": "Repair {pct}%"
+  },
+  {
+    "key": "shotLostFar",
+    "added": true,
+    "de": "Karte hinter der fernen Mauer verlassen / Ladung verringern",
+    "en": "Left the map beyond the far wall / reduce charge"
+  },
+  {
+    "key": "shotLostShort",
+    "added": true,
+    "de": "Vor der Burg aus der Karte gefallen",
+    "en": "Fell short of the map"
+  },
+  {
+    "key": "shotLost",
+    "added": true,
+    "de": "Geschoss verloren / kein Einschlag beobachtet",
+    "en": "Shot lost / no impact observed"
+  },
+  {
+    "key": "impactOwnWall",
+    "added": true,
+    "de": "Eigene Mauer im Weg / Schussbahn freimachen",
+    "en": "Own wall blocked shot / clear the firing lane"
+  },
+  {
+    "key": "impactEnemyWall",
+    "added": true,
+    "de": "Feindmauer getroffen / Schuss abgefangen",
+    "en": "Enemy wall hit / shot intercepted"
+  },
+  {
+    "key": "winEliminated",
+    "added": true,
+    "de": "{name} ist ausgeschieden.",
+    "en": "{name} was eliminated."
+  },
+  {
+    "key": "winRuler",
+    "added": true,
+    "de": "{name} verlor den Herrscher.",
+    "en": "{name} lost their ruler."
+  },
+  {
+    "key": "winRulerCause",
+    "added": true,
+    "de": "{name} verlor den Herrscher durch {cause}.",
+    "en": "{name} lost their ruler to {cause}."
+  },
+  {
+    "key": "winPalace",
+    "added": true,
+    "de": "{name}: Palast bei {pct}%, unter der Niederlagelinie von {line}%.",
+    "en": "{name}: palace at {pct}%, below the {line}% defeat line."
+  },
+  {
+    "key": "winPalaceFallback",
+    "added": true,
+    "de": "Der Palast von {name} wurde zerstört.",
+    "en": "{name}'s palace was destroyed."
+  },
+  {
+    "key": "winPopulation",
+    "added": true,
+    "de": "{name} gab auf: Bevölkerung {pop}, unter {line}.",
+    "en": "{name} surrendered: population {pop}, below {line}."
+  },
+  {
+    "key": "winMorale",
+    "added": true,
+    "de": "{name} gab auf: Moral {s} s lang bei höchstens {line}%.",
+    "en": "{name} surrendered: morale at or below {line}% for {s} s."
+  },
+  {
+    "key": "winSurrender",
+    "added": true,
+    "de": "{name} hat aufgegeben.",
+    "en": "{name} surrendered."
+  },
+  {
+    "key": "optionDirection",
+    "added": true,
+    "de": "{dir}, {m} m",
+    "en": "{dir}, {m} m"
+  },
+  {
+    "key": "optionAhead",
+    "added": true,
+    "de": "vorn",
+    "en": "ahead"
+  },
+  {
+    "key": "optionLeft",
+    "added": true,
+    "de": "links",
+    "en": "left"
+  },
+  {
+    "key": "optionRight",
+    "added": true,
+    "de": "rechts",
+    "en": "right"
+  },
+  {
+    "key": "optionBehind",
+    "added": true,
+    "de": "hinten",
+    "en": "behind"
+  },
+  {
+    "key": "leaveForOrder",
+    "added": false,
+    "de": "E: verlassen, zur Stelle drehen",
+    "en": "E: leave gun, turn toward the site"
+  }
+]

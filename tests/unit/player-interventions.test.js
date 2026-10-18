@@ -41,3 +41,31 @@ test('only two candidates, no remote repairs, no orders through an occluding wal
   s.rulers[0].pos.x-=100;
   assert.ok(!localInterventions(s,0,{features:f}).some(a=>a.kind==='repair'));
 });
+test('camera visibility cannot hide a reachable repair; direction and distance follow the camera',()=>{
+  const {s,cell}=scene(),f=visibleFeatures(profileForMatch(10));
+  const a=localInterventions(s,0,{features:f,visible:()=>false}).find(a=>a.kind==='repair');
+  assert.ok(a);assert.deepEqual(a.cell,cell);
+  const text=interventionText(a,'en',true,{heading:270,origin:s.rulers[0].pos});
+  assert.match(text,/behind, 3 m/);
+});
+test('two independently damaged sites can be offered; an already working mason makes priority redundant',()=>{
+  const {s,c,p}=scene(),f=visibleFeatures(profileForMatch(3));
+  const other=[40,7,31],i=other[0]+p.width*other[2]+p.width*p.depth*other[1];p.type[i]=1;p.hp[i]=14;
+  const repairs=localInterventions(s,0,{features:f}).filter(a=>a.kind==='repair');assert.equal(repairs.length,2);
+  c.jobs=[{kind:JOB.REPAIR,target:{cell:repairs[0].cell},claimedBy:[1],priority:0,progress:.3}];
+  assert.ok(!localInterventions(s,0,{features:f}).some(a=>a.cell?.join()===repairs[0].cell.join()));
+});
+test('palace consequences outrank cheaper masonry and imminent safety outranks both',()=>{
+  const {s,p}=scene(),f=visibleFeatures(profileForMatch(3));
+  const cell=[40,7,31],i=cell[0]+p.width*cell[2]+p.width*p.depth*cell[1];p.type[i]=11;p.hp[i]=getBlock(11).hp-10;
+  const choices=localInterventions(s,0,{features:f});assert.deepEqual(choices[0].cell,cell);
+  assert.equal(localInterventions(s,0,{features:f,threatened:true})[0].kind,'cover');
+});
+test('adjacent repairs with the same purpose share one option; a distinct site fills the second',()=>{
+  const {s,p,cell}=scene(),f=visibleFeatures(profileForMatch(3));
+  s.npcs[0].pos={x:p.origin.x+39,y:p.origin.y+7,z:p.origin.z+29};
+  for(const [z,hp] of [[29,12],[33,16]]){const i=40+p.width*z+p.width*p.depth*7;p.type[i]=1;p.hp[i]=hp;}
+  const actions=localInterventions(s,0,{features:f});assert.equal(actions.length,2);
+  assert.ok(Math.hypot(...actions[0].pos.map((n,i)=>n-actions[1].pos[i]))>=3);
+  assert.ok(actions.some(a=>a.cell?.join()==='40,7,33'));
+});

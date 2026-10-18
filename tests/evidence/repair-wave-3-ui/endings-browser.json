@@ -1,0 +1,367 @@
+{
+  "captures": [
+    {
+      "seed": 6,
+      "name": "before-shot",
+      "file": "seed6-before-shot-profile0.png",
+      "tick": 27166,
+      "hash": 2856409612,
+      "profile": 0,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 42.01364769843072,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.46368581954039,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": null,
+      "texts": [
+        "461",
+        "16 (40)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Income +3.0 gold/s",
+        "B: Build",
+        "WASD: Walk",
+        "Defeat line now 55%. Keep the palace above it.",
+        "Palace 68.8% / defeat below 55%",
+        "Population 16, surrender below 14"
+      ],
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "before-shot",
+      "file": "seed6-before-shot-profile3.png",
+      "tick": 27166,
+      "hash": 2856409612,
+      "profile": 3,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 42.01364769843072,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.46368581954039,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": "losses / surrender at 20% morale",
+      "texts": [
+        "461",
+        "16 (40)",
+        "Morale: Steady 42%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Defeat line now 55%. Keep the palace above it.",
+        "Palace 68.8% / defeat below 55%",
+        "losses / surrender at 20% morale",
+        "Population 16, surrender below 14"
+      ],
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "before-shot",
+      "file": "seed6-before-shot-profile10.png",
+      "tick": 27166,
+      "hash": 2856409612,
+      "profile": 10,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 42.01364769843072,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.46368581954039,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": "losses / surrender at 20% morale",
+      "texts": [
+        "461",
+        "16 (40)",
+        "Morale: Steady 42%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "Opponent",
+        "East",
+        "Hohenfeuer",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Defeat line now 55%. Keep the palace above it.",
+        "Palace 68.8% / defeat below 55%",
+        "losses / surrender at 20% morale",
+        "Population 16, surrender below 14"
+      ],
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "last",
+      "file": "seed6-last-profile0.png",
+      "tick": 27255,
+      "hash": 698777315,
+      "profile": 0,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 41.06516723663384,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.53394951175221,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": null,
+      "texts": [
+        "470",
+        "16 (40)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.0 gold/s",
+        "B: Build",
+        "WASD: Walk",
+        "Palace 68.8% / defeat below 55%",
+        "Population 16, surrender below 14",
+        "Incoming from E / impact in 0.1 s"
+      ],
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "last",
+      "file": "seed6-last-profile3.png",
+      "tick": 27255,
+      "hash": 698777315,
+      "profile": 3,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 41.06516723663384,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.53394951175221,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": "losses / surrender at 20% morale",
+      "texts": [
+        "470",
+        "16 (40)",
+        "Morale: Steady 41%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Palace 68.8% / defeat below 55%",
+        "losses / surrender at 20% morale",
+        "Population 16, surrender below 14",
+        "Incoming from E / impact in 0.1 s"
+      ],
+      "outcome": null
+    },
+    {
+      "seed": 6,
+      "name": "last",
+      "file": "seed6-last-profile10.png",
+      "tick": 27255,
+      "hash": 698777315,
+      "profile": 10,
+      "castles": [
+        {
+          "population": 16,
+          "surrender": {
+            "morale": 41.06516723663384,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 16,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.6879340277777778
+        },
+        {
+          "population": 25,
+          "surrender": {
+            "morale": 75.53394951175221,
+            "moraleThreshold": 20,
+            "holdTicks": 0,
+            "holdRequiredTicks": 1350,
+            "population": 25,
+            "popThreshold": 14
+          },
+          "reason": null,
+          "palace": 0.87109375
+        }
+      ],
+      "populationWarning": "Population 16, surrender below 14",
+      "pressure": "losses / surrender at 20% morale",
+      "texts": [
+        "470",
+        "16 (40)",
+        "Morale: Steady 41%",
+        "2 (4)",
+        "2",
+        "N",
+        "E",
+        "S",
+        "W",
+        "The enemy fires!",
+        "Opponent",
+        "East",
+        "Hohenfeuer",
+        "Income +3.0 gold/s",
+        "G: Place weapon",
+        "R: Priority",
+        "B: Build",
+        "WASD: Walk",
+        "Q: Crew",
+        "X: Shelter",
+        "Tab: Jobs",
+        "Palace 68.8% / defeat below 55%",
+        "losses / surrender at 20% morale",
+        "Population 16, surrender below 14",
+        "Incoming from E / impact in 0.1 s"
+      ],
+      "outcome": null
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "status": "failed",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 2187448937\n- 3938556959\n\n    at file:///tmp/castle-wave3-ui-events-vfd7qznv/scripts/wave3-endings-browser.mjs:17:25"
+}

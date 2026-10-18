@@ -1,5 +1,5 @@
 // src/sim/sim.js - owns deterministic tick orchestration, commands and complete replay snapshots.
-import { BLOCK, CMD, EV, CONTROLLER, TACTIC, RNG_STREAM, K, getBlock, getBlockByKey, getWeapon, getCastle, getMap, isFrozen, registryHash, validateCommand } from '../contracts.js';
+import { BLOCK, CMD, EV, LOST_REASON, CONTROLLER, TACTIC, RNG_STREAM, K, getBlock, getBlockByKey, getWeapon, getCastle, getMap, isFrozen, registryHash, validateCommand } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { createStreams } from '../core/rng.js';
 import { hash } from '../core/hash.js';
@@ -176,7 +176,7 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
     return null;
   }
   function projectilesTick() {
-    const impacts = [], alive = [];
+    const impacts = [], alive = [], losses = [];
     for (const projectile of state.projectiles) {
       let hit = null;
       for (let substep = 0; substep < K.SUBSTEPS; substep++) {
@@ -193,17 +193,28 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
             start = pos; startT = t;
           } else {
             projectile.pos = pos;
-            impacts.push({ projectile, hit, time: substep + t }); break;
+            impacts.push({ projectile, hit, blockId: hit.plot?.type[hit.index], time: substep + t }); break;
           }
         }
         if (hit) break;
-        if (projectile.age >= T.sim.projectileMaxLifeS || projectile.pos.y < T.sim.projectileMinY || projectile.pos.x < 0 || projectile.pos.x > mapDef.size[0] || projectile.pos.z < 0 || projectile.pos.z > mapDef.size[1]) { hit = { kind: 'void' }; break; }
+        const reason = projectile.age >= T.sim.projectileMaxLifeS ? LOST_REASON.EXPIRED
+          : projectile.pos.y < T.sim.projectileMinY ? LOST_REASON.BELOW_GROUND
+          : projectile.pos.x < 0 || projectile.pos.x > mapDef.size[0] || projectile.pos.z < 0 || projectile.pos.z > mapDef.size[1] ? LOST_REASON.OUT_OF_MAP : null;
+        if (reason) {
+          hit = { kind: 'void' };
+          // Observation only: keep lastImpact as the previous real hit reference.
+          // The final integrated position is not a predicted or invented landing.
+          losses.push({ slot: projectile.sourceSlot, weaponId: projectile.weaponId,
+            projectileId: projectile.id, pos: [projectile.pos.x, projectile.pos.y, projectile.pos.z], reason });
+          break;
+        }
       }
       if (!hit) alive.push(projectile);
     }
     state.projectiles = alive;
     impacts.sort((a, b) => a.time - b.time || a.projectile.id - b.projectile.id);
-    for (const { projectile, hit } of impacts) blasts.push({ projectile, hit, pos: projectile.pos, direct: projectile.payload.direct, splash: projectile.payload.splash, radius: projectile.payload.splashRadius, sourceSlot: projectile.sourceSlot });
+    for (const { projectile, hit, blockId } of impacts) blasts.push({ projectile, hit, blockId, pos: projectile.pos, direct: projectile.payload.direct, splash: projectile.payload.splash, radius: projectile.payload.splashRadius, sourceSlot: projectile.sourceSlot });
+    return losses;
   }
   function blastsTick() {
     for (let i = 0; i < blasts.length; i++) {
@@ -214,7 +225,12 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
         if (hit.person) damagePerson(ctx, hit.person, hit.person.hp, projectile.sourceSlot, 'projectile');
         const weapon = state.weapons.find(w => w.id === projectile.weaponId);
         if (weapon) weapon.lastImpact = { ...blast.pos };
-        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, projectileId: projectile.id, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind });
+        // Keep the collision enum for existing consumers; add the semantic kind
+        // before damage can remove the struck block from the public plot.
+        const hitKind = hit.plot?.id === projectile.sourceSlot ? 'own-obstruction'
+          : hit.kind === 'block' ? blast.blockId === BLOCK.PALACE ? 'palace' : 'enemy-wall'
+          : hit.kind === 'terrain' || hit.kind === 'water' ? 'ground' : hit.kind;
+        emit(EV.IMPACT, { slot: projectile.sourceSlot, weaponId: projectile.weaponId, projectileId: projectile.id, pos: [blast.pos.x, blast.pos.y, blast.pos.z], hit: hit.kind, hitKind });
       }
       const def = projectile ? getWeapon(state.weapons.find(w => w.id === projectile.weaponId)?.defId) : null;
       if (def?.onImpact) def.onImpact(api, projectile, hit);
@@ -265,8 +281,11 @@ export function createSim({ map, seed = 0, slots, hooks = {} }) {
         for (const cmd of output) { validateCommand(cmd); if (cmd.slot !== slot.id || cmd.tick !== state.tick + 1) throw new RangeError('AI commands must address their slot on the next tick'); state.pendingCommands.push({ ...cmd }); }
       }
       stage('weapons'); tickWeapons(ctx);
-      stage('projectiles'); projectilesTick();
+      stage('projectiles'); const losses = projectilesTick();
       stage('blasts'); blastsTick();
+      // A ballista can pierce a person and leave the map in one tick. Publish
+      // its real hit before its terminal loss, so the ending remains the last cue.
+      for (const payload of losses) emit(EV.PROJECTILE_LOST, payload);
       stage('jobs'); for (const castle of state.castles) if (!castle.eliminated) hooks.npcTick?.(api, castle);
       stage('economy'); for (const castle of state.castles) if (!castle.eliminated) hooks.moraleTick?.(api, castle); tickEconomy(ctx);
       for (const change of tickWind(state.wind)) emit(EV.WIND_CHANGED, { speed: change.speed, dirDeg: change.direction, prevDirDeg: change.previousDirection });

@@ -1,0 +1,27 @@
+✖ an abandoning leader reaches its ground-floor shelter within thirty seconds using normal stairs (2937.58585ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2999.531847
+
+✖ failing tests:
+
+test at tests/unit/ai-wave3-return.test.js:9:1
+✖ an abandoning leader reaches its ground-floor shelter within thirty seconds using normal stairs (2937.58585ms)
+  AssertionError [ERR_ASSERTION]: return failed at {"x":111.50002951409223,"y":7,"z":127.500028685373} from {"x":111.50002951409223,"y":7,"z":127.500028685373}
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave3-return.test.js:24:30)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

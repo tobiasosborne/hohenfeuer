@@ -1,0 +1,32 @@
+✔ a warned novice leaves the gun and moves along its rampart before impact (6282.250939ms)
+✔ a warning interrupting an unmanned repair remembers and re-mans the pending gun (7073.46188ms)
+✔ a novice whose front gun is lost walks to a surviving battery and resumes paid fire (2927.037406ms)
+✖ a novice can re-man a visible nearby gun from a damaged ledge without an operator-cell route (1494.448489ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17866.052227
+
+✖ failing tests:
+
+test at tests/unit/ai-wave2-novice.test.js:58:1
+✖ a novice can re-man a visible nearby gun from a damaged ledge without an operator-cell route (1494.448489ms)
+  AssertionError [ERR_ASSERTION]: legal E range and sight do not require standing on the authored operator cell
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave2-novice.test.js:68:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

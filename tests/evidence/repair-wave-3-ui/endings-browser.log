@@ -1,0 +1,13 @@
+seed6-before-shot-profile0.png 27166 Population 16, surrender below 14
+seed6-before-shot-profile3.png 27166 Population 16, surrender below 14
+seed6-before-shot-profile10.png 27166 Population 16, surrender below 14
+seed6-last-profile0.png 27255 Population 16, surrender below 14
+seed6-last-profile3.png 27255 Population 16, surrender below 14
+seed6-last-profile10.png 27255 Population 16, surrender below 14
+failed AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 2187448937
+- 3938556959
+
+    at file:///tmp/castle-wave3-ui-events-vfd7qznv/scripts/wave3-endings-browser.mjs:17:25

@@ -1,0 +1,33 @@
+✔ a warned novice leaves the gun and moves along its rampart before impact (939.247359ms)
+✖ a warning interrupting an unmanned repair remembers and re-mans the pending gun (971.722812ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1918.360439
+
+✖ failing tests:
+
+test at tests/unit/ai-wave2-novice.test.js:27:1
+✖ a warning interrupting an unmanned repair remembers and re-mans the pending gun (971.722812ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(returned.some(c=>c.type===C.CMD.MAN_WEAPON&&c.weaponId===id))
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ai-wave2-novice.test.js:38:10)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

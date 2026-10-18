@@ -20,7 +20,7 @@ export const FOREST_DUEL = Object.freeze({
   biome: 'forest', size: world.duelMapM,
   slots: Object.freeze([
     Object.freeze({ origin: Object.freeze([leftX, 0, plotZ]), facingDeg: 90, castle: 'default' }),
-    Object.freeze({ origin: Object.freeze([leftX + world.duelDistanceM, 0, plotZ]), facingDeg: 270, castle: 'default' }),
+    Object.freeze({ origin: Object.freeze([leftX + world.duelDistanceM, 0, plotZ]), facingDeg: 270, castle: 'default-east' }),
   ]),
   terrain: Object.freeze({ amp: world.terrainAmpMaxM, octaves: world.terrainOctaves, ridge: null }),
   water: null,

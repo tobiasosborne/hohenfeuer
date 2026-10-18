@@ -63,7 +63,10 @@ export function summarize(matches) {
   const wins = [0, 1].map(s => matches.filter(m => m.winnerSlot === s).length), finished = matches.filter(m => m.winnerSlot !== null);
   const first = finished.filter(m => m.firstGunLoss !== null && m.firstGunLoss !== undefined && !m.firstGunLoss.simultaneous);
   const sides = matches.flatMap(m => m.sides), lengths = matches.map(m => m.seconds);
+  const losingLowMotion = finished.map(m => m.lowMotion?.[1 - m.winnerSlot]).filter(Number.isFinite);
   return { matches: matches.length, slotWins: wins, slotWinShares: wins.map(n => n / matches.length), timeouts: matches.filter(m => m.winnerSlot === null).length,
+    losingPalaceLowMotion: { samples: losingLowMotion.length, over180S: losingLowMotion.filter(s => s > 180).length,
+      maxS: losingLowMotion.length ? Math.max(...losingLowMotion) : null },
     lengthMinS: Math.min(...lengths), lengthMeanS: mean(lengths), lengthMaxS: Math.max(...lengths), lengthStdDevS: Math.sqrt(mean(lengths.map(s => (s - mean(lengths)) ** 2))),
     pacingPass: matches.filter(m => m.winnerSlot !== null && m.seconds >= 720 && m.seconds <= 1200).length,
     goldAtCapShares: [0, 1].map(s => mean(matches.map(m => m.sides[s].goldAtCapShare))),
@@ -108,6 +111,7 @@ export function summaryTable(s) {
     `| Gold <=10% cap | ${pct(s.goldNearZeroMeanShare)} |`,
     `| First-gun-loss comebacks | ${s.firstGunComebacks}/${s.firstGunMatches} (${s.firstGunComebackShare === null ? 'n/a' : pct(s.firstGunComebackShare)}) |`,
     `| Loser damaged in >=3 minutes | ${s.palaceStepsPass}/${s.matches} |`,
+    `| Losing-palace <2 pp window >3 min / maximum | ${s.losingPalaceLowMotion.over180S}/${s.losingPalaceLowMotion.samples}; ${s.losingPalaceLowMotion.maxS ?? 'n/a'} s |`,
     `| No palace stall >5 min | ${s.palaceStallPass}/${s.matches} |`,
     `| Both fire every 2 min | ${s.fireWindowPass}/${s.matches} |`,
     `| Longest no-fire / ready no-fire (s) | ${s.maxNoFireS.toFixed(1)} / ${s.maxReadyNoFireS.toFixed(1)} |`,

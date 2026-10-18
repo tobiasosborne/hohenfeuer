@@ -1,0 +1,26 @@
+2 2 31 windows 27 two options
+2 3 9 windows 7 two options
+2 1 25 windows 20 two options
+Debugger listening on ws://127.0.0.1:9229/a41956a5-d376-4ba5-a020-ca7f7d40221f
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+Debugger ending on ws://127.0.0.1:9229/a41956a5-d376-4ba5-a020-ca7f7d40221f
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+Waiting for the debugger to disconnect...
+node:internal/modules/esm/utils:278
+  throw new ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING();
+        ^
+
+TypeError [ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING]: A dynamic import callback was not specified.
+    at importModuleDynamicallyCallback (node:internal/modules/esm/utils:278:9)
+    at <anonymous>:1:1 {
+  code: 'ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING'
+}
+
+Node.js v24.11.1
+2 4 20 windows 14 two options
+2 5 33 windows 32 two options
+2 6 32 windows 27 two options
+2 10 17 windows 6 two options
+2 7 20 windows 14 two options

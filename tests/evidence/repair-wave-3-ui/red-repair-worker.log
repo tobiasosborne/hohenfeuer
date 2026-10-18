@@ -1,0 +1,46 @@
+✔ loss captions never project a last position as a landing, and preserve the previous impact (5.083998ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (0.978073ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (2.39114ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (1.351043ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (0.724923ms)
+✔ match one hides ordinary morale pressure but never an active surrender clock (0.767679ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (1.219529ms)
+✔ a winning account names the eliminated opponent, never a fallen ally (0.42928ms)
+✖ palace repair marker follows an active palace job and hides completed or unrelated work (3.06035ms)
+✔ the new semantic collision field survives deletion of the struck block (0.596056ms)
+✔ enemy palace repair in the same tick cannot turn an own-wall hit into palace damage (1.415351ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 282.449094
+
+✖ failing tests:
+
+test at tests/unit/ui-wave3-feedback.test.js:65:1
+✖ palace repair marker follows an active palace job and hides completed or unrelated work (3.06035ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   progress: 0.625
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/ui-wave3-feedback.test.js:68:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { progress: 0.625 },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
