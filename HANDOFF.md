@@ -1,3 +1,19 @@
+# HANDOFF — Session stopped mid wave 3; lane output uncommitted on wip/wave-3 (2026-10-18 13:25 AEDT, orchestrator)
+
+## What was done
+User ended the session at 13:19 AEDT with "land work, no new work, commit and push and stop". Both wave 3 codex lanes were stopped after about one hour (sim lane 184 commands, UI lane 136 commands, neither wrote its final report). Their partial output is NOT on main: it is left in the working tree (17 modified tracked files under src/, scripts/, tests/unit, tests/goldens/poses.json, plus untracked research/23-repair-wave-3-sim.md, research/24-repair-wave-3-ui.md, scripts/wave3-*.mjs, src/ai/ruler-route.js, tests/evidence/repair-wave-3-*/) and pushed as-is to branch `wip/wave-3` on origin (a commit on top of main built with a temporary index). Main itself is at the last fully gated state: critique v3 report, contracts EV.PROJECTILE_LOST, wave 3 briefs. Nothing on main is untested.
+
+## Remaining
+Resume wave 3 from the working tree (or `git checkout wip/wave-3` on another machine). The partial edits have not been run through `npm test`; run it first. Either relaunch both lanes with their briefs (codex-logs/24-repair-wave-3-sim-prompt.md, codex-logs/25-repair-wave-3-ui-prompt.md) plus the line "work already in the tree is yours, continue from it; read research/23 (or 24) first" appended, or read the two draft reports and finish by hand. The lanes' codex logs are on wip/wave-3 (codex-logs/24-*.log, 25-*.log). Then: full gates, 48 goldens (message sublimite-23 first), commit, delete wip/wave-3, critique v4.
+
+## Next step
+`git status` to see the lane edits; `npm test`; relaunch the lanes as above. Quota at 13:00: weekly 54% / Fable 54%.
+
+## Previous Sessions
+The 12:00 section follows unchanged.
+
+---
+
 # HANDOFF — Critique v3 landed (75/110), repair wave 3 next (2026-10-18 12:00 AEDT, orchestrator)
 
 ## What was done
