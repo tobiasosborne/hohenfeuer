@@ -1,0 +1,39 @@
+✔ repair is visible, affordable and useful; an existing priority removes the prompt (538.935648ms)
+✔ match one never advertises R, Q or G; safe, undamaged reloads create no chores (122.885516ms)
+✔ only two candidates, no remote repairs, no orders through an occluding wall (116.39855ms)
+✔ camera visibility cannot hide a reachable repair; direction and distance follow the camera (39.719725ms)
+✔ two independently damaged sites can be offered; an already working mason makes priority redundant (148.081082ms)
+✔ palace consequences outrank cheaper masonry and imminent safety outranks both (166.119729ms)
+✔ a salvo keeps every threat but sounds at most once per second (15.579757ms)
+✔ world progress labels avoid fixed HUD areas and each other (7.749134ms)
+✔ danger is local, deduplicated, expires at impact and rotates with the camera (1.432244ms)
+✔ integrity hides missing contracts and reports the actual moving defeat line (0.892496ms)
+✔ signed miss is measured along the shot bearing, not world axes or later aim (6.606899ms)
+✔ shot references survive impacts, retain previous mark, and message lasts two seconds (3.070535ms)
+✔ overlapping flights attribute the old impact without replacing the new shot reference (15.548786ms)
+✔ loss uses exact killer attribution, keeps three decisive events, and falls back honestly (5.644921ms)
+✔ the actual elimination rule wins over a simultaneous ruler death; collapse stays attributable (1.437823ms)
+✔ pressure line explains actual hold and population triggers; absent fields hide (1.005511ms)
+✔ a surrender account groups casualties from one blast instead of filling its three rows (0.972646ms)
+✔ idle diagnoses distinguish reasons with reachable, gated actions (1.647947ms)
+✔ defeat offers Enter retry as its first action and preserves setup (4.919965ms)
+✔ i18n: every key exists in every language and t() formats params (7.313396ms)
+✔ font has a glyph for every character the UI needs (5.358062ms)
+✔ every glyph has consistent rows and draws pixels (except space) (5.925798ms)
+✔ rasterize: size matches measure, outline surrounds fill, every needed glyph renders (42.394471ms)
+✔ rasterize is deterministic and distinguishes glyphs (0.999875ms)
+✔ loss captions never project a last position as a landing, and preserve the previous impact (42.21751ms)
+✔ legacy disappearance produces an honest fallback within two seconds and cannot repeat (1.198711ms)
+✔ launch vectors are copied and signed axes survive external aim mutations (13.686281ms)
+✔ short loss, expiry, own obstruction, enemy interception and palace have distinct captions (16.175118ms)
+✔ population warning is strict, contextual and independent of pressure/morale unlock (11.32888ms)
+✔ win account follows recorded ruler reason even when population also crosses the line (2.302716ms)
+✔ palace repair marker follows an active palace job and hides completed or unrelated work (1.439952ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3346.10614

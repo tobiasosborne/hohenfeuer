@@ -1,0 +1,30 @@
+✖ east throne alone reflects the west ruler and restores initial breach-target symmetry (365.356461ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 432.829836
+
+✖ failing tests:
+
+test at tests/unit/plugin-wave3-throne.test.js:9:1
+✖ east throne alone reflects the west ruler and restores initial breach-target symmetry (365.356461ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  23 !== 24
+  
+      at TestContext.<anonymous> (file:///home/tobias/Projects/castle-game/tests/unit/plugin-wave3-throne.test.js:12:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 23,
+    expected: 24,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

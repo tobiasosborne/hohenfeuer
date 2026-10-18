@@ -1,6 +1,6 @@
 // src/ai/controller.js - owns scheduled AI command generation and serializable command-source memory.
-import { CMD, CMD_FIELDS, EV, CONTROLLER, BLOCK, K, getMap, validateCommand, validateSlot } from '../contracts.js';
-import { atan2, TAU } from '../core/fmath.js';
+import { CMD, CMD_FIELDS, EV, CONTROLLER, BLOCK, getMap, validateCommand, validateSlot } from '../contracts.js';
+import { rulerPathMove } from './ruler-route.js';
 import { findPathToAny } from '../npc/path.js';
 import { TUNING as T } from '../tuning.js';
 import { aimShot, createAimMemory, geometryAim, observeImpact, recordAim, vector, windChanged } from './aim.js';
@@ -233,7 +233,10 @@ function retreat(view, slot, castle, state, emit, supports) {
   const p=castle.plot, o=vector(p.origin), pos=vector(ruler.pos);
   const threat=(castle.enemyImpacts ?? []).some(e=>view.tick-e.tick<=T.ai.rulerDangerWindowS*T.sim.tickHz
     && (e.pos.x-pos.x)**2+(e.pos.y-pos.y)**2+(e.pos.z-pos.z)**2<T.ai.rulerDangerM**2);
-  if (threat && (state.rulerDuty && view.tick-state.rulerDuty.startedTick>T.ai.rulerLeadershipCommitS*T.sim.tickHz || state.leadershipActive!==undefined)) {
+  const abandoned=state.leadershipActive!==undefined && (ruler.manning!==state.leadershipActive
+    || !(view.weapons ?? []).some(w=>w.id===state.leadershipActive&&w.hp>0));
+  if (abandoned || threat && (state.rulerDuty && view.tick-state.rulerDuty.startedTick>T.ai.rulerLeadershipCommitS*T.sim.tickHz || state.leadershipActive!==undefined)) {
+    state.rulerReturnPending=true;
     state.rulerDuty=null;state.rulerPath=null;delete state.leadershipActive;
     if(ruler.manning!==null)emit(CMD.LEAVE_WEAPON,{});
   }
@@ -252,27 +255,21 @@ function retreat(view, slot, castle, state, emit, supports) {
       if(path?.length>1){state.rulerPath=path.slice(1);state.rulerDuty={weaponId:gun.id,startedTick:view.tick};state.leadershipDone=true;break;}
     }
   }
-  if (!state.rulerPath && threat && view.tick-(state.lastRulerRetreatTick ?? -T.ai.rulerRetreatCooldownS*T.sim.tickHz)>=T.ai.rulerRetreatCooldownS*T.sim.tickHz) {
-    const goals=shelterCells(castle).filter(c=>c[1]===Math.floor(pos.y-o.y)).map(c=>[...c]);
-    const impacts=castle.enemyImpacts;
+  if (!state.rulerPath && (threat || state.rulerReturnPending) && (state.rulerReturnPending || view.tick-(state.lastRulerRetreatTick ?? -T.ai.rulerRetreatCooldownS*T.sim.tickHz)>=T.ai.rulerRetreatCooldownS*T.sim.tickHz)) {
+    // Shelter is a destination, not a floor restriction: stairs and ladders
+    // in findPathToAny decide whether a lower room is physically reachable.
+    const goals=shelterCells(castle).map(c=>[...c]);
+    const impacts=castle.enemyImpacts ?? [];
     const safety=c=>Math.min(...impacts.map(e=>(o.x+c[0]+.5-e.pos.x)**2+(o.z+c[2]+.5-e.pos.z)**2));
-    goals.sort((a,b)=>safety(b)-safety(a)||a[2]-b[2]||a[0]-b[0]);
+    const authored=c=>(castle.shelters ?? []).some(b=>c.every((v,i)=>v>=b[i]&&v<=b[i+3]));
+    goals.sort((a,b)=>Number(authored(b))-Number(authored(a))||safety(b)-safety(a)||a[2]-b[2]||a[0]-b[0]);
     const start=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
     for(const goal of goals){const path=findPathToAny(p,start,[goal],{clamber:false});if(path){state.rulerPath=path.slice(1);break;}}
   }
   if (!state.rulerPath) return;
-  while(state.rulerPath.length){const c=state.rulerPath[0],dx=o.x+c[0]+.5-pos.x,dz=o.z+c[2]+.5-pos.z;
-    const dy=o.y+c[1]-pos.y,at=[Math.floor(pos.x-o.x),Math.floor(pos.y-o.y),Math.floor(pos.z-o.z)];
-    const ladder=p.type[at[0]+p.width*at[2]+p.width*p.depth*at[1]]===BLOCK.LADDER;
-    const arrivedHeight=ladder?Math.abs(dy)<.7:dy<=.7&&dy>=-1.1; // stair nodes describe the voxel base, while the body stands on its upper half
-    if(dx*dx+dz*dz<.04&&arrivedHeight){state.rulerPath.shift();continue;}
-    if(dx*dx+dz*dz<.04&&ladder){emit(CMD.MOVE,{fwd:dy>0?K.MOVE_AXIS_MAX:-K.MOVE_AXIS_MAX,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});return;}
-    const yaw=(Math.round(atan2(dx,-dz)/TAU*K.YAW_UNITS)+K.YAW_UNITS)%K.YAW_UNITS;
-    const thinkS=T.sim.aiThinkEveryTicks/T.sim.tickHz;
-    const fwd=Math.min(K.MOVE_AXIS_MAX,Math.max(1,Math.round(Math.sqrt(dx*dx+dz*dz)/(T.ruler.walk*thinkS)*K.MOVE_AXIS_MAX)));
-    emit(CMD.MOVE,{fwd,strafe:0,yaw,pitch:0,jump:ladder&&dy<.7?1:0,sprint:0});return;
-  }
-  state.rulerPath=null;state.lastRulerRetreatTick=view.tick;
+  const move=rulerPathMove(p,ruler,state.rulerPath);
+  if(state.rulerPath.length){emit(CMD.MOVE,move);return;}
+  state.rulerPath=null;state.lastRulerRetreatTick=view.tick;delete state.rulerReturnPending;
   emit(CMD.MOVE,{fwd:0,strafe:0,yaw:ruler.yaw ?? 0,pitch:0,jump:0,sprint:0});
   if(state.rulerDuty){emit(CMD.MAN_WEAPON,{weaponId:state.rulerDuty.weaponId});state.leadershipActive=state.rulerDuty.weaponId;state.rulerDuty=null;}
 }

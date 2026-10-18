@@ -1,0 +1,289 @@
+{
+  "shots": [
+    {
+      "kind": "cannon",
+      "n": 0,
+      "fired": 484,
+      "tick": 582,
+      "removedTick": 582,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29999152886555,
+        7.5,
+        127.49631845910365
+      ],
+      "aimPoint": [
+        279.77581246791897,
+        7,
+        127.5
+      ],
+      "impact": [
+        282.34208287059056,
+        1,
+        126.17705569977593
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 980
+      },
+      "expected": {
+        "range": 3,
+        "lateral": -1
+      },
+      "actual": {
+        "range": 3,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Palace damaged / 3 m long / 1 m left",
+      "hud": "Palace damaged / 3 m long / 1 m left",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 1,
+      "fired": 1157,
+      "tick": 1251,
+      "removedTick": 1251,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29662645214289,
+        7.5,
+        127.42660861258813
+      ],
+      "aimPoint": [
+        283.8290574775072,
+        7,
+        112.51064973813666
+      ],
+      "impact": [
+        281.6892384601055,
+        7,
+        111.2277355478434
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1020
+      },
+      "expected": {
+        "range": -2,
+        "lateral": -1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m left",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m left",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 2,
+      "fired": 1800,
+      "tick": 1897,
+      "removedTick": 1897,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29684786467045,
+        7.5,
+        127.57094702650662
+      ],
+      "aimPoint": [
+        288.33895586123197,
+        7,
+        142.88391524409386
+      ],
+      "impact": [
+        286.6956174549932,
+        7,
+        144.11412248943768
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1060
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 3,
+      "fired": 2443,
+      "tick": 2533,
+      "removedTick": 2533,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29966892244423,
+        7.5,
+        127.47698664568374
+      ],
+      "aimPoint": [
+        293.2581340707723,
+        7,
+        121.1877868663561
+      ],
+      "impact": [
+        285,
+        13.85411100716039,
+        123.35451433612042
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1100
+      },
+      "expected": {
+        "range": -8,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -8,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 8 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 8 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 4,
+      "fired": 3076,
+      "tick": 3168,
+      "removedTick": 3168,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29951266161528,
+        7.5,
+        127.527919597362
+      ],
+      "aimPoint": [
+        279.6739125626049,
+        7,
+        133.33784166563228
+      ],
+      "impact": [
+        277.9918458091616,
+        5,
+        134.27686389033153
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 980
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 5,
+      "fired": 3719,
+      "tick": 3814,
+      "removedTick": 3814,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29998494022608,
+        7.5,
+        127.50490870771932
+      ],
+      "aimPoint": [
+        284.48350664352677,
+        7,
+        127.5
+      ],
+      "impact": [
+        283,
+        6.427190683489398,
+        129.54944547021674
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1020
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "previouslyMissing": false
+    }
+  ],
+  "idle": [],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "cannon": {
+    "setup": {
+      "id": 1,
+      "built": false
+    },
+    "setups": [
+      {
+        "id": 1,
+        "built": false
+      }
+    ]
+  }
+}

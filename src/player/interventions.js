@@ -1,4 +1,4 @@
-// owns: read-only, locally reachable reload choices using the same picker and placement rules as player input.
+// owns: consequence-ranked, locally reachable reload choices independent of camera visibility.
 import { BLOCK, CMD, JOB, getBlock, getWeapon } from '../contracts.js';
 import { TUNING as T } from '../tuning.js';
 import { canDesignate } from '../npc/index.js';
@@ -9,12 +9,30 @@ const eq=(a,b)=>a?.length===b?.length&&a.every((n,i)=>n===b[i]);
 const index=(p,c)=>c[0]+p.width*c[2]+p.width*p.depth*c[1];
 const world=(p,c)=>[p.origin.x+c[0]+.5,p.origin.y+c[1]+.5,p.origin.z+c[2]+.5];
 
-export function interventionText(a,lang,manned=false) {
-  return t({repair:'optionRepair',build:'optionBuild',replacement:'optionReplacement',crew:'optionCrew',man:'optionMan',cover:manned?'optionCover':'optionCoverWalk'}[a.kind],lang,{cost:Math.ceil(a.cost*10)/10});
+export function interventionText(a,lang,manned=false,view) {
+  const text=t({repair:'optionRepair',build:'optionBuild',replacement:'optionReplacement',crew:'optionCrew',man:'optionMan',cover:manned?'optionCover':'optionCoverWalk'}[a.kind],lang,{cost:Math.ceil(a.cost*10)/10});
+  if(!a.pos||!view)return text;
+  const o=view.origin,dx=a.pos[0]-o.x,dz=a.pos[2]-o.z,bearing=Math.atan2(dx,-dz)*180/Math.PI;
+  const turn=((bearing-view.heading+540)%360)-180;
+  const dir=t(Math.abs(turn)>135?'optionBehind':Math.abs(turn)<30?'optionAhead':turn<0?'optionLeft':'optionRight',lang);
+  return `${text} / ${t('optionDirection',lang,{dir,m:Math.round(Math.hypot(dx,dz))})}`;
+}
+
+/** A cheap 12-second consequence estimate; no simulation forks or hidden enemy plans in the HUD. */
+function consequence(a,state,c,masons) {
+  if(a.kind==='cover')return 1e6;
+  if(['crew','man'].includes(a.kind))return 200;
+  const p=c.plot,def=getBlock(a.block??p.type[index(p,a.cell)]),missing=a.missing??def?.hp??0;
+  const travel=Math.min(...masons.map(n=>Math.hypot(n.pos?.x-a.pos[0],n.pos?.z-a.pos[2])/2+Math.abs((n.pos?.y??0)-a.pos[1])/2).filter(Number.isFinite),12);
+  const work=Math.max(.1,12-travel)/12;
+  const palace=(a.block??p.type[index(p,a.cell)])===BLOCK.PALACE;
+  const gun=state.weapons.some(w=>w.slot===c.slot&&w.hp>0&&Math.hypot(w.pos.x-a.pos[0],w.pos.z-a.pos[2])<3&&a.pos[1]<=w.pos.y+.5);
+  if(a.kind==='replacement')return (state.weapons.some(w=>w.slot===c.slot&&w.hp>0)?20:400)-a.cost*.01;
+  return work*missing*(palace?10000/Math.max(1,c.initialPalaceHp??576):gun ? .1 : .01)-a.cost*.01;
 }
 
 /** Only actions reachable by turning from here, never hypothetical whole-castle availability. */
-export function localInterventions(state,slot,{features,blueprint=[],threatened=false,limit=2,visible=()=>true}={}) {
+export function localInterventions(state,slot,{features,blueprint=[],threatened=false,limit=2}={}) {
   const c=state.castles[slot],r=state.rulers[slot],p=c.plot,f=features;
   if(c.eliminated||r.hp<=0)return [];
   const eye=[r.pos.x,r.pos.y+T.ruler.eye,r.pos.z],out=[];
@@ -26,7 +44,8 @@ export function localInterventions(state,slot,{features,blueprint=[],threatened=
   const nearby=pos=>Math.hypot(pos[0]-eye[0],pos[1]-eye[1],pos[2]-eye[2])<=T.ruler.interactOrderM;
   // Safety is a movement choice, with an explicit time/aiming cost; shelter orders never protect the ruler.
   if(threatened)out.push({kind:'cover',cost:0});
-  const mason=state.npcs.some(n=>(n.slot??n.castle)===slot&&n.hp>0&&!n.deserted&&n.role==='mason');
+  const masons=state.npcs.filter(n=>(n.slot??n.castle)===slot&&n.hp>0&&!n.deserted&&n.role==='mason');
+  const mason=masons.length>0;
   if(f.repair&&mason) {
     const cells=[];
     const y0=Math.max(1,Math.floor(r.pos.y-p.origin.y)-24),y1=Math.min(p.height-1,y0+48);
@@ -34,18 +53,18 @@ export function localInterventions(state,slot,{features,blueprint=[],threatened=
       const cell=[x,y,z],i=index(p,cell),def=getBlock(p.type[i]);
       if(!def||p.type[i]===BLOCK.AIR||p.hp[i]<=0||p.hp[i]>=def.hp||def.hp===255)continue;
       const pos=world(p,cell),job=c.jobs?.find(j=>j.kind===JOB.REPAIR&&eq(j.target.cell,cell));
-      if(!nearby(pos)||!visible(pos)||job&&(job.priority>0||job.reachable===false))continue;
+      if(!nearby(pos)||job&&(job.priority>0||job.reachable===false||job.claimedBy?.length))continue;
       const cost=(def.cost??T.economy.mapOnlyRepairBlockCost)*T.economy.repairCostFrac*(1-p.hp[i]/def.hp);
       if(c.gold<cost)continue;
-      cells.push({kind:'repair',cell,pos,cost,hp:p.hp[i]/def.hp});
+      cells.push({kind:'repair',cell,pos,cost,hp:p.hp[i]/def.hp,missing:def.hp-p.hp[i]});
     }
-    cells.sort((a,b)=>a.hp-b.hp);
-    for(const a of cells){const hit=at(a.pos);if(hit.own&&hit.kind==='block'&&eq(hit.cell,a.cell)){out.push(a);break;}}
+    cells.sort((a,b)=>consequence(b,state,c,masons)-consequence(a,state,c,masons)||a.hp-b.hp);
+    for(const a of cells){const hit=at(a.pos);if(hit.own&&hit.kind==='block'&&eq(hit.cell,a.cell)){out.push(a);if(out.filter(a=>a.kind==='repair').length>=6)break;}}
   }
   for(const w of state.weapons) {
     if(w.slot!==slot||w.hp<=0||w.crewOrdered||!f.weapons.includes(w.defId))continue;
     const pos=[w.pos.x,w.pos.y+.5,w.pos.z],hit=at(pos);
-    if(!visible(pos,'crew')||hit.kind!=='weapon'||hit.weaponId!==w.id)continue;
+    if(hit.kind!=='weapon'||hit.weaponId!==w.id)continue;
     const kind=f.orders?'crew':r.manning==null&&hit.dist<=T.ruler.interactWeaponM?'man':null;
     if(kind){out.push({kind,weaponId:w.id,pos,cost:0});break;}
   }
@@ -60,12 +79,12 @@ export function localInterventions(state,slot,{features,blueprint=[],threatened=
     // It still has to pass the same paid designation and face-picking checks below.
     if(!f.repair)for(const b of blueprint) {
       const i=index(p,b.cell);
-      if(p.type[i]!==BLOCK.STONE||p.hp[i]>=getBlock(BLOCK.STONE).hp||!visible(world(p,b.cell)))continue;
+      if(p.type[i]!==BLOCK.STONE||p.hp[i]>=getBlock(BLOCK.STONE).hp)continue;
       for(const d of [[1,0,0],[-1,0,0],[0,0,1],[0,0,-1]])candidates.push({kind:'build',cell:b.cell.map((n,i)=>n+d[i]),block:BLOCK.STONE});
     }
     for(const a of candidates) {
       const pos=world(p,a.cell),isGun=a.kind==='replacement',def=isGun?getWeapon('cannon'):getBlock(BLOCK.STONE);
-      if(!nearby(pos)||!visible(pos)||!canDesignate(c,{type:isGun?CMD.DESIGNATE_WEAPON:CMD.DESIGNATE,cell:a.cell,weapon:a.weapon,block:a.block},state))continue;
+      if(!nearby(pos)||!canDesignate(c,{type:isGun?CMD.DESIGNATE_WEAPON:CMD.DESIGNATE,cell:a.cell,weapon:a.weapon,block:a.block},state))continue;
       // Find a visible adjacent face that actually produces this ghost, with the real player picker.
       let valid=false;
       for(const d of [[0,-1,0],[1,0,0],[-1,0,0],[0,0,1],[0,0,-1],[0,1,0]]) {
@@ -78,7 +97,9 @@ export function localInterventions(state,slot,{features,blueprint=[],threatened=
       if(valid){out.push({...a,pos,cost:def.cost});break;}
     }
   }
-  return out.slice(0,Math.min(2,limit));
+  out.sort((a,b)=>consequence(b,state,c,masons)-consequence(a,state,c,masons));
+  return out.filter((a,i)=>!out.slice(0,i).some(b=>a.kind===b.kind&&(a.kind!=='repair'||eq(a.cell,b.cell))))
+    .slice(0,Math.min(2,limit));
 }
 
 /** At most two active jobs: health/work progress anchored on the actual block, no remote x-ray labels. */
