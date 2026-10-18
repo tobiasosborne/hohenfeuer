@@ -1,0 +1,2 @@
+failed page.waitForFunction: Timeout 300000ms exceeded.
+    at /tmp/castle-wave3-ui-events-vfd7qznv/tests/ui-wave3-repair.mjs:7:76

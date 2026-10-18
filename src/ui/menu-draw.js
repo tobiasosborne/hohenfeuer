@@ -296,8 +296,10 @@ function drawOver(ctx, m, lang, note, mk) {
   if (r.account) {
     const lines = messageLines([{ text: r.account.cause }], 640, 3);
     lines.forEach((line, i) => label(ctx, line.text, 190, 438 + i * 18, note, { color: "#ffd4a4" }));
-    label(ctx, t("decisiveEvents", lang), 190, 508, note, { color: "#e8d27a" });
-    r.account.events.slice(-3).forEach((event, i) => label(ctx, event, 190, 534 + i * 22, note));
+    if(r.account.events?.length) {
+      label(ctx, t("decisiveEvents", lang), 190, 508, note, { color: "#e8d27a" });
+      r.account.events.slice(-3).forEach((event, i) => label(ctx, event, 190, 534 + i * 22, note));
+    }
   }
   drawItems(ctx, m, lang, note);
 }

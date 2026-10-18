@@ -1,0 +1,8 @@
+
+> hohenfeuer@0.0.0 test
+> node --test tests/unit/*.test.js --test-concurrency=3
+
+✔ tests/unit/ai-accuracy.test.js (2744.139692ms)
+✔ tests/unit/ai-aim.test.js (1323.439486ms)
+✔ tests/unit/ai-build.test.js (3613.617459ms)
+✔ tests/unit/ai-controller.test.js (2133.32583ms)

@@ -1,0 +1,1606 @@
+{
+  "shots": [
+    {
+      "kind": "cannon",
+      "n": 0,
+      "fired": 484,
+      "tick": 582,
+      "removedTick": 582,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29999152886555,
+        7.5,
+        127.49631845910365
+      ],
+      "aimPoint": [
+        279.77581246791897,
+        7,
+        127.5
+      ],
+      "impact": [
+        282.34208287059056,
+        1,
+        126.17705569977593
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 980
+      },
+      "expected": {
+        "range": 3,
+        "lateral": -1
+      },
+      "actual": {
+        "range": 3,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Palace damaged / 3 m long / 1 m left",
+      "hud": "Palace damaged / 3 m long / 1 m left",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 1,
+      "fired": 1157,
+      "tick": 1251,
+      "removedTick": 1251,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29662645214289,
+        7.5,
+        127.42660861258813
+      ],
+      "aimPoint": [
+        283.8290574775072,
+        7,
+        112.51064973813666
+      ],
+      "impact": [
+        281.6892384601055,
+        7,
+        111.2277355478434
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1020
+      },
+      "expected": {
+        "range": -2,
+        "lateral": -1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": -1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m left",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m left",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 2,
+      "fired": 1800,
+      "tick": 1897,
+      "removedTick": 1897,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29684786467045,
+        7.5,
+        127.57094702650662
+      ],
+      "aimPoint": [
+        288.33895586123197,
+        7,
+        142.88391524409386
+      ],
+      "impact": [
+        286.6956174549932,
+        7,
+        144.11412248943768
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1060
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 3,
+      "fired": 2443,
+      "tick": 2533,
+      "removedTick": 2533,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29966892244423,
+        7.5,
+        127.47698664568374
+      ],
+      "aimPoint": [
+        293.2581340707723,
+        7,
+        121.1877868663561
+      ],
+      "impact": [
+        285,
+        13.85411100716039,
+        123.35451433612042
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1100
+      },
+      "expected": {
+        "range": -8,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -8,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 8 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 8 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 4,
+      "fired": 3076,
+      "tick": 3168,
+      "removedTick": 3168,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29951266161528,
+        7.5,
+        127.527919597362
+      ],
+      "aimPoint": [
+        279.6739125626049,
+        7,
+        133.33784166563228
+      ],
+      "impact": [
+        277.9918458091616,
+        5,
+        134.27686389033153
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 980
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 5,
+      "fired": 3719,
+      "tick": 3814,
+      "removedTick": 3814,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29998494022608,
+        7.5,
+        127.50490870771932
+      ],
+      "aimPoint": [
+        284.48350664352677,
+        7,
+        127.5
+      ],
+      "impact": [
+        283,
+        6.427190683489398,
+        129.54944547021674
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1020
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 6,
+      "fired": 4362,
+      "tick": 4461,
+      "removedTick": 4461,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2976584926438,
+        7.5,
+        127.4388368647532
+      ],
+      "aimPoint": [
+        288.33895586123197,
+        7,
+        112.11608475590693
+      ],
+      "impact": [
+        289.926217846918,
+        1,
+        114.82502540208999
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1060
+      },
+      "expected": {
+        "range": 1,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 1,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 1 m long / 3 m right",
+      "hud": "Enemy wall hit / shot intercepted / 1 m long / 3 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 7,
+      "fired": 5005,
+      "tick": 5103,
+      "removedTick": 5103,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29684786467045,
+        7.5,
+        127.57094702650662
+      ],
+      "aimPoint": [
+        292.6800556198421,
+        7,
+        143.2637122602068
+      ],
+      "impact": [
+        290.8711397593021,
+        7,
+        144.7210639341033
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1100
+      },
+      "expected": {
+        "range": -2,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -2,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 8,
+      "fired": 5648,
+      "tick": 5747,
+      "removedTick": 5747,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2994232428389,
+        7.5,
+        127.46962766375566
+      ],
+      "aimPoint": [
+        279.6739125626049,
+        7,
+        121.6621583343676
+      ],
+      "impact": [
+        283,
+        1.2777586438083037,
+        122.12825688185424
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 980
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 1
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Palace damaged / 3 m long / 1 m right",
+      "hud": "Palace damaged / 3 m long / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 9,
+      "fired": 6291,
+      "tick": 6391,
+      "removedTick": 6391,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29916677833076,
+        7.5,
+        127.5365028822485
+      ],
+      "aimPoint": [
+        284.37873893811775,
+        7,
+        133.50213782299005
+      ],
+      "impact": [
+        286.99142006961694,
+        1,
+        136.76022886582192
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1020
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 3 m long / 3 m right",
+      "hud": "Enemy wall hit / shot intercepted / 3 m long / 3 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 10,
+      "fired": 6934,
+      "tick": 7023,
+      "removedTick": 7023,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29999905876136,
+        7.5,
+        127.49877281585097
+      ],
+      "aimPoint": [
+        289.010632106414,
+        7,
+        127.5
+      ],
+      "impact": [
+        283,
+        10.501203104746192,
+        128.71893896411436
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1060
+      },
+      "expected": {
+        "range": -6,
+        "lateral": 1
+      },
+      "actual": {
+        "range": -6,
+        "lateral": 1
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 6 m short / 1 m right",
+      "hud": "Enemy wall hit / shot intercepted / 6 m short / 1 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 11,
+      "fired": 7567,
+      "tick": 7670,
+      "removedTick": 7670,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29736857807367,
+        7.5,
+        127.43516674695212
+      ],
+      "aimPoint": [
+        292.6800556198421,
+        7,
+        111.73628773979338
+      ],
+      "impact": [
+        296.33155720049444,
+        1,
+        114.36011084957138
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 1100
+      },
+      "expected": {
+        "range": 3,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 3,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 3 m long / 3 m right",
+      "hud": "Enemy wall hit / shot intercepted / 3 m long / 3 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 12,
+      "fired": 8220,
+      "tick": 8305,
+      "removedTick": 8305,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29756373112247,
+        7.5,
+        127.56238665560856
+      ],
+      "aimPoint": [
+        279.13927749952956,
+        7,
+        142.07904767935955
+      ],
+      "impact": [
+        274,
+        11.471939859073826,
+        141.83076503498725
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 980
+      },
+      "expected": {
+        "range": -5,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -5,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 5 m short / Line on mark",
+      "hud": "Enemy wall hit / shot intercepted / 5 m short / Line on mark",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 13,
+      "fired": 8853,
+      "tick": 8945,
+      "removedTick": 8945,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29955454905918,
+        7.5,
+        127.47330687206835
+      ],
+      "aimPoint": [
+        284.37873893811775,
+        7,
+        121.49786217700974
+      ],
+      "impact": [
+        283,
+        9.438271046986934,
+        123.71936345111855
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1020
+      },
+      "expected": {
+        "range": -1,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -1,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 1 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 14,
+      "fired": 9496,
+      "tick": 9596,
+      "removedTick": 9596,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29905102803525,
+        7.5,
+        127.53895451958131
+      ],
+      "aimPoint": [
+        288.9031065984922,
+        7,
+        133.66013222315425
+      ],
+      "impact": [
+        292.9205224520079,
+        1,
+        138.4351921377199
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1060
+      },
+      "expected": {
+        "range": 4,
+        "lateral": 5
+      },
+      "actual": {
+        "range": 4,
+        "lateral": 5
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 4 m long / 5 m right",
+      "hud": "Enemy wall hit / shot intercepted / 4 m long / 5 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 15,
+      "fired": 10139,
+      "tick": 10230,
+      "removedTick": 10230,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.3,
+        7.5,
+        127.5
+      ],
+      "aimPoint": [
+        293.36831416086136,
+        7,
+        127.5
+      ],
+      "impact": [
+        289.66935860799356,
+        12,
+        129.19889883657726
+      ],
+      "capturedAim": {
+        "az": 900,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1100,
+        "range": 1100
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 2
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 4 m short / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / 4 m short / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 16,
+      "fired": 10772,
+      "tick": 10858,
+      "removedTick": 10858,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29628027498791,
+        7.5,
+        127.42294337364515
+      ],
+      "aimPoint": [
+        279.13927749952956,
+        7,
+        112.92095232064055
+      ],
+      "impact": [
+        274.9294538674259,
+        12,
+        113.37815698353687
+      ],
+      "capturedAim": {
+        "az": 850,
+        "range": 960
+      },
+      "currentAim": {
+        "az": 1050,
+        "range": 980
+      },
+      "expected": {
+        "range": -4,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -4,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 4 m short / Line on mark",
+      "hud": "Enemy wall hit / shot intercepted / 4 m short / Line on mark",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 17,
+      "fired": 11405,
+      "tick": 11497,
+      "removedTick": 11497,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2969557584734,
+        7.5,
+        127.56972459419812
+      ],
+      "aimPoint": [
+        283.82905747750726,
+        7,
+        142.48935026186345
+      ],
+      "impact": [
+        283.32178221088043,
+        7,
+        144.3289959350655
+      ],
+      "capturedAim": {
+        "az": 950,
+        "range": 1000
+      },
+      "currentAim": {
+        "az": 1150,
+        "range": 1020
+      },
+      "expected": {
+        "range": 0,
+        "lateral": 2
+      },
+      "actual": {
+        "range": 0,
+        "lateral": 2
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / Range on mark / 2 m right",
+      "hud": "Enemy wall hit / shot intercepted / Range on mark / 2 m right",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 18,
+      "fired": 12048,
+      "tick": 12140,
+      "removedTick": 12140,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.29922183277056,
+        7.5,
+        127.46472306670239
+      ],
+      "aimPoint": [
+        288.9031065984922,
+        7,
+        121.33986777684578
+      ],
+      "impact": [
+        286,
+        11.292174719728406,
+        121.76679005044964
+      ],
+      "capturedAim": {
+        "az": 880,
+        "range": 1040
+      },
+      "currentAim": {
+        "az": 1080,
+        "range": 1060
+      },
+      "expected": {
+        "range": -3,
+        "lateral": 0
+      },
+      "actual": {
+        "range": -3,
+        "lateral": 0
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 3 m short / Line on mark",
+      "hud": "Enemy wall hit / shot intercepted / 3 m short / Line on mark",
+      "previouslyMissing": false
+    },
+    {
+      "kind": "cannon",
+      "n": 19,
+      "fired": 12691,
+      "tick": 12790,
+      "removedTick": 12790,
+      "latencyTicks": 0,
+      "terminal": "impact",
+      "wind": 0.9844380040322581,
+      "origin": [
+        113.2994232428389,
+        7.5,
+        127.53037233624434
+      ],
+      "aimPoint": [
+        293.2581340707723,
+        7,
+        133.81221313364398
+      ],
+      "impact": [
+        295,
+        3.4263930305691215,
+        136.56453631868524
+      ],
+      "capturedAim": {
+        "az": 920,
+        "range": 1080
+      },
+      "currentAim": {
+        "az": 1120,
+        "range": 1100
+      },
+      "expected": {
+        "range": 2,
+        "lateral": 3
+      },
+      "actual": {
+        "range": 2,
+        "lateral": 3
+      },
+      "pass": true,
+      "text": "Enemy wall hit / shot intercepted / 2 m long / 3 m right",
+      "hud": "Enemy wall hit / shot intercepted / 2 m long / 3 m right",
+      "previouslyMissing": false
+    }
+  ],
+  "idle": [
+    {
+      "tick": 2,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / E: man gun, call crew"
+    },
+    {
+      "tick": 3,
+      "kind": "cannon",
+      "reason": "no-crew",
+      "detail": {
+        "present": 0,
+        "required": 2
+      },
+      "diagnosis": "Missing crew 0/2 / Crew ordered; waiting"
+    },
+    {
+      "tick": 483,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 582,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 585,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 586,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1156,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 1251,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1258,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1259,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1799,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 1897,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1901,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 1902,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 2442,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 2533,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2534,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 2535,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3075,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 3168,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3177,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3178,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 3718,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 3814,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3820,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 3821,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 4361,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 4461,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4463,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 4464,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5004,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 5103,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5106,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5107,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 5647,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 5747,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5749,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 5750,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 6290,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 6391,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6392,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6393,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 6933,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 7023,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7025,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7026,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 7566,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 7670,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7678,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 7679,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8219,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 8305,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8311,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8312,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 8852,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 8945,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8954,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 8955,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 9495,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 9596,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9597,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 9598,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10138,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 10230,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10230,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10231,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 10771,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 10858,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10863,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 10864,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 11404,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 11497,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11506,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 11507,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    },
+    {
+      "tick": 12047,
+      "kind": "cannon",
+      "reason": "obstructed",
+      "detail": {
+        "cell": [
+          41,
+          7,
+          24
+        ]
+      },
+      "diagnosis": "Firing lane blocked / Inspect the block in front of the muzzle"
+    },
+    {
+      "tick": 12140,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12149,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12150,
+      "kind": "cannon",
+      "reason": "reloading",
+      "detail": {},
+      "diagnosis": "Reloading / Wait for reload"
+    },
+    {
+      "tick": 12690,
+      "kind": "cannon",
+      "reason": "ready",
+      "detail": {},
+      "diagnosis": null
+    },
+    {
+      "tick": 12790,
+      "kind": "cannon",
+      "reason": "no-ammo",
+      "detail": {
+        "haulerEnRoute": true
+      },
+      "diagnosis": "No ammunition / Hauler en route"
+    }
+  ],
+  "errors": [],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "cannon": {
+    "setup": {
+      "id": 1,
+      "built": false
+    },
+    "setups": [
+      {
+        "id": 1,
+        "built": false
+      }
+    ]
+  },
+  "catapult": {},
+  "status": "failed",
+  "error": "page.evaluate: Error: Cannot load catapult reloading\n    at eval (eval at evaluate (:370:30), <anonymous>:5:353)\n    at async <anonymous>:396:30\n    at /tmp/castle-wave3-ui-events-vfd7qznv/scripts/wave3-shots.mjs:37:25",
+  "cohortNote": "V3 catapult ledger uses [30,1,24] for shots 1\u20136, then resets at [29,1,27] for shots 7\u201320. Both original setups reproduced. Cannon and ballista are uninterrupted 20-shot sequences."
+}

@@ -7,6 +7,28 @@ export const LANGS = Object.freeze(["de", "en"]);
 export const DEFAULT_LANG = "de";
 
 const de = {
+  // Repair wave 3: contextual directions, terminal shots and loss triggers.
+  populationNear: "Bevölkerung {pop}, Aufgabe unter {line}",
+  palaceRepair: "Reparatur {pct}%",
+  shotLostFar: "Karte hinter der fernen Mauer verlassen / Ladung verringern",
+  shotLostShort: "Vor der Burg aus der Karte gefallen",
+  shotLost: "Geschoss verloren / kein Einschlag beobachtet",
+  impactOwnWall: "Eigene Mauer im Weg / Schussbahn freimachen",
+  impactEnemyWall: "Feindmauer getroffen / Schuss abgefangen",
+  winEliminated: "{name} ist ausgeschieden.",
+  winRuler: "{name} verlor den Herrscher.",
+  winRulerCause: "{name} verlor den Herrscher durch {cause}.",
+  winPalace: "{name}: Palast bei {pct}%, unter der Niederlagelinie von {line}%.",
+  winPalaceFallback: "Der Palast von {name} wurde zerstört.",
+  winPopulation: "{name} gab auf: Bevölkerung {pop}, unter {line}.",
+  winMorale: "{name} gab auf: Moral {s} s lang bei höchstens {line}%.",
+  winSurrender: "{name} hat aufgegeben.",
+  optionDirection: "{dir}, {m} m",
+  optionAhead: "vorn",
+  optionLeft: "links",
+  optionRight: "rechts",
+  optionBehind: "hinten",
+
   // Repair wave 2: contextual battle feedback.
   incoming: "Beschuss aus {dir} / Einschlag in {s} s",
   palaceBar: "Palast {pct}% / Niederlage unter {line}%",
@@ -88,7 +110,7 @@ const de = {
   optionMan: "E: bemannen / 0 Gold / Crew kommt",
   optionCover: "E + WASD: Deckung suchen / Zielpause",
   optionCoverWalk: "WASD: Deckung suchen / Wegzeit",
-  leaveForOrder: "E: verlassen, markierte Stelle ansehen",
+  leaveForOrder: "E: verlassen, zur Stelle drehen",
   repairProgress: "Reparatur {pct}%",
   repairQueued: "Reparatur geplant {pct}%",
   buildProgress: "Bau {pct}%",
@@ -261,6 +283,28 @@ const de = {
 };
 
 const en = {
+  // Repair wave 3: contextual directions, terminal shots and loss triggers.
+  populationNear: "Population {pop}, surrender below {line}",
+  palaceRepair: "Repair {pct}%",
+  shotLostFar: "Left the map beyond the far wall / reduce charge",
+  shotLostShort: "Fell short of the map",
+  shotLost: "Shot lost / no impact observed",
+  impactOwnWall: "Own wall blocked shot / clear the firing lane",
+  impactEnemyWall: "Enemy wall hit / shot intercepted",
+  winEliminated: "{name} was eliminated.",
+  winRuler: "{name} lost their ruler.",
+  winRulerCause: "{name} lost their ruler to {cause}.",
+  winPalace: "{name}: palace at {pct}%, below the {line}% defeat line.",
+  winPalaceFallback: "{name}'s palace was destroyed.",
+  winPopulation: "{name} surrendered: population {pop}, below {line}.",
+  winMorale: "{name} surrendered: morale at or below {line}% for {s} s.",
+  winSurrender: "{name} surrendered.",
+  optionDirection: "{dir}, {m} m",
+  optionAhead: "ahead",
+  optionLeft: "left",
+  optionRight: "right",
+  optionBehind: "behind",
+
   // Repair wave 2: contextual battle feedback.
   incoming: "Incoming from {dir} / impact in {s} s",
   palaceBar: "Palace {pct}% / defeat below {line}%",
@@ -342,7 +386,7 @@ const en = {
   optionMan: "E: man gun / 0 gold / crew comes",
   optionCover: "E + WASD: seek cover / pause aiming",
   optionCoverWalk: "WASD: seek cover / travel time",
-  leaveForOrder: "E: leave gun, look at the marked spot",
+  leaveForOrder: "E: leave gun, turn toward the site",
   repairProgress: "Repair {pct}%",
   repairQueued: "Repair queued {pct}%",
   buildProgress: "Building {pct}%",

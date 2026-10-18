@@ -1,0 +1,15 @@
+✔ sweep defaults to twenty paired matches, supports sixty and unequal AI levels (48.990011ms)
+✔ sweep reports first-gun comebacks and excludes timeouts from wins (15.401408ms)
+✔ sweep can reproduce a later seed without replaying earlier matches (0.993316ms)
+✔ unequal-level sweep exercises both physical assignments independently of slot order (7.960197ms)
+✔ a return-leg-only cohort preserves physical skill and seed identity (5.76352ms)
+✔ low-motion measurement includes an opening plateau after the two-minute exclusion (13.628921ms)
+✔ strict plateau aggregation scopes both the count and maximum to eventual losers (4.97149ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 245.552247
